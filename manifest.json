@@ -1,0 +1,10 @@
+{
+  "name": "Habla Spanish Tutor",
+  "short_name": "Habla",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#080c10",
+  "theme_color": "#e8b86d",
+  "description": "A personal AI-powered Spanish tutor.",
+  "icons": []
+}
