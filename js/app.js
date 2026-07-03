@@ -1,0 +1,472 @@
+// ════════════════════════════════════════════
+// VOCAB DATA
+// ════════════════════════════════════════════
+const VOCAB = [
+  // GREETINGS
+  {es:'hola',en:'hello',pos:'greeting',cat:'greetings',tip:'Works any time of day — the universal opener!',ex:'¡Hola! ¿Cómo estás?',exEn:'Hello! How are you?'},
+  {es:'adiós',en:'goodbye',pos:'greeting',cat:'greetings',tip:'Informal goodbye — also "hasta luego" (see you later)',ex:'¡Adiós! ¡Hasta pronto!',exEn:'Goodbye! See you soon!'},
+  {es:'buenos días',en:'good morning',pos:'greeting',cat:'greetings',tip:'Use until noon, then switch to "buenas tardes".',ex:'Buenos días, ¿cómo le va?',exEn:'Good morning, how are you?'},
+  {es:'buenas tardes',en:'good afternoon',pos:'greeting',cat:'greetings',tip:'Used from noon until sunset.',ex:'Buenas tardes, señor.',exEn:'Good afternoon, sir.'},
+  {es:'buenas noches',en:'good evening / goodnight',pos:'greeting',cat:'greetings',tip:'Used both as a greeting at night and when going to bed.',ex:'Buenas noches, que descanses.',exEn:'Good night, rest well.'},
+  {es:'gracias',en:'thank you',pos:'greeting',cat:'greetings',tip:'Add "muchas" to say "thank you very much".',ex:'Muchas gracias por tu ayuda.',exEn:'Thank you very much for your help.'},
+  {es:'de nada',en:'you\'re welcome',pos:'greeting',cat:'greetings',tip:'Literally "of nothing" — the standard response to gracias.',ex:'— Gracias. — ¡De nada!',exEn:'— Thank you. — You\'re welcome!'},
+  {es:'por favor',en:'please',pos:'greeting',cat:'greetings',tip:'Goes at the end of a request — very polite.',ex:'Un café, por favor.',exEn:'A coffee, please.'},
+  {es:'lo siento',en:'I\'m sorry',pos:'greeting',cat:'greetings',tip:'For apologies. "Perdón" is more for bumping into someone.',ex:'Lo siento mucho, fue mi culpa.',exEn:'I\'m very sorry, it was my fault.'},
+  {es:'con permiso',en:'excuse me (to pass)',pos:'greeting',cat:'greetings',tip:'Used when squeezing past someone or leaving a room.',ex:'Con permiso, ¿puedo pasar?',exEn:'Excuse me, may I pass?'},
+  {es:'¿cómo estás?',en:'How are you? (informal)',pos:'phrase',cat:'greetings',tip:'Use with friends and family. "¿Cómo está usted?" for strangers.',ex:'¡Hola! ¿Cómo estás hoy?',exEn:'Hi! How are you today?'},
+  {es:'bien, gracias',en:'fine, thank you',pos:'phrase',cat:'greetings',tip:'The classic answer — add "¿y tú?" to return the question.',ex:'Bien, gracias. ¿Y tú?',exEn:'Fine, thanks. And you?'},
+  {es:'mucho gusto',en:'nice to meet you',pos:'greeting',cat:'greetings',tip:'Said when introduced to someone for the first time.',ex:'Mucho gusto en conocerte.',exEn:'Nice to meet you.'},
+
+  // VERBS
+  {es:'ser',en:'to be (permanent)',pos:'verb',cat:'verbs',tip:'Identity, origin, profession, permanent traits.',ex:'Soy canadiense y soy alto.',exEn:'I am Canadian and I am tall.'},
+  {es:'estar',en:'to be (temporary)',pos:'verb',cat:'verbs',tip:'Feelings, location, temporary states — ser vs estar is crucial!',ex:'Estoy muy cansado hoy.',exEn:'I am very tired today.'},
+  {es:'tener',en:'to have',pos:'verb',cat:'verbs',tip:'Irregular! "tengo" not "teno". Used constantly in Spanish.',ex:'Tengo mucha hambre.',exEn:'I am very hungry (I have much hunger).'},
+  {es:'ir',en:'to go',pos:'verb',cat:'verbs',tip:'"Voy a + verb" = easy future tense shortcut!',ex:'Voy al mercado mañana.',exEn:'I\'m going to the market tomorrow.'},
+  {es:'hacer',en:'to do / to make',pos:'verb',cat:'verbs',tip:'Also used for weather: "hace calor" (it\'s hot).',ex:'¿Qué haces este fin de semana?',exEn:'What are you doing this weekend?'},
+  {es:'querer',en:'to want / to love',pos:'verb',cat:'verbs',tip:'Stem-changing: quiero, quieres, quiere… Also means "to love" a person!',ex:'Quiero aprender español.',exEn:'I want to learn Spanish.'},
+  {es:'poder',en:'to be able to / can',pos:'verb',cat:'verbs',tip:'Stem-changing: puedo, puedes, puede…',ex:'¿Puedes hablar más despacio?',exEn:'Can you speak more slowly?'},
+  {es:'hablar',en:'to speak',pos:'verb',cat:'verbs',tip:'Regular -ar verb — the most common verb pattern.',ex:'Quiero hablar español bien.',exEn:'I want to speak Spanish well.'},
+  {es:'comer',en:'to eat',pos:'verb',cat:'verbs',tip:'Regular -er verb: como, comes, come, comemos…',ex:'Me gusta comer tacos.',exEn:'I like to eat tacos.'},
+  {es:'vivir',en:'to live',pos:'verb',cat:'verbs',tip:'Regular -ir verb: vivo, vives, vive…',ex:'Vivo en Winnipeg, Canadá.',exEn:'I live in Winnipeg, Canada.'},
+  {es:'saber',en:'to know (a fact)',pos:'verb',cat:'verbs',tip:'"Saber" = know facts. "Conocer" = know people/places.',ex:'No sé hablar chino.',exEn:'I don\'t know how to speak Chinese.'},
+  {es:'conocer',en:'to know (a person/place)',pos:'verb',cat:'verbs',tip:'Used for people, cities, experiences — not facts.',ex:'¿Conoces Madrid?',exEn:'Do you know Madrid?'},
+  {es:'venir',en:'to come',pos:'verb',cat:'verbs',tip:'Irregular: vengo, vienes, viene…',ex:'¿De dónde vienes?',exEn:'Where do you come from?'},
+  {es:'dar',en:'to give',pos:'verb',cat:'verbs',tip:'Irregular first person: "doy" (I give).',ex:'¿Me das tu número?',exEn:'Will you give me your number?'},
+  {es:'ver',en:'to see / to watch',pos:'verb',cat:'verbs',tip:'Also used for watching TV: "ver la tele".',ex:'Me gusta ver películas.',exEn:'I like to watch movies.'},
+  {es:'escuchar',en:'to listen',pos:'verb',cat:'verbs',tip:'Regular -ar verb. "Escucha" = listen! (command)',ex:'Escucha, tengo una idea.',exEn:'Listen, I have an idea.'},
+  {es:'aprender',en:'to learn',pos:'verb',cat:'verbs',tip:'Regular -er verb. This is what you\'re doing right now!',ex:'Estoy aprendiendo español.',exEn:'I am learning Spanish.'},
+
+  // NOUNS
+  {es:'la familia',en:'the family',pos:'noun',cat:'nouns',tip:'Your motivation for learning! "Familia" is similar to English.',ex:'Mi familia es muy importante.',exEn:'My family is very important.'},
+  {es:'la esposa / el esposo',en:'wife / husband',pos:'noun',cat:'nouns',tip:'Also: "la mujer" (wife/woman), "el marido" (husband).',ex:'Mi esposa habla español.',exEn:'My wife speaks Spanish.'},
+  {es:'el hijo / la hija',en:'son / daughter',pos:'noun',cat:'nouns',tip:'"Los hijos" can mean sons OR children (mixed group).',ex:'Tengo dos hijos.',exEn:'I have two children.'},
+  {es:'la casa',en:'the house',pos:'noun',cat:'nouns',tip:'"La" = feminine. Many -a words are feminine.',ex:'Mi casa es muy cómoda.',exEn:'My house is very comfortable.'},
+  {es:'el trabajo',en:'work / job',pos:'noun',cat:'nouns',tip:'"El" = masculine. Most -o words are masculine.',ex:'Voy al trabajo en coche.',exEn:'I go to work by car.'},
+  {es:'el tiempo',en:'time / weather',pos:'noun',cat:'nouns',tip:'Context tells you: "el tiempo libre" = free time. "el tiempo" alone often = weather.',ex:'¿Qué tiempo hace hoy?',exEn:'What\'s the weather like today?'},
+  {es:'la comida',en:'food',pos:'noun',cat:'nouns',tip:'From "comer" (to eat) — spot the connection!',ex:'La comida mexicana es deliciosa.',exEn:'Mexican food is delicious.'},
+  {es:'el agua',en:'water',pos:'noun',cat:'nouns',tip:'Feminine word but uses "el" to avoid double-a sound: "el agua fría".',ex:'¿Me trae un vaso de agua?',exEn:'Can you bring me a glass of water?'},
+  {es:'el amigo / la amiga',en:'friend (m/f)',pos:'noun',cat:'nouns',tip:'Spanish changes word endings for gender — -o masculine, -a feminine.',ex:'Ella es mi mejor amiga.',exEn:'She is my best friend.'},
+  {es:'la ciudad',en:'the city',pos:'noun',cat:'nouns',tip:'Words ending in -dad are feminine.',ex:'Me gusta vivir en esta ciudad.',exEn:'I like living in this city.'},
+  {es:'el dinero',en:'money',pos:'noun',cat:'nouns',tip:'Uncountable in Spanish — always singular.',ex:'No tengo mucho dinero.',exEn:'I don\'t have much money.'},
+  {es:'la tienda',en:'the store / shop',pos:'noun',cat:'nouns',tip:'"La tienda de ropa" = clothing store. "La tienda de comida" = grocery store.',ex:'Voy a la tienda a comprar leche.',exEn:'I\'m going to the store to buy milk.'},
+  {es:'el restaurante',en:'the restaurant',pos:'noun',cat:'nouns',tip:'Almost the same as English — cognate words are your friends!',ex:'¿Vamos al restaurante esta noche?',exEn:'Shall we go to the restaurant tonight?'},
+  {es:'el avión',en:'the airplane',pos:'noun',cat:'nouns',tip:'Accent on the ó — "ah-vee-OHN".',ex:'El avión sale a las ocho.',exEn:'The plane leaves at eight.'},
+  {es:'el médico / la médica',en:'doctor (m/f)',pos:'noun',cat:'nouns',tip:'Also "el doctor / la doctora".',ex:'Necesito ver al médico.',exEn:'I need to see the doctor.'},
+
+  // PHRASES
+  {es:'¿cómo te llamas?',en:'What\'s your name?',pos:'phrase',cat:'phrases',tip:'Literally "what do you call yourself?" — very natural in Spanish.',ex:'¿Cómo te llamas? Me llamo Tom.',exEn:'What\'s your name? My name is Tom.'},
+  {es:'me llamo…',en:'My name is…',pos:'phrase',cat:'phrases',tip:'Literally "I call myself…" — used more than "mi nombre es".',ex:'Me llamo Tom y soy de Canadá.',exEn:'My name is Tom and I\'m from Canada.'},
+  {es:'¿de dónde eres?',en:'Where are you from?',pos:'phrase',cat:'phrases',tip:'"¿De dónde es usted?" is the formal version.',ex:'¿De dónde eres? Soy de Canadá.',exEn:'Where are you from? I\'m from Canada.'},
+  {es:'no entiendo',en:'I don\'t understand',pos:'phrase',cat:'phrases',tip:'Essential phrase — never be afraid to say it!',ex:'Lo siento, no entiendo. ¿Puedes repetir?',exEn:'Sorry, I don\'t understand. Can you repeat?'},
+  {es:'¿puedes repetir?',en:'Can you repeat?',pos:'phrase',cat:'phrases',tip:'Pair with "más despacio" (more slowly) for full effect.',ex:'¿Puedes repetir más despacio, por favor?',exEn:'Can you repeat more slowly, please?'},
+  {es:'más despacio',en:'more slowly',pos:'phrase',cat:'phrases',tip:'A lifesaver with fast native speakers!',ex:'Habla más despacio, por favor.',exEn:'Speak more slowly, please.'},
+  {es:'me gusta',en:'I like',pos:'phrase',cat:'phrases',tip:'Literally "it pleases me" — the thing you like is the subject.',ex:'Me gusta mucho la música latina.',exEn:'I really like Latin music.'},
+  {es:'no me gusta',en:'I don\'t like',pos:'phrase',cat:'phrases',tip:'Use "no me gustan" when disliking multiple things.',ex:'No me gusta el frío.',exEn:'I don\'t like the cold.'},
+  {es:'¿cuánto cuesta?',en:'How much does it cost?',pos:'phrase',cat:'phrases',tip:'"¿Cuánto cuestan?" for multiple items.',ex:'¿Cuánto cuesta este libro?',exEn:'How much does this book cost?'},
+  {es:'¿dónde está…?',en:'Where is…?',pos:'phrase',cat:'phrases',tip:'Essential for directions and finding things.',ex:'¿Dónde está el baño, por favor?',exEn:'Where is the bathroom, please?'},
+  {es:'tengo hambre',en:'I\'m hungry',pos:'phrase',cat:'phrases',tip:'Literally "I have hunger" — Spanish uses tener for feelings.',ex:'Tengo mucha hambre. ¿Comemos?',exEn:'I\'m very hungry. Shall we eat?'},
+  {es:'tengo sed',en:'I\'m thirsty',pos:'phrase',cat:'phrases',tip:'"Sed" = thirst. "Tengo + noun" is the pattern for many feelings.',ex:'Tengo sed, ¿hay agua?',exEn:'I\'m thirsty, is there water?'},
+  {es:'¿qué hora es?',en:'What time is it?',pos:'phrase',cat:'phrases',tip:'"Son las tres" (it\'s three). "Es la una" (it\'s one).',ex:'¿Qué hora es? Son las dos.',exEn:'What time is it? It\'s two o\'clock.'},
+  {es:'no hablo bien español',en:'I don\'t speak Spanish well',pos:'phrase',cat:'phrases',tip:'A humble opener — native speakers love the effort!',ex:'Disculpe, no hablo bien español.',exEn:'Excuse me, I don\'t speak Spanish well.'},
+  {es:'estoy aprendiendo español',en:'I\'m learning Spanish',pos:'phrase',cat:'phrases',tip:'Great icebreaker — it explains everything and invites patience.',ex:'Estoy aprendiendo español para hablar con mi familia.',exEn:'I\'m learning Spanish to talk with my family.'},
+  {es:'¿hablas inglés?',en:'Do you speak English?',pos:'phrase',cat:'phrases',tip:'Useful backup — but try Spanish first!',ex:'¿Hablas inglés? Mi español es básico.',exEn:'Do you speak English? My Spanish is basic.'},
+
+  // NUMBERS
+  {es:'cero',en:'0 — zero',pos:'number',cat:'numbers',tip:'Used in phone numbers, scores, and addresses.',ex:'Mi equipo perdió cero a uno.',exEn:'My team lost zero to one.'},
+  {es:'uno / una',en:'1 — one',pos:'number',cat:'numbers',tip:'"Uno" drops the -o before masculine nouns: "un libro" (one book).',ex:'Quiero un café, por favor.',exEn:'I want one coffee, please.'},
+  {es:'dos',en:'2 — two',pos:'number',cat:'numbers',tip:'Numbers 2–9 don\'t change for gender.',ex:'Tengo dos hermanos.',exEn:'I have two brothers.'},
+  {es:'tres',en:'3 — three',pos:'number',cat:'numbers',tip:'Used in telling time: "son las tres" (it\'s three o\'clock).',ex:'Son las tres de la tarde.',exEn:'It\'s three in the afternoon.'},
+  {es:'cuatro',en:'4 — four',pos:'number',cat:'numbers',tip:'4 wheels = cuatro ruedas.',ex:'Hay cuatro personas en mi familia.',exEn:'There are four people in my family.'},
+  {es:'cinco',en:'5 — five',pos:'number',cat:'numbers',tip:'Think Cinco de Mayo — already in your memory!',ex:'El restaurante cierra a las cinco.',exEn:'The restaurant closes at five.'},
+  {es:'seis',en:'6 — six',pos:'number',cat:'numbers',tip:'Pronounced "say-ees" — two syllables.',ex:'Tengo seis clases esta semana.',exEn:'I have six classes this week.'},
+  {es:'siete',en:'7 — seven',pos:'number',cat:'numbers',tip:'Three syllables: "see-EH-teh".',ex:'Hay siete días en la semana.',exEn:'There are seven days in the week.'},
+  {es:'ocho',en:'8 — eight',pos:'number',cat:'numbers',tip:'Pretty intuitive to remember!',ex:'El tren llega a las ocho.',exEn:'The train arrives at eight.'},
+  {es:'nueve',en:'9 — nine',pos:'number',cat:'numbers',tip:'Pronounced "NWEH-beh".',ex:'Tiene nueve vidas, como un gato.',exEn:'It has nine lives, like a cat.'},
+  {es:'diez',en:'10 — ten',pos:'number',cat:'numbers',tip:'"Diez" is the root for 11–19: once, doce, trece…',ex:'Espera diez minutos, por favor.',exEn:'Wait ten minutes, please.'},
+  {es:'once / doce / trece',en:'11 / 12 / 13',pos:'number',cat:'numbers',tip:'11–15 are unique words, not combinations.',ex:'Son las doce del mediodía.',exEn:'It\'s twelve noon.'},
+  {es:'catorce / quince',en:'14 / 15',pos:'number',cat:'numbers',tip:'"Quince" is very common — quinceañera = 15th birthday!',ex:'Quince días son dos semanas.',exEn:'Fifteen days are two weeks.'},
+  {es:'dieciséis … diecinueve',en:'16 — 19',pos:'number',cat:'numbers',tip:'"Dieci" + unit. 16=dieciséis, 17=diecisiete, 18=dieciocho, 19=diecinueve.',ex:'Tengo diecisiete años.',exEn:'I am seventeen years old.'},
+  {es:'veinte',en:'20 — twenty',pos:'number',cat:'numbers',tip:'20s: veinti + unit. 21=veintiuno, 22=veintidós…',ex:'Cuesta veinte dólares.',exEn:'It costs twenty dollars.'},
+  {es:'treinta',en:'30 — thirty',pos:'number',cat:'numbers',tip:'30+: treinta y + unit. The "y" means "and".',ex:'Hay treinta días en septiembre.',exEn:'There are thirty days in September.'},
+  {es:'cuarenta',en:'40 — forty',pos:'number',cat:'numbers',tip:'40–90 all end in -enta (except cincuenta).',ex:'Son cuarenta minutos en coche.',exEn:'It\'s forty minutes by car.'},
+  {es:'cincuenta',en:'50 — fifty',pos:'number',cat:'numbers',tip:'Notice "cinco" hiding inside cincuenta!',ex:'Mi padre tiene cincuenta años.',exEn:'My father is fifty years old.'},
+  {es:'sesenta / setenta',en:'60 / 70',pos:'number',cat:'numbers',tip:'60=sesenta, 70=setenta — both end in -enta.',ex:'El vuelo dura sesenta minutos.',exEn:'The flight lasts sixty minutes.'},
+  {es:'ochenta / noventa',en:'80 / 90',pos:'number',cat:'numbers',tip:'Spot ocho (8) and nueve (9) hiding inside!',ex:'Mi abuela tiene ochenta años.',exEn:'My grandmother is eighty years old.'},
+  {es:'cien / ciento',en:'100',pos:'number',cat:'numbers',tip:'"Cien" alone; "ciento" when combining: ciento uno = 101.',ex:'Hay cien personas en la fiesta.',exEn:'There are one hundred people at the party.'},
+
+  // MONTHS
+  {es:'enero',en:'January',pos:'month',cat:'months',tip:'Months are NOT capitalized in Spanish.',ex:'Mi cumpleaños es en enero.',exEn:'My birthday is in January.'},
+  {es:'febrero',en:'February',pos:'month',cat:'months',tip:'Think "February" — febr- sounds similar.',ex:'San Valentín es el catorce de febrero.',exEn:'Valentine\'s Day is February 14th.'},
+  {es:'marzo',en:'March',pos:'month',cat:'months',tip:'Sounds like "Mars" — the Roman god of March.',ex:'La primavera empieza en marzo.',exEn:'Spring begins in March.'},
+  {es:'abril',en:'April',pos:'month',cat:'months',tip:'Very close to English "April".',ex:'En abril llueve mucho en Winnipeg.',exEn:'In April it rains a lot in Winnipeg.'},
+  {es:'mayo',en:'May',pos:'month',cat:'months',tip:'You already know this — ¡Cinco de Mayo!',ex:'Cinco de Mayo es en mayo.',exEn:'Cinco de Mayo is in May.'},
+  {es:'junio',en:'June',pos:'month',cat:'months',tip:'Sounds like "June-io" — easy to remember.',ex:'Las vacaciones empiezan en junio.',exEn:'Holidays start in June.'},
+  {es:'julio',en:'July',pos:'month',cat:'months',tip:'Named after Julius Caesar — Julio César in Spanish.',ex:'Hace mucho calor en julio.',exEn:'It\'s very hot in July.'},
+  {es:'agosto',en:'August',pos:'month',cat:'months',tip:'Named after Augustus Caesar.',ex:'Voy de vacaciones en agosto.',exEn:'I\'m going on vacation in August.'},
+  {es:'septiembre',en:'September',pos:'month',cat:'months',tip:'Sept = seven in Latin — it was once the 7th month.',ex:'Los niños vuelven al colegio en septiembre.',exEn:'Kids go back to school in September.'},
+  {es:'octubre',en:'October',pos:'month',cat:'months',tip:'Oct = eight in Latin. Halloween is Halloween in Spanish too!',ex:'Las hojas cambian de color en octubre.',exEn:'The leaves change colour in October.'},
+  {es:'noviembre',en:'November',pos:'month',cat:'months',tip:'Nov = nine in Latin. Notice the -iembre ending on Sep/Oct/Nov/Dec.',ex:'Hace frío en noviembre en Canadá.',exEn:'It\'s cold in November in Canada.'},
+  {es:'diciembre',en:'December',pos:'month',cat:'months',tip:'Dec = ten in Latin. Navidad = Christmas!',ex:'La Navidad es en diciembre.',exEn:'Christmas is in December.'},
+
+  // DAYS
+  {es:'lunes',en:'Monday',pos:'day',cat:'days',tip:'Days are NOT capitalized in Spanish. From "luna" (moon).',ex:'El lunes empiezo mi dieta.',exEn:'On Monday I start my diet.'},
+  {es:'martes',en:'Tuesday',pos:'day',cat:'days',tip:'From "Marte" (Mars).',ex:'Los martes tengo clase de español.',exEn:'On Tuesdays I have Spanish class.'},
+  {es:'miércoles',en:'Wednesday',pos:'day',cat:'days',tip:'From "Mercurio" (Mercury). Note the accent!',ex:'El miércoles voy al médico.',exEn:'On Wednesday I\'m going to the doctor.'},
+  {es:'jueves',en:'Thursday',pos:'day',cat:'days',tip:'From "Júpiter" (Jupiter).',ex:'¿Qué haces el jueves?',exEn:'What are you doing on Thursday?'},
+  {es:'viernes',en:'Friday',pos:'day',cat:'days',tip:'From "Venus". TGIF = ¡Por fin es viernes!',ex:'El viernes salimos a cenar.',exEn:'On Friday we\'re going out for dinner.'},
+  {es:'sábado',en:'Saturday',pos:'day',cat:'days',tip:'From "Sabbath" — a day of rest.',ex:'El sábado dormimos hasta tarde.',exEn:'On Saturday we sleep in late.'},
+  {es:'domingo',en:'Sunday',pos:'day',cat:'days',tip:'From "Domingo" (the Lord\'s day).',ex:'El domingo comemos en familia.',exEn:'On Sunday we eat as a family.'},
+
+  // COLORS
+  {es:'rojo / roja',en:'red',pos:'color',cat:'colors',tip:'Adjectives match gender: un coche rojo (m), una manzana roja (f).',ex:'La bandera de España es roja y amarilla.',exEn:'The flag of Spain is red and yellow.'},
+  {es:'azul',en:'blue',pos:'color',cat:'colors',tip:'Same for m/f — only changes for plural: azules.',ex:'El cielo es azul.',exEn:'The sky is blue.'},
+  {es:'verde',en:'green',pos:'color',cat:'colors',tip:'Same for m/f — verde, verde, verdes.',ex:'Me gustan las manzanas verdes.',exEn:'I like green apples.'},
+  {es:'amarillo / amarilla',en:'yellow',pos:'color',cat:'colors',tip:'Changes for gender like rojo/roja.',ex:'El sol es amarillo.',exEn:'The sun is yellow.'},
+  {es:'negro / negra',en:'black',pos:'color',cat:'colors',tip:'Common in clothing — "una camiseta negra" (a black t-shirt).',ex:'Tengo un gato negro.',exEn:'I have a black cat.'},
+  {es:'blanco / blanca',en:'white',pos:'color',cat:'colors',tip:'"Blanca" is also a name — Blanca means "white" in Spanish.',ex:'La nieve es blanca.',exEn:'Snow is white.'},
+  {es:'marrón',en:'brown',pos:'color',cat:'colors',tip:'Also "café" in Latin America for brown.',ex:'Tengo los ojos marrones.',exEn:'I have brown eyes.'},
+  {es:'gris',en:'grey',pos:'color',cat:'colors',tip:'Same for m/f. Plural: grises.',ex:'El cielo está gris hoy.',exEn:'The sky is grey today.'},
+
+  // FAMILY
+  {es:'la madre / mamá',en:'mother / mom',pos:'family',cat:'family',tip:'"Mamá" is informal. "La madre" is formal.',ex:'Mi mamá habla español.',exEn:'My mom speaks Spanish.'},
+  {es:'el padre / papá',en:'father / dad',pos:'family',cat:'family',tip:'"Papá" has an accent to distinguish from "papa" (potato)!',ex:'Mi papá es muy gracioso.',exEn:'My dad is very funny.'},
+  {es:'el hermano / la hermana',en:'brother / sister',pos:'family',cat:'family',tip:'"Los hermanos" = brothers OR siblings (mixed group).',ex:'Tengo un hermano y una hermana.',exEn:'I have a brother and a sister.'},
+  {es:'el abuelo / la abuela',en:'grandfather / grandmother',pos:'family',cat:'family',tip:'"Los abuelos" = grandparents.',ex:'Mis abuelos viven en México.',exEn:'My grandparents live in Mexico.'},
+  {es:'el suegro / la suegra',en:'father-in-law / mother-in-law',pos:'family',cat:'family',tip:'"Los suegros" = in-laws. Very useful for your situation!',ex:'Mis suegros hablan solo español.',exEn:'My in-laws only speak Spanish.'},
+  {es:'el cuñado / la cuñada',en:'brother-in-law / sister-in-law',pos:'family',cat:'family',tip:'"Los cuñados" = siblings-in-law.',ex:'Mi cuñado es muy simpático.',exEn:'My brother-in-law is very nice.'},
+  {es:'el sobrino / la sobrina',en:'nephew / niece',pos:'family',cat:'family',tip:'From Latin "nepos" — related to "nephew" in English.',ex:'Mis sobrinos son muy divertidos.',exEn:'My nephews/nieces are very fun.'},
+  {es:'el tío / la tía',en:'uncle / aunt',pos:'family',cat:'family',tip:'"Los tíos" = aunt and uncle together.',ex:'Mi tía hace la mejor comida.',exEn:'My aunt makes the best food.'},
+];
+
+const CATS = ['all','greetings','verbs','nouns','phrases','numbers','months','days','colors','family'];
+const CAT_LABELS = {all:'All',greetings:'Greetings',verbs:'Verbs',nouns:'Nouns',phrases:'Phrases',numbers:'Numbers',months:'Months',days:'Days',colors:'Colors',family:'Family'};
+
+// ════════════════════════════════════════════
+// AVATAR STATE
+// ════════════════════════════════════════════
+let mouthTimer, bobTimer, mouthFrame = 0;
+const MOUTHS = [
+  "M 58 87 Q 75 90 92 87",
+  "M 56 86 Q 75 95 94 86",
+  "M 54 84 Q 75 98 96 84",
+  "M 55 86 Q 75 94 95 86",
+];
+const MOUTH_IDLE = "M 55 88 Q 75 93 95 88";
+
+function setAvatar(state) {
+  const glow = document.getElementById('glow');
+  const lbl = document.getElementById('status-label');
+  const bars = document.getElementById('sound-bars');
+  const think = document.getElementById('think-bubbles');
+  const svg = document.getElementById('carlos-svg');
+  clearInterval(mouthTimer); clearInterval(bobTimer);
+  bars.setAttribute('opacity','0'); think.setAttribute('opacity','0');
+  svg.style.transform = 'translateY(0)';
+  document.getElementById('mouth').setAttribute('d', MOUTH_IDLE);
+
+  const colors = {speaking:'#e8b86d', listening:'#c0392b', thinking:'#8e44ad', idle:'#27ae60'};
+  const labels = {speaking:'● Speaking', listening:'● Listening', thinking:'● Thinking…', idle:'Carlos'};
+  glow.setAttribute('stroke', colors[state] || colors.idle);
+  glow.setAttribute('opacity', state === 'idle' ? '0' : '0.55');
+  lbl.textContent = labels[state] || 'Carlos';
+  lbl.style.color = colors[state] || colors.idle;
+
+  if (state === 'speaking') {
+    mouthTimer = setInterval(() => {
+      mouthFrame = (mouthFrame + 1) % 4;
+      document.getElementById('mouth').setAttribute('d', MOUTHS[mouthFrame]);
+    }, 110);
+    let t = 0; bobTimer = setInterval(() => { t += 0.15; svg.style.transform = `translateY(${Math.sin(t)*2}px)`; }, 30);
+  }
+  if (state === 'listening') {
+    bars.setAttribute('opacity','1');
+    let t = 0; bobTimer = setInterval(() => { t += 0.1; svg.style.transform = `translateY(${Math.sin(t)*1.5}px)`; }, 30);
+  }
+  if (state === 'thinking') think.setAttribute('opacity','1');
+}
+
+// Blink
+(function blink() {
+  const eyeIds = ['iris-l','iris-r','pupil-l','pupil-r','shine-l','shine-r'];
+  const origRy = {['iris-l']:8,['iris-r']:8,['pupil-l']:4,['pupil-r']:4,['shine-l']:2,['shine-r']:2};
+  function doBlink() {
+    eyeIds.forEach(id => { const el = document.getElementById(id); if(el) el.setAttribute('ry','1'); });
+    setTimeout(() => eyeIds.forEach(id => { const el = document.getElementById(id); if(el) el.setAttribute('ry', origRy[id] || '7'); }), 120);
+    setTimeout(doBlink, 2000 + Math.random()*3000);
+  }
+  setTimeout(doBlink, 1800);
+})();
+
+// ════════════════════════════════════════════
+// VOICE
+// ════════════════════════════════════════════
+window.speechSynthesis.onvoiceschanged = () => window.speechSynthesis.getVoices();
+function getBestVoice() {
+  const voices = window.speechSynthesis.getVoices();
+  const prefs = [
+    v => v.lang==='es-ES' && v.name.includes('Google'),
+    v => v.lang==='es-MX' && v.name.includes('Google'),
+    v => v.lang.startsWith('es') && v.name.includes('Google'),
+    v => v.lang==='es-ES', v => v.lang.startsWith('es'),
+  ];
+  for (const p of prefs) { const f = voices.find(p); if(f) return f; }
+  return null;
+}
+let isSpeaking = false;
+function speakText(text, onDone) {
+  window.speechSynthesis.cancel();
+  const clean = text.replace(/\*/g,'').replace(/[¡¿]/g,'').trim();
+  const utter = new SpeechSynthesisUtterance(clean);
+  const v = getBestVoice(); if(v){utter.voice=v;utter.lang=v.lang;}else{utter.lang='es-ES';}
+  utter.rate = 0.82; utter.pitch = 1.1;
+  utter.onstart = () => { isSpeaking=true; setAvatar('speaking'); document.getElementById('stop-btn').style.display='block'; };
+  utter.onend = utter.onerror = () => { isSpeaking=false; setAvatar('idle'); document.getElementById('stop-btn').style.display='none'; if(onDone) onDone(); };
+  window.speechSynthesis.speak(utter);
+}
+
+// ════════════════════════════════════════════
+// CHAT
+// ════════════════════════════════════════════
+let apiHistory = [], isLoading = false, autoSpeak = true, level = 'Beginner · A1';
+
+function fmtText(text) {
+  return text.replace(/\*([^*]+)\*/g,'<span class="es">$1</span>').replace(/\n/g,'<br>');
+}
+function addBubble(role, text) {
+  const msgs = document.getElementById('messages');
+  const d = document.createElement('div');
+  d.className = `bub ${role==='user'?'user':'ai'}`;
+  d.innerHTML = `<div class="bub-lbl">${role==='user'?'You':'Carlos'}</div><div>${fmtText(text)}</div>`;
+  msgs.appendChild(d); msgs.scrollTop = msgs.scrollHeight;
+}
+function showTyping() {
+  const msgs = document.getElementById('messages');
+  const d = document.createElement('div'); d.id='typing-bub'; d.className='bub ai';
+  d.innerHTML='<div class="bub-lbl">Carlos</div><div class="typing"><div class="dot"></div><div class="dot"></div><div class="dot"></div></div>';
+  msgs.appendChild(d); msgs.scrollTop=msgs.scrollHeight;
+}
+async function sendMessage(text) {
+  if(!text || isLoading) return;
+  isLoading=true; window.speechSynthesis.cancel();
+  document.getElementById('stop-btn').style.display='none';
+  addBubble('user',text);
+  apiHistory.push({role:'user',content:text});
+  setAvatar('thinking'); showTyping();
+  try {
+    const res = await fetch('/chat',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({messages:apiHistory,level})});
+    const data = await res.json();
+    document.getElementById('typing-bub')?.remove();
+    if(data.error) throw new Error(data.error);
+    apiHistory.push({role:'assistant',content:data.reply});
+    addBubble('ai',data.reply);
+    if(autoSpeak) speakText(data.reply); else setAvatar('idle');
+  } catch(e) {
+    document.getElementById('typing-bub')?.remove();
+    addBubble('ai','⚠️ Connection issue — make sure the Flask server is running and ANTHROPIC_API_KEY is set.');
+    setAvatar('idle');
+  } finally { isLoading=false; }
+}
+
+// ════════════════════════════════════════════
+// MIC / SPEECH RECOGNITION
+// ════════════════════════════════════════════
+let recognition=null, isListening=false;
+function startListening() {
+  const errEl = document.getElementById('mic-err');
+  errEl.style.display='none';
+  const SR = window.SpeechRecognition || window.webkitSpeechRecognition;
+  if(!SR){errEl.textContent='Speech recognition not supported — try Chrome.';errEl.style.display='block';return;}
+  window.speechSynthesis.cancel();
+  recognition = new SR();
+  recognition.lang='es-ES'; recognition.continuous=false; recognition.interimResults=true;
+  let final='';
+  recognition.onstart=()=>{isListening=true;document.getElementById('mic-btn').classList.add('on');document.getElementById('txt').placeholder='🔴 Listening… speak now';setAvatar('listening');};
+  recognition.onresult=(e)=>{
+    let interim=''; final='';
+    for(const r of e.results){if(r.isFinal)final+=r[0].transcript;else interim+=r[0].transcript;}
+    document.getElementById('txt').value=final||interim;
+  };
+  recognition.onerror=(e)=>{
+    stopListening();
+    const msgs={['not-allowed']:'Mic blocked — allow microphone in browser settings for this site.',['network']:'Network error — make sure you\'re on HTTPS or localhost.',};
+    errEl.textContent=msgs[e.error]||`Mic error: ${e.error}. Try typing instead.`;
+    errEl.style.display='block';
+  };
+  recognition.onend=()=>{
+    stopListening();
+    const t=final||document.getElementById('txt').value.trim();
+    if(t){document.getElementById('txt').value='';updateSendBtn();sendMessage(t);}
+  };
+  try{recognition.start();}catch(e){stopListening();errEl.textContent='Could not start mic: '+e.message;errEl.style.display='block';}
+}
+function stopListening(){
+  isListening=false;
+  document.getElementById('mic-btn').classList.remove('on');
+  document.getElementById('txt').placeholder='Type or tap 🎤 to speak';
+  try{recognition?.stop();}catch(e){}
+  if(!isSpeaking) setAvatar('idle');
+}
+function updateSendBtn(){document.getElementById('snd-btn').classList.toggle('ok',document.getElementById('txt').value.trim().length>0);}
+
+// ════════════════════════════════════════════
+// VOCAB RENDER
+// ════════════════════════════════════════════
+let currentCat='all', pronouncing=null;
+function renderVocab(cat){
+  currentCat=cat;
+  document.querySelectorAll('.cat-btn').forEach(b=>b.classList.toggle('active',b.dataset.cat===cat));
+  const data=cat==='all'?VOCAB:VOCAB.filter(v=>v.cat===cat);
+  document.getElementById('vgrid').innerHTML=data.map((v,i)=>`
+    <div class="vcard">
+      <div class="v-left">
+        <div class="v-es">${v.es}</div>
+        <div class="v-en">${v.en}</div>
+        <div class="v-tip">${v.tip}</div>
+        <div class="ex-row">
+          <div style="flex:1"><div class="v-ex">${v.ex}</div><div class="v-ex-en">${v.exEn}</div></div>
+          <button class="pbtn" id="ex-pbtn-${i}" onclick="pronounceEx('${v.ex.replace(/'/g,"\\'")}',${i},'ex')" title="Hear example">🔊</button>
+        </div>
+      </div>
+      <div class="v-right">
+        <button class="pbtn" id="w-pbtn-${i}" onclick="pronounceEx('${v.es.replace(/'/g,"\\'")}',${i},'w')" title="Hear word">🔊</button>
+        <div class="v-pos">${v.pos}</div>
+      </div>
+    </div>`).join('');
+}
+function pronounceEx(text, idx, type) {
+  const btnId = `${type==='ex'?'ex-':'w-'}pbtn-${idx}`;
+  const btn = document.getElementById(btnId);
+  if(!btn) return;
+  if(window.speechSynthesis.speaking){window.speechSynthesis.cancel();document.querySelectorAll('.pbtn.speaking').forEach(b=>b.classList.remove('speaking'));if(pronouncing===btnId){pronouncing=null;return;}}
+  btn.classList.add('speaking'); pronouncing=btnId;
+  const utter=new SpeechSynthesisUtterance(text.replace(/[¡¿]/g,''));
+  const v=getBestVoice();if(v){utter.voice=v;utter.lang=v.lang;}else{utter.lang='es-ES';}
+  utter.rate=0.82;utter.pitch=1.1;
+  utter.onend=utter.onerror=()=>{btn.classList.remove('speaking');pronouncing=null;};
+  window.speechSynthesis.speak(utter);
+}
+
+function buildCats(){
+  const el=document.getElementById('cat-btns');
+  el.innerHTML=CATS.map(c=>`<button class="cat-btn${c==='all'?' active':''}" data-cat="${c}" onclick="renderVocab('${c}')">${CAT_LABELS[c]}</button>`).join('');
+}
+
+// ════════════════════════════════════════════
+// QUIZ
+// ════════════════════════════════════════════
+let quizWords=[], quizIdx=0, quizScore=0, quizAnswered=false, quizCat='all', currentQuizWord=null;
+
+function startQuiz(cat){
+  quizCat=cat;
+  const pool=(cat==='all'?VOCAB:VOCAB.filter(v=>v.cat===cat));
+  if(pool.length<4){alert('Not enough words in this category yet!');return;}
+  quizWords=shuffle([...pool]).slice(0,Math.min(10,pool.length));
+  quizIdx=0;quizScore=0;
+  document.getElementById('quiz-area').style.display='block';
+  document.getElementById('q-result').style.display='none';
+  document.querySelectorAll('.quiz-hero')[0].style.display='none';
+  showQuestion();
+}
+function shuffle(a){for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]];}return a;}
+function showQuestion(){
+  if(quizIdx>=quizWords.length){showResult();return;}
+  quizAnswered=false;
+  const word=quizWords[quizIdx]; currentQuizWord=word;
+  document.getElementById('q-cat').textContent=CAT_LABELS[word.cat]||word.cat;
+  document.getElementById('q-word').textContent=word.es;
+  document.getElementById('q-hint').textContent=word.tip;
+  document.getElementById('q-feedback').textContent='';
+  document.getElementById('q-feedback').className='q-feedback';
+  document.getElementById('q-next').style.display='none';
+  const pct=Math.round((quizIdx/quizWords.length)*100);
+  document.getElementById('q-bar').style.width=pct+'%';
+  document.getElementById('q-count').textContent=`${quizIdx+1}/${quizWords.length}`;
+  document.getElementById('q-score-disp').textContent=`⭐ ${quizScore}`;
+  // Build options
+  const pool=VOCAB.filter(v=>v.cat===word.cat&&v.es!==word.es);
+  const distractors=shuffle(pool).slice(0,3).map(v=>v.en);
+  const options=shuffle([word.en,...distractors]);
+  document.getElementById('q-options').innerHTML=options.map(opt=>`<button class="q-opt" onclick="checkAnswer(this,'${opt.replace(/'/g,"\\'")}','${word.en.replace(/'/g,"\\'")}')">${opt}</button>`).join('');
+}
+function checkAnswer(btn,chosen,correct){
+  if(quizAnswered)return;
+  quizAnswered=true;
+  const fb=document.getElementById('q-feedback');
+  const opts=document.querySelectorAll('.q-opt');
+  opts.forEach(b=>{
+    if(b.textContent.trim()===correct)b.classList.add(chosen===correct?'correct':'reveal');
+    if(b===btn&&chosen!==correct)b.classList.add('wrong');
+    b.disabled=true;
+  });
+  if(chosen===correct){quizScore++;fb.textContent='¡Correcto! ✓';fb.className='q-feedback ok';}
+  else{fb.textContent=`Not quite — the answer is: ${correct}`;fb.className='q-feedback bad';}
+  document.getElementById('q-score-disp').textContent=`⭐ ${quizScore}`;
+  document.getElementById('q-next').style.display='block';
+  pronounceQuizWord();
+}
+function pronounceQuizWord(){
+  if(!currentQuizWord)return;
+  const utter=new SpeechSynthesisUtterance(currentQuizWord.es.replace(/[¡¿]/g,''));
+  const v=getBestVoice();if(v){utter.voice=v;utter.lang=v.lang;}else{utter.lang='es-ES';}
+  utter.rate=0.8;window.speechSynthesis.speak(utter);
+}
+function nextQuestion(){quizIdx++;showQuestion();}
+function showResult(){
+  document.getElementById('q-bar').style.width='100%';
+  document.getElementById('quiz-area').style.display='none';
+  const pct=Math.round((quizScore/quizWords.length)*100);
+  const res=document.getElementById('q-result');
+  res.style.display='block';
+  const trophies=['😔','🙂','👍','🎉','🏆'];
+  document.getElementById('q-trophy').textContent=trophies[Math.floor(pct/25)]||'🏆';
+  document.getElementById('q-result-title').textContent=pct>=80?'¡Excelente!':pct>=60?'¡Muy bien!':pct>=40?'¡Buen intento!':'¡Sigue practicando!';
+  document.getElementById('q-final-score').textContent=`${quizScore} / ${quizWords.length}`;
+  const msgs=['Keep practicing — every word counts!','Good effort! Review the ones you missed.','Nice work! You\'re building a solid foundation.','Impressive! You really know your Spanish!','¡Perfecto! You\'re a Spanish superstar!'];
+  document.getElementById('q-result-msg').textContent=msgs[Math.floor(pct/25)]||msgs[4];
+}
+function resetQuiz(){
+  document.getElementById('q-result').style.display='none';
+  document.getElementById('quiz-area').style.display='none';
+  document.querySelectorAll('.quiz-hero')[0].style.display='block';
+}
+
+// ════════════════════════════════════════════
+// EVENTS & INIT
+// ════════════════════════════════════════════
+document.querySelectorAll('.tab').forEach(tab=>{
+  tab.addEventListener('click',()=>{
+    document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));
+    document.querySelectorAll('.view').forEach(v=>v.classList.remove('active'));
+    tab.classList.add('active');
+    document.getElementById(tab.dataset.view).classList.add('active');
+  });
+});
+document.getElementById('txt').addEventListener('input',updateSendBtn);
+document.getElementById('txt').addEventListener('keydown',e=>{if(e.key==='Enter'){const t=e.target.value.trim();if(t){e.target.value='';updateSendBtn();sendMessage(t);}}});
+document.getElementById('snd-btn').addEventListener('click',()=>{const t=document.getElementById('txt').value.trim();if(t){document.getElementById('txt').value='';updateSendBtn();sendMessage(t);}});
+document.getElementById('mic-btn').addEventListener('click',()=>{if(isListening)stopListening();else startListening();});
+document.getElementById('stop-btn').addEventListener('click',()=>{window.speechSynthesis.cancel();isSpeaking=false;setAvatar('idle');document.getElementById('stop-btn').style.display='none';});
+document.getElementById('auto-toggle').addEventListener('click',()=>{
+  autoSpeak=!autoSpeak;
+  document.getElementById('tog-track').style.background=autoSpeak?'var(--green)':'var(--border)';
+  document.getElementById('tog-k').style.left=autoSpeak?'14px':'2px';
+  if(!autoSpeak){window.speechSynthesis.cancel();setAvatar('idle');}
+});
+document.getElementById('level-btn').addEventListener('click',()=>document.getElementById('level-overlay').classList.add('open'));
+document.getElementById('level-overlay').addEventListener('click',e=>{if(e.target===document.getElementById('level-overlay'))document.getElementById('level-overlay').classList.remove('open');});
+document.querySelectorAll('.lopt').forEach(b=>{
+  b.addEventListener('click',()=>{
+    level=b.dataset.level;
+    document.getElementById('level-btn').textContent=level;
+    document.querySelectorAll('.lopt').forEach(x=>x.classList.remove('sel'));
+    b.classList.add('sel');
+    document.getElementById('level-overlay').classList.remove('open');
+  });
+});
+
+// Init
+buildCats(); renderVocab('all');
+const INTRO="¡Hola amigo! I'm Carlos, your Spanish tutor from Madrid! I heard you want to connect with your wife's family — that's *una razón perfecta* to learn Spanish, a perfect reason! Let's start from scratch and build you up step by step. First question: have you ever tried to say anything in Spanish before?";
+addBubble('ai',INTRO);
+apiHistory.push({role:'assistant',content:INTRO});
+setTimeout(()=>{if(autoSpeak)speakText(INTRO);},900);
