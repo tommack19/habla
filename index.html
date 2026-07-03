@@ -1,0 +1,866 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+<title>Habla — Learn Spanish</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#080c10;--surface:#0d1117;--card:#111820;--border:#1e2a38;
+  --gold:#e8b86d;--red:#c0392b;--green:#27ae60;--purple:#8e44ad;--blue:#2980b9;
+  --text:#e8e4de;--muted:#4a5a6a;--soft:#8a9ab8;
+}
+html,body{height:100%;background:var(--bg);color:var(--text);font-family:-apple-system,'Inter',sans-serif;overflow:hidden}
+#app{display:flex;flex-direction:column;height:100vh;max-width:520px;margin:0 auto}
+
+/* HEADER */
+header{display:flex;align-items:center;justify-content:space-between;padding:11px 16px;background:var(--surface);border-bottom:1px solid var(--border);flex-shrink:0}
+.logo{font-family:Georgia,serif;font-size:1.3rem;color:var(--gold)}.logo span{color:var(--red);font-style:italic}
+#level-btn{background:transparent;border:1px solid rgba(232,184,109,0.3);border-radius:20px;padding:4px 11px;color:var(--gold);font-size:0.67rem;font-weight:600;letter-spacing:.8px;text-transform:uppercase;cursor:pointer}
+
+/* TABS */
+nav{display:flex;background:var(--surface);border-bottom:1px solid var(--border);flex-shrink:0}
+.tab{flex:1;padding:10px 4px;text-align:center;font-size:0.67rem;font-weight:600;letter-spacing:.5px;text-transform:uppercase;color:var(--muted);cursor:pointer;border-bottom:2px solid transparent;transition:all .2s}
+.tab.active{color:var(--gold);border-color:var(--gold)}
+
+/* VIEWS */
+.view{display:none;flex:1;flex-direction:column;overflow:hidden}
+.view.active{display:flex}
+
+/* ── TUTOR TAB ── */
+#stage{display:flex;flex-direction:column;align-items:center;padding:12px 0 4px;flex-shrink:0;background:radial-gradient(ellipse at 50% 40%,#0f1a0f 0%,var(--bg) 70%)}
+#status-label{font-size:.63rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--green);margin-top:-2px;min-height:14px}
+.auto-row{display:flex;align-items:center;gap:7px;font-size:.65rem;color:var(--muted);margin-top:5px;cursor:pointer}
+.tog{width:28px;height:16px;border-radius:8px;position:relative;transition:background .2s}
+.tog-k{position:absolute;top:2px;width:12px;height:12px;border-radius:50%;background:#fff;transition:left .18s}
+#messages{flex:1;overflow-y:auto;padding:12px 14px;display:flex;flex-direction:column;gap:9px}
+.bub{max-width:87%;padding:9px 13px;border-radius:13px;font-size:.86rem;line-height:1.65;animation:fadeIn .2s ease}
+.bub.ai{align-self:flex-start;background:#101a10;border:1px solid #1a2e1a;border-bottom-left-radius:3px}
+.bub.user{align-self:flex-end;background:#192040;border:1px solid #243060;border-bottom-right-radius:3px}
+.bub-lbl{font-size:.58rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;margin-bottom:4px}
+.bub.ai .bub-lbl{color:var(--green)}.bub.user .bub-lbl{color:var(--gold)}
+.es{color:var(--gold);font-style:italic}
+.typing{display:flex;gap:5px;padding:3px 0}
+.dot{width:7px;height:7px;border-radius:50%;background:var(--green);animation:bounce 1.1s infinite}
+.dot:nth-child(2){animation-delay:.18s}.dot:nth-child(3){animation-delay:.36s}
+#input-area{border-top:1px solid var(--border);background:var(--surface);padding:10px 12px;flex-shrink:0}
+#input-row{display:flex;gap:7px;align-items:center}
+#txt{flex:1;background:var(--bg);border:1px solid var(--border);border-radius:22px;padding:9px 15px;color:var(--text);font-size:.86rem;outline:none;font-family:inherit;transition:border-color .2s}
+#txt:focus{border-color:var(--gold)}
+.ibtn{width:41px;height:41px;border-radius:50%;border:none;display:flex;align-items:center;justify-content:center;font-size:.95rem;cursor:pointer;flex-shrink:0;transition:all .2s}
+#mic-btn{background:#141c24;color:var(--muted)}
+#mic-btn.on{background:#7a0f0f;color:#ff6b6b;box-shadow:0 0 0 5px rgba(192,57,43,.2)}
+#snd-btn{background:var(--gold);color:#000;opacity:.35}
+#snd-btn.ok{opacity:1}
+#stop-btn{display:none;width:100%;margin-top:6px;background:transparent;border:1px solid rgba(192,57,43,.3);border-radius:8px;padding:5px;color:var(--red);font-size:.68rem;cursor:pointer}
+#mic-err{display:none;font-size:.69rem;color:var(--red);margin-top:5px;text-align:center}
+#hint{text-align:center;font-size:.62rem;color:#253040;margin-top:4px}
+
+/* ── VOCAB TAB ── */
+#vocab-view{overflow-y:auto;padding:14px}
+.vocab-top{margin-bottom:12px}
+.vocab-top h2{font-family:Georgia,serif;color:var(--gold);font-size:1.05rem}
+.vocab-top p{font-size:.75rem;color:var(--muted);margin-top:2px}
+.cats{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:12px}
+.cat-btn{padding:5px 12px;border-radius:20px;border:1px solid var(--border);background:transparent;color:var(--muted);font-size:.68rem;font-weight:600;letter-spacing:.4px;text-transform:uppercase;cursor:pointer;transition:all .15s}
+.cat-btn.active,.cat-btn:hover{border-color:var(--gold);color:var(--gold)}
+.vgrid{display:flex;flex-direction:column;gap:7px}
+.vcard{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:11px 13px;display:flex;align-items:flex-start;justify-content:space-between;transition:border-color .2s}
+.vcard:hover{border-color:var(--border)}
+.v-left{flex:1}
+.v-es{font-family:Georgia,serif;font-size:1rem;color:var(--gold)}
+.v-en{font-size:.78rem;color:var(--muted);margin-top:1px}
+.v-tip{font-size:.74rem;color:var(--gold);opacity:.8;margin-top:5px;font-style:italic}
+.v-ex{font-size:.72rem;color:#5a7090;margin-top:3px}
+.v-ex-en{font-size:.69rem;color:var(--muted);margin-top:1px}
+.v-right{display:flex;flex-direction:column;align-items:flex-end;gap:5px;margin-left:10px;flex-shrink:0}
+.v-pos{font-size:.6rem;text-transform:uppercase;letter-spacing:.7px;color:var(--muted);background:var(--bg);padding:2px 7px;border-radius:10px}
+.pbtn{background:transparent;border:1px solid var(--border);border-radius:50%;width:32px;height:32px;cursor:pointer;color:var(--gold);font-size:.85rem;display:flex;align-items:center;justify-content:center;transition:all .15s;flex-shrink:0}
+.pbtn:hover{background:rgba(232,184,109,.1);border-color:var(--gold)}
+.pbtn.speaking{background:rgba(232,184,109,.2);border-color:var(--gold);animation:pulseBtn .6s infinite alternate}
+.ex-row{display:flex;align-items:center;gap:6px;margin-top:6px;padding-top:6px;border-top:1px solid var(--border)}
+
+/* ── PLAN TAB ── */
+#plan-view{overflow-y:auto;padding:14px}
+.plan-hero{margin-bottom:16px}
+.plan-hero h2{font-family:Georgia,serif;color:var(--gold);font-size:1.1rem}
+.plan-hero p{font-size:.76rem;color:var(--muted);margin-top:3px}
+.phase{background:var(--card);border:1px solid var(--border);border-radius:11px;margin-bottom:11px;overflow:hidden}
+.phase-hd{display:flex;align-items:center;gap:11px;padding:12px 14px}
+.phase-num{width:28px;height:28px;border-radius:50%;background:var(--bg);border:2px solid var(--gold);color:var(--gold);font-weight:700;font-size:.78rem;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.phase-title{font-weight:600;font-size:.88rem}
+.phase-time{font-size:.69rem;color:var(--muted);margin-left:auto;white-space:nowrap}
+.phase-body{padding:0 14px 13px;font-size:.8rem;line-height:1.7;color:#8a9ab8;border-top:1px solid var(--border)}
+.phase-body ul{padding-left:15px;margin-top:9px}
+.phase-body li{margin-bottom:4px}
+.hl{color:var(--gold);font-weight:500}
+.tip-card{background:rgba(232,184,109,.06);border:1px solid rgba(232,184,109,.2);border-radius:9px;padding:11px 13px;margin-top:11px;font-size:.79rem;line-height:1.6}
+.tip-card strong{color:var(--gold);display:block;margin-bottom:3px}
+.resources{margin-top:14px}
+.resources h3{font-size:.78rem;font-weight:700;letter-spacing:.5px;text-transform:uppercase;color:var(--muted);margin-bottom:9px}
+.res-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.res-card{background:var(--card);border:1px solid var(--border);border-radius:9px;padding:10px 12px}
+.res-card .res-icon{font-size:1.2rem;margin-bottom:5px}
+.res-card .res-name{font-size:.78rem;font-weight:600;color:var(--text)}
+.res-card .res-desc{font-size:.68rem;color:var(--muted);margin-top:2px}
+
+/* ── QUIZ TAB ── */
+#quiz-view{overflow-y:auto;padding:14px;display:flex;flex-direction:column;gap:12px}
+.quiz-hero{background:var(--card);border:1px solid var(--border);border-radius:11px;padding:14px}
+.quiz-hero h2{font-family:Georgia,serif;color:var(--gold);font-size:1.05rem;margin-bottom:4px}
+.quiz-hero p{font-size:.76rem;color:var(--muted)}
+.quiz-modes{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:11px}
+.qmode-btn{background:var(--bg);border:1px solid var(--border);border-radius:9px;padding:11px 10px;cursor:pointer;text-align:center;transition:border-color .2s;font-family:inherit}
+.qmode-btn:hover{border-color:var(--gold)}
+.qmode-btn .qm-icon{font-size:1.3rem;margin-bottom:4px}
+.qmode-btn .qm-name{font-size:.77rem;font-weight:600;color:var(--text);display:block}
+.qmode-btn .qm-desc{font-size:.67rem;color:var(--muted);display:block;margin-top:2px}
+#quiz-area{display:none}
+.q-progress{display:flex;align-items:center;gap:10px;margin-bottom:12px}
+.q-bar-bg{flex:1;height:5px;background:var(--border);border-radius:3px}
+.q-bar-fill{height:100%;background:var(--gold);border-radius:3px;transition:width .4s}
+.q-count{font-size:.7rem;color:var(--muted);white-space:nowrap}
+.q-score-display{font-size:.7rem;color:var(--green);font-weight:600}
+.q-card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:18px 16px;text-align:center;margin-bottom:12px}
+.q-cat{font-size:.62rem;color:var(--muted);letter-spacing:1px;text-transform:uppercase;margin-bottom:8px}
+.q-word{font-family:Georgia,serif;font-size:1.6rem;color:var(--gold);margin-bottom:6px}
+.q-hint{font-size:.74rem;color:var(--muted);font-style:italic}
+.q-pronounce{background:transparent;border:1px solid var(--border);border-radius:20px;padding:5px 14px;color:var(--gold);font-size:.7rem;cursor:pointer;margin-top:8px;font-family:inherit}
+.q-options{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.q-opt{background:var(--bg);border:1px solid var(--border);border-radius:9px;padding:11px 8px;cursor:pointer;font-size:.84rem;color:var(--text);font-family:inherit;transition:all .15s;text-align:center}
+.q-opt:hover{border-color:var(--gold);color:var(--gold)}
+.q-opt.correct{background:rgba(39,174,96,.15);border-color:var(--green);color:var(--green)}
+.q-opt.wrong{background:rgba(192,57,43,.12);border-color:var(--red);color:var(--red)}
+.q-opt.reveal{background:rgba(39,174,96,.08);border-color:var(--green);color:var(--green)}
+.q-feedback{text-align:center;padding:10px;font-size:.84rem;font-weight:600;min-height:36px}
+.q-feedback.ok{color:var(--green)}.q-feedback.bad{color:var(--red)}
+#q-next{display:none;width:100%;padding:11px;background:var(--gold);color:#000;border:none;border-radius:9px;font-size:.88rem;font-weight:600;cursor:pointer;font-family:inherit;margin-top:4px}
+.q-result{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:20px;text-align:center;display:none}
+.q-result .trophy{font-size:2.5rem;margin-bottom:8px}
+.q-result h3{font-family:Georgia,serif;color:var(--gold);font-size:1.1rem;margin-bottom:6px}
+.q-result .q-final-score{font-size:1.8rem;font-weight:700;color:var(--text);margin-bottom:4px}
+.q-result p{font-size:.78rem;color:var(--muted);margin-bottom:14px}
+.q-result button{padding:10px 24px;background:var(--gold);color:#000;border:none;border-radius:8px;font-size:.85rem;font-weight:600;cursor:pointer;font-family:inherit}
+
+/* LEVEL SHEET */
+#level-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.75);z-index:99;align-items:flex-end}
+#level-overlay.open{display:flex}
+#level-sheet{background:var(--surface);border-top:1px solid var(--border);border-radius:16px 16px 0 0;padding:18px 15px 34px;width:100%}
+#level-sheet h3{font-family:Georgia,serif;color:var(--gold);margin-bottom:3px}
+#level-sheet p{font-size:.74rem;color:var(--muted);margin-bottom:12px}
+.lopt{background:var(--bg);border:1px solid var(--border);border-radius:9px;padding:10px 13px;margin-bottom:7px;cursor:pointer;width:100%;text-align:left;font-family:inherit;color:var(--muted);transition:all .15s}
+.lopt.sel,.lopt:hover{border-color:var(--green);color:var(--text)}
+.lopt strong{display:block;font-size:.84rem;margin-bottom:2px}
+.lopt small{font-size:.7rem}
+
+@keyframes fadeIn{from{opacity:0;transform:translateY(5px)}to{opacity:1;transform:none}}
+@keyframes bounce{0%,80%,100%{transform:translateY(0)}40%{transform:translateY(-5px)}}
+@keyframes pulseBtn{from{box-shadow:0 0 0 0 rgba(232,184,109,.4)}to{box-shadow:0 0 0 6px rgba(232,184,109,0)}}
+::-webkit-scrollbar{width:4px}::-webkit-scrollbar-thumb{background:var(--border);border-radius:2px}
+</style>
+</head>
+<body>
+<div id="app">
+  <header>
+    <div class="logo">Habla<span>.</span></div>
+    <button id="level-btn">Beginner · A1</button>
+  </header>
+
+  <nav>
+    <div class="tab active" data-view="tutor-view">🗣 Tutor</div>
+    <div class="tab" data-view="vocab-view">📖 Vocab</div>
+    <div class="tab" data-view="plan-view">🗺 Plan</div>
+    <div class="tab" data-view="quiz-view">🎯 Quiz</div>
+  </nav>
+
+  <!-- ══ TUTOR ══ -->
+  <div class="view active" id="tutor-view">
+    <div id="stage">
+      <svg id="carlos-svg" viewBox="0 0 150 180" width="155" height="185" style="transition:transform .05s">
+        <rect x="57" y="140" width="36" height="22" rx="6" fill="#c8956c"/>
+        <path d="M 35 162 Q 75 175 115 162 L 120 180 L 30 180 Z" fill="#1a3a6a"/>
+        <path d="M 65 162 L 75 175 L 85 162 L 75 158 Z" fill="white"/>
+        <ellipse cx="75" cy="82" rx="52" ry="58" fill="#c8956c"/>
+        <ellipse cx="75" cy="30" rx="52" ry="22" fill="#2c1810"/>
+        <path d="M 23 48 Q 20 35 25 25 Q 40 10 75 8 Q 110 10 125 25 Q 130 35 127 48" fill="#2c1810"/>
+        <ellipse cx="23" cy="82" rx="10" ry="13" fill="#c8956c"/>
+        <ellipse cx="127" cy="82" rx="10" ry="13" fill="#c8956c"/>
+        <ellipse cx="23" cy="82" rx="6" ry="9" fill="#b07850" opacity=".5"/>
+        <ellipse cx="127" cy="82" rx="6" ry="9" fill="#b07850" opacity=".5"/>
+        <path id="brow-l" d="M 44 46 Q 56 40 65 44" stroke="#2c1810" stroke-width="3.5" fill="none" stroke-linecap="round"/>
+        <path id="brow-r" d="M 85 44 Q 94 40 106 46" stroke="#2c1810" stroke-width="3.5" fill="none" stroke-linecap="round"/>
+        <ellipse cx="55" cy="52" rx="13" ry="7" fill="white"/>
+        <ellipse cx="95" cy="52" rx="13" ry="7" fill="white"/>
+        <ellipse id="iris-l" cx="55" cy="52" rx="8" ry="8" fill="#4a2c0a"/>
+        <ellipse id="iris-r" cx="95" cy="52" rx="8" ry="8" fill="#4a2c0a"/>
+        <ellipse id="pupil-l" cx="56" cy="50" rx="4" ry="4" fill="#1a0a00"/>
+        <ellipse id="pupil-r" cx="96" cy="50" rx="4" ry="4" fill="#1a0a00"/>
+        <circle id="shine-l" cx="58" cy="48" r="2" fill="white" opacity=".8"/>
+        <circle id="shine-r" cx="98" cy="48" r="2" fill="white" opacity=".8"/>
+        <ellipse cx="75" cy="74" rx="8" ry="5" fill="#b07850" opacity=".4"/>
+        <circle cx="70" cy="76" r="2.5" fill="#9a6840" opacity=".5"/>
+        <circle cx="80" cy="76" r="2.5" fill="#9a6840" opacity=".5"/>
+        <path id="mouth" d="M 55 88 Q 75 93 95 88" stroke="#7a3a20" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+        <path d="M 46 80 Q 42 88 46 94" stroke="#b07850" stroke-width="1.5" fill="none" opacity=".4"/>
+        <path d="M 104 80 Q 108 88 104 94" stroke="#b07850" stroke-width="1.5" fill="none" opacity=".4"/>
+        <ellipse id="glow" cx="75" cy="82" rx="54" ry="60" fill="none" stroke="#27ae60" stroke-width="3" opacity="0"/>
+        <g id="sound-bars" opacity="0">
+          <rect x="108" y="37" width="5" height="8" rx="2" fill="#c0392b"/>
+          <rect x="116" y="32" width="5" height="18" rx="2" fill="#c0392b"/>
+          <rect x="124" y="28" width="5" height="26" rx="2" fill="#c0392b"/>
+        </g>
+        <g id="think-bubbles" opacity="0">
+          <circle cx="108" cy="40" r="4" fill="#8e44ad"/>
+          <circle cx="119" cy="28" r="6" fill="#8e44ad"/>
+          <circle cx="132" cy="14" r="9" fill="#8e44ad"/>
+          <text x="132" y="18" fill="white" font-size="9" text-anchor="middle">?</text>
+        </g>
+      </svg>
+      <div id="status-label">Carlos</div>
+      <div class="auto-row" id="auto-toggle">
+        <span>Carlos speaks</span>
+        <div class="tog" id="tog-track" style="background:var(--green)">
+          <div class="tog-k" id="tog-k" style="left:14px"></div>
+        </div>
+      </div>
+    </div>
+    <div id="messages"></div>
+    <div id="input-area">
+      <div id="input-row">
+        <input type="text" id="txt" placeholder="Type or tap 🎤 to speak">
+        <button class="ibtn" id="mic-btn">🎤</button>
+        <button class="ibtn" id="snd-btn">➤</button>
+      </div>
+      <button id="stop-btn">⏹ Stop Carlos</button>
+      <div id="mic-err"></div>
+      <div id="hint">Speak English or Spanish — Carlos understands both</div>
+    </div>
+  </div>
+
+  <!-- ══ VOCAB ══ -->
+  <div class="view" id="vocab-view">
+    <div class="vocab-top">
+      <h2>Vocabulary Library</h2>
+      <p>Everything you need — tap 🔊 to hear pronunciation</p>
+    </div>
+    <div class="cats" id="cat-btns"></div>
+    <div class="vgrid" id="vgrid"></div>
+  </div>
+
+  <!-- ══ PLAN ══ -->
+  <div class="view" id="plan-view">
+    <div class="plan-hero">
+      <h2>Your 12-Month Roadmap</h2>
+      <p>From zero to confident conversational Spanish</p>
+    </div>
+
+    <div class="phase">
+      <div class="phase-hd">
+        <div class="phase-num">1</div>
+        <div><div class="phase-title">Survival Spanish</div><div style="font-size:.7rem;color:var(--muted)">Months 1–2 · A1 Beginner</div></div>
+      </div>
+      <div class="phase-body">Don't worry about being perfect — build the skeleton first.
+        <ul>
+          <li><span class="hl">Week 1–2:</span> Greetings, numbers 1–100, days &amp; months</li>
+          <li><span class="hl">Week 3–4:</span> Ser vs Estar (to be), subject pronouns</li>
+          <li><span class="hl">Week 5–6:</span> Present tense regular verbs (-ar / -er / -ir)</li>
+          <li><span class="hl">Week 7–8:</span> Colors, family vocab, simple sentences</li>
+        </ul>
+        <br><strong>Daily habit:</strong> 15 min with Carlos + 10 min Duolingo. Target: 300 words.
+      </div>
+    </div>
+
+    <div class="phase">
+      <div class="phase-hd">
+        <div class="phase-num">2</div>
+        <div><div class="phase-title">Building Real Sentences</div><div style="font-size:.7rem;color:var(--muted)">Months 3–4 · A2 Elementary</div></div>
+      </div>
+      <div class="phase-body">Start forming your own sentences and asking questions.
+        <ul>
+          <li><span class="hl">Irregular verbs:</span> tener, ir, querer, poder, hacer</li>
+          <li><span class="hl">Past tense:</span> Preterite (pretérito indefinido)</li>
+          <li><span class="hl">Questions:</span> ¿Dónde? ¿Cuándo? ¿Quién? ¿Cómo?</li>
+          <li><span class="hl">Practical vocab:</span> Shopping, directions, restaurants, travel</li>
+        </ul>
+        <br><strong>Add:</strong> Easy Spanish on YouTube — 10 min/day of real street conversations.
+      </div>
+    </div>
+
+    <div class="phase">
+      <div class="phase-hd">
+        <div class="phase-num">3</div>
+        <div><div class="phase-title">Hold a Conversation</div><div style="font-size:.7rem;color:var(--muted)">Months 5–7 · B1 Intermediate</div></div>
+      </div>
+      <div class="phase-body">The hardest phase — push through and real conversations become possible.
+        <ul>
+          <li><span class="hl">Imperfect tense</span> — describing the past (era, tenía, vivía)</li>
+          <li><span class="hl">Future tense</span> — plans and predictions (voy a, iré)</li>
+          <li><span class="hl">Reflexive verbs</span> — levantarse, llamarse, sentirse</li>
+          <li><span class="hl">Subjunctive intro</span> — quiero que…, espero que…</li>
+          <li><span class="hl">Opinion phrases</span> — creo que, me parece, en mi opinión</li>
+        </ul>
+        <br><strong>Add:</strong> Find a language exchange partner on Tandem app — 2× 20-min calls/week.
+      </div>
+    </div>
+
+    <div class="phase">
+      <div class="phase-hd">
+        <div class="phase-num">4</div>
+        <div><div class="phase-title">Think in Spanish</div><div style="font-size:.7rem;color:var(--muted)">Months 8–12 · B2 Upper Intermediate</div></div>
+      </div>
+      <div class="phase-body">Consume Spanish media naturally. Your accent solidifies here.
+        <ul>
+          <li><span class="hl">Podcasts:</span> Español con Juan, Coffee Break Spanish</li>
+          <li><span class="hl">TV:</span> La Casa de Papel, Club de Cuervos (Netflix) with Spanish subtitles</li>
+          <li><span class="hl">Reading:</span> Children's books → news articles → novels</li>
+          <li><span class="hl">Advanced grammar:</span> Subjunctive mastery, conditional tense</li>
+        </ul>
+        <br><strong>Goal:</strong> 30-minute unscripted conversation with your wife's family by Month 12.
+      </div>
+    </div>
+
+    <div class="tip-card"><strong>💡 The #1 Secret to Fluency</strong>Consistency beats intensity every time. 20 minutes every day beats a 3-hour weekend session. Use Carlos daily — even a 5-minute check-in keeps Spanish active in your brain.</div>
+    <div class="tip-card"><strong>🎯 Why This Works for You</strong>Learning Spanish to connect with your wife's family is one of the most powerful motivators there is. When you know your "why", you push through the tough weeks. Keep that image in mind — the look on their faces when you speak Spanish to them.</div>
+
+    <div class="resources">
+      <h3>Recommended Resources</h3>
+      <div class="res-grid">
+        <div class="res-card"><div class="res-icon">🟢</div><div class="res-name">Duolingo</div><div class="res-desc">Daily 10-min habit builder. Free.</div></div>
+        <div class="res-card"><div class="res-icon">📺</div><div class="res-name">Easy Spanish</div><div class="res-desc">Real street conversations on YouTube.</div></div>
+        <div class="res-card"><div class="res-icon">🔁</div><div class="res-name">Anki</div><div class="res-desc">Flashcard app with spaced repetition.</div></div>
+        <div class="res-card"><div class="res-icon">🤝</div><div class="res-name">Tandem</div><div class="res-desc">Language exchange partners.</div></div>
+        <div class="res-card"><div class="res-icon">📚</div><div class="res-name">SpanishPod101</div><div class="res-desc">Structured audio lessons.</div></div>
+        <div class="res-card"><div class="res-icon">🎬</div><div class="res-name">Language Reactor</div><div class="res-desc">Learn from Netflix with dual subs.</div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ QUIZ ══ -->
+  <div class="view" id="quiz-view">
+    <div class="quiz-hero">
+      <h2>Test Your Spanish</h2>
+      <p>Practice makes perfect — choose a quiz mode below</p>
+      <div class="quiz-modes">
+        <button class="qmode-btn" onclick="startQuiz('all')"><div class="qm-icon">🌟</div><span class="qm-name">All Words</span><span class="qm-desc">Full vocabulary</span></button>
+        <button class="qmode-btn" onclick="startQuiz('greetings')"><div class="qm-icon">👋</div><span class="qm-name">Greetings</span><span class="qm-desc">Say hello!</span></button>
+        <button class="qmode-btn" onclick="startQuiz('verbs')"><div class="qm-icon">⚡</div><span class="qm-name">Verbs</span><span class="qm-desc">Action words</span></button>
+        <button class="qmode-btn" onclick="startQuiz('numbers')"><div class="qm-icon">🔢</div><span class="qm-name">Numbers</span><span class="qm-desc">0 to 100</span></button>
+        <button class="qmode-btn" onclick="startQuiz('months')"><div class="qm-icon">📅</div><span class="qm-name">Months</span><span class="qm-desc">All 12 months</span></button>
+        <button class="qmode-btn" onclick="startQuiz('phrases')"><div class="qm-icon">💬</div><span class="qm-name">Phrases</span><span class="qm-desc">Essential phrases</span></button>
+      </div>
+    </div>
+    <div id="quiz-area">
+      <div class="q-progress">
+        <div class="q-bar-bg"><div class="q-bar-fill" id="q-bar" style="width:0%"></div></div>
+        <div class="q-count" id="q-count">0/10</div>
+        <div class="q-score-display" id="q-score-disp">⭐ 0</div>
+      </div>
+      <div class="q-card">
+        <div class="q-cat" id="q-cat"></div>
+        <div class="q-word" id="q-word"></div>
+        <div class="q-hint" id="q-hint"></div>
+        <button class="q-pronounce" id="q-pronounce-btn" onclick="pronounceQuizWord()">🔊 Hear it</button>
+      </div>
+      <div class="q-options" id="q-options"></div>
+      <div class="q-feedback" id="q-feedback"></div>
+      <button id="q-next" onclick="nextQuestion()">Next →</button>
+      <div class="q-result" id="q-result">
+        <div class="trophy" id="q-trophy"></div>
+        <h3 id="q-result-title"></h3>
+        <div class="q-final-score" id="q-final-score"></div>
+        <p id="q-result-msg"></p>
+        <button onclick="resetQuiz()">Play Again</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Level sheet -->
+<div id="level-overlay">
+  <div id="level-sheet">
+    <h3>Your Level</h3>
+    <p>Carlos adapts to where you are</p>
+    <button class="lopt sel" data-level="Beginner · A1"><strong>Absolute Beginner</strong><small>A1 — I know zero Spanish</small></button>
+    <button class="lopt" data-level="Elementary · A2"><strong>Elementary</strong><small>A2 — I know some basics</small></button>
+    <button class="lopt" data-level="Intermediate · B1"><strong>Intermediate</strong><small>B1 — I can form sentences</small></button>
+    <button class="lopt" data-level="Upper-Int · B2"><strong>Upper Intermediate</strong><small>B2 — I can hold conversations</small></button>
+  </div>
+</div>
+
+<script>
+// ════════════════════════════════════════════
+// VOCAB DATA
+// ════════════════════════════════════════════
+const VOCAB = [
+  // GREETINGS
+  {es:'hola',en:'hello',pos:'greeting',cat:'greetings',tip:'Works any time of day — the universal opener!',ex:'¡Hola! ¿Cómo estás?',exEn:'Hello! How are you?'},
+  {es:'adiós',en:'goodbye',pos:'greeting',cat:'greetings',tip:'Informal goodbye — also "hasta luego" (see you later)',ex:'¡Adiós! ¡Hasta pronto!',exEn:'Goodbye! See you soon!'},
+  {es:'buenos días',en:'good morning',pos:'greeting',cat:'greetings',tip:'Use until noon, then switch to "buenas tardes".',ex:'Buenos días, ¿cómo le va?',exEn:'Good morning, how are you?'},
+  {es:'buenas tardes',en:'good afternoon',pos:'greeting',cat:'greetings',tip:'Used from noon until sunset.',ex:'Buenas tardes, señor.',exEn:'Good afternoon, sir.'},
+  {es:'buenas noches',en:'good evening / goodnight',pos:'greeting',cat:'greetings',tip:'Used both as a greeting at night and when going to bed.',ex:'Buenas noches, que descanses.',exEn:'Good night, rest well.'},
+  {es:'gracias',en:'thank you',pos:'greeting',cat:'greetings',tip:'Add "muchas" to say "thank you very much".',ex:'Muchas gracias por tu ayuda.',exEn:'Thank you very much for your help.'},
+  {es:'de nada',en:'you\'re welcome',pos:'greeting',cat:'greetings',tip:'Literally "of nothing" — the standard response to gracias.',ex:'— Gracias. — ¡De nada!',exEn:'— Thank you. — You\'re welcome!'},
+  {es:'por favor',en:'please',pos:'greeting',cat:'greetings',tip:'Goes at the end of a request — very polite.',ex:'Un café, por favor.',exEn:'A coffee, please.'},
+  {es:'lo siento',en:'I\'m sorry',pos:'greeting',cat:'greetings',tip:'For apologies. "Perdón" is more for bumping into someone.',ex:'Lo siento mucho, fue mi culpa.',exEn:'I\'m very sorry, it was my fault.'},
+  {es:'con permiso',en:'excuse me (to pass)',pos:'greeting',cat:'greetings',tip:'Used when squeezing past someone or leaving a room.',ex:'Con permiso, ¿puedo pasar?',exEn:'Excuse me, may I pass?'},
+  {es:'¿cómo estás?',en:'How are you? (informal)',pos:'phrase',cat:'greetings',tip:'Use with friends and family. "¿Cómo está usted?" for strangers.',ex:'¡Hola! ¿Cómo estás hoy?',exEn:'Hi! How are you today?'},
+  {es:'bien, gracias',en:'fine, thank you',pos:'phrase',cat:'greetings',tip:'The classic answer — add "¿y tú?" to return the question.',ex:'Bien, gracias. ¿Y tú?',exEn:'Fine, thanks. And you?'},
+  {es:'mucho gusto',en:'nice to meet you',pos:'greeting',cat:'greetings',tip:'Said when introduced to someone for the first time.',ex:'Mucho gusto en conocerte.',exEn:'Nice to meet you.'},
+
+  // VERBS
+  {es:'ser',en:'to be (permanent)',pos:'verb',cat:'verbs',tip:'Identity, origin, profession, permanent traits.',ex:'Soy canadiense y soy alto.',exEn:'I am Canadian and I am tall.'},
+  {es:'estar',en:'to be (temporary)',pos:'verb',cat:'verbs',tip:'Feelings, location, temporary states — ser vs estar is crucial!',ex:'Estoy muy cansado hoy.',exEn:'I am very tired today.'},
+  {es:'tener',en:'to have',pos:'verb',cat:'verbs',tip:'Irregular! "tengo" not "teno". Used constantly in Spanish.',ex:'Tengo mucha hambre.',exEn:'I am very hungry (I have much hunger).'},
+  {es:'ir',en:'to go',pos:'verb',cat:'verbs',tip:'"Voy a + verb" = easy future tense shortcut!',ex:'Voy al mercado mañana.',exEn:'I\'m going to the market tomorrow.'},
+  {es:'hacer',en:'to do / to make',pos:'verb',cat:'verbs',tip:'Also used for weather: "hace calor" (it\'s hot).',ex:'¿Qué haces este fin de semana?',exEn:'What are you doing this weekend?'},
+  {es:'querer',en:'to want / to love',pos:'verb',cat:'verbs',tip:'Stem-changing: quiero, quieres, quiere… Also means "to love" a person!',ex:'Quiero aprender español.',exEn:'I want to learn Spanish.'},
+  {es:'poder',en:'to be able to / can',pos:'verb',cat:'verbs',tip:'Stem-changing: puedo, puedes, puede…',ex:'¿Puedes hablar más despacio?',exEn:'Can you speak more slowly?'},
+  {es:'hablar',en:'to speak',pos:'verb',cat:'verbs',tip:'Regular -ar verb — the most common verb pattern.',ex:'Quiero hablar español bien.',exEn:'I want to speak Spanish well.'},
+  {es:'comer',en:'to eat',pos:'verb',cat:'verbs',tip:'Regular -er verb: como, comes, come, comemos…',ex:'Me gusta comer tacos.',exEn:'I like to eat tacos.'},
+  {es:'vivir',en:'to live',pos:'verb',cat:'verbs',tip:'Regular -ir verb: vivo, vives, vive…',ex:'Vivo en Winnipeg, Canadá.',exEn:'I live in Winnipeg, Canada.'},
+  {es:'saber',en:'to know (a fact)',pos:'verb',cat:'verbs',tip:'"Saber" = know facts. "Conocer" = know people/places.',ex:'No sé hablar chino.',exEn:'I don\'t know how to speak Chinese.'},
+  {es:'conocer',en:'to know (a person/place)',pos:'verb',cat:'verbs',tip:'Used for people, cities, experiences — not facts.',ex:'¿Conoces Madrid?',exEn:'Do you know Madrid?'},
+  {es:'venir',en:'to come',pos:'verb',cat:'verbs',tip:'Irregular: vengo, vienes, viene…',ex:'¿De dónde vienes?',exEn:'Where do you come from?'},
+  {es:'dar',en:'to give',pos:'verb',cat:'verbs',tip:'Irregular first person: "doy" (I give).',ex:'¿Me das tu número?',exEn:'Will you give me your number?'},
+  {es:'ver',en:'to see / to watch',pos:'verb',cat:'verbs',tip:'Also used for watching TV: "ver la tele".',ex:'Me gusta ver películas.',exEn:'I like to watch movies.'},
+  {es:'escuchar',en:'to listen',pos:'verb',cat:'verbs',tip:'Regular -ar verb. "Escucha" = listen! (command)',ex:'Escucha, tengo una idea.',exEn:'Listen, I have an idea.'},
+  {es:'aprender',en:'to learn',pos:'verb',cat:'verbs',tip:'Regular -er verb. This is what you\'re doing right now!',ex:'Estoy aprendiendo español.',exEn:'I am learning Spanish.'},
+
+  // NOUNS
+  {es:'la familia',en:'the family',pos:'noun',cat:'nouns',tip:'Your motivation for learning! "Familia" is similar to English.',ex:'Mi familia es muy importante.',exEn:'My family is very important.'},
+  {es:'la esposa / el esposo',en:'wife / husband',pos:'noun',cat:'nouns',tip:'Also: "la mujer" (wife/woman), "el marido" (husband).',ex:'Mi esposa habla español.',exEn:'My wife speaks Spanish.'},
+  {es:'el hijo / la hija',en:'son / daughter',pos:'noun',cat:'nouns',tip:'"Los hijos" can mean sons OR children (mixed group).',ex:'Tengo dos hijos.',exEn:'I have two children.'},
+  {es:'la casa',en:'the house',pos:'noun',cat:'nouns',tip:'"La" = feminine. Many -a words are feminine.',ex:'Mi casa es muy cómoda.',exEn:'My house is very comfortable.'},
+  {es:'el trabajo',en:'work / job',pos:'noun',cat:'nouns',tip:'"El" = masculine. Most -o words are masculine.',ex:'Voy al trabajo en coche.',exEn:'I go to work by car.'},
+  {es:'el tiempo',en:'time / weather',pos:'noun',cat:'nouns',tip:'Context tells you: "el tiempo libre" = free time. "el tiempo" alone often = weather.',ex:'¿Qué tiempo hace hoy?',exEn:'What\'s the weather like today?'},
+  {es:'la comida',en:'food',pos:'noun',cat:'nouns',tip:'From "comer" (to eat) — spot the connection!',ex:'La comida mexicana es deliciosa.',exEn:'Mexican food is delicious.'},
+  {es:'el agua',en:'water',pos:'noun',cat:'nouns',tip:'Feminine word but uses "el" to avoid double-a sound: "el agua fría".',ex:'¿Me trae un vaso de agua?',exEn:'Can you bring me a glass of water?'},
+  {es:'el amigo / la amiga',en:'friend (m/f)',pos:'noun',cat:'nouns',tip:'Spanish changes word endings for gender — -o masculine, -a feminine.',ex:'Ella es mi mejor amiga.',exEn:'She is my best friend.'},
+  {es:'la ciudad',en:'the city',pos:'noun',cat:'nouns',tip:'Words ending in -dad are feminine.',ex:'Me gusta vivir en esta ciudad.',exEn:'I like living in this city.'},
+  {es:'el dinero',en:'money',pos:'noun',cat:'nouns',tip:'Uncountable in Spanish — always singular.',ex:'No tengo mucho dinero.',exEn:'I don\'t have much money.'},
+  {es:'la tienda',en:'the store / shop',pos:'noun',cat:'nouns',tip:'"La tienda de ropa" = clothing store. "La tienda de comida" = grocery store.',ex:'Voy a la tienda a comprar leche.',exEn:'I\'m going to the store to buy milk.'},
+  {es:'el restaurante',en:'the restaurant',pos:'noun',cat:'nouns',tip:'Almost the same as English — cognate words are your friends!',ex:'¿Vamos al restaurante esta noche?',exEn:'Shall we go to the restaurant tonight?'},
+  {es:'el avión',en:'the airplane',pos:'noun',cat:'nouns',tip:'Accent on the ó — "ah-vee-OHN".',ex:'El avión sale a las ocho.',exEn:'The plane leaves at eight.'},
+  {es:'el médico / la médica',en:'doctor (m/f)',pos:'noun',cat:'nouns',tip:'Also "el doctor / la doctora".',ex:'Necesito ver al médico.',exEn:'I need to see the doctor.'},
+
+  // PHRASES
+  {es:'¿cómo te llamas?',en:'What\'s your name?',pos:'phrase',cat:'phrases',tip:'Literally "what do you call yourself?" — very natural in Spanish.',ex:'¿Cómo te llamas? Me llamo Tom.',exEn:'What\'s your name? My name is Tom.'},
+  {es:'me llamo…',en:'My name is…',pos:'phrase',cat:'phrases',tip:'Literally "I call myself…" — used more than "mi nombre es".',ex:'Me llamo Tom y soy de Canadá.',exEn:'My name is Tom and I\'m from Canada.'},
+  {es:'¿de dónde eres?',en:'Where are you from?',pos:'phrase',cat:'phrases',tip:'"¿De dónde es usted?" is the formal version.',ex:'¿De dónde eres? Soy de Canadá.',exEn:'Where are you from? I\'m from Canada.'},
+  {es:'no entiendo',en:'I don\'t understand',pos:'phrase',cat:'phrases',tip:'Essential phrase — never be afraid to say it!',ex:'Lo siento, no entiendo. ¿Puedes repetir?',exEn:'Sorry, I don\'t understand. Can you repeat?'},
+  {es:'¿puedes repetir?',en:'Can you repeat?',pos:'phrase',cat:'phrases',tip:'Pair with "más despacio" (more slowly) for full effect.',ex:'¿Puedes repetir más despacio, por favor?',exEn:'Can you repeat more slowly, please?'},
+  {es:'más despacio',en:'more slowly',pos:'phrase',cat:'phrases',tip:'A lifesaver with fast native speakers!',ex:'Habla más despacio, por favor.',exEn:'Speak more slowly, please.'},
+  {es:'me gusta',en:'I like',pos:'phrase',cat:'phrases',tip:'Literally "it pleases me" — the thing you like is the subject.',ex:'Me gusta mucho la música latina.',exEn:'I really like Latin music.'},
+  {es:'no me gusta',en:'I don\'t like',pos:'phrase',cat:'phrases',tip:'Use "no me gustan" when disliking multiple things.',ex:'No me gusta el frío.',exEn:'I don\'t like the cold.'},
+  {es:'¿cuánto cuesta?',en:'How much does it cost?',pos:'phrase',cat:'phrases',tip:'"¿Cuánto cuestan?" for multiple items.',ex:'¿Cuánto cuesta este libro?',exEn:'How much does this book cost?'},
+  {es:'¿dónde está…?',en:'Where is…?',pos:'phrase',cat:'phrases',tip:'Essential for directions and finding things.',ex:'¿Dónde está el baño, por favor?',exEn:'Where is the bathroom, please?'},
+  {es:'tengo hambre',en:'I\'m hungry',pos:'phrase',cat:'phrases',tip:'Literally "I have hunger" — Spanish uses tener for feelings.',ex:'Tengo mucha hambre. ¿Comemos?',exEn:'I\'m very hungry. Shall we eat?'},
+  {es:'tengo sed',en:'I\'m thirsty',pos:'phrase',cat:'phrases',tip:'"Sed" = thirst. "Tengo + noun" is the pattern for many feelings.',ex:'Tengo sed, ¿hay agua?',exEn:'I\'m thirsty, is there water?'},
+  {es:'¿qué hora es?',en:'What time is it?',pos:'phrase',cat:'phrases',tip:'"Son las tres" (it\'s three). "Es la una" (it\'s one).',ex:'¿Qué hora es? Son las dos.',exEn:'What time is it? It\'s two o\'clock.'},
+  {es:'no hablo bien español',en:'I don\'t speak Spanish well',pos:'phrase',cat:'phrases',tip:'A humble opener — native speakers love the effort!',ex:'Disculpe, no hablo bien español.',exEn:'Excuse me, I don\'t speak Spanish well.'},
+  {es:'estoy aprendiendo español',en:'I\'m learning Spanish',pos:'phrase',cat:'phrases',tip:'Great icebreaker — it explains everything and invites patience.',ex:'Estoy aprendiendo español para hablar con mi familia.',exEn:'I\'m learning Spanish to talk with my family.'},
+  {es:'¿hablas inglés?',en:'Do you speak English?',pos:'phrase',cat:'phrases',tip:'Useful backup — but try Spanish first!',ex:'¿Hablas inglés? Mi español es básico.',exEn:'Do you speak English? My Spanish is basic.'},
+
+  // NUMBERS
+  {es:'cero',en:'0 — zero',pos:'number',cat:'numbers',tip:'Used in phone numbers, scores, and addresses.',ex:'Mi equipo perdió cero a uno.',exEn:'My team lost zero to one.'},
+  {es:'uno / una',en:'1 — one',pos:'number',cat:'numbers',tip:'"Uno" drops the -o before masculine nouns: "un libro" (one book).',ex:'Quiero un café, por favor.',exEn:'I want one coffee, please.'},
+  {es:'dos',en:'2 — two',pos:'number',cat:'numbers',tip:'Numbers 2–9 don\'t change for gender.',ex:'Tengo dos hermanos.',exEn:'I have two brothers.'},
+  {es:'tres',en:'3 — three',pos:'number',cat:'numbers',tip:'Used in telling time: "son las tres" (it\'s three o\'clock).',ex:'Son las tres de la tarde.',exEn:'It\'s three in the afternoon.'},
+  {es:'cuatro',en:'4 — four',pos:'number',cat:'numbers',tip:'4 wheels = cuatro ruedas.',ex:'Hay cuatro personas en mi familia.',exEn:'There are four people in my family.'},
+  {es:'cinco',en:'5 — five',pos:'number',cat:'numbers',tip:'Think Cinco de Mayo — already in your memory!',ex:'El restaurante cierra a las cinco.',exEn:'The restaurant closes at five.'},
+  {es:'seis',en:'6 — six',pos:'number',cat:'numbers',tip:'Pronounced "say-ees" — two syllables.',ex:'Tengo seis clases esta semana.',exEn:'I have six classes this week.'},
+  {es:'siete',en:'7 — seven',pos:'number',cat:'numbers',tip:'Three syllables: "see-EH-teh".',ex:'Hay siete días en la semana.',exEn:'There are seven days in the week.'},
+  {es:'ocho',en:'8 — eight',pos:'number',cat:'numbers',tip:'Pretty intuitive to remember!',ex:'El tren llega a las ocho.',exEn:'The train arrives at eight.'},
+  {es:'nueve',en:'9 — nine',pos:'number',cat:'numbers',tip:'Pronounced "NWEH-beh".',ex:'Tiene nueve vidas, como un gato.',exEn:'It has nine lives, like a cat.'},
+  {es:'diez',en:'10 — ten',pos:'number',cat:'numbers',tip:'"Diez" is the root for 11–19: once, doce, trece…',ex:'Espera diez minutos, por favor.',exEn:'Wait ten minutes, please.'},
+  {es:'once / doce / trece',en:'11 / 12 / 13',pos:'number',cat:'numbers',tip:'11–15 are unique words, not combinations.',ex:'Son las doce del mediodía.',exEn:'It\'s twelve noon.'},
+  {es:'catorce / quince',en:'14 / 15',pos:'number',cat:'numbers',tip:'"Quince" is very common — quinceañera = 15th birthday!',ex:'Quince días son dos semanas.',exEn:'Fifteen days are two weeks.'},
+  {es:'dieciséis … diecinueve',en:'16 — 19',pos:'number',cat:'numbers',tip:'"Dieci" + unit. 16=dieciséis, 17=diecisiete, 18=dieciocho, 19=diecinueve.',ex:'Tengo diecisiete años.',exEn:'I am seventeen years old.'},
+  {es:'veinte',en:'20 — twenty',pos:'number',cat:'numbers',tip:'20s: veinti + unit. 21=veintiuno, 22=veintidós…',ex:'Cuesta veinte dólares.',exEn:'It costs twenty dollars.'},
+  {es:'treinta',en:'30 — thirty',pos:'number',cat:'numbers',tip:'30+: treinta y + unit. The "y" means "and".',ex:'Hay treinta días en septiembre.',exEn:'There are thirty days in September.'},
+  {es:'cuarenta',en:'40 — forty',pos:'number',cat:'numbers',tip:'40–90 all end in -enta (except cincuenta).',ex:'Son cuarenta minutos en coche.',exEn:'It\'s forty minutes by car.'},
+  {es:'cincuenta',en:'50 — fifty',pos:'number',cat:'numbers',tip:'Notice "cinco" hiding inside cincuenta!',ex:'Mi padre tiene cincuenta años.',exEn:'My father is fifty years old.'},
+  {es:'sesenta / setenta',en:'60 / 70',pos:'number',cat:'numbers',tip:'60=sesenta, 70=setenta — both end in -enta.',ex:'El vuelo dura sesenta minutos.',exEn:'The flight lasts sixty minutes.'},
+  {es:'ochenta / noventa',en:'80 / 90',pos:'number',cat:'numbers',tip:'Spot ocho (8) and nueve (9) hiding inside!',ex:'Mi abuela tiene ochenta años.',exEn:'My grandmother is eighty years old.'},
+  {es:'cien / ciento',en:'100',pos:'number',cat:'numbers',tip:'"Cien" alone; "ciento" when combining: ciento uno = 101.',ex:'Hay cien personas en la fiesta.',exEn:'There are one hundred people at the party.'},
+
+  // MONTHS
+  {es:'enero',en:'January',pos:'month',cat:'months',tip:'Months are NOT capitalized in Spanish.',ex:'Mi cumpleaños es en enero.',exEn:'My birthday is in January.'},
+  {es:'febrero',en:'February',pos:'month',cat:'months',tip:'Think "February" — febr- sounds similar.',ex:'San Valentín es el catorce de febrero.',exEn:'Valentine\'s Day is February 14th.'},
+  {es:'marzo',en:'March',pos:'month',cat:'months',tip:'Sounds like "Mars" — the Roman god of March.',ex:'La primavera empieza en marzo.',exEn:'Spring begins in March.'},
+  {es:'abril',en:'April',pos:'month',cat:'months',tip:'Very close to English "April".',ex:'En abril llueve mucho en Winnipeg.',exEn:'In April it rains a lot in Winnipeg.'},
+  {es:'mayo',en:'May',pos:'month',cat:'months',tip:'You already know this — ¡Cinco de Mayo!',ex:'Cinco de Mayo es en mayo.',exEn:'Cinco de Mayo is in May.'},
+  {es:'junio',en:'June',pos:'month',cat:'months',tip:'Sounds like "June-io" — easy to remember.',ex:'Las vacaciones empiezan en junio.',exEn:'Holidays start in June.'},
+  {es:'julio',en:'July',pos:'month',cat:'months',tip:'Named after Julius Caesar — Julio César in Spanish.',ex:'Hace mucho calor en julio.',exEn:'It\'s very hot in July.'},
+  {es:'agosto',en:'August',pos:'month',cat:'months',tip:'Named after Augustus Caesar.',ex:'Voy de vacaciones en agosto.',exEn:'I\'m going on vacation in August.'},
+  {es:'septiembre',en:'September',pos:'month',cat:'months',tip:'Sept = seven in Latin — it was once the 7th month.',ex:'Los niños vuelven al colegio en septiembre.',exEn:'Kids go back to school in September.'},
+  {es:'octubre',en:'October',pos:'month',cat:'months',tip:'Oct = eight in Latin. Halloween is Halloween in Spanish too!',ex:'Las hojas cambian de color en octubre.',exEn:'The leaves change colour in October.'},
+  {es:'noviembre',en:'November',pos:'month',cat:'months',tip:'Nov = nine in Latin. Notice the -iembre ending on Sep/Oct/Nov/Dec.',ex:'Hace frío en noviembre en Canadá.',exEn:'It\'s cold in November in Canada.'},
+  {es:'diciembre',en:'December',pos:'month',cat:'months',tip:'Dec = ten in Latin. Navidad = Christmas!',ex:'La Navidad es en diciembre.',exEn:'Christmas is in December.'},
+
+  // DAYS
+  {es:'lunes',en:'Monday',pos:'day',cat:'days',tip:'Days are NOT capitalized in Spanish. From "luna" (moon).',ex:'El lunes empiezo mi dieta.',exEn:'On Monday I start my diet.'},
+  {es:'martes',en:'Tuesday',pos:'day',cat:'days',tip:'From "Marte" (Mars).',ex:'Los martes tengo clase de español.',exEn:'On Tuesdays I have Spanish class.'},
+  {es:'miércoles',en:'Wednesday',pos:'day',cat:'days',tip:'From "Mercurio" (Mercury). Note the accent!',ex:'El miércoles voy al médico.',exEn:'On Wednesday I\'m going to the doctor.'},
+  {es:'jueves',en:'Thursday',pos:'day',cat:'days',tip:'From "Júpiter" (Jupiter).',ex:'¿Qué haces el jueves?',exEn:'What are you doing on Thursday?'},
+  {es:'viernes',en:'Friday',pos:'day',cat:'days',tip:'From "Venus". TGIF = ¡Por fin es viernes!',ex:'El viernes salimos a cenar.',exEn:'On Friday we\'re going out for dinner.'},
+  {es:'sábado',en:'Saturday',pos:'day',cat:'days',tip:'From "Sabbath" — a day of rest.',ex:'El sábado dormimos hasta tarde.',exEn:'On Saturday we sleep in late.'},
+  {es:'domingo',en:'Sunday',pos:'day',cat:'days',tip:'From "Domingo" (the Lord\'s day).',ex:'El domingo comemos en familia.',exEn:'On Sunday we eat as a family.'},
+
+  // COLORS
+  {es:'rojo / roja',en:'red',pos:'color',cat:'colors',tip:'Adjectives match gender: un coche rojo (m), una manzana roja (f).',ex:'La bandera de España es roja y amarilla.',exEn:'The flag of Spain is red and yellow.'},
+  {es:'azul',en:'blue',pos:'color',cat:'colors',tip:'Same for m/f — only changes for plural: azules.',ex:'El cielo es azul.',exEn:'The sky is blue.'},
+  {es:'verde',en:'green',pos:'color',cat:'colors',tip:'Same for m/f — verde, verde, verdes.',ex:'Me gustan las manzanas verdes.',exEn:'I like green apples.'},
+  {es:'amarillo / amarilla',en:'yellow',pos:'color',cat:'colors',tip:'Changes for gender like rojo/roja.',ex:'El sol es amarillo.',exEn:'The sun is yellow.'},
+  {es:'negro / negra',en:'black',pos:'color',cat:'colors',tip:'Common in clothing — "una camiseta negra" (a black t-shirt).',ex:'Tengo un gato negro.',exEn:'I have a black cat.'},
+  {es:'blanco / blanca',en:'white',pos:'color',cat:'colors',tip:'"Blanca" is also a name — Blanca means "white" in Spanish.',ex:'La nieve es blanca.',exEn:'Snow is white.'},
+  {es:'marrón',en:'brown',pos:'color',cat:'colors',tip:'Also "café" in Latin America for brown.',ex:'Tengo los ojos marrones.',exEn:'I have brown eyes.'},
+  {es:'gris',en:'grey',pos:'color',cat:'colors',tip:'Same for m/f. Plural: grises.',ex:'El cielo está gris hoy.',exEn:'The sky is grey today.'},
+
+  // FAMILY
+  {es:'la madre / mamá',en:'mother / mom',pos:'family',cat:'family',tip:'"Mamá" is informal. "La madre" is formal.',ex:'Mi mamá habla español.',exEn:'My mom speaks Spanish.'},
+  {es:'el padre / papá',en:'father / dad',pos:'family',cat:'family',tip:'"Papá" has an accent to distinguish from "papa" (potato)!',ex:'Mi papá es muy gracioso.',exEn:'My dad is very funny.'},
+  {es:'el hermano / la hermana',en:'brother / sister',pos:'family',cat:'family',tip:'"Los hermanos" = brothers OR siblings (mixed group).',ex:'Tengo un hermano y una hermana.',exEn:'I have a brother and a sister.'},
+  {es:'el abuelo / la abuela',en:'grandfather / grandmother',pos:'family',cat:'family',tip:'"Los abuelos" = grandparents.',ex:'Mis abuelos viven en México.',exEn:'My grandparents live in Mexico.'},
+  {es:'el suegro / la suegra',en:'father-in-law / mother-in-law',pos:'family',cat:'family',tip:'"Los suegros" = in-laws. Very useful for your situation!',ex:'Mis suegros hablan solo español.',exEn:'My in-laws only speak Spanish.'},
+  {es:'el cuñado / la cuñada',en:'brother-in-law / sister-in-law',pos:'family',cat:'family',tip:'"Los cuñados" = siblings-in-law.',ex:'Mi cuñado es muy simpático.',exEn:'My brother-in-law is very nice.'},
+  {es:'el sobrino / la sobrina',en:'nephew / niece',pos:'family',cat:'family',tip:'From Latin "nepos" — related to "nephew" in English.',ex:'Mis sobrinos son muy divertidos.',exEn:'My nephews/nieces are very fun.'},
+  {es:'el tío / la tía',en:'uncle / aunt',pos:'family',cat:'family',tip:'"Los tíos" = aunt and uncle together.',ex:'Mi tía hace la mejor comida.',exEn:'My aunt makes the best food.'},
+];
+
+const CATS = ['all','greetings','verbs','nouns','phrases','numbers','months','days','colors','family'];
+const CAT_LABELS = {all:'All',greetings:'Greetings',verbs:'Verbs',nouns:'Nouns',phrases:'Phrases',numbers:'Numbers',months:'Months',days:'Days',colors:'Colors',family:'Family'};
+
+// ════════════════════════════════════════════
+// AVATAR STATE
+// ════════════════════════════════════════════
+let mouthTimer, bobTimer, mouthFrame = 0;
+const MOUTHS = [
+  "M 58 87 Q 75 90 92 87",
+  "M 56 86 Q 75 95 94 86",
+  "M 54 84 Q 75 98 96 84",
+  "M 55 86 Q 75 94 95 86",
+];
+const MOUTH_IDLE = "M 55 88 Q 75 93 95 88";
+
+function setAvatar(state) {
+  const glow = document.getElementById('glow');
+  const lbl = document.getElementById('status-label');
+  const bars = document.getElementById('sound-bars');
+  const think = document.getElementById('think-bubbles');
+  const svg = document.getElementById('carlos-svg');
+  clearInterval(mouthTimer); clearInterval(bobTimer);
+  bars.setAttribute('opacity','0'); think.setAttribute('opacity','0');
+  svg.style.transform = 'translateY(0)';
+  document.getElementById('mouth').setAttribute('d', MOUTH_IDLE);
+
+  const colors = {speaking:'#e8b86d', listening:'#c0392b', thinking:'#8e44ad', idle:'#27ae60'};
+  const labels = {speaking:'● Speaking', listening:'● Listening', thinking:'● Thinking…', idle:'Carlos'};
+  glow.setAttribute('stroke', colors[state] || colors.idle);
+  glow.setAttribute('opacity', state === 'idle' ? '0' : '0.55');
+  lbl.textContent = labels[state] || 'Carlos';
+  lbl.style.color = colors[state] || colors.idle;
+
+  if (state === 'speaking') {
+    mouthTimer = setInterval(() => {
+      mouthFrame = (mouthFrame + 1) % 4;
+      document.getElementById('mouth').setAttribute('d', MOUTHS[mouthFrame]);
+    }, 110);
+    let t = 0; bobTimer = setInterval(() => { t += 0.15; svg.style.transform = `translateY(${Math.sin(t)*2}px)`; }, 30);
+  }
+  if (state === 'listening') {
+    bars.setAttribute('opacity','1');
+    let t = 0; bobTimer = setInterval(() => { t += 0.1; svg.style.transform = `translateY(${Math.sin(t)*1.5}px)`; }, 30);
+  }
+  if (state === 'thinking') think.setAttribute('opacity','1');
+}
+
+// Blink
+(function blink() {
+  const eyeIds = ['iris-l','iris-r','pupil-l','pupil-r','shine-l','shine-r'];
+  const origRy = {['iris-l']:8,['iris-r']:8,['pupil-l']:4,['pupil-r']:4,['shine-l']:2,['shine-r']:2};
+  function doBlink() {
+    eyeIds.forEach(id => { const el = document.getElementById(id); if(el) el.setAttribute('ry','1'); });
+    setTimeout(() => eyeIds.forEach(id => { const el = document.getElementById(id); if(el) el.setAttribute('ry', origRy[id] || '7'); }), 120);
+    setTimeout(doBlink, 2000 + Math.random()*3000);
+  }
+  setTimeout(doBlink, 1800);
+})();
+
+// ════════════════════════════════════════════
+// VOICE
+// ════════════════════════════════════════════
+window.speechSynthesis.onvoiceschanged = () => window.speechSynthesis.getVoices();
+function getBestVoice() {
+  const voices = window.speechSynthesis.getVoices();
+  const prefs = [
+    v => v.lang==='es-ES' && v.name.includes('Google'),
+    v => v.lang==='es-MX' && v.name.includes('Google'),
+    v => v.lang.startsWith('es') && v.name.includes('Google'),
+    v => v.lang==='es-ES', v => v.lang.startsWith('es'),
+  ];
+  for (const p of prefs) { const f = voices.find(p); if(f) return f; }
+  return null;
+}
+let isSpeaking = false;
+function speakText(text, onDone) {
+  window.speechSynthesis.cancel();
+  const clean = text.replace(/\*/g,'').replace(/[¡¿]/g,'').trim();
+  const utter = new SpeechSynthesisUtterance(clean);
+  const v = getBestVoice(); if(v){utter.voice=v;utter.lang=v.lang;}else{utter.lang='es-ES';}
+  utter.rate = 0.82; utter.pitch = 1.1;
+  utter.onstart = () => { isSpeaking=true; setAvatar('speaking'); document.getElementById('stop-btn').style.display='block'; };
+  utter.onend = utter.onerror = () => { isSpeaking=false; setAvatar('idle'); document.getElementById('stop-btn').style.display='none'; if(onDone) onDone(); };
+  window.speechSynthesis.speak(utter);
+}
+
+// ════════════════════════════════════════════
+// CHAT
+// ════════════════════════════════════════════
+let apiHistory = [], isLoading = false, autoSpeak = true, level = 'Beginner · A1';
+
+function fmtText(text) {
+  return text.replace(/\*([^*]+)\*/g,'<span class="es">$1</span>').replace(/\n/g,'<br>');
+}
+function addBubble(role, text) {
+  const msgs = document.getElementById('messages');
+  const d = document.createElement('div');
+  d.className = `bub ${role==='user'?'user':'ai'}`;
+  d.innerHTML = `<div class="bub-lbl">${role==='user'?'You':'Carlos'}</div><div>${fmtText(text)}</div>`;
+  msgs.appendChild(d); msgs.scrollTop = msgs.scrollHeight;
+}
+function showTyping() {
+  const msgs = document.getElementById('messages');
+  const d = document.createElement('div'); d.id='typing-bub'; d.className='bub ai';
+  d.innerHTML='<div class="bub-lbl">Carlos</div><div class="typing"><div class="dot"></div><div class="dot"></div><div class="dot"></div></div>';
+  msgs.appendChild(d); msgs.scrollTop=msgs.scrollHeight;
+}
+async function sendMessage(text) {
+  if(!text || isLoading) return;
+  isLoading=true; window.speechSynthesis.cancel();
+  document.getElementById('stop-btn').style.display='none';
+  addBubble('user',text);
+  apiHistory.push({role:'user',content:text});
+  setAvatar('thinking'); showTyping();
+  try {
+    const res = await fetch('/chat',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({messages:apiHistory,level})});
+    const data = await res.json();
+    document.getElementById('typing-bub')?.remove();
+    if(data.error) throw new Error(data.error);
+    apiHistory.push({role:'assistant',content:data.reply});
+    addBubble('ai',data.reply);
+    if(autoSpeak) speakText(data.reply); else setAvatar('idle');
+  } catch(e) {
+    document.getElementById('typing-bub')?.remove();
+    addBubble('ai','⚠️ Connection issue — make sure the Flask server is running and ANTHROPIC_API_KEY is set.');
+    setAvatar('idle');
+  } finally { isLoading=false; }
+}
+
+// ════════════════════════════════════════════
+// MIC / SPEECH RECOGNITION
+// ════════════════════════════════════════════
+let recognition=null, isListening=false;
+function startListening() {
+  const errEl = document.getElementById('mic-err');
+  errEl.style.display='none';
+  const SR = window.SpeechRecognition || window.webkitSpeechRecognition;
+  if(!SR){errEl.textContent='Speech recognition not supported — try Chrome.';errEl.style.display='block';return;}
+  window.speechSynthesis.cancel();
+  recognition = new SR();
+  recognition.lang='es-ES'; recognition.continuous=false; recognition.interimResults=true;
+  let final='';
+  recognition.onstart=()=>{isListening=true;document.getElementById('mic-btn').classList.add('on');document.getElementById('txt').placeholder='🔴 Listening… speak now';setAvatar('listening');};
+  recognition.onresult=(e)=>{
+    let interim=''; final='';
+    for(const r of e.results){if(r.isFinal)final+=r[0].transcript;else interim+=r[0].transcript;}
+    document.getElementById('txt').value=final||interim;
+  };
+  recognition.onerror=(e)=>{
+    stopListening();
+    const msgs={['not-allowed']:'Mic blocked — allow microphone in browser settings for this site.',['network']:'Network error — make sure you\'re on HTTPS or localhost.',};
+    errEl.textContent=msgs[e.error]||`Mic error: ${e.error}. Try typing instead.`;
+    errEl.style.display='block';
+  };
+  recognition.onend=()=>{
+    stopListening();
+    const t=final||document.getElementById('txt').value.trim();
+    if(t){document.getElementById('txt').value='';updateSendBtn();sendMessage(t);}
+  };
+  try{recognition.start();}catch(e){stopListening();errEl.textContent='Could not start mic: '+e.message;errEl.style.display='block';}
+}
+function stopListening(){
+  isListening=false;
+  document.getElementById('mic-btn').classList.remove('on');
+  document.getElementById('txt').placeholder='Type or tap 🎤 to speak';
+  try{recognition?.stop();}catch(e){}
+  if(!isSpeaking) setAvatar('idle');
+}
+function updateSendBtn(){document.getElementById('snd-btn').classList.toggle('ok',document.getElementById('txt').value.trim().length>0);}
+
+// ════════════════════════════════════════════
+// VOCAB RENDER
+// ════════════════════════════════════════════
+let currentCat='all', pronouncing=null;
+function renderVocab(cat){
+  currentCat=cat;
+  document.querySelectorAll('.cat-btn').forEach(b=>b.classList.toggle('active',b.dataset.cat===cat));
+  const data=cat==='all'?VOCAB:VOCAB.filter(v=>v.cat===cat);
+  document.getElementById('vgrid').innerHTML=data.map((v,i)=>`
+    <div class="vcard">
+      <div class="v-left">
+        <div class="v-es">${v.es}</div>
+        <div class="v-en">${v.en}</div>
+        <div class="v-tip">${v.tip}</div>
+        <div class="ex-row">
+          <div style="flex:1"><div class="v-ex">${v.ex}</div><div class="v-ex-en">${v.exEn}</div></div>
+          <button class="pbtn" id="ex-pbtn-${i}" onclick="pronounceEx('${v.ex.replace(/'/g,"\\'")}',${i},'ex')" title="Hear example">🔊</button>
+        </div>
+      </div>
+      <div class="v-right">
+        <button class="pbtn" id="w-pbtn-${i}" onclick="pronounceEx('${v.es.replace(/'/g,"\\'")}',${i},'w')" title="Hear word">🔊</button>
+        <div class="v-pos">${v.pos}</div>
+      </div>
+    </div>`).join('');
+}
+function pronounceEx(text, idx, type) {
+  const btnId = `${type==='ex'?'ex-':'w-'}pbtn-${idx}`;
+  const btn = document.getElementById(btnId);
+  if(!btn) return;
+  if(window.speechSynthesis.speaking){window.speechSynthesis.cancel();document.querySelectorAll('.pbtn.speaking').forEach(b=>b.classList.remove('speaking'));if(pronouncing===btnId){pronouncing=null;return;}}
+  btn.classList.add('speaking'); pronouncing=btnId;
+  const utter=new SpeechSynthesisUtterance(text.replace(/[¡¿]/g,''));
+  const v=getBestVoice();if(v){utter.voice=v;utter.lang=v.lang;}else{utter.lang='es-ES';}
+  utter.rate=0.82;utter.pitch=1.1;
+  utter.onend=utter.onerror=()=>{btn.classList.remove('speaking');pronouncing=null;};
+  window.speechSynthesis.speak(utter);
+}
+
+function buildCats(){
+  const el=document.getElementById('cat-btns');
+  el.innerHTML=CATS.map(c=>`<button class="cat-btn${c==='all'?' active':''}" data-cat="${c}" onclick="renderVocab('${c}')">${CAT_LABELS[c]}</button>`).join('');
+}
+
+// ════════════════════════════════════════════
+// QUIZ
+// ════════════════════════════════════════════
+let quizWords=[], quizIdx=0, quizScore=0, quizAnswered=false, quizCat='all', currentQuizWord=null;
+
+function startQuiz(cat){
+  quizCat=cat;
+  const pool=(cat==='all'?VOCAB:VOCAB.filter(v=>v.cat===cat));
+  if(pool.length<4){alert('Not enough words in this category yet!');return;}
+  quizWords=shuffle([...pool]).slice(0,Math.min(10,pool.length));
+  quizIdx=0;quizScore=0;
+  document.getElementById('quiz-area').style.display='block';
+  document.getElementById('q-result').style.display='none';
+  document.querySelectorAll('.quiz-hero')[0].style.display='none';
+  showQuestion();
+}
+function shuffle(a){for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]];}return a;}
+function showQuestion(){
+  if(quizIdx>=quizWords.length){showResult();return;}
+  quizAnswered=false;
+  const word=quizWords[quizIdx]; currentQuizWord=word;
+  document.getElementById('q-cat').textContent=CAT_LABELS[word.cat]||word.cat;
+  document.getElementById('q-word').textContent=word.es;
+  document.getElementById('q-hint').textContent=word.tip;
+  document.getElementById('q-feedback').textContent='';
+  document.getElementById('q-feedback').className='q-feedback';
+  document.getElementById('q-next').style.display='none';
+  const pct=Math.round((quizIdx/quizWords.length)*100);
+  document.getElementById('q-bar').style.width=pct+'%';
+  document.getElementById('q-count').textContent=`${quizIdx+1}/${quizWords.length}`;
+  document.getElementById('q-score-disp').textContent=`⭐ ${quizScore}`;
+  // Build options
+  const pool=VOCAB.filter(v=>v.cat===word.cat&&v.es!==word.es);
+  const distractors=shuffle(pool).slice(0,3).map(v=>v.en);
+  const options=shuffle([word.en,...distractors]);
+  document.getElementById('q-options').innerHTML=options.map(opt=>`<button class="q-opt" onclick="checkAnswer(this,'${opt.replace(/'/g,"\\'")}','${word.en.replace(/'/g,"\\'")}')">${opt}</button>`).join('');
+}
+function checkAnswer(btn,chosen,correct){
+  if(quizAnswered)return;
+  quizAnswered=true;
+  const fb=document.getElementById('q-feedback');
+  const opts=document.querySelectorAll('.q-opt');
+  opts.forEach(b=>{
+    if(b.textContent.trim()===correct)b.classList.add(chosen===correct?'correct':'reveal');
+    if(b===btn&&chosen!==correct)b.classList.add('wrong');
+    b.disabled=true;
+  });
+  if(chosen===correct){quizScore++;fb.textContent='¡Correcto! ✓';fb.className='q-feedback ok';}
+  else{fb.textContent=`Not quite — the answer is: ${correct}`;fb.className='q-feedback bad';}
+  document.getElementById('q-score-disp').textContent=`⭐ ${quizScore}`;
+  document.getElementById('q-next').style.display='block';
+  pronounceQuizWord();
+}
+function pronounceQuizWord(){
+  if(!currentQuizWord)return;
+  const utter=new SpeechSynthesisUtterance(currentQuizWord.es.replace(/[¡¿]/g,''));
+  const v=getBestVoice();if(v){utter.voice=v;utter.lang=v.lang;}else{utter.lang='es-ES';}
+  utter.rate=0.8;window.speechSynthesis.speak(utter);
+}
+function nextQuestion(){quizIdx++;showQuestion();}
+function showResult(){
+  document.getElementById('q-bar').style.width='100%';
+  document.getElementById('quiz-area').style.display='none';
+  const pct=Math.round((quizScore/quizWords.length)*100);
+  const res=document.getElementById('q-result');
+  res.style.display='block';
+  const trophies=['😔','🙂','👍','🎉','🏆'];
+  document.getElementById('q-trophy').textContent=trophies[Math.floor(pct/25)]||'🏆';
+  document.getElementById('q-result-title').textContent=pct>=80?'¡Excelente!':pct>=60?'¡Muy bien!':pct>=40?'¡Buen intento!':'¡Sigue practicando!';
+  document.getElementById('q-final-score').textContent=`${quizScore} / ${quizWords.length}`;
+  const msgs=['Keep practicing — every word counts!','Good effort! Review the ones you missed.','Nice work! You\'re building a solid foundation.','Impressive! You really know your Spanish!','¡Perfecto! You\'re a Spanish superstar!'];
+  document.getElementById('q-result-msg').textContent=msgs[Math.floor(pct/25)]||msgs[4];
+}
+function resetQuiz(){
+  document.getElementById('q-result').style.display='none';
+  document.getElementById('quiz-area').style.display='none';
+  document.querySelectorAll('.quiz-hero')[0].style.display='block';
+}
+
+// ════════════════════════════════════════════
+// EVENTS & INIT
+// ════════════════════════════════════════════
+document.querySelectorAll('.tab').forEach(tab=>{
+  tab.addEventListener('click',()=>{
+    document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));
+    document.querySelectorAll('.view').forEach(v=>v.classList.remove('active'));
+    tab.classList.add('active');
+    document.getElementById(tab.dataset.view).classList.add('active');
+  });
+});
+document.getElementById('txt').addEventListener('input',updateSendBtn);
+document.getElementById('txt').addEventListener('keydown',e=>{if(e.key==='Enter'){const t=e.target.value.trim();if(t){e.target.value='';updateSendBtn();sendMessage(t);}}});
+document.getElementById('snd-btn').addEventListener('click',()=>{const t=document.getElementById('txt').value.trim();if(t){document.getElementById('txt').value='';updateSendBtn();sendMessage(t);}});
+document.getElementById('mic-btn').addEventListener('click',()=>{if(isListening)stopListening();else startListening();});
+document.getElementById('stop-btn').addEventListener('click',()=>{window.speechSynthesis.cancel();isSpeaking=false;setAvatar('idle');document.getElementById('stop-btn').style.display='none';});
+document.getElementById('auto-toggle').addEventListener('click',()=>{
+  autoSpeak=!autoSpeak;
+  document.getElementById('tog-track').style.background=autoSpeak?'var(--green)':'var(--border)';
+  document.getElementById('tog-k').style.left=autoSpeak?'14px':'2px';
+  if(!autoSpeak){window.speechSynthesis.cancel();setAvatar('idle');}
+});
+document.getElementById('level-btn').addEventListener('click',()=>document.getElementById('level-overlay').classList.add('open'));
+document.getElementById('level-overlay').addEventListener('click',e=>{if(e.target===document.getElementById('level-overlay'))document.getElementById('level-overlay').classList.remove('open');});
+document.querySelectorAll('.lopt').forEach(b=>{
+  b.addEventListener('click',()=>{
+    level=b.dataset.level;
+    document.getElementById('level-btn').textContent=level;
+    document.querySelectorAll('.lopt').forEach(x=>x.classList.remove('sel'));
+    b.classList.add('sel');
+    document.getElementById('level-overlay').classList.remove('open');
+  });
+});
+
+// Init
+buildCats(); renderVocab('all');
+const INTRO="¡Hola amigo! I'm Carlos, your Spanish tutor from Madrid! I heard you want to connect with your wife's family — that's *una razón perfecta* to learn Spanish, a perfect reason! Let's start from scratch and build you up step by step. First question: have you ever tried to say anything in Spanish before?";
+addBubble('ai',INTRO);
+apiHistory.push({role:'assistant',content:INTRO});
+setTimeout(()=>{if(autoSpeak)speakText(INTRO);},900);
+</script>
+</body>
+</html>
