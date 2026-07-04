@@ -1,6 +1,18 @@
-import { state } from "./core/state.js";
+import { state, addXP } from "./core/state.js";
+import { saveState, loadState } from "./core/storage.js";
 
 console.log("Habla state loaded:", state);
+const savedState = loadState();
+
+if (savedState) {
+  Object.assign(state, savedState);
+  console.log("Saved Habla state restored:", state);
+} else {
+  console.log("No saved Habla state found. Starting fresh.");
+}
+
+saveState(state);
+console.log("Habla profile loaded:", state.user);
 // ════════════════════════════════════════════
 // VOCAB DATA
 // ════════════════════════════════════════════

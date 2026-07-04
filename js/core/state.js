@@ -1,10 +1,13 @@
 export const state = {
-  user: {
-    name: "Tom",
-    level: "A1",
-    xp: 0,
-    streak: 0
-  },
+user: {
+  name: "Tom",
+  level: "A1",
+  goal: "Become conversational with my wife's family",
+  dialect: "Mexican Spanish",
+  dailyTargetMinutes: 15,
+  xp: 0,
+  streak: 0
+},
 
   tutor: {
     name: "Carlos",
