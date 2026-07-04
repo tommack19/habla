@@ -1,7 +1,8 @@
-import { state, addXP } from "./core/state.js";
+import { state } from "./core/state.js";
 import { saveState, loadState } from "./core/storage.js";
 
 console.log("Habla state loaded:", state);
+
 const savedState = loadState();
 
 if (savedState) {
