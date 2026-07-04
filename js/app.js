@@ -1,3 +1,6 @@
+import { state } from "./core/state.js";
+
+console.log("Habla state loaded:", state);
 // ════════════════════════════════════════════
 // VOCAB DATA
 // ════════════════════════════════════════════
