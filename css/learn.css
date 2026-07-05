@@ -1,0 +1,389 @@
+/* LEARN SCREEN */
+.learn-page {
+  padding: 22px 16px 96px;
+  background:
+    radial-gradient(circle at 82% 12%, rgba(232,184,109,.14), transparent 30%),
+    var(--bg);
+}
+
+.learn-screen {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.learn-tab-input,
+.vocab-filter-input {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.learn-header {
+  padding-top: 8px;
+}
+
+.learn-eyebrow {
+  display: block;
+  color: var(--green);
+  font-size: .67rem;
+  font-weight: 800;
+  letter-spacing: .8px;
+  text-transform: uppercase;
+  margin-bottom: 6px;
+}
+
+.learn-header h1 {
+  color: var(--gold);
+  font-family: Georgia, serif;
+  font-size: 2rem;
+  line-height: 1;
+}
+
+.learn-header p,
+.section-heading p {
+  color: var(--soft);
+  font-size: .9rem;
+  line-height: 1.55;
+  margin-top: 10px;
+  max-width: 38rem;
+}
+
+.learn-card-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 10px;
+}
+
+.learn-card,
+.learn-panel {
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  background: rgba(17,24,32,.88);
+  box-shadow: 0 18px 48px rgba(0,0,0,.24);
+  backdrop-filter: blur(10px);
+}
+
+.learn-card {
+  display: grid;
+  grid-template-columns: 46px 1fr;
+  gap: 12px;
+  align-items: center;
+  padding: 14px;
+  cursor: pointer;
+  transition: border-color .18s ease, transform .18s ease, background .18s ease;
+}
+
+.learn-card:hover {
+  transform: translateY(-1px);
+  border-color: rgba(232,184,109,.5);
+}
+
+.learn-card-icon {
+  width: 42px;
+  height: 42px;
+  border: 1px solid rgba(232,184,109,.3);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--gold);
+  background: rgba(232,184,109,.08);
+  font-size: 1.2rem;
+}
+
+.learn-card h2,
+.section-heading h2 {
+  color: var(--text);
+  font-size: 1rem;
+}
+
+.learn-card p {
+  color: var(--muted);
+  font-size: .8rem;
+  line-height: 1.45;
+  margin-top: 4px;
+}
+
+#learn-vocab:checked ~ .learn-card-grid .learn-card-vocab,
+#learn-roadmap:checked ~ .learn-card-grid .learn-card-roadmap,
+#learn-grammar:checked ~ .learn-card-grid .learn-card-grammar {
+  border-color: rgba(232,184,109,.78);
+  background: rgba(232,184,109,.08);
+}
+
+.learn-panels {
+  min-height: 360px;
+}
+
+.learn-panel {
+  display: none;
+  padding: 16px;
+}
+
+#learn-vocab:checked ~ .learn-panels .vocab-panel,
+#learn-roadmap:checked ~ .learn-panels .roadmap-panel,
+#learn-grammar:checked ~ .learn-panels .grammar-panel {
+  display: block;
+  animation: learnFadeIn .18s ease;
+}
+
+.section-heading {
+  margin-bottom: 14px;
+}
+
+.vocab-category-row {
+  display: flex;
+  gap: 7px;
+  overflow-x: auto;
+  padding-bottom: 8px;
+  margin-bottom: 12px;
+}
+
+.vocab-category-row label {
+  flex: 0 0 auto;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: 7px 11px;
+  color: var(--gold);
+  background: rgba(8,12,16,.72);
+  font-size: .68rem;
+  font-weight: 800;
+  letter-spacing: .3px;
+  cursor: pointer;
+}
+
+#cat-all:checked ~ .learn-panels [for="cat-all"],
+#cat-greetings:checked ~ .learn-panels [for="cat-greetings"],
+#cat-verbs:checked ~ .learn-panels [for="cat-verbs"],
+#cat-nouns:checked ~ .learn-panels [for="cat-nouns"],
+#cat-phrases:checked ~ .learn-panels [for="cat-phrases"],
+#cat-numbers:checked ~ .learn-panels [for="cat-numbers"],
+#cat-months:checked ~ .learn-panels [for="cat-months"],
+#cat-days:checked ~ .learn-panels [for="cat-days"],
+#cat-colors:checked ~ .learn-panels [for="cat-colors"],
+#cat-family:checked ~ .learn-panels [for="cat-family"],
+#cat-food:checked ~ .learn-panels [for="cat-food"],
+#cat-travel:checked ~ .learn-panels [for="cat-travel"],
+#cat-questions:checked ~ .learn-panels [for="cat-questions"] {
+  border-color: rgba(232,184,109,.75);
+  background: rgba(232,184,109,.13);
+}
+
+.learn-vocab-grid,
+.grammar-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 10px;
+}
+
+.learn-vocab-card,
+.grammar-card,
+.roadmap-card {
+  border: 1px solid var(--border);
+  border-radius: 13px;
+  background: rgba(8,12,16,.72);
+}
+
+.learn-vocab-card,
+.grammar-card {
+  padding: 13px;
+}
+
+#cat-greetings:checked ~ .learn-panels .vocab-item:not(.cat-greetings),
+#cat-verbs:checked ~ .learn-panels .vocab-item:not(.cat-verbs),
+#cat-nouns:checked ~ .learn-panels .vocab-item:not(.cat-nouns),
+#cat-phrases:checked ~ .learn-panels .vocab-item:not(.cat-phrases),
+#cat-numbers:checked ~ .learn-panels .vocab-item:not(.cat-numbers),
+#cat-months:checked ~ .learn-panels .vocab-item:not(.cat-months),
+#cat-days:checked ~ .learn-panels .vocab-item:not(.cat-days),
+#cat-colors:checked ~ .learn-panels .vocab-item:not(.cat-colors),
+#cat-family:checked ~ .learn-panels .vocab-item:not(.cat-family),
+#cat-food:checked ~ .learn-panels .vocab-item:not(.cat-food),
+#cat-travel:checked ~ .learn-panels .vocab-item:not(.cat-travel),
+#cat-questions:checked ~ .learn-panels .vocab-item:not(.cat-questions) {
+  display: none;
+}
+
+.word-topline,
+.speak-row,
+.example-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.word-topline {
+  margin-bottom: 8px;
+}
+
+.word-topline span {
+  color: var(--green);
+  font-size: .64rem;
+  font-weight: 800;
+  letter-spacing: .7px;
+  text-transform: uppercase;
+}
+
+.word-topline small {
+  color: var(--muted);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: 3px 7px;
+  font-size: .62rem;
+}
+
+.learn-vocab-card h3 {
+  color: var(--gold);
+  font-family: Georgia, serif;
+  font-size: 1.25rem;
+}
+
+.pronounce-btn {
+  width: 34px;
+  height: 34px;
+  border: 1px solid rgba(232,184,109,.35);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--gold);
+  background: rgba(232,184,109,.08);
+  cursor: pointer;
+  flex: 0 0 auto;
+}
+
+.pronounce-btn:hover {
+  border-color: var(--gold);
+  background: rgba(232,184,109,.16);
+}
+
+.word-meaning {
+  color: var(--text);
+  font-size: .84rem;
+  margin-top: 2px;
+}
+
+.word-tip {
+  color: var(--soft);
+  font-size: .78rem;
+  line-height: 1.45;
+  margin-top: 8px;
+}
+
+.example-row {
+  align-items: flex-start;
+  border-left: 2px solid rgba(232,184,109,.55);
+  margin-top: 10px;
+  padding-left: 9px;
+}
+
+.example-row strong {
+  display: block;
+  color: var(--gold);
+  font-size: .8rem;
+  line-height: 1.45;
+}
+
+.example-row span {
+  display: block;
+  color: var(--muted);
+  font-size: .74rem;
+  line-height: 1.4;
+  margin-top: 2px;
+}
+
+.roadmap-list {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 12px;
+}
+
+.roadmap-card {
+  padding: 15px;
+}
+
+.roadmap-card h3,
+.grammar-card h3 {
+  color: var(--gold);
+  font-family: Georgia, serif;
+  font-size: 1.15rem;
+}
+
+.roadmap-card p,
+.grammar-card p {
+  color: var(--soft);
+  font-size: .82rem;
+  line-height: 1.5;
+  margin-top: 7px;
+}
+
+.module-list {
+  display: grid;
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.module-list div {
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 10px;
+  background: rgba(17,24,32,.72);
+}
+
+.module-list strong {
+  display: block;
+  color: var(--green);
+  font-size: .66rem;
+  letter-spacing: .6px;
+  text-transform: uppercase;
+}
+
+.module-list span {
+  display: block;
+  color: var(--text);
+  font-size: .78rem;
+  line-height: 1.45;
+  margin-top: 4px;
+}
+
+.grammar-card small {
+  display: block;
+  border-left: 2px solid rgba(39,174,96,.55);
+  color: var(--green);
+  font-size: .75rem;
+  line-height: 1.4;
+  margin-top: 10px;
+  padding-left: 9px;
+}
+
+.grammar-example {
+  border-left: 2px solid rgba(232,184,109,.55);
+  color: var(--gold);
+  font-size: .78rem;
+  line-height: 1.45;
+  margin-top: 10px;
+  padding-left: 9px;
+}
+
+@media (min-width: 521px) {
+  .learn-card-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .learn-card {
+    grid-template-columns: 1fr;
+    align-items: start;
+  }
+
+  .learn-vocab-grid,
+  .grammar-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@keyframes learnFadeIn {
+  from { opacity: 0; transform: translateY(4px); }
+  to { opacity: 1; transform: none; }
+}
