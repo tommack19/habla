@@ -151,3 +151,377 @@ nav{display:flex;background:var(--surface);border-bottom:1px solid var(--border)
 @keyframes bounce{0%,80%,100%{transform:translateY(0)}40%{transform:translateY(-5px)}}
 @keyframes pulseBtn{from{box-shadow:0 0 0 0 rgba(232,184,109,.4)}to{box-shadow:0 0 0 6px rgba(232,184,109,0)}}
 ::-webkit-scrollbar{width:4px}::-webkit-scrollbar-thumb{background:var(--border);border-radius:2px}
+#home-view {
+  overflow-y: auto;
+  padding: 18px;
+  background:
+    radial-gradient(circle at 75% 18%, rgba(39,174,96,.16), transparent 32%),
+    var(--bg);
+}
+
+.home-hero {
+  display: grid;
+  grid-template-columns: 1.2fr .8fr;
+  gap: 18px;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.hero-copy h1 {
+  font-family: Georgia, serif;
+  font-size: 1.75rem;
+  color: var(--text);
+  line-height: 1.1;
+}
+
+.hero-copy p {
+  color: var(--soft);
+  font-size: .9rem;
+  line-height: 1.5;
+  margin-top: 8px;
+}
+
+.hero-stats {
+  display: flex;
+  gap: 18px;
+  margin-top: 18px;
+}
+
+.hero-stats div {
+  display: grid;
+  grid-template-columns: auto auto;
+  column-gap: 8px;
+  align-items: center;
+}
+
+.hero-stats span {
+  font-size: 1.8rem;
+  grid-row: span 2;
+}
+
+.hero-stats strong {
+  color: var(--gold);
+  font-size: 1.15rem;
+}
+
+.hero-stats small {
+  color: var(--muted);
+  text-transform: uppercase;
+  font-size: .62rem;
+}
+
+.hero-carlos {
+  text-align: center;
+}
+
+.speech-bubble {
+  border: 1px solid var(--green);
+  border-radius: 16px;
+  padding: 10px;
+  font-size: .8rem;
+  line-height: 1.45;
+  margin-bottom: 10px;
+  background: rgba(39,174,96,.06);
+}
+
+.speech-bubble strong {
+  color: #6ee787;
+}
+
+.carlos-face {
+  font-size: 5rem;
+  line-height: 1;
+}
+
+.carlos-status {
+  margin-top: 10px;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: 8px 10px;
+  color: var(--soft);
+  font-size: .75rem;
+}
+
+.carlos-status::first-letter {
+  color: var(--green);
+}
+
+.mission-card,
+.progress-card,
+.quote-card,
+.practice-card {
+  background: rgba(17,24,32,.88);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 16px;
+  box-shadow: 0 18px 50px rgba(0,0,0,.25);
+}
+
+.mission-card {
+  border-color: rgba(232,184,109,.65);
+  display: grid;
+  grid-template-columns: 54px 1fr;
+  gap: 14px;
+  margin-bottom: 16px;
+}
+
+.mission-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: rgba(232,184,109,.08);
+  border: 1px solid rgba(232,184,109,.35);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.35rem;
+}
+
+.eyebrow,
+.progress-card h3,
+.quote-card h3,
+.practice-card h3 {
+  color: var(--gold);
+  text-transform: uppercase;
+  letter-spacing: .7px;
+  font-size: .75rem;
+  font-weight: 800;
+}
+
+.mission-card h2 {
+  font-family: Georgia, serif;
+  color: var(--text);
+  font-size: 1.55rem;
+  margin-top: 6px;
+}
+
+.mission-card p {
+  color: var(--soft);
+  font-size: .86rem;
+  line-height: 1.5;
+  margin-top: 8px;
+}
+
+.mission-meta {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin: 14px 0;
+}
+
+.mission-meta div {
+  color: var(--soft);
+  font-size: 1.2rem;
+}
+
+.mission-meta strong {
+  color: var(--gold);
+  font-size: .95rem;
+}
+
+.mission-meta small {
+  display: block;
+  color: var(--muted);
+  text-transform: uppercase;
+  font-size: .62rem;
+  margin-left: 30px;
+}
+
+.primary-action {
+  width: 100%;
+  background: linear-gradient(180deg, #f1c878, var(--gold));
+  color: #000;
+  border: none;
+  border-radius: 12px;
+  padding: 13px;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.progress-card {
+  margin-bottom: 16px;
+}
+
+.progress-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1px;
+  margin-top: 14px;
+  background: var(--border);
+  overflow: hidden;
+  border-radius: 12px;
+}
+
+.progress-grid div {
+  background: var(--card);
+  padding: 14px 8px;
+  text-align: center;
+}
+
+.progress-grid strong {
+  display: block;
+  color: var(--text);
+  font-size: 1.3rem;
+}
+
+.progress-grid span {
+  display: block;
+  color: var(--gold);
+  text-transform: uppercase;
+  font-size: .62rem;
+  margin-top: 6px;
+}
+
+.progress-grid small {
+  color: var(--muted);
+  font-size: .68rem;
+}
+
+.home-bottom {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+
+.quote-card p {
+  background: rgba(39,174,96,.08);
+  border: 1px solid rgba(39,174,96,.25);
+  border-radius: 14px;
+  padding: 14px;
+  color: var(--text);
+  line-height: 1.6;
+  margin-top: 12px;
+}
+
+.practice-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.practice-grid button {
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  color: var(--text);
+  padding: 12px 6px;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 1.25rem;
+}
+
+.practice-grid button span {
+  display: block;
+  font-size: .72rem;
+  margin-top: 6px;
+}
+
+@media (max-width: 520px) {
+  .home-hero,
+  .home-bottom {
+    grid-template-columns: 1fr;
+  }
+
+  .progress-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .carlos-face {
+    font-size: 4rem;
+  }
+}
+#app {
+  position: relative;
+  padding-bottom: 74px;
+}
+
+nav {
+  position: fixed;
+  left: 50%;
+  bottom: 0;
+  transform: translateX(-50%);
+  width: min(100%, 520px);
+  z-index: 50;
+  border-top: 1px solid var(--border);
+  border-bottom: none;
+  background: rgba(13, 17, 23, 0.96);
+  backdrop-filter: blur(12px);
+}
+
+.tab {
+  padding: 12px 4px 10px;
+  font-size: 0.64rem;
+}
+
+header {
+  position: sticky;
+  top: 0;
+  z-index: 40;
+}
+
+.view {
+  padding-bottom: 16px;
+}
+#home-view {
+  padding: 22px 16px 90px;
+}
+
+.home-hero {
+  margin-top: 10px;
+}
+
+.hero-copy h1 {
+  font-size: 1.55rem;
+}
+
+.hero-carlos {
+  transform: translateY(-4px);
+}
+
+.carlos-face {
+  background: radial-gradient(circle, rgba(232,184,109,.18), transparent 62%);
+  border-radius: 50%;
+  padding: 8px;
+}
+
+.mission-card {
+  margin-top: 8px;
+}
+
+.primary-action {
+  font-size: .9rem;
+  box-shadow: 0 8px 22px rgba(232,184,109,.18);
+}
+
+.progress-card,
+.quote-card,
+.practice-card,
+.mission-card {
+  backdrop-filter: blur(10px);
+}
+
+.practice-grid button {
+  transition: transform .15s ease, border-color .15s ease;
+}
+
+.practice-grid button:hover {
+  transform: translateY(-2px);
+  border-color: var(--gold);
+}
+
+@media (max-width: 520px) {
+  .home-hero {
+    grid-template-columns: 1fr;
+    text-align: left;
+  }
+
+  .hero-carlos {
+    max-width: 230px;
+    margin: 0 auto;
+  }
+
+  .mission-card {
+    grid-template-columns: 1fr;
+  }
+}

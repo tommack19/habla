@@ -1,5 +1,7 @@
 import { state } from "./core/state.js";
 import { saveState, loadState } from "./core/storage.js";
+import { renderHome } from "./ui/home.js";
+import { renderPage } from "./core/router.js";
 
 console.log("Habla state loaded:", state);
 
@@ -14,6 +16,22 @@ if (savedState) {
 
 saveState(state);
 console.log("Habla profile loaded:", state.user);
+
+renderPage("home");
+document.addEventListener("click", (event) => {
+  const target = event.target.closest("[data-view-target]");
+  if (!target) return;
+
+  const viewId = target.dataset.viewTarget;
+
+  document.querySelectorAll(".tab").forEach(tab => {
+    tab.classList.toggle("active", tab.dataset.view === viewId);
+  });
+
+  document.querySelectorAll(".view").forEach(view => {
+    view.classList.toggle("active", view.id === viewId);
+  });
+});
 // ════════════════════════════════════════════
 // VOCAB DATA
 // ════════════════════════════════════════════
