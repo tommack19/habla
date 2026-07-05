@@ -130,16 +130,76 @@ const roadmap = [
 ];
 
 const grammar = [
-  ["Ser vs Estar", "Use ser for identity and lasting traits. Use estar for location and temporary states.", "Soy canadiense. Estoy cansado.", "Write one sentence with soy and one with estoy."],
-  ["Gender el/la", "Spanish nouns have gender. Many -o nouns use el, and many -a nouns use la.", "el libro, la casa", "Choose el or la: ___ familia, ___ trabajo."],
-  ["Articles un/una", "Un and una mean a or one. Use un with masculine nouns and una with feminine nouns.", "un café, una pregunta", "Say: I have a question."],
-  ["Present tense -ar verbs", "Drop -ar and add endings like -o, -as, -a, -amos.", "hablar → hablo, hablas, habla", "Conjugate hablar for yo and tú."],
-  ["Present tense -er/-ir verbs", "Drop -er/-ir and add endings like -o, -es, -e, -emos or -imos.", "comer → como, comes; vivir → vivo, vives", "Say: I live in Canada."],
-  ["Tener phrases", "Spanish uses tener for age, hunger, thirst, and some feelings.", "Tengo hambre. Tengo frío.", "Say: I am thirsty."],
-  ["Gustar", "Gustar works like it pleases me. Use me gusta for one thing and me gustan for plural things.", "Me gusta el café.", "Say: I like tacos."],
-  ["Asking questions", "Use question words like qué, dónde, cuándo, quién, cómo, and cuánto.", "¿Dónde está el hotel?", "Ask: Where is the restaurant?"],
-  ["Negation with no", "Put no before the verb to make a sentence negative.", "No entiendo. No hablo francés.", "Make this negative: Hablo español."],
-  ["Adjective agreement", "Many adjectives change for gender and number.", "casa roja, coches rojos", "Change rojo to match: la camisa ___."],
+  {
+    title: "Ser vs Estar",
+    explanation: "Use ser for identity and origin. Use estar for location or how someone feels right now.",
+    spanish: "Soy de Canada. Estoy en casa.",
+    english: "I am from Canada. I am at home.",
+    prompt: "Say where you are from with soy de."
+  },
+  {
+    title: "Gender: el/la",
+    explanation: "Spanish nouns use el or la. Many words ending in -o use el, and many words ending in -a use la.",
+    spanish: "el libro, la casa",
+    english: "the book, the house",
+    prompt: "Choose el or la: ___ familia."
+  },
+  {
+    title: "Articles un/una",
+    explanation: "Un and una mean a or one. Use un with masculine nouns and una with feminine nouns.",
+    spanish: "Tengo una pregunta.",
+    english: "I have a question.",
+    prompt: "Say: I have a coffee."
+  },
+  {
+    title: "Present tense -ar verbs",
+    explanation: "For regular -ar verbs, drop -ar and add -o for I.",
+    spanish: "Hablo espanol.",
+    english: "I speak Spanish.",
+    prompt: "Say: I practice Spanish."
+  },
+  {
+    title: "Present tense -er/-ir verbs",
+    explanation: "For many -er and -ir verbs, use -o for I and -es for you.",
+    spanish: "Vivo en Canada.",
+    english: "I live in Canada.",
+    prompt: "Say: I eat bread."
+  },
+  {
+    title: "Tener phrases",
+    explanation: "Spanish uses tener, meaning to have, for hunger, thirst, age, and some feelings.",
+    spanish: "Tengo sed.",
+    english: "I am thirsty.",
+    prompt: "Say: I am hungry."
+  },
+  {
+    title: "Gustar",
+    explanation: "Use me gusta for one thing you like. Use me gustan for more than one thing.",
+    spanish: "Me gusta el cafe.",
+    english: "I like coffee.",
+    prompt: "Say: I like Spanish."
+  },
+  {
+    title: "Asking questions",
+    explanation: "Use question words like que, donde, como, and cuando to ask for basic information.",
+    spanish: "¿Donde esta el hotel?",
+    english: "Where is the hotel?",
+    prompt: "Ask: Where is the restaurant?"
+  },
+  {
+    title: "Negation with no",
+    explanation: "Put no before the verb to make a sentence negative.",
+    spanish: "No entiendo.",
+    english: "I do not understand.",
+    prompt: "Make this negative: Hablo espanol."
+  },
+  {
+    title: "Adjective agreement",
+    explanation: "Many adjectives change to match the noun. Use -a with many feminine nouns.",
+    spanish: "La casa es bonita.",
+    english: "The house is pretty.",
+    prompt: "Complete: La camisa es ___."
+  },
 ];
 
 export function renderLearn() {
@@ -321,11 +381,11 @@ function renderGrammarPanel() {
         <p>Short lessons with an example and a tiny practice prompt.</p>
       </div>
       <div class="grammar-grid">
-        ${grammar.map(([title, explanation, example, prompt]) => `
+        ${grammar.map(({ title, explanation, spanish, english, prompt }) => `
           <article class="grammar-card">
             <h3>${title}</h3>
             <p>${explanation}</p>
-            <div class="grammar-example">${example}</div>
+            <div class="grammar-example"><strong>${spanish}</strong><span>${english}</span></div>
             <small>${prompt}</small>
           </article>
         `).join("")}

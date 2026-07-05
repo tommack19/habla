@@ -1,10 +1,12 @@
 import { awardXP } from "./progress.js";
 
-const CURRENT_LESSON_ID = "a1-lesson-01-greetings";
+const FIRST_LESSON_ID = "a1-lesson-01-greetings";
 const PROGRESS_KEY = "habla_lesson_progress_v1";
 const LESSON_PATHS = {
-  [CURRENT_LESSON_ID]: "../../content/A1/lesson-01-greetings.json",
+  [FIRST_LESSON_ID]: "../../content/A1/lesson-01-greetings.json",
+  "a1-lesson-02-introductions": "../../content/A1/lesson-02-introductions.json",
 };
+const LESSON_ORDER = Object.keys(LESSON_PATHS);
 
 const lessonCache = new Map();
 
@@ -27,7 +29,32 @@ async function loadLessons() {
 }
 
 export function getCurrentLesson() {
-  return getLessonById(CURRENT_LESSON_ID);
+  const progress = readProgress();
+  const unlockedLoadedIds = progress.unlockedLessonIds.filter(id => getLessonById(id));
+  const currentId = unlockedLoadedIds.find(id => !progress.lessons[id]?.completed);
+  return getLessonById(currentId || unlockedLoadedIds[unlockedLoadedIds.length - 1] || FIRST_LESSON_ID);
+}
+
+export function getNextLesson() {
+  const currentLesson = getCurrentLesson();
+  if (!currentLesson?.nextLesson) return null;
+  return getLessonById(currentLesson.nextLesson) || null;
+}
+
+export function unlockNextLesson() {
+  const currentLesson = getCurrentLesson();
+  if (!currentLesson) {
+    return { type: "lesson:missing-current" };
+  }
+
+  return unlockLessonById(currentLesson.nextLesson, currentLesson.id);
+}
+
+export function getUnlockedLessons() {
+  const progress = readProgress();
+  return progress.unlockedLessonIds
+    .map(id => getLessonById(id))
+    .filter(Boolean);
 }
 
 export function getLessonById(id) {
@@ -59,10 +86,12 @@ export function completeLesson(id) {
   progress.completedLessonIds = Array.from(new Set([...progress.completedLessonIds, id]));
   progress.lastCompletedLessonId = id;
   progress.updatedAt = completedAt;
+
+  const unlockEvent = unlockLessonInProgress(progress, lesson.nextLesson, id);
   writeProgress(progress);
 
   const xpEvent = lesson.xpReward ? awardXP(lesson.xpReward, `Completed lesson: ${lesson.title}`) : null;
-  const event = { type: "lesson:completed", id, lesson, progress: lessonProgress, xpEvent };
+  const event = { type: "lesson:completed", id, lesson, progress: lessonProgress, xpEvent, unlockEvent };
   window.dispatchEvent(new CustomEvent("habla:lesson-completed", { detail: event }));
   return event;
 }
@@ -82,12 +111,13 @@ function readProgress() {
     if (!saved) return createProgress();
 
     const parsed = JSON.parse(saved);
-    return {
+    return normalizeProgress({
       lessons: parsed.lessons || {},
       completedLessonIds: Array.isArray(parsed.completedLessonIds) ? parsed.completedLessonIds : [],
+      unlockedLessonIds: Array.isArray(parsed.unlockedLessonIds) ? parsed.unlockedLessonIds : [],
       lastCompletedLessonId: parsed.lastCompletedLessonId || null,
       updatedAt: parsed.updatedAt || null,
-    };
+    });
   } catch (error) {
     console.error("Could not load lesson progress:", error);
     return createProgress();
@@ -99,10 +129,66 @@ function writeProgress(progress) {
 }
 
 function createProgress() {
-  return {
+  return normalizeProgress({
     lessons: {},
     completedLessonIds: [],
+    unlockedLessonIds: [FIRST_LESSON_ID],
     lastCompletedLessonId: null,
     updatedAt: null,
+  });
+}
+
+function normalizeProgress(progress) {
+  const unlockedLessonIds = Array.from(new Set([FIRST_LESSON_ID, ...(progress.unlockedLessonIds || [])]));
+  const completedLessonIds = Array.from(new Set(progress.completedLessonIds || []));
+
+  for (const id of completedLessonIds) {
+    const lesson = lessonCache.get(id);
+    if (lesson?.nextLesson) unlockedLessonIds.push(lesson.nextLesson);
+  }
+
+  return {
+    lessons: progress.lessons || {},
+    completedLessonIds,
+    unlockedLessonIds: sortLessonIds(Array.from(new Set(unlockedLessonIds))),
+    lastCompletedLessonId: progress.lastCompletedLessonId || null,
+    updatedAt: progress.updatedAt || null,
   };
+}
+
+function unlockLessonById(id, unlockedBy = null) {
+  const progress = readProgress();
+  const event = unlockLessonInProgress(progress, id, unlockedBy);
+  if (event.type === "lesson:unlocked") {
+    writeProgress(progress);
+    window.dispatchEvent(new CustomEvent("habla:lesson-unlocked", { detail: event }));
+  }
+  return event;
+}
+
+function unlockLessonInProgress(progress, id, unlockedBy = null) {
+  if (!id) {
+    return { type: "lesson:no-next-lesson", id: null, unlockedBy };
+  }
+
+  if (progress.unlockedLessonIds.includes(id)) {
+    return { type: "lesson:already-unlocked", id, lesson: getLessonById(id), unlockedBy };
+  }
+
+  progress.unlockedLessonIds = sortLessonIds([...progress.unlockedLessonIds, id]);
+  progress.updatedAt = new Date().toISOString();
+
+  return { type: "lesson:unlocked", id, lesson: getLessonById(id), unlockedBy };
+}
+
+function sortLessonIds(ids) {
+  return ids.sort((a, b) => {
+    const aIndex = LESSON_ORDER.indexOf(a);
+    const bIndex = LESSON_ORDER.indexOf(b);
+
+    if (aIndex === -1 && bIndex === -1) return a.localeCompare(b);
+    if (aIndex === -1) return 1;
+    if (bIndex === -1) return -1;
+    return aIndex - bIndex;
+  });
 }
