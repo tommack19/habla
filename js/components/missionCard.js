@@ -12,7 +12,7 @@ export function renderMissionCard(state) {
           <div>📶 <strong>${state.user.level}</strong><small>Your Level</small></div>
         </div>
 
-        <button class="primary-action" data-view-target="tutor-view">
+        <button class="primary-action" data-page="carlos">
           ▶ Start Today’s Lesson
         </button>
       </div>

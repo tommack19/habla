@@ -12,6 +12,8 @@ export function renderPage(page) {
 
     if (!dashboard) return;
 
+    dashboard.className = `${page}-page`;
+
     switch(page){
 
         case "home":
