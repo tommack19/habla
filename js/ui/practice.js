@@ -1,4 +1,4 @@
-import { getCurrentLesson } from "../core/content.js";
+import { completeLesson, getCurrentLesson } from "../core/content.js";
 
 const practiceWords = [
   ["hola", "hello"], ["adiós", "goodbye"], ["gracias", "thank you"], ["por favor", "please"],
@@ -99,7 +99,11 @@ if (typeof window !== "undefined") {
       current.classList.remove("active");
 
       if (currentIndex + 1 >= questions.length) {
-        panel.querySelector(".quiz-complete").hidden = false;
+        const completeMessage = panel.querySelector(".quiz-complete");
+        if (completeMessage) {
+          completeMessage.textContent = completeCurrentLesson();
+          completeMessage.hidden = false;
+        }
         button.disabled = true;
         panel.querySelector(".practice-progress span").textContent = `${questions.length}/${questions.length}`;
         panel.querySelector(".practice-progress-bar").style.width = "100%";
@@ -190,6 +194,26 @@ if (typeof window !== "undefined") {
       recognition.start();
     },
   };
+}
+
+function completeCurrentLesson() {
+  const lesson = getCurrentLesson();
+
+  if (!lesson) {
+    return "Quiz complete. Great session.";
+  }
+
+  const event = completeLesson(lesson.id);
+
+  if (event.type === "lesson:already-completed") {
+    return "Lesson already completed. Great review session.";
+  }
+
+  if (event.type === "lesson:completed") {
+    return `Lesson complete! You earned ${event.progress?.xpAwarded || lesson.xpReward || 0} XP.`;
+  }
+
+  return "Quiz complete. Great session.";
 }
 
 export function renderPractice() {
