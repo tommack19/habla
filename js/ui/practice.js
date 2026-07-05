@@ -1,3 +1,5 @@
+import { getCurrentLesson } from "../core/content.js";
+
 const practiceWords = [
   ["hola", "hello"], ["adiós", "goodbye"], ["gracias", "thank you"], ["por favor", "please"],
   ["buenos días", "good morning"], ["buenas tardes", "good afternoon"], ["buenas noches", "good evening"],
@@ -24,6 +26,40 @@ const pronunciationItems = [
   "más despacio",
   "la cuenta, por favor",
 ];
+
+function getPracticeContent() {
+  const lesson = getCurrentLesson();
+
+  if (!lesson) {
+    return {
+      words: practiceWords,
+      quiz: quizQuestions,
+      pronunciation: pronunciationItems.map(text => ({ text, note: "" })),
+    };
+  }
+
+  const words = lesson.vocabulary?.length
+    ? lesson.vocabulary.map(item => [item.spanish, item.english])
+    : practiceWords;
+
+  const quiz = lesson.quiz?.length
+    ? lesson.quiz.map((question, index) => ({
+        prompt: question.prompt || "Choose the correct answer.",
+        es: getQuizDisplayText(question),
+        en: question.answer,
+        options: question.options?.length ? question.options : buildLessonOptions(question.answer, index, words),
+      }))
+    : quizQuestions;
+
+  const pronunciation = lesson.pronunciation?.items?.length
+    ? lesson.pronunciation.items.map(item => ({
+        text: typeof item === "string" ? item : item.text,
+        note: typeof item === "string" ? "" : item.note,
+      }))
+    : pronunciationItems.map(text => ({ text, note: "" }));
+
+  return { words, quiz, pronunciation };
+}
 
 if (typeof window !== "undefined") {
   window.hablaPractice = {
@@ -157,6 +193,8 @@ if (typeof window !== "undefined") {
 }
 
 export function renderPractice() {
+  const content = getPracticeContent();
+
   return `
     <section class="practice-screen" aria-label="Practice">
       <input class="practice-tab-input" type="radio" name="practice-mode" id="mode-quiz" checked>
@@ -176,9 +214,9 @@ export function renderPractice() {
       </div>
 
       <div class="practice-panels">
-        ${renderQuiz()}
-        ${renderFlashcards()}
-        ${renderPronunciation()}
+        ${renderQuiz(content.quiz)}
+        ${renderFlashcards(content.words)}
+        ${renderPronunciation(content.pronunciation)}
       </div>
     </section>
   `;
@@ -193,20 +231,20 @@ function modeCard(id, key, icon, title, copy) {
   `;
 }
 
-function renderQuiz() {
+function renderQuiz(questions = quizQuestions) {
   return `
     <section class="practice-mode-panel quiz-panel" data-score="0" aria-label="Quiz Mode">
       <div class="practice-panel-head">
         <div><span class="practice-eyebrow">Multiple choice</span><h2>Spanish to English</h2></div>
         <div class="practice-score">Score <strong>0</strong></div>
       </div>
-      <div class="practice-progress"><div><div class="practice-progress-bar" style="width:10%"></div></div><span>1/${quizQuestions.length}</span></div>
-      ${quizQuestions.map((question, index) => `
+      <div class="practice-progress"><div><div class="practice-progress-bar" style="width:${100 / questions.length}%"></div></div><span>1/${questions.length}</span></div>
+      ${questions.map((question, index) => `
         <article class="quiz-question${index === 0 ? " active" : ""}" data-correct="${escapeAttr(question.en)}">
-          <p>What does this mean?</p>
-          <h3>${question.es}</h3>
+          <p>${escapeHtml(question.prompt || "What does this mean?")}</p>
+          <h3>${escapeHtml(question.es)}</h3>
           <div class="quiz-options">
-            ${question.options.map(option => `<button class="quiz-option" type="button" data-answer="${escapeAttr(option)}" onclick="hablaPractice.answerQuiz(this)">${option}</button>`).join("")}
+            ${question.options.map(option => `<button class="quiz-option" type="button" data-answer="${escapeAttr(option)}" onclick="hablaPractice.answerQuiz(this)">${escapeHtml(option)}</button>`).join("")}
           </div>
           <div class="quiz-feedback"></div>
         </article>
@@ -217,18 +255,18 @@ function renderQuiz() {
   `;
 }
 
-function renderFlashcards() {
+function renderFlashcards(words = practiceWords) {
   return `
     <section class="practice-mode-panel flashcard-panel" aria-label="Flashcards">
       <div class="practice-panel-head">
         <div><span class="practice-eyebrow">Recall</span><h2>Flashcards</h2></div>
-        <div class="flash-count">1/${practiceWords.length}</div>
+        <div class="flash-count">1/${words.length}</div>
       </div>
       <div class="flash-stage">
-        ${practiceWords.map(([es, en], index) => `
+        ${words.map(([es, en], index) => `
           <article class="flash-slide${index === 0 ? " active" : ""}">
-            <div class="flash-face flash-front"><span>Spanish</span><strong class="flash-es">${es}</strong></div>
-            <div class="flash-face flash-back"><span>English</span><strong>${en}</strong></div>
+            <div class="flash-face flash-front"><span>Spanish</span><strong class="flash-es">${escapeHtml(es)}</strong></div>
+            <div class="flash-face flash-back"><span>English</span><strong>${escapeHtml(en)}</strong></div>
           </article>
         `).join("")}
       </div>
@@ -241,18 +279,19 @@ function renderFlashcards() {
   `;
 }
 
-function renderPronunciation() {
+function renderPronunciation(items = pronunciationItems.map(text => ({ text, note: "" }))) {
   return `
     <section class="practice-mode-panel pronunciation-panel" aria-label="Pronunciation Practice">
       <div class="practice-panel-head">
         <div><span class="practice-eyebrow">Speech</span><h2>Pronunciation Practice</h2></div>
-        <div class="pron-count">1/${pronunciationItems.length}</div>
+        <div class="pron-count">1/${items.length}</div>
       </div>
       <div class="pron-stage">
-        ${pronunciationItems.map((phrase, index) => `
-          <article class="pron-slide${index === 0 ? " active" : ""}" data-phrase="${escapeAttr(phrase)}">
+        ${items.map((item, index) => `
+          <article class="pron-slide${index === 0 ? " active" : ""}" data-phrase="${escapeAttr(item.text)}">
             <span>Repeat this</span>
-            <strong>${phrase}</strong>
+            <strong>${escapeHtml(item.text)}</strong>
+            ${item.note ? `<small>${escapeHtml(item.note)}</small>` : ""}
           </article>
         `).join("")}
       </div>
@@ -273,6 +312,26 @@ function buildOptions(answer, index) {
     .filter(option => option !== answer);
   const options = [answer, wrong[(index + 3) % wrong.length], wrong[(index + 11) % wrong.length], wrong[(index + 19) % wrong.length]];
   return options.sort((a, b) => (a.length + index) % 3 - (b.length + index) % 3);
+}
+
+function buildLessonOptions(answer, index, words) {
+  const wrong = words
+    .map(([, en]) => en)
+    .filter(option => option !== answer);
+  const options = [answer, wrong[(index + 2) % wrong.length], wrong[(index + 7) % wrong.length], wrong[(index + 13) % wrong.length]];
+  return options.sort((a, b) => (a.length + index) % 3 - (b.length + index) % 3);
+}
+
+function getQuizDisplayText(question) {
+  if (question.type === "translation") {
+    return question.prompt.replace(/^Translate:\s*/i, "");
+  }
+
+  if (question.type === "fillBlank") {
+    return question.prompt;
+  }
+
+  return question.prompt;
 }
 
 function speakSpanish(text) {
@@ -300,5 +359,14 @@ function normalize(value) {
 }
 
 function escapeAttr(value) {
-  return value.replace(/&/g, "&amp;").replace(/"/g, "&quot;");
+  return String(value).replace(/&/g, "&amp;").replace(/"/g, "&quot;");
+}
+
+function escapeHtml(value) {
+  return String(value)
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#39;");
 }
