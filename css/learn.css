@@ -152,6 +152,35 @@
   background: rgba(39,174,96,.1);
 }
 
+.lesson-status.not-started {
+  border-color: var(--border);
+  color: var(--muted);
+  background: rgba(8,12,16,.55);
+}
+
+.lesson-complete-badge {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  border: 1px solid rgba(39,174,96,.4);
+  border-radius: 12px;
+  background: rgba(39,174,96,.09);
+  margin-top: 12px;
+  padding: 10px;
+}
+
+.lesson-complete-badge span {
+  color: var(--green);
+  font-size: .78rem;
+  font-weight: 800;
+}
+
+.lesson-complete-badge strong {
+  color: var(--gold);
+  font-size: .78rem;
+}
+
 .lesson-metrics {
   display: grid;
   grid-template-columns: repeat(2, 1fr);

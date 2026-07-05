@@ -1,7 +1,9 @@
-export function renderMissionCard(state, mission, currentLesson = null) {
+export function renderMissionCard(state, mission, currentLesson = null, lessonProgress = null) {
   const statusText = mission.completed ? "Completed" : "Active";
   const actionText = mission.completed ? "Mission Complete" : "Complete Mission";
   const lessonScenario = currentLesson?.realLifeMission?.mission || currentLesson?.objectives?.[0] || "";
+  const lessonCompleted = Boolean(lessonProgress?.completed);
+  const lessonActionText = lessonCompleted ? "Review Lesson" : "Start Today's Lesson";
 
   return `
     <section class="mission-card">
@@ -14,9 +16,12 @@ export function renderMissionCard(state, mission, currentLesson = null) {
         <h2>${mission.title}</h2>
         <p>${mission.description}</p>
         ${currentLesson ? `
-          <div class="mission-lesson">
-            <span>Current Lesson</span>
-            <strong>${currentLesson.title}</strong>
+          <div class="mission-lesson ${lessonCompleted ? "completed" : ""}">
+            <div class="mission-lesson-heading">
+              <span>Current Lesson</span>
+              <em>${lessonCompleted ? "Completed" : "In Progress"}</em>
+            </div>
+            <strong>${lessonCompleted ? "✓ " : ""}${currentLesson.title}</strong>
             ${lessonScenario ? `<small>${lessonScenario}</small>` : ""}
           </div>
         ` : ""}
@@ -28,7 +33,7 @@ export function renderMissionCard(state, mission, currentLesson = null) {
 
         <div class="mission-actions">
           <button class="primary-action" data-page="carlos">
-            ▶ Start Practice
+            ${lessonActionText}
           </button>
           <button class="secondary-action" data-mission-complete="${mission.id}" ${mission.completed ? "disabled" : ""}>
             ${actionText}

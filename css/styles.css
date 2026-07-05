@@ -320,12 +320,37 @@ nav{display:flex;background:var(--surface);border-bottom:1px solid var(--border)
   padding: 11px;
 }
 
+.mission-lesson.completed {
+  border-color: rgba(39,174,96,.42);
+  background: rgba(39,174,96,.08);
+}
+
+.mission-lesson-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+
 .mission-lesson span {
   display: block;
   color: var(--green);
   font-size: .62rem;
   font-weight: 800;
   letter-spacing: .7px;
+  text-transform: uppercase;
+}
+
+.mission-lesson em {
+  border: 1px solid rgba(39,174,96,.35);
+  border-radius: 999px;
+  color: var(--green);
+  background: rgba(39,174,96,.08);
+  flex: 0 0 auto;
+  font-size: .58rem;
+  font-style: normal;
+  font-weight: 800;
+  padding: 3px 7px;
   text-transform: uppercase;
 }
 

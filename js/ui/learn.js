@@ -191,15 +191,24 @@ function renderCurrentLesson(lesson) {
   const vocabularyPreview = lesson.vocabulary?.slice(0, 6) || [];
   const greetingCount = lesson.greetings?.length || 0;
   const politeCount = lesson.politeExpressions?.length || 0;
+  const lessonStatus = getLessonStatus(progress);
+  const xpEarned = progress.xpAwarded || lesson.xpReward || 0;
 
   return `
     <section class="current-lesson-card" aria-label="Current Lesson">
       <div class="current-lesson-topline">
         <span class="learn-eyebrow">Current Lesson</span>
-        <span class="lesson-status ${progress.completed ? "completed" : "active"}">${progress.completed ? "Completed" : "In progress"}</span>
+        <span class="lesson-status ${lessonStatus.className}">${lessonStatus.label}</span>
       </div>
       <h2>${lesson.title}</h2>
       <p>${lesson.objectives?.[0] || "Practice a real Spanish conversation."}</p>
+
+      ${progress.completed ? `
+        <div class="lesson-complete-badge">
+          <span>✓ Completed</span>
+          <strong>${xpEarned} XP earned</strong>
+        </div>
+      ` : ""}
 
       <div class="lesson-metrics">
         <div><strong>${lesson.estimatedMinutes}</strong><small>Minutes</small></div>
@@ -225,6 +234,18 @@ function renderCurrentLesson(lesson) {
       </div>
     </section>
   `;
+}
+
+function getLessonStatus(progress) {
+  if (progress?.completed) {
+    return { label: "Completed", className: "completed" };
+  }
+
+  if (progress?.startedAt || progress?.updatedAt || progress?.completedAt || progress?.xpAwarded > 0) {
+    return { label: "In Progress", className: "active" };
+  }
+
+  return { label: "Not Started", className: "not-started" };
 }
 
 function sectionCard(id, className, icon, title, copy) {
