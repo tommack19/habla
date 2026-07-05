@@ -257,6 +257,36 @@ nav{display:flex;background:var(--surface);border-bottom:1px solid var(--border)
   font-size: 1.35rem;
 }
 
+.mission-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.mission-status {
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: 4px 9px;
+  font-size: .62rem;
+  font-weight: 800;
+  letter-spacing: .5px;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.mission-status.active {
+  color: var(--green);
+  border-color: rgba(39,174,96,.35);
+  background: rgba(39,174,96,.08);
+}
+
+.mission-status.completed {
+  color: var(--gold);
+  border-color: rgba(232,184,109,.4);
+  background: rgba(232,184,109,.1);
+}
+
 .eyebrow,
 .progress-card h3,
 .quote-card h3,
@@ -316,6 +346,31 @@ nav{display:flex;background:var(--surface);border-bottom:1px solid var(--border)
   padding: 13px;
   font-weight: 800;
   cursor: pointer;
+}
+
+.mission-actions {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 8px;
+}
+
+.secondary-action {
+  width: 100%;
+  background: rgba(8,12,16,.64);
+  color: var(--gold);
+  border: 1px solid rgba(232,184,109,.35);
+  border-radius: 12px;
+  padding: 12px;
+  font-weight: 800;
+  cursor: pointer;
+  font-family: inherit;
+}
+
+.secondary-action:disabled {
+  color: var(--muted);
+  border-color: var(--border);
+  cursor: default;
+  opacity: .75;
 }
 
 .progress-card {

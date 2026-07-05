@@ -2,6 +2,7 @@
 import { saveState, loadState } from "./core/storage.js";
 import { renderPage } from "./core/router.js";
 import { initializeProgressEngine } from "./core/progress.js";
+import { completeMission as completeDailyMission } from "./core/missions.js";
 import { renderNavigation } from "./ui/navigation.js";
 
 console.log("Habla state loaded:", state);
@@ -544,6 +545,13 @@ function toggleAutoSpeak() {
 }
 
 document.addEventListener('click', (event) => {
+  const missionTarget = event.target.closest('[data-mission-complete]');
+  if (missionTarget) {
+    completeDailyMission(missionTarget.dataset.missionComplete);
+    renderAppPage('home');
+    return;
+  }
+
   const pageTarget = event.target.closest('[data-page]');
   if (!pageTarget) return;
   renderAppPage(pageTarget.dataset.page);

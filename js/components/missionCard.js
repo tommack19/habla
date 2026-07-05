@@ -1,20 +1,31 @@
-export function renderMissionCard(state) {
+export function renderMissionCard(state, mission) {
+  const statusText = mission.completed ? "Completed" : "Active";
+  const actionText = mission.completed ? "Mission Complete" : "Complete Mission";
+
   return `
     <section class="mission-card">
       <div class="mission-icon">🗓️</div>
       <div>
-        <span class="eyebrow">Today’s Mission</span>
-        <h2>Talking with Family</h2>
-        <p>Practice introducing your wife and talking about your family and relatives.</p>
+        <div class="mission-heading">
+          <span class="eyebrow">Today’s Mission</span>
+          <span class="mission-status ${mission.completed ? "completed" : "active"}">${statusText}</span>
+        </div>
+        <h2>${mission.title}</h2>
+        <p>${mission.description}</p>
 
         <div class="mission-meta">
-          <div>🕒 <strong>${state.user.dailyTargetMinutes} min</strong><small>Estimated Time</small></div>
+          <div>⭐ <strong>${mission.xpReward} XP</strong><small>Reward</small></div>
           <div>📶 <strong>${state.user.level}</strong><small>Your Level</small></div>
         </div>
 
-        <button class="primary-action" data-page="carlos">
-          ▶ Start Today’s Lesson
-        </button>
+        <div class="mission-actions">
+          <button class="primary-action" data-page="carlos">
+            ▶ Start Practice
+          </button>
+          <button class="secondary-action" data-mission-complete="${mission.id}" ${mission.completed ? "disabled" : ""}>
+            ${actionText}
+          </button>
+        </div>
       </div>
     </section>
   `;
