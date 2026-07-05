@@ -1,3 +1,5 @@
+import { getCurrentLesson, getLessonProgress } from "../core/content.js";
+
 const vocabulary = [
   ["Greetings", "hola", "hello", "greeting", "Use any time of day.", "Hola, ¿cómo estás?", "Hello, how are you?"],
   ["Greetings", "buenos días", "good morning", "greeting", "Use before midday.", "Buenos días, señora.", "Good morning, ma'am."],
@@ -141,6 +143,8 @@ const grammar = [
 ];
 
 export function renderLearn() {
+  const currentLesson = getCurrentLesson();
+
   return `
     <section class="learn-screen" aria-label="Learn">
       <input class="learn-tab-input" type="radio" name="learn-section" id="learn-vocab" checked>
@@ -154,6 +158,8 @@ export function renderLearn() {
         <p>A practical Spanish course for building vocabulary, grammar, and real-world confidence.</p>
       </div>
 
+      ${renderCurrentLesson(currentLesson)}
+
       <div class="learn-card-grid" role="tablist" aria-label="Learn sections">
         ${sectionCard("learn-vocab", "learn-card-vocab", "📚", "Vocabulary", "Filter and study A1 words.")}
         ${sectionCard("learn-roadmap", "learn-card-roadmap", "🗺️", "Roadmap", "Follow the full course path.")}
@@ -164,6 +170,58 @@ export function renderLearn() {
         ${renderVocabularyPanel()}
         ${renderRoadmapPanel()}
         ${renderGrammarPanel()}
+      </div>
+    </section>
+  `;
+}
+
+function renderCurrentLesson(lesson) {
+  if (!lesson) {
+    return `
+      <section class="current-lesson-card" aria-label="Current Lesson">
+        <span class="learn-eyebrow">Current Lesson</span>
+        <h2>Loading lesson...</h2>
+        <p>Your next Habla lesson is being prepared.</p>
+      </section>
+    `;
+  }
+
+  const progress = getLessonProgress(lesson.id);
+  const mission = lesson.realLifeMission;
+  const vocabularyPreview = lesson.vocabulary?.slice(0, 6) || [];
+  const greetingCount = lesson.greetings?.length || 0;
+  const politeCount = lesson.politeExpressions?.length || 0;
+
+  return `
+    <section class="current-lesson-card" aria-label="Current Lesson">
+      <div class="current-lesson-topline">
+        <span class="learn-eyebrow">Current Lesson</span>
+        <span class="lesson-status ${progress.completed ? "completed" : "active"}">${progress.completed ? "Completed" : "In progress"}</span>
+      </div>
+      <h2>${lesson.title}</h2>
+      <p>${lesson.objectives?.[0] || "Practice a real Spanish conversation."}</p>
+
+      <div class="lesson-metrics">
+        <div><strong>${lesson.estimatedMinutes}</strong><small>Minutes</small></div>
+        <div><strong>${lesson.vocabulary?.length || 0}</strong><small>Words</small></div>
+        <div><strong>${greetingCount}</strong><small>Greetings</small></div>
+        <div><strong>${politeCount}</strong><small>Polite phrases</small></div>
+      </div>
+
+      ${mission ? `
+        <div class="lesson-mission">
+          <span>${mission.title}</span>
+          <strong>${mission.mission}</strong>
+        </div>
+      ` : ""}
+
+      <div class="lesson-preview-list" aria-label="Lesson vocabulary preview">
+        ${vocabularyPreview.map(item => `
+          <div>
+            <strong>${item.spanish}</strong>
+            <span>${item.english}</span>
+          </div>
+        `).join("")}
       </div>
     </section>
   `;

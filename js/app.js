@@ -3,6 +3,7 @@ import { saveState, loadState } from "./core/storage.js";
 import { renderPage } from "./core/router.js";
 import { initializeProgressEngine } from "./core/progress.js";
 import { completeMission as completeDailyMission } from "./core/missions.js";
+import { contentReady } from "./core/content.js";
 import { renderNavigation } from "./ui/navigation.js";
 
 console.log("Habla state loaded:", state);
@@ -483,6 +484,14 @@ initializeProgressEngine(state, {
     }
   },
 });
+
+contentReady
+  .then(() => {
+    if (currentPage === "home" || currentPage === "learn") {
+      renderAppPage(currentPage);
+    }
+  })
+  .catch(error => console.error("Habla content could not be loaded:", error));
 
 updateLevelButton();
 saveState(state);

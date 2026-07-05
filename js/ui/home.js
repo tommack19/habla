@@ -4,13 +4,15 @@ import { renderProgressCard } from "../components/progressCard.js";
 import { renderQuoteCard } from "../components/quoteCard.js";
 import { renderQuickPractice } from "../components/quickPractice.js";
 import { getTodaysMission } from "../core/missions.js";
+import { getCurrentLesson } from "../core/content.js";
 
 export function renderHome(state) {
   const mission = getTodaysMission();
+  const currentLesson = getCurrentLesson();
 
   return `
     ${renderHero(state)}
-    ${renderMissionCard(state, mission)}
+    ${renderMissionCard(state, mission, currentLesson)}
     ${renderProgressCard()}
 
     <section class="home-bottom">

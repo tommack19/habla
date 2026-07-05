@@ -1,0 +1,98 @@
+{
+  "id": "level-module-lesson-number",
+  "title": "Lesson Title",
+  "level": "A1",
+  "module": "Module Name",
+  "estimatedMinutes": 15,
+  "objectives": [
+    "Learner can understand the main lesson goal.",
+    "Learner can use the target vocabulary or pattern in a simple sentence."
+  ],
+  "vocabulary": [
+    {
+      "spanish": "hola",
+      "english": "hello",
+      "partOfSpeech": "greeting",
+      "tip": "Use any time of day.",
+      "exampleSpanish": "Hola, ¿cómo estás?",
+      "exampleEnglish": "Hello, how are you?"
+    }
+  ],
+  "grammar": {
+    "topic": "Grammar Topic",
+    "explanation": "Short beginner-friendly explanation.",
+    "examples": [
+      {
+        "spanish": "Soy Tom.",
+        "english": "I am Tom."
+      }
+    ],
+    "practicePrompt": "Write or say one sentence using the pattern."
+  },
+  "dialogue": [
+    {
+      "speaker": "Carlos",
+      "spanish": "Hola, ¿cómo estás?",
+      "english": "Hello, how are you?"
+    },
+    {
+      "speaker": "Learner",
+      "spanish": "Estoy bien, gracias.",
+      "english": "I am well, thank you."
+    }
+  ],
+  "pronunciation": {
+    "focus": "Sound, stress, or phrase rhythm to practice.",
+    "items": [
+      {
+        "text": "hola",
+        "note": "Keep the h silent."
+      }
+    ]
+  },
+  "culture": {
+    "title": "Culture Note",
+    "text": "Short context about real-world Spanish usage."
+  },
+  "nativeSpeech": {
+    "title": "How Native Speakers Say It",
+    "notes": [
+      "Short note about natural phrasing, speed, or common alternatives."
+    ]
+  },
+  "commonMistakes": [
+    {
+      "mistake": "Common learner mistake.",
+      "correction": "Correct version.",
+      "explanation": "Why the correction is better."
+    }
+  ],
+  "quiz": [
+    {
+      "type": "multipleChoice",
+      "prompt": "What does 'hola' mean?",
+      "options": ["hello", "goodbye", "please", "thanks"],
+      "answer": "hello"
+    }
+  ],
+  "speakingChallenge": {
+    "prompt": "Say a short sentence using today's vocabulary.",
+    "exampleAnswer": "Hola, estoy bien."
+  },
+  "realLifeMission": {
+    "title": "Real Life Mission",
+    "mission": "Use today's lesson in a realistic conversation.",
+    "successCriteria": [
+      "Use at least one target vocabulary item.",
+      "Use the lesson's main grammar or communication pattern.",
+      "Complete the interaction with a natural closing."
+    ],
+    "suggestedPartner": "Carlos",
+    "xpReward": 10
+  },
+  "achievementsUnlocked": [
+    "first_steps"
+  ],
+  "xpReward": 25,
+  "nextLesson": "level-module-next-lesson-number"
+}

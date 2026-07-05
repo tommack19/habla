@@ -1,5 +1,7 @@
 import { awardXP, getCurrentXP, getCurrentLevel, getCurrentStreak } from "../core/progress.js";
 import { evaluateAchievements, getAchievements, resetAchievements } from "../core/achievements.js";
+import { state } from "../core/state.js";
+import { saveState } from "../core/storage.js";
 
 const LEVELS = [
   { name: "A1 Beginner", minXP: 0 },
@@ -7,6 +9,15 @@ const LEVELS = [
   { name: "B1 Intermediate", minXP: 1500 },
   { name: "B2 Upper Intermediate", minXP: 3500 },
   { name: "C1 Advanced", minXP: 7000 },
+];
+
+const DIALECT_OPTIONS = [
+  "Mexican Spanish",
+  "Spain Spanish",
+  "Colombian Spanish",
+  "Caribbean Spanish",
+  "Argentinian Spanish",
+  "General Latin American Spanish",
 ];
 
 if (typeof window !== "undefined") {
@@ -21,6 +32,16 @@ if (typeof window !== "undefined") {
     },
     resetAchievements() {
       resetAchievements();
+      refreshProfile();
+    },
+    saveProfile() {
+      const goalInput = document.getElementById("profile-goal");
+      const dialectInput = document.getElementById("profile-dialect");
+      if (!goalInput || !dialectInput) return;
+
+      state.user.goal = goalInput.value.trim() || state.user.goal;
+      state.user.dialect = dialectInput.value;
+      saveState(state);
       refreshProfile();
     },
   };
@@ -56,6 +77,26 @@ export function renderProfile(state) {
           ${profileRow("Dialect", state.user.dialect)}
           ${profileRow("Daily target", `${state.user.dailyTargetMinutes} minutes`)}
         </div>
+      </section>
+
+      <section class="profile-card edit-profile-card">
+        <div class="section-heading">
+          <span class="profile-eyebrow">Edit Profile</span>
+          <h2>Learning Preferences</h2>
+        </div>
+        <label class="profile-field" for="profile-goal">
+          <span>Learning goal</span>
+          <textarea id="profile-goal" rows="3">${escapeHTML(state.user.goal)}</textarea>
+        </label>
+        <label class="profile-field" for="profile-dialect">
+          <span>Spanish dialect</span>
+          <select id="profile-dialect">
+            ${DIALECT_OPTIONS.map(option => `
+              <option value="${escapeHTML(option)}" ${state.user.dialect === option ? "selected" : ""}>${option}</option>
+            `).join("")}
+          </select>
+        </label>
+        <button class="profile-save-btn" type="button" onclick="hablaProfile.saveProfile()">Save changes</button>
       </section>
 
       <section class="profile-card progress-card-profile">
@@ -172,6 +213,14 @@ function readJSON(key) {
   } catch {
     return null;
   }
+}
+
+function escapeHTML(value) {
+  return String(value)
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;");
 }
 
 function refreshProfile() {

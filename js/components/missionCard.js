@@ -1,6 +1,7 @@
-export function renderMissionCard(state, mission) {
+export function renderMissionCard(state, mission, currentLesson = null) {
   const statusText = mission.completed ? "Completed" : "Active";
   const actionText = mission.completed ? "Mission Complete" : "Complete Mission";
+  const lessonScenario = currentLesson?.realLifeMission?.mission || currentLesson?.objectives?.[0] || "";
 
   return `
     <section class="mission-card">
@@ -12,6 +13,13 @@ export function renderMissionCard(state, mission) {
         </div>
         <h2>${mission.title}</h2>
         <p>${mission.description}</p>
+        ${currentLesson ? `
+          <div class="mission-lesson">
+            <span>Current Lesson</span>
+            <strong>${currentLesson.title}</strong>
+            ${lessonScenario ? `<small>${lessonScenario}</small>` : ""}
+          </div>
+        ` : ""}
 
         <div class="mission-meta">
           <div>⭐ <strong>${mission.xpReward} XP</strong><small>Reward</small></div>

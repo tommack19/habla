@@ -36,7 +36,9 @@
 </div>
 
 <script>
-  if ("serviceWorker" in navigator) {
+  const isLocalHost = location.hostname === "localhost" || location.hostname === "127.0.0.1";
+
+  if ("serviceWorker" in navigator && !isLocalHost) {
     navigator.serviceWorker.register("./service-worker.js");
   }
 </script>

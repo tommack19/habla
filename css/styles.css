@@ -312,6 +312,40 @@ nav{display:flex;background:var(--surface);border-bottom:1px solid var(--border)
   margin-top: 8px;
 }
 
+.mission-lesson {
+  border: 1px solid rgba(232,184,109,.28);
+  border-radius: 12px;
+  background: rgba(232,184,109,.07);
+  margin-top: 12px;
+  padding: 11px;
+}
+
+.mission-lesson span {
+  display: block;
+  color: var(--green);
+  font-size: .62rem;
+  font-weight: 800;
+  letter-spacing: .7px;
+  text-transform: uppercase;
+}
+
+.mission-lesson strong {
+  display: block;
+  color: var(--gold);
+  font-family: Georgia, serif;
+  font-size: 1rem;
+  line-height: 1.25;
+  margin-top: 4px;
+}
+
+.mission-lesson small {
+  display: block;
+  color: var(--soft);
+  font-size: .76rem;
+  line-height: 1.4;
+  margin-top: 5px;
+}
+
 .mission-meta {
   display: grid;
   grid-template-columns: 1fr 1fr;

@@ -115,6 +115,60 @@
   font-size: 1rem;
 }
 
+.edit-profile-card {
+  display: grid;
+  gap: 12px;
+}
+
+.profile-field {
+  display: grid;
+  gap: 7px;
+}
+
+.profile-field span {
+  color: var(--muted);
+  font-size: .68rem;
+  font-weight: 800;
+  letter-spacing: .5px;
+  text-transform: uppercase;
+}
+
+.profile-field textarea,
+.profile-field select {
+  width: 100%;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 11px 12px;
+  color: var(--text);
+  background: rgba(8,12,16,.76);
+  font-family: inherit;
+  font-size: .86rem;
+  line-height: 1.45;
+  outline: none;
+}
+
+.profile-field textarea {
+  resize: vertical;
+  min-height: 88px;
+}
+
+.profile-field textarea:focus,
+.profile-field select:focus {
+  border-color: rgba(232,184,109,.65);
+}
+
+.profile-save-btn {
+  width: 100%;
+  border: none;
+  border-radius: 12px;
+  padding: 12px;
+  color: #000;
+  background: linear-gradient(180deg, #f1c878, var(--gold));
+  font-family: inherit;
+  font-weight: 800;
+  cursor: pointer;
+}
+
 .level-progress {
   margin-top: 14px;
 }
