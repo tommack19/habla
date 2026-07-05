@@ -1,6 +1,7 @@
 ﻿import { state } from "./core/state.js";
 import { saveState, loadState } from "./core/storage.js";
 import { renderPage } from "./core/router.js";
+import { initializeProgressEngine } from "./core/progress.js";
 import { renderNavigation } from "./ui/navigation.js";
 
 console.log("Habla state loaded:", state);
@@ -469,7 +470,24 @@ function resetQuiz(){
 // â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
 const INTRO="¡Hola amigo! I'm Carlos, your Spanish tutor from Madrid! I heard you want to connect with your wife's family — that's *una razón perfecta* to learn Spanish, a perfect reason! Let's start from scratch and build you up step by step. First question: have you ever tried to say anything in Spanish before?";
 
+let currentPage = "home";
+
+initializeProgressEngine(state, {
+  onProgressChange() {
+    saveState(state);
+    updateLevelButton();
+
+    if (currentPage === "home" || currentPage === "profile") {
+      renderAppPage(currentPage);
+    }
+  },
+});
+
+updateLevelButton();
+saveState(state);
+
 function renderAppPage(page) {
+  currentPage = page;
   renderPage(page);
   const navMount = document.getElementById('bottom-nav');
   if (navMount) navMount.innerHTML = renderNavigation(page);
@@ -477,6 +495,11 @@ function renderAppPage(page) {
   if (page === 'carlos') {
     initializeCarlosUI();
   }
+}
+
+function updateLevelButton() {
+  const levelBtn = document.getElementById('level-btn');
+  if (levelBtn) levelBtn.textContent = state.user.level;
 }
 
 function initializeCarlosUI() {

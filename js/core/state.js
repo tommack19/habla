@@ -1,3 +1,5 @@
+import { awardXP } from "./progress.js";
+
 export const state = {
 user: {
   name: "Tom",
@@ -25,7 +27,7 @@ user: {
 };
 
 export function addXP(amount) {
-  state.user.xp += amount;
+  return awardXP(amount, "Legacy addXP");
 }
 
 export function setTutorStatus(status) {
