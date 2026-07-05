@@ -3,7 +3,7 @@ import { saveState, loadState } from "./core/storage.js";
 import { renderPage } from "./core/router.js";
 import { initializeProgressEngine } from "./core/progress.js";
 import { completeMission as completeDailyMission } from "./core/missions.js";
-import { contentReady } from "./core/content.js";
+import { contentReady, getCurrentLesson } from "./core/content.js";
 import { renderNavigation } from "./ui/navigation.js";
 
 console.log("Habla state loaded:", state);
@@ -470,7 +470,7 @@ function resetQuiz(){
 // â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
 // EVENTS & INIT
 // â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
-const INTRO="¡Hola amigo! I'm Carlos, your Spanish tutor from Madrid! I heard you want to connect with your wife's family — that's *una razón perfecta* to learn Spanish, a perfect reason! Let's start from scratch and build you up step by step. First question: have you ever tried to say anything in Spanish before?";
+const FALLBACK_INTRO="¡Hola amigo! I'm Carlos, your Spanish tutor from Madrid! I heard you want to connect with your wife's family — that's *una razón perfecta* to learn Spanish, a perfect reason! Let's start from scratch and build you up step by step. First question: have you ever tried to say anything in Spanish before?";
 
 let currentPage = "home";
 
@@ -487,7 +487,7 @@ initializeProgressEngine(state, {
 
 contentReady
   .then(() => {
-    if (currentPage === "home" || currentPage === "learn") {
+    if (currentPage === "home" || currentPage === "learn" || currentPage === "carlos") {
       renderAppPage(currentPage);
     }
   })
@@ -523,11 +523,16 @@ function initializeCarlosUI() {
   if (!txt || !sendBtn || !micBtn || !stopBtn || !autoToggle || !messages) return;
 
   messages.innerHTML = '';
+  const intro = getCarlosIntro();
+
+  if (apiHistory.length === 1 && apiHistory[0].role === 'assistant' && apiHistory[0].content === FALLBACK_INTRO && intro !== FALLBACK_INTRO) {
+    apiHistory[0].content = intro;
+  }
 
   if (apiHistory.length === 0) {
-    apiHistory.push({role:'assistant',content:INTRO});
-    addBubble('ai',INTRO);
-    setTimeout(()=>{if(autoSpeak && document.getElementById('messages'))speakText(INTRO);},900);
+    apiHistory.push({role:'assistant',content:intro});
+    addBubble('ai',intro);
+    setTimeout(()=>{if(autoSpeak && document.getElementById('messages'))speakText(intro);},900);
   } else {
     apiHistory.forEach(entry => addBubble(entry.role, entry.content));
   }
@@ -539,9 +544,25 @@ function initializeCarlosUI() {
   stopBtn.addEventListener('click',()=>{window.speechSynthesis.cancel();isSpeaking=false;setAvatar('idle');stopBtn.style.display='none';});
   autoToggle.addEventListener('click',toggleAutoSpeak);
   autoToggle.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();toggleAutoSpeak();}});
+  document.querySelectorAll('[data-carlos-prompt]').forEach(button => {
+    button.addEventListener('click', () => {
+      txt.value = button.dataset.carlosPrompt || '';
+      updateSendBtn();
+      txt.focus();
+    });
+  });
 
   updateSendBtn();
   setAvatar('idle');
+}
+
+function getCarlosIntro() {
+  const lesson = getCurrentLesson();
+
+  if (!lesson) return FALLBACK_INTRO;
+
+  const mission = lesson.realLifeMission?.mission || lesson.objectives?.[0] || "practice a real Spanish conversation";
+  return `¡Hola amigo! Today we're working on *${lesson.title}*. Your real life mission is: ${mission} I'll help you practice naturally, one short turn at a time. Try one of the suggested prompts, or introduce yourself to me now.`;
 }
 
 function toggleAutoSpeak() {

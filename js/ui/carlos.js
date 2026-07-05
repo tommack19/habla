@@ -1,5 +1,12 @@
+import { getCurrentLesson } from "../core/content.js";
+
 export function renderCarlos(state) {
   const greeting = getCarlosGreeting(state.user.name);
+  const lesson = getCurrentLesson();
+  const suggestedPrompts = getSuggestedPrompts(lesson);
+  const lessonIntro = lesson
+    ? `Today we're practicing ${lesson.title}. ${lesson.realLifeMission?.mission || lesson.objectives?.[0] || "Let's use this lesson in a real conversation."}`
+    : "Practice out loud, ask questions, or type when you want a quieter session.";
 
   return `
     <section class="carlos-screen" aria-label="Carlos Spanish tutor">
@@ -47,9 +54,23 @@ export function renderCarlos(state) {
         </svg>
 
         <div class="carlos-greeting-card">
-          <span class="carlos-greeting-kicker">Spanish tutor</span>
+          <span class="carlos-greeting-kicker">${lesson ? "Current lesson" : "Spanish tutor"}</span>
           <h1>${greeting}</h1>
-          <p>Practice out loud, ask questions, or type when you want a quieter session.</p>
+          ${lesson ? `<h2 style="color:var(--text);font-size:.95rem;line-height:1.3;margin-top:8px;">${escapeHtml(lesson.title)}</h2>` : ""}
+          <p>${escapeHtml(lessonIntro)}</p>
+          ${lesson?.realLifeMission ? `
+            <div style="border-left:2px solid rgba(39,174,96,.65);margin-top:10px;padding-left:10px;">
+              <span style="display:block;color:var(--green);font-size:.62rem;font-weight:800;letter-spacing:.7px;text-transform:uppercase;">Real Life Mission</span>
+              <p style="margin-top:4px;">${escapeHtml(lesson.realLifeMission.mission)}</p>
+            </div>
+          ` : ""}
+          ${suggestedPrompts.length ? `
+            <div class="carlos-suggested-prompts" aria-label="Suggested prompts" style="display:grid;gap:7px;margin-top:12px;">
+              ${suggestedPrompts.map(prompt => `
+                <button type="button" data-carlos-prompt="${escapeAttr(prompt)}" style="border:1px solid rgba(232,184,109,.28);border-radius:10px;background:rgba(232,184,109,.08);color:var(--gold);font:inherit;font-size:.76rem;line-height:1.35;padding:8px 10px;text-align:left;cursor:pointer;">${escapeHtml(prompt)}</button>
+              `).join("")}
+            </div>
+          ` : ""}
         </div>
 
         <div class="carlos-status-row">
@@ -83,6 +104,39 @@ export function renderCarlos(state) {
       </div>
     </section>
   `;
+}
+
+function escapeHtml(value) {
+  return String(value)
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#39;");
+}
+
+function escapeAttr(value) {
+  return escapeHtml(value);
+}
+
+function getSuggestedPrompts(lesson) {
+  if (!lesson) {
+    return [
+      "Help me introduce myself in Spanish.",
+      "Ask me a beginner greeting question.",
+      "Practice a short conversation with me.",
+    ];
+  }
+
+  const speakingPrompts = Array.isArray(lesson.speakingChallenge)
+    ? lesson.speakingChallenge.map(challenge => challenge.prompt || challenge.exampleAnswer).filter(Boolean)
+    : [];
+
+  const dialoguePrompts = Array.isArray(lesson.dialogue)
+    ? lesson.dialogue.map(dialogue => `Practice this scene: ${dialogue.title}`).filter(Boolean)
+    : [];
+
+  return [...speakingPrompts, ...dialoguePrompts].slice(0, 3);
 }
 
 function getCarlosGreeting(name) {
