@@ -181,6 +181,86 @@
   font-size: .78rem;
 }
 
+.lesson-next-soon {
+  border: 1px solid rgba(232,184,109,.32);
+  border-radius: 12px;
+  background: rgba(232,184,109,.08);
+  margin-top: 10px;
+  padding: 10px;
+}
+
+.lesson-next-soon span,
+.lesson-next-soon strong,
+.lesson-next-soon small {
+  display: block;
+}
+
+.lesson-next-soon span {
+  color: var(--green);
+  font-size: .65rem;
+  font-weight: 800;
+  letter-spacing: .6px;
+  text-transform: uppercase;
+}
+
+.lesson-next-soon strong {
+  color: var(--gold);
+  font-size: .88rem;
+  line-height: 1.35;
+  margin-top: 3px;
+}
+
+.lesson-next-soon small {
+  color: var(--soft);
+  font-size: .74rem;
+  line-height: 1.4;
+  margin-top: 4px;
+}
+
+.lesson-course-progress {
+  border: 1px solid rgba(232,184,109,.24);
+  border-radius: 12px;
+  background: rgba(8,12,16,.45);
+  display: grid;
+  gap: 9px;
+  margin-top: 12px;
+  padding: 10px;
+}
+
+.lesson-course-progress > div:first-child {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.lesson-course-progress span {
+  color: var(--green);
+  font-size: .68rem;
+  font-weight: 800;
+  letter-spacing: .6px;
+  text-transform: uppercase;
+}
+
+.lesson-course-progress strong {
+  color: var(--gold);
+  font-size: .78rem;
+}
+
+.lesson-course-bar {
+  height: 8px;
+  border-radius: 999px;
+  background: rgba(17,24,32,.9);
+  overflow: hidden;
+}
+
+.lesson-course-bar i {
+  display: block;
+  height: 100%;
+  border-radius: inherit;
+  background: linear-gradient(90deg, var(--green), var(--gold));
+}
+
 .lesson-metrics {
   display: grid;
   grid-template-columns: repeat(2, 1fr);

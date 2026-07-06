@@ -5,6 +5,7 @@ const PROGRESS_KEY = "habla_lesson_progress_v1";
 const LESSON_PATHS = {
   [FIRST_LESSON_ID]: "../../content/A1/lesson-01-greetings.json",
   "a1-lesson-02-introductions": "../../content/A1/lesson-02-introductions.json",
+  "lesson-03-family": "../../content/A1/lesson-03-family.json",
 };
 const LESSON_ORDER = Object.keys(LESSON_PATHS);
 
@@ -41,6 +42,64 @@ export function getNextLesson() {
   return getLessonById(currentLesson.nextLesson) || null;
 }
 
+export function getNextAvailableLessonStatus() {
+  const progress = readProgress();
+  const currentLesson = getCurrentLesson();
+
+  if (!currentLesson) {
+    return { type: "no-current-lesson" };
+  }
+
+  const currentProgress = progress.lessons[currentLesson.id] || {};
+  const nextLessonId = currentLesson.nextLesson || null;
+  const nextLesson = nextLessonId ? getLessonById(nextLessonId) : null;
+  const nextUnlocked = nextLessonId ? progress.unlockedLessonIds.includes(nextLessonId) : false;
+
+  if (nextLesson) {
+    return {
+      type: nextUnlocked ? "next-lesson-available" : "next-lesson-locked",
+      currentLesson,
+      currentProgress,
+      nextLesson,
+      nextLessonId,
+      nextLessonTitle: nextLesson.title,
+    };
+  }
+
+  if (currentProgress.completed && nextLessonId && nextUnlocked) {
+    return {
+      type: "next-lesson-missing",
+      currentLesson,
+      currentProgress,
+      nextLesson: null,
+      nextLessonId,
+      nextLessonTitle: formatLessonTitle(nextLessonId),
+      message: `Next lesson coming soon: ${formatLessonTitle(nextLessonId)}`,
+    };
+  }
+
+  if (currentProgress.completed && !nextLessonId) {
+    return {
+      type: "course-caught-up",
+      currentLesson,
+      currentProgress,
+      nextLesson: null,
+      nextLessonId: null,
+      nextLessonTitle: null,
+      message: "You're caught up.",
+    };
+  }
+
+  return {
+    type: "current-lesson-active",
+    currentLesson,
+    currentProgress,
+    nextLesson: null,
+    nextLessonId,
+    nextLessonTitle: nextLessonId ? formatLessonTitle(nextLessonId) : null,
+  };
+}
+
 export function unlockNextLesson() {
   const currentLesson = getCurrentLesson();
   if (!currentLesson) {
@@ -55,6 +114,30 @@ export function getUnlockedLessons() {
   return progress.unlockedLessonIds
     .map(id => getLessonById(id))
     .filter(Boolean);
+}
+
+export function getCourseProgress() {
+  const progress = readProgress();
+  const loadedLessons = LESSON_ORDER
+    .map(id => getLessonById(id))
+    .filter(Boolean);
+  const currentLesson = getCurrentLesson();
+  const currentIndex = Math.max(loadedLessons.findIndex(lesson => lesson.id === currentLesson?.id), 0);
+  const completedLessons = loadedLessons.filter(lesson => progress.lessons[lesson.id]?.completed);
+  const totalLoadedLessons = loadedLessons.length;
+  const completedCount = completedLessons.length;
+  const percent = totalLoadedLessons ? Math.round((completedCount / totalLoadedLessons) * 100) : 0;
+
+  return {
+    currentLesson,
+    currentLessonNumber: totalLoadedLessons ? currentIndex + 1 : 0,
+    totalLoadedLessons,
+    completedCount,
+    percent,
+    loadedLessons,
+    completedLessons,
+    nextLessonStatus: getNextAvailableLessonStatus(),
+  };
 }
 
 export function getLessonById(id) {
@@ -191,4 +274,21 @@ function sortLessonIds(ids) {
     if (bIndex === -1) return -1;
     return aIndex - bIndex;
   });
+}
+
+function formatLessonTitle(id) {
+  if (!id) return "Next lesson";
+
+  const match = id.match(/lesson-(\d+)-(.+)$/);
+  if (!match) return titleCase(id.replace(/^a\d-/, "").replace(/-/g, " "));
+
+  return titleCase(match[2].replace(/-/g, " "));
+}
+
+function titleCase(value) {
+  return value
+    .split(/\s+/)
+    .filter(Boolean)
+    .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+    .join(" ");
 }

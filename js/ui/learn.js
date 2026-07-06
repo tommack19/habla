@@ -1,4 +1,4 @@
-import { getCurrentLesson, getLessonProgress } from "../core/content.js";
+import { getCourseProgress, getCurrentLesson, getLessonProgress, getNextAvailableLessonStatus } from "../core/content.js";
 
 const vocabulary = [
   ["Greetings", "hola", "hello", "greeting", "Use any time of day.", "Hola, ¿cómo estás?", "Hello, how are you?"],
@@ -253,6 +253,9 @@ function renderCurrentLesson(lesson) {
   const politeCount = lesson.politeExpressions?.length || 0;
   const lessonStatus = getLessonStatus(progress);
   const xpEarned = progress.xpAwarded || lesson.xpReward || 0;
+  const nextLessonStatus = getNextAvailableLessonStatus();
+  const nextLessonMissing = nextLessonStatus.type === "next-lesson-missing";
+  const courseProgress = getCourseProgress();
 
   return `
     <section class="current-lesson-card" aria-label="Current Lesson">
@@ -269,6 +272,24 @@ function renderCurrentLesson(lesson) {
           <strong>${xpEarned} XP earned</strong>
         </div>
       ` : ""}
+
+      ${nextLessonMissing ? `
+        <div class="lesson-next-soon">
+          <span>You're caught up</span>
+          <strong>${nextLessonStatus.message || "Next lesson coming soon."}</strong>
+          <small>Keep reviewing this lesson while the next course step is being built.</small>
+        </div>
+      ` : ""}
+
+      <div class="lesson-course-progress">
+        <div>
+          <span>Lesson ${courseProgress.currentLessonNumber} of ${courseProgress.totalLoadedLessons}</span>
+          <strong>${courseProgress.completedCount} / ${courseProgress.totalLoadedLessons} completed</strong>
+        </div>
+        <div class="lesson-course-bar" aria-hidden="true">
+          <i style="width:${courseProgress.percent}%"></i>
+        </div>
+      </div>
 
       <div class="lesson-metrics">
         <div><strong>${lesson.estimatedMinutes}</strong><small>Minutes</small></div>

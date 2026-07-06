@@ -1,0 +1,580 @@
+{
+  "id": "lesson-03-family",
+  "title": "Family: Talking About the People Closest to You",
+  "level": "A1",
+  "module": "Family",
+  "estimatedMinutes": 30,
+  "prerequisiteLesson": "lesson-02-introductions",
+  "objectives": [
+    "Name close family members in Spanish.",
+    "Use mi, mis, tu, and tus with family words.",
+    "Talk about spouse, children, parents, siblings, and in-laws.",
+    "Use tengo, tiene, and se llama in simple family sentences.",
+    "Describe your family politely in a real conversation."
+  ],
+  "vocabulary": [
+    {
+      "spanish": "la familia",
+      "english": "family",
+      "partOfSpeech": "noun",
+      "tip": "A core word for personal conversations.",
+      "exampleSpanish": "Mi familia es importante.",
+      "exampleEnglish": "My family is important."
+    },
+    {
+      "spanish": "mi esposa",
+      "english": "my wife",
+      "partOfSpeech": "family phrase",
+      "tip": "Use esposa for wife. Mi means my.",
+      "exampleSpanish": "Mi esposa habla espanol.",
+      "exampleEnglish": "My wife speaks Spanish."
+    },
+    {
+      "spanish": "mi esposo",
+      "english": "my husband",
+      "partOfSpeech": "family phrase",
+      "tip": "Use esposo for husband. In everyday speech, marido is also common in some regions.",
+      "exampleSpanish": "Mi esposo es amable.",
+      "exampleEnglish": "My husband is kind."
+    },
+    {
+      "spanish": "los hijos",
+      "english": "children",
+      "partOfSpeech": "plural noun",
+      "tip": "Can mean sons or children in a mixed group.",
+      "exampleSpanish": "Tengo dos hijos.",
+      "exampleEnglish": "I have two children."
+    },
+    {
+      "spanish": "el hijo",
+      "english": "son",
+      "partOfSpeech": "noun",
+      "tip": "Use el hijo for the son.",
+      "exampleSpanish": "Mi hijo se llama Leo.",
+      "exampleEnglish": "My son is named Leo."
+    },
+    {
+      "spanish": "la hija",
+      "english": "daughter",
+      "partOfSpeech": "noun",
+      "tip": "Use la hija for the daughter.",
+      "exampleSpanish": "Mi hija se llama Sofia.",
+      "exampleEnglish": "My daughter is named Sofia."
+    },
+    {
+      "spanish": "los padres",
+      "english": "parents",
+      "partOfSpeech": "plural noun",
+      "tip": "Can mean parents or fathers depending on context.",
+      "exampleSpanish": "Mis padres viven cerca.",
+      "exampleEnglish": "My parents live nearby."
+    },
+    {
+      "spanish": "la madre",
+      "english": "mother",
+      "partOfSpeech": "noun",
+      "tip": "Madre is neutral or formal. Mama is warmer and informal.",
+      "exampleSpanish": "Mi madre es de Mexico.",
+      "exampleEnglish": "My mother is from Mexico."
+    },
+    {
+      "spanish": "el padre",
+      "english": "father",
+      "partOfSpeech": "noun",
+      "tip": "Padre is neutral or formal. Papa is warmer and informal.",
+      "exampleSpanish": "Mi padre trabaja hoy.",
+      "exampleEnglish": "My father works today."
+    },
+    {
+      "spanish": "los hermanos",
+      "english": "siblings / brothers",
+      "partOfSpeech": "plural noun",
+      "tip": "Can mean brothers or siblings in a mixed group.",
+      "exampleSpanish": "Tengo tres hermanos.",
+      "exampleEnglish": "I have three siblings."
+    },
+    {
+      "spanish": "el hermano",
+      "english": "brother",
+      "partOfSpeech": "noun",
+      "tip": "Use hermano for brother.",
+      "exampleSpanish": "Mi hermano vive en Canada.",
+      "exampleEnglish": "My brother lives in Canada."
+    },
+    {
+      "spanish": "la hermana",
+      "english": "sister",
+      "partOfSpeech": "noun",
+      "tip": "Use hermana for sister.",
+      "exampleSpanish": "Mi hermana estudia espanol.",
+      "exampleEnglish": "My sister studies Spanish."
+    },
+    {
+      "spanish": "los abuelos",
+      "english": "grandparents",
+      "partOfSpeech": "plural noun",
+      "tip": "Can mean grandfathers or grandparents in a mixed group.",
+      "exampleSpanish": "Mis abuelos son muy carinosos.",
+      "exampleEnglish": "My grandparents are very loving."
+    },
+    {
+      "spanish": "el abuelo",
+      "english": "grandfather",
+      "partOfSpeech": "noun",
+      "tip": "Abuelito is a warmer affectionate version.",
+      "exampleSpanish": "Mi abuelo cocina muy bien.",
+      "exampleEnglish": "My grandfather cooks very well."
+    },
+    {
+      "spanish": "la abuela",
+      "english": "grandmother",
+      "partOfSpeech": "noun",
+      "tip": "Abuelita is a warmer affectionate version.",
+      "exampleSpanish": "Mi abuela vive con mi tia.",
+      "exampleEnglish": "My grandmother lives with my aunt."
+    },
+    {
+      "spanish": "los suegros",
+      "english": "in-laws / parents-in-law",
+      "partOfSpeech": "plural noun",
+      "tip": "Usually means parents-in-law.",
+      "exampleSpanish": "Mis suegros son muy amables.",
+      "exampleEnglish": "My in-laws are very kind."
+    },
+    {
+      "spanish": "el suegro",
+      "english": "father-in-law",
+      "partOfSpeech": "noun",
+      "tip": "Use mi suegro for my father-in-law.",
+      "exampleSpanish": "Mi suegro habla rapido.",
+      "exampleEnglish": "My father-in-law speaks fast."
+    },
+    {
+      "spanish": "la suegra",
+      "english": "mother-in-law",
+      "partOfSpeech": "noun",
+      "tip": "Use mi suegra for my mother-in-law.",
+      "exampleSpanish": "Mi suegra es muy simpatica.",
+      "exampleEnglish": "My mother-in-law is very nice."
+    },
+    {
+      "spanish": "el cunado",
+      "english": "brother-in-law",
+      "partOfSpeech": "noun",
+      "tip": "Use cunado for brother-in-law.",
+      "exampleSpanish": "Mi cunado trabaja mucho.",
+      "exampleEnglish": "My brother-in-law works a lot."
+    },
+    {
+      "spanish": "la cunada",
+      "english": "sister-in-law",
+      "partOfSpeech": "noun",
+      "tip": "Use cunada for sister-in-law.",
+      "exampleSpanish": "Mi cunada vive en Madrid.",
+      "exampleEnglish": "My sister-in-law lives in Madrid."
+    },
+    {
+      "spanish": "la tia",
+      "english": "aunt",
+      "partOfSpeech": "noun",
+      "tip": "Tia is also used warmly for close family friends in some families.",
+      "exampleSpanish": "Mi tia se llama Rosa.",
+      "exampleEnglish": "My aunt is named Rosa."
+    },
+    {
+      "spanish": "el tio",
+      "english": "uncle",
+      "partOfSpeech": "noun",
+      "tip": "In Spain, tio can also mean guy in casual slang, but here it means uncle.",
+      "exampleSpanish": "Mi tio vive cerca.",
+      "exampleEnglish": "My uncle lives nearby."
+    },
+    {
+      "spanish": "el primo",
+      "english": "male cousin",
+      "partOfSpeech": "noun",
+      "tip": "Use prima for a female cousin.",
+      "exampleSpanish": "Mi primo es divertido.",
+      "exampleEnglish": "My cousin is fun."
+    },
+    {
+      "spanish": "la prima",
+      "english": "female cousin",
+      "partOfSpeech": "noun",
+      "tip": "Use primo for a male cousin.",
+      "exampleSpanish": "Mi prima habla ingles.",
+      "exampleEnglish": "My cousin speaks English."
+    },
+    {
+      "spanish": "el sobrino",
+      "english": "nephew",
+      "partOfSpeech": "noun",
+      "tip": "Use sobrino for nephew.",
+      "exampleSpanish": "Mi sobrino tiene cinco anos.",
+      "exampleEnglish": "My nephew is five years old."
+    },
+    {
+      "spanish": "la sobrina",
+      "english": "niece",
+      "partOfSpeech": "noun",
+      "tip": "Use sobrina for niece.",
+      "exampleSpanish": "Mi sobrina es pequena.",
+      "exampleEnglish": "My niece is little."
+    },
+    {
+      "spanish": "mi",
+      "english": "my",
+      "partOfSpeech": "possessive",
+      "tip": "Use mi before one family member.",
+      "exampleSpanish": "Mi hermano vive aqui.",
+      "exampleEnglish": "My brother lives here."
+    },
+    {
+      "spanish": "mis",
+      "english": "my",
+      "partOfSpeech": "possessive",
+      "tip": "Use mis before plural family words.",
+      "exampleSpanish": "Mis padres son de Mexico.",
+      "exampleEnglish": "My parents are from Mexico."
+    },
+    {
+      "spanish": "tu",
+      "english": "your",
+      "partOfSpeech": "possessive",
+      "tip": "Use tu before one family member.",
+      "exampleSpanish": "¿Como se llama tu esposa?",
+      "exampleEnglish": "What is your wife's name?"
+    },
+    {
+      "spanish": "tus",
+      "english": "your",
+      "partOfSpeech": "possessive",
+      "tip": "Use tus before plural family words.",
+      "exampleSpanish": "¿Donde viven tus padres?",
+      "exampleEnglish": "Where do your parents live?"
+    }
+  ],
+  "familyPhraseVariants": [
+    {
+      "meaning": "This is my wife.",
+      "textbookVersion": "Esta es mi esposa.",
+      "naturalEverydayVersion": "Ella es mi esposa.",
+      "mexicanSpanishVersion": "Ella es mi esposa.",
+      "spainSpanishVersion": "Ella es mi mujer.",
+      "whenUsed": "Use esposa anywhere. Mujer can mean wife in Spain and some regions, but esposa is clearer for learners."
+    },
+    {
+      "meaning": "This is my husband.",
+      "textbookVersion": "Este es mi esposo.",
+      "naturalEverydayVersion": "El es mi esposo.",
+      "mexicanSpanishVersion": "El es mi esposo.",
+      "spainSpanishVersion": "El es mi marido.",
+      "whenUsed": "Use esposo anywhere. Marido is common for husband in Spain and much of Latin America."
+    },
+    {
+      "meaning": "I have two children.",
+      "textbookVersion": "Tengo dos hijos.",
+      "naturalEverydayVersion": "Tengo dos hijos.",
+      "mexicanSpanishVersion": "Tengo dos hijos.",
+      "spainSpanishVersion": "Tengo dos hijos.",
+      "whenUsed": "Use hijos for children when at least one child is male or when gender is not specified."
+    },
+    {
+      "meaning": "My parents live nearby.",
+      "textbookVersion": "Mis padres viven cerca.",
+      "naturalEverydayVersion": "Mis papas viven cerca.",
+      "mexicanSpanishVersion": "Mis papas viven cerca.",
+      "spainSpanishVersion": "Mis padres viven cerca.",
+      "whenUsed": "Padres is neutral. Papas is warmer and common in Mexico for parents."
+    },
+    {
+      "meaning": "My mother-in-law is very kind.",
+      "textbookVersion": "Mi suegra es muy amable.",
+      "naturalEverydayVersion": "Mi suegra es muy buena onda.",
+      "mexicanSpanishVersion": "Mi suegra es muy buena onda.",
+      "spainSpanishVersion": "Mi suegra es muy maja.",
+      "whenUsed": "Amable is safe and universal. Buena onda is Mexican and casual. Maja is Spain Spanish and casual."
+    },
+    {
+      "meaning": "What is your brother's name?",
+      "textbookVersion": "¿Como se llama tu hermano?",
+      "naturalEverydayVersion": "¿Como se llama tu hermano?",
+      "mexicanSpanishVersion": "¿Como se llama tu hermano?",
+      "spainSpanishVersion": "¿Como se llama tu hermano?",
+      "whenUsed": "Use tu before one family member. Use tus for plural family members."
+    },
+    {
+      "meaning": "Do you have siblings?",
+      "textbookVersion": "¿Tienes hermanos?",
+      "naturalEverydayVersion": "¿Tienes hermanos?",
+      "mexicanSpanishVersion": "¿Tienes hermanos?",
+      "spainSpanishVersion": "¿Tienes hermanos?",
+      "whenUsed": "Hermanos can mean siblings when talking generally."
+    },
+    {
+      "meaning": "My family is big.",
+      "textbookVersion": "Mi familia es grande.",
+      "naturalEverydayVersion": "Tengo una familia grande.",
+      "mexicanSpanishVersion": "Tengo una familia grande.",
+      "spainSpanishVersion": "Mi familia es grande.",
+      "whenUsed": "Both versions are natural. Tengo una familia grande focuses on having a large family."
+    },
+    {
+      "meaning": "My sister is married.",
+      "textbookVersion": "Mi hermana esta casada.",
+      "naturalEverydayVersion": "Mi hermana esta casada.",
+      "mexicanSpanishVersion": "Mi hermana esta casada.",
+      "spainSpanishVersion": "Mi hermana esta casada.",
+      "whenUsed": "Use casada for a woman and casado for a man."
+    },
+    {
+      "meaning": "I love my family.",
+      "textbookVersion": "Quiero mucho a mi familia.",
+      "naturalEverydayVersion": "Quiero mucho a mi familia.",
+      "mexicanSpanishVersion": "Quiero mucho a mi familia.",
+      "spainSpanishVersion": "Quiero mucho a mi familia.",
+      "whenUsed": "This is a warm, natural family sentence. Amar exists, but querer is very common for family affection."
+    }
+  ],
+  "grammar": {
+    "topic": "Possessives and simple family sentences",
+    "explanation": "Use mi and tu with one family member. Use mis and tus with plural family words. Use tengo for I have, tiene for he/she has, and se llama for is named.",
+    "notes": [
+      {
+        "title": "Mi / mis",
+        "text": "Use mi before one thing: mi esposa. Use mis before more than one: mis padres."
+      },
+      {
+        "title": "Tu / tus",
+        "text": "Use tu before one thing: tu hermano. Use tus before more than one: tus hijos."
+      },
+      {
+        "title": "Tengo / tiene",
+        "text": "Tengo means I have. Tiene means he has, she has, or formal you have."
+      },
+      {
+        "title": "Se llama",
+        "text": "Use se llama to say someone is named: Mi hija se llama Sofia."
+      },
+      {
+        "title": "Plural family words",
+        "text": "Many family plurals use the masculine form for mixed groups: hijos can mean children, padres can mean parents, hermanos can mean siblings."
+      }
+    ],
+    "examples": [
+      {
+        "spanish": "Mi esposa se llama Ana.",
+        "english": "My wife is named Ana."
+      },
+      {
+        "spanish": "Tengo dos hijos y mis padres viven cerca.",
+        "english": "I have two children and my parents live nearby."
+      }
+    ],
+    "practicePrompt": "Tell Carlos about three people in your family using mi, mis, tengo, and se llama."
+  },
+  "dialogue": [
+    {
+      "title": "Introducing your spouse",
+      "lines": [
+        { "speaker": "Learner", "spanish": "Esta es mi esposa, Ana.", "english": "This is my wife, Ana." },
+        { "speaker": "Carlos", "spanish": "Mucho gusto, Ana.", "english": "Nice to meet you, Ana." }
+      ]
+    },
+    {
+      "title": "Talking about children",
+      "lines": [
+        { "speaker": "Carlos", "spanish": "¿Tienes hijos?", "english": "Do you have children?" },
+        { "speaker": "Learner", "spanish": "Si, tengo dos hijos.", "english": "Yes, I have two children." }
+      ]
+    },
+    {
+      "title": "Parents",
+      "lines": [
+        { "speaker": "Carlos", "spanish": "¿Donde viven tus padres?", "english": "Where do your parents live?" },
+        { "speaker": "Learner", "spanish": "Mis padres viven en Canada.", "english": "My parents live in Canada." }
+      ]
+    },
+    {
+      "title": "Siblings",
+      "lines": [
+        { "speaker": "Learner", "spanish": "Tengo un hermano y una hermana.", "english": "I have one brother and one sister." },
+        { "speaker": "Carlos", "spanish": "Que bien. ¿Como se llaman?", "english": "How nice. What are their names?" }
+      ]
+    },
+    {
+      "title": "In-laws",
+      "lines": [
+        { "speaker": "Learner", "spanish": "Mis suegros son muy amables.", "english": "My in-laws are very kind." },
+        { "speaker": "Carlos", "spanish": "Excelente. La familia es importante.", "english": "Excellent. Family is important." }
+      ]
+    },
+    {
+      "title": "Mother-in-law",
+      "lines": [
+        { "speaker": "Carlos", "spanish": "¿Como se llama tu suegra?", "english": "What is your mother-in-law's name?" },
+        { "speaker": "Learner", "spanish": "Mi suegra se llama Rosa.", "english": "My mother-in-law is named Rosa." }
+      ]
+    },
+    {
+      "title": "Grandparents",
+      "lines": [
+        { "speaker": "Learner", "spanish": "Mis abuelos viven lejos.", "english": "My grandparents live far away." },
+        { "speaker": "Carlos", "spanish": "¿Hablas con ellos?", "english": "Do you talk with them?" }
+      ]
+    },
+    {
+      "title": "Aunt and uncle",
+      "lines": [
+        { "speaker": "Carlos", "spanish": "¿Tienes tios?", "english": "Do you have aunts and uncles?" },
+        { "speaker": "Learner", "spanish": "Si, tengo una tia y un tio.", "english": "Yes, I have an aunt and an uncle." }
+      ]
+    },
+    {
+      "title": "Cousins",
+      "lines": [
+        { "speaker": "Learner", "spanish": "Mi primo vive en Mexico.", "english": "My cousin lives in Mexico." },
+        { "speaker": "Carlos", "spanish": "¿Y tu prima?", "english": "And your cousin?" }
+      ]
+    },
+    {
+      "title": "Real family introduction",
+      "lines": [
+        { "speaker": "Learner", "spanish": "Mi familia es pequena. Tengo una esposa y dos hijos.", "english": "My family is small. I have a wife and two children." },
+        { "speaker": "Carlos", "spanish": "Muy bien. ¿Como se llaman tus hijos?", "english": "Very good. What are your children's names?" }
+      ]
+    }
+  ],
+  "pronunciation": {
+    "focus": "Family word rhythm, ñ, and plural endings.",
+    "tips": [
+      "The ñ in cunado/cunada would normally be written with ñ in Spanish and sounds like ny.",
+      "Plural -s is light but present: padres, hijos, hermanos.",
+      "In familia, keep all vowels clear: fa-mi-lia.",
+      "Suegro and suegra start with a smooth swe sound.",
+      "Abuelo has four vowel sounds: a-bue-lo."
+    ],
+    "items": [
+      { "text": "la familia", "note": "Keep the vowels clear: fa-mi-lia." },
+      { "text": "mi esposa", "note": "Link mi and esposa smoothly." },
+      { "text": "mi esposo", "note": "Stress po lightly: es-PO-so." },
+      { "text": "los hijos", "note": "The h is silent in hijos." },
+      { "text": "mis padres", "note": "Pronounce the final s in mis." },
+      { "text": "mi hermano", "note": "The h is silent in hermano." },
+      { "text": "mi hermana", "note": "The h is silent in hermana." },
+      { "text": "mis suegros", "note": "Practice the swe sound in suegros." },
+      { "text": "mi suegra", "note": "Keep sue-gra as two clear parts." },
+      { "text": "¿Como se llama tu esposa?", "note": "Keep se short and light." }
+    ]
+  },
+  "listeningPhrases": [
+    { "spanish": "Mi familia es grande.", "english": "My family is big." },
+    { "spanish": "Tengo una esposa.", "english": "I have a wife." },
+    { "spanish": "Tengo dos hijos.", "english": "I have two children." },
+    { "spanish": "Mi hijo se llama Leo.", "english": "My son is named Leo." },
+    { "spanish": "Mi hija se llama Sofia.", "english": "My daughter is named Sofia." },
+    { "spanish": "Mis padres viven cerca.", "english": "My parents live nearby." },
+    { "spanish": "Mi hermano vive en Canada.", "english": "My brother lives in Canada." },
+    { "spanish": "Mis suegros son amables.", "english": "My in-laws are kind." },
+    { "spanish": "¿Como se llama tu esposa?", "english": "What is your wife's name?" },
+    { "spanish": "¿Tienes hermanos?", "english": "Do you have siblings?" }
+  ],
+  "culture": {
+    "title": "Family talk is warm, personal, and polite",
+    "text": "In many Spanish-speaking families, asking about family can be a warm way to connect. Use polite and positive words when talking about in-laws, especially early in a relationship. Terms like mama, papa, abuelita, and abuelito can feel affectionate, while madre, padre, abuela, and abuelo are more neutral. When meeting family members for the first time, a greeting plus mucho gusto goes a long way."
+  },
+  "nativeSpeech": {
+    "title": "How native speakers talk about family",
+    "notes": [
+      "Hijos often means children, not only sons.",
+      "Hermanos can mean siblings when the group is mixed or unspecified.",
+      "Suegros usually means parents-in-law.",
+      "In Spain, mi mujer and mi marido are common for my wife and my husband.",
+      "In Mexico, buena onda is a casual way to say someone is nice or cool."
+    ]
+  },
+  "commonMistakes": [
+    {
+      "mistake": "Using mi with plural family words.",
+      "correction": "Use mis padres, mis hijos, mis hermanos.",
+      "explanation": "Mi is singular. Mis is plural."
+    },
+    {
+      "mistake": "Using tu with plural family words.",
+      "correction": "Use tus padres or tus hijos.",
+      "explanation": "Tu is singular. Tus is plural."
+    },
+    {
+      "mistake": "Thinking hijos only means sons.",
+      "correction": "Hijos can mean children when talking about a mixed group or children in general.",
+      "explanation": "Spanish often uses masculine plural forms for mixed groups."
+    },
+    {
+      "mistake": "Saying mi esposa se nombre Ana.",
+      "correction": "Say mi esposa se llama Ana.",
+      "explanation": "Use se llama to say someone is named."
+    },
+    {
+      "mistake": "Confusing tengo and tiene.",
+      "correction": "Use tengo for I have and tiene for he/she has.",
+      "explanation": "The verb changes with the person."
+    }
+  ],
+  "quiz": [
+    { "type": "multipleChoice", "prompt": "What does mi esposa mean?", "options": ["my wife", "my sister", "my mother", "my daughter"], "answer": "my wife" },
+    { "type": "multipleChoice", "prompt": "What does mi esposo mean?", "options": ["my husband", "my brother", "my father", "my uncle"], "answer": "my husband" },
+    { "type": "multipleChoice", "prompt": "Choose the plural my.", "options": ["mis", "mi", "tu", "tiene"], "answer": "mis" },
+    { "type": "multipleChoice", "prompt": "Choose the singular your.", "options": ["tu", "tus", "mis", "tengo"], "answer": "tu" },
+    { "type": "multipleChoice", "prompt": "What does tengo mean?", "options": ["I have", "he has", "my", "your"], "answer": "I have" },
+    { "type": "multipleChoice", "prompt": "What does tiene mean?", "options": ["he/she has", "I have", "my", "family"], "answer": "he/she has" },
+    { "type": "multipleChoice", "prompt": "How do you say my parents?", "options": ["mis padres", "mi padres", "tu padres", "tus padre"], "answer": "mis padres" },
+    { "type": "multipleChoice", "prompt": "How do you say my daughter?", "options": ["mi hija", "mi hijo", "mis hija", "tu hijo"], "answer": "mi hija" },
+    { "type": "multipleChoice", "prompt": "What does suegra mean?", "options": ["mother-in-law", "sister-in-law", "grandmother", "aunt"], "answer": "mother-in-law" },
+    { "type": "multipleChoice", "prompt": "What does cunado mean?", "options": ["brother-in-law", "father-in-law", "cousin", "nephew"], "answer": "brother-in-law" },
+    { "type": "translation", "prompt": "Translate: Tengo dos hijos.", "answer": "I have two children." },
+    { "type": "translation", "prompt": "Translate: Mi esposa se llama Ana.", "answer": "My wife is named Ana." },
+    { "type": "fillBlank", "prompt": "_____ padres viven cerca. (my parents)", "answer": "Mis" },
+    { "type": "fillBlank", "prompt": "Mi hija se _____ Sofia.", "answer": "llama" },
+    { "type": "multipleChoice", "prompt": "Which sentence is correct?", "options": ["Mis suegros son amables.", "Mi suegros son amables.", "Mis suegro es amables.", "Tu padres vive cerca."], "answer": "Mis suegros son amables." }
+  ],
+  "speakingChallenge": [
+    {
+      "prompt": "Tell Carlos about your spouse using mi and se llama.",
+      "exampleAnswer": "Mi esposa se llama Ana."
+    },
+    {
+      "prompt": "Tell Carlos whether you have children.",
+      "exampleAnswer": "Tengo dos hijos."
+    },
+    {
+      "prompt": "Talk about your parents using mis.",
+      "exampleAnswer": "Mis padres viven en Canada."
+    },
+    {
+      "prompt": "Describe your in-laws politely.",
+      "exampleAnswer": "Mis suegros son muy amables."
+    },
+    {
+      "prompt": "Give Carlos a short family introduction with at least five family words.",
+      "exampleAnswer": "Tengo una esposa, dos hijos, una hermana, un hermano y mis padres viven cerca."
+    }
+  ],
+  "realLifeMission": {
+    "title": "Real Life Mission",
+    "mission": "Tell Carlos about your family using at least five family words and two possessive words.",
+    "successCriteria": [
+      "Use at least five family words, such as esposa, hijos, padres, hermano, or suegros.",
+      "Use at least two possessive words: mi, mis, tu, or tus.",
+      "Use tengo or tiene at least once.",
+      "Use se llama for at least one family member if possible."
+    ],
+    "suggestedPartner": "Carlos",
+    "xpReward": 10
+  },
+  "achievementsUnlocked": [
+    "family_ready"
+  ],
+  "xpReward": 60,
+  "prerequisiteLesson": "lesson-02-introductions",
+  "nextLesson": "lesson-04-numbers-time"
+}

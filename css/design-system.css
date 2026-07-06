@@ -1,0 +1,142 @@
+:root {
+  --habla-bg: #02070b;
+  --habla-bg-2: #071018;
+  --habla-surface: rgba(13, 20, 29, 0.92);
+  --habla-surface-strong: rgba(17, 26, 38, 0.96);
+  --habla-border: rgba(190, 202, 220, 0.16);
+  --habla-border-strong: rgba(244, 190, 88, 0.48);
+  --habla-gold: #F4BE58;
+  --habla-gold-2: #ffd979;
+  --habla-green: #29D66E;
+  --habla-text: #f8fafc;
+  --habla-muted: #aab5c6;
+  --habla-soft: #d8dee9;
+  --habla-danger: #ff6b55;
+  --habla-radius-card: 24px;
+  --habla-radius-button: 18px;
+  --habla-shadow-card: 0 24px 70px rgba(0, 0, 0, 0.36);
+  --habla-shadow-gold: 0 12px 28px rgba(244, 190, 88, 0.24);
+  --space-1: 8px;
+  --space-2: 16px;
+  --space-3: 24px;
+  --space-4: 32px;
+  --space-5: 40px;
+}
+
+.h-section {
+  width: 100%;
+  max-width: 100%;
+}
+
+.h-card {
+  border: 1px solid var(--habla-border);
+  border-radius: var(--habla-radius-card);
+  background:
+    linear-gradient(180deg, rgba(18, 28, 40, 0.92), rgba(7, 13, 20, 0.9));
+  box-shadow: var(--habla-shadow-card);
+}
+
+.h-card--gold {
+  border-color: var(--habla-border-strong);
+}
+
+.h-label {
+  color: var(--habla-green);
+  font-size: 0.75rem;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+  line-height: 1.2;
+  text-transform: uppercase;
+}
+
+.h-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  border: 1px solid var(--habla-border);
+  border-radius: 999px;
+  background: rgba(5, 10, 16, 0.54);
+  color: var(--habla-soft);
+  font-size: 0.78rem;
+  font-weight: 800;
+  line-height: 1;
+  padding: 9px 12px;
+  white-space: nowrap;
+}
+
+.h-badge--green {
+  border-color: rgba(41, 214, 110, 0.34);
+  color: var(--habla-green);
+}
+
+.h-badge--gold {
+  border-color: rgba(244, 190, 88, 0.42);
+  color: var(--habla-gold);
+}
+
+.h-dot {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border-radius: 999px;
+  background: var(--habla-green);
+  box-shadow: 0 0 0 5px rgba(41, 214, 110, 0.12);
+}
+
+.h-btn {
+  align-items: center;
+  border-radius: var(--habla-radius-button);
+  cursor: pointer;
+  display: inline-flex;
+  font-family: inherit;
+  font-size: 0.95rem;
+  font-weight: 900;
+  justify-content: center;
+  min-height: 56px;
+  padding: 0 18px;
+  text-align: center;
+  transition: transform 0.16s ease, border-color 0.16s ease, box-shadow 0.16s ease;
+  width: 100%;
+}
+
+.h-btn:hover {
+  transform: translateY(-1px);
+}
+
+.h-btn:focus-visible {
+  outline: 2px solid var(--habla-gold);
+  outline-offset: 3px;
+}
+
+.h-btn--primary {
+  background: linear-gradient(180deg, var(--habla-gold-2), var(--habla-gold));
+  border: 0;
+  box-shadow: var(--habla-shadow-gold);
+  color: #120d03;
+}
+
+.h-btn--secondary {
+  background: rgba(5, 10, 16, 0.42);
+  border: 1px solid rgba(216, 222, 233, 0.22);
+  color: var(--habla-text);
+}
+
+.h-btn--quiet {
+  background: rgba(5, 10, 16, 0.34);
+  border: 1px solid rgba(216, 222, 233, 0.18);
+  color: var(--habla-muted);
+}
+
+.h-progress {
+  background: rgba(1, 7, 11, 0.78);
+  border-radius: 999px;
+  height: 10px;
+  overflow: hidden;
+}
+
+.h-progress > i {
+  background: linear-gradient(90deg, var(--habla-green), #4fe287);
+  border-radius: inherit;
+  display: block;
+  height: 100%;
+}
