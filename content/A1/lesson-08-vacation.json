@@ -1,0 +1,834 @@
+{
+  "id": "lesson-08-vacation",
+  "title": "Vacation: Talking About Plans and Places",
+  "level": "A1",
+  "module": "Vacation",
+  "estimatedMinutes": 34,
+  "metadata": {
+    "course": "Habla",
+    "unit": "A1 Beginner",
+    "lessonNumber": 8,
+    "guide": "Carlos",
+    "imagePath": "assets/images/lessons/lesson-08-vacation.png"
+  },
+  "prerequisiteLesson": "lesson-07-travel-basics",
+  "objectives": [
+    "Talk about vacation places, activities, weather, and simple plans.",
+    "Understand Carlos in short guided exchanges.",
+    "Use the lesson language in one realistic conversation."
+  ],
+  "objective": "Talk about vacation places, activities, weather, and simple plans.",
+  "vocabulary": [
+    {
+      "spanish": "las vacaciones",
+      "english": "vacation",
+      "partOfSpeech": "noun",
+      "tip": "Carlos tip: practice ?las vacaciones? in a short real sentence, not as an isolated word.",
+      "exampleSpanish": "Carlos usa las vacaciones en una frase.",
+      "exampleEnglish": "Carlos uses vacation in a sentence."
+    },
+    {
+      "spanish": "la playa",
+      "english": "beach",
+      "partOfSpeech": "noun",
+      "tip": "Carlos tip: practice ?la playa? in a short real sentence, not as an isolated word.",
+      "exampleSpanish": "Carlos usa la playa en una frase.",
+      "exampleEnglish": "Carlos uses beach in a sentence."
+    },
+    {
+      "spanish": "el mar",
+      "english": "sea",
+      "partOfSpeech": "noun",
+      "tip": "Carlos tip: practice ?el mar? in a short real sentence, not as an isolated word.",
+      "exampleSpanish": "Carlos usa el mar en una frase.",
+      "exampleEnglish": "Carlos uses sea in a sentence."
+    },
+    {
+      "spanish": "la monta?a",
+      "english": "mountain",
+      "partOfSpeech": "noun",
+      "tip": "Carlos tip: practice ?la monta?a? in a short real sentence, not as an isolated word.",
+      "exampleSpanish": "Carlos usa la monta?a en una frase.",
+      "exampleEnglish": "Carlos uses mountain in a sentence."
+    },
+    {
+      "spanish": "la ciudad",
+      "english": "city",
+      "partOfSpeech": "noun",
+      "tip": "Carlos tip: practice ?la ciudad? in a short real sentence, not as an isolated word.",
+      "exampleSpanish": "Carlos usa la ciudad en una frase.",
+      "exampleEnglish": "Carlos uses city in a sentence."
+    },
+    {
+      "spanish": "el museo",
+      "english": "museum",
+      "partOfSpeech": "noun",
+      "tip": "Carlos tip: practice ?el museo? in a short real sentence, not as an isolated word.",
+      "exampleSpanish": "Carlos usa el museo en una frase.",
+      "exampleEnglish": "Carlos uses museum in a sentence."
+    },
+    {
+      "spanish": "el parque",
+      "english": "park",
+      "partOfSpeech": "noun",
+      "tip": "Carlos tip: practice ?el parque? in a short real sentence, not as an isolated word.",
+      "exampleSpanish": "Carlos usa el parque en una frase.",
+      "exampleEnglish": "Carlos uses park in a sentence."
+    },
+    {
+      "spanish": "la foto",
+      "english": "photo",
+      "partOfSpeech": "noun",
+      "tip": "Carlos tip: practice ?la foto? in a short real sentence, not as an isolated word.",
+      "exampleSpanish": "Carlos usa la foto en una frase.",
+      "exampleEnglish": "Carlos uses photo in a sentence."
+    },
+    {
+      "spanish": "el sol",
+      "english": "sun",
+      "partOfSpeech": "noun",
+      "tip": "Carlos tip: practice ?el sol? in a short real sentence, not as an isolated word.",
+      "exampleSpanish": "Carlos usa el sol en una frase.",
+      "exampleEnglish": "Carlos uses sun in a sentence."
+    },
+    {
+      "spanish": "la lluvia",
+      "english": "rain",
+      "partOfSpeech": "noun",
+      "tip": "Carlos tip: practice ?la lluvia? in a short real sentence, not as an isolated word.",
+      "exampleSpanish": "Carlos usa la lluvia en una frase.",
+      "exampleEnglish": "Carlos uses rain in a sentence."
+    },
+    {
+      "spanish": "hace calor",
+      "english": "it is hot",
+      "partOfSpeech": "weather phrase",
+      "tip": "Carlos tip: practice ?hace calor? in a short real sentence, not as an isolated word.",
+      "exampleSpanish": "Carlos usa hace calor en una frase.",
+      "exampleEnglish": "Carlos uses it is hot in a sentence."
+    },
+    {
+      "spanish": "hace fr?o",
+      "english": "it is cold",
+      "partOfSpeech": "weather phrase",
+      "tip": "Carlos tip: practice ?hace fr?o? in a short real sentence, not as an isolated word.",
+      "exampleSpanish": "Carlos usa hace fr?o en una frase.",
+      "exampleEnglish": "Carlos uses it is cold in a sentence."
+    },
+    {
+      "spanish": "descansar",
+      "english": "to rest",
+      "partOfSpeech": "verb",
+      "tip": "Carlos tip: practice ?descansar? in a short real sentence, not as an isolated word.",
+      "exampleSpanish": "Carlos usa descansar en una frase.",
+      "exampleEnglish": "Carlos uses to rest in a sentence."
+    },
+    {
+      "spanish": "visitar",
+      "english": "to visit",
+      "partOfSpeech": "verb",
+      "tip": "Carlos tip: practice ?visitar? in a short real sentence, not as an isolated word.",
+      "exampleSpanish": "Carlos usa visitar en una frase.",
+      "exampleEnglish": "Carlos uses to visit in a sentence."
+    },
+    {
+      "spanish": "nadar",
+      "english": "to swim",
+      "partOfSpeech": "verb",
+      "tip": "Carlos tip: practice ?nadar? in a short real sentence, not as an isolated word.",
+      "exampleSpanish": "Carlos usa nadar en una frase.",
+      "exampleEnglish": "Carlos uses to swim in a sentence."
+    },
+    {
+      "spanish": "caminar",
+      "english": "to walk",
+      "partOfSpeech": "verb",
+      "tip": "Carlos tip: practice ?caminar? in a short real sentence, not as an isolated word.",
+      "exampleSpanish": "Carlos usa caminar en una frase.",
+      "exampleEnglish": "Carlos uses to walk in a sentence."
+    },
+    {
+      "spanish": "ver",
+      "english": "to see",
+      "partOfSpeech": "verb",
+      "tip": "Carlos tip: practice ?ver? in a short real sentence, not as an isolated word.",
+      "exampleSpanish": "Carlos usa ver en una frase.",
+      "exampleEnglish": "Carlos uses to see in a sentence."
+    },
+    {
+      "spanish": "salir",
+      "english": "to go out",
+      "partOfSpeech": "verb",
+      "tip": "Carlos tip: practice ?salir? in a short real sentence, not as an isolated word.",
+      "exampleSpanish": "Carlos usa salir en una frase.",
+      "exampleEnglish": "Carlos uses to go out in a sentence."
+    },
+    {
+      "spanish": "quiero ir",
+      "english": "I want to go",
+      "partOfSpeech": "phrase",
+      "tip": "Carlos tip: practice ?quiero ir? in a short real sentence, not as an isolated word.",
+      "exampleSpanish": "Carlos usa quiero ir en una frase.",
+      "exampleEnglish": "Carlos uses I want to go in a sentence."
+    },
+    {
+      "spanish": "voy a ir",
+      "english": "I am going to go",
+      "partOfSpeech": "phrase",
+      "tip": "Carlos tip: practice ?voy a ir? in a short real sentence, not as an isolated word.",
+      "exampleSpanish": "Carlos usa voy a ir en una frase.",
+      "exampleEnglish": "Carlos uses I am going to go in a sentence."
+    },
+    {
+      "spanish": "con mi familia",
+      "english": "with my family",
+      "partOfSpeech": "phrase",
+      "tip": "Carlos tip: practice ?con mi familia? in a short real sentence, not as an isolated word.",
+      "exampleSpanish": "Carlos usa con mi familia en una frase.",
+      "exampleEnglish": "Carlos uses with my family in a sentence."
+    },
+    {
+      "spanish": "este verano",
+      "english": "this summer",
+      "partOfSpeech": "time phrase",
+      "tip": "Carlos tip: practice ?este verano? in a short real sentence, not as an isolated word.",
+      "exampleSpanish": "Carlos usa este verano en una frase.",
+      "exampleEnglish": "Carlos uses this summer in a sentence."
+    },
+    {
+      "spanish": "este fin de semana",
+      "english": "this weekend",
+      "partOfSpeech": "time phrase",
+      "tip": "Carlos tip: practice ?este fin de semana? in a short real sentence, not as an isolated word.",
+      "exampleSpanish": "Carlos usa este fin de semana en una frase.",
+      "exampleEnglish": "Carlos uses this weekend in a sentence."
+    },
+    {
+      "spanish": "bonito",
+      "english": "pretty",
+      "partOfSpeech": "adjective",
+      "tip": "Carlos tip: practice ?bonito? in a short real sentence, not as an isolated word.",
+      "exampleSpanish": "Carlos usa bonito en una frase.",
+      "exampleEnglish": "Carlos uses pretty in a sentence."
+    },
+    {
+      "spanish": "divertido",
+      "english": "fun",
+      "partOfSpeech": "adjective",
+      "tip": "Carlos tip: practice ?divertido? in a short real sentence, not as an isolated word.",
+      "exampleSpanish": "Carlos usa divertido en una frase.",
+      "exampleEnglish": "Carlos uses fun in a sentence."
+    }
+  ],
+  "grammar": {
+    "topic": "Future plans with voy a",
+    "explanation": "Use voy a plus an infinitive to talk about a near future plan: voy a visitar, voy a comer, voy a descansar.",
+    "examples": [
+      {
+        "spanish": "Voy a ir a la playa.",
+        "english": "I am going to go to the beach."
+      },
+      {
+        "spanish": "Voy a visitar un museo.",
+        "english": "I am going to visit a museum."
+      },
+      {
+        "spanish": "Quiero descansar con mi familia.",
+        "english": "I want to rest with my family."
+      }
+    ],
+    "practicePrompt": "Say one original sentence using today?s pattern with Carlos."
+  },
+  "dialogue": [
+    {
+      "title": "Vacation with Carlos",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Vamos a practicar vacation.",
+          "english": "Let?s practice vacation."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "S?, quiero practicar.",
+          "english": "Yes, I want to practice."
+        },
+        {
+          "speaker": "Carlos",
+          "spanish": "Muy bien. Usa una frase completa.",
+          "english": "Very good. Use a complete sentence."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "Puedo decirlo otra vez.",
+          "english": "I can say it again."
+        }
+      ]
+    },
+    {
+      "title": "A polite real-life exchange",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Disculpe, tengo una pregunta.",
+          "english": "Excuse me, I have a question."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "Claro, con gusto.",
+          "english": "Of course, gladly."
+        },
+        {
+          "speaker": "Carlos",
+          "spanish": "Gracias por ayudarme.",
+          "english": "Thank you for helping me."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "De nada.",
+          "english": "You?re welcome."
+        }
+      ]
+    },
+    {
+      "title": "Family-friendly practice",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "?C?mo lo dices con tu familia?",
+          "english": "How do you say it with your family?"
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "Lo digo despacio y con respeto.",
+          "english": "I say it slowly and respectfully."
+        },
+        {
+          "speaker": "Carlos",
+          "spanish": "Perfecto, eso suena natural.",
+          "english": "Perfect, that sounds natural."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "Gracias, Carlos.",
+          "english": "Thanks, Carlos."
+        }
+      ]
+    }
+  ],
+  "dialogues": [
+    {
+      "title": "Vacation with Carlos",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Vamos a practicar vacation.",
+          "english": "Let?s practice vacation."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "S?, quiero practicar.",
+          "english": "Yes, I want to practice."
+        },
+        {
+          "speaker": "Carlos",
+          "spanish": "Muy bien. Usa una frase completa.",
+          "english": "Very good. Use a complete sentence."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "Puedo decirlo otra vez.",
+          "english": "I can say it again."
+        }
+      ]
+    },
+    {
+      "title": "A polite real-life exchange",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Disculpe, tengo una pregunta.",
+          "english": "Excuse me, I have a question."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "Claro, con gusto.",
+          "english": "Of course, gladly."
+        },
+        {
+          "speaker": "Carlos",
+          "spanish": "Gracias por ayudarme.",
+          "english": "Thank you for helping me."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "De nada.",
+          "english": "You?re welcome."
+        }
+      ]
+    },
+    {
+      "title": "Family-friendly practice",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "?C?mo lo dices con tu familia?",
+          "english": "How do you say it with your family?"
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "Lo digo despacio y con respeto.",
+          "english": "I say it slowly and respectfully."
+        },
+        {
+          "speaker": "Carlos",
+          "spanish": "Perfecto, eso suena natural.",
+          "english": "Perfect, that sounds natural."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "Gracias, Carlos.",
+          "english": "Thanks, Carlos."
+        }
+      ]
+    }
+  ],
+  "listening": {
+    "phrases": [
+      {
+        "spanish": "las vacaciones",
+        "english": "vacation"
+      },
+      {
+        "spanish": "la playa",
+        "english": "beach"
+      },
+      {
+        "spanish": "el mar",
+        "english": "sea"
+      },
+      {
+        "spanish": "la monta?a",
+        "english": "mountain"
+      },
+      {
+        "spanish": "la ciudad",
+        "english": "city"
+      },
+      {
+        "spanish": "el museo",
+        "english": "museum"
+      },
+      {
+        "spanish": "el parque",
+        "english": "park"
+      },
+      {
+        "spanish": "la foto",
+        "english": "photo"
+      },
+      {
+        "spanish": "el sol",
+        "english": "sun"
+      },
+      {
+        "spanish": "la lluvia",
+        "english": "rain"
+      }
+    ]
+  },
+  "listeningPhrases": [
+    {
+      "spanish": "las vacaciones",
+      "english": "vacation"
+    },
+    {
+      "spanish": "la playa",
+      "english": "beach"
+    },
+    {
+      "spanish": "el mar",
+      "english": "sea"
+    },
+    {
+      "spanish": "la monta?a",
+      "english": "mountain"
+    },
+    {
+      "spanish": "la ciudad",
+      "english": "city"
+    },
+    {
+      "spanish": "el museo",
+      "english": "museum"
+    },
+    {
+      "spanish": "el parque",
+      "english": "park"
+    },
+    {
+      "spanish": "la foto",
+      "english": "photo"
+    },
+    {
+      "spanish": "el sol",
+      "english": "sun"
+    },
+    {
+      "spanish": "la lluvia",
+      "english": "rain"
+    }
+  ],
+  "pronunciation": {
+    "focus": "Clear vowels, word stress, and confident phrase rhythm.",
+    "items": [
+      {
+        "text": "las vacaciones",
+        "note": "Say each vowel clearly and keep the rhythm natural."
+      },
+      {
+        "text": "la playa",
+        "note": "Say each vowel clearly and keep the rhythm natural."
+      },
+      {
+        "text": "el mar",
+        "note": "Say each vowel clearly and keep the rhythm natural."
+      },
+      {
+        "text": "la monta?a",
+        "note": "Say each vowel clearly and keep the rhythm natural."
+      },
+      {
+        "text": "la ciudad",
+        "note": "Say each vowel clearly and keep the rhythm natural."
+      },
+      {
+        "text": "el museo",
+        "note": "Say each vowel clearly and keep the rhythm natural."
+      },
+      {
+        "text": "el parque",
+        "note": "Say each vowel clearly and keep the rhythm natural."
+      },
+      {
+        "text": "la foto",
+        "note": "Say each vowel clearly and keep the rhythm natural."
+      },
+      {
+        "text": "el sol",
+        "note": "Say each vowel clearly and keep the rhythm natural."
+      },
+      {
+        "text": "la lluvia",
+        "note": "Say each vowel clearly and keep the rhythm natural."
+      }
+    ]
+  },
+  "pronunciationExercises": [
+    {
+      "text": "las vacaciones",
+      "note": "Repeat after Carlos, then say it in a short phrase."
+    },
+    {
+      "text": "la playa",
+      "note": "Repeat after Carlos, then say it in a short phrase."
+    },
+    {
+      "text": "el mar",
+      "note": "Repeat after Carlos, then say it in a short phrase."
+    },
+    {
+      "text": "la monta?a",
+      "note": "Repeat after Carlos, then say it in a short phrase."
+    },
+    {
+      "text": "la ciudad",
+      "note": "Repeat after Carlos, then say it in a short phrase."
+    },
+    {
+      "text": "el museo",
+      "note": "Repeat after Carlos, then say it in a short phrase."
+    },
+    {
+      "text": "el parque",
+      "note": "Repeat after Carlos, then say it in a short phrase."
+    },
+    {
+      "text": "la foto",
+      "note": "Repeat after Carlos, then say it in a short phrase."
+    },
+    {
+      "text": "el sol",
+      "note": "Repeat after Carlos, then say it in a short phrase."
+    },
+    {
+      "text": "la lluvia",
+      "note": "Repeat after Carlos, then say it in a short phrase."
+    }
+  ],
+  "culture": {
+    "title": "Vacation in Real Life",
+    "text": "Vacations are often described through people and experiences, not only places. Mentioning family or food makes the conversation more natural."
+  },
+  "cultureNotes": [
+    "Vacations are often described through people and experiences, not only places. Mentioning family or food makes the conversation more natural."
+  ],
+  "nativeSpeech": {
+    "title": "How Carlos would say it naturally",
+    "notes": [
+      "?Qu? padre? in Mexico can mean ?How cool.?",
+      "?Me apetece? in Spain means ?I feel like,? especially for plans or food."
+    ]
+  },
+  "commonMistakes": [
+    {
+      "mistake": "Using voy without a",
+      "correction": "Voy a visitar la ciudad.",
+      "explanation": "Use voy a before the action."
+    },
+    {
+      "mistake": "Confusing caliente and calor",
+      "correction": "Hace calor.",
+      "explanation": "Weather uses hace calor."
+    },
+    {
+      "mistake": "Overusing quiero",
+      "correction": "Mix quiero with voy a for plans.",
+      "explanation": "It sounds more natural."
+    }
+  ],
+  "quiz": [
+    {
+      "type": "multipleChoice",
+      "prompt": "What does ?las vacaciones? mean?",
+      "options": [
+        "vacation",
+        "beach",
+        "sea",
+        "mountain"
+      ],
+      "answer": "vacation"
+    },
+    {
+      "type": "multipleChoice",
+      "prompt": "What does ?la playa? mean?",
+      "options": [
+        "beach",
+        "vacation",
+        "sea",
+        "mountain"
+      ],
+      "answer": "beach"
+    },
+    {
+      "type": "multipleChoice",
+      "prompt": "What does ?el mar? mean?",
+      "options": [
+        "sea",
+        "vacation",
+        "beach",
+        "mountain"
+      ],
+      "answer": "sea"
+    },
+    {
+      "type": "multipleChoice",
+      "prompt": "What does ?la monta?a? mean?",
+      "options": [
+        "mountain",
+        "vacation",
+        "beach",
+        "sea"
+      ],
+      "answer": "mountain"
+    },
+    {
+      "type": "multipleChoice",
+      "prompt": "What does ?la ciudad? mean?",
+      "options": [
+        "city",
+        "vacation",
+        "beach",
+        "sea"
+      ],
+      "answer": "city"
+    },
+    {
+      "type": "multipleChoice",
+      "prompt": "What does ?el museo? mean?",
+      "options": [
+        "museum",
+        "vacation",
+        "beach",
+        "sea"
+      ],
+      "answer": "museum"
+    },
+    {
+      "type": "multipleChoice",
+      "prompt": "What does ?el parque? mean?",
+      "options": [
+        "park",
+        "vacation",
+        "beach",
+        "sea"
+      ],
+      "answer": "park"
+    },
+    {
+      "type": "multipleChoice",
+      "prompt": "What does ?la foto? mean?",
+      "options": [
+        "photo",
+        "vacation",
+        "beach",
+        "sea"
+      ],
+      "answer": "photo"
+    },
+    {
+      "type": "multipleChoice",
+      "prompt": "What does ?el sol? mean?",
+      "options": [
+        "sun",
+        "vacation",
+        "beach",
+        "sea"
+      ],
+      "answer": "sun"
+    },
+    {
+      "type": "multipleChoice",
+      "prompt": "What does ?la lluvia? mean?",
+      "options": [
+        "rain",
+        "vacation",
+        "beach",
+        "sea"
+      ],
+      "answer": "rain"
+    },
+    {
+      "type": "multipleChoice",
+      "prompt": "What does ?hace calor? mean?",
+      "options": [
+        "it is hot",
+        "vacation",
+        "beach",
+        "sea"
+      ],
+      "answer": "it is hot"
+    },
+    {
+      "type": "multipleChoice",
+      "prompt": "What does ?hace fr?o? mean?",
+      "options": [
+        "it is cold",
+        "vacation",
+        "beach",
+        "sea"
+      ],
+      "answer": "it is cold"
+    },
+    {
+      "type": "multipleChoice",
+      "prompt": "What does ?descansar? mean?",
+      "options": [
+        "to rest",
+        "vacation",
+        "beach",
+        "sea"
+      ],
+      "answer": "to rest"
+    },
+    {
+      "type": "multipleChoice",
+      "prompt": "What does ?visitar? mean?",
+      "options": [
+        "to visit",
+        "vacation",
+        "beach",
+        "sea"
+      ],
+      "answer": "to visit"
+    },
+    {
+      "type": "multipleChoice",
+      "prompt": "What does ?nadar? mean?",
+      "options": [
+        "to swim",
+        "vacation",
+        "beach",
+        "sea"
+      ],
+      "answer": "to swim"
+    }
+  ],
+  "speakingChallenge": [
+    {
+      "prompt": "Use ?las vacaciones? in a sentence with Carlos.",
+      "exampleAnswer": "Las vacaciones, por favor."
+    },
+    {
+      "prompt": "Use ?la playa? in a sentence with Carlos.",
+      "exampleAnswer": "La playa, por favor."
+    },
+    {
+      "prompt": "Use ?el mar? in a sentence with Carlos.",
+      "exampleAnswer": "El mar, por favor."
+    },
+    {
+      "prompt": "Use ?la monta?a? in a sentence with Carlos.",
+      "exampleAnswer": "La monta?a, por favor."
+    },
+    {
+      "prompt": "Use ?la ciudad? in a sentence with Carlos.",
+      "exampleAnswer": "La ciudad, por favor."
+    }
+  ],
+  "speakingChallenges": [
+    {
+      "prompt": "Tell Carlos one real thing using ?las vacaciones?.",
+      "exampleAnswer": "Carlos, practico las vacaciones."
+    },
+    {
+      "prompt": "Tell Carlos one real thing using ?la playa?.",
+      "exampleAnswer": "Carlos, practico la playa."
+    },
+    {
+      "prompt": "Tell Carlos one real thing using ?el mar?.",
+      "exampleAnswer": "Carlos, practico el mar."
+    },
+    {
+      "prompt": "Tell Carlos one real thing using ?la monta?a?.",
+      "exampleAnswer": "Carlos, practico la monta?a."
+    },
+    {
+      "prompt": "Tell Carlos one real thing using ?la ciudad?.",
+      "exampleAnswer": "Carlos, practico la ciudad."
+    }
+  ],
+  "realLifeMission": {
+    "title": "Real Life Mission",
+    "mission": "Tell Carlos where you want to go on vacation, what you want to do, and who is going with you.",
+    "successCriteria": [
+      "Use at least three lesson vocabulary items.",
+      "Use the main grammar pattern.",
+      "Answer one follow-up question from Carlos."
+    ],
+    "suggestedPartner": "Carlos",
+    "xpReward": 70
+  },
+  "review": {
+    "summary": "You practiced vacation for everyday Spanish.",
+    "canDo": [
+      "Recognize key vocabulary.",
+      "Answer Carlos with simple complete sentences.",
+      "Use the Real Life Mission in a practical situation."
+    ]
+  },
+  "imagePath": "assets/images/lessons/lesson-08-vacation.png",
+  "achievementsUnlocked": [],
+  "xpReward": 70,
+  "nextLesson": "lesson-09-around-the-house"
+}

@@ -147,7 +147,7 @@ export function renderTodayMissionCard(state, mission) {
           <span class="eyebrow h-label">Today's Mission</span>
           <h3>${escapeHtml(mission.title)}</h3>
         </div>
-        <div class="mission-icon" aria-hidden="true">31</div>
+        <div class="mission-icon home-icon home-icon-mission" aria-hidden="true"></div>
       </div>
       <p>${escapeHtml(mission.description)}</p>
       <div class="today-mission-meta">

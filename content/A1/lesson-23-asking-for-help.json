@@ -1,0 +1,1051 @@
+{
+  "id": "lesson-23-asking-for-help",
+  "title": "Asking for Help: Getting Unstuck Politely",
+  "level": "A1",
+  "module": "Help",
+  "estimatedMinutes": 32,
+  "prerequisiteLesson": "lesson-22-transportation",
+  "imagePath": "assets/images/lessons/lesson-23-asking-for-help.png",
+  "objectives": [
+    "Ask for help, clarification, repetition, and slower speech in travel situations.",
+    "Use 26 help words and phrases in travel or navigation contexts.",
+    "Recycle previous A1 vocabulary naturally with Carlos.",
+    "Complete an authentic travel or navigation Real Life Mission."
+  ],
+  "vocabularyCategories": [
+    "help",
+    "travel",
+    "conversation",
+    "problem solving"
+  ],
+  "vocabulary": [
+    {
+      "spanish": "ayuda",
+      "english": "help",
+      "partOfSpeech": "travel phrase",
+      "tip": "Carlos uses ayuda in practical travel conversation.",
+      "exampleSpanish": "Ayuda con Carlos.",
+      "exampleEnglish": "Help with Carlos."
+    },
+    {
+      "spanish": "ayudar",
+      "english": "to help",
+      "partOfSpeech": "travel phrase",
+      "tip": "Carlos uses ayudar in practical travel conversation.",
+      "exampleSpanish": "Ayudar con Carlos.",
+      "exampleEnglish": "To help with Carlos."
+    },
+    {
+      "spanish": "disculpe",
+      "english": "excuse me",
+      "partOfSpeech": "travel phrase",
+      "tip": "Carlos uses disculpe in practical travel conversation.",
+      "exampleSpanish": "Disculpe con Carlos.",
+      "exampleEnglish": "Excuse me with Carlos."
+    },
+    {
+      "spanish": "perdon",
+      "english": "sorry",
+      "partOfSpeech": "travel phrase",
+      "tip": "Carlos uses perdon in practical travel conversation.",
+      "exampleSpanish": "Perdon con Carlos.",
+      "exampleEnglish": "Sorry with Carlos."
+    },
+    {
+      "spanish": "por favor",
+      "english": "please",
+      "partOfSpeech": "travel phrase",
+      "tip": "Carlos uses por favor in practical travel conversation.",
+      "exampleSpanish": "Por favor con Carlos.",
+      "exampleEnglish": "Please with Carlos."
+    },
+    {
+      "spanish": "gracias",
+      "english": "thank you",
+      "partOfSpeech": "travel phrase",
+      "tip": "Carlos uses gracias in practical travel conversation.",
+      "exampleSpanish": "Gracias con Carlos.",
+      "exampleEnglish": "Thank you with Carlos."
+    },
+    {
+      "spanish": "no entiendo",
+      "english": "I do not understand",
+      "partOfSpeech": "travel phrase",
+      "tip": "Carlos uses no entiendo in practical travel conversation.",
+      "exampleSpanish": "No entiendo con Carlos.",
+      "exampleEnglish": "I do not understand with Carlos."
+    },
+    {
+      "spanish": "mas despacio",
+      "english": "slower",
+      "partOfSpeech": "travel phrase",
+      "tip": "Carlos uses mas despacio in practical travel conversation.",
+      "exampleSpanish": "Mas despacio con Carlos.",
+      "exampleEnglish": "Slower with Carlos."
+    },
+    {
+      "spanish": "otra vez",
+      "english": "again",
+      "partOfSpeech": "travel phrase",
+      "tip": "Carlos uses otra vez in practical travel conversation.",
+      "exampleSpanish": "Otra vez con Carlos.",
+      "exampleEnglish": "Again with Carlos."
+    },
+    {
+      "spanish": "puede repetir",
+      "english": "can you repeat",
+      "partOfSpeech": "travel phrase",
+      "tip": "Carlos uses puede repetir in practical travel conversation.",
+      "exampleSpanish": "Puede repetir con Carlos.",
+      "exampleEnglish": "Can you repeat with Carlos."
+    },
+    {
+      "spanish": "puede escribirlo",
+      "english": "can you write it",
+      "partOfSpeech": "travel phrase",
+      "tip": "Carlos uses puede escribirlo in practical travel conversation.",
+      "exampleSpanish": "Puede escribirlo con Carlos.",
+      "exampleEnglish": "Can you write it with Carlos."
+    },
+    {
+      "spanish": "puede mostrarme",
+      "english": "can you show me",
+      "partOfSpeech": "travel phrase",
+      "tip": "Carlos uses puede mostrarme in practical travel conversation.",
+      "exampleSpanish": "Puede mostrarme con Carlos.",
+      "exampleEnglish": "Can you show me with Carlos."
+    },
+    {
+      "spanish": "puede explicarlo",
+      "english": "can you explain it",
+      "partOfSpeech": "travel phrase",
+      "tip": "Carlos uses puede explicarlo in practical travel conversation.",
+      "exampleSpanish": "Puede explicarlo con Carlos.",
+      "exampleEnglish": "Can you explain it with Carlos."
+    },
+    {
+      "spanish": "la palabra",
+      "english": "word",
+      "partOfSpeech": "travel phrase",
+      "tip": "Carlos uses la palabra in practical travel conversation.",
+      "exampleSpanish": "La palabra con Carlos.",
+      "exampleEnglish": "Word with Carlos."
+    },
+    {
+      "spanish": "la frase",
+      "english": "phrase",
+      "partOfSpeech": "travel phrase",
+      "tip": "Carlos uses la frase in practical travel conversation.",
+      "exampleSpanish": "La frase con Carlos.",
+      "exampleEnglish": "Phrase with Carlos."
+    },
+    {
+      "spanish": "la direccion",
+      "english": "address/direction",
+      "partOfSpeech": "travel phrase",
+      "tip": "Carlos uses la direccion in practical travel conversation.",
+      "exampleSpanish": "La direccion con Carlos.",
+      "exampleEnglish": "Address/direction with Carlos."
+    },
+    {
+      "spanish": "el problema",
+      "english": "problem",
+      "partOfSpeech": "travel phrase",
+      "tip": "Carlos uses el problema in practical travel conversation.",
+      "exampleSpanish": "El problema con Carlos.",
+      "exampleEnglish": "Problem with Carlos."
+    },
+    {
+      "spanish": "el telefono",
+      "english": "phone",
+      "partOfSpeech": "travel phrase",
+      "tip": "Carlos uses el telefono in practical travel conversation.",
+      "exampleSpanish": "El telefono con Carlos.",
+      "exampleEnglish": "Phone with Carlos."
+    },
+    {
+      "spanish": "la bateria",
+      "english": "battery",
+      "partOfSpeech": "travel phrase",
+      "tip": "Carlos uses la bateria in practical travel conversation.",
+      "exampleSpanish": "La bateria con Carlos.",
+      "exampleEnglish": "Battery with Carlos."
+    },
+    {
+      "spanish": "internet",
+      "english": "internet",
+      "partOfSpeech": "travel phrase",
+      "tip": "Carlos uses internet in practical travel conversation.",
+      "exampleSpanish": "Internet con Carlos.",
+      "exampleEnglish": "Internet with Carlos."
+    },
+    {
+      "spanish": "estoy perdido",
+      "english": "I am lost",
+      "partOfSpeech": "travel phrase",
+      "tip": "Carlos uses estoy perdido in practical travel conversation.",
+      "exampleSpanish": "Estoy perdido con Carlos.",
+      "exampleEnglish": "I am lost with Carlos."
+    },
+    {
+      "spanish": "estoy confundido",
+      "english": "I am confused",
+      "partOfSpeech": "travel phrase",
+      "tip": "Carlos uses estoy confundido in practical travel conversation.",
+      "exampleSpanish": "Estoy confundido con Carlos.",
+      "exampleEnglish": "I am confused with Carlos."
+    },
+    {
+      "spanish": "correcto",
+      "english": "correct",
+      "partOfSpeech": "travel phrase",
+      "tip": "Carlos uses correcto in practical travel conversation.",
+      "exampleSpanish": "Correcto con Carlos.",
+      "exampleEnglish": "Correct with Carlos."
+    },
+    {
+      "spanish": "claro",
+      "english": "clear",
+      "partOfSpeech": "travel phrase",
+      "tip": "Carlos uses claro in practical travel conversation.",
+      "exampleSpanish": "Claro con Carlos.",
+      "exampleEnglish": "Clear with Carlos."
+    },
+    {
+      "spanish": "podria",
+      "english": "could you",
+      "partOfSpeech": "travel phrase",
+      "tip": "Carlos uses podria in practical travel conversation.",
+      "exampleSpanish": "Podria con Carlos.",
+      "exampleEnglish": "Could you with Carlos."
+    },
+    {
+      "spanish": "puede",
+      "english": "can you",
+      "partOfSpeech": "travel phrase",
+      "tip": "Carlos uses puede in practical travel conversation.",
+      "exampleSpanish": "Puede con Carlos.",
+      "exampleEnglish": "Can you with Carlos."
+    }
+  ],
+  "textbookPhrases": [
+    {
+      "meaning": "help",
+      "phrase": "ayuda"
+    },
+    {
+      "meaning": "to help",
+      "phrase": "ayudar"
+    },
+    {
+      "meaning": "excuse me",
+      "phrase": "disculpe"
+    },
+    {
+      "meaning": "sorry",
+      "phrase": "perdon"
+    },
+    {
+      "meaning": "please",
+      "phrase": "por favor"
+    }
+  ],
+  "naturalEverydayPhrases": [
+    {
+      "meaning": "help",
+      "phrase": "ayuda"
+    },
+    {
+      "meaning": "to help",
+      "phrase": "ayudar"
+    },
+    {
+      "meaning": "excuse me",
+      "phrase": "disculpe"
+    },
+    {
+      "meaning": "sorry",
+      "phrase": "perdon"
+    },
+    {
+      "meaning": "please",
+      "phrase": "por favor"
+    }
+  ],
+  "mexicanSpanishVariants": [
+    {
+      "meaning": "help",
+      "phrase": "ayuda"
+    },
+    {
+      "meaning": "to help",
+      "phrase": "ayudar"
+    },
+    {
+      "meaning": "excuse me",
+      "phrase": "disculpe"
+    },
+    {
+      "meaning": "sorry",
+      "phrase": "perdon"
+    },
+    {
+      "meaning": "please",
+      "phrase": "por favor"
+    }
+  ],
+  "spainSpanishVariants": [
+    {
+      "meaning": "help",
+      "phrase": "ayuda"
+    },
+    {
+      "meaning": "to help",
+      "phrase": "ayudar"
+    },
+    {
+      "meaning": "excuse me",
+      "phrase": "disculpe"
+    },
+    {
+      "meaning": "sorry",
+      "phrase": "perdon"
+    },
+    {
+      "meaning": "please",
+      "phrase": "por favor"
+    }
+  ],
+  "phraseVariants": [
+    {
+      "meaning": "help",
+      "textbookVersion": "ayuda",
+      "naturalEverydayVersion": "ayuda",
+      "mexicanSpanishVersion": "ayuda",
+      "spainSpanishVersion": "ayuda",
+      "whenUsed": "Use this in practical travel speech with Carlos."
+    },
+    {
+      "meaning": "to help",
+      "textbookVersion": "ayudar",
+      "naturalEverydayVersion": "ayudar",
+      "mexicanSpanishVersion": "ayudar",
+      "spainSpanishVersion": "ayudar",
+      "whenUsed": "Use this in practical travel speech with Carlos."
+    },
+    {
+      "meaning": "excuse me",
+      "textbookVersion": "disculpe",
+      "naturalEverydayVersion": "disculpe",
+      "mexicanSpanishVersion": "disculpe",
+      "spainSpanishVersion": "disculpe",
+      "whenUsed": "Use this in practical travel speech with Carlos."
+    },
+    {
+      "meaning": "sorry",
+      "textbookVersion": "perdon",
+      "naturalEverydayVersion": "perdon",
+      "mexicanSpanishVersion": "perdon",
+      "spainSpanishVersion": "perdon",
+      "whenUsed": "Use this in practical travel speech with Carlos."
+    },
+    {
+      "meaning": "please",
+      "textbookVersion": "por favor",
+      "naturalEverydayVersion": "por favor",
+      "mexicanSpanishVersion": "por favor",
+      "spainSpanishVersion": "por favor",
+      "whenUsed": "Use this in practical travel speech with Carlos."
+    }
+  ],
+  "grammar": {
+    "topic": "Polite requests with puede and podria",
+    "explanation": "Use puede for can you and podria for could you. Carlos shows how to sound polite while asking for help, repetition, or clarification.",
+    "examples": [
+      {
+        "spanish": "Ayuda.",
+        "english": "Help."
+      },
+      {
+        "spanish": "Ayudar.",
+        "english": "To help."
+      },
+      {
+        "spanish": "Disculpe.",
+        "english": "Excuse me."
+      }
+    ],
+    "practicePrompt": "Handle a help situation with Carlos using at least four lesson words."
+  },
+  "dialogue": [
+    {
+      "title": "Help dialogue 1",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Practiquemos: ayuda.",
+          "english": "Let's practice: help."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "perdon",
+          "english": "sorry"
+        }
+      ]
+    },
+    {
+      "title": "Help dialogue 2",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Practiquemos: ayudar.",
+          "english": "Let's practice: to help."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "por favor",
+          "english": "please"
+        }
+      ]
+    },
+    {
+      "title": "Help dialogue 3",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Practiquemos: disculpe.",
+          "english": "Let's practice: excuse me."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "gracias",
+          "english": "thank you"
+        }
+      ]
+    },
+    {
+      "title": "Help dialogue 4",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Practiquemos: perdon.",
+          "english": "Let's practice: sorry."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "no entiendo",
+          "english": "I do not understand"
+        }
+      ]
+    },
+    {
+      "title": "Help dialogue 5",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Practiquemos: por favor.",
+          "english": "Let's practice: please."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "mas despacio",
+          "english": "slower"
+        }
+      ]
+    },
+    {
+      "title": "Help dialogue 6",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Practiquemos: gracias.",
+          "english": "Let's practice: thank you."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "otra vez",
+          "english": "again"
+        }
+      ]
+    },
+    {
+      "title": "Help dialogue 7",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Practiquemos: no entiendo.",
+          "english": "Let's practice: I do not understand."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "puede repetir",
+          "english": "can you repeat"
+        }
+      ]
+    },
+    {
+      "title": "Help dialogue 8",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Practiquemos: mas despacio.",
+          "english": "Let's practice: slower."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "puede escribirlo",
+          "english": "can you write it"
+        }
+      ]
+    },
+    {
+      "title": "Help dialogue 9",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Practiquemos: otra vez.",
+          "english": "Let's practice: again."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "puede mostrarme",
+          "english": "can you show me"
+        }
+      ]
+    },
+    {
+      "title": "Help dialogue 10",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Practiquemos: puede repetir.",
+          "english": "Let's practice: can you repeat."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "puede explicarlo",
+          "english": "can you explain it"
+        }
+      ]
+    }
+  ],
+  "dialogues": [
+    {
+      "title": "Help dialogue 1",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Practiquemos: ayuda.",
+          "english": "Let's practice: help."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "perdon",
+          "english": "sorry"
+        }
+      ]
+    },
+    {
+      "title": "Help dialogue 2",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Practiquemos: ayudar.",
+          "english": "Let's practice: to help."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "por favor",
+          "english": "please"
+        }
+      ]
+    },
+    {
+      "title": "Help dialogue 3",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Practiquemos: disculpe.",
+          "english": "Let's practice: excuse me."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "gracias",
+          "english": "thank you"
+        }
+      ]
+    },
+    {
+      "title": "Help dialogue 4",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Practiquemos: perdon.",
+          "english": "Let's practice: sorry."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "no entiendo",
+          "english": "I do not understand"
+        }
+      ]
+    },
+    {
+      "title": "Help dialogue 5",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Practiquemos: por favor.",
+          "english": "Let's practice: please."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "mas despacio",
+          "english": "slower"
+        }
+      ]
+    },
+    {
+      "title": "Help dialogue 6",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Practiquemos: gracias.",
+          "english": "Let's practice: thank you."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "otra vez",
+          "english": "again"
+        }
+      ]
+    },
+    {
+      "title": "Help dialogue 7",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Practiquemos: no entiendo.",
+          "english": "Let's practice: I do not understand."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "puede repetir",
+          "english": "can you repeat"
+        }
+      ]
+    },
+    {
+      "title": "Help dialogue 8",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Practiquemos: mas despacio.",
+          "english": "Let's practice: slower."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "puede escribirlo",
+          "english": "can you write it"
+        }
+      ]
+    },
+    {
+      "title": "Help dialogue 9",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Practiquemos: otra vez.",
+          "english": "Let's practice: again."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "puede mostrarme",
+          "english": "can you show me"
+        }
+      ]
+    },
+    {
+      "title": "Help dialogue 10",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Practiquemos: puede repetir.",
+          "english": "Let's practice: can you repeat."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "puede explicarlo",
+          "english": "can you explain it"
+        }
+      ]
+    }
+  ],
+  "listeningPhrases": [
+    {
+      "spanish": "ayuda",
+      "english": "help"
+    },
+    {
+      "spanish": "ayudar",
+      "english": "to help"
+    },
+    {
+      "spanish": "disculpe",
+      "english": "excuse me"
+    },
+    {
+      "spanish": "perdon",
+      "english": "sorry"
+    },
+    {
+      "spanish": "por favor",
+      "english": "please"
+    },
+    {
+      "spanish": "gracias",
+      "english": "thank you"
+    },
+    {
+      "spanish": "no entiendo",
+      "english": "I do not understand"
+    },
+    {
+      "spanish": "mas despacio",
+      "english": "slower"
+    },
+    {
+      "spanish": "otra vez",
+      "english": "again"
+    },
+    {
+      "spanish": "puede repetir",
+      "english": "can you repeat"
+    }
+  ],
+  "listening": [
+    {
+      "spanish": "ayuda",
+      "english": "help"
+    },
+    {
+      "spanish": "ayudar",
+      "english": "to help"
+    },
+    {
+      "spanish": "disculpe",
+      "english": "excuse me"
+    },
+    {
+      "spanish": "perdon",
+      "english": "sorry"
+    },
+    {
+      "spanish": "por favor",
+      "english": "please"
+    },
+    {
+      "spanish": "gracias",
+      "english": "thank you"
+    },
+    {
+      "spanish": "no entiendo",
+      "english": "I do not understand"
+    },
+    {
+      "spanish": "mas despacio",
+      "english": "slower"
+    },
+    {
+      "spanish": "otra vez",
+      "english": "again"
+    },
+    {
+      "spanish": "puede repetir",
+      "english": "can you repeat"
+    }
+  ],
+  "pronunciation": {
+    "focus": "Carlos helps you pronounce key help phrases clearly.",
+    "items": [
+      {
+        "text": "ayuda",
+        "note": "Say ayuda slowly, then use it in a short travel sentence."
+      },
+      {
+        "text": "ayudar",
+        "note": "Say ayudar slowly, then use it in a short travel sentence."
+      },
+      {
+        "text": "disculpe",
+        "note": "Say disculpe slowly, then use it in a short travel sentence."
+      },
+      {
+        "text": "perdon",
+        "note": "Say perdon slowly, then use it in a short travel sentence."
+      },
+      {
+        "text": "por favor",
+        "note": "Say por favor slowly, then use it in a short travel sentence."
+      },
+      {
+        "text": "gracias",
+        "note": "Say gracias slowly, then use it in a short travel sentence."
+      },
+      {
+        "text": "no entiendo",
+        "note": "Say no entiendo slowly, then use it in a short travel sentence."
+      },
+      {
+        "text": "mas despacio",
+        "note": "Say mas despacio slowly, then use it in a short travel sentence."
+      },
+      {
+        "text": "otra vez",
+        "note": "Say otra vez slowly, then use it in a short travel sentence."
+      },
+      {
+        "text": "puede repetir",
+        "note": "Say puede repetir slowly, then use it in a short travel sentence."
+      }
+    ]
+  },
+  "culture": {
+    "title": "Help in real travel",
+    "text": "Help situations are easier when you stay polite, brief, and specific. Carlos guides you to name the problem, the place, and the help you need."
+  },
+  "nativeSpeech": {
+    "title": "Carlos native speaker tips",
+    "notes": [
+      "Junto a is a common natural alternative to al lado de.",
+      "In Spain, sigue recto is very common for go straight.",
+      "Repeat the last direction back to confirm you understood."
+    ]
+  },
+  "nativeExpressions": [
+    "Junto a is a common natural alternative to al lado de.",
+    "In Spain, sigue recto is very common for go straight.",
+    "Repeat the last direction back to confirm you understood."
+  ],
+  "commonMistakes": [
+    {
+      "mistake": "Saying soy perdido.",
+      "correction": "Say estoy perdido.",
+      "explanation": "Being lost is a temporary state."
+    },
+    {
+      "mistake": "Confusing derecha and derecho.",
+      "correction": "Derecha is right; derecho can mean straight in directions.",
+      "explanation": "One vowel changes the meaning."
+    },
+    {
+      "mistake": "Trying to understand every word.",
+      "correction": "Listen for landmarks and action words first.",
+      "explanation": "Direction conversations are chunk-based."
+    }
+  ],
+  "quiz": [
+    {
+      "type": "multipleChoice",
+      "prompt": "What does ayuda mean?",
+      "options": [
+        "help",
+        "to help",
+        "excuse me",
+        "sorry"
+      ],
+      "answer": "help"
+    },
+    {
+      "type": "multipleChoice",
+      "prompt": "What does ayudar mean?",
+      "options": [
+        "to help",
+        "excuse me",
+        "sorry",
+        "please"
+      ],
+      "answer": "to help"
+    },
+    {
+      "type": "multipleChoice",
+      "prompt": "What does disculpe mean?",
+      "options": [
+        "excuse me",
+        "sorry",
+        "please",
+        "thank you"
+      ],
+      "answer": "excuse me"
+    },
+    {
+      "type": "multipleChoice",
+      "prompt": "What does perdon mean?",
+      "options": [
+        "sorry",
+        "please",
+        "thank you",
+        "I do not understand"
+      ],
+      "answer": "sorry"
+    },
+    {
+      "type": "multipleChoice",
+      "prompt": "What does por favor mean?",
+      "options": [
+        "please",
+        "thank you",
+        "I do not understand",
+        "slower"
+      ],
+      "answer": "please"
+    },
+    {
+      "type": "multipleChoice",
+      "prompt": "What does gracias mean?",
+      "options": [
+        "thank you",
+        "I do not understand",
+        "slower",
+        "again"
+      ],
+      "answer": "thank you"
+    },
+    {
+      "type": "multipleChoice",
+      "prompt": "What does no entiendo mean?",
+      "options": [
+        "I do not understand",
+        "slower",
+        "again",
+        "can you repeat"
+      ],
+      "answer": "I do not understand"
+    },
+    {
+      "type": "multipleChoice",
+      "prompt": "What does mas despacio mean?",
+      "options": [
+        "slower",
+        "again",
+        "can you repeat",
+        "can you write it"
+      ],
+      "answer": "slower"
+    },
+    {
+      "type": "multipleChoice",
+      "prompt": "What does otra vez mean?",
+      "options": [
+        "again",
+        "can you repeat",
+        "can you write it",
+        "can you show me"
+      ],
+      "answer": "again"
+    },
+    {
+      "type": "multipleChoice",
+      "prompt": "What does puede repetir mean?",
+      "options": [
+        "can you repeat",
+        "can you write it",
+        "can you show me",
+        "can you explain it"
+      ],
+      "answer": "can you repeat"
+    },
+    {
+      "type": "multipleChoice",
+      "prompt": "What does puede escribirlo mean?",
+      "options": [
+        "can you write it",
+        "can you show me",
+        "can you explain it",
+        "word"
+      ],
+      "answer": "can you write it"
+    },
+    {
+      "type": "multipleChoice",
+      "prompt": "What does puede mostrarme mean?",
+      "options": [
+        "can you show me",
+        "can you explain it",
+        "word",
+        "phrase"
+      ],
+      "answer": "can you show me"
+    },
+    {
+      "type": "translation",
+      "prompt": "Translate: ayuda",
+      "answer": "help"
+    },
+    {
+      "type": "translation",
+      "prompt": "Translate: ayudar",
+      "answer": "to help"
+    },
+    {
+      "type": "multipleChoice",
+      "prompt": "Which phrase fits Help?",
+      "options": [
+        "disculpe",
+        "mi familia",
+        "hace frio",
+        "me gusta leer"
+      ],
+      "answer": "disculpe"
+    }
+  ],
+  "speakingChallenge": [
+    {
+      "prompt": "Use ayuda in a realistic travel sentence with Carlos.",
+      "exampleAnswer": "Ayuda con Carlos."
+    },
+    {
+      "prompt": "Use ayudar in a realistic travel sentence with Carlos.",
+      "exampleAnswer": "Ayudar con Carlos."
+    },
+    {
+      "prompt": "Use disculpe in a realistic travel sentence with Carlos.",
+      "exampleAnswer": "Disculpe con Carlos."
+    },
+    {
+      "prompt": "Use perdon in a realistic travel sentence with Carlos.",
+      "exampleAnswer": "Perdon con Carlos."
+    },
+    {
+      "prompt": "Use por favor in a realistic travel sentence with Carlos.",
+      "exampleAnswer": "Por favor con Carlos."
+    }
+  ],
+  "realLifeMission": {
+    "title": "Real Life Mission",
+    "mission": "You are lost with a low phone battery. Ask Carlos for help, ask him to repeat slowly, and request that he write the address.",
+    "successCriteria": [
+      "Use at least six words from this lesson.",
+      "Use one phrase from a previous lesson.",
+      "Ask Carlos or another person at least one question.",
+      "Resolve the travel or navigation situation clearly."
+    ],
+    "suggestedPartner": "Carlos",
+    "xpReward": 10
+  },
+  "review": {
+    "recap": [
+      "Carlos reviewed help travel language.",
+      "You practiced Help A1 travel phrases.",
+      "You recycled earlier A1 vocabulary in a realistic situation."
+    ],
+    "canDo": [
+      "Ask for help, clarification, repetition, and slower speech in travel situations.",
+      "Ask for clarification when needed.",
+      "Complete the situation with polite, simple Spanish."
+    ]
+  },
+  "achievementsUnlocked": [],
+  "xpReward": 85,
+  "nextLesson": "lesson-24-emergencies"
+}

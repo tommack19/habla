@@ -1,0 +1,1051 @@
+{
+  "id": "lesson-16-sports",
+  "title": "Sports: Playing and Watching Games",
+  "level": "A1",
+  "module": "Sports",
+  "estimatedMinutes": 30,
+  "prerequisiteLesson": "lesson-15-hobbies",
+  "imagePath": "assets/images/lessons/lesson-16-sports.png",
+  "objectives": [
+    "Talk about sports you play, teams you like, and simple game plans.",
+    "Use 25 or more sports words and phrases in short sentences.",
+    "Recycle greetings, time, family, weather, food, work, health, and emotion phrases from earlier lessons.",
+    "Complete a realistic practice mission with Carlos."
+  ],
+  "vocabularyCategories": [
+    "sports",
+    "games",
+    "teams",
+    "activities"
+  ],
+  "vocabulary": [
+    {
+      "spanish": "el deporte",
+      "english": "sport",
+      "partOfSpeech": "noun",
+      "tip": "General word.",
+      "exampleSpanish": "Me gusta el deporte.",
+      "exampleEnglish": "I like sports."
+    },
+    {
+      "spanish": "el futbol",
+      "english": "soccer",
+      "partOfSpeech": "noun",
+      "tip": "The world game.",
+      "exampleSpanish": "Juego al futbol.",
+      "exampleEnglish": "I play soccer."
+    },
+    {
+      "spanish": "el futbol americano",
+      "english": "football",
+      "partOfSpeech": "noun",
+      "tip": "American football.",
+      "exampleSpanish": "Veo futbol americano.",
+      "exampleEnglish": "I watch football."
+    },
+    {
+      "spanish": "el beisbol",
+      "english": "baseball",
+      "partOfSpeech": "noun",
+      "tip": "Popular in Mexico and Caribbean.",
+      "exampleSpanish": "Me gusta el beisbol.",
+      "exampleEnglish": "I like baseball."
+    },
+    {
+      "spanish": "el basquetbol",
+      "english": "basketball",
+      "partOfSpeech": "noun",
+      "tip": "Mexico common form.",
+      "exampleSpanish": "Juego basquetbol.",
+      "exampleEnglish": "I play basketball."
+    },
+    {
+      "spanish": "el baloncesto",
+      "english": "basketball",
+      "partOfSpeech": "noun",
+      "tip": "Common in Spain.",
+      "exampleSpanish": "Veo baloncesto.",
+      "exampleEnglish": "I watch basketball."
+    },
+    {
+      "spanish": "el tenis",
+      "english": "tennis",
+      "partOfSpeech": "noun",
+      "tip": "Sport word.",
+      "exampleSpanish": "Practico tenis.",
+      "exampleEnglish": "I practice tennis."
+    },
+    {
+      "spanish": "la natacion",
+      "english": "swimming",
+      "partOfSpeech": "noun",
+      "tip": "Sport/activity.",
+      "exampleSpanish": "Me gusta la natacion.",
+      "exampleEnglish": "I like swimming."
+    },
+    {
+      "spanish": "correr",
+      "english": "to run",
+      "partOfSpeech": "verb",
+      "tip": "Review hobby.",
+      "exampleSpanish": "Corro en la manana.",
+      "exampleEnglish": "I run in the morning."
+    },
+    {
+      "spanish": "caminar",
+      "english": "to walk",
+      "partOfSpeech": "verb",
+      "tip": "Light activity.",
+      "exampleSpanish": "Camino en el parque.",
+      "exampleEnglish": "I walk in the park."
+    },
+    {
+      "spanish": "jugar",
+      "english": "to play",
+      "partOfSpeech": "verb",
+      "tip": "Use with sports/games.",
+      "exampleSpanish": "Quiero jugar.",
+      "exampleEnglish": "I want to play."
+    },
+    {
+      "spanish": "practicar",
+      "english": "to practice",
+      "partOfSpeech": "verb",
+      "tip": "For sports.",
+      "exampleSpanish": "Practico los sabados.",
+      "exampleEnglish": "I practice on Saturdays."
+    },
+    {
+      "spanish": "ver",
+      "english": "to watch",
+      "partOfSpeech": "verb",
+      "tip": "Use for games.",
+      "exampleSpanish": "Quiero ver el partido.",
+      "exampleEnglish": "I want to watch the game."
+    },
+    {
+      "spanish": "el partido",
+      "english": "game/match",
+      "partOfSpeech": "noun",
+      "tip": "Sports match.",
+      "exampleSpanish": "El partido es hoy.",
+      "exampleEnglish": "The game is today."
+    },
+    {
+      "spanish": "el equipo",
+      "english": "team",
+      "partOfSpeech": "noun",
+      "tip": "Sports team.",
+      "exampleSpanish": "Mi equipo gana.",
+      "exampleEnglish": "My team wins."
+    },
+    {
+      "spanish": "ganar",
+      "english": "to win",
+      "partOfSpeech": "verb",
+      "tip": "Sport result.",
+      "exampleSpanish": "Quiero ganar.",
+      "exampleEnglish": "I want to win."
+    },
+    {
+      "spanish": "perder",
+      "english": "to lose",
+      "partOfSpeech": "verb",
+      "tip": "Sport result.",
+      "exampleSpanish": "No quiero perder.",
+      "exampleEnglish": "I do not want to lose."
+    },
+    {
+      "spanish": "la pelota",
+      "english": "ball",
+      "partOfSpeech": "noun",
+      "tip": "General ball.",
+      "exampleSpanish": "La pelota es nueva.",
+      "exampleEnglish": "The ball is new."
+    },
+    {
+      "spanish": "el estadio",
+      "english": "stadium",
+      "partOfSpeech": "noun",
+      "tip": "Place.",
+      "exampleSpanish": "El estadio esta lleno.",
+      "exampleEnglish": "The stadium is full."
+    },
+    {
+      "spanish": "el gimnasio",
+      "english": "gym",
+      "partOfSpeech": "noun",
+      "tip": "Exercise place.",
+      "exampleSpanish": "Voy al gimnasio.",
+      "exampleEnglish": "I go to the gym."
+    },
+    {
+      "spanish": "rapido",
+      "english": "fast",
+      "partOfSpeech": "adjective/adverb",
+      "tip": "Sport quality.",
+      "exampleSpanish": "El jugador es rapido.",
+      "exampleEnglish": "The player is fast."
+    },
+    {
+      "spanish": "lento",
+      "english": "slow",
+      "partOfSpeech": "adjective/adverb",
+      "tip": "Opposite.",
+      "exampleSpanish": "El juego es lento.",
+      "exampleEnglish": "The game is slow."
+    },
+    {
+      "spanish": "fuerte",
+      "english": "strong",
+      "partOfSpeech": "adjective",
+      "tip": "Health bridge.",
+      "exampleSpanish": "Mi equipo es fuerte.",
+      "exampleEnglish": "My team is strong."
+    },
+    {
+      "spanish": "cansado",
+      "english": "tired",
+      "partOfSpeech": "adjective",
+      "tip": "After sports.",
+      "exampleSpanish": "Estoy cansado.",
+      "exampleEnglish": "I am tired."
+    },
+    {
+      "spanish": "la energia",
+      "english": "energy",
+      "partOfSpeech": "noun",
+      "tip": "Useful for health.",
+      "exampleSpanish": "Tengo energia hoy.",
+      "exampleEnglish": "I have energy today."
+    },
+    {
+      "spanish": "el agua",
+      "english": "water",
+      "partOfSpeech": "noun",
+      "tip": "Sports hydration.",
+      "exampleSpanish": "Necesito agua.",
+      "exampleEnglish": "I need water."
+    }
+  ],
+  "textbookPhrases": [
+    {
+      "meaning": "Do you play soccer?",
+      "phrase": "Juega al futbol?"
+    },
+    {
+      "meaning": "I watch baseball.",
+      "phrase": "Veo beisbol."
+    },
+    {
+      "meaning": "My team wins.",
+      "phrase": "Mi equipo gana."
+    },
+    {
+      "meaning": "I am tired.",
+      "phrase": "Estoy cansado."
+    },
+    {
+      "meaning": "Do you want to play?",
+      "phrase": "Quieres jugar?"
+    }
+  ],
+  "naturalEverydayPhrases": [
+    {
+      "meaning": "Do you play soccer?",
+      "phrase": "Juegas futbol?"
+    },
+    {
+      "meaning": "I watch baseball.",
+      "phrase": "Veo beisbol."
+    },
+    {
+      "meaning": "My team wins.",
+      "phrase": "Mi equipo gana."
+    },
+    {
+      "meaning": "I am tired.",
+      "phrase": "Estoy cansado."
+    },
+    {
+      "meaning": "Do you want to play?",
+      "phrase": "Quieres jugar?"
+    }
+  ],
+  "mexicanSpanishVariants": [
+    {
+      "meaning": "Do you play soccer?",
+      "phrase": "Juegas futbol?"
+    },
+    {
+      "meaning": "I watch baseball.",
+      "phrase": "Veo beisbol."
+    },
+    {
+      "meaning": "My team wins.",
+      "phrase": "Mi equipo gana."
+    },
+    {
+      "meaning": "I am tired.",
+      "phrase": "Estoy cansado."
+    },
+    {
+      "meaning": "Do you want to play?",
+      "phrase": "Quieres jugar?"
+    }
+  ],
+  "spainSpanishVariants": [
+    {
+      "meaning": "Do you play soccer?",
+      "phrase": "Juegas al futbol?"
+    },
+    {
+      "meaning": "I watch baseball.",
+      "phrase": "Veo beisbol."
+    },
+    {
+      "meaning": "My team wins.",
+      "phrase": "Mi equipo gana."
+    },
+    {
+      "meaning": "I am tired.",
+      "phrase": "Estoy cansado."
+    },
+    {
+      "meaning": "Do you want to play?",
+      "phrase": "Quieres jugar?"
+    }
+  ],
+  "phraseVariants": [
+    {
+      "meaning": "Do you play soccer?",
+      "textbookVersion": "Juega al futbol?",
+      "naturalEverydayVersion": "Juegas futbol?",
+      "mexicanSpanishVersion": "Juegas futbol?",
+      "spainSpanishVersion": "Juegas al futbol?",
+      "whenUsed": "Carlos shows the textbook version first, then the natural version learners are likely to hear in everyday speech."
+    },
+    {
+      "meaning": "I watch baseball.",
+      "textbookVersion": "Veo beisbol.",
+      "naturalEverydayVersion": "Veo beisbol.",
+      "mexicanSpanishVersion": "Veo beisbol.",
+      "spainSpanishVersion": "Veo beisbol.",
+      "whenUsed": "Carlos shows the textbook version first, then the natural version learners are likely to hear in everyday speech."
+    },
+    {
+      "meaning": "My team wins.",
+      "textbookVersion": "Mi equipo gana.",
+      "naturalEverydayVersion": "Mi equipo gana.",
+      "mexicanSpanishVersion": "Mi equipo gana.",
+      "spainSpanishVersion": "Mi equipo gana.",
+      "whenUsed": "Carlos shows the textbook version first, then the natural version learners are likely to hear in everyday speech."
+    },
+    {
+      "meaning": "I am tired.",
+      "textbookVersion": "Estoy cansado.",
+      "naturalEverydayVersion": "Estoy cansado.",
+      "mexicanSpanishVersion": "Estoy cansado.",
+      "spainSpanishVersion": "Estoy cansado.",
+      "whenUsed": "Carlos shows the textbook version first, then the natural version learners are likely to hear in everyday speech."
+    },
+    {
+      "meaning": "Do you want to play?",
+      "textbookVersion": "Quieres jugar?",
+      "naturalEverydayVersion": "Quieres jugar?",
+      "mexicanSpanishVersion": "Quieres jugar?",
+      "spainSpanishVersion": "Quieres jugar?",
+      "whenUsed": "Carlos shows the textbook version first, then the natural version learners are likely to hear in everyday speech."
+    }
+  ],
+  "grammar": {
+    "topic": "Jugar a and practicar",
+    "explanation": "Use jugar a for many sports and practicar for practicing a sport. Carlos helps you say what you play, watch, and like.",
+    "examples": [
+      {
+        "spanish": "Juego al futbol.",
+        "english": "I play soccer."
+      },
+      {
+        "spanish": "Practico tenis.",
+        "english": "I practice tennis."
+      },
+      {
+        "spanish": "Me gusta ver beisbol.",
+        "english": "I like to watch baseball."
+      }
+    ],
+    "practicePrompt": "Tell Carlos what sport you like, whether you play or watch it, and when you do it."
+  },
+  "dialogue": [
+    {
+      "title": "Warmup with Carlos",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Practiquemos sports: el deporte.",
+          "english": "Let's practice sports: sport."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "Me gusta el beisbol.",
+          "english": "I like baseball."
+        }
+      ]
+    },
+    {
+      "title": "Real-world question",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Practiquemos sports: el futbol.",
+          "english": "Let's practice sports: soccer."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "Juego basquetbol.",
+          "english": "I play basketball."
+        }
+      ]
+    },
+    {
+      "title": "Using old vocabulary",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Practiquemos sports: el futbol americano.",
+          "english": "Let's practice sports: football."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "Veo baloncesto.",
+          "english": "I watch basketball."
+        }
+      ]
+    },
+    {
+      "title": "Making a plan",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Practiquemos sports: el beisbol.",
+          "english": "Let's practice sports: baseball."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "Practico tenis.",
+          "english": "I practice tennis."
+        }
+      ]
+    },
+    {
+      "title": "Asking for help",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Practiquemos sports: el basquetbol.",
+          "english": "Let's practice sports: basketball."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "Me gusta la natacion.",
+          "english": "I like swimming."
+        }
+      ]
+    },
+    {
+      "title": "Polite correction",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Practiquemos sports: el baloncesto.",
+          "english": "Let's practice sports: basketball."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "Corro en la manana.",
+          "english": "I run in the morning."
+        }
+      ]
+    },
+    {
+      "title": "With family",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Practiquemos sports: el tenis.",
+          "english": "Let's practice sports: tennis."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "Camino en el parque.",
+          "english": "I walk in the park."
+        }
+      ]
+    },
+    {
+      "title": "At work or school",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Practiquemos sports: la natacion.",
+          "english": "Let's practice sports: swimming."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "Quiero jugar.",
+          "english": "I want to play."
+        }
+      ]
+    },
+    {
+      "title": "Travel moment",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Practiquemos sports: correr.",
+          "english": "Let's practice sports: to run."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "Practico los sabados.",
+          "english": "I practice on Saturdays."
+        }
+      ]
+    },
+    {
+      "title": "Wrap-up challenge",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Practiquemos sports: caminar.",
+          "english": "Let's practice sports: to walk."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "Quiero ver el partido.",
+          "english": "I want to watch the game."
+        }
+      ]
+    }
+  ],
+  "dialogues": [
+    {
+      "title": "Warmup with Carlos",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Practiquemos sports: el deporte.",
+          "english": "Let's practice sports: sport."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "Me gusta el beisbol.",
+          "english": "I like baseball."
+        }
+      ]
+    },
+    {
+      "title": "Real-world question",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Practiquemos sports: el futbol.",
+          "english": "Let's practice sports: soccer."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "Juego basquetbol.",
+          "english": "I play basketball."
+        }
+      ]
+    },
+    {
+      "title": "Using old vocabulary",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Practiquemos sports: el futbol americano.",
+          "english": "Let's practice sports: football."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "Veo baloncesto.",
+          "english": "I watch basketball."
+        }
+      ]
+    },
+    {
+      "title": "Making a plan",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Practiquemos sports: el beisbol.",
+          "english": "Let's practice sports: baseball."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "Practico tenis.",
+          "english": "I practice tennis."
+        }
+      ]
+    },
+    {
+      "title": "Asking for help",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Practiquemos sports: el basquetbol.",
+          "english": "Let's practice sports: basketball."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "Me gusta la natacion.",
+          "english": "I like swimming."
+        }
+      ]
+    },
+    {
+      "title": "Polite correction",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Practiquemos sports: el baloncesto.",
+          "english": "Let's practice sports: basketball."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "Corro en la manana.",
+          "english": "I run in the morning."
+        }
+      ]
+    },
+    {
+      "title": "With family",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Practiquemos sports: el tenis.",
+          "english": "Let's practice sports: tennis."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "Camino en el parque.",
+          "english": "I walk in the park."
+        }
+      ]
+    },
+    {
+      "title": "At work or school",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Practiquemos sports: la natacion.",
+          "english": "Let's practice sports: swimming."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "Quiero jugar.",
+          "english": "I want to play."
+        }
+      ]
+    },
+    {
+      "title": "Travel moment",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Practiquemos sports: correr.",
+          "english": "Let's practice sports: to run."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "Practico los sabados.",
+          "english": "I practice on Saturdays."
+        }
+      ]
+    },
+    {
+      "title": "Wrap-up challenge",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Practiquemos sports: caminar.",
+          "english": "Let's practice sports: to walk."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "Quiero ver el partido.",
+          "english": "I want to watch the game."
+        }
+      ]
+    }
+  ],
+  "listeningPhrases": [
+    {
+      "spanish": "Me gusta el deporte.",
+      "english": "I like sports."
+    },
+    {
+      "spanish": "Juego al futbol.",
+      "english": "I play soccer."
+    },
+    {
+      "spanish": "Veo futbol americano.",
+      "english": "I watch football."
+    },
+    {
+      "spanish": "Me gusta el beisbol.",
+      "english": "I like baseball."
+    },
+    {
+      "spanish": "Juego basquetbol.",
+      "english": "I play basketball."
+    },
+    {
+      "spanish": "Veo baloncesto.",
+      "english": "I watch basketball."
+    },
+    {
+      "spanish": "Practico tenis.",
+      "english": "I practice tennis."
+    },
+    {
+      "spanish": "Me gusta la natacion.",
+      "english": "I like swimming."
+    },
+    {
+      "spanish": "Corro en la manana.",
+      "english": "I run in the morning."
+    },
+    {
+      "spanish": "Camino en el parque.",
+      "english": "I walk in the park."
+    }
+  ],
+  "listening": [
+    {
+      "spanish": "Me gusta el deporte.",
+      "english": "I like sports."
+    },
+    {
+      "spanish": "Juego al futbol.",
+      "english": "I play soccer."
+    },
+    {
+      "spanish": "Veo futbol americano.",
+      "english": "I watch football."
+    },
+    {
+      "spanish": "Me gusta el beisbol.",
+      "english": "I like baseball."
+    },
+    {
+      "spanish": "Juego basquetbol.",
+      "english": "I play basketball."
+    },
+    {
+      "spanish": "Veo baloncesto.",
+      "english": "I watch basketball."
+    },
+    {
+      "spanish": "Practico tenis.",
+      "english": "I practice tennis."
+    },
+    {
+      "spanish": "Me gusta la natacion.",
+      "english": "I like swimming."
+    },
+    {
+      "spanish": "Corro en la manana.",
+      "english": "I run in the morning."
+    },
+    {
+      "spanish": "Camino en el parque.",
+      "english": "I walk in the park."
+    }
+  ],
+  "pronunciation": {
+    "focus": "Carlos helps you practice clear rhythm and useful sounds for sports.",
+    "items": [
+      {
+        "text": "el deporte",
+        "note": "Say el deporte slowly first, then repeat it in the sentence: Me gusta el deporte."
+      },
+      {
+        "text": "el futbol",
+        "note": "Say el futbol slowly first, then repeat it in the sentence: Juego al futbol."
+      },
+      {
+        "text": "el futbol americano",
+        "note": "Say el futbol americano slowly first, then repeat it in the sentence: Veo futbol americano."
+      },
+      {
+        "text": "el beisbol",
+        "note": "Say el beisbol slowly first, then repeat it in the sentence: Me gusta el beisbol."
+      },
+      {
+        "text": "el basquetbol",
+        "note": "Say el basquetbol slowly first, then repeat it in the sentence: Juego basquetbol."
+      },
+      {
+        "text": "el baloncesto",
+        "note": "Say el baloncesto slowly first, then repeat it in the sentence: Veo baloncesto."
+      },
+      {
+        "text": "el tenis",
+        "note": "Say el tenis slowly first, then repeat it in the sentence: Practico tenis."
+      },
+      {
+        "text": "la natacion",
+        "note": "Say la natacion slowly first, then repeat it in the sentence: Me gusta la natacion."
+      },
+      {
+        "text": "correr",
+        "note": "Say correr slowly first, then repeat it in the sentence: Corro en la manana."
+      },
+      {
+        "text": "caminar",
+        "note": "Say caminar slowly first, then repeat it in the sentence: Camino en el parque."
+      }
+    ]
+  },
+  "culture": {
+    "title": "Sports in real life",
+    "text": "Sports vocabulary changes by region. Carlos points out futbol means soccer in most Spanish contexts, while futbol americano specifies American football."
+  },
+  "nativeSpeech": {
+    "title": "Carlos native speaker tips",
+    "notes": [
+      "In Mexico, basquetbol is common for basketball.",
+      "In Spain, baloncesto is common for basketball.",
+      "Partido is the normal word for a match or game."
+    ]
+  },
+  "nativeExpressions": [
+    "In Mexico, basquetbol is common for basketball.",
+    "In Spain, baloncesto is common for basketball.",
+    "Partido is the normal word for a match or game."
+  ],
+  "commonMistakes": [
+    {
+      "mistake": "Saying juego futbol with no article in Spain.",
+      "correction": "Juegas al futbol is common in Spain.",
+      "explanation": "Usage varies; both can be understood."
+    },
+    {
+      "mistake": "Using mirar always for watch.",
+      "correction": "Use ver as the safest beginner word.",
+      "explanation": "Ver is common for watching games."
+    },
+    {
+      "mistake": "Saying soy cansado.",
+      "correction": "Say estoy cansado.",
+      "explanation": "Tired is a temporary state."
+    }
+  ],
+  "quiz": [
+    {
+      "type": "multipleChoice",
+      "prompt": "What does el deporte mean?",
+      "options": [
+        "sport",
+        "soccer",
+        "football",
+        "baseball"
+      ],
+      "answer": "sport"
+    },
+    {
+      "type": "multipleChoice",
+      "prompt": "What does el futbol mean?",
+      "options": [
+        "soccer",
+        "football",
+        "baseball",
+        "basketball"
+      ],
+      "answer": "soccer"
+    },
+    {
+      "type": "multipleChoice",
+      "prompt": "What does el futbol americano mean?",
+      "options": [
+        "football",
+        "baseball",
+        "basketball",
+        "basketball"
+      ],
+      "answer": "football"
+    },
+    {
+      "type": "multipleChoice",
+      "prompt": "What does el beisbol mean?",
+      "options": [
+        "baseball",
+        "basketball",
+        "basketball",
+        "tennis"
+      ],
+      "answer": "baseball"
+    },
+    {
+      "type": "multipleChoice",
+      "prompt": "What does el basquetbol mean?",
+      "options": [
+        "basketball",
+        "basketball",
+        "tennis",
+        "swimming"
+      ],
+      "answer": "basketball"
+    },
+    {
+      "type": "multipleChoice",
+      "prompt": "What does el baloncesto mean?",
+      "options": [
+        "basketball",
+        "tennis",
+        "swimming",
+        "to run"
+      ],
+      "answer": "basketball"
+    },
+    {
+      "type": "multipleChoice",
+      "prompt": "What does el tenis mean?",
+      "options": [
+        "tennis",
+        "swimming",
+        "to run",
+        "to walk"
+      ],
+      "answer": "tennis"
+    },
+    {
+      "type": "multipleChoice",
+      "prompt": "What does la natacion mean?",
+      "options": [
+        "swimming",
+        "to run",
+        "to walk",
+        "to play"
+      ],
+      "answer": "swimming"
+    },
+    {
+      "type": "multipleChoice",
+      "prompt": "What does correr mean?",
+      "options": [
+        "to run",
+        "to walk",
+        "to play",
+        "to practice"
+      ],
+      "answer": "to run"
+    },
+    {
+      "type": "multipleChoice",
+      "prompt": "What does caminar mean?",
+      "options": [
+        "to walk",
+        "to play",
+        "to practice",
+        "to watch"
+      ],
+      "answer": "to walk"
+    },
+    {
+      "type": "multipleChoice",
+      "prompt": "What does jugar mean?",
+      "options": [
+        "to play",
+        "to practice",
+        "to watch",
+        "game/match"
+      ],
+      "answer": "to play"
+    },
+    {
+      "type": "multipleChoice",
+      "prompt": "What does practicar mean?",
+      "options": [
+        "to practice",
+        "to watch",
+        "game/match",
+        "team"
+      ],
+      "answer": "to practice"
+    },
+    {
+      "type": "translation",
+      "prompt": "Translate: Me gusta el deporte.",
+      "answer": "I like sports."
+    },
+    {
+      "type": "translation",
+      "prompt": "Translate: Juego al futbol.",
+      "answer": "I play soccer."
+    },
+    {
+      "type": "multipleChoice",
+      "prompt": "Which phrase belongs in Sports?",
+      "options": [
+        "el futbol americano",
+        "mi suegra",
+        "buenos dias",
+        "un boleto"
+      ],
+      "answer": "el futbol americano"
+    }
+  ],
+  "speakingChallenge": [
+    {
+      "prompt": "Carlos asks you to use el deporte in a real sentence.",
+      "exampleAnswer": "Me gusta el deporte."
+    },
+    {
+      "prompt": "Carlos asks you to use el futbol in a real sentence.",
+      "exampleAnswer": "Juego al futbol."
+    },
+    {
+      "prompt": "Carlos asks you to use el futbol americano in a real sentence.",
+      "exampleAnswer": "Veo futbol americano."
+    },
+    {
+      "prompt": "Carlos asks you to use el beisbol in a real sentence.",
+      "exampleAnswer": "Me gusta el beisbol."
+    },
+    {
+      "prompt": "Carlos asks you to use el basquetbol in a real sentence.",
+      "exampleAnswer": "Juego basquetbol."
+    }
+  ],
+  "realLifeMission": {
+    "title": "Real Life Mission",
+    "mission": "Invite Carlos to watch or play a sport. Say the sport, where, when, and whether you prefer to play or watch.",
+    "successCriteria": [
+      "Use at least six words from this lesson.",
+      "Use one phrase recycled from a previous lesson.",
+      "Ask Carlos at least one question.",
+      "Respond naturally with a short follow-up sentence."
+    ],
+    "suggestedPartner": "Carlos",
+    "xpReward": 10
+  },
+  "review": {
+    "recap": [
+      "Carlos reviewed sports vocabulary.",
+      "You practiced Jugar a and practicar.",
+      "You connected this lesson to earlier A1 survival conversations."
+    ],
+    "canDo": [
+      "Talk about sports you play, teams you like, and simple game plans.",
+      "Ask and answer simple everyday questions.",
+      "Repair the conversation with a short polite phrase if needed."
+    ]
+  },
+  "achievementsUnlocked": [],
+  "xpReward": 75,
+  "nextLesson": "lesson-17-health"
+}

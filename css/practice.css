@@ -356,3 +356,119 @@
   from { opacity: 0; transform: translateY(4px); }
   to { opacity: 1; transform: none; }
 }
+
+/* HABLA DESIGN SYSTEM V1 - PRACTICE POLISH */
+#dashboard.practice-page {
+  padding: 24px var(--habla-page-pad-x, 16px) calc(var(--habla-bottom-nav-h, 76px) + 32px);
+}
+
+.practice-screen {
+  gap: 24px;
+}
+
+.practice-header {
+  padding-top: 0;
+}
+
+.practice-header h1 {
+  font-size: clamp(2.15rem, 11vw, 3rem);
+  letter-spacing: 0;
+}
+
+.practice-mode-grid,
+.quiz-options,
+.practice-actions {
+  gap: 16px;
+}
+
+.practice-mode-grid,
+.practice-panels,
+.quiz-options,
+.practice-actions,
+.flash-stage,
+.pron-stage {
+  min-width: 0;
+}
+
+.practice-mode-card,
+.practice-mode-panel,
+.flash-slide,
+.pron-slide {
+  border-radius: var(--habla-radius-card, 24px);
+  border-color: var(--habla-border, rgba(244, 190, 88, 0.18));
+  background:
+    linear-gradient(180deg, rgba(18, 28, 40, 0.94), rgba(7, 13, 20, 0.9));
+  box-shadow: var(--habla-shadow-card, 0 24px 70px rgba(0, 0, 0, 0.32));
+}
+
+.practice-mode-card {
+  min-height: 96px;
+  padding: 16px;
+  overflow: hidden;
+}
+
+.practice-mode-panel {
+  padding: 20px;
+}
+
+.practice-mode-icon {
+  border-radius: 16px;
+  border-color: rgba(244, 190, 88, 0.3);
+  background:
+    radial-gradient(circle at 35% 25%, rgba(244, 190, 88, 0.26), transparent 44%),
+    rgba(5, 10, 16, 0.76);
+  color: var(--habla-gold, var(--gold));
+}
+
+.practice-mode-card h2,
+.practice-panel-head h2,
+.flash-face strong,
+.pron-slide strong {
+  overflow-wrap: anywhere;
+}
+
+.practice-panel-head {
+  gap: 16px;
+  margin-bottom: 18px;
+}
+
+.practice-progress {
+  height: 12px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.practice-progress-bar,
+.practice-progress > div {
+  border-radius: inherit;
+}
+
+.quiz-option,
+.practice-actions button,
+.practice-primary {
+  min-height: 48px;
+  border-radius: var(--habla-radius-button, 18px);
+}
+
+.practice-actions button {
+  padding-left: 14px;
+  padding-right: 14px;
+}
+
+.flash-stage,
+.pron-stage,
+.flash-slide,
+.pron-slide {
+  min-height: 220px;
+}
+
+@media (max-width: 380px) {
+  .practice-mode-card,
+  .practice-mode-panel {
+    padding: 16px;
+  }
+
+  .practice-actions {
+    gap: 12px;
+  }
+}

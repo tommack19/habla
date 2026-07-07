@@ -1,0 +1,1051 @@
+{
+  "id": "lesson-22-transportation",
+  "title": "Transportation: Getting Around Town",
+  "level": "A1",
+  "module": "Transportation",
+  "estimatedMinutes": 32,
+  "prerequisiteLesson": "lesson-21-directions",
+  "imagePath": "assets/images/lessons/lesson-22-transportation.png",
+  "objectives": [
+    "Use buses, taxis, trains, and ride-share phrases to move around a city.",
+    "Use 26 transportation words and phrases in travel or navigation contexts.",
+    "Recycle previous A1 vocabulary naturally with Carlos.",
+    "Complete an authentic travel or navigation Real Life Mission."
+  ],
+  "vocabularyCategories": [
+    "transportation",
+    "tickets",
+    "places",
+    "time"
+  ],
+  "vocabulary": [
+    {
+      "spanish": "el transporte",
+      "english": "transportation",
+      "partOfSpeech": "noun",
+      "tip": "General word.",
+      "exampleSpanish": "El transporte es facil.",
+      "exampleEnglish": "Transportation is easy."
+    },
+    {
+      "spanish": "el autobus",
+      "english": "bus",
+      "partOfSpeech": "noun",
+      "tip": "Common transit.",
+      "exampleSpanish": "Tomo el autobus.",
+      "exampleEnglish": "I take the bus."
+    },
+    {
+      "spanish": "el camion",
+      "english": "bus/truck",
+      "partOfSpeech": "noun",
+      "tip": "In Mexico can mean bus.",
+      "exampleSpanish": "Tomo el camion al centro.",
+      "exampleEnglish": "I take the bus downtown."
+    },
+    {
+      "spanish": "el taxi",
+      "english": "taxi",
+      "partOfSpeech": "noun",
+      "tip": "Travel word.",
+      "exampleSpanish": "Necesito un taxi.",
+      "exampleEnglish": "I need a taxi."
+    },
+    {
+      "spanish": "el tren",
+      "english": "train",
+      "partOfSpeech": "noun",
+      "tip": "Common travel.",
+      "exampleSpanish": "El tren sale ahora.",
+      "exampleEnglish": "The train leaves now."
+    },
+    {
+      "spanish": "el metro",
+      "english": "subway",
+      "partOfSpeech": "noun",
+      "tip": "City transit.",
+      "exampleSpanish": "Voy en metro.",
+      "exampleEnglish": "I go by subway."
+    },
+    {
+      "spanish": "el coche",
+      "english": "car",
+      "partOfSpeech": "noun",
+      "tip": "Common in Spain.",
+      "exampleSpanish": "El coche esta aqui.",
+      "exampleEnglish": "The car is here."
+    },
+    {
+      "spanish": "el carro",
+      "english": "car",
+      "partOfSpeech": "noun",
+      "tip": "Common in Mexico.",
+      "exampleSpanish": "El carro esta aqui.",
+      "exampleEnglish": "The car is here."
+    },
+    {
+      "spanish": "la bicicleta",
+      "english": "bicycle",
+      "partOfSpeech": "noun",
+      "tip": "Transport option.",
+      "exampleSpanish": "Voy en bicicleta.",
+      "exampleEnglish": "I go by bicycle."
+    },
+    {
+      "spanish": "el boleto",
+      "english": "ticket",
+      "partOfSpeech": "noun",
+      "tip": "Latin America.",
+      "exampleSpanish": "Necesito un boleto.",
+      "exampleEnglish": "I need a ticket."
+    },
+    {
+      "spanish": "el billete",
+      "english": "ticket",
+      "partOfSpeech": "noun",
+      "tip": "Spain often uses billete.",
+      "exampleSpanish": "Compro un billete.",
+      "exampleEnglish": "I buy a ticket."
+    },
+    {
+      "spanish": "la parada",
+      "english": "stop",
+      "partOfSpeech": "noun",
+      "tip": "Bus stop.",
+      "exampleSpanish": "La parada esta cerca.",
+      "exampleEnglish": "The stop is nearby."
+    },
+    {
+      "spanish": "la estacion",
+      "english": "station",
+      "partOfSpeech": "noun",
+      "tip": "Train/metro station.",
+      "exampleSpanish": "La estacion esta lejos.",
+      "exampleEnglish": "The station is far."
+    },
+    {
+      "spanish": "la salida",
+      "english": "exit/departure",
+      "partOfSpeech": "noun",
+      "tip": "Useful in stations.",
+      "exampleSpanish": "La salida esta a la derecha.",
+      "exampleEnglish": "The exit is on the right."
+    },
+    {
+      "spanish": "la llegada",
+      "english": "arrival",
+      "partOfSpeech": "noun",
+      "tip": "Travel word.",
+      "exampleSpanish": "La llegada es tarde.",
+      "exampleEnglish": "The arrival is late."
+    },
+    {
+      "spanish": "salir",
+      "english": "to leave",
+      "partOfSpeech": "verb",
+      "tip": "Transport schedule.",
+      "exampleSpanish": "El tren sale a las nueve.",
+      "exampleEnglish": "The train leaves at nine."
+    },
+    {
+      "spanish": "llegar",
+      "english": "to arrive",
+      "partOfSpeech": "verb",
+      "tip": "Transport schedule.",
+      "exampleSpanish": "Llego a las diez.",
+      "exampleEnglish": "I arrive at ten."
+    },
+    {
+      "spanish": "tomar",
+      "english": "to take",
+      "partOfSpeech": "verb",
+      "tip": "Use for bus/taxi/train.",
+      "exampleSpanish": "Tomo un taxi.",
+      "exampleEnglish": "I take a taxi."
+    },
+    {
+      "spanish": "manejar",
+      "english": "to drive",
+      "partOfSpeech": "verb",
+      "tip": "Common in Latin America.",
+      "exampleSpanish": "Manejo al trabajo.",
+      "exampleEnglish": "I drive to work."
+    },
+    {
+      "spanish": "conducir",
+      "english": "to drive",
+      "partOfSpeech": "verb",
+      "tip": "Common in Spain.",
+      "exampleSpanish": "Conduzco al hotel.",
+      "exampleEnglish": "I drive to the hotel."
+    },
+    {
+      "spanish": "rapido",
+      "english": "fast",
+      "partOfSpeech": "adjective",
+      "tip": "Option comparison.",
+      "exampleSpanish": "El metro es rapido.",
+      "exampleEnglish": "The subway is fast."
+    },
+    {
+      "spanish": "barato",
+      "english": "cheap",
+      "partOfSpeech": "adjective",
+      "tip": "Cost comparison.",
+      "exampleSpanish": "El autobus es barato.",
+      "exampleEnglish": "The bus is cheap."
+    },
+    {
+      "spanish": "caro",
+      "english": "expensive",
+      "partOfSpeech": "adjective",
+      "tip": "Cost comparison.",
+      "exampleSpanish": "El taxi es caro.",
+      "exampleEnglish": "The taxi is expensive."
+    },
+    {
+      "spanish": "tarde",
+      "english": "late",
+      "partOfSpeech": "adverb",
+      "tip": "Schedule issue.",
+      "exampleSpanish": "El autobus llega tarde.",
+      "exampleEnglish": "The bus arrives late."
+    },
+    {
+      "spanish": "a tiempo",
+      "english": "on time",
+      "partOfSpeech": "phrase",
+      "tip": "Good schedule phrase.",
+      "exampleSpanish": "El tren llega a tiempo.",
+      "exampleEnglish": "The train arrives on time."
+    },
+    {
+      "spanish": "al centro",
+      "english": "downtown/to the center",
+      "partOfSpeech": "phrase",
+      "tip": "Common destination.",
+      "exampleSpanish": "Voy al centro.",
+      "exampleEnglish": "I am going downtown."
+    }
+  ],
+  "textbookPhrases": [
+    {
+      "meaning": "I need a taxi.",
+      "phrase": "Necesito un taxi."
+    },
+    {
+      "meaning": "Where is the bus stop?",
+      "phrase": "Donde esta la parada de autobus?"
+    },
+    {
+      "meaning": "I am going by subway.",
+      "phrase": "Voy en metro."
+    },
+    {
+      "meaning": "The train leaves at nine.",
+      "phrase": "El tren sale a las nueve."
+    },
+    {
+      "meaning": "One ticket, please.",
+      "phrase": "Un boleto, por favor."
+    }
+  ],
+  "naturalEverydayPhrases": [
+    {
+      "meaning": "I need a taxi.",
+      "phrase": "Necesito un taxi."
+    },
+    {
+      "meaning": "Where is the bus stop?",
+      "phrase": "Donde esta la parada?"
+    },
+    {
+      "meaning": "I am going by subway.",
+      "phrase": "Voy en metro."
+    },
+    {
+      "meaning": "The train leaves at nine.",
+      "phrase": "El tren sale a las nueve."
+    },
+    {
+      "meaning": "One ticket, please.",
+      "phrase": "Un boleto, por favor."
+    }
+  ],
+  "mexicanSpanishVariants": [
+    {
+      "meaning": "I need a taxi.",
+      "phrase": "Necesito un taxi."
+    },
+    {
+      "meaning": "Where is the bus stop?",
+      "phrase": "Donde esta la parada del camion?"
+    },
+    {
+      "meaning": "I am going by subway.",
+      "phrase": "Voy en metro."
+    },
+    {
+      "meaning": "The train leaves at nine.",
+      "phrase": "El tren sale a las nueve."
+    },
+    {
+      "meaning": "One ticket, please.",
+      "phrase": "Un boleto, por favor."
+    }
+  ],
+  "spainSpanishVariants": [
+    {
+      "meaning": "I need a taxi.",
+      "phrase": "Necesito un taxi."
+    },
+    {
+      "meaning": "Where is the bus stop?",
+      "phrase": "Donde esta la parada del bus?"
+    },
+    {
+      "meaning": "I am going by subway.",
+      "phrase": "Voy en metro."
+    },
+    {
+      "meaning": "The train leaves at nine.",
+      "phrase": "El tren sale a las nueve."
+    },
+    {
+      "meaning": "One ticket, please.",
+      "phrase": "Un billete, por favor."
+    }
+  ],
+  "phraseVariants": [
+    {
+      "meaning": "I need a taxi.",
+      "textbookVersion": "Necesito un taxi.",
+      "naturalEverydayVersion": "Necesito un taxi.",
+      "mexicanSpanishVersion": "Necesito un taxi.",
+      "spainSpanishVersion": "Necesito un taxi.",
+      "whenUsed": "Carlos shows the textbook form, then the everyday and regional versions so learners recognize real speech."
+    },
+    {
+      "meaning": "Where is the bus stop?",
+      "textbookVersion": "Donde esta la parada de autobus?",
+      "naturalEverydayVersion": "Donde esta la parada?",
+      "mexicanSpanishVersion": "Donde esta la parada del camion?",
+      "spainSpanishVersion": "Donde esta la parada del bus?",
+      "whenUsed": "Carlos shows the textbook form, then the everyday and regional versions so learners recognize real speech."
+    },
+    {
+      "meaning": "I am going by subway.",
+      "textbookVersion": "Voy en metro.",
+      "naturalEverydayVersion": "Voy en metro.",
+      "mexicanSpanishVersion": "Voy en metro.",
+      "spainSpanishVersion": "Voy en metro.",
+      "whenUsed": "Carlos shows the textbook form, then the everyday and regional versions so learners recognize real speech."
+    },
+    {
+      "meaning": "The train leaves at nine.",
+      "textbookVersion": "El tren sale a las nueve.",
+      "naturalEverydayVersion": "El tren sale a las nueve.",
+      "mexicanSpanishVersion": "El tren sale a las nueve.",
+      "spainSpanishVersion": "El tren sale a las nueve.",
+      "whenUsed": "Carlos shows the textbook form, then the everyday and regional versions so learners recognize real speech."
+    },
+    {
+      "meaning": "One ticket, please.",
+      "textbookVersion": "Un boleto, por favor.",
+      "naturalEverydayVersion": "Un boleto, por favor.",
+      "mexicanSpanishVersion": "Un boleto, por favor.",
+      "spainSpanishVersion": "Un billete, por favor.",
+      "whenUsed": "Carlos shows the textbook form, then the everyday and regional versions so learners recognize real speech."
+    }
+  ],
+  "grammar": {
+    "topic": "Ir en and tomar transportation",
+    "explanation": "Use ir en for travel by a vehicle and tomar for taking a bus, taxi, or train. Carlos helps you compare options simply.",
+    "examples": [
+      {
+        "spanish": "Voy en taxi al hotel.",
+        "english": "I am going by taxi to the hotel."
+      },
+      {
+        "spanish": "Tomo el autobus a las ocho.",
+        "english": "I take the bus at eight."
+      },
+      {
+        "spanish": "La estacion esta cerca.",
+        "english": "The station is nearby."
+      }
+    ],
+    "practicePrompt": "Tell Carlos where you need to go and choose a transportation option."
+  },
+  "dialogue": [
+    {
+      "title": "Carlos opens the mission",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Vamos paso a paso. El transporte es facil.",
+          "english": "Let's go step by step. Transportation is easy."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "Voy en metro.",
+          "english": "I go by subway."
+        }
+      ]
+    },
+    {
+      "title": "At a real location",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Vamos paso a paso. Tomo el autobus.",
+          "english": "Let's go step by step. I take the bus."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "El coche esta aqui.",
+          "english": "The car is here."
+        }
+      ]
+    },
+    {
+      "title": "Checking understanding",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Vamos paso a paso. Tomo el camion al centro.",
+          "english": "Let's go step by step. I take the bus downtown."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "El carro esta aqui.",
+          "english": "The car is here."
+        }
+      ]
+    },
+    {
+      "title": "Recycling an old topic",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Vamos paso a paso. Necesito un taxi.",
+          "english": "Let's go step by step. I need a taxi."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "Voy en bicicleta.",
+          "english": "I go by bicycle."
+        }
+      ]
+    },
+    {
+      "title": "Asking a polite question",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Vamos paso a paso. El tren sale ahora.",
+          "english": "Let's go step by step. The train leaves now."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "Necesito un boleto.",
+          "english": "I need a ticket."
+        }
+      ]
+    },
+    {
+      "title": "Solving a small problem",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Vamos paso a paso. Voy en metro.",
+          "english": "Let's go step by step. I go by subway."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "Compro un billete.",
+          "english": "I buy a ticket."
+        }
+      ]
+    },
+    {
+      "title": "Confirming details",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Vamos paso a paso. El coche esta aqui.",
+          "english": "Let's go step by step. The car is here."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "La parada esta cerca.",
+          "english": "The stop is nearby."
+        }
+      ]
+    },
+    {
+      "title": "With a service worker",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Vamos paso a paso. El carro esta aqui.",
+          "english": "Let's go step by step. The car is here."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "La estacion esta lejos.",
+          "english": "The station is far."
+        }
+      ]
+    },
+    {
+      "title": "Repairing confusion",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Vamos paso a paso. Voy en bicicleta.",
+          "english": "Let's go step by step. I go by bicycle."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "La salida esta a la derecha.",
+          "english": "The exit is on the right."
+        }
+      ]
+    },
+    {
+      "title": "Mission wrap-up",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Vamos paso a paso. Necesito un boleto.",
+          "english": "Let's go step by step. I need a ticket."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "La llegada es tarde.",
+          "english": "The arrival is late."
+        }
+      ]
+    }
+  ],
+  "dialogues": [
+    {
+      "title": "Carlos opens the mission",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Vamos paso a paso. El transporte es facil.",
+          "english": "Let's go step by step. Transportation is easy."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "Voy en metro.",
+          "english": "I go by subway."
+        }
+      ]
+    },
+    {
+      "title": "At a real location",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Vamos paso a paso. Tomo el autobus.",
+          "english": "Let's go step by step. I take the bus."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "El coche esta aqui.",
+          "english": "The car is here."
+        }
+      ]
+    },
+    {
+      "title": "Checking understanding",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Vamos paso a paso. Tomo el camion al centro.",
+          "english": "Let's go step by step. I take the bus downtown."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "El carro esta aqui.",
+          "english": "The car is here."
+        }
+      ]
+    },
+    {
+      "title": "Recycling an old topic",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Vamos paso a paso. Necesito un taxi.",
+          "english": "Let's go step by step. I need a taxi."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "Voy en bicicleta.",
+          "english": "I go by bicycle."
+        }
+      ]
+    },
+    {
+      "title": "Asking a polite question",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Vamos paso a paso. El tren sale ahora.",
+          "english": "Let's go step by step. The train leaves now."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "Necesito un boleto.",
+          "english": "I need a ticket."
+        }
+      ]
+    },
+    {
+      "title": "Solving a small problem",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Vamos paso a paso. Voy en metro.",
+          "english": "Let's go step by step. I go by subway."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "Compro un billete.",
+          "english": "I buy a ticket."
+        }
+      ]
+    },
+    {
+      "title": "Confirming details",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Vamos paso a paso. El coche esta aqui.",
+          "english": "Let's go step by step. The car is here."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "La parada esta cerca.",
+          "english": "The stop is nearby."
+        }
+      ]
+    },
+    {
+      "title": "With a service worker",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Vamos paso a paso. El carro esta aqui.",
+          "english": "Let's go step by step. The car is here."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "La estacion esta lejos.",
+          "english": "The station is far."
+        }
+      ]
+    },
+    {
+      "title": "Repairing confusion",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Vamos paso a paso. Voy en bicicleta.",
+          "english": "Let's go step by step. I go by bicycle."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "La salida esta a la derecha.",
+          "english": "The exit is on the right."
+        }
+      ]
+    },
+    {
+      "title": "Mission wrap-up",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Vamos paso a paso. Necesito un boleto.",
+          "english": "Let's go step by step. I need a ticket."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "La llegada es tarde.",
+          "english": "The arrival is late."
+        }
+      ]
+    }
+  ],
+  "listeningPhrases": [
+    {
+      "spanish": "El transporte es facil.",
+      "english": "Transportation is easy."
+    },
+    {
+      "spanish": "Tomo el autobus.",
+      "english": "I take the bus."
+    },
+    {
+      "spanish": "Tomo el camion al centro.",
+      "english": "I take the bus downtown."
+    },
+    {
+      "spanish": "Necesito un taxi.",
+      "english": "I need a taxi."
+    },
+    {
+      "spanish": "El tren sale ahora.",
+      "english": "The train leaves now."
+    },
+    {
+      "spanish": "Voy en metro.",
+      "english": "I go by subway."
+    },
+    {
+      "spanish": "El coche esta aqui.",
+      "english": "The car is here."
+    },
+    {
+      "spanish": "El carro esta aqui.",
+      "english": "The car is here."
+    },
+    {
+      "spanish": "Voy en bicicleta.",
+      "english": "I go by bicycle."
+    },
+    {
+      "spanish": "Necesito un boleto.",
+      "english": "I need a ticket."
+    }
+  ],
+  "listening": [
+    {
+      "spanish": "El transporte es facil.",
+      "english": "Transportation is easy."
+    },
+    {
+      "spanish": "Tomo el autobus.",
+      "english": "I take the bus."
+    },
+    {
+      "spanish": "Tomo el camion al centro.",
+      "english": "I take the bus downtown."
+    },
+    {
+      "spanish": "Necesito un taxi.",
+      "english": "I need a taxi."
+    },
+    {
+      "spanish": "El tren sale ahora.",
+      "english": "The train leaves now."
+    },
+    {
+      "spanish": "Voy en metro.",
+      "english": "I go by subway."
+    },
+    {
+      "spanish": "El coche esta aqui.",
+      "english": "The car is here."
+    },
+    {
+      "spanish": "El carro esta aqui.",
+      "english": "The car is here."
+    },
+    {
+      "spanish": "Voy en bicicleta.",
+      "english": "I go by bicycle."
+    },
+    {
+      "spanish": "Necesito un boleto.",
+      "english": "I need a ticket."
+    }
+  ],
+  "pronunciation": {
+    "focus": "Carlos coaches clear A1 pronunciation for transportation travel situations.",
+    "items": [
+      {
+        "text": "el transporte",
+        "note": "Practice the phrase slowly, then in context: El transporte es facil."
+      },
+      {
+        "text": "el autobus",
+        "note": "Practice the phrase slowly, then in context: Tomo el autobus."
+      },
+      {
+        "text": "el camion",
+        "note": "Practice the phrase slowly, then in context: Tomo el camion al centro."
+      },
+      {
+        "text": "el taxi",
+        "note": "Practice the phrase slowly, then in context: Necesito un taxi."
+      },
+      {
+        "text": "el tren",
+        "note": "Practice the phrase slowly, then in context: El tren sale ahora."
+      },
+      {
+        "text": "el metro",
+        "note": "Practice the phrase slowly, then in context: Voy en metro."
+      },
+      {
+        "text": "el coche",
+        "note": "Practice the phrase slowly, then in context: El coche esta aqui."
+      },
+      {
+        "text": "el carro",
+        "note": "Practice the phrase slowly, then in context: El carro esta aqui."
+      },
+      {
+        "text": "la bicicleta",
+        "note": "Practice the phrase slowly, then in context: Voy en bicicleta."
+      },
+      {
+        "text": "el boleto",
+        "note": "Practice the phrase slowly, then in context: Necesito un boleto."
+      }
+    ]
+  },
+  "culture": {
+    "title": "Transportation in real travel",
+    "text": "Transportation words change by region. Carlos helps learners notice camion/boleto in Mexico and coche/billete in Spain."
+  },
+  "nativeSpeech": {
+    "title": "Carlos native speaker tips",
+    "notes": [
+      "Camion can mean bus in parts of Mexico.",
+      "Coche is the normal car word in Spain; carro is common in Mexico.",
+      "Always confirm destination and price before a taxi ride."
+    ]
+  },
+  "nativeExpressions": [
+    "Camion can mean bus in parts of Mexico.",
+    "Coche is the normal car word in Spain; carro is common in Mexico.",
+    "Always confirm destination and price before a taxi ride."
+  ],
+  "commonMistakes": [
+    {
+      "mistake": "Saying voy con taxi.",
+      "correction": "Say voy en taxi.",
+      "explanation": "Use en for transportation."
+    },
+    {
+      "mistake": "Using boleto everywhere in Spain.",
+      "correction": "Billete is common in Spain for transport tickets.",
+      "explanation": "Both may be understood, but region matters."
+    },
+    {
+      "mistake": "Forgetting al before centro.",
+      "correction": "Say voy al centro.",
+      "explanation": "A + el becomes al."
+    }
+  ],
+  "quiz": [
+    {
+      "type": "multipleChoice",
+      "prompt": "What does el transporte mean?",
+      "options": [
+        "transportation",
+        "bus",
+        "bus/truck",
+        "taxi"
+      ],
+      "answer": "transportation"
+    },
+    {
+      "type": "multipleChoice",
+      "prompt": "What does el autobus mean?",
+      "options": [
+        "bus",
+        "bus/truck",
+        "taxi",
+        "train"
+      ],
+      "answer": "bus"
+    },
+    {
+      "type": "multipleChoice",
+      "prompt": "What does el camion mean?",
+      "options": [
+        "bus/truck",
+        "taxi",
+        "train",
+        "subway"
+      ],
+      "answer": "bus/truck"
+    },
+    {
+      "type": "multipleChoice",
+      "prompt": "What does el taxi mean?",
+      "options": [
+        "taxi",
+        "train",
+        "subway",
+        "car"
+      ],
+      "answer": "taxi"
+    },
+    {
+      "type": "multipleChoice",
+      "prompt": "What does el tren mean?",
+      "options": [
+        "train",
+        "subway",
+        "car",
+        "car"
+      ],
+      "answer": "train"
+    },
+    {
+      "type": "multipleChoice",
+      "prompt": "What does el metro mean?",
+      "options": [
+        "subway",
+        "car",
+        "car",
+        "bicycle"
+      ],
+      "answer": "subway"
+    },
+    {
+      "type": "multipleChoice",
+      "prompt": "What does el coche mean?",
+      "options": [
+        "car",
+        "car",
+        "bicycle",
+        "ticket"
+      ],
+      "answer": "car"
+    },
+    {
+      "type": "multipleChoice",
+      "prompt": "What does el carro mean?",
+      "options": [
+        "car",
+        "bicycle",
+        "ticket",
+        "ticket"
+      ],
+      "answer": "car"
+    },
+    {
+      "type": "multipleChoice",
+      "prompt": "What does la bicicleta mean?",
+      "options": [
+        "bicycle",
+        "ticket",
+        "ticket",
+        "stop"
+      ],
+      "answer": "bicycle"
+    },
+    {
+      "type": "multipleChoice",
+      "prompt": "What does el boleto mean?",
+      "options": [
+        "ticket",
+        "ticket",
+        "stop",
+        "station"
+      ],
+      "answer": "ticket"
+    },
+    {
+      "type": "multipleChoice",
+      "prompt": "What does el billete mean?",
+      "options": [
+        "ticket",
+        "stop",
+        "station",
+        "exit/departure"
+      ],
+      "answer": "ticket"
+    },
+    {
+      "type": "multipleChoice",
+      "prompt": "What does la parada mean?",
+      "options": [
+        "stop",
+        "station",
+        "exit/departure",
+        "arrival"
+      ],
+      "answer": "stop"
+    },
+    {
+      "type": "translation",
+      "prompt": "Translate: El transporte es facil.",
+      "answer": "Transportation is easy."
+    },
+    {
+      "type": "translation",
+      "prompt": "Translate: Tomo el autobus.",
+      "answer": "I take the bus."
+    },
+    {
+      "type": "multipleChoice",
+      "prompt": "Which phrase best fits Transportation?",
+      "options": [
+        "el camion",
+        "mi esposa",
+        "hace frio",
+        "me gusta leer"
+      ],
+      "answer": "el camion"
+    }
+  ],
+  "speakingChallenge": [
+    {
+      "prompt": "Carlos asks you to use el transporte in a realistic travel sentence.",
+      "exampleAnswer": "El transporte es facil."
+    },
+    {
+      "prompt": "Carlos asks you to use el autobus in a realistic travel sentence.",
+      "exampleAnswer": "Tomo el autobus."
+    },
+    {
+      "prompt": "Carlos asks you to use el camion in a realistic travel sentence.",
+      "exampleAnswer": "Tomo el camion al centro."
+    },
+    {
+      "prompt": "Carlos asks you to use el taxi in a realistic travel sentence.",
+      "exampleAnswer": "Necesito un taxi."
+    },
+    {
+      "prompt": "Carlos asks you to use el tren in a realistic travel sentence.",
+      "exampleAnswer": "El tren sale ahora."
+    }
+  ],
+  "realLifeMission": {
+    "title": "Real Life Mission",
+    "mission": "Carlos helps you get across town. Choose bus, taxi, or metro, ask where it leaves from, and confirm the time.",
+    "successCriteria": [
+      "Use at least six words from this lesson.",
+      "Use one phrase from a previous lesson.",
+      "Ask Carlos or another person at least one question.",
+      "Resolve the travel or navigation situation clearly."
+    ],
+    "suggestedPartner": "Carlos",
+    "xpReward": 10
+  },
+  "review": {
+    "recap": [
+      "Carlos reviewed transportation travel language.",
+      "You practiced Ir en and tomar transportation.",
+      "You recycled earlier A1 vocabulary in a realistic situation."
+    ],
+    "canDo": [
+      "Use buses, taxis, trains, and ride-share phrases to move around a city.",
+      "Ask for clarification when needed.",
+      "Complete the situation with polite, simple Spanish."
+    ]
+  },
+  "achievementsUnlocked": [],
+  "xpReward": 85,
+  "nextLesson": "lesson-23-asking-for-help"
+}

@@ -1,0 +1,1051 @@
+{
+  "id": "lesson-27-hotels",
+  "title": "Hotels: Checking In and Asking for Services",
+  "level": "A1",
+  "module": "Hotels",
+  "estimatedMinutes": 32,
+  "prerequisiteLesson": "lesson-26-banking",
+  "imagePath": "assets/images/lessons/lesson-27-hotels.png",
+  "objectives": [
+    "Check into a hotel, ask about reservations, rooms, services, and simple problems.",
+    "Use 26 hotels words and phrases in travel or navigation contexts.",
+    "Recycle previous A1 vocabulary naturally with Carlos.",
+    "Complete an authentic travel or navigation Real Life Mission."
+  ],
+  "vocabularyCategories": [
+    "hotels",
+    "travel",
+    "conversation",
+    "problem solving"
+  ],
+  "vocabulary": [
+    {
+      "spanish": "el hotel",
+      "english": "hotel",
+      "partOfSpeech": "travel phrase",
+      "tip": "Carlos uses el hotel in practical travel conversation.",
+      "exampleSpanish": "El hotel con Carlos.",
+      "exampleEnglish": "Hotel with Carlos."
+    },
+    {
+      "spanish": "la reservacion",
+      "english": "reservation",
+      "partOfSpeech": "travel phrase",
+      "tip": "Carlos uses la reservacion in practical travel conversation.",
+      "exampleSpanish": "La reservacion con Carlos.",
+      "exampleEnglish": "Reservation with Carlos."
+    },
+    {
+      "spanish": "la reserva",
+      "english": "reservation",
+      "partOfSpeech": "travel phrase",
+      "tip": "Carlos uses la reserva in practical travel conversation.",
+      "exampleSpanish": "La reserva con Carlos.",
+      "exampleEnglish": "Reservation with Carlos."
+    },
+    {
+      "spanish": "la recepcion",
+      "english": "front desk",
+      "partOfSpeech": "travel phrase",
+      "tip": "Carlos uses la recepcion in practical travel conversation.",
+      "exampleSpanish": "La recepcion con Carlos.",
+      "exampleEnglish": "Front desk with Carlos."
+    },
+    {
+      "spanish": "el recepcionista",
+      "english": "receptionist",
+      "partOfSpeech": "travel phrase",
+      "tip": "Carlos uses el recepcionista in practical travel conversation.",
+      "exampleSpanish": "El recepcionista con Carlos.",
+      "exampleEnglish": "Receptionist with Carlos."
+    },
+    {
+      "spanish": "la recepcionista",
+      "english": "receptionist",
+      "partOfSpeech": "travel phrase",
+      "tip": "Carlos uses la recepcionista in practical travel conversation.",
+      "exampleSpanish": "La recepcionista con Carlos.",
+      "exampleEnglish": "Receptionist with Carlos."
+    },
+    {
+      "spanish": "la habitacion",
+      "english": "room",
+      "partOfSpeech": "travel phrase",
+      "tip": "Carlos uses la habitacion in practical travel conversation.",
+      "exampleSpanish": "La habitacion con Carlos.",
+      "exampleEnglish": "Room with Carlos."
+    },
+    {
+      "spanish": "el cuarto",
+      "english": "room",
+      "partOfSpeech": "travel phrase",
+      "tip": "Carlos uses el cuarto in practical travel conversation.",
+      "exampleSpanish": "El cuarto con Carlos.",
+      "exampleEnglish": "Room with Carlos."
+    },
+    {
+      "spanish": "la llave",
+      "english": "key",
+      "partOfSpeech": "travel phrase",
+      "tip": "Carlos uses la llave in practical travel conversation.",
+      "exampleSpanish": "La llave con Carlos.",
+      "exampleEnglish": "Key with Carlos."
+    },
+    {
+      "spanish": "la tarjeta llave",
+      "english": "key card",
+      "partOfSpeech": "travel phrase",
+      "tip": "Carlos uses la tarjeta llave in practical travel conversation.",
+      "exampleSpanish": "La tarjeta llave con Carlos.",
+      "exampleEnglish": "Key card with Carlos."
+    },
+    {
+      "spanish": "el ascensor",
+      "english": "elevator",
+      "partOfSpeech": "travel phrase",
+      "tip": "Carlos uses el ascensor in practical travel conversation.",
+      "exampleSpanish": "El ascensor con Carlos.",
+      "exampleEnglish": "Elevator with Carlos."
+    },
+    {
+      "spanish": "el elevador",
+      "english": "elevator",
+      "partOfSpeech": "travel phrase",
+      "tip": "Carlos uses el elevador in practical travel conversation.",
+      "exampleSpanish": "El elevador con Carlos.",
+      "exampleEnglish": "Elevator with Carlos."
+    },
+    {
+      "spanish": "el piso",
+      "english": "floor",
+      "partOfSpeech": "travel phrase",
+      "tip": "Carlos uses el piso in practical travel conversation.",
+      "exampleSpanish": "El piso con Carlos.",
+      "exampleEnglish": "Floor with Carlos."
+    },
+    {
+      "spanish": "la cama",
+      "english": "bed",
+      "partOfSpeech": "travel phrase",
+      "tip": "Carlos uses la cama in practical travel conversation.",
+      "exampleSpanish": "La cama con Carlos.",
+      "exampleEnglish": "Bed with Carlos."
+    },
+    {
+      "spanish": "el bano",
+      "english": "bathroom",
+      "partOfSpeech": "travel phrase",
+      "tip": "Carlos uses el bano in practical travel conversation.",
+      "exampleSpanish": "El bano con Carlos.",
+      "exampleEnglish": "Bathroom with Carlos."
+    },
+    {
+      "spanish": "la ducha",
+      "english": "shower",
+      "partOfSpeech": "travel phrase",
+      "tip": "Carlos uses la ducha in practical travel conversation.",
+      "exampleSpanish": "La ducha con Carlos.",
+      "exampleEnglish": "Shower with Carlos."
+    },
+    {
+      "spanish": "la toalla",
+      "english": "towel",
+      "partOfSpeech": "travel phrase",
+      "tip": "Carlos uses la toalla in practical travel conversation.",
+      "exampleSpanish": "La toalla con Carlos.",
+      "exampleEnglish": "Towel with Carlos."
+    },
+    {
+      "spanish": "el desayuno",
+      "english": "breakfast",
+      "partOfSpeech": "travel phrase",
+      "tip": "Carlos uses el desayuno in practical travel conversation.",
+      "exampleSpanish": "El desayuno con Carlos.",
+      "exampleEnglish": "Breakfast with Carlos."
+    },
+    {
+      "spanish": "incluido",
+      "english": "included",
+      "partOfSpeech": "travel phrase",
+      "tip": "Carlos uses incluido in practical travel conversation.",
+      "exampleSpanish": "Incluido con Carlos.",
+      "exampleEnglish": "Included with Carlos."
+    },
+    {
+      "spanish": "el wifi",
+      "english": "Wi-Fi",
+      "partOfSpeech": "travel phrase",
+      "tip": "Carlos uses el wifi in practical travel conversation.",
+      "exampleSpanish": "El wifi con Carlos.",
+      "exampleEnglish": "Wi-Fi with Carlos."
+    },
+    {
+      "spanish": "limpio",
+      "english": "clean",
+      "partOfSpeech": "travel phrase",
+      "tip": "Carlos uses limpio in practical travel conversation.",
+      "exampleSpanish": "Limpio con Carlos.",
+      "exampleEnglish": "Clean with Carlos."
+    },
+    {
+      "spanish": "sucio",
+      "english": "dirty",
+      "partOfSpeech": "travel phrase",
+      "tip": "Carlos uses sucio in practical travel conversation.",
+      "exampleSpanish": "Sucio con Carlos.",
+      "exampleEnglish": "Dirty with Carlos."
+    },
+    {
+      "spanish": "tranquilo",
+      "english": "quiet",
+      "partOfSpeech": "travel phrase",
+      "tip": "Carlos uses tranquilo in practical travel conversation.",
+      "exampleSpanish": "Tranquilo con Carlos.",
+      "exampleEnglish": "Quiet with Carlos."
+    },
+    {
+      "spanish": "ruidoso",
+      "english": "noisy",
+      "partOfSpeech": "travel phrase",
+      "tip": "Carlos uses ruidoso in practical travel conversation.",
+      "exampleSpanish": "Ruidoso con Carlos.",
+      "exampleEnglish": "Noisy with Carlos."
+    },
+    {
+      "spanish": "registrarse",
+      "english": "to check in",
+      "partOfSpeech": "travel phrase",
+      "tip": "Carlos uses registrarse in practical travel conversation.",
+      "exampleSpanish": "Registrarse con Carlos.",
+      "exampleEnglish": "To check in with Carlos."
+    },
+    {
+      "spanish": "la salida",
+      "english": "checkout",
+      "partOfSpeech": "travel phrase",
+      "tip": "Carlos uses la salida in practical travel conversation.",
+      "exampleSpanish": "La salida con Carlos.",
+      "exampleEnglish": "Checkout with Carlos."
+    }
+  ],
+  "textbookPhrases": [
+    {
+      "meaning": "hotel",
+      "phrase": "el hotel"
+    },
+    {
+      "meaning": "reservation",
+      "phrase": "la reservacion"
+    },
+    {
+      "meaning": "reservation",
+      "phrase": "la reserva"
+    },
+    {
+      "meaning": "front desk",
+      "phrase": "la recepcion"
+    },
+    {
+      "meaning": "receptionist",
+      "phrase": "el recepcionista"
+    }
+  ],
+  "naturalEverydayPhrases": [
+    {
+      "meaning": "hotel",
+      "phrase": "el hotel"
+    },
+    {
+      "meaning": "reservation",
+      "phrase": "la reservacion"
+    },
+    {
+      "meaning": "reservation",
+      "phrase": "la reserva"
+    },
+    {
+      "meaning": "front desk",
+      "phrase": "la recepcion"
+    },
+    {
+      "meaning": "receptionist",
+      "phrase": "el recepcionista"
+    }
+  ],
+  "mexicanSpanishVariants": [
+    {
+      "meaning": "hotel",
+      "phrase": "el hotel"
+    },
+    {
+      "meaning": "reservation",
+      "phrase": "la reservacion"
+    },
+    {
+      "meaning": "reservation",
+      "phrase": "la reserva"
+    },
+    {
+      "meaning": "front desk",
+      "phrase": "la recepcion"
+    },
+    {
+      "meaning": "receptionist",
+      "phrase": "el recepcionista"
+    }
+  ],
+  "spainSpanishVariants": [
+    {
+      "meaning": "hotel",
+      "phrase": "el hotel"
+    },
+    {
+      "meaning": "reservation",
+      "phrase": "la reservacion"
+    },
+    {
+      "meaning": "reservation",
+      "phrase": "la reserva"
+    },
+    {
+      "meaning": "front desk",
+      "phrase": "la recepcion"
+    },
+    {
+      "meaning": "receptionist",
+      "phrase": "el recepcionista"
+    }
+  ],
+  "phraseVariants": [
+    {
+      "meaning": "hotel",
+      "textbookVersion": "el hotel",
+      "naturalEverydayVersion": "el hotel",
+      "mexicanSpanishVersion": "el hotel",
+      "spainSpanishVersion": "el hotel",
+      "whenUsed": "Use this in practical travel speech with Carlos."
+    },
+    {
+      "meaning": "reservation",
+      "textbookVersion": "la reservacion",
+      "naturalEverydayVersion": "la reservacion",
+      "mexicanSpanishVersion": "la reservacion",
+      "spainSpanishVersion": "la reservacion",
+      "whenUsed": "Use this in practical travel speech with Carlos."
+    },
+    {
+      "meaning": "reservation",
+      "textbookVersion": "la reserva",
+      "naturalEverydayVersion": "la reserva",
+      "mexicanSpanishVersion": "la reserva",
+      "spainSpanishVersion": "la reserva",
+      "whenUsed": "Use this in practical travel speech with Carlos."
+    },
+    {
+      "meaning": "front desk",
+      "textbookVersion": "la recepcion",
+      "naturalEverydayVersion": "la recepcion",
+      "mexicanSpanishVersion": "la recepcion",
+      "spainSpanishVersion": "la recepcion",
+      "whenUsed": "Use this in practical travel speech with Carlos."
+    },
+    {
+      "meaning": "receptionist",
+      "textbookVersion": "el recepcionista",
+      "naturalEverydayVersion": "el recepcionista",
+      "mexicanSpanishVersion": "el recepcionista",
+      "spainSpanishVersion": "el recepcionista",
+      "whenUsed": "Use this in practical travel speech with Carlos."
+    }
+  ],
+  "grammar": {
+    "topic": "Quisiera and tengo una reservacion",
+    "explanation": "Use quisiera for polite hotel requests and tengo una reservacion to check in. Carlos helps you report simple room problems.",
+    "examples": [
+      {
+        "spanish": "El hotel.",
+        "english": "Hotel."
+      },
+      {
+        "spanish": "La reservacion.",
+        "english": "Reservation."
+      },
+      {
+        "spanish": "La reserva.",
+        "english": "Reservation."
+      }
+    ],
+    "practicePrompt": "Handle a hotels situation with Carlos using at least four lesson words."
+  },
+  "dialogue": [
+    {
+      "title": "Hotels dialogue 1",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Practiquemos: el hotel.",
+          "english": "Let's practice: hotel."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "la recepcion",
+          "english": "front desk"
+        }
+      ]
+    },
+    {
+      "title": "Hotels dialogue 2",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Practiquemos: la reservacion.",
+          "english": "Let's practice: reservation."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "el recepcionista",
+          "english": "receptionist"
+        }
+      ]
+    },
+    {
+      "title": "Hotels dialogue 3",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Practiquemos: la reserva.",
+          "english": "Let's practice: reservation."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "la recepcionista",
+          "english": "receptionist"
+        }
+      ]
+    },
+    {
+      "title": "Hotels dialogue 4",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Practiquemos: la recepcion.",
+          "english": "Let's practice: front desk."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "la habitacion",
+          "english": "room"
+        }
+      ]
+    },
+    {
+      "title": "Hotels dialogue 5",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Practiquemos: el recepcionista.",
+          "english": "Let's practice: receptionist."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "el cuarto",
+          "english": "room"
+        }
+      ]
+    },
+    {
+      "title": "Hotels dialogue 6",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Practiquemos: la recepcionista.",
+          "english": "Let's practice: receptionist."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "la llave",
+          "english": "key"
+        }
+      ]
+    },
+    {
+      "title": "Hotels dialogue 7",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Practiquemos: la habitacion.",
+          "english": "Let's practice: room."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "la tarjeta llave",
+          "english": "key card"
+        }
+      ]
+    },
+    {
+      "title": "Hotels dialogue 8",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Practiquemos: el cuarto.",
+          "english": "Let's practice: room."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "el ascensor",
+          "english": "elevator"
+        }
+      ]
+    },
+    {
+      "title": "Hotels dialogue 9",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Practiquemos: la llave.",
+          "english": "Let's practice: key."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "el elevador",
+          "english": "elevator"
+        }
+      ]
+    },
+    {
+      "title": "Hotels dialogue 10",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Practiquemos: la tarjeta llave.",
+          "english": "Let's practice: key card."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "el piso",
+          "english": "floor"
+        }
+      ]
+    }
+  ],
+  "dialogues": [
+    {
+      "title": "Hotels dialogue 1",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Practiquemos: el hotel.",
+          "english": "Let's practice: hotel."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "la recepcion",
+          "english": "front desk"
+        }
+      ]
+    },
+    {
+      "title": "Hotels dialogue 2",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Practiquemos: la reservacion.",
+          "english": "Let's practice: reservation."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "el recepcionista",
+          "english": "receptionist"
+        }
+      ]
+    },
+    {
+      "title": "Hotels dialogue 3",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Practiquemos: la reserva.",
+          "english": "Let's practice: reservation."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "la recepcionista",
+          "english": "receptionist"
+        }
+      ]
+    },
+    {
+      "title": "Hotels dialogue 4",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Practiquemos: la recepcion.",
+          "english": "Let's practice: front desk."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "la habitacion",
+          "english": "room"
+        }
+      ]
+    },
+    {
+      "title": "Hotels dialogue 5",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Practiquemos: el recepcionista.",
+          "english": "Let's practice: receptionist."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "el cuarto",
+          "english": "room"
+        }
+      ]
+    },
+    {
+      "title": "Hotels dialogue 6",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Practiquemos: la recepcionista.",
+          "english": "Let's practice: receptionist."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "la llave",
+          "english": "key"
+        }
+      ]
+    },
+    {
+      "title": "Hotels dialogue 7",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Practiquemos: la habitacion.",
+          "english": "Let's practice: room."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "la tarjeta llave",
+          "english": "key card"
+        }
+      ]
+    },
+    {
+      "title": "Hotels dialogue 8",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Practiquemos: el cuarto.",
+          "english": "Let's practice: room."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "el ascensor",
+          "english": "elevator"
+        }
+      ]
+    },
+    {
+      "title": "Hotels dialogue 9",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Practiquemos: la llave.",
+          "english": "Let's practice: key."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "el elevador",
+          "english": "elevator"
+        }
+      ]
+    },
+    {
+      "title": "Hotels dialogue 10",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Practiquemos: la tarjeta llave.",
+          "english": "Let's practice: key card."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "el piso",
+          "english": "floor"
+        }
+      ]
+    }
+  ],
+  "listeningPhrases": [
+    {
+      "spanish": "el hotel",
+      "english": "hotel"
+    },
+    {
+      "spanish": "la reservacion",
+      "english": "reservation"
+    },
+    {
+      "spanish": "la reserva",
+      "english": "reservation"
+    },
+    {
+      "spanish": "la recepcion",
+      "english": "front desk"
+    },
+    {
+      "spanish": "el recepcionista",
+      "english": "receptionist"
+    },
+    {
+      "spanish": "la recepcionista",
+      "english": "receptionist"
+    },
+    {
+      "spanish": "la habitacion",
+      "english": "room"
+    },
+    {
+      "spanish": "el cuarto",
+      "english": "room"
+    },
+    {
+      "spanish": "la llave",
+      "english": "key"
+    },
+    {
+      "spanish": "la tarjeta llave",
+      "english": "key card"
+    }
+  ],
+  "listening": [
+    {
+      "spanish": "el hotel",
+      "english": "hotel"
+    },
+    {
+      "spanish": "la reservacion",
+      "english": "reservation"
+    },
+    {
+      "spanish": "la reserva",
+      "english": "reservation"
+    },
+    {
+      "spanish": "la recepcion",
+      "english": "front desk"
+    },
+    {
+      "spanish": "el recepcionista",
+      "english": "receptionist"
+    },
+    {
+      "spanish": "la recepcionista",
+      "english": "receptionist"
+    },
+    {
+      "spanish": "la habitacion",
+      "english": "room"
+    },
+    {
+      "spanish": "el cuarto",
+      "english": "room"
+    },
+    {
+      "spanish": "la llave",
+      "english": "key"
+    },
+    {
+      "spanish": "la tarjeta llave",
+      "english": "key card"
+    }
+  ],
+  "pronunciation": {
+    "focus": "Carlos helps you pronounce key hotels phrases clearly.",
+    "items": [
+      {
+        "text": "el hotel",
+        "note": "Say el hotel slowly, then use it in a short travel sentence."
+      },
+      {
+        "text": "la reservacion",
+        "note": "Say la reservacion slowly, then use it in a short travel sentence."
+      },
+      {
+        "text": "la reserva",
+        "note": "Say la reserva slowly, then use it in a short travel sentence."
+      },
+      {
+        "text": "la recepcion",
+        "note": "Say la recepcion slowly, then use it in a short travel sentence."
+      },
+      {
+        "text": "el recepcionista",
+        "note": "Say el recepcionista slowly, then use it in a short travel sentence."
+      },
+      {
+        "text": "la recepcionista",
+        "note": "Say la recepcionista slowly, then use it in a short travel sentence."
+      },
+      {
+        "text": "la habitacion",
+        "note": "Say la habitacion slowly, then use it in a short travel sentence."
+      },
+      {
+        "text": "el cuarto",
+        "note": "Say el cuarto slowly, then use it in a short travel sentence."
+      },
+      {
+        "text": "la llave",
+        "note": "Say la llave slowly, then use it in a short travel sentence."
+      },
+      {
+        "text": "la tarjeta llave",
+        "note": "Say la tarjeta llave slowly, then use it in a short travel sentence."
+      }
+    ]
+  },
+  "culture": {
+    "title": "Hotels in real travel",
+    "text": "Hotels situations are easier when you stay polite, brief, and specific. Carlos guides you to name the problem, the place, and the help you need."
+  },
+  "nativeSpeech": {
+    "title": "Carlos native speaker tips",
+    "notes": [
+      "Junto a is a common natural alternative to al lado de.",
+      "In Spain, sigue recto is very common for go straight.",
+      "Repeat the last direction back to confirm you understood."
+    ]
+  },
+  "nativeExpressions": [
+    "Junto a is a common natural alternative to al lado de.",
+    "In Spain, sigue recto is very common for go straight.",
+    "Repeat the last direction back to confirm you understood."
+  ],
+  "commonMistakes": [
+    {
+      "mistake": "Saying soy perdido.",
+      "correction": "Say estoy perdido.",
+      "explanation": "Being lost is a temporary state."
+    },
+    {
+      "mistake": "Confusing derecha and derecho.",
+      "correction": "Derecha is right; derecho can mean straight in directions.",
+      "explanation": "One vowel changes the meaning."
+    },
+    {
+      "mistake": "Trying to understand every word.",
+      "correction": "Listen for landmarks and action words first.",
+      "explanation": "Direction conversations are chunk-based."
+    }
+  ],
+  "quiz": [
+    {
+      "type": "multipleChoice",
+      "prompt": "What does el hotel mean?",
+      "options": [
+        "hotel",
+        "reservation",
+        "reservation",
+        "front desk"
+      ],
+      "answer": "hotel"
+    },
+    {
+      "type": "multipleChoice",
+      "prompt": "What does la reservacion mean?",
+      "options": [
+        "reservation",
+        "reservation",
+        "front desk",
+        "receptionist"
+      ],
+      "answer": "reservation"
+    },
+    {
+      "type": "multipleChoice",
+      "prompt": "What does la reserva mean?",
+      "options": [
+        "reservation",
+        "front desk",
+        "receptionist",
+        "receptionist"
+      ],
+      "answer": "reservation"
+    },
+    {
+      "type": "multipleChoice",
+      "prompt": "What does la recepcion mean?",
+      "options": [
+        "front desk",
+        "receptionist",
+        "receptionist",
+        "room"
+      ],
+      "answer": "front desk"
+    },
+    {
+      "type": "multipleChoice",
+      "prompt": "What does el recepcionista mean?",
+      "options": [
+        "receptionist",
+        "receptionist",
+        "room",
+        "room"
+      ],
+      "answer": "receptionist"
+    },
+    {
+      "type": "multipleChoice",
+      "prompt": "What does la recepcionista mean?",
+      "options": [
+        "receptionist",
+        "room",
+        "room",
+        "key"
+      ],
+      "answer": "receptionist"
+    },
+    {
+      "type": "multipleChoice",
+      "prompt": "What does la habitacion mean?",
+      "options": [
+        "room",
+        "room",
+        "key",
+        "key card"
+      ],
+      "answer": "room"
+    },
+    {
+      "type": "multipleChoice",
+      "prompt": "What does el cuarto mean?",
+      "options": [
+        "room",
+        "key",
+        "key card",
+        "elevator"
+      ],
+      "answer": "room"
+    },
+    {
+      "type": "multipleChoice",
+      "prompt": "What does la llave mean?",
+      "options": [
+        "key",
+        "key card",
+        "elevator",
+        "elevator"
+      ],
+      "answer": "key"
+    },
+    {
+      "type": "multipleChoice",
+      "prompt": "What does la tarjeta llave mean?",
+      "options": [
+        "key card",
+        "elevator",
+        "elevator",
+        "floor"
+      ],
+      "answer": "key card"
+    },
+    {
+      "type": "multipleChoice",
+      "prompt": "What does el ascensor mean?",
+      "options": [
+        "elevator",
+        "elevator",
+        "floor",
+        "bed"
+      ],
+      "answer": "elevator"
+    },
+    {
+      "type": "multipleChoice",
+      "prompt": "What does el elevador mean?",
+      "options": [
+        "elevator",
+        "floor",
+        "bed",
+        "bathroom"
+      ],
+      "answer": "elevator"
+    },
+    {
+      "type": "translation",
+      "prompt": "Translate: el hotel",
+      "answer": "hotel"
+    },
+    {
+      "type": "translation",
+      "prompt": "Translate: la reservacion",
+      "answer": "reservation"
+    },
+    {
+      "type": "multipleChoice",
+      "prompt": "Which phrase fits Hotels?",
+      "options": [
+        "la reserva",
+        "mi familia",
+        "hace frio",
+        "me gusta leer"
+      ],
+      "answer": "la reserva"
+    }
+  ],
+  "speakingChallenge": [
+    {
+      "prompt": "Use el hotel in a realistic travel sentence with Carlos.",
+      "exampleAnswer": "El hotel con Carlos."
+    },
+    {
+      "prompt": "Use la reservacion in a realistic travel sentence with Carlos.",
+      "exampleAnswer": "La reservacion con Carlos."
+    },
+    {
+      "prompt": "Use la reserva in a realistic travel sentence with Carlos.",
+      "exampleAnswer": "La reserva con Carlos."
+    },
+    {
+      "prompt": "Use la recepcion in a realistic travel sentence with Carlos.",
+      "exampleAnswer": "La recepcion con Carlos."
+    },
+    {
+      "prompt": "Use el recepcionista in a realistic travel sentence with Carlos.",
+      "exampleAnswer": "El recepcionista con Carlos."
+    }
+  ],
+  "realLifeMission": {
+    "title": "Real Life Mission",
+    "mission": "Check into a hotel with Carlos. Give your name, say you have a reservation, ask if breakfast is included, and report one room problem.",
+    "successCriteria": [
+      "Use at least six words from this lesson.",
+      "Use one phrase from a previous lesson.",
+      "Ask Carlos or another person at least one question.",
+      "Resolve the travel or navigation situation clearly."
+    ],
+    "suggestedPartner": "Carlos",
+    "xpReward": 10
+  },
+  "review": {
+    "recap": [
+      "Carlos reviewed hotels travel language.",
+      "You practiced Hotels A1 travel phrases.",
+      "You recycled earlier A1 vocabulary in a realistic situation."
+    ],
+    "canDo": [
+      "Check into a hotel, ask about reservations, rooms, services, and simple problems.",
+      "Ask for clarification when needed.",
+      "Complete the situation with polite, simple Spanish."
+    ]
+  },
+  "achievementsUnlocked": [],
+  "xpReward": 90,
+  "nextLesson": "lesson-28-airport"
+}

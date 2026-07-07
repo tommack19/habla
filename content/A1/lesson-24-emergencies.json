@@ -1,0 +1,1051 @@
+{
+  "id": "lesson-24-emergencies",
+  "title": "Emergencies: Getting Help Fast",
+  "level": "A1",
+  "module": "Emergencies",
+  "estimatedMinutes": 32,
+  "prerequisiteLesson": "lesson-23-asking-for-help",
+  "imagePath": "assets/images/lessons/lesson-24-emergencies.png",
+  "objectives": [
+    "Use clear A1 Spanish for urgent travel situations, safety, and emergency help.",
+    "Use 26 emergencies words and phrases in travel or navigation contexts.",
+    "Recycle previous A1 vocabulary naturally with Carlos.",
+    "Complete an authentic travel or navigation Real Life Mission."
+  ],
+  "vocabularyCategories": [
+    "emergencies",
+    "travel",
+    "conversation",
+    "problem solving"
+  ],
+  "vocabulary": [
+    {
+      "spanish": "la emergencia",
+      "english": "emergency",
+      "partOfSpeech": "travel phrase",
+      "tip": "Carlos uses la emergencia in practical travel conversation.",
+      "exampleSpanish": "La emergencia con Carlos.",
+      "exampleEnglish": "Emergency with Carlos."
+    },
+    {
+      "spanish": "urgente",
+      "english": "urgent",
+      "partOfSpeech": "travel phrase",
+      "tip": "Carlos uses urgente in practical travel conversation.",
+      "exampleSpanish": "Urgente con Carlos.",
+      "exampleEnglish": "Urgent with Carlos."
+    },
+    {
+      "spanish": "ayuda",
+      "english": "help",
+      "partOfSpeech": "travel phrase",
+      "tip": "Carlos uses ayuda in practical travel conversation.",
+      "exampleSpanish": "Ayuda con Carlos.",
+      "exampleEnglish": "Help with Carlos."
+    },
+    {
+      "spanish": "ahora",
+      "english": "now",
+      "partOfSpeech": "travel phrase",
+      "tip": "Carlos uses ahora in practical travel conversation.",
+      "exampleSpanish": "Ahora con Carlos.",
+      "exampleEnglish": "Now with Carlos."
+    },
+    {
+      "spanish": "la policia",
+      "english": "police",
+      "partOfSpeech": "travel phrase",
+      "tip": "Carlos uses la policia in practical travel conversation.",
+      "exampleSpanish": "La policia con Carlos.",
+      "exampleEnglish": "Police with Carlos."
+    },
+    {
+      "spanish": "la ambulancia",
+      "english": "ambulance",
+      "partOfSpeech": "travel phrase",
+      "tip": "Carlos uses la ambulancia in practical travel conversation.",
+      "exampleSpanish": "La ambulancia con Carlos.",
+      "exampleEnglish": "Ambulance with Carlos."
+    },
+    {
+      "spanish": "el hospital",
+      "english": "hospital",
+      "partOfSpeech": "travel phrase",
+      "tip": "Carlos uses el hospital in practical travel conversation.",
+      "exampleSpanish": "El hospital con Carlos.",
+      "exampleEnglish": "Hospital with Carlos."
+    },
+    {
+      "spanish": "el doctor",
+      "english": "doctor",
+      "partOfSpeech": "travel phrase",
+      "tip": "Carlos uses el doctor in practical travel conversation.",
+      "exampleSpanish": "El doctor con Carlos.",
+      "exampleEnglish": "Doctor with Carlos."
+    },
+    {
+      "spanish": "la doctora",
+      "english": "doctor",
+      "partOfSpeech": "travel phrase",
+      "tip": "Carlos uses la doctora in practical travel conversation.",
+      "exampleSpanish": "La doctora con Carlos.",
+      "exampleEnglish": "Doctor with Carlos."
+    },
+    {
+      "spanish": "el accidente",
+      "english": "accident",
+      "partOfSpeech": "travel phrase",
+      "tip": "Carlos uses el accidente in practical travel conversation.",
+      "exampleSpanish": "El accidente con Carlos.",
+      "exampleEnglish": "Accident with Carlos."
+    },
+    {
+      "spanish": "el fuego",
+      "english": "fire",
+      "partOfSpeech": "travel phrase",
+      "tip": "Carlos uses el fuego in practical travel conversation.",
+      "exampleSpanish": "El fuego con Carlos.",
+      "exampleEnglish": "Fire with Carlos."
+    },
+    {
+      "spanish": "peligro",
+      "english": "danger",
+      "partOfSpeech": "travel phrase",
+      "tip": "Carlos uses peligro in practical travel conversation.",
+      "exampleSpanish": "Peligro con Carlos.",
+      "exampleEnglish": "Danger with Carlos."
+    },
+    {
+      "spanish": "seguro",
+      "english": "safe",
+      "partOfSpeech": "travel phrase",
+      "tip": "Carlos uses seguro in practical travel conversation.",
+      "exampleSpanish": "Seguro con Carlos.",
+      "exampleEnglish": "Safe with Carlos."
+    },
+    {
+      "spanish": "inseguro",
+      "english": "unsafe",
+      "partOfSpeech": "travel phrase",
+      "tip": "Carlos uses inseguro in practical travel conversation.",
+      "exampleSpanish": "Inseguro con Carlos.",
+      "exampleEnglish": "Unsafe with Carlos."
+    },
+    {
+      "spanish": "herido",
+      "english": "injured",
+      "partOfSpeech": "travel phrase",
+      "tip": "Carlos uses herido in practical travel conversation.",
+      "exampleSpanish": "Herido con Carlos.",
+      "exampleEnglish": "Injured with Carlos."
+    },
+    {
+      "spanish": "herida",
+      "english": "injured",
+      "partOfSpeech": "travel phrase",
+      "tip": "Carlos uses herida in practical travel conversation.",
+      "exampleSpanish": "Herida con Carlos.",
+      "exampleEnglish": "Injured with Carlos."
+    },
+    {
+      "spanish": "me robaron",
+      "english": "they stole from me",
+      "partOfSpeech": "travel phrase",
+      "tip": "Carlos uses me robaron in practical travel conversation.",
+      "exampleSpanish": "Me robaron con Carlos.",
+      "exampleEnglish": "They stole from me with Carlos."
+    },
+    {
+      "spanish": "perdi",
+      "english": "I lost",
+      "partOfSpeech": "travel phrase",
+      "tip": "Carlos uses perdi in practical travel conversation.",
+      "exampleSpanish": "Perdi con Carlos.",
+      "exampleEnglish": "I lost with Carlos."
+    },
+    {
+      "spanish": "el pasaporte",
+      "english": "passport",
+      "partOfSpeech": "travel phrase",
+      "tip": "Carlos uses el pasaporte in practical travel conversation.",
+      "exampleSpanish": "El pasaporte con Carlos.",
+      "exampleEnglish": "Passport with Carlos."
+    },
+    {
+      "spanish": "la cartera",
+      "english": "wallet",
+      "partOfSpeech": "travel phrase",
+      "tip": "Carlos uses la cartera in practical travel conversation.",
+      "exampleSpanish": "La cartera con Carlos.",
+      "exampleEnglish": "Wallet with Carlos."
+    },
+    {
+      "spanish": "el telefono",
+      "english": "phone",
+      "partOfSpeech": "travel phrase",
+      "tip": "Carlos uses el telefono in practical travel conversation.",
+      "exampleSpanish": "El telefono con Carlos.",
+      "exampleEnglish": "Phone with Carlos."
+    },
+    {
+      "spanish": "la direccion",
+      "english": "address",
+      "partOfSpeech": "travel phrase",
+      "tip": "Carlos uses la direccion in practical travel conversation.",
+      "exampleSpanish": "La direccion con Carlos.",
+      "exampleEnglish": "Address with Carlos."
+    },
+    {
+      "spanish": "el hotel",
+      "english": "hotel",
+      "partOfSpeech": "travel phrase",
+      "tip": "Carlos uses el hotel in practical travel conversation.",
+      "exampleSpanish": "El hotel con Carlos.",
+      "exampleEnglish": "Hotel with Carlos."
+    },
+    {
+      "spanish": "llamar",
+      "english": "to call",
+      "partOfSpeech": "travel phrase",
+      "tip": "Carlos uses llamar in practical travel conversation.",
+      "exampleSpanish": "Llamar con Carlos.",
+      "exampleEnglish": "To call with Carlos."
+    },
+    {
+      "spanish": "llame",
+      "english": "call",
+      "partOfSpeech": "travel phrase",
+      "tip": "Carlos uses llame in practical travel conversation.",
+      "exampleSpanish": "Llame con Carlos.",
+      "exampleEnglish": "Call with Carlos."
+    },
+    {
+      "spanish": "quedese aqui",
+      "english": "stay here",
+      "partOfSpeech": "travel phrase",
+      "tip": "Carlos uses quedese aqui in practical travel conversation.",
+      "exampleSpanish": "Quedese aqui con Carlos.",
+      "exampleEnglish": "Stay here with Carlos."
+    }
+  ],
+  "textbookPhrases": [
+    {
+      "meaning": "emergency",
+      "phrase": "la emergencia"
+    },
+    {
+      "meaning": "urgent",
+      "phrase": "urgente"
+    },
+    {
+      "meaning": "help",
+      "phrase": "ayuda"
+    },
+    {
+      "meaning": "now",
+      "phrase": "ahora"
+    },
+    {
+      "meaning": "police",
+      "phrase": "la policia"
+    }
+  ],
+  "naturalEverydayPhrases": [
+    {
+      "meaning": "emergency",
+      "phrase": "la emergencia"
+    },
+    {
+      "meaning": "urgent",
+      "phrase": "urgente"
+    },
+    {
+      "meaning": "help",
+      "phrase": "ayuda"
+    },
+    {
+      "meaning": "now",
+      "phrase": "ahora"
+    },
+    {
+      "meaning": "police",
+      "phrase": "la policia"
+    }
+  ],
+  "mexicanSpanishVariants": [
+    {
+      "meaning": "emergency",
+      "phrase": "la emergencia"
+    },
+    {
+      "meaning": "urgent",
+      "phrase": "urgente"
+    },
+    {
+      "meaning": "help",
+      "phrase": "ayuda"
+    },
+    {
+      "meaning": "now",
+      "phrase": "ahora"
+    },
+    {
+      "meaning": "police",
+      "phrase": "la policia"
+    }
+  ],
+  "spainSpanishVariants": [
+    {
+      "meaning": "emergency",
+      "phrase": "la emergencia"
+    },
+    {
+      "meaning": "urgent",
+      "phrase": "urgente"
+    },
+    {
+      "meaning": "help",
+      "phrase": "ayuda"
+    },
+    {
+      "meaning": "now",
+      "phrase": "ahora"
+    },
+    {
+      "meaning": "police",
+      "phrase": "la policia"
+    }
+  ],
+  "phraseVariants": [
+    {
+      "meaning": "emergency",
+      "textbookVersion": "la emergencia",
+      "naturalEverydayVersion": "la emergencia",
+      "mexicanSpanishVersion": "la emergencia",
+      "spainSpanishVersion": "la emergencia",
+      "whenUsed": "Use this in practical travel speech with Carlos."
+    },
+    {
+      "meaning": "urgent",
+      "textbookVersion": "urgente",
+      "naturalEverydayVersion": "urgente",
+      "mexicanSpanishVersion": "urgente",
+      "spainSpanishVersion": "urgente",
+      "whenUsed": "Use this in practical travel speech with Carlos."
+    },
+    {
+      "meaning": "help",
+      "textbookVersion": "ayuda",
+      "naturalEverydayVersion": "ayuda",
+      "mexicanSpanishVersion": "ayuda",
+      "spainSpanishVersion": "ayuda",
+      "whenUsed": "Use this in practical travel speech with Carlos."
+    },
+    {
+      "meaning": "now",
+      "textbookVersion": "ahora",
+      "naturalEverydayVersion": "ahora",
+      "mexicanSpanishVersion": "ahora",
+      "spainSpanishVersion": "ahora",
+      "whenUsed": "Use this in practical travel speech with Carlos."
+    },
+    {
+      "meaning": "police",
+      "textbookVersion": "la policia",
+      "naturalEverydayVersion": "la policia",
+      "mexicanSpanishVersion": "la policia",
+      "spainSpanishVersion": "la policia",
+      "whenUsed": "Use this in practical travel speech with Carlos."
+    }
+  ],
+  "grammar": {
+    "topic": "Emergency chunks with necesito, hay, and llame",
+    "explanation": "In emergencies, short clear phrases matter most. Carlos teaches fixed phrases like necesito ayuda, hay un problema, and llame a la policia.",
+    "examples": [
+      {
+        "spanish": "La emergencia.",
+        "english": "Emergency."
+      },
+      {
+        "spanish": "Urgente.",
+        "english": "Urgent."
+      },
+      {
+        "spanish": "Ayuda.",
+        "english": "Help."
+      }
+    ],
+    "practicePrompt": "Handle a emergencies situation with Carlos using at least four lesson words."
+  },
+  "dialogue": [
+    {
+      "title": "Emergencies dialogue 1",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Practiquemos: la emergencia.",
+          "english": "Let's practice: emergency."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "ahora",
+          "english": "now"
+        }
+      ]
+    },
+    {
+      "title": "Emergencies dialogue 2",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Practiquemos: urgente.",
+          "english": "Let's practice: urgent."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "la policia",
+          "english": "police"
+        }
+      ]
+    },
+    {
+      "title": "Emergencies dialogue 3",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Practiquemos: ayuda.",
+          "english": "Let's practice: help."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "la ambulancia",
+          "english": "ambulance"
+        }
+      ]
+    },
+    {
+      "title": "Emergencies dialogue 4",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Practiquemos: ahora.",
+          "english": "Let's practice: now."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "el hospital",
+          "english": "hospital"
+        }
+      ]
+    },
+    {
+      "title": "Emergencies dialogue 5",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Practiquemos: la policia.",
+          "english": "Let's practice: police."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "el doctor",
+          "english": "doctor"
+        }
+      ]
+    },
+    {
+      "title": "Emergencies dialogue 6",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Practiquemos: la ambulancia.",
+          "english": "Let's practice: ambulance."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "la doctora",
+          "english": "doctor"
+        }
+      ]
+    },
+    {
+      "title": "Emergencies dialogue 7",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Practiquemos: el hospital.",
+          "english": "Let's practice: hospital."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "el accidente",
+          "english": "accident"
+        }
+      ]
+    },
+    {
+      "title": "Emergencies dialogue 8",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Practiquemos: el doctor.",
+          "english": "Let's practice: doctor."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "el fuego",
+          "english": "fire"
+        }
+      ]
+    },
+    {
+      "title": "Emergencies dialogue 9",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Practiquemos: la doctora.",
+          "english": "Let's practice: doctor."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "peligro",
+          "english": "danger"
+        }
+      ]
+    },
+    {
+      "title": "Emergencies dialogue 10",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Practiquemos: el accidente.",
+          "english": "Let's practice: accident."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "seguro",
+          "english": "safe"
+        }
+      ]
+    }
+  ],
+  "dialogues": [
+    {
+      "title": "Emergencies dialogue 1",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Practiquemos: la emergencia.",
+          "english": "Let's practice: emergency."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "ahora",
+          "english": "now"
+        }
+      ]
+    },
+    {
+      "title": "Emergencies dialogue 2",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Practiquemos: urgente.",
+          "english": "Let's practice: urgent."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "la policia",
+          "english": "police"
+        }
+      ]
+    },
+    {
+      "title": "Emergencies dialogue 3",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Practiquemos: ayuda.",
+          "english": "Let's practice: help."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "la ambulancia",
+          "english": "ambulance"
+        }
+      ]
+    },
+    {
+      "title": "Emergencies dialogue 4",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Practiquemos: ahora.",
+          "english": "Let's practice: now."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "el hospital",
+          "english": "hospital"
+        }
+      ]
+    },
+    {
+      "title": "Emergencies dialogue 5",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Practiquemos: la policia.",
+          "english": "Let's practice: police."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "el doctor",
+          "english": "doctor"
+        }
+      ]
+    },
+    {
+      "title": "Emergencies dialogue 6",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Practiquemos: la ambulancia.",
+          "english": "Let's practice: ambulance."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "la doctora",
+          "english": "doctor"
+        }
+      ]
+    },
+    {
+      "title": "Emergencies dialogue 7",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Practiquemos: el hospital.",
+          "english": "Let's practice: hospital."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "el accidente",
+          "english": "accident"
+        }
+      ]
+    },
+    {
+      "title": "Emergencies dialogue 8",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Practiquemos: el doctor.",
+          "english": "Let's practice: doctor."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "el fuego",
+          "english": "fire"
+        }
+      ]
+    },
+    {
+      "title": "Emergencies dialogue 9",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Practiquemos: la doctora.",
+          "english": "Let's practice: doctor."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "peligro",
+          "english": "danger"
+        }
+      ]
+    },
+    {
+      "title": "Emergencies dialogue 10",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Practiquemos: el accidente.",
+          "english": "Let's practice: accident."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "seguro",
+          "english": "safe"
+        }
+      ]
+    }
+  ],
+  "listeningPhrases": [
+    {
+      "spanish": "la emergencia",
+      "english": "emergency"
+    },
+    {
+      "spanish": "urgente",
+      "english": "urgent"
+    },
+    {
+      "spanish": "ayuda",
+      "english": "help"
+    },
+    {
+      "spanish": "ahora",
+      "english": "now"
+    },
+    {
+      "spanish": "la policia",
+      "english": "police"
+    },
+    {
+      "spanish": "la ambulancia",
+      "english": "ambulance"
+    },
+    {
+      "spanish": "el hospital",
+      "english": "hospital"
+    },
+    {
+      "spanish": "el doctor",
+      "english": "doctor"
+    },
+    {
+      "spanish": "la doctora",
+      "english": "doctor"
+    },
+    {
+      "spanish": "el accidente",
+      "english": "accident"
+    }
+  ],
+  "listening": [
+    {
+      "spanish": "la emergencia",
+      "english": "emergency"
+    },
+    {
+      "spanish": "urgente",
+      "english": "urgent"
+    },
+    {
+      "spanish": "ayuda",
+      "english": "help"
+    },
+    {
+      "spanish": "ahora",
+      "english": "now"
+    },
+    {
+      "spanish": "la policia",
+      "english": "police"
+    },
+    {
+      "spanish": "la ambulancia",
+      "english": "ambulance"
+    },
+    {
+      "spanish": "el hospital",
+      "english": "hospital"
+    },
+    {
+      "spanish": "el doctor",
+      "english": "doctor"
+    },
+    {
+      "spanish": "la doctora",
+      "english": "doctor"
+    },
+    {
+      "spanish": "el accidente",
+      "english": "accident"
+    }
+  ],
+  "pronunciation": {
+    "focus": "Carlos helps you pronounce key emergencies phrases clearly.",
+    "items": [
+      {
+        "text": "la emergencia",
+        "note": "Say la emergencia slowly, then use it in a short travel sentence."
+      },
+      {
+        "text": "urgente",
+        "note": "Say urgente slowly, then use it in a short travel sentence."
+      },
+      {
+        "text": "ayuda",
+        "note": "Say ayuda slowly, then use it in a short travel sentence."
+      },
+      {
+        "text": "ahora",
+        "note": "Say ahora slowly, then use it in a short travel sentence."
+      },
+      {
+        "text": "la policia",
+        "note": "Say la policia slowly, then use it in a short travel sentence."
+      },
+      {
+        "text": "la ambulancia",
+        "note": "Say la ambulancia slowly, then use it in a short travel sentence."
+      },
+      {
+        "text": "el hospital",
+        "note": "Say el hospital slowly, then use it in a short travel sentence."
+      },
+      {
+        "text": "el doctor",
+        "note": "Say el doctor slowly, then use it in a short travel sentence."
+      },
+      {
+        "text": "la doctora",
+        "note": "Say la doctora slowly, then use it in a short travel sentence."
+      },
+      {
+        "text": "el accidente",
+        "note": "Say el accidente slowly, then use it in a short travel sentence."
+      }
+    ]
+  },
+  "culture": {
+    "title": "Emergencies in real travel",
+    "text": "Emergencies situations are easier when you stay polite, brief, and specific. Carlos guides you to name the problem, the place, and the help you need."
+  },
+  "nativeSpeech": {
+    "title": "Carlos native speaker tips",
+    "notes": [
+      "Junto a is a common natural alternative to al lado de.",
+      "In Spain, sigue recto is very common for go straight.",
+      "Repeat the last direction back to confirm you understood."
+    ]
+  },
+  "nativeExpressions": [
+    "Junto a is a common natural alternative to al lado de.",
+    "In Spain, sigue recto is very common for go straight.",
+    "Repeat the last direction back to confirm you understood."
+  ],
+  "commonMistakes": [
+    {
+      "mistake": "Saying soy perdido.",
+      "correction": "Say estoy perdido.",
+      "explanation": "Being lost is a temporary state."
+    },
+    {
+      "mistake": "Confusing derecha and derecho.",
+      "correction": "Derecha is right; derecho can mean straight in directions.",
+      "explanation": "One vowel changes the meaning."
+    },
+    {
+      "mistake": "Trying to understand every word.",
+      "correction": "Listen for landmarks and action words first.",
+      "explanation": "Direction conversations are chunk-based."
+    }
+  ],
+  "quiz": [
+    {
+      "type": "multipleChoice",
+      "prompt": "What does la emergencia mean?",
+      "options": [
+        "emergency",
+        "urgent",
+        "help",
+        "now"
+      ],
+      "answer": "emergency"
+    },
+    {
+      "type": "multipleChoice",
+      "prompt": "What does urgente mean?",
+      "options": [
+        "urgent",
+        "help",
+        "now",
+        "police"
+      ],
+      "answer": "urgent"
+    },
+    {
+      "type": "multipleChoice",
+      "prompt": "What does ayuda mean?",
+      "options": [
+        "help",
+        "now",
+        "police",
+        "ambulance"
+      ],
+      "answer": "help"
+    },
+    {
+      "type": "multipleChoice",
+      "prompt": "What does ahora mean?",
+      "options": [
+        "now",
+        "police",
+        "ambulance",
+        "hospital"
+      ],
+      "answer": "now"
+    },
+    {
+      "type": "multipleChoice",
+      "prompt": "What does la policia mean?",
+      "options": [
+        "police",
+        "ambulance",
+        "hospital",
+        "doctor"
+      ],
+      "answer": "police"
+    },
+    {
+      "type": "multipleChoice",
+      "prompt": "What does la ambulancia mean?",
+      "options": [
+        "ambulance",
+        "hospital",
+        "doctor",
+        "doctor"
+      ],
+      "answer": "ambulance"
+    },
+    {
+      "type": "multipleChoice",
+      "prompt": "What does el hospital mean?",
+      "options": [
+        "hospital",
+        "doctor",
+        "doctor",
+        "accident"
+      ],
+      "answer": "hospital"
+    },
+    {
+      "type": "multipleChoice",
+      "prompt": "What does el doctor mean?",
+      "options": [
+        "doctor",
+        "doctor",
+        "accident",
+        "fire"
+      ],
+      "answer": "doctor"
+    },
+    {
+      "type": "multipleChoice",
+      "prompt": "What does la doctora mean?",
+      "options": [
+        "doctor",
+        "accident",
+        "fire",
+        "danger"
+      ],
+      "answer": "doctor"
+    },
+    {
+      "type": "multipleChoice",
+      "prompt": "What does el accidente mean?",
+      "options": [
+        "accident",
+        "fire",
+        "danger",
+        "safe"
+      ],
+      "answer": "accident"
+    },
+    {
+      "type": "multipleChoice",
+      "prompt": "What does el fuego mean?",
+      "options": [
+        "fire",
+        "danger",
+        "safe",
+        "unsafe"
+      ],
+      "answer": "fire"
+    },
+    {
+      "type": "multipleChoice",
+      "prompt": "What does peligro mean?",
+      "options": [
+        "danger",
+        "safe",
+        "unsafe",
+        "injured"
+      ],
+      "answer": "danger"
+    },
+    {
+      "type": "translation",
+      "prompt": "Translate: la emergencia",
+      "answer": "emergency"
+    },
+    {
+      "type": "translation",
+      "prompt": "Translate: urgente",
+      "answer": "urgent"
+    },
+    {
+      "type": "multipleChoice",
+      "prompt": "Which phrase fits Emergencies?",
+      "options": [
+        "ayuda",
+        "mi familia",
+        "hace frio",
+        "me gusta leer"
+      ],
+      "answer": "ayuda"
+    }
+  ],
+  "speakingChallenge": [
+    {
+      "prompt": "Use la emergencia in a realistic travel sentence with Carlos.",
+      "exampleAnswer": "La emergencia con Carlos."
+    },
+    {
+      "prompt": "Use urgente in a realistic travel sentence with Carlos.",
+      "exampleAnswer": "Urgente con Carlos."
+    },
+    {
+      "prompt": "Use ayuda in a realistic travel sentence with Carlos.",
+      "exampleAnswer": "Ayuda con Carlos."
+    },
+    {
+      "prompt": "Use ahora in a realistic travel sentence with Carlos.",
+      "exampleAnswer": "Ahora con Carlos."
+    },
+    {
+      "prompt": "Use la policia in a realistic travel sentence with Carlos.",
+      "exampleAnswer": "La policia con Carlos."
+    }
+  ],
+  "realLifeMission": {
+    "title": "Real Life Mission",
+    "mission": "Simulate an emergency with Carlos: say where you are, what happened, and what help you need in three short sentences.",
+    "successCriteria": [
+      "Use at least six words from this lesson.",
+      "Use one phrase from a previous lesson.",
+      "Ask Carlos or another person at least one question.",
+      "Resolve the travel or navigation situation clearly."
+    ],
+    "suggestedPartner": "Carlos",
+    "xpReward": 10
+  },
+  "review": {
+    "recap": [
+      "Carlos reviewed emergencies travel language.",
+      "You practiced Emergencies A1 travel phrases.",
+      "You recycled earlier A1 vocabulary in a realistic situation."
+    ],
+    "canDo": [
+      "Use clear A1 Spanish for urgent travel situations, safety, and emergency help.",
+      "Ask for clarification when needed.",
+      "Complete the situation with polite, simple Spanish."
+    ]
+  },
+  "achievementsUnlocked": [],
+  "xpReward": 90,
+  "nextLesson": "lesson-25-phone-conversations"
+}

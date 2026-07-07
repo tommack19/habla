@@ -1,0 +1,1051 @@
+{
+  "id": "lesson-20-everyday-life-review",
+  "title": "Everyday Life Review: A Full Day in Spanish",
+  "level": "A1",
+  "module": "Review",
+  "estimatedMinutes": 40,
+  "prerequisiteLesson": "lesson-19-emotions",
+  "imagePath": "assets/images/lessons/lesson-20-everyday-life-review.png",
+  "objectives": [
+    "Review A1 everyday situations from greetings through emotions in one guided day with Carlos.",
+    "Use 25 or more review words and phrases in short sentences.",
+    "Recycle greetings, time, family, weather, food, work, health, and emotion phrases from earlier lessons.",
+    "Complete a realistic practice mission with Carlos."
+  ],
+  "vocabularyCategories": [
+    "review",
+    "daily life",
+    "conversation",
+    "mission"
+  ],
+  "vocabulary": [
+    {
+      "spanish": "hola",
+      "english": "hello",
+      "partOfSpeech": "greeting",
+      "tip": "Review greeting.",
+      "exampleSpanish": "Hola, Carlos.",
+      "exampleEnglish": "Hello, Carlos."
+    },
+    {
+      "spanish": "me llamo",
+      "english": "my name is",
+      "partOfSpeech": "phrase",
+      "tip": "Review introductions.",
+      "exampleSpanish": "Me llamo Tom.",
+      "exampleEnglish": "My name is Tom."
+    },
+    {
+      "spanish": "soy de",
+      "english": "I am from",
+      "partOfSpeech": "phrase",
+      "tip": "Origin.",
+      "exampleSpanish": "Soy de Canada.",
+      "exampleEnglish": "I am from Canada."
+    },
+    {
+      "spanish": "mi familia",
+      "english": "my family",
+      "partOfSpeech": "phrase",
+      "tip": "Family review.",
+      "exampleSpanish": "Mi familia es amable.",
+      "exampleEnglish": "My family is kind."
+    },
+    {
+      "spanish": "hace frio",
+      "english": "it is cold",
+      "partOfSpeech": "weather phrase",
+      "tip": "Weather review.",
+      "exampleSpanish": "Hace frio hoy.",
+      "exampleEnglish": "It is cold today."
+    },
+    {
+      "spanish": "hace calor",
+      "english": "it is hot",
+      "partOfSpeech": "weather phrase",
+      "tip": "Weather review.",
+      "exampleSpanish": "Hace calor en verano.",
+      "exampleEnglish": "It is hot in summer."
+    },
+    {
+      "spanish": "llevo",
+      "english": "I wear",
+      "partOfSpeech": "verb form",
+      "tip": "Clothing review.",
+      "exampleSpanish": "Llevo una camisa.",
+      "exampleEnglish": "I am wearing a shirt."
+    },
+    {
+      "spanish": "quiero",
+      "english": "I want",
+      "partOfSpeech": "verb form",
+      "tip": "Useful in all contexts.",
+      "exampleSpanish": "Quiero cafe.",
+      "exampleEnglish": "I want coffee."
+    },
+    {
+      "spanish": "necesito",
+      "english": "I need",
+      "partOfSpeech": "verb form",
+      "tip": "Useful in all contexts.",
+      "exampleSpanish": "Necesito ayuda.",
+      "exampleEnglish": "I need help."
+    },
+    {
+      "spanish": "voy a",
+      "english": "I am going to",
+      "partOfSpeech": "phrase",
+      "tip": "Future plan.",
+      "exampleSpanish": "Voy a trabajar.",
+      "exampleEnglish": "I am going to work."
+    },
+    {
+      "spanish": "trabajo",
+      "english": "I work/work",
+      "partOfSpeech": "verb/noun",
+      "tip": "Work review.",
+      "exampleSpanish": "Trabajo hoy.",
+      "exampleEnglish": "I work today."
+    },
+    {
+      "spanish": "estudio",
+      "english": "I study",
+      "partOfSpeech": "verb form",
+      "tip": "School review.",
+      "exampleSpanish": "Estudio espanol.",
+      "exampleEnglish": "I study Spanish."
+    },
+    {
+      "spanish": "me gusta",
+      "english": "I like",
+      "partOfSpeech": "phrase",
+      "tip": "Hobbies review.",
+      "exampleSpanish": "Me gusta cocinar.",
+      "exampleEnglish": "I like to cook."
+    },
+    {
+      "spanish": "juego",
+      "english": "I play",
+      "partOfSpeech": "verb form",
+      "tip": "Sports review.",
+      "exampleSpanish": "Juego futbol.",
+      "exampleEnglish": "I play soccer."
+    },
+    {
+      "spanish": "me duele",
+      "english": "it hurts me",
+      "partOfSpeech": "phrase",
+      "tip": "Health review.",
+      "exampleSpanish": "Me duele la cabeza.",
+      "exampleEnglish": "My head hurts."
+    },
+    {
+      "spanish": "estoy feliz",
+      "english": "I am happy",
+      "partOfSpeech": "phrase",
+      "tip": "Emotion review.",
+      "exampleSpanish": "Estoy feliz.",
+      "exampleEnglish": "I am happy."
+    },
+    {
+      "spanish": "estoy cansado",
+      "english": "I am tired",
+      "partOfSpeech": "phrase",
+      "tip": "Emotion/health review.",
+      "exampleSpanish": "Estoy cansado.",
+      "exampleEnglish": "I am tired."
+    },
+    {
+      "spanish": "por favor",
+      "english": "please",
+      "partOfSpeech": "polite phrase",
+      "tip": "Politeness.",
+      "exampleSpanish": "Cafe, por favor.",
+      "exampleEnglish": "Coffee, please."
+    },
+    {
+      "spanish": "gracias",
+      "english": "thank you",
+      "partOfSpeech": "polite phrase",
+      "tip": "Politeness.",
+      "exampleSpanish": "Gracias por la ayuda.",
+      "exampleEnglish": "Thank you for the help."
+    },
+    {
+      "spanish": "perdon",
+      "english": "sorry/excuse me",
+      "partOfSpeech": "polite phrase",
+      "tip": "Polite repair.",
+      "exampleSpanish": "Perdon, no entiendo.",
+      "exampleEnglish": "Sorry, I do not understand."
+    },
+    {
+      "spanish": "a las ocho",
+      "english": "at eight",
+      "partOfSpeech": "time phrase",
+      "tip": "Time review.",
+      "exampleSpanish": "Trabajo a las ocho.",
+      "exampleEnglish": "I work at eight."
+    },
+    {
+      "spanish": "en la manana",
+      "english": "in the morning",
+      "partOfSpeech": "time phrase",
+      "tip": "Daily routine.",
+      "exampleSpanish": "Camino en la manana.",
+      "exampleEnglish": "I walk in the morning."
+    },
+    {
+      "spanish": "en la tarde",
+      "english": "in the afternoon",
+      "partOfSpeech": "time phrase",
+      "tip": "Daily routine.",
+      "exampleSpanish": "Trabajo en la tarde.",
+      "exampleEnglish": "I work in the afternoon."
+    },
+    {
+      "spanish": "en la noche",
+      "english": "at night",
+      "partOfSpeech": "time phrase",
+      "tip": "Daily routine.",
+      "exampleSpanish": "Descanso en la noche.",
+      "exampleEnglish": "I rest at night."
+    },
+    {
+      "spanish": "con Carlos",
+      "english": "with Carlos",
+      "partOfSpeech": "phrase",
+      "tip": "Conversation partner.",
+      "exampleSpanish": "Practico con Carlos.",
+      "exampleEnglish": "I practice with Carlos."
+    },
+    {
+      "spanish": "un momento",
+      "english": "one moment",
+      "partOfSpeech": "phrase",
+      "tip": "Useful survival phrase.",
+      "exampleSpanish": "Un momento, por favor.",
+      "exampleEnglish": "One moment, please."
+    }
+  ],
+  "textbookPhrases": [
+    {
+      "meaning": "Tell me about your day.",
+      "phrase": "Cuenteme sobre su dia."
+    },
+    {
+      "meaning": "I work at eight.",
+      "phrase": "Trabajo a las ocho."
+    },
+    {
+      "meaning": "It is cold, so I wear a jacket.",
+      "phrase": "Hace frio, entonces llevo una chaqueta."
+    },
+    {
+      "meaning": "I am tired but happy.",
+      "phrase": "Estoy cansado pero feliz."
+    },
+    {
+      "meaning": "Thanks for practicing with me.",
+      "phrase": "Gracias por practicar conmigo."
+    }
+  ],
+  "naturalEverydayPhrases": [
+    {
+      "meaning": "Tell me about your day.",
+      "phrase": "Cuentame de tu dia."
+    },
+    {
+      "meaning": "I work at eight.",
+      "phrase": "Trabajo a las ocho."
+    },
+    {
+      "meaning": "It is cold, so I wear a jacket.",
+      "phrase": "Hace frio, entonces llevo una chaqueta."
+    },
+    {
+      "meaning": "I am tired but happy.",
+      "phrase": "Estoy cansado pero feliz."
+    },
+    {
+      "meaning": "Thanks for practicing with me.",
+      "phrase": "Gracias por practicar conmigo."
+    }
+  ],
+  "mexicanSpanishVariants": [
+    {
+      "meaning": "Tell me about your day.",
+      "phrase": "Cuentame de tu dia."
+    },
+    {
+      "meaning": "I work at eight.",
+      "phrase": "Trabajo a las ocho."
+    },
+    {
+      "meaning": "It is cold, so I wear a jacket.",
+      "phrase": "Hace frio, entonces llevo una chamarra."
+    },
+    {
+      "meaning": "I am tired but happy.",
+      "phrase": "Estoy cansado pero feliz."
+    },
+    {
+      "meaning": "Thanks for practicing with me.",
+      "phrase": "Gracias por practicar conmigo."
+    }
+  ],
+  "spainSpanishVariants": [
+    {
+      "meaning": "Tell me about your day.",
+      "phrase": "Cuentame tu dia."
+    },
+    {
+      "meaning": "I work at eight.",
+      "phrase": "Trabajo a las ocho."
+    },
+    {
+      "meaning": "It is cold, so I wear a jacket.",
+      "phrase": "Hace frio, entonces llevo una chaqueta."
+    },
+    {
+      "meaning": "I am tired but happy.",
+      "phrase": "Estoy cansado pero contento."
+    },
+    {
+      "meaning": "Thanks for practicing with me.",
+      "phrase": "Gracias por practicar conmigo."
+    }
+  ],
+  "phraseVariants": [
+    {
+      "meaning": "Tell me about your day.",
+      "textbookVersion": "Cuenteme sobre su dia.",
+      "naturalEverydayVersion": "Cuentame de tu dia.",
+      "mexicanSpanishVersion": "Cuentame de tu dia.",
+      "spainSpanishVersion": "Cuentame tu dia.",
+      "whenUsed": "Carlos shows the textbook version first, then the natural version learners are likely to hear in everyday speech."
+    },
+    {
+      "meaning": "I work at eight.",
+      "textbookVersion": "Trabajo a las ocho.",
+      "naturalEverydayVersion": "Trabajo a las ocho.",
+      "mexicanSpanishVersion": "Trabajo a las ocho.",
+      "spainSpanishVersion": "Trabajo a las ocho.",
+      "whenUsed": "Carlos shows the textbook version first, then the natural version learners are likely to hear in everyday speech."
+    },
+    {
+      "meaning": "It is cold, so I wear a jacket.",
+      "textbookVersion": "Hace frio, entonces llevo una chaqueta.",
+      "naturalEverydayVersion": "Hace frio, entonces llevo una chaqueta.",
+      "mexicanSpanishVersion": "Hace frio, entonces llevo una chamarra.",
+      "spainSpanishVersion": "Hace frio, entonces llevo una chaqueta.",
+      "whenUsed": "Carlos shows the textbook version first, then the natural version learners are likely to hear in everyday speech."
+    },
+    {
+      "meaning": "I am tired but happy.",
+      "textbookVersion": "Estoy cansado pero feliz.",
+      "naturalEverydayVersion": "Estoy cansado pero feliz.",
+      "mexicanSpanishVersion": "Estoy cansado pero feliz.",
+      "spainSpanishVersion": "Estoy cansado pero contento.",
+      "whenUsed": "Carlos shows the textbook version first, then the natural version learners are likely to hear in everyday speech."
+    },
+    {
+      "meaning": "Thanks for practicing with me.",
+      "textbookVersion": "Gracias por practicar conmigo.",
+      "naturalEverydayVersion": "Gracias por practicar conmigo.",
+      "mexicanSpanishVersion": "Gracias por practicar conmigo.",
+      "spainSpanishVersion": "Gracias por practicar conmigo.",
+      "whenUsed": "Carlos shows the textbook version first, then the natural version learners are likely to hear in everyday speech."
+    }
+  ],
+  "grammar": {
+    "topic": "Putting A1 patterns together",
+    "explanation": "Combine greetings, introductions, time, family, weather, clothing, food, travel, work, health, and feelings. Carlos helps you connect short sentences into a real conversation.",
+    "examples": [
+      {
+        "spanish": "Hola, soy Tom y hoy estoy feliz.",
+        "english": "Hello, I am Tom and today I am happy."
+      },
+      {
+        "spanish": "Hace frio, entonces llevo una chaqueta.",
+        "english": "It is cold, so I am wearing a jacket."
+      },
+      {
+        "spanish": "Despues del trabajo, voy a comer con mi familia.",
+        "english": "After work, I am going to eat with my family."
+      }
+    ],
+    "practicePrompt": "Tell Carlos about one full day using at least six previous lesson topics."
+  },
+  "dialogue": [
+    {
+      "title": "Warmup with Carlos",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Practiquemos review: hola.",
+          "english": "Let's practice review: hello."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "Mi familia es amable.",
+          "english": "My family is kind."
+        }
+      ]
+    },
+    {
+      "title": "Real-world question",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Practiquemos review: me llamo.",
+          "english": "Let's practice review: my name is."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "Hace frio hoy.",
+          "english": "It is cold today."
+        }
+      ]
+    },
+    {
+      "title": "Using old vocabulary",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Practiquemos review: soy de.",
+          "english": "Let's practice review: I am from."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "Hace calor en verano.",
+          "english": "It is hot in summer."
+        }
+      ]
+    },
+    {
+      "title": "Making a plan",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Practiquemos review: mi familia.",
+          "english": "Let's practice review: my family."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "Llevo una camisa.",
+          "english": "I am wearing a shirt."
+        }
+      ]
+    },
+    {
+      "title": "Asking for help",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Practiquemos review: hace frio.",
+          "english": "Let's practice review: it is cold."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "Quiero cafe.",
+          "english": "I want coffee."
+        }
+      ]
+    },
+    {
+      "title": "Polite correction",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Practiquemos review: hace calor.",
+          "english": "Let's practice review: it is hot."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "Necesito ayuda.",
+          "english": "I need help."
+        }
+      ]
+    },
+    {
+      "title": "With family",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Practiquemos review: llevo.",
+          "english": "Let's practice review: I wear."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "Voy a trabajar.",
+          "english": "I am going to work."
+        }
+      ]
+    },
+    {
+      "title": "At work or school",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Practiquemos review: quiero.",
+          "english": "Let's practice review: I want."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "Trabajo hoy.",
+          "english": "I work today."
+        }
+      ]
+    },
+    {
+      "title": "Travel moment",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Practiquemos review: necesito.",
+          "english": "Let's practice review: I need."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "Estudio espanol.",
+          "english": "I study Spanish."
+        }
+      ]
+    },
+    {
+      "title": "Wrap-up challenge",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Practiquemos review: voy a.",
+          "english": "Let's practice review: I am going to."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "Me gusta cocinar.",
+          "english": "I like to cook."
+        }
+      ]
+    }
+  ],
+  "dialogues": [
+    {
+      "title": "Warmup with Carlos",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Practiquemos review: hola.",
+          "english": "Let's practice review: hello."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "Mi familia es amable.",
+          "english": "My family is kind."
+        }
+      ]
+    },
+    {
+      "title": "Real-world question",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Practiquemos review: me llamo.",
+          "english": "Let's practice review: my name is."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "Hace frio hoy.",
+          "english": "It is cold today."
+        }
+      ]
+    },
+    {
+      "title": "Using old vocabulary",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Practiquemos review: soy de.",
+          "english": "Let's practice review: I am from."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "Hace calor en verano.",
+          "english": "It is hot in summer."
+        }
+      ]
+    },
+    {
+      "title": "Making a plan",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Practiquemos review: mi familia.",
+          "english": "Let's practice review: my family."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "Llevo una camisa.",
+          "english": "I am wearing a shirt."
+        }
+      ]
+    },
+    {
+      "title": "Asking for help",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Practiquemos review: hace frio.",
+          "english": "Let's practice review: it is cold."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "Quiero cafe.",
+          "english": "I want coffee."
+        }
+      ]
+    },
+    {
+      "title": "Polite correction",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Practiquemos review: hace calor.",
+          "english": "Let's practice review: it is hot."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "Necesito ayuda.",
+          "english": "I need help."
+        }
+      ]
+    },
+    {
+      "title": "With family",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Practiquemos review: llevo.",
+          "english": "Let's practice review: I wear."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "Voy a trabajar.",
+          "english": "I am going to work."
+        }
+      ]
+    },
+    {
+      "title": "At work or school",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Practiquemos review: quiero.",
+          "english": "Let's practice review: I want."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "Trabajo hoy.",
+          "english": "I work today."
+        }
+      ]
+    },
+    {
+      "title": "Travel moment",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Practiquemos review: necesito.",
+          "english": "Let's practice review: I need."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "Estudio espanol.",
+          "english": "I study Spanish."
+        }
+      ]
+    },
+    {
+      "title": "Wrap-up challenge",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Practiquemos review: voy a.",
+          "english": "Let's practice review: I am going to."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "Me gusta cocinar.",
+          "english": "I like to cook."
+        }
+      ]
+    }
+  ],
+  "listeningPhrases": [
+    {
+      "spanish": "Hola, Carlos.",
+      "english": "Hello, Carlos."
+    },
+    {
+      "spanish": "Me llamo Tom.",
+      "english": "My name is Tom."
+    },
+    {
+      "spanish": "Soy de Canada.",
+      "english": "I am from Canada."
+    },
+    {
+      "spanish": "Mi familia es amable.",
+      "english": "My family is kind."
+    },
+    {
+      "spanish": "Hace frio hoy.",
+      "english": "It is cold today."
+    },
+    {
+      "spanish": "Hace calor en verano.",
+      "english": "It is hot in summer."
+    },
+    {
+      "spanish": "Llevo una camisa.",
+      "english": "I am wearing a shirt."
+    },
+    {
+      "spanish": "Quiero cafe.",
+      "english": "I want coffee."
+    },
+    {
+      "spanish": "Necesito ayuda.",
+      "english": "I need help."
+    },
+    {
+      "spanish": "Voy a trabajar.",
+      "english": "I am going to work."
+    }
+  ],
+  "listening": [
+    {
+      "spanish": "Hola, Carlos.",
+      "english": "Hello, Carlos."
+    },
+    {
+      "spanish": "Me llamo Tom.",
+      "english": "My name is Tom."
+    },
+    {
+      "spanish": "Soy de Canada.",
+      "english": "I am from Canada."
+    },
+    {
+      "spanish": "Mi familia es amable.",
+      "english": "My family is kind."
+    },
+    {
+      "spanish": "Hace frio hoy.",
+      "english": "It is cold today."
+    },
+    {
+      "spanish": "Hace calor en verano.",
+      "english": "It is hot in summer."
+    },
+    {
+      "spanish": "Llevo una camisa.",
+      "english": "I am wearing a shirt."
+    },
+    {
+      "spanish": "Quiero cafe.",
+      "english": "I want coffee."
+    },
+    {
+      "spanish": "Necesito ayuda.",
+      "english": "I need help."
+    },
+    {
+      "spanish": "Voy a trabajar.",
+      "english": "I am going to work."
+    }
+  ],
+  "pronunciation": {
+    "focus": "Carlos helps you practice clear rhythm and useful sounds for review.",
+    "items": [
+      {
+        "text": "hola",
+        "note": "Say hola slowly first, then repeat it in the sentence: Hola, Carlos."
+      },
+      {
+        "text": "me llamo",
+        "note": "Say me llamo slowly first, then repeat it in the sentence: Me llamo Tom."
+      },
+      {
+        "text": "soy de",
+        "note": "Say soy de slowly first, then repeat it in the sentence: Soy de Canada."
+      },
+      {
+        "text": "mi familia",
+        "note": "Say mi familia slowly first, then repeat it in the sentence: Mi familia es amable."
+      },
+      {
+        "text": "hace frio",
+        "note": "Say hace frio slowly first, then repeat it in the sentence: Hace frio hoy."
+      },
+      {
+        "text": "hace calor",
+        "note": "Say hace calor slowly first, then repeat it in the sentence: Hace calor en verano."
+      },
+      {
+        "text": "llevo",
+        "note": "Say llevo slowly first, then repeat it in the sentence: Llevo una camisa."
+      },
+      {
+        "text": "quiero",
+        "note": "Say quiero slowly first, then repeat it in the sentence: Quiero cafe."
+      },
+      {
+        "text": "necesito",
+        "note": "Say necesito slowly first, then repeat it in the sentence: Necesito ayuda."
+      },
+      {
+        "text": "voy a",
+        "note": "Say voy a slowly first, then repeat it in the sentence: Voy a trabajar."
+      }
+    ]
+  },
+  "culture": {
+    "title": "Review in real life",
+    "text": "This review lesson simulates a real day. Carlos encourages you to use imperfect but complete ideas instead of waiting to be perfect."
+  },
+  "nativeSpeech": {
+    "title": "Carlos native speaker tips",
+    "notes": [
+      "Native speakers connect short ideas with y, pero, porque, and entonces.",
+      "In Mexico, chamarra is common for jacket.",
+      "Contento can sound more natural than feliz in everyday Spain Spanish."
+    ]
+  },
+  "nativeExpressions": [
+    "Native speakers connect short ideas with y, pero, porque, and entonces.",
+    "In Mexico, chamarra is common for jacket.",
+    "Contento can sound more natural than feliz in everyday Spain Spanish."
+  ],
+  "commonMistakes": [
+    {
+      "mistake": "Trying to say too much in one sentence.",
+      "correction": "Use short connected sentences.",
+      "explanation": "A1 communication works best in clear chunks."
+    },
+    {
+      "mistake": "Forgetting polite repair phrases.",
+      "correction": "Use perdon, no entiendo, or un momento.",
+      "explanation": "Repair phrases keep conversations alive."
+    },
+    {
+      "mistake": "Mixing all verb forms.",
+      "correction": "Use memorized chunks like quiero, necesito, voy a, tengo.",
+      "explanation": "Chunks are powerful at A1."
+    }
+  ],
+  "quiz": [
+    {
+      "type": "multipleChoice",
+      "prompt": "What does hola mean?",
+      "options": [
+        "hello",
+        "my name is",
+        "I am from",
+        "my family"
+      ],
+      "answer": "hello"
+    },
+    {
+      "type": "multipleChoice",
+      "prompt": "What does me llamo mean?",
+      "options": [
+        "my name is",
+        "I am from",
+        "my family",
+        "it is cold"
+      ],
+      "answer": "my name is"
+    },
+    {
+      "type": "multipleChoice",
+      "prompt": "What does soy de mean?",
+      "options": [
+        "I am from",
+        "my family",
+        "it is cold",
+        "it is hot"
+      ],
+      "answer": "I am from"
+    },
+    {
+      "type": "multipleChoice",
+      "prompt": "What does mi familia mean?",
+      "options": [
+        "my family",
+        "it is cold",
+        "it is hot",
+        "I wear"
+      ],
+      "answer": "my family"
+    },
+    {
+      "type": "multipleChoice",
+      "prompt": "What does hace frio mean?",
+      "options": [
+        "it is cold",
+        "it is hot",
+        "I wear",
+        "I want"
+      ],
+      "answer": "it is cold"
+    },
+    {
+      "type": "multipleChoice",
+      "prompt": "What does hace calor mean?",
+      "options": [
+        "it is hot",
+        "I wear",
+        "I want",
+        "I need"
+      ],
+      "answer": "it is hot"
+    },
+    {
+      "type": "multipleChoice",
+      "prompt": "What does llevo mean?",
+      "options": [
+        "I wear",
+        "I want",
+        "I need",
+        "I am going to"
+      ],
+      "answer": "I wear"
+    },
+    {
+      "type": "multipleChoice",
+      "prompt": "What does quiero mean?",
+      "options": [
+        "I want",
+        "I need",
+        "I am going to",
+        "I work/work"
+      ],
+      "answer": "I want"
+    },
+    {
+      "type": "multipleChoice",
+      "prompt": "What does necesito mean?",
+      "options": [
+        "I need",
+        "I am going to",
+        "I work/work",
+        "I study"
+      ],
+      "answer": "I need"
+    },
+    {
+      "type": "multipleChoice",
+      "prompt": "What does voy a mean?",
+      "options": [
+        "I am going to",
+        "I work/work",
+        "I study",
+        "I like"
+      ],
+      "answer": "I am going to"
+    },
+    {
+      "type": "multipleChoice",
+      "prompt": "What does trabajo mean?",
+      "options": [
+        "I work/work",
+        "I study",
+        "I like",
+        "I play"
+      ],
+      "answer": "I work/work"
+    },
+    {
+      "type": "multipleChoice",
+      "prompt": "What does estudio mean?",
+      "options": [
+        "I study",
+        "I like",
+        "I play",
+        "it hurts me"
+      ],
+      "answer": "I study"
+    },
+    {
+      "type": "translation",
+      "prompt": "Translate: Hola, Carlos.",
+      "answer": "Hello, Carlos."
+    },
+    {
+      "type": "translation",
+      "prompt": "Translate: Me llamo Tom.",
+      "answer": "My name is Tom."
+    },
+    {
+      "type": "multipleChoice",
+      "prompt": "Which phrase belongs in Review?",
+      "options": [
+        "soy de",
+        "mi suegra",
+        "buenos dias",
+        "un boleto"
+      ],
+      "answer": "soy de"
+    }
+  ],
+  "speakingChallenge": [
+    {
+      "prompt": "Carlos asks you to use hola in a real sentence.",
+      "exampleAnswer": "Hola, Carlos."
+    },
+    {
+      "prompt": "Carlos asks you to use me llamo in a real sentence.",
+      "exampleAnswer": "Me llamo Tom."
+    },
+    {
+      "prompt": "Carlos asks you to use soy de in a real sentence.",
+      "exampleAnswer": "Soy de Canada."
+    },
+    {
+      "prompt": "Carlos asks you to use mi familia in a real sentence.",
+      "exampleAnswer": "Mi familia es amable."
+    },
+    {
+      "prompt": "Carlos asks you to use hace frio in a real sentence.",
+      "exampleAnswer": "Hace frio hoy."
+    }
+  ],
+  "realLifeMission": {
+    "title": "Real Life Mission",
+    "mission": "Spend a full day with Carlos in Spanish. Greet him, introduce yourself, describe weather, clothing, work or school, food, one feeling, and one health/body phrase.",
+    "successCriteria": [
+      "Use at least six words from this lesson.",
+      "Use one phrase recycled from a previous lesson.",
+      "Ask Carlos at least one question.",
+      "Respond naturally with a short follow-up sentence."
+    ],
+    "suggestedPartner": "Carlos",
+    "xpReward": 10
+  },
+  "review": {
+    "recap": [
+      "Carlos reviewed review vocabulary.",
+      "You practiced Putting A1 patterns together.",
+      "You connected this lesson to earlier A1 survival conversations."
+    ],
+    "canDo": [
+      "Review A1 everyday situations from greetings through emotions in one guided day with Carlos.",
+      "Ask and answer simple everyday questions.",
+      "Repair the conversation with a short polite phrase if needed."
+    ]
+  },
+  "achievementsUnlocked": [],
+  "xpReward": 100,
+  "nextLesson": "lesson-21-a1-checkpoint"
+}

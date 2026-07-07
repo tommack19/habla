@@ -232,9 +232,9 @@ export function renderPractice() {
       </div>
 
       <div class="practice-mode-grid" role="tablist" aria-label="Practice modes">
-        ${modeCard("mode-quiz", "quiz", "🎯", "Quiz Mode", "Choose the English meaning.")}
-        ${modeCard("mode-flashcards", "flashcards", "▣", "Flashcards", "Flip and review words.")}
-        ${modeCard("mode-pronunciation", "pronunciation", "🎤", "Pronunciation", "Listen, speak, and compare.")}
+        ${modeCard("mode-quiz", "quiz", "practice-icon-quiz", "Quiz Mode", "Choose the English meaning.")}
+        ${modeCard("mode-flashcards", "flashcards", "practice-icon-cards", "Flashcards", "Flip and review words.")}
+        ${modeCard("mode-pronunciation", "pronunciation", "practice-icon-mic", "Pronunciation", "Listen, speak, and compare.")}
       </div>
 
       <div class="practice-panels">
@@ -247,9 +247,10 @@ export function renderPractice() {
 }
 
 function modeCard(id, key, icon, title, copy) {
+  const iconClass = `practice-icon-${key === "flashcards" ? "cards" : key === "pronunciation" ? "mic" : "quiz"}`;
   return `
     <label class="practice-mode-card ${key}" for="${id}" role="tab">
-      <div class="practice-mode-icon">${icon}</div>
+      <div class="practice-mode-icon ${iconClass}" aria-hidden="true"></div>
       <div><h2>${title}</h2><p>${copy}</p></div>
     </label>
   `;
@@ -295,7 +296,7 @@ function renderFlashcards(words = practiceWords) {
         `).join("")}
       </div>
       <div class="practice-actions">
-        <button type="button" onclick="hablaPractice.speakFrom(this, '.flash-slide.active .flash-es')">🔊 Hear</button>
+        <button type="button" onclick="hablaPractice.speakFrom(this, '.flash-slide.active .flash-es')"><span class="ui-icon ui-icon-sound" aria-hidden="true"></span> Hear</button>
         <button type="button" onclick="hablaPractice.flipCard(this)">Flip</button>
         <button type="button" onclick="hablaPractice.nextCard(this)">Next Card</button>
       </div>
@@ -320,8 +321,8 @@ function renderPronunciation(items = pronunciationItems.map(text => ({ text, not
         `).join("")}
       </div>
       <div class="practice-actions">
-        <button type="button" onclick="hablaPractice.speakFrom(this, '.pron-slide.active strong')">🔊 Hear</button>
-        <button type="button" onclick="hablaPractice.listen(this)">🎤 Start Microphone</button>
+        <button type="button" onclick="hablaPractice.speakFrom(this, '.pron-slide.active strong')"><span class="ui-icon ui-icon-sound" aria-hidden="true"></span> Hear</button>
+        <button type="button" onclick="hablaPractice.listen(this)"><span class="ui-icon ui-icon-mic" aria-hidden="true"></span> Start Microphone</button>
         <button type="button" onclick="hablaPractice.nextPronunciation(this)">Next Phrase</button>
       </div>
       <div class="pron-output">Tap the microphone and repeat the phrase.</div>

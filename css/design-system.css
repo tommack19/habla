@@ -140,3 +140,546 @@
   display: block;
   height: 100%;
 }
+
+.h-stack {
+  display: grid;
+  gap: var(--space-3);
+}
+
+.h-flow {
+  display: grid;
+  gap: var(--space-2);
+}
+
+.h-icon-badge {
+  align-items: center;
+  background:
+    radial-gradient(circle at 35% 25%, rgba(244, 190, 88, 0.24), transparent 44%),
+    rgba(5, 10, 16, 0.74);
+  border: 1px solid rgba(244, 190, 88, 0.28);
+  border-radius: 16px;
+  color: var(--habla-gold);
+  display: inline-flex;
+  flex: 0 0 auto;
+  height: 44px;
+  justify-content: center;
+  position: relative;
+  width: 44px;
+}
+
+.h-control {
+  align-items: center;
+  border-radius: var(--habla-radius-button);
+  display: inline-flex;
+  font-family: inherit;
+  font-weight: 800;
+  gap: 8px;
+  justify-content: center;
+  min-height: 48px;
+}
+
+.h-readable {
+  max-width: 62ch;
+  overflow-wrap: anywhere;
+}
+
+/* HABLA DESIGN SYSTEM V1 APP POLISH */
+:root {
+  --habla-page-pad-x: 16px;
+  --habla-bottom-nav-h: 76px;
+  --habla-section-gap: 24px;
+  --habla-card-pad: 20px;
+  --habla-radius-control: 14px;
+}
+
+html,
+body {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+#app {
+  background:
+    radial-gradient(circle at 78% 10%, rgba(244, 190, 88, 0.09), transparent 28%),
+    linear-gradient(180deg, var(--habla-bg), var(--habla-bg-2));
+}
+
+#dashboard {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+#dashboard > * {
+  min-width: 0;
+}
+
+#dashboard.learn-page,
+#dashboard.practice-page,
+#dashboard.profile-page {
+  padding: 24px var(--habla-page-pad-x) calc(var(--habla-bottom-nav-h) + 28px);
+  background:
+    radial-gradient(circle at 78% 10%, rgba(244, 190, 88, 0.12), transparent 28%),
+    radial-gradient(circle at 18% 24%, rgba(41, 214, 110, 0.08), transparent 34%),
+    linear-gradient(180deg, var(--habla-bg), var(--habla-bg-2));
+}
+
+.learn-screen,
+.practice-screen,
+.profile-screen {
+  gap: var(--habla-section-gap);
+}
+
+.learn-header,
+.practice-header,
+.profile-header {
+  padding-top: 0;
+}
+
+.learn-eyebrow,
+.practice-eyebrow,
+.profile-eyebrow,
+.learn-page .h-label,
+.practice-page .h-label,
+.profile-page .h-label {
+  color: var(--habla-green);
+  font-size: 0.72rem;
+  font-weight: 900;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+}
+
+.learn-header h1,
+.practice-header h1,
+.profile-header h1 {
+  color: var(--habla-gold);
+  font-family: Georgia, serif;
+  font-size: clamp(2rem, 9vw, 2.65rem);
+  letter-spacing: -0.01em;
+  line-height: 0.98;
+}
+
+.learn-header p,
+.practice-header p,
+.profile-header p,
+.section-heading p {
+  color: var(--habla-muted);
+  font-size: 0.92rem;
+  line-height: 1.55;
+  overflow-wrap: anywhere;
+}
+
+.learn-card,
+.learn-panel,
+.current-lesson-card,
+.learn-vocab-card,
+.grammar-card,
+.roadmap-card,
+.practice-mode-card,
+.practice-mode-panel,
+.flash-slide,
+.pron-slide,
+.profile-card,
+.profile-row,
+.profile-stat,
+.achievement,
+.module-list div,
+.lesson-metrics div,
+.lesson-preview-list div {
+  border-color: var(--habla-border);
+  border-radius: var(--habla-radius-card);
+  background:
+    linear-gradient(180deg, rgba(18, 28, 40, 0.9), rgba(7, 13, 20, 0.88));
+  box-shadow: var(--habla-shadow-card);
+}
+
+.learn-card,
+.practice-mode-card {
+  border-radius: 20px;
+  min-height: 88px;
+  padding: 16px;
+  min-width: 0;
+}
+
+.learn-panel,
+.practice-mode-panel,
+.profile-card,
+.current-lesson-card {
+  padding: var(--habla-card-pad);
+}
+
+.learn-card-icon,
+.practice-mode-icon,
+.achievement-icon,
+.pronounce-btn,
+.pbtn,
+.avatar-mark {
+  border-color: rgba(244, 190, 88, 0.28);
+  border-radius: 16px;
+  background:
+    radial-gradient(circle at 35% 25%, rgba(244, 190, 88, 0.24), transparent 42%),
+    rgba(5, 10, 16, 0.7);
+  color: var(--habla-gold);
+}
+
+.quiz-option,
+.practice-actions button,
+.practice-primary,
+.profile-save-btn,
+.dev-actions button,
+.profile-field textarea,
+.profile-field select,
+.vocab-category-row label {
+  border-radius: var(--habla-radius-control);
+  font-family: inherit;
+}
+
+.practice-primary,
+.profile-save-btn {
+  min-height: 48px;
+  background: linear-gradient(180deg, var(--habla-gold-2), var(--habla-gold));
+  box-shadow: var(--habla-shadow-gold);
+  color: #120d03;
+  font-weight: 900;
+}
+
+.quiz-option,
+.practice-actions button,
+.dev-actions button {
+  min-height: 44px;
+  background: rgba(5, 10, 16, 0.62);
+}
+
+.practice-actions button,
+.dev-actions button,
+.lesson-actions button,
+.pronounce-btn,
+.pbtn {
+  align-items: center;
+  display: inline-flex;
+  gap: 8px;
+  justify-content: center;
+}
+
+.bottom-nav {
+  align-items: center;
+  box-shadow: 0 -18px 40px rgba(0, 0, 0, 0.28);
+  min-height: var(--habla-bottom-nav-h);
+  padding: 8px 10px calc(8px + env(safe-area-inset-bottom));
+}
+
+.bottom-nav .tab {
+  align-items: center;
+  border: 0;
+  border-radius: 18px;
+  color: rgba(216, 222, 233, 0.68);
+  display: grid;
+  flex: 1;
+  font-size: 0.66rem;
+  font-weight: 750;
+  gap: 4px;
+  justify-items: center;
+  min-height: 58px;
+  padding: 6px 4px;
+}
+
+.bottom-nav .tab.active {
+  background: rgba(244, 190, 88, 0.08);
+  color: var(--habla-gold);
+}
+
+.nav-icon {
+  border: 1px solid rgba(216, 222, 233, 0.2);
+  border-radius: 999px;
+  display: block;
+  height: 26px;
+  position: relative;
+  width: 26px;
+}
+
+.tab.active .nav-icon {
+  border-color: rgba(244, 190, 88, 0.42);
+  background: rgba(244, 190, 88, 0.1);
+}
+
+.nav-icon::before,
+.nav-icon::after {
+  content: "";
+  position: absolute;
+}
+
+.nav-icon-home::before {
+  border-left: 2px solid currentColor;
+  border-top: 2px solid currentColor;
+  height: 10px;
+  left: 7px;
+  top: 7px;
+  transform: rotate(45deg);
+  width: 10px;
+}
+
+.nav-icon-home::after {
+  border: 2px solid currentColor;
+  border-top: 0;
+  height: 8px;
+  left: 8px;
+  top: 12px;
+  width: 8px;
+}
+
+.nav-icon-carlos::before {
+  border: 2px solid currentColor;
+  border-radius: 50%;
+  height: 8px;
+  left: 8px;
+  top: 5px;
+  width: 8px;
+}
+
+.nav-icon-carlos::after {
+  border: 2px solid currentColor;
+  border-radius: 9px 9px 4px 4px;
+  height: 8px;
+  left: 6px;
+  top: 14px;
+  width: 12px;
+}
+
+.nav-icon-learn::before {
+  border: 2px solid currentColor;
+  border-radius: 3px;
+  height: 15px;
+  left: 5px;
+  top: 5px;
+  width: 16px;
+}
+
+.nav-icon-learn::after {
+  background: currentColor;
+  height: 15px;
+  left: 13px;
+  top: 5px;
+  width: 2px;
+}
+
+.nav-icon-practice::before {
+  border-bottom: 2px solid currentColor;
+  border-left: 2px solid currentColor;
+  height: 15px;
+  left: 6px;
+  top: 5px;
+  width: 16px;
+}
+
+.nav-icon-practice::after {
+  background: currentColor;
+  border-radius: 50%;
+  height: 6px;
+  left: 13px;
+  top: 10px;
+  width: 6px;
+}
+
+.nav-icon-profile::before {
+  border: 2px solid currentColor;
+  border-radius: 50%;
+  height: 8px;
+  left: 8px;
+  top: 5px;
+  width: 8px;
+}
+
+.nav-icon-profile::after {
+  background: currentColor;
+  border-radius: 8px 8px 4px 4px;
+  height: 8px;
+  left: 6px;
+  top: 15px;
+  width: 14px;
+}
+
+.ui-icon,
+.learn-card-icon,
+.practice-mode-icon {
+  position: relative;
+}
+
+.ui-icon {
+  display: inline-block;
+  flex: 0 0 auto;
+  height: 1em;
+  vertical-align: -0.14em;
+  width: 1em;
+}
+
+.ui-icon::before,
+.ui-icon::after,
+.learn-card-icon::before,
+.learn-card-icon::after,
+.practice-mode-icon::before,
+.practice-mode-icon::after {
+  content: "";
+  position: absolute;
+}
+
+.learn-icon-vocab::before,
+.practice-icon-cards::before {
+  border: 2px solid currentColor;
+  border-radius: 3px;
+  height: 18px;
+  left: 11px;
+  top: 10px;
+  width: 18px;
+}
+
+.learn-icon-vocab::after,
+.practice-icon-cards::after {
+  background: currentColor;
+  height: 18px;
+  left: 20px;
+  top: 10px;
+  width: 2px;
+}
+
+.learn-icon-roadmap::before {
+  border: 2px solid currentColor;
+  border-radius: 50%;
+  height: 7px;
+  left: 10px;
+  top: 11px;
+  width: 7px;
+}
+
+.learn-icon-roadmap::after {
+  border-bottom: 2px solid currentColor;
+  border-right: 2px solid currentColor;
+  height: 16px;
+  left: 19px;
+  top: 15px;
+  transform: skewX(-18deg);
+  width: 14px;
+}
+
+.learn-icon-grammar::before {
+  color: currentColor;
+  content: "Aa";
+  font-family: Georgia, serif;
+  font-size: 1rem;
+  font-weight: 800;
+  left: 10px;
+  top: 10px;
+}
+
+.practice-icon-quiz::before {
+  border: 2px solid currentColor;
+  border-radius: 50%;
+  height: 20px;
+  left: 10px;
+  top: 10px;
+  width: 20px;
+}
+
+.practice-icon-quiz::after {
+  background: currentColor;
+  border-radius: 50%;
+  height: 8px;
+  left: 18px;
+  top: 18px;
+  width: 8px;
+}
+
+.practice-icon-mic::before,
+.ui-icon-mic::before {
+  border: 2px solid currentColor;
+  border-radius: 999px;
+}
+
+.practice-icon-mic::before {
+  height: 18px;
+  left: 15px;
+  top: 8px;
+  width: 10px;
+}
+
+.practice-icon-mic::after {
+  border-bottom: 2px solid currentColor;
+  border-left: 2px solid currentColor;
+  border-right: 2px solid currentColor;
+  border-radius: 0 0 10px 10px;
+  height: 12px;
+  left: 11px;
+  top: 18px;
+  width: 18px;
+}
+
+.ui-icon-mic::before {
+  height: 0.86em;
+  left: 0.3em;
+  top: 0;
+  width: 0.4em;
+}
+
+.ui-icon-mic::after {
+  border-bottom: 0.14em solid currentColor;
+  border-left: 0.14em solid currentColor;
+  border-right: 0.14em solid currentColor;
+  border-radius: 0 0 0.5em 0.5em;
+  height: 0.54em;
+  left: 0.18em;
+  top: 0.36em;
+  width: 0.64em;
+}
+
+.ui-icon-sound::before {
+  border-bottom: 0.34em solid transparent;
+  border-right: 0.46em solid currentColor;
+  border-top: 0.34em solid transparent;
+  left: 0.05em;
+  top: 0.17em;
+}
+
+.ui-icon-sound::after {
+  border: 0.12em solid currentColor;
+  border-bottom-color: transparent;
+  border-left-color: transparent;
+  border-top-color: transparent;
+  border-radius: 50%;
+  height: 0.78em;
+  left: 0.42em;
+  top: 0.11em;
+  width: 0.42em;
+}
+
+.ui-icon-send::before {
+  border-right: 0.18em solid currentColor;
+  border-top: 0.18em solid currentColor;
+  height: 0.68em;
+  left: 0.14em;
+  top: 0.2em;
+  transform: rotate(45deg);
+  width: 0.68em;
+}
+
+.ui-icon-send::after {
+  background: currentColor;
+  border-radius: 999px;
+  height: 0.16em;
+  left: 0.1em;
+  top: 0.48em;
+  width: 0.82em;
+}
+
+@media (max-width: 380px) {
+  :root {
+    --habla-page-pad-x: 12px;
+  }
+
+  .bottom-nav {
+    padding-left: 8px;
+    padding-right: 8px;
+  }
+
+  .bottom-nav .tab {
+    font-size: 0.6rem;
+    min-height: 54px;
+  }
+}

@@ -1,0 +1,1051 @@
+{
+  "id": "lesson-15-hobbies",
+  "title": "Hobbies: What You Like to Do",
+  "level": "A1",
+  "module": "Hobbies",
+  "estimatedMinutes": 30,
+  "prerequisiteLesson": "lesson-14-work",
+  "imagePath": "assets/images/lessons/lesson-15-hobbies.png",
+  "objectives": [
+    "Talk about hobbies, free time, likes, and simple invitations.",
+    "Use 25 or more hobbies words and phrases in short sentences.",
+    "Recycle greetings, time, family, weather, food, work, health, and emotion phrases from earlier lessons.",
+    "Complete a realistic practice mission with Carlos."
+  ],
+  "vocabularyCategories": [
+    "hobbies",
+    "free time",
+    "likes",
+    "invitations"
+  ],
+  "vocabulary": [
+    {
+      "spanish": "el pasatiempo",
+      "english": "hobby",
+      "partOfSpeech": "noun",
+      "tip": "Formal word for hobby.",
+      "exampleSpanish": "Mi pasatiempo favorito es leer.",
+      "exampleEnglish": "My favorite hobby is reading."
+    },
+    {
+      "spanish": "el tiempo libre",
+      "english": "free time",
+      "partOfSpeech": "noun phrase",
+      "tip": "Useful for plans.",
+      "exampleSpanish": "Tengo tiempo libre hoy.",
+      "exampleEnglish": "I have free time today."
+    },
+    {
+      "spanish": "leer",
+      "english": "to read",
+      "partOfSpeech": "verb",
+      "tip": "Review from school.",
+      "exampleSpanish": "Me gusta leer.",
+      "exampleEnglish": "I like to read."
+    },
+    {
+      "spanish": "cocinar",
+      "english": "to cook",
+      "partOfSpeech": "verb",
+      "tip": "Review food.",
+      "exampleSpanish": "Me gusta cocinar.",
+      "exampleEnglish": "I like to cook."
+    },
+    {
+      "spanish": "viajar",
+      "english": "to travel",
+      "partOfSpeech": "verb",
+      "tip": "Review travel.",
+      "exampleSpanish": "Me gusta viajar.",
+      "exampleEnglish": "I like to travel."
+    },
+    {
+      "spanish": "caminar",
+      "english": "to walk",
+      "partOfSpeech": "verb",
+      "tip": "Easy activity.",
+      "exampleSpanish": "Me gusta caminar.",
+      "exampleEnglish": "I like to walk."
+    },
+    {
+      "spanish": "correr",
+      "english": "to run",
+      "partOfSpeech": "verb",
+      "tip": "Sports bridge.",
+      "exampleSpanish": "No me gusta correr.",
+      "exampleEnglish": "I do not like to run."
+    },
+    {
+      "spanish": "bailar",
+      "english": "to dance",
+      "partOfSpeech": "verb",
+      "tip": "Common social hobby.",
+      "exampleSpanish": "Me gusta bailar.",
+      "exampleEnglish": "I like to dance."
+    },
+    {
+      "spanish": "cantar",
+      "english": "to sing",
+      "partOfSpeech": "verb",
+      "tip": "Music hobby.",
+      "exampleSpanish": "Me gusta cantar.",
+      "exampleEnglish": "I like to sing."
+    },
+    {
+      "spanish": "escuchar musica",
+      "english": "to listen to music",
+      "partOfSpeech": "phrase",
+      "tip": "Use escuchar.",
+      "exampleSpanish": "Me gusta escuchar musica.",
+      "exampleEnglish": "I like to listen to music."
+    },
+    {
+      "spanish": "ver peliculas",
+      "english": "to watch movies",
+      "partOfSpeech": "phrase",
+      "tip": "Use ver for watch.",
+      "exampleSpanish": "Me gusta ver peliculas.",
+      "exampleEnglish": "I like to watch movies."
+    },
+    {
+      "spanish": "jugar videojuegos",
+      "english": "to play video games",
+      "partOfSpeech": "phrase",
+      "tip": "Use jugar.",
+      "exampleSpanish": "Me gusta jugar videojuegos.",
+      "exampleEnglish": "I like to play video games."
+    },
+    {
+      "spanish": "dibujar",
+      "english": "to draw",
+      "partOfSpeech": "verb",
+      "tip": "Creative hobby.",
+      "exampleSpanish": "Me gusta dibujar.",
+      "exampleEnglish": "I like to draw."
+    },
+    {
+      "spanish": "pintar",
+      "english": "to paint",
+      "partOfSpeech": "verb",
+      "tip": "Creative hobby.",
+      "exampleSpanish": "Me gusta pintar.",
+      "exampleEnglish": "I like to paint."
+    },
+    {
+      "spanish": "sacar fotos",
+      "english": "to take photos",
+      "partOfSpeech": "phrase",
+      "tip": "Natural phrase.",
+      "exampleSpanish": "Me gusta sacar fotos.",
+      "exampleEnglish": "I like to take photos."
+    },
+    {
+      "spanish": "nadar",
+      "english": "to swim",
+      "partOfSpeech": "verb",
+      "tip": "Vacation bridge.",
+      "exampleSpanish": "Me gusta nadar.",
+      "exampleEnglish": "I like to swim."
+    },
+    {
+      "spanish": "descansar",
+      "english": "to rest",
+      "partOfSpeech": "verb",
+      "tip": "Free time.",
+      "exampleSpanish": "Me gusta descansar.",
+      "exampleEnglish": "I like to rest."
+    },
+    {
+      "spanish": "salir",
+      "english": "to go out",
+      "partOfSpeech": "verb",
+      "tip": "Social activity.",
+      "exampleSpanish": "Me gusta salir.",
+      "exampleEnglish": "I like to go out."
+    },
+    {
+      "spanish": "quedarse en casa",
+      "english": "to stay home",
+      "partOfSpeech": "phrase",
+      "tip": "Review weather.",
+      "exampleSpanish": "Me gusta quedarme en casa.",
+      "exampleEnglish": "I like to stay home."
+    },
+    {
+      "spanish": "el fin de semana",
+      "english": "weekend",
+      "partOfSpeech": "noun phrase",
+      "tip": "Time phrase.",
+      "exampleSpanish": "El fin de semana descanso.",
+      "exampleEnglish": "On the weekend I rest."
+    },
+    {
+      "spanish": "hoy",
+      "english": "today",
+      "partOfSpeech": "adverb",
+      "tip": "Review.",
+      "exampleSpanish": "Hoy quiero caminar.",
+      "exampleEnglish": "Today I want to walk."
+    },
+    {
+      "spanish": "manana",
+      "english": "tomorrow",
+      "partOfSpeech": "adverb",
+      "tip": "Plan word.",
+      "exampleSpanish": "Manana quiero salir.",
+      "exampleEnglish": "Tomorrow I want to go out."
+    },
+    {
+      "spanish": "favorito",
+      "english": "favorite",
+      "partOfSpeech": "adjective",
+      "tip": "Masculine.",
+      "exampleSpanish": "Mi pasatiempo favorito es leer.",
+      "exampleEnglish": "My favorite hobby is reading."
+    },
+    {
+      "spanish": "favorita",
+      "english": "favorite",
+      "partOfSpeech": "adjective",
+      "tip": "Feminine.",
+      "exampleSpanish": "Mi comida favorita es tacos.",
+      "exampleEnglish": "My favorite food is tacos."
+    },
+    {
+      "spanish": "quieres",
+      "english": "do you want",
+      "partOfSpeech": "verb form",
+      "tip": "Useful invitation.",
+      "exampleSpanish": "Quieres caminar?",
+      "exampleEnglish": "Do you want to walk?"
+    },
+    {
+      "spanish": "vamos",
+      "english": "let us go",
+      "partOfSpeech": "verb form",
+      "tip": "Simple invitation.",
+      "exampleSpanish": "Vamos al parque.",
+      "exampleEnglish": "Let us go to the park."
+    }
+  ],
+  "textbookPhrases": [
+    {
+      "meaning": "What do you like to do?",
+      "phrase": "Que le gusta hacer?"
+    },
+    {
+      "meaning": "I like to read.",
+      "phrase": "Me gusta leer."
+    },
+    {
+      "meaning": "Do you want to go out?",
+      "phrase": "Quieres salir?"
+    },
+    {
+      "meaning": "I prefer to stay home.",
+      "phrase": "Prefiero quedarme en casa."
+    },
+    {
+      "meaning": "My favorite hobby is cooking.",
+      "phrase": "Mi pasatiempo favorito es cocinar."
+    }
+  ],
+  "naturalEverydayPhrases": [
+    {
+      "meaning": "What do you like to do?",
+      "phrase": "Que te gusta hacer?"
+    },
+    {
+      "meaning": "I like to read.",
+      "phrase": "Me gusta leer."
+    },
+    {
+      "meaning": "Do you want to go out?",
+      "phrase": "Quieres salir?"
+    },
+    {
+      "meaning": "I prefer to stay home.",
+      "phrase": "Prefiero quedarme en casa."
+    },
+    {
+      "meaning": "My favorite hobby is cooking.",
+      "phrase": "Me encanta cocinar."
+    }
+  ],
+  "mexicanSpanishVariants": [
+    {
+      "meaning": "What do you like to do?",
+      "phrase": "Que te gusta hacer?"
+    },
+    {
+      "meaning": "I like to read.",
+      "phrase": "Me gusta leer."
+    },
+    {
+      "meaning": "Do you want to go out?",
+      "phrase": "Quieres salir?"
+    },
+    {
+      "meaning": "I prefer to stay home.",
+      "phrase": "Prefiero quedarme en casa."
+    },
+    {
+      "meaning": "My favorite hobby is cooking.",
+      "phrase": "Me encanta cocinar."
+    }
+  ],
+  "spainSpanishVariants": [
+    {
+      "meaning": "What do you like to do?",
+      "phrase": "Que te gusta hacer?"
+    },
+    {
+      "meaning": "I like to read.",
+      "phrase": "Me gusta leer."
+    },
+    {
+      "meaning": "Do you want to go out?",
+      "phrase": "Te apetece salir?"
+    },
+    {
+      "meaning": "I prefer to stay home.",
+      "phrase": "Prefiero quedarme en casa."
+    },
+    {
+      "meaning": "My favorite hobby is cooking.",
+      "phrase": "Me encanta cocinar."
+    }
+  ],
+  "phraseVariants": [
+    {
+      "meaning": "What do you like to do?",
+      "textbookVersion": "Que le gusta hacer?",
+      "naturalEverydayVersion": "Que te gusta hacer?",
+      "mexicanSpanishVersion": "Que te gusta hacer?",
+      "spainSpanishVersion": "Que te gusta hacer?",
+      "whenUsed": "Carlos shows the textbook version first, then the natural version learners are likely to hear in everyday speech."
+    },
+    {
+      "meaning": "I like to read.",
+      "textbookVersion": "Me gusta leer.",
+      "naturalEverydayVersion": "Me gusta leer.",
+      "mexicanSpanishVersion": "Me gusta leer.",
+      "spainSpanishVersion": "Me gusta leer.",
+      "whenUsed": "Carlos shows the textbook version first, then the natural version learners are likely to hear in everyday speech."
+    },
+    {
+      "meaning": "Do you want to go out?",
+      "textbookVersion": "Quieres salir?",
+      "naturalEverydayVersion": "Quieres salir?",
+      "mexicanSpanishVersion": "Quieres salir?",
+      "spainSpanishVersion": "Te apetece salir?",
+      "whenUsed": "Carlos shows the textbook version first, then the natural version learners are likely to hear in everyday speech."
+    },
+    {
+      "meaning": "I prefer to stay home.",
+      "textbookVersion": "Prefiero quedarme en casa.",
+      "naturalEverydayVersion": "Prefiero quedarme en casa.",
+      "mexicanSpanishVersion": "Prefiero quedarme en casa.",
+      "spainSpanishVersion": "Prefiero quedarme en casa.",
+      "whenUsed": "Carlos shows the textbook version first, then the natural version learners are likely to hear in everyday speech."
+    },
+    {
+      "meaning": "My favorite hobby is cooking.",
+      "textbookVersion": "Mi pasatiempo favorito es cocinar.",
+      "naturalEverydayVersion": "Me encanta cocinar.",
+      "mexicanSpanishVersion": "Me encanta cocinar.",
+      "spainSpanishVersion": "Me encanta cocinar.",
+      "whenUsed": "Carlos shows the textbook version first, then the natural version learners are likely to hear in everyday speech."
+    }
+  ],
+  "grammar": {
+    "topic": "Me gusta plus infinitives",
+    "explanation": "Use me gusta plus an activity to say what you like doing. Carlos keeps it simple: me gusta leer, me gusta cocinar, me gusta viajar.",
+    "examples": [
+      {
+        "spanish": "Me gusta leer.",
+        "english": "I like to read."
+      },
+      {
+        "spanish": "No me gusta correr.",
+        "english": "I do not like to run."
+      },
+      {
+        "spanish": "Te gusta cocinar?",
+        "english": "Do you like to cook?"
+      }
+    ],
+    "practicePrompt": "Tell Carlos three hobbies you like and invite him to do one activity."
+  },
+  "dialogue": [
+    {
+      "title": "Warmup with Carlos",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Practiquemos hobbies: el pasatiempo.",
+          "english": "Let's practice hobbies: hobby."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "Me gusta cocinar.",
+          "english": "I like to cook."
+        }
+      ]
+    },
+    {
+      "title": "Real-world question",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Practiquemos hobbies: el tiempo libre.",
+          "english": "Let's practice hobbies: free time."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "Me gusta viajar.",
+          "english": "I like to travel."
+        }
+      ]
+    },
+    {
+      "title": "Using old vocabulary",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Practiquemos hobbies: leer.",
+          "english": "Let's practice hobbies: to read."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "Me gusta caminar.",
+          "english": "I like to walk."
+        }
+      ]
+    },
+    {
+      "title": "Making a plan",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Practiquemos hobbies: cocinar.",
+          "english": "Let's practice hobbies: to cook."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "No me gusta correr.",
+          "english": "I do not like to run."
+        }
+      ]
+    },
+    {
+      "title": "Asking for help",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Practiquemos hobbies: viajar.",
+          "english": "Let's practice hobbies: to travel."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "Me gusta bailar.",
+          "english": "I like to dance."
+        }
+      ]
+    },
+    {
+      "title": "Polite correction",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Practiquemos hobbies: caminar.",
+          "english": "Let's practice hobbies: to walk."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "Me gusta cantar.",
+          "english": "I like to sing."
+        }
+      ]
+    },
+    {
+      "title": "With family",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Practiquemos hobbies: correr.",
+          "english": "Let's practice hobbies: to run."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "Me gusta escuchar musica.",
+          "english": "I like to listen to music."
+        }
+      ]
+    },
+    {
+      "title": "At work or school",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Practiquemos hobbies: bailar.",
+          "english": "Let's practice hobbies: to dance."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "Me gusta ver peliculas.",
+          "english": "I like to watch movies."
+        }
+      ]
+    },
+    {
+      "title": "Travel moment",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Practiquemos hobbies: cantar.",
+          "english": "Let's practice hobbies: to sing."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "Me gusta jugar videojuegos.",
+          "english": "I like to play video games."
+        }
+      ]
+    },
+    {
+      "title": "Wrap-up challenge",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Practiquemos hobbies: escuchar musica.",
+          "english": "Let's practice hobbies: to listen to music."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "Me gusta dibujar.",
+          "english": "I like to draw."
+        }
+      ]
+    }
+  ],
+  "dialogues": [
+    {
+      "title": "Warmup with Carlos",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Practiquemos hobbies: el pasatiempo.",
+          "english": "Let's practice hobbies: hobby."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "Me gusta cocinar.",
+          "english": "I like to cook."
+        }
+      ]
+    },
+    {
+      "title": "Real-world question",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Practiquemos hobbies: el tiempo libre.",
+          "english": "Let's practice hobbies: free time."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "Me gusta viajar.",
+          "english": "I like to travel."
+        }
+      ]
+    },
+    {
+      "title": "Using old vocabulary",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Practiquemos hobbies: leer.",
+          "english": "Let's practice hobbies: to read."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "Me gusta caminar.",
+          "english": "I like to walk."
+        }
+      ]
+    },
+    {
+      "title": "Making a plan",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Practiquemos hobbies: cocinar.",
+          "english": "Let's practice hobbies: to cook."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "No me gusta correr.",
+          "english": "I do not like to run."
+        }
+      ]
+    },
+    {
+      "title": "Asking for help",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Practiquemos hobbies: viajar.",
+          "english": "Let's practice hobbies: to travel."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "Me gusta bailar.",
+          "english": "I like to dance."
+        }
+      ]
+    },
+    {
+      "title": "Polite correction",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Practiquemos hobbies: caminar.",
+          "english": "Let's practice hobbies: to walk."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "Me gusta cantar.",
+          "english": "I like to sing."
+        }
+      ]
+    },
+    {
+      "title": "With family",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Practiquemos hobbies: correr.",
+          "english": "Let's practice hobbies: to run."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "Me gusta escuchar musica.",
+          "english": "I like to listen to music."
+        }
+      ]
+    },
+    {
+      "title": "At work or school",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Practiquemos hobbies: bailar.",
+          "english": "Let's practice hobbies: to dance."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "Me gusta ver peliculas.",
+          "english": "I like to watch movies."
+        }
+      ]
+    },
+    {
+      "title": "Travel moment",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Practiquemos hobbies: cantar.",
+          "english": "Let's practice hobbies: to sing."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "Me gusta jugar videojuegos.",
+          "english": "I like to play video games."
+        }
+      ]
+    },
+    {
+      "title": "Wrap-up challenge",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Practiquemos hobbies: escuchar musica.",
+          "english": "Let's practice hobbies: to listen to music."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "Me gusta dibujar.",
+          "english": "I like to draw."
+        }
+      ]
+    }
+  ],
+  "listeningPhrases": [
+    {
+      "spanish": "Mi pasatiempo favorito es leer.",
+      "english": "My favorite hobby is reading."
+    },
+    {
+      "spanish": "Tengo tiempo libre hoy.",
+      "english": "I have free time today."
+    },
+    {
+      "spanish": "Me gusta leer.",
+      "english": "I like to read."
+    },
+    {
+      "spanish": "Me gusta cocinar.",
+      "english": "I like to cook."
+    },
+    {
+      "spanish": "Me gusta viajar.",
+      "english": "I like to travel."
+    },
+    {
+      "spanish": "Me gusta caminar.",
+      "english": "I like to walk."
+    },
+    {
+      "spanish": "No me gusta correr.",
+      "english": "I do not like to run."
+    },
+    {
+      "spanish": "Me gusta bailar.",
+      "english": "I like to dance."
+    },
+    {
+      "spanish": "Me gusta cantar.",
+      "english": "I like to sing."
+    },
+    {
+      "spanish": "Me gusta escuchar musica.",
+      "english": "I like to listen to music."
+    }
+  ],
+  "listening": [
+    {
+      "spanish": "Mi pasatiempo favorito es leer.",
+      "english": "My favorite hobby is reading."
+    },
+    {
+      "spanish": "Tengo tiempo libre hoy.",
+      "english": "I have free time today."
+    },
+    {
+      "spanish": "Me gusta leer.",
+      "english": "I like to read."
+    },
+    {
+      "spanish": "Me gusta cocinar.",
+      "english": "I like to cook."
+    },
+    {
+      "spanish": "Me gusta viajar.",
+      "english": "I like to travel."
+    },
+    {
+      "spanish": "Me gusta caminar.",
+      "english": "I like to walk."
+    },
+    {
+      "spanish": "No me gusta correr.",
+      "english": "I do not like to run."
+    },
+    {
+      "spanish": "Me gusta bailar.",
+      "english": "I like to dance."
+    },
+    {
+      "spanish": "Me gusta cantar.",
+      "english": "I like to sing."
+    },
+    {
+      "spanish": "Me gusta escuchar musica.",
+      "english": "I like to listen to music."
+    }
+  ],
+  "pronunciation": {
+    "focus": "Carlos helps you practice clear rhythm and useful sounds for hobbies.",
+    "items": [
+      {
+        "text": "el pasatiempo",
+        "note": "Say el pasatiempo slowly first, then repeat it in the sentence: Mi pasatiempo favorito es leer."
+      },
+      {
+        "text": "el tiempo libre",
+        "note": "Say el tiempo libre slowly first, then repeat it in the sentence: Tengo tiempo libre hoy."
+      },
+      {
+        "text": "leer",
+        "note": "Say leer slowly first, then repeat it in the sentence: Me gusta leer."
+      },
+      {
+        "text": "cocinar",
+        "note": "Say cocinar slowly first, then repeat it in the sentence: Me gusta cocinar."
+      },
+      {
+        "text": "viajar",
+        "note": "Say viajar slowly first, then repeat it in the sentence: Me gusta viajar."
+      },
+      {
+        "text": "caminar",
+        "note": "Say caminar slowly first, then repeat it in the sentence: Me gusta caminar."
+      },
+      {
+        "text": "correr",
+        "note": "Say correr slowly first, then repeat it in the sentence: No me gusta correr."
+      },
+      {
+        "text": "bailar",
+        "note": "Say bailar slowly first, then repeat it in the sentence: Me gusta bailar."
+      },
+      {
+        "text": "cantar",
+        "note": "Say cantar slowly first, then repeat it in the sentence: Me gusta cantar."
+      },
+      {
+        "text": "escuchar musica",
+        "note": "Say escuchar musica slowly first, then repeat it in the sentence: Me gusta escuchar musica."
+      }
+    ]
+  },
+  "culture": {
+    "title": "Hobbies in real life",
+    "text": "Hobbies are a friendly way to connect. Carlos suggests asking about music, food, or weekend plans for easy conversation."
+  },
+  "nativeSpeech": {
+    "title": "Carlos native speaker tips",
+    "notes": [
+      "Me encanta means I love it and is stronger than me gusta.",
+      "Te apetece is common in Spain for do you feel like...",
+      "Pasatiempo is correct but aficion is common in Spain."
+    ]
+  },
+  "nativeExpressions": [
+    "Me encanta means I love it and is stronger than me gusta.",
+    "Te apetece is common in Spain for do you feel like...",
+    "Pasatiempo is correct but aficion is common in Spain."
+  ],
+  "commonMistakes": [
+    {
+      "mistake": "Saying me gusto leer.",
+      "correction": "Say me gusta leer.",
+      "explanation": "The phrase is me gusta plus activity."
+    },
+    {
+      "mistake": "Adding el before every activity.",
+      "correction": "Say me gusta cocinar.",
+      "explanation": "Use the infinitive verb directly."
+    },
+    {
+      "mistake": "Confusing jugar and tocar.",
+      "correction": "Use jugar for games/sports and tocar for instruments.",
+      "explanation": "They both can mean play in English."
+    }
+  ],
+  "quiz": [
+    {
+      "type": "multipleChoice",
+      "prompt": "What does el pasatiempo mean?",
+      "options": [
+        "hobby",
+        "free time",
+        "to read",
+        "to cook"
+      ],
+      "answer": "hobby"
+    },
+    {
+      "type": "multipleChoice",
+      "prompt": "What does el tiempo libre mean?",
+      "options": [
+        "free time",
+        "to read",
+        "to cook",
+        "to travel"
+      ],
+      "answer": "free time"
+    },
+    {
+      "type": "multipleChoice",
+      "prompt": "What does leer mean?",
+      "options": [
+        "to read",
+        "to cook",
+        "to travel",
+        "to walk"
+      ],
+      "answer": "to read"
+    },
+    {
+      "type": "multipleChoice",
+      "prompt": "What does cocinar mean?",
+      "options": [
+        "to cook",
+        "to travel",
+        "to walk",
+        "to run"
+      ],
+      "answer": "to cook"
+    },
+    {
+      "type": "multipleChoice",
+      "prompt": "What does viajar mean?",
+      "options": [
+        "to travel",
+        "to walk",
+        "to run",
+        "to dance"
+      ],
+      "answer": "to travel"
+    },
+    {
+      "type": "multipleChoice",
+      "prompt": "What does caminar mean?",
+      "options": [
+        "to walk",
+        "to run",
+        "to dance",
+        "to sing"
+      ],
+      "answer": "to walk"
+    },
+    {
+      "type": "multipleChoice",
+      "prompt": "What does correr mean?",
+      "options": [
+        "to run",
+        "to dance",
+        "to sing",
+        "to listen to music"
+      ],
+      "answer": "to run"
+    },
+    {
+      "type": "multipleChoice",
+      "prompt": "What does bailar mean?",
+      "options": [
+        "to dance",
+        "to sing",
+        "to listen to music",
+        "to watch movies"
+      ],
+      "answer": "to dance"
+    },
+    {
+      "type": "multipleChoice",
+      "prompt": "What does cantar mean?",
+      "options": [
+        "to sing",
+        "to listen to music",
+        "to watch movies",
+        "to play video games"
+      ],
+      "answer": "to sing"
+    },
+    {
+      "type": "multipleChoice",
+      "prompt": "What does escuchar musica mean?",
+      "options": [
+        "to listen to music",
+        "to watch movies",
+        "to play video games",
+        "to draw"
+      ],
+      "answer": "to listen to music"
+    },
+    {
+      "type": "multipleChoice",
+      "prompt": "What does ver peliculas mean?",
+      "options": [
+        "to watch movies",
+        "to play video games",
+        "to draw",
+        "to paint"
+      ],
+      "answer": "to watch movies"
+    },
+    {
+      "type": "multipleChoice",
+      "prompt": "What does jugar videojuegos mean?",
+      "options": [
+        "to play video games",
+        "to draw",
+        "to paint",
+        "to take photos"
+      ],
+      "answer": "to play video games"
+    },
+    {
+      "type": "translation",
+      "prompt": "Translate: Mi pasatiempo favorito es leer.",
+      "answer": "My favorite hobby is reading."
+    },
+    {
+      "type": "translation",
+      "prompt": "Translate: Tengo tiempo libre hoy.",
+      "answer": "I have free time today."
+    },
+    {
+      "type": "multipleChoice",
+      "prompt": "Which phrase belongs in Hobbies?",
+      "options": [
+        "leer",
+        "mi suegra",
+        "buenos dias",
+        "un boleto"
+      ],
+      "answer": "leer"
+    }
+  ],
+  "speakingChallenge": [
+    {
+      "prompt": "Carlos asks you to use el pasatiempo in a real sentence.",
+      "exampleAnswer": "Mi pasatiempo favorito es leer."
+    },
+    {
+      "prompt": "Carlos asks you to use el tiempo libre in a real sentence.",
+      "exampleAnswer": "Tengo tiempo libre hoy."
+    },
+    {
+      "prompt": "Carlos asks you to use leer in a real sentence.",
+      "exampleAnswer": "Me gusta leer."
+    },
+    {
+      "prompt": "Carlos asks you to use cocinar in a real sentence.",
+      "exampleAnswer": "Me gusta cocinar."
+    },
+    {
+      "prompt": "Carlos asks you to use viajar in a real sentence.",
+      "exampleAnswer": "Me gusta viajar."
+    }
+  ],
+  "realLifeMission": {
+    "title": "Real Life Mission",
+    "mission": "Plan a relaxed weekend with Carlos. Say three activities you like and invite him to do one of them.",
+    "successCriteria": [
+      "Use at least six words from this lesson.",
+      "Use one phrase recycled from a previous lesson.",
+      "Ask Carlos at least one question.",
+      "Respond naturally with a short follow-up sentence."
+    ],
+    "suggestedPartner": "Carlos",
+    "xpReward": 10
+  },
+  "review": {
+    "recap": [
+      "Carlos reviewed hobbies vocabulary.",
+      "You practiced Me gusta plus infinitives.",
+      "You connected this lesson to earlier A1 survival conversations."
+    ],
+    "canDo": [
+      "Talk about hobbies, free time, likes, and simple invitations.",
+      "Ask and answer simple everyday questions.",
+      "Repair the conversation with a short polite phrase if needed."
+    ]
+  },
+  "achievementsUnlocked": [],
+  "xpReward": 75,
+  "nextLesson": "lesson-16-sports"
+}

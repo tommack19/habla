@@ -1,0 +1,1051 @@
+{
+  "id": "lesson-18-body-parts",
+  "title": "Body Parts: Explaining What Hurts",
+  "level": "A1",
+  "module": "Body Parts",
+  "estimatedMinutes": 30,
+  "prerequisiteLesson": "lesson-17-health",
+  "imagePath": "assets/images/lessons/lesson-18-body-parts.png",
+  "objectives": [
+    "Name common body parts and use them in simple health conversations.",
+    "Use 25 or more body parts words and phrases in short sentences.",
+    "Recycle greetings, time, family, weather, food, work, health, and emotion phrases from earlier lessons.",
+    "Complete a realistic practice mission with Carlos."
+  ],
+  "vocabularyCategories": [
+    "body",
+    "pain",
+    "health",
+    "description"
+  ],
+  "vocabulary": [
+    {
+      "spanish": "el cuerpo",
+      "english": "body",
+      "partOfSpeech": "noun",
+      "tip": "General body.",
+      "exampleSpanish": "El cuerpo necesita descanso.",
+      "exampleEnglish": "The body needs rest."
+    },
+    {
+      "spanish": "la cabeza",
+      "english": "head",
+      "partOfSpeech": "noun",
+      "tip": "Common pain phrase.",
+      "exampleSpanish": "Me duele la cabeza.",
+      "exampleEnglish": "My head hurts."
+    },
+    {
+      "spanish": "la cara",
+      "english": "face",
+      "partOfSpeech": "noun",
+      "tip": "Body part.",
+      "exampleSpanish": "Tengo la cara roja.",
+      "exampleEnglish": "My face is red."
+    },
+    {
+      "spanish": "el ojo",
+      "english": "eye",
+      "partOfSpeech": "noun",
+      "tip": "Singular.",
+      "exampleSpanish": "Me duele el ojo.",
+      "exampleEnglish": "My eye hurts."
+    },
+    {
+      "spanish": "los ojos",
+      "english": "eyes",
+      "partOfSpeech": "noun",
+      "tip": "Plural.",
+      "exampleSpanish": "Mis ojos estan cansados.",
+      "exampleEnglish": "My eyes are tired."
+    },
+    {
+      "spanish": "la nariz",
+      "english": "nose",
+      "partOfSpeech": "noun",
+      "tip": "Body part.",
+      "exampleSpanish": "Me duele la nariz.",
+      "exampleEnglish": "My nose hurts."
+    },
+    {
+      "spanish": "la boca",
+      "english": "mouth",
+      "partOfSpeech": "noun",
+      "tip": "Body part.",
+      "exampleSpanish": "Abre la boca.",
+      "exampleEnglish": "Open your mouth."
+    },
+    {
+      "spanish": "el diente",
+      "english": "tooth",
+      "partOfSpeech": "noun",
+      "tip": "Dental word.",
+      "exampleSpanish": "Me duele un diente.",
+      "exampleEnglish": "A tooth hurts."
+    },
+    {
+      "spanish": "los dientes",
+      "english": "teeth",
+      "partOfSpeech": "noun",
+      "tip": "Plural.",
+      "exampleSpanish": "Me duelen los dientes.",
+      "exampleEnglish": "My teeth hurt."
+    },
+    {
+      "spanish": "la garganta",
+      "english": "throat",
+      "partOfSpeech": "noun",
+      "tip": "Health word.",
+      "exampleSpanish": "Me duele la garganta.",
+      "exampleEnglish": "My throat hurts."
+    },
+    {
+      "spanish": "el cuello",
+      "english": "neck",
+      "partOfSpeech": "noun",
+      "tip": "Body part.",
+      "exampleSpanish": "Me duele el cuello.",
+      "exampleEnglish": "My neck hurts."
+    },
+    {
+      "spanish": "el hombro",
+      "english": "shoulder",
+      "partOfSpeech": "noun",
+      "tip": "Body part.",
+      "exampleSpanish": "Me duele el hombro.",
+      "exampleEnglish": "My shoulder hurts."
+    },
+    {
+      "spanish": "el brazo",
+      "english": "arm",
+      "partOfSpeech": "noun",
+      "tip": "Body part.",
+      "exampleSpanish": "Me duele el brazo.",
+      "exampleEnglish": "My arm hurts."
+    },
+    {
+      "spanish": "la mano",
+      "english": "hand",
+      "partOfSpeech": "noun",
+      "tip": "Feminine despite -o.",
+      "exampleSpanish": "Tengo la mano fria.",
+      "exampleEnglish": "My hand is cold."
+    },
+    {
+      "spanish": "el dedo",
+      "english": "finger/toe",
+      "partOfSpeech": "noun",
+      "tip": "Context decides.",
+      "exampleSpanish": "Me duele el dedo.",
+      "exampleEnglish": "My finger hurts."
+    },
+    {
+      "spanish": "el pecho",
+      "english": "chest",
+      "partOfSpeech": "noun",
+      "tip": "Important health word.",
+      "exampleSpanish": "Me duele el pecho.",
+      "exampleEnglish": "My chest hurts."
+    },
+    {
+      "spanish": "la espalda",
+      "english": "back",
+      "partOfSpeech": "noun",
+      "tip": "Common pain.",
+      "exampleSpanish": "Me duele la espalda.",
+      "exampleEnglish": "My back hurts."
+    },
+    {
+      "spanish": "el estomago",
+      "english": "stomach",
+      "partOfSpeech": "noun",
+      "tip": "Health word.",
+      "exampleSpanish": "Me duele el estomago.",
+      "exampleEnglish": "My stomach hurts."
+    },
+    {
+      "spanish": "la pierna",
+      "english": "leg",
+      "partOfSpeech": "noun",
+      "tip": "Body part.",
+      "exampleSpanish": "Me duele la pierna.",
+      "exampleEnglish": "My leg hurts."
+    },
+    {
+      "spanish": "la rodilla",
+      "english": "knee",
+      "partOfSpeech": "noun",
+      "tip": "Body part.",
+      "exampleSpanish": "Me duele la rodilla.",
+      "exampleEnglish": "My knee hurts."
+    },
+    {
+      "spanish": "el pie",
+      "english": "foot",
+      "partOfSpeech": "noun",
+      "tip": "Singular.",
+      "exampleSpanish": "Me duele el pie.",
+      "exampleEnglish": "My foot hurts."
+    },
+    {
+      "spanish": "los pies",
+      "english": "feet",
+      "partOfSpeech": "noun",
+      "tip": "Plural.",
+      "exampleSpanish": "Me duelen los pies.",
+      "exampleEnglish": "My feet hurt."
+    },
+    {
+      "spanish": "la piel",
+      "english": "skin",
+      "partOfSpeech": "noun",
+      "tip": "Health word.",
+      "exampleSpanish": "Mi piel esta seca.",
+      "exampleEnglish": "My skin is dry."
+    },
+    {
+      "spanish": "la sangre",
+      "english": "blood",
+      "partOfSpeech": "noun",
+      "tip": "Emergency word.",
+      "exampleSpanish": "Veo sangre.",
+      "exampleEnglish": "I see blood."
+    },
+    {
+      "spanish": "cansado",
+      "english": "tired",
+      "partOfSpeech": "adjective",
+      "tip": "Review.",
+      "exampleSpanish": "Tengo los ojos cansados.",
+      "exampleEnglish": "My eyes are tired."
+    },
+    {
+      "spanish": "frio",
+      "english": "cold",
+      "partOfSpeech": "adjective",
+      "tip": "Review weather.",
+      "exampleSpanish": "Tengo las manos frias.",
+      "exampleEnglish": "My hands are cold."
+    }
+  ],
+  "textbookPhrases": [
+    {
+      "meaning": "What hurts?",
+      "phrase": "Que le duele?"
+    },
+    {
+      "meaning": "My back hurts.",
+      "phrase": "Me duele la espalda."
+    },
+    {
+      "meaning": "My feet hurt.",
+      "phrase": "Me duelen los pies."
+    },
+    {
+      "meaning": "Open your mouth.",
+      "phrase": "Abra la boca."
+    },
+    {
+      "meaning": "My eyes are tired.",
+      "phrase": "Tengo los ojos cansados."
+    }
+  ],
+  "naturalEverydayPhrases": [
+    {
+      "meaning": "What hurts?",
+      "phrase": "Que te duele?"
+    },
+    {
+      "meaning": "My back hurts.",
+      "phrase": "Me duele la espalda."
+    },
+    {
+      "meaning": "My feet hurt.",
+      "phrase": "Me duelen los pies."
+    },
+    {
+      "meaning": "Open your mouth.",
+      "phrase": "Abre la boca."
+    },
+    {
+      "meaning": "My eyes are tired.",
+      "phrase": "Tengo los ojos cansados."
+    }
+  ],
+  "mexicanSpanishVariants": [
+    {
+      "meaning": "What hurts?",
+      "phrase": "Que te duele?"
+    },
+    {
+      "meaning": "My back hurts.",
+      "phrase": "Me duele la espalda."
+    },
+    {
+      "meaning": "My feet hurt.",
+      "phrase": "Me duelen los pies."
+    },
+    {
+      "meaning": "Open your mouth.",
+      "phrase": "Abre la boca."
+    },
+    {
+      "meaning": "My eyes are tired.",
+      "phrase": "Tengo los ojos cansados."
+    }
+  ],
+  "spainSpanishVariants": [
+    {
+      "meaning": "What hurts?",
+      "phrase": "Que te duele?"
+    },
+    {
+      "meaning": "My back hurts.",
+      "phrase": "Me duele la espalda."
+    },
+    {
+      "meaning": "My feet hurt.",
+      "phrase": "Me duelen los pies."
+    },
+    {
+      "meaning": "Open your mouth.",
+      "phrase": "Abre la boca."
+    },
+    {
+      "meaning": "My eyes are tired.",
+      "phrase": "Tengo los ojos cansados."
+    }
+  ],
+  "phraseVariants": [
+    {
+      "meaning": "What hurts?",
+      "textbookVersion": "Que le duele?",
+      "naturalEverydayVersion": "Que te duele?",
+      "mexicanSpanishVersion": "Que te duele?",
+      "spainSpanishVersion": "Que te duele?",
+      "whenUsed": "Carlos shows the textbook version first, then the natural version learners are likely to hear in everyday speech."
+    },
+    {
+      "meaning": "My back hurts.",
+      "textbookVersion": "Me duele la espalda.",
+      "naturalEverydayVersion": "Me duele la espalda.",
+      "mexicanSpanishVersion": "Me duele la espalda.",
+      "spainSpanishVersion": "Me duele la espalda.",
+      "whenUsed": "Carlos shows the textbook version first, then the natural version learners are likely to hear in everyday speech."
+    },
+    {
+      "meaning": "My feet hurt.",
+      "textbookVersion": "Me duelen los pies.",
+      "naturalEverydayVersion": "Me duelen los pies.",
+      "mexicanSpanishVersion": "Me duelen los pies.",
+      "spainSpanishVersion": "Me duelen los pies.",
+      "whenUsed": "Carlos shows the textbook version first, then the natural version learners are likely to hear in everyday speech."
+    },
+    {
+      "meaning": "Open your mouth.",
+      "textbookVersion": "Abra la boca.",
+      "naturalEverydayVersion": "Abre la boca.",
+      "mexicanSpanishVersion": "Abre la boca.",
+      "spainSpanishVersion": "Abre la boca.",
+      "whenUsed": "Carlos shows the textbook version first, then the natural version learners are likely to hear in everyday speech."
+    },
+    {
+      "meaning": "My eyes are tired.",
+      "textbookVersion": "Tengo los ojos cansados.",
+      "naturalEverydayVersion": "Tengo los ojos cansados.",
+      "mexicanSpanishVersion": "Tengo los ojos cansados.",
+      "spainSpanishVersion": "Tengo los ojos cansados.",
+      "whenUsed": "Carlos shows the textbook version first, then the natural version learners are likely to hear in everyday speech."
+    }
+  ],
+  "grammar": {
+    "topic": "Definite articles with body parts",
+    "explanation": "Spanish usually uses el, la, los, or las with body parts instead of mi. Carlos guides you to say me duele la cabeza, not mi cabeza duele.",
+    "examples": [
+      {
+        "spanish": "Me duele el brazo.",
+        "english": "My arm hurts."
+      },
+      {
+        "spanish": "Me duelen los pies.",
+        "english": "My feet hurt."
+      },
+      {
+        "spanish": "Tengo las manos frias.",
+        "english": "My hands are cold."
+      }
+    ],
+    "practicePrompt": "Tell Carlos three body parts and say which one hurts or feels tired."
+  },
+  "dialogue": [
+    {
+      "title": "Warmup with Carlos",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Practiquemos body parts: el cuerpo.",
+          "english": "Let's practice body parts: body."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "Me duele el ojo.",
+          "english": "My eye hurts."
+        }
+      ]
+    },
+    {
+      "title": "Real-world question",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Practiquemos body parts: la cabeza.",
+          "english": "Let's practice body parts: head."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "Mis ojos estan cansados.",
+          "english": "My eyes are tired."
+        }
+      ]
+    },
+    {
+      "title": "Using old vocabulary",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Practiquemos body parts: la cara.",
+          "english": "Let's practice body parts: face."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "Me duele la nariz.",
+          "english": "My nose hurts."
+        }
+      ]
+    },
+    {
+      "title": "Making a plan",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Practiquemos body parts: el ojo.",
+          "english": "Let's practice body parts: eye."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "Abre la boca.",
+          "english": "Open your mouth."
+        }
+      ]
+    },
+    {
+      "title": "Asking for help",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Practiquemos body parts: los ojos.",
+          "english": "Let's practice body parts: eyes."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "Me duele un diente.",
+          "english": "A tooth hurts."
+        }
+      ]
+    },
+    {
+      "title": "Polite correction",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Practiquemos body parts: la nariz.",
+          "english": "Let's practice body parts: nose."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "Me duelen los dientes.",
+          "english": "My teeth hurt."
+        }
+      ]
+    },
+    {
+      "title": "With family",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Practiquemos body parts: la boca.",
+          "english": "Let's practice body parts: mouth."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "Me duele la garganta.",
+          "english": "My throat hurts."
+        }
+      ]
+    },
+    {
+      "title": "At work or school",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Practiquemos body parts: el diente.",
+          "english": "Let's practice body parts: tooth."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "Me duele el cuello.",
+          "english": "My neck hurts."
+        }
+      ]
+    },
+    {
+      "title": "Travel moment",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Practiquemos body parts: los dientes.",
+          "english": "Let's practice body parts: teeth."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "Me duele el hombro.",
+          "english": "My shoulder hurts."
+        }
+      ]
+    },
+    {
+      "title": "Wrap-up challenge",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Practiquemos body parts: la garganta.",
+          "english": "Let's practice body parts: throat."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "Me duele el brazo.",
+          "english": "My arm hurts."
+        }
+      ]
+    }
+  ],
+  "dialogues": [
+    {
+      "title": "Warmup with Carlos",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Practiquemos body parts: el cuerpo.",
+          "english": "Let's practice body parts: body."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "Me duele el ojo.",
+          "english": "My eye hurts."
+        }
+      ]
+    },
+    {
+      "title": "Real-world question",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Practiquemos body parts: la cabeza.",
+          "english": "Let's practice body parts: head."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "Mis ojos estan cansados.",
+          "english": "My eyes are tired."
+        }
+      ]
+    },
+    {
+      "title": "Using old vocabulary",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Practiquemos body parts: la cara.",
+          "english": "Let's practice body parts: face."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "Me duele la nariz.",
+          "english": "My nose hurts."
+        }
+      ]
+    },
+    {
+      "title": "Making a plan",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Practiquemos body parts: el ojo.",
+          "english": "Let's practice body parts: eye."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "Abre la boca.",
+          "english": "Open your mouth."
+        }
+      ]
+    },
+    {
+      "title": "Asking for help",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Practiquemos body parts: los ojos.",
+          "english": "Let's practice body parts: eyes."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "Me duele un diente.",
+          "english": "A tooth hurts."
+        }
+      ]
+    },
+    {
+      "title": "Polite correction",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Practiquemos body parts: la nariz.",
+          "english": "Let's practice body parts: nose."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "Me duelen los dientes.",
+          "english": "My teeth hurt."
+        }
+      ]
+    },
+    {
+      "title": "With family",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Practiquemos body parts: la boca.",
+          "english": "Let's practice body parts: mouth."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "Me duele la garganta.",
+          "english": "My throat hurts."
+        }
+      ]
+    },
+    {
+      "title": "At work or school",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Practiquemos body parts: el diente.",
+          "english": "Let's practice body parts: tooth."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "Me duele el cuello.",
+          "english": "My neck hurts."
+        }
+      ]
+    },
+    {
+      "title": "Travel moment",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Practiquemos body parts: los dientes.",
+          "english": "Let's practice body parts: teeth."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "Me duele el hombro.",
+          "english": "My shoulder hurts."
+        }
+      ]
+    },
+    {
+      "title": "Wrap-up challenge",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Practiquemos body parts: la garganta.",
+          "english": "Let's practice body parts: throat."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "Me duele el brazo.",
+          "english": "My arm hurts."
+        }
+      ]
+    }
+  ],
+  "listeningPhrases": [
+    {
+      "spanish": "El cuerpo necesita descanso.",
+      "english": "The body needs rest."
+    },
+    {
+      "spanish": "Me duele la cabeza.",
+      "english": "My head hurts."
+    },
+    {
+      "spanish": "Tengo la cara roja.",
+      "english": "My face is red."
+    },
+    {
+      "spanish": "Me duele el ojo.",
+      "english": "My eye hurts."
+    },
+    {
+      "spanish": "Mis ojos estan cansados.",
+      "english": "My eyes are tired."
+    },
+    {
+      "spanish": "Me duele la nariz.",
+      "english": "My nose hurts."
+    },
+    {
+      "spanish": "Abre la boca.",
+      "english": "Open your mouth."
+    },
+    {
+      "spanish": "Me duele un diente.",
+      "english": "A tooth hurts."
+    },
+    {
+      "spanish": "Me duelen los dientes.",
+      "english": "My teeth hurt."
+    },
+    {
+      "spanish": "Me duele la garganta.",
+      "english": "My throat hurts."
+    }
+  ],
+  "listening": [
+    {
+      "spanish": "El cuerpo necesita descanso.",
+      "english": "The body needs rest."
+    },
+    {
+      "spanish": "Me duele la cabeza.",
+      "english": "My head hurts."
+    },
+    {
+      "spanish": "Tengo la cara roja.",
+      "english": "My face is red."
+    },
+    {
+      "spanish": "Me duele el ojo.",
+      "english": "My eye hurts."
+    },
+    {
+      "spanish": "Mis ojos estan cansados.",
+      "english": "My eyes are tired."
+    },
+    {
+      "spanish": "Me duele la nariz.",
+      "english": "My nose hurts."
+    },
+    {
+      "spanish": "Abre la boca.",
+      "english": "Open your mouth."
+    },
+    {
+      "spanish": "Me duele un diente.",
+      "english": "A tooth hurts."
+    },
+    {
+      "spanish": "Me duelen los dientes.",
+      "english": "My teeth hurt."
+    },
+    {
+      "spanish": "Me duele la garganta.",
+      "english": "My throat hurts."
+    }
+  ],
+  "pronunciation": {
+    "focus": "Carlos helps you practice clear rhythm and useful sounds for body parts.",
+    "items": [
+      {
+        "text": "el cuerpo",
+        "note": "Say el cuerpo slowly first, then repeat it in the sentence: El cuerpo necesita descanso."
+      },
+      {
+        "text": "la cabeza",
+        "note": "Say la cabeza slowly first, then repeat it in the sentence: Me duele la cabeza."
+      },
+      {
+        "text": "la cara",
+        "note": "Say la cara slowly first, then repeat it in the sentence: Tengo la cara roja."
+      },
+      {
+        "text": "el ojo",
+        "note": "Say el ojo slowly first, then repeat it in the sentence: Me duele el ojo."
+      },
+      {
+        "text": "los ojos",
+        "note": "Say los ojos slowly first, then repeat it in the sentence: Mis ojos estan cansados."
+      },
+      {
+        "text": "la nariz",
+        "note": "Say la nariz slowly first, then repeat it in the sentence: Me duele la nariz."
+      },
+      {
+        "text": "la boca",
+        "note": "Say la boca slowly first, then repeat it in the sentence: Abre la boca."
+      },
+      {
+        "text": "el diente",
+        "note": "Say el diente slowly first, then repeat it in the sentence: Me duele un diente."
+      },
+      {
+        "text": "los dientes",
+        "note": "Say los dientes slowly first, then repeat it in the sentence: Me duelen los dientes."
+      },
+      {
+        "text": "la garganta",
+        "note": "Say la garganta slowly first, then repeat it in the sentence: Me duele la garganta."
+      }
+    ]
+  },
+  "culture": {
+    "title": "Body Parts in real life",
+    "text": "Body-part phrases are practical for pharmacies, doctors, travel, and sports. Carlos keeps the phrases simple and respectful."
+  },
+  "nativeSpeech": {
+    "title": "Carlos native speaker tips",
+    "notes": [
+      "Use me duele for one body part and me duelen for plural body parts.",
+      "Spanish often uses the article: la cabeza, el brazo, los pies.",
+      "La mano is feminine even though it ends in -o."
+    ]
+  },
+  "nativeExpressions": [
+    "Use me duele for one body part and me duelen for plural body parts.",
+    "Spanish often uses the article: la cabeza, el brazo, los pies.",
+    "La mano is feminine even though it ends in -o."
+  ],
+  "commonMistakes": [
+    {
+      "mistake": "Saying me duele mis pies.",
+      "correction": "Say me duelen los pies.",
+      "explanation": "Plural body parts use duelen and usually los/las."
+    },
+    {
+      "mistake": "Saying el mano.",
+      "correction": "Say la mano.",
+      "explanation": "Mano is feminine."
+    },
+    {
+      "mistake": "Saying mi cabeza duele.",
+      "correction": "Say me duele la cabeza.",
+      "explanation": "Spanish uses a different pain structure."
+    }
+  ],
+  "quiz": [
+    {
+      "type": "multipleChoice",
+      "prompt": "What does el cuerpo mean?",
+      "options": [
+        "body",
+        "head",
+        "face",
+        "eye"
+      ],
+      "answer": "body"
+    },
+    {
+      "type": "multipleChoice",
+      "prompt": "What does la cabeza mean?",
+      "options": [
+        "head",
+        "face",
+        "eye",
+        "eyes"
+      ],
+      "answer": "head"
+    },
+    {
+      "type": "multipleChoice",
+      "prompt": "What does la cara mean?",
+      "options": [
+        "face",
+        "eye",
+        "eyes",
+        "nose"
+      ],
+      "answer": "face"
+    },
+    {
+      "type": "multipleChoice",
+      "prompt": "What does el ojo mean?",
+      "options": [
+        "eye",
+        "eyes",
+        "nose",
+        "mouth"
+      ],
+      "answer": "eye"
+    },
+    {
+      "type": "multipleChoice",
+      "prompt": "What does los ojos mean?",
+      "options": [
+        "eyes",
+        "nose",
+        "mouth",
+        "tooth"
+      ],
+      "answer": "eyes"
+    },
+    {
+      "type": "multipleChoice",
+      "prompt": "What does la nariz mean?",
+      "options": [
+        "nose",
+        "mouth",
+        "tooth",
+        "teeth"
+      ],
+      "answer": "nose"
+    },
+    {
+      "type": "multipleChoice",
+      "prompt": "What does la boca mean?",
+      "options": [
+        "mouth",
+        "tooth",
+        "teeth",
+        "throat"
+      ],
+      "answer": "mouth"
+    },
+    {
+      "type": "multipleChoice",
+      "prompt": "What does el diente mean?",
+      "options": [
+        "tooth",
+        "teeth",
+        "throat",
+        "neck"
+      ],
+      "answer": "tooth"
+    },
+    {
+      "type": "multipleChoice",
+      "prompt": "What does los dientes mean?",
+      "options": [
+        "teeth",
+        "throat",
+        "neck",
+        "shoulder"
+      ],
+      "answer": "teeth"
+    },
+    {
+      "type": "multipleChoice",
+      "prompt": "What does la garganta mean?",
+      "options": [
+        "throat",
+        "neck",
+        "shoulder",
+        "arm"
+      ],
+      "answer": "throat"
+    },
+    {
+      "type": "multipleChoice",
+      "prompt": "What does el cuello mean?",
+      "options": [
+        "neck",
+        "shoulder",
+        "arm",
+        "hand"
+      ],
+      "answer": "neck"
+    },
+    {
+      "type": "multipleChoice",
+      "prompt": "What does el hombro mean?",
+      "options": [
+        "shoulder",
+        "arm",
+        "hand",
+        "finger/toe"
+      ],
+      "answer": "shoulder"
+    },
+    {
+      "type": "translation",
+      "prompt": "Translate: El cuerpo necesita descanso.",
+      "answer": "The body needs rest."
+    },
+    {
+      "type": "translation",
+      "prompt": "Translate: Me duele la cabeza.",
+      "answer": "My head hurts."
+    },
+    {
+      "type": "multipleChoice",
+      "prompt": "Which phrase belongs in Body Parts?",
+      "options": [
+        "la cara",
+        "mi suegra",
+        "buenos dias",
+        "un boleto"
+      ],
+      "answer": "la cara"
+    }
+  ],
+  "speakingChallenge": [
+    {
+      "prompt": "Carlos asks you to use el cuerpo in a real sentence.",
+      "exampleAnswer": "El cuerpo necesita descanso."
+    },
+    {
+      "prompt": "Carlos asks you to use la cabeza in a real sentence.",
+      "exampleAnswer": "Me duele la cabeza."
+    },
+    {
+      "prompt": "Carlos asks you to use la cara in a real sentence.",
+      "exampleAnswer": "Tengo la cara roja."
+    },
+    {
+      "prompt": "Carlos asks you to use el ojo in a real sentence.",
+      "exampleAnswer": "Me duele el ojo."
+    },
+    {
+      "prompt": "Carlos asks you to use los ojos in a real sentence.",
+      "exampleAnswer": "Mis ojos estan cansados."
+    }
+  ],
+  "realLifeMission": {
+    "title": "Real Life Mission",
+    "mission": "Describe an injury to Carlos after playing sports. Name three body parts and say what hurts.",
+    "successCriteria": [
+      "Use at least six words from this lesson.",
+      "Use one phrase recycled from a previous lesson.",
+      "Ask Carlos at least one question.",
+      "Respond naturally with a short follow-up sentence."
+    ],
+    "suggestedPartner": "Carlos",
+    "xpReward": 10
+  },
+  "review": {
+    "recap": [
+      "Carlos reviewed body parts vocabulary.",
+      "You practiced Definite articles with body parts.",
+      "You connected this lesson to earlier A1 survival conversations."
+    ],
+    "canDo": [
+      "Name common body parts and use them in simple health conversations.",
+      "Ask and answer simple everyday questions.",
+      "Repair the conversation with a short polite phrase if needed."
+    ]
+  },
+  "achievementsUnlocked": [],
+  "xpReward": 80,
+  "nextLesson": "lesson-19-emotions"
+}

@@ -1,0 +1,842 @@
+{
+  "id": "lesson-04-numbers-time",
+  "title": "Numbers & Time: Making Plans Clearly",
+  "level": "A1",
+  "module": "Numbers & Time",
+  "estimatedMinutes": 30,
+  "metadata": {
+    "course": "Habla",
+    "unit": "A1 Beginner",
+    "lessonNumber": 4,
+    "guide": "Carlos",
+    "imagePath": "assets/images/lessons/lesson-04-numbers-time.png"
+  },
+  "prerequisiteLesson": "lesson-03-family",
+  "objectives": [
+    "Use numbers, clock time, days, and calendar phrases to make simple plans with Carlos.",
+    "Understand Carlos in short guided exchanges.",
+    "Use the lesson language in one realistic conversation."
+  ],
+  "objective": "Use numbers, clock time, days, and calendar phrases to make simple plans with Carlos.",
+  "vocabulary": [
+    {
+      "spanish": "cero",
+      "english": "zero",
+      "partOfSpeech": "number",
+      "tip": "Carlos tip: practice ?cero? in a short real sentence, not as an isolated word.",
+      "exampleSpanish": "Carlos usa cero en una frase.",
+      "exampleEnglish": "Carlos uses zero in a sentence."
+    },
+    {
+      "spanish": "uno",
+      "english": "one",
+      "partOfSpeech": "number",
+      "tip": "Carlos tip: practice ?uno? in a short real sentence, not as an isolated word.",
+      "exampleSpanish": "Carlos usa uno en una frase.",
+      "exampleEnglish": "Carlos uses one in a sentence."
+    },
+    {
+      "spanish": "dos",
+      "english": "two",
+      "partOfSpeech": "number",
+      "tip": "Carlos tip: practice ?dos? in a short real sentence, not as an isolated word.",
+      "exampleSpanish": "Carlos usa dos en una frase.",
+      "exampleEnglish": "Carlos uses two in a sentence."
+    },
+    {
+      "spanish": "tres",
+      "english": "three",
+      "partOfSpeech": "number",
+      "tip": "Carlos tip: practice ?tres? in a short real sentence, not as an isolated word.",
+      "exampleSpanish": "Carlos usa tres en una frase.",
+      "exampleEnglish": "Carlos uses three in a sentence."
+    },
+    {
+      "spanish": "cuatro",
+      "english": "four",
+      "partOfSpeech": "number",
+      "tip": "Carlos tip: practice ?cuatro? in a short real sentence, not as an isolated word.",
+      "exampleSpanish": "Carlos usa cuatro en una frase.",
+      "exampleEnglish": "Carlos uses four in a sentence."
+    },
+    {
+      "spanish": "cinco",
+      "english": "five",
+      "partOfSpeech": "number",
+      "tip": "Carlos tip: practice ?cinco? in a short real sentence, not as an isolated word.",
+      "exampleSpanish": "Carlos usa cinco en una frase.",
+      "exampleEnglish": "Carlos uses five in a sentence."
+    },
+    {
+      "spanish": "seis",
+      "english": "six",
+      "partOfSpeech": "number",
+      "tip": "Carlos tip: practice ?seis? in a short real sentence, not as an isolated word.",
+      "exampleSpanish": "Carlos usa seis en una frase.",
+      "exampleEnglish": "Carlos uses six in a sentence."
+    },
+    {
+      "spanish": "siete",
+      "english": "seven",
+      "partOfSpeech": "number",
+      "tip": "Carlos tip: practice ?siete? in a short real sentence, not as an isolated word.",
+      "exampleSpanish": "Carlos usa siete en una frase.",
+      "exampleEnglish": "Carlos uses seven in a sentence."
+    },
+    {
+      "spanish": "ocho",
+      "english": "eight",
+      "partOfSpeech": "number",
+      "tip": "Carlos tip: practice ?ocho? in a short real sentence, not as an isolated word.",
+      "exampleSpanish": "Carlos usa ocho en una frase.",
+      "exampleEnglish": "Carlos uses eight in a sentence."
+    },
+    {
+      "spanish": "nueve",
+      "english": "nine",
+      "partOfSpeech": "number",
+      "tip": "Carlos tip: practice ?nueve? in a short real sentence, not as an isolated word.",
+      "exampleSpanish": "Carlos usa nueve en una frase.",
+      "exampleEnglish": "Carlos uses nine in a sentence."
+    },
+    {
+      "spanish": "diez",
+      "english": "ten",
+      "partOfSpeech": "number",
+      "tip": "Carlos tip: practice ?diez? in a short real sentence, not as an isolated word.",
+      "exampleSpanish": "Carlos usa diez en una frase.",
+      "exampleEnglish": "Carlos uses ten in a sentence."
+    },
+    {
+      "spanish": "once",
+      "english": "eleven",
+      "partOfSpeech": "number",
+      "tip": "Carlos tip: practice ?once? in a short real sentence, not as an isolated word.",
+      "exampleSpanish": "Carlos usa once en una frase.",
+      "exampleEnglish": "Carlos uses eleven in a sentence."
+    },
+    {
+      "spanish": "doce",
+      "english": "twelve",
+      "partOfSpeech": "number",
+      "tip": "Carlos tip: practice ?doce? in a short real sentence, not as an isolated word.",
+      "exampleSpanish": "Carlos usa doce en una frase.",
+      "exampleEnglish": "Carlos uses twelve in a sentence."
+    },
+    {
+      "spanish": "quince",
+      "english": "fifteen",
+      "partOfSpeech": "number",
+      "tip": "Carlos tip: practice ?quince? in a short real sentence, not as an isolated word.",
+      "exampleSpanish": "Carlos usa quince en una frase.",
+      "exampleEnglish": "Carlos uses fifteen in a sentence."
+    },
+    {
+      "spanish": "veinte",
+      "english": "twenty",
+      "partOfSpeech": "number",
+      "tip": "Carlos tip: practice ?veinte? in a short real sentence, not as an isolated word.",
+      "exampleSpanish": "Carlos usa veinte en una frase.",
+      "exampleEnglish": "Carlos uses twenty in a sentence."
+    },
+    {
+      "spanish": "treinta",
+      "english": "thirty",
+      "partOfSpeech": "number",
+      "tip": "Carlos tip: practice ?treinta? in a short real sentence, not as an isolated word.",
+      "exampleSpanish": "Carlos usa treinta en una frase.",
+      "exampleEnglish": "Carlos uses thirty in a sentence."
+    },
+    {
+      "spanish": "la hora",
+      "english": "time / hour",
+      "partOfSpeech": "noun",
+      "tip": "Carlos tip: practice ?la hora? in a short real sentence, not as an isolated word.",
+      "exampleSpanish": "Carlos usa la hora en una frase.",
+      "exampleEnglish": "Carlos uses time / hour in a sentence."
+    },
+    {
+      "spanish": "el minuto",
+      "english": "minute",
+      "partOfSpeech": "noun",
+      "tip": "Carlos tip: practice ?el minuto? in a short real sentence, not as an isolated word.",
+      "exampleSpanish": "Carlos usa el minuto en una frase.",
+      "exampleEnglish": "Carlos uses minute in a sentence."
+    },
+    {
+      "spanish": "hoy",
+      "english": "today",
+      "partOfSpeech": "adverb",
+      "tip": "Carlos tip: practice ?hoy? in a short real sentence, not as an isolated word.",
+      "exampleSpanish": "Carlos usa hoy en una frase.",
+      "exampleEnglish": "Carlos uses today in a sentence."
+    },
+    {
+      "spanish": "ma?ana",
+      "english": "tomorrow / morning",
+      "partOfSpeech": "adverb",
+      "tip": "Carlos tip: practice ?ma?ana? in a short real sentence, not as an isolated word.",
+      "exampleSpanish": "Carlos usa ma?ana en una frase.",
+      "exampleEnglish": "Carlos uses tomorrow / morning in a sentence."
+    },
+    {
+      "spanish": "ayer",
+      "english": "yesterday",
+      "partOfSpeech": "adverb",
+      "tip": "Carlos tip: practice ?ayer? in a short real sentence, not as an isolated word.",
+      "exampleSpanish": "Carlos usa ayer en una frase.",
+      "exampleEnglish": "Carlos uses yesterday in a sentence."
+    },
+    {
+      "spanish": "la semana",
+      "english": "week",
+      "partOfSpeech": "noun",
+      "tip": "Carlos tip: practice ?la semana? in a short real sentence, not as an isolated word.",
+      "exampleSpanish": "Carlos usa la semana en una frase.",
+      "exampleEnglish": "Carlos uses week in a sentence."
+    },
+    {
+      "spanish": "el mes",
+      "english": "month",
+      "partOfSpeech": "noun",
+      "tip": "Carlos tip: practice ?el mes? in a short real sentence, not as an isolated word.",
+      "exampleSpanish": "Carlos usa el mes en una frase.",
+      "exampleEnglish": "Carlos uses month in a sentence."
+    },
+    {
+      "spanish": "a las tres",
+      "english": "at three o?clock",
+      "partOfSpeech": "time phrase",
+      "tip": "Carlos tip: practice ?a las tres? in a short real sentence, not as an isolated word.",
+      "exampleSpanish": "Carlos usa a las tres en una frase.",
+      "exampleEnglish": "Carlos uses at three o?clock in a sentence."
+    },
+    {
+      "spanish": "?Qu? hora es?",
+      "english": "What time is it?",
+      "partOfSpeech": "question",
+      "tip": "Carlos tip: practice ??Qu? hora es?? in a short real sentence, not as an isolated word.",
+      "exampleSpanish": "Carlos usa ?Qu? hora es? en una frase.",
+      "exampleEnglish": "Carlos uses What time is it? in a sentence."
+    },
+    {
+      "spanish": "Son las dos",
+      "english": "It is two o?clock",
+      "partOfSpeech": "sentence",
+      "tip": "Carlos tip: practice ?Son las dos? in a short real sentence, not as an isolated word.",
+      "exampleSpanish": "Carlos usa Son las dos en una frase.",
+      "exampleEnglish": "Carlos uses It is two o?clock in a sentence."
+    }
+  ],
+  "grammar": {
+    "topic": "Telling time with es la / son las",
+    "explanation": "Use es la una for one o?clock and son las for every other hour. Use a las to say when something happens.",
+    "examples": [
+      {
+        "spanish": "Es la una.",
+        "english": "It is one o?clock."
+      },
+      {
+        "spanish": "Son las tres.",
+        "english": "It is three o?clock."
+      },
+      {
+        "spanish": "Practico a las siete.",
+        "english": "I practice at seven."
+      }
+    ],
+    "practicePrompt": "Say one original sentence using today?s pattern with Carlos."
+  },
+  "dialogue": [
+    {
+      "title": "Numbers & Time with Carlos",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Vamos a practicar numbers & time.",
+          "english": "Let?s practice numbers & time."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "S?, quiero practicar.",
+          "english": "Yes, I want to practice."
+        },
+        {
+          "speaker": "Carlos",
+          "spanish": "Muy bien. Usa una frase completa.",
+          "english": "Very good. Use a complete sentence."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "Puedo decirlo otra vez.",
+          "english": "I can say it again."
+        }
+      ]
+    },
+    {
+      "title": "A polite real-life exchange",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Disculpe, tengo una pregunta.",
+          "english": "Excuse me, I have a question."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "Claro, con gusto.",
+          "english": "Of course, gladly."
+        },
+        {
+          "speaker": "Carlos",
+          "spanish": "Gracias por ayudarme.",
+          "english": "Thank you for helping me."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "De nada.",
+          "english": "You?re welcome."
+        }
+      ]
+    },
+    {
+      "title": "Family-friendly practice",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "?C?mo lo dices con tu familia?",
+          "english": "How do you say it with your family?"
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "Lo digo despacio y con respeto.",
+          "english": "I say it slowly and respectfully."
+        },
+        {
+          "speaker": "Carlos",
+          "spanish": "Perfecto, eso suena natural.",
+          "english": "Perfect, that sounds natural."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "Gracias, Carlos.",
+          "english": "Thanks, Carlos."
+        }
+      ]
+    }
+  ],
+  "dialogues": [
+    {
+      "title": "Numbers & Time with Carlos",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Vamos a practicar numbers & time.",
+          "english": "Let?s practice numbers & time."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "S?, quiero practicar.",
+          "english": "Yes, I want to practice."
+        },
+        {
+          "speaker": "Carlos",
+          "spanish": "Muy bien. Usa una frase completa.",
+          "english": "Very good. Use a complete sentence."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "Puedo decirlo otra vez.",
+          "english": "I can say it again."
+        }
+      ]
+    },
+    {
+      "title": "A polite real-life exchange",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Disculpe, tengo una pregunta.",
+          "english": "Excuse me, I have a question."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "Claro, con gusto.",
+          "english": "Of course, gladly."
+        },
+        {
+          "speaker": "Carlos",
+          "spanish": "Gracias por ayudarme.",
+          "english": "Thank you for helping me."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "De nada.",
+          "english": "You?re welcome."
+        }
+      ]
+    },
+    {
+      "title": "Family-friendly practice",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "?C?mo lo dices con tu familia?",
+          "english": "How do you say it with your family?"
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "Lo digo despacio y con respeto.",
+          "english": "I say it slowly and respectfully."
+        },
+        {
+          "speaker": "Carlos",
+          "spanish": "Perfecto, eso suena natural.",
+          "english": "Perfect, that sounds natural."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "Gracias, Carlos.",
+          "english": "Thanks, Carlos."
+        }
+      ]
+    }
+  ],
+  "listening": {
+    "phrases": [
+      {
+        "spanish": "cero",
+        "english": "zero"
+      },
+      {
+        "spanish": "uno",
+        "english": "one"
+      },
+      {
+        "spanish": "dos",
+        "english": "two"
+      },
+      {
+        "spanish": "tres",
+        "english": "three"
+      },
+      {
+        "spanish": "cuatro",
+        "english": "four"
+      },
+      {
+        "spanish": "cinco",
+        "english": "five"
+      },
+      {
+        "spanish": "seis",
+        "english": "six"
+      },
+      {
+        "spanish": "siete",
+        "english": "seven"
+      },
+      {
+        "spanish": "ocho",
+        "english": "eight"
+      },
+      {
+        "spanish": "nueve",
+        "english": "nine"
+      }
+    ]
+  },
+  "listeningPhrases": [
+    {
+      "spanish": "cero",
+      "english": "zero"
+    },
+    {
+      "spanish": "uno",
+      "english": "one"
+    },
+    {
+      "spanish": "dos",
+      "english": "two"
+    },
+    {
+      "spanish": "tres",
+      "english": "three"
+    },
+    {
+      "spanish": "cuatro",
+      "english": "four"
+    },
+    {
+      "spanish": "cinco",
+      "english": "five"
+    },
+    {
+      "spanish": "seis",
+      "english": "six"
+    },
+    {
+      "spanish": "siete",
+      "english": "seven"
+    },
+    {
+      "spanish": "ocho",
+      "english": "eight"
+    },
+    {
+      "spanish": "nueve",
+      "english": "nine"
+    }
+  ],
+  "pronunciation": {
+    "focus": "Clear vowels, word stress, and confident phrase rhythm.",
+    "items": [
+      {
+        "text": "cero",
+        "note": "Say each vowel clearly and keep the rhythm natural."
+      },
+      {
+        "text": "uno",
+        "note": "Say each vowel clearly and keep the rhythm natural."
+      },
+      {
+        "text": "dos",
+        "note": "Say each vowel clearly and keep the rhythm natural."
+      },
+      {
+        "text": "tres",
+        "note": "Say each vowel clearly and keep the rhythm natural."
+      },
+      {
+        "text": "cuatro",
+        "note": "Say each vowel clearly and keep the rhythm natural."
+      },
+      {
+        "text": "cinco",
+        "note": "Say each vowel clearly and keep the rhythm natural."
+      },
+      {
+        "text": "seis",
+        "note": "Say each vowel clearly and keep the rhythm natural."
+      },
+      {
+        "text": "siete",
+        "note": "Say each vowel clearly and keep the rhythm natural."
+      },
+      {
+        "text": "ocho",
+        "note": "Say each vowel clearly and keep the rhythm natural."
+      },
+      {
+        "text": "nueve",
+        "note": "Say each vowel clearly and keep the rhythm natural."
+      }
+    ]
+  },
+  "pronunciationExercises": [
+    {
+      "text": "cero",
+      "note": "Repeat after Carlos, then say it in a short phrase."
+    },
+    {
+      "text": "uno",
+      "note": "Repeat after Carlos, then say it in a short phrase."
+    },
+    {
+      "text": "dos",
+      "note": "Repeat after Carlos, then say it in a short phrase."
+    },
+    {
+      "text": "tres",
+      "note": "Repeat after Carlos, then say it in a short phrase."
+    },
+    {
+      "text": "cuatro",
+      "note": "Repeat after Carlos, then say it in a short phrase."
+    },
+    {
+      "text": "cinco",
+      "note": "Repeat after Carlos, then say it in a short phrase."
+    },
+    {
+      "text": "seis",
+      "note": "Repeat after Carlos, then say it in a short phrase."
+    },
+    {
+      "text": "siete",
+      "note": "Repeat after Carlos, then say it in a short phrase."
+    },
+    {
+      "text": "ocho",
+      "note": "Repeat after Carlos, then say it in a short phrase."
+    },
+    {
+      "text": "nueve",
+      "note": "Repeat after Carlos, then say it in a short phrase."
+    }
+  ],
+  "culture": {
+    "title": "Numbers & Time in Real Life",
+    "text": "In many Spanish-speaking places, people use both 12-hour and 24-hour time. For casual plans, context usually makes morning or evening clear."
+  },
+  "cultureNotes": [
+    "In many Spanish-speaking places, people use both 12-hour and 24-hour time. For casual plans, context usually makes morning or evening clear."
+  ],
+  "nativeSpeech": {
+    "title": "How Carlos would say it naturally",
+    "notes": [
+      "Native speakers often say ??A qu? hora?? for ?At what time??",
+      "?Nos vemos a las ocho? is a natural way to say ?See you at eight.?"
+    ]
+  },
+  "commonMistakes": [
+    {
+      "mistake": "Using es for every hour",
+      "correction": "Son las dos.",
+      "explanation": "Only one o?clock uses es la."
+    },
+    {
+      "mistake": "Forgetting a in time plans",
+      "correction": "Practico a las seis.",
+      "explanation": "Use a las to mean at a time."
+    },
+    {
+      "mistake": "Confusing ma?ana",
+      "correction": "ma?ana can mean tomorrow or morning.",
+      "explanation": "Context tells you which meaning is intended."
+    }
+  ],
+  "quiz": [
+    {
+      "type": "multipleChoice",
+      "prompt": "What does ?cero? mean?",
+      "options": [
+        "zero",
+        "one",
+        "two",
+        "three"
+      ],
+      "answer": "zero"
+    },
+    {
+      "type": "multipleChoice",
+      "prompt": "What does ?uno? mean?",
+      "options": [
+        "one",
+        "zero",
+        "two",
+        "three"
+      ],
+      "answer": "one"
+    },
+    {
+      "type": "multipleChoice",
+      "prompt": "What does ?dos? mean?",
+      "options": [
+        "two",
+        "zero",
+        "one",
+        "three"
+      ],
+      "answer": "two"
+    },
+    {
+      "type": "multipleChoice",
+      "prompt": "What does ?tres? mean?",
+      "options": [
+        "three",
+        "zero",
+        "one",
+        "two"
+      ],
+      "answer": "three"
+    },
+    {
+      "type": "multipleChoice",
+      "prompt": "What does ?cuatro? mean?",
+      "options": [
+        "four",
+        "zero",
+        "one",
+        "two"
+      ],
+      "answer": "four"
+    },
+    {
+      "type": "multipleChoice",
+      "prompt": "What does ?cinco? mean?",
+      "options": [
+        "five",
+        "zero",
+        "one",
+        "two"
+      ],
+      "answer": "five"
+    },
+    {
+      "type": "multipleChoice",
+      "prompt": "What does ?seis? mean?",
+      "options": [
+        "six",
+        "zero",
+        "one",
+        "two"
+      ],
+      "answer": "six"
+    },
+    {
+      "type": "multipleChoice",
+      "prompt": "What does ?siete? mean?",
+      "options": [
+        "seven",
+        "zero",
+        "one",
+        "two"
+      ],
+      "answer": "seven"
+    },
+    {
+      "type": "multipleChoice",
+      "prompt": "What does ?ocho? mean?",
+      "options": [
+        "eight",
+        "zero",
+        "one",
+        "two"
+      ],
+      "answer": "eight"
+    },
+    {
+      "type": "multipleChoice",
+      "prompt": "What does ?nueve? mean?",
+      "options": [
+        "nine",
+        "zero",
+        "one",
+        "two"
+      ],
+      "answer": "nine"
+    },
+    {
+      "type": "multipleChoice",
+      "prompt": "What does ?diez? mean?",
+      "options": [
+        "ten",
+        "zero",
+        "one",
+        "two"
+      ],
+      "answer": "ten"
+    },
+    {
+      "type": "multipleChoice",
+      "prompt": "What does ?once? mean?",
+      "options": [
+        "eleven",
+        "zero",
+        "one",
+        "two"
+      ],
+      "answer": "eleven"
+    },
+    {
+      "type": "multipleChoice",
+      "prompt": "What does ?doce? mean?",
+      "options": [
+        "twelve",
+        "zero",
+        "one",
+        "two"
+      ],
+      "answer": "twelve"
+    },
+    {
+      "type": "multipleChoice",
+      "prompt": "What does ?quince? mean?",
+      "options": [
+        "fifteen",
+        "zero",
+        "one",
+        "two"
+      ],
+      "answer": "fifteen"
+    },
+    {
+      "type": "multipleChoice",
+      "prompt": "What does ?veinte? mean?",
+      "options": [
+        "twenty",
+        "zero",
+        "one",
+        "two"
+      ],
+      "answer": "twenty"
+    }
+  ],
+  "speakingChallenge": [
+    {
+      "prompt": "Use ?cero? in a sentence with Carlos.",
+      "exampleAnswer": "Cero, por favor."
+    },
+    {
+      "prompt": "Use ?uno? in a sentence with Carlos.",
+      "exampleAnswer": "Uno, por favor."
+    },
+    {
+      "prompt": "Use ?dos? in a sentence with Carlos.",
+      "exampleAnswer": "Dos, por favor."
+    },
+    {
+      "prompt": "Use ?tres? in a sentence with Carlos.",
+      "exampleAnswer": "Tres, por favor."
+    },
+    {
+      "prompt": "Use ?cuatro? in a sentence with Carlos.",
+      "exampleAnswer": "Cuatro, por favor."
+    }
+  ],
+  "speakingChallenges": [
+    {
+      "prompt": "Tell Carlos one real thing using ?cero?.",
+      "exampleAnswer": "Carlos, practico cero."
+    },
+    {
+      "prompt": "Tell Carlos one real thing using ?uno?.",
+      "exampleAnswer": "Carlos, practico uno."
+    },
+    {
+      "prompt": "Tell Carlos one real thing using ?dos?.",
+      "exampleAnswer": "Carlos, practico dos."
+    },
+    {
+      "prompt": "Tell Carlos one real thing using ?tres?.",
+      "exampleAnswer": "Carlos, practico tres."
+    },
+    {
+      "prompt": "Tell Carlos one real thing using ?cuatro?.",
+      "exampleAnswer": "Carlos, practico cuatro."
+    }
+  ],
+  "realLifeMission": {
+    "title": "Real Life Mission",
+    "mission": "Tell Carlos what time you practice Spanish today and make one plan using a day, a number, and a time.",
+    "successCriteria": [
+      "Use at least three lesson vocabulary items.",
+      "Use the main grammar pattern.",
+      "Answer one follow-up question from Carlos."
+    ],
+    "suggestedPartner": "Carlos",
+    "xpReward": 60
+  },
+  "review": {
+    "summary": "You practiced numbers & time for everyday Spanish.",
+    "canDo": [
+      "Recognize key vocabulary.",
+      "Answer Carlos with simple complete sentences.",
+      "Use the Real Life Mission in a practical situation."
+    ]
+  },
+  "imagePath": "assets/images/lessons/lesson-04-numbers-time.png",
+  "achievementsUnlocked": [],
+  "xpReward": 60,
+  "nextLesson": "lesson-05-shopping"
+}

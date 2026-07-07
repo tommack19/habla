@@ -1,0 +1,1051 @@
+{
+  "id": "lesson-21-directions",
+  "title": "Directions: Finding Your Way Around",
+  "level": "A1",
+  "module": "Directions",
+  "estimatedMinutes": 32,
+  "prerequisiteLesson": "lesson-20-everyday-life-review",
+  "imagePath": "assets/images/lessons/lesson-21-directions.png",
+  "objectives": [
+    "Ask for and understand simple directions while walking through a city with Carlos.",
+    "Use 26 directions words and phrases in travel or navigation contexts.",
+    "Recycle previous A1 vocabulary naturally with Carlos.",
+    "Complete an authentic travel or navigation Real Life Mission."
+  ],
+  "vocabularyCategories": [
+    "directions",
+    "places",
+    "location",
+    "navigation"
+  ],
+  "vocabulary": [
+    {
+      "spanish": "derecho",
+      "english": "straight ahead",
+      "partOfSpeech": "direction",
+      "tip": "Use in siga derecho.",
+      "exampleSpanish": "Siga derecho.",
+      "exampleEnglish": "Go straight ahead."
+    },
+    {
+      "spanish": "a la derecha",
+      "english": "to the right",
+      "partOfSpeech": "direction",
+      "tip": "Use with girar.",
+      "exampleSpanish": "Gire a la derecha.",
+      "exampleEnglish": "Turn right."
+    },
+    {
+      "spanish": "a la izquierda",
+      "english": "to the left",
+      "partOfSpeech": "direction",
+      "tip": "Use with girar.",
+      "exampleSpanish": "Gire a la izquierda.",
+      "exampleEnglish": "Turn left."
+    },
+    {
+      "spanish": "la calle",
+      "english": "street",
+      "partOfSpeech": "noun",
+      "tip": "Core navigation word.",
+      "exampleSpanish": "La calle es tranquila.",
+      "exampleEnglish": "The street is quiet."
+    },
+    {
+      "spanish": "la avenida",
+      "english": "avenue",
+      "partOfSpeech": "noun",
+      "tip": "Often a larger street.",
+      "exampleSpanish": "La avenida esta cerca.",
+      "exampleEnglish": "The avenue is nearby."
+    },
+    {
+      "spanish": "la esquina",
+      "english": "corner",
+      "partOfSpeech": "noun",
+      "tip": "Useful landmark.",
+      "exampleSpanish": "La tienda esta en la esquina.",
+      "exampleEnglish": "The store is on the corner."
+    },
+    {
+      "spanish": "la cuadra",
+      "english": "block",
+      "partOfSpeech": "noun",
+      "tip": "Common in Latin America.",
+      "exampleSpanish": "Camina dos cuadras.",
+      "exampleEnglish": "Walk two blocks."
+    },
+    {
+      "spanish": "el semaforo",
+      "english": "traffic light",
+      "partOfSpeech": "noun",
+      "tip": "A common landmark.",
+      "exampleSpanish": "Gire en el semaforo.",
+      "exampleEnglish": "Turn at the traffic light."
+    },
+    {
+      "spanish": "el cruce",
+      "english": "crossing/intersection",
+      "partOfSpeech": "noun",
+      "tip": "Street crossing.",
+      "exampleSpanish": "El cruce esta adelante.",
+      "exampleEnglish": "The crossing is ahead."
+    },
+    {
+      "spanish": "el mapa",
+      "english": "map",
+      "partOfSpeech": "noun",
+      "tip": "Useful travel word.",
+      "exampleSpanish": "Tengo un mapa.",
+      "exampleEnglish": "I have a map."
+    },
+    {
+      "spanish": "cerca",
+      "english": "near",
+      "partOfSpeech": "adverb",
+      "tip": "Location word.",
+      "exampleSpanish": "El hotel esta cerca.",
+      "exampleEnglish": "The hotel is nearby."
+    },
+    {
+      "spanish": "lejos",
+      "english": "far",
+      "partOfSpeech": "adverb",
+      "tip": "Opposite of near.",
+      "exampleSpanish": "El banco esta lejos.",
+      "exampleEnglish": "The bank is far."
+    },
+    {
+      "spanish": "enfrente de",
+      "english": "in front of",
+      "partOfSpeech": "preposition",
+      "tip": "Use for landmarks.",
+      "exampleSpanish": "El taxi esta enfrente del hotel.",
+      "exampleEnglish": "The taxi is in front of the hotel."
+    },
+    {
+      "spanish": "detras de",
+      "english": "behind",
+      "partOfSpeech": "preposition",
+      "tip": "Location phrase.",
+      "exampleSpanish": "El parque esta detras del museo.",
+      "exampleEnglish": "The park is behind the museum."
+    },
+    {
+      "spanish": "al lado de",
+      "english": "next to",
+      "partOfSpeech": "preposition",
+      "tip": "Very useful.",
+      "exampleSpanish": "La farmacia esta al lado del banco.",
+      "exampleEnglish": "The pharmacy is next to the bank."
+    },
+    {
+      "spanish": "entre",
+      "english": "between",
+      "partOfSpeech": "preposition",
+      "tip": "Use with two places.",
+      "exampleSpanish": "El cafe esta entre dos tiendas.",
+      "exampleEnglish": "The cafe is between two stores."
+    },
+    {
+      "spanish": "aqui",
+      "english": "here",
+      "partOfSpeech": "adverb",
+      "tip": "Pointing word.",
+      "exampleSpanish": "Estoy aqui.",
+      "exampleEnglish": "I am here."
+    },
+    {
+      "spanish": "alli",
+      "english": "there",
+      "partOfSpeech": "adverb",
+      "tip": "Pointing word.",
+      "exampleSpanish": "El museo esta alli.",
+      "exampleEnglish": "The museum is there."
+    },
+    {
+      "spanish": "adelante",
+      "english": "ahead",
+      "partOfSpeech": "adverb",
+      "tip": "Direction word.",
+      "exampleSpanish": "Siga adelante.",
+      "exampleEnglish": "Go ahead."
+    },
+    {
+      "spanish": "cruzar",
+      "english": "to cross",
+      "partOfSpeech": "verb",
+      "tip": "Street action.",
+      "exampleSpanish": "Voy a cruzar la calle.",
+      "exampleEnglish": "I am going to cross the street."
+    },
+    {
+      "spanish": "caminar",
+      "english": "to walk",
+      "partOfSpeech": "verb",
+      "tip": "Review.",
+      "exampleSpanish": "Voy a caminar.",
+      "exampleEnglish": "I am going to walk."
+    },
+    {
+      "spanish": "buscar",
+      "english": "to look for",
+      "partOfSpeech": "verb",
+      "tip": "Use for places.",
+      "exampleSpanish": "Busco el hotel.",
+      "exampleEnglish": "I am looking for the hotel."
+    },
+    {
+      "spanish": "encontrar",
+      "english": "to find",
+      "partOfSpeech": "verb",
+      "tip": "Useful travel verb.",
+      "exampleSpanish": "Quiero encontrar la estacion.",
+      "exampleEnglish": "I want to find the station."
+    },
+    {
+      "spanish": "perdido",
+      "english": "lost",
+      "partOfSpeech": "adjective",
+      "tip": "Masculine.",
+      "exampleSpanish": "Estoy perdido.",
+      "exampleEnglish": "I am lost."
+    },
+    {
+      "spanish": "perdida",
+      "english": "lost",
+      "partOfSpeech": "adjective",
+      "tip": "Feminine.",
+      "exampleSpanish": "Estoy perdida.",
+      "exampleEnglish": "I am lost."
+    },
+    {
+      "spanish": "puede ayudarme",
+      "english": "can you help me",
+      "partOfSpeech": "phrase",
+      "tip": "Polite help phrase.",
+      "exampleSpanish": "Puede ayudarme?",
+      "exampleEnglish": "Can you help me?"
+    }
+  ],
+  "textbookPhrases": [
+    {
+      "meaning": "Where is the hotel?",
+      "phrase": "Donde esta el hotel?"
+    },
+    {
+      "meaning": "Go straight.",
+      "phrase": "Siga derecho."
+    },
+    {
+      "meaning": "Turn left.",
+      "phrase": "Gire a la izquierda."
+    },
+    {
+      "meaning": "I am lost.",
+      "phrase": "Estoy perdido."
+    },
+    {
+      "meaning": "It is next to the bank.",
+      "phrase": "Esta al lado del banco."
+    }
+  ],
+  "naturalEverydayPhrases": [
+    {
+      "meaning": "Where is the hotel?",
+      "phrase": "Donde esta el hotel?"
+    },
+    {
+      "meaning": "Go straight.",
+      "phrase": "Siga derecho."
+    },
+    {
+      "meaning": "Turn left.",
+      "phrase": "Gire a la izquierda."
+    },
+    {
+      "meaning": "I am lost.",
+      "phrase": "Estoy perdido."
+    },
+    {
+      "meaning": "It is next to the bank.",
+      "phrase": "Esta junto al banco."
+    }
+  ],
+  "mexicanSpanishVariants": [
+    {
+      "meaning": "Where is the hotel?",
+      "phrase": "Donde esta el hotel?"
+    },
+    {
+      "meaning": "Go straight.",
+      "phrase": "Siga derecho."
+    },
+    {
+      "meaning": "Turn left.",
+      "phrase": "Gire a la izquierda."
+    },
+    {
+      "meaning": "I am lost.",
+      "phrase": "Estoy perdido."
+    },
+    {
+      "meaning": "It is next to the bank.",
+      "phrase": "Esta junto al banco."
+    }
+  ],
+  "spainSpanishVariants": [
+    {
+      "meaning": "Where is the hotel?",
+      "phrase": "Donde esta el hotel?"
+    },
+    {
+      "meaning": "Go straight.",
+      "phrase": "Sigue recto."
+    },
+    {
+      "meaning": "Turn left.",
+      "phrase": "Gira a la izquierda."
+    },
+    {
+      "meaning": "I am lost.",
+      "phrase": "Estoy perdido."
+    },
+    {
+      "meaning": "It is next to the bank.",
+      "phrase": "Esta al lado del banco."
+    }
+  ],
+  "phraseVariants": [
+    {
+      "meaning": "Where is the hotel?",
+      "textbookVersion": "Donde esta el hotel?",
+      "naturalEverydayVersion": "Donde esta el hotel?",
+      "mexicanSpanishVersion": "Donde esta el hotel?",
+      "spainSpanishVersion": "Donde esta el hotel?",
+      "whenUsed": "Carlos shows the textbook form, then the everyday and regional versions so learners recognize real speech."
+    },
+    {
+      "meaning": "Go straight.",
+      "textbookVersion": "Siga derecho.",
+      "naturalEverydayVersion": "Siga derecho.",
+      "mexicanSpanishVersion": "Siga derecho.",
+      "spainSpanishVersion": "Sigue recto.",
+      "whenUsed": "Carlos shows the textbook form, then the everyday and regional versions so learners recognize real speech."
+    },
+    {
+      "meaning": "Turn left.",
+      "textbookVersion": "Gire a la izquierda.",
+      "naturalEverydayVersion": "Gire a la izquierda.",
+      "mexicanSpanishVersion": "Gire a la izquierda.",
+      "spainSpanishVersion": "Gira a la izquierda.",
+      "whenUsed": "Carlos shows the textbook form, then the everyday and regional versions so learners recognize real speech."
+    },
+    {
+      "meaning": "I am lost.",
+      "textbookVersion": "Estoy perdido.",
+      "naturalEverydayVersion": "Estoy perdido.",
+      "mexicanSpanishVersion": "Estoy perdido.",
+      "spainSpanishVersion": "Estoy perdido.",
+      "whenUsed": "Carlos shows the textbook form, then the everyday and regional versions so learners recognize real speech."
+    },
+    {
+      "meaning": "It is next to the bank.",
+      "textbookVersion": "Esta al lado del banco.",
+      "naturalEverydayVersion": "Esta junto al banco.",
+      "mexicanSpanishVersion": "Esta junto al banco.",
+      "spainSpanishVersion": "Esta al lado del banco.",
+      "whenUsed": "Carlos shows the textbook form, then the everyday and regional versions so learners recognize real speech."
+    }
+  ],
+  "grammar": {
+    "topic": "Imperatives for simple directions",
+    "explanation": "Use short direction commands like siga, gire, cruce, and vaya. Carlos keeps them as useful chunks first, not a full command chart.",
+    "examples": [
+      {
+        "spanish": "Siga derecho dos cuadras.",
+        "english": "Go straight for two blocks."
+      },
+      {
+        "spanish": "Gire a la derecha.",
+        "english": "Turn right."
+      },
+      {
+        "spanish": "Esta cerca del banco.",
+        "english": "It is near the bank."
+      }
+    ],
+    "practicePrompt": "Ask Carlos how to get to a place and repeat the directions back using three direction words."
+  },
+  "dialogue": [
+    {
+      "title": "Carlos opens the mission",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Vamos paso a paso. Siga derecho.",
+          "english": "Let's go step by step. Go straight ahead."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "La tienda esta en la esquina.",
+          "english": "The store is on the corner."
+        }
+      ]
+    },
+    {
+      "title": "At a real location",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Vamos paso a paso. Gire a la derecha.",
+          "english": "Let's go step by step. Turn right."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "Camina dos cuadras.",
+          "english": "Walk two blocks."
+        }
+      ]
+    },
+    {
+      "title": "Checking understanding",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Vamos paso a paso. Gire a la izquierda.",
+          "english": "Let's go step by step. Turn left."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "Gire en el semaforo.",
+          "english": "Turn at the traffic light."
+        }
+      ]
+    },
+    {
+      "title": "Recycling an old topic",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Vamos paso a paso. La calle es tranquila.",
+          "english": "Let's go step by step. The street is quiet."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "El cruce esta adelante.",
+          "english": "The crossing is ahead."
+        }
+      ]
+    },
+    {
+      "title": "Asking a polite question",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Vamos paso a paso. La avenida esta cerca.",
+          "english": "Let's go step by step. The avenue is nearby."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "Tengo un mapa.",
+          "english": "I have a map."
+        }
+      ]
+    },
+    {
+      "title": "Solving a small problem",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Vamos paso a paso. La tienda esta en la esquina.",
+          "english": "Let's go step by step. The store is on the corner."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "El hotel esta cerca.",
+          "english": "The hotel is nearby."
+        }
+      ]
+    },
+    {
+      "title": "Confirming details",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Vamos paso a paso. Camina dos cuadras.",
+          "english": "Let's go step by step. Walk two blocks."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "El banco esta lejos.",
+          "english": "The bank is far."
+        }
+      ]
+    },
+    {
+      "title": "With a service worker",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Vamos paso a paso. Gire en el semaforo.",
+          "english": "Let's go step by step. Turn at the traffic light."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "El taxi esta enfrente del hotel.",
+          "english": "The taxi is in front of the hotel."
+        }
+      ]
+    },
+    {
+      "title": "Repairing confusion",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Vamos paso a paso. El cruce esta adelante.",
+          "english": "Let's go step by step. The crossing is ahead."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "El parque esta detras del museo.",
+          "english": "The park is behind the museum."
+        }
+      ]
+    },
+    {
+      "title": "Mission wrap-up",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Vamos paso a paso. Tengo un mapa.",
+          "english": "Let's go step by step. I have a map."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "La farmacia esta al lado del banco.",
+          "english": "The pharmacy is next to the bank."
+        }
+      ]
+    }
+  ],
+  "dialogues": [
+    {
+      "title": "Carlos opens the mission",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Vamos paso a paso. Siga derecho.",
+          "english": "Let's go step by step. Go straight ahead."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "La tienda esta en la esquina.",
+          "english": "The store is on the corner."
+        }
+      ]
+    },
+    {
+      "title": "At a real location",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Vamos paso a paso. Gire a la derecha.",
+          "english": "Let's go step by step. Turn right."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "Camina dos cuadras.",
+          "english": "Walk two blocks."
+        }
+      ]
+    },
+    {
+      "title": "Checking understanding",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Vamos paso a paso. Gire a la izquierda.",
+          "english": "Let's go step by step. Turn left."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "Gire en el semaforo.",
+          "english": "Turn at the traffic light."
+        }
+      ]
+    },
+    {
+      "title": "Recycling an old topic",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Vamos paso a paso. La calle es tranquila.",
+          "english": "Let's go step by step. The street is quiet."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "El cruce esta adelante.",
+          "english": "The crossing is ahead."
+        }
+      ]
+    },
+    {
+      "title": "Asking a polite question",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Vamos paso a paso. La avenida esta cerca.",
+          "english": "Let's go step by step. The avenue is nearby."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "Tengo un mapa.",
+          "english": "I have a map."
+        }
+      ]
+    },
+    {
+      "title": "Solving a small problem",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Vamos paso a paso. La tienda esta en la esquina.",
+          "english": "Let's go step by step. The store is on the corner."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "El hotel esta cerca.",
+          "english": "The hotel is nearby."
+        }
+      ]
+    },
+    {
+      "title": "Confirming details",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Vamos paso a paso. Camina dos cuadras.",
+          "english": "Let's go step by step. Walk two blocks."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "El banco esta lejos.",
+          "english": "The bank is far."
+        }
+      ]
+    },
+    {
+      "title": "With a service worker",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Vamos paso a paso. Gire en el semaforo.",
+          "english": "Let's go step by step. Turn at the traffic light."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "El taxi esta enfrente del hotel.",
+          "english": "The taxi is in front of the hotel."
+        }
+      ]
+    },
+    {
+      "title": "Repairing confusion",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Vamos paso a paso. El cruce esta adelante.",
+          "english": "Let's go step by step. The crossing is ahead."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "El parque esta detras del museo.",
+          "english": "The park is behind the museum."
+        }
+      ]
+    },
+    {
+      "title": "Mission wrap-up",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Vamos paso a paso. Tengo un mapa.",
+          "english": "Let's go step by step. I have a map."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "La farmacia esta al lado del banco.",
+          "english": "The pharmacy is next to the bank."
+        }
+      ]
+    }
+  ],
+  "listeningPhrases": [
+    {
+      "spanish": "Siga derecho.",
+      "english": "Go straight ahead."
+    },
+    {
+      "spanish": "Gire a la derecha.",
+      "english": "Turn right."
+    },
+    {
+      "spanish": "Gire a la izquierda.",
+      "english": "Turn left."
+    },
+    {
+      "spanish": "La calle es tranquila.",
+      "english": "The street is quiet."
+    },
+    {
+      "spanish": "La avenida esta cerca.",
+      "english": "The avenue is nearby."
+    },
+    {
+      "spanish": "La tienda esta en la esquina.",
+      "english": "The store is on the corner."
+    },
+    {
+      "spanish": "Camina dos cuadras.",
+      "english": "Walk two blocks."
+    },
+    {
+      "spanish": "Gire en el semaforo.",
+      "english": "Turn at the traffic light."
+    },
+    {
+      "spanish": "El cruce esta adelante.",
+      "english": "The crossing is ahead."
+    },
+    {
+      "spanish": "Tengo un mapa.",
+      "english": "I have a map."
+    }
+  ],
+  "listening": [
+    {
+      "spanish": "Siga derecho.",
+      "english": "Go straight ahead."
+    },
+    {
+      "spanish": "Gire a la derecha.",
+      "english": "Turn right."
+    },
+    {
+      "spanish": "Gire a la izquierda.",
+      "english": "Turn left."
+    },
+    {
+      "spanish": "La calle es tranquila.",
+      "english": "The street is quiet."
+    },
+    {
+      "spanish": "La avenida esta cerca.",
+      "english": "The avenue is nearby."
+    },
+    {
+      "spanish": "La tienda esta en la esquina.",
+      "english": "The store is on the corner."
+    },
+    {
+      "spanish": "Camina dos cuadras.",
+      "english": "Walk two blocks."
+    },
+    {
+      "spanish": "Gire en el semaforo.",
+      "english": "Turn at the traffic light."
+    },
+    {
+      "spanish": "El cruce esta adelante.",
+      "english": "The crossing is ahead."
+    },
+    {
+      "spanish": "Tengo un mapa.",
+      "english": "I have a map."
+    }
+  ],
+  "pronunciation": {
+    "focus": "Carlos coaches clear A1 pronunciation for directions travel situations.",
+    "items": [
+      {
+        "text": "derecho",
+        "note": "Practice the phrase slowly, then in context: Siga derecho."
+      },
+      {
+        "text": "a la derecha",
+        "note": "Practice the phrase slowly, then in context: Gire a la derecha."
+      },
+      {
+        "text": "a la izquierda",
+        "note": "Practice the phrase slowly, then in context: Gire a la izquierda."
+      },
+      {
+        "text": "la calle",
+        "note": "Practice the phrase slowly, then in context: La calle es tranquila."
+      },
+      {
+        "text": "la avenida",
+        "note": "Practice the phrase slowly, then in context: La avenida esta cerca."
+      },
+      {
+        "text": "la esquina",
+        "note": "Practice the phrase slowly, then in context: La tienda esta en la esquina."
+      },
+      {
+        "text": "la cuadra",
+        "note": "Practice the phrase slowly, then in context: Camina dos cuadras."
+      },
+      {
+        "text": "el semaforo",
+        "note": "Practice the phrase slowly, then in context: Gire en el semaforo."
+      },
+      {
+        "text": "el cruce",
+        "note": "Practice the phrase slowly, then in context: El cruce esta adelante."
+      },
+      {
+        "text": "el mapa",
+        "note": "Practice the phrase slowly, then in context: Tengo un mapa."
+      }
+    ]
+  },
+  "culture": {
+    "title": "Directions in real travel",
+    "text": "Directions can sound fast in real life. Carlos teaches learners to ask for repetition and confirm one step at a time."
+  },
+  "nativeSpeech": {
+    "title": "Carlos native speaker tips",
+    "notes": [
+      "Junto a is a common natural alternative to al lado de.",
+      "In Spain, sigue recto is very common for go straight.",
+      "Repeat the last direction back to confirm you understood."
+    ]
+  },
+  "nativeExpressions": [
+    "Junto a is a common natural alternative to al lado de.",
+    "In Spain, sigue recto is very common for go straight.",
+    "Repeat the last direction back to confirm you understood."
+  ],
+  "commonMistakes": [
+    {
+      "mistake": "Saying soy perdido.",
+      "correction": "Say estoy perdido.",
+      "explanation": "Being lost is a temporary state."
+    },
+    {
+      "mistake": "Confusing derecha and derecho.",
+      "correction": "Derecha is right; derecho can mean straight in directions.",
+      "explanation": "One vowel changes the meaning."
+    },
+    {
+      "mistake": "Trying to understand every word.",
+      "correction": "Listen for landmarks and action words first.",
+      "explanation": "Direction conversations are chunk-based."
+    }
+  ],
+  "quiz": [
+    {
+      "type": "multipleChoice",
+      "prompt": "What does derecho mean?",
+      "options": [
+        "straight ahead",
+        "to the right",
+        "to the left",
+        "street"
+      ],
+      "answer": "straight ahead"
+    },
+    {
+      "type": "multipleChoice",
+      "prompt": "What does a la derecha mean?",
+      "options": [
+        "to the right",
+        "to the left",
+        "street",
+        "avenue"
+      ],
+      "answer": "to the right"
+    },
+    {
+      "type": "multipleChoice",
+      "prompt": "What does a la izquierda mean?",
+      "options": [
+        "to the left",
+        "street",
+        "avenue",
+        "corner"
+      ],
+      "answer": "to the left"
+    },
+    {
+      "type": "multipleChoice",
+      "prompt": "What does la calle mean?",
+      "options": [
+        "street",
+        "avenue",
+        "corner",
+        "block"
+      ],
+      "answer": "street"
+    },
+    {
+      "type": "multipleChoice",
+      "prompt": "What does la avenida mean?",
+      "options": [
+        "avenue",
+        "corner",
+        "block",
+        "traffic light"
+      ],
+      "answer": "avenue"
+    },
+    {
+      "type": "multipleChoice",
+      "prompt": "What does la esquina mean?",
+      "options": [
+        "corner",
+        "block",
+        "traffic light",
+        "crossing/intersection"
+      ],
+      "answer": "corner"
+    },
+    {
+      "type": "multipleChoice",
+      "prompt": "What does la cuadra mean?",
+      "options": [
+        "block",
+        "traffic light",
+        "crossing/intersection",
+        "map"
+      ],
+      "answer": "block"
+    },
+    {
+      "type": "multipleChoice",
+      "prompt": "What does el semaforo mean?",
+      "options": [
+        "traffic light",
+        "crossing/intersection",
+        "map",
+        "near"
+      ],
+      "answer": "traffic light"
+    },
+    {
+      "type": "multipleChoice",
+      "prompt": "What does el cruce mean?",
+      "options": [
+        "crossing/intersection",
+        "map",
+        "near",
+        "far"
+      ],
+      "answer": "crossing/intersection"
+    },
+    {
+      "type": "multipleChoice",
+      "prompt": "What does el mapa mean?",
+      "options": [
+        "map",
+        "near",
+        "far",
+        "in front of"
+      ],
+      "answer": "map"
+    },
+    {
+      "type": "multipleChoice",
+      "prompt": "What does cerca mean?",
+      "options": [
+        "near",
+        "far",
+        "in front of",
+        "behind"
+      ],
+      "answer": "near"
+    },
+    {
+      "type": "multipleChoice",
+      "prompt": "What does lejos mean?",
+      "options": [
+        "far",
+        "in front of",
+        "behind",
+        "next to"
+      ],
+      "answer": "far"
+    },
+    {
+      "type": "translation",
+      "prompt": "Translate: Siga derecho.",
+      "answer": "Go straight ahead."
+    },
+    {
+      "type": "translation",
+      "prompt": "Translate: Gire a la derecha.",
+      "answer": "Turn right."
+    },
+    {
+      "type": "multipleChoice",
+      "prompt": "Which phrase best fits Directions?",
+      "options": [
+        "a la izquierda",
+        "mi esposa",
+        "hace frio",
+        "me gusta leer"
+      ],
+      "answer": "a la izquierda"
+    }
+  ],
+  "speakingChallenge": [
+    {
+      "prompt": "Carlos asks you to use derecho in a realistic travel sentence.",
+      "exampleAnswer": "Siga derecho."
+    },
+    {
+      "prompt": "Carlos asks you to use a la derecha in a realistic travel sentence.",
+      "exampleAnswer": "Gire a la derecha."
+    },
+    {
+      "prompt": "Carlos asks you to use a la izquierda in a realistic travel sentence.",
+      "exampleAnswer": "Gire a la izquierda."
+    },
+    {
+      "prompt": "Carlos asks you to use la calle in a realistic travel sentence.",
+      "exampleAnswer": "La calle es tranquila."
+    },
+    {
+      "prompt": "Carlos asks you to use la avenida in a realistic travel sentence.",
+      "exampleAnswer": "La avenida esta cerca."
+    }
+  ],
+  "realLifeMission": {
+    "title": "Real Life Mission",
+    "mission": "Carlos drops you near a plaza. Ask for directions to a hotel, repeat the route, and say if it is near or far.",
+    "successCriteria": [
+      "Use at least six words from this lesson.",
+      "Use one phrase from a previous lesson.",
+      "Ask Carlos or another person at least one question.",
+      "Resolve the travel or navigation situation clearly."
+    ],
+    "suggestedPartner": "Carlos",
+    "xpReward": 10
+  },
+  "review": {
+    "recap": [
+      "Carlos reviewed directions travel language.",
+      "You practiced Imperatives for simple directions.",
+      "You recycled earlier A1 vocabulary in a realistic situation."
+    ],
+    "canDo": [
+      "Ask for and understand simple directions while walking through a city with Carlos.",
+      "Ask for clarification when needed.",
+      "Complete the situation with polite, simple Spanish."
+    ]
+  },
+  "achievementsUnlocked": [],
+  "xpReward": 85,
+  "nextLesson": "lesson-22-transportation"
+}

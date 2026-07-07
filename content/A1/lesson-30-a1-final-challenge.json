@@ -1,0 +1,1241 @@
+{
+  "id": "lesson-30-a1-final-challenge",
+  "title": "A1 Final Challenge: Your First Full Spanish Journey",
+  "level": "A1",
+  "module": "A1 Final Challenge",
+  "estimatedMinutes": 45,
+  "prerequisiteLesson": "lesson-29-travel-review",
+  "imagePath": "assets/images/lessons/lesson-30-a1-final-challenge.png",
+  "objectives": [
+    "Complete a full guided travel conversation with Carlos using everything from Lessons 1-29.",
+    "Use 26 a1 final challenge words and phrases in travel or navigation contexts.",
+    "Recycle previous A1 vocabulary naturally with Carlos.",
+    "Complete an authentic travel or navigation Real Life Mission."
+  ],
+  "vocabularyCategories": [
+    "a1 final challenge",
+    "travel",
+    "conversation",
+    "problem solving"
+  ],
+  "vocabulary": [
+    {
+      "spanish": "hola",
+      "english": "hello",
+      "partOfSpeech": "travel phrase",
+      "tip": "Carlos uses hola in practical travel conversation.",
+      "exampleSpanish": "Hola con Carlos.",
+      "exampleEnglish": "Hello with Carlos."
+    },
+    {
+      "spanish": "me llamo",
+      "english": "my name is",
+      "partOfSpeech": "travel phrase",
+      "tip": "Carlos uses me llamo in practical travel conversation.",
+      "exampleSpanish": "Me llamo con Carlos.",
+      "exampleEnglish": "My name is with Carlos."
+    },
+    {
+      "spanish": "soy de",
+      "english": "I am from",
+      "partOfSpeech": "travel phrase",
+      "tip": "Carlos uses soy de in practical travel conversation.",
+      "exampleSpanish": "Soy de con Carlos.",
+      "exampleEnglish": "I am from with Carlos."
+    },
+    {
+      "spanish": "mi familia",
+      "english": "my family",
+      "partOfSpeech": "travel phrase",
+      "tip": "Carlos uses mi familia in practical travel conversation.",
+      "exampleSpanish": "Mi familia con Carlos.",
+      "exampleEnglish": "My family with Carlos."
+    },
+    {
+      "spanish": "la hora",
+      "english": "time",
+      "partOfSpeech": "travel phrase",
+      "tip": "Carlos uses la hora in practical travel conversation.",
+      "exampleSpanish": "La hora con Carlos.",
+      "exampleEnglish": "Time with Carlos."
+    },
+    {
+      "spanish": "a las ocho",
+      "english": "at eight",
+      "partOfSpeech": "travel phrase",
+      "tip": "Carlos uses a las ocho in practical travel conversation.",
+      "exampleSpanish": "A las ocho con Carlos.",
+      "exampleEnglish": "At eight with Carlos."
+    },
+    {
+      "spanish": "hace frio",
+      "english": "it is cold",
+      "partOfSpeech": "travel phrase",
+      "tip": "Carlos uses hace frio in practical travel conversation.",
+      "exampleSpanish": "Hace frio con Carlos.",
+      "exampleEnglish": "It is cold with Carlos."
+    },
+    {
+      "spanish": "la chaqueta",
+      "english": "jacket",
+      "partOfSpeech": "travel phrase",
+      "tip": "Carlos uses la chaqueta in practical travel conversation.",
+      "exampleSpanish": "La chaqueta con Carlos.",
+      "exampleEnglish": "Jacket with Carlos."
+    },
+    {
+      "spanish": "el mercado",
+      "english": "market",
+      "partOfSpeech": "travel phrase",
+      "tip": "Carlos uses el mercado in practical travel conversation.",
+      "exampleSpanish": "El mercado con Carlos.",
+      "exampleEnglish": "Market with Carlos."
+    },
+    {
+      "spanish": "la cuenta",
+      "english": "bill/account",
+      "partOfSpeech": "travel phrase",
+      "tip": "Carlos uses la cuenta in practical travel conversation.",
+      "exampleSpanish": "La cuenta con Carlos.",
+      "exampleEnglish": "Bill/account with Carlos."
+    },
+    {
+      "spanish": "el cafe",
+      "english": "coffee",
+      "partOfSpeech": "travel phrase",
+      "tip": "Carlos uses el cafe in practical travel conversation.",
+      "exampleSpanish": "El cafe con Carlos.",
+      "exampleEnglish": "Coffee with Carlos."
+    },
+    {
+      "spanish": "el boleto",
+      "english": "ticket",
+      "partOfSpeech": "travel phrase",
+      "tip": "Carlos uses el boleto in practical travel conversation.",
+      "exampleSpanish": "El boleto con Carlos.",
+      "exampleEnglish": "Ticket with Carlos."
+    },
+    {
+      "spanish": "la playa",
+      "english": "beach",
+      "partOfSpeech": "travel phrase",
+      "tip": "Carlos uses la playa in practical travel conversation.",
+      "exampleSpanish": "La playa con Carlos.",
+      "exampleEnglish": "Beach with Carlos."
+    },
+    {
+      "spanish": "la casa",
+      "english": "house",
+      "partOfSpeech": "travel phrase",
+      "tip": "Carlos uses la casa in practical travel conversation.",
+      "exampleSpanish": "La casa con Carlos.",
+      "exampleEnglish": "House with Carlos."
+    },
+    {
+      "spanish": "me levanto",
+      "english": "I get up",
+      "partOfSpeech": "travel phrase",
+      "tip": "Carlos uses me levanto in practical travel conversation.",
+      "exampleSpanish": "Me levanto con Carlos.",
+      "exampleEnglish": "I get up with Carlos."
+    },
+    {
+      "spanish": "la escuela",
+      "english": "school",
+      "partOfSpeech": "travel phrase",
+      "tip": "Carlos uses la escuela in practical travel conversation.",
+      "exampleSpanish": "La escuela con Carlos.",
+      "exampleEnglish": "School with Carlos."
+    },
+    {
+      "spanish": "el trabajo",
+      "english": "work",
+      "partOfSpeech": "travel phrase",
+      "tip": "Carlos uses el trabajo in practical travel conversation.",
+      "exampleSpanish": "El trabajo con Carlos.",
+      "exampleEnglish": "Work with Carlos."
+    },
+    {
+      "spanish": "me gusta",
+      "english": "I like",
+      "partOfSpeech": "travel phrase",
+      "tip": "Carlos uses me gusta in practical travel conversation.",
+      "exampleSpanish": "Me gusta con Carlos.",
+      "exampleEnglish": "I like with Carlos."
+    },
+    {
+      "spanish": "el deporte",
+      "english": "sport",
+      "partOfSpeech": "travel phrase",
+      "tip": "Carlos uses el deporte in practical travel conversation.",
+      "exampleSpanish": "El deporte con Carlos.",
+      "exampleEnglish": "Sport with Carlos."
+    },
+    {
+      "spanish": "me duele",
+      "english": "it hurts me",
+      "partOfSpeech": "travel phrase",
+      "tip": "Carlos uses me duele in practical travel conversation.",
+      "exampleSpanish": "Me duele con Carlos.",
+      "exampleEnglish": "It hurts me with Carlos."
+    },
+    {
+      "spanish": "la cabeza",
+      "english": "head",
+      "partOfSpeech": "travel phrase",
+      "tip": "Carlos uses la cabeza in practical travel conversation.",
+      "exampleSpanish": "La cabeza con Carlos.",
+      "exampleEnglish": "Head with Carlos."
+    },
+    {
+      "spanish": "estoy feliz",
+      "english": "I am happy",
+      "partOfSpeech": "travel phrase",
+      "tip": "Carlos uses estoy feliz in practical travel conversation.",
+      "exampleSpanish": "Estoy feliz con Carlos.",
+      "exampleEnglish": "I am happy with Carlos."
+    },
+    {
+      "spanish": "a la derecha",
+      "english": "to the right",
+      "partOfSpeech": "travel phrase",
+      "tip": "Carlos uses a la derecha in practical travel conversation.",
+      "exampleSpanish": "A la derecha con Carlos.",
+      "exampleEnglish": "To the right with Carlos."
+    },
+    {
+      "spanish": "el taxi",
+      "english": "taxi",
+      "partOfSpeech": "travel phrase",
+      "tip": "Carlos uses el taxi in practical travel conversation.",
+      "exampleSpanish": "El taxi con Carlos.",
+      "exampleEnglish": "Taxi with Carlos."
+    },
+    {
+      "spanish": "puede ayudarme",
+      "english": "can you help me",
+      "partOfSpeech": "travel phrase",
+      "tip": "Carlos uses puede ayudarme in practical travel conversation.",
+      "exampleSpanish": "Puede ayudarme con Carlos.",
+      "exampleEnglish": "Can you help me with Carlos."
+    },
+    {
+      "spanish": "emergencia",
+      "english": "emergency",
+      "partOfSpeech": "travel phrase",
+      "tip": "Carlos uses emergencia in practical travel conversation.",
+      "exampleSpanish": "Emergencia con Carlos.",
+      "exampleEnglish": "Emergency with Carlos."
+    },
+    {
+      "spanish": "el telefono",
+      "english": "phone",
+      "partOfSpeech": "travel phrase",
+      "tip": "Carlos uses el telefono in practical travel conversation.",
+      "exampleSpanish": "El telefono con Carlos.",
+      "exampleEnglish": "Phone with Carlos."
+    },
+    {
+      "spanish": "el banco",
+      "english": "bank",
+      "partOfSpeech": "travel phrase",
+      "tip": "Carlos uses el banco in practical travel conversation.",
+      "exampleSpanish": "El banco con Carlos.",
+      "exampleEnglish": "Bank with Carlos."
+    },
+    {
+      "spanish": "el hotel",
+      "english": "hotel",
+      "partOfSpeech": "travel phrase",
+      "tip": "Carlos uses el hotel in practical travel conversation.",
+      "exampleSpanish": "El hotel con Carlos.",
+      "exampleEnglish": "Hotel with Carlos."
+    },
+    {
+      "spanish": "el aeropuerto",
+      "english": "airport",
+      "partOfSpeech": "travel phrase",
+      "tip": "Carlos uses el aeropuerto in practical travel conversation.",
+      "exampleSpanish": "El aeropuerto con Carlos.",
+      "exampleEnglish": "Airport with Carlos."
+    }
+  ],
+  "textbookPhrases": [
+    {
+      "meaning": "hello",
+      "phrase": "hola"
+    },
+    {
+      "meaning": "my name is",
+      "phrase": "me llamo"
+    },
+    {
+      "meaning": "I am from",
+      "phrase": "soy de"
+    },
+    {
+      "meaning": "my family",
+      "phrase": "mi familia"
+    },
+    {
+      "meaning": "time",
+      "phrase": "la hora"
+    }
+  ],
+  "naturalEverydayPhrases": [
+    {
+      "meaning": "hello",
+      "phrase": "hola"
+    },
+    {
+      "meaning": "my name is",
+      "phrase": "me llamo"
+    },
+    {
+      "meaning": "I am from",
+      "phrase": "soy de"
+    },
+    {
+      "meaning": "my family",
+      "phrase": "mi familia"
+    },
+    {
+      "meaning": "time",
+      "phrase": "la hora"
+    }
+  ],
+  "mexicanSpanishVariants": [
+    {
+      "meaning": "hello",
+      "phrase": "hola"
+    },
+    {
+      "meaning": "my name is",
+      "phrase": "me llamo"
+    },
+    {
+      "meaning": "I am from",
+      "phrase": "soy de"
+    },
+    {
+      "meaning": "my family",
+      "phrase": "mi familia"
+    },
+    {
+      "meaning": "time",
+      "phrase": "la hora"
+    }
+  ],
+  "spainSpanishVariants": [
+    {
+      "meaning": "hello",
+      "phrase": "hola"
+    },
+    {
+      "meaning": "my name is",
+      "phrase": "me llamo"
+    },
+    {
+      "meaning": "I am from",
+      "phrase": "soy de"
+    },
+    {
+      "meaning": "my family",
+      "phrase": "mi familia"
+    },
+    {
+      "meaning": "time",
+      "phrase": "la hora"
+    }
+  ],
+  "phraseVariants": [
+    {
+      "meaning": "hello",
+      "textbookVersion": "hola",
+      "naturalEverydayVersion": "hola",
+      "mexicanSpanishVersion": "hola",
+      "spainSpanishVersion": "hola",
+      "whenUsed": "Use this in practical travel speech with Carlos."
+    },
+    {
+      "meaning": "my name is",
+      "textbookVersion": "me llamo",
+      "naturalEverydayVersion": "me llamo",
+      "mexicanSpanishVersion": "me llamo",
+      "spainSpanishVersion": "me llamo",
+      "whenUsed": "Use this in practical travel speech with Carlos."
+    },
+    {
+      "meaning": "I am from",
+      "textbookVersion": "soy de",
+      "naturalEverydayVersion": "soy de",
+      "mexicanSpanishVersion": "soy de",
+      "spainSpanishVersion": "soy de",
+      "whenUsed": "Use this in practical travel speech with Carlos."
+    },
+    {
+      "meaning": "my family",
+      "textbookVersion": "mi familia",
+      "naturalEverydayVersion": "mi familia",
+      "mexicanSpanishVersion": "mi familia",
+      "spainSpanishVersion": "mi familia",
+      "whenUsed": "Use this in practical travel speech with Carlos."
+    },
+    {
+      "meaning": "time",
+      "textbookVersion": "la hora",
+      "naturalEverydayVersion": "la hora",
+      "mexicanSpanishVersion": "la hora",
+      "spainSpanishVersion": "la hora",
+      "whenUsed": "Use this in practical travel speech with Carlos."
+    }
+  ],
+  "grammar": {
+    "topic": "A1 final grammar review",
+    "explanation": "Carlos helps you combine greetings, introductions, family, time, weather, clothing, food, travel, work, health, emotions, directions, help, and airport phrases.",
+    "examples": [
+      {
+        "spanish": "Hola.",
+        "english": "Hello."
+      },
+      {
+        "spanish": "Me llamo.",
+        "english": "My name is."
+      },
+      {
+        "spanish": "Soy de.",
+        "english": "I am from."
+      }
+    ],
+    "practicePrompt": "Handle a a1 final challenge situation with Carlos using at least four lesson words."
+  },
+  "dialogue": [
+    {
+      "title": "A1 Final Challenge dialogue 1",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Practiquemos: hola.",
+          "english": "Let's practice: hello."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "mi familia",
+          "english": "my family"
+        }
+      ]
+    },
+    {
+      "title": "A1 Final Challenge dialogue 2",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Practiquemos: me llamo.",
+          "english": "Let's practice: my name is."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "la hora",
+          "english": "time"
+        }
+      ]
+    },
+    {
+      "title": "A1 Final Challenge dialogue 3",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Practiquemos: soy de.",
+          "english": "Let's practice: I am from."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "a las ocho",
+          "english": "at eight"
+        }
+      ]
+    },
+    {
+      "title": "A1 Final Challenge dialogue 4",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Practiquemos: mi familia.",
+          "english": "Let's practice: my family."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "hace frio",
+          "english": "it is cold"
+        }
+      ]
+    },
+    {
+      "title": "A1 Final Challenge dialogue 5",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Practiquemos: la hora.",
+          "english": "Let's practice: time."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "la chaqueta",
+          "english": "jacket"
+        }
+      ]
+    },
+    {
+      "title": "A1 Final Challenge dialogue 6",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Practiquemos: a las ocho.",
+          "english": "Let's practice: at eight."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "el mercado",
+          "english": "market"
+        }
+      ]
+    },
+    {
+      "title": "A1 Final Challenge dialogue 7",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Practiquemos: hace frio.",
+          "english": "Let's practice: it is cold."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "la cuenta",
+          "english": "bill/account"
+        }
+      ]
+    },
+    {
+      "title": "A1 Final Challenge dialogue 8",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Practiquemos: la chaqueta.",
+          "english": "Let's practice: jacket."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "el cafe",
+          "english": "coffee"
+        }
+      ]
+    },
+    {
+      "title": "A1 Final Challenge dialogue 9",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Practiquemos: el mercado.",
+          "english": "Let's practice: market."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "el boleto",
+          "english": "ticket"
+        }
+      ]
+    },
+    {
+      "title": "A1 Final Challenge dialogue 10",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Practiquemos: la cuenta.",
+          "english": "Let's practice: bill/account."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "la playa",
+          "english": "beach"
+        }
+      ]
+    }
+  ],
+  "dialogues": [
+    {
+      "title": "A1 Final Challenge dialogue 1",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Practiquemos: hola.",
+          "english": "Let's practice: hello."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "mi familia",
+          "english": "my family"
+        }
+      ]
+    },
+    {
+      "title": "A1 Final Challenge dialogue 2",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Practiquemos: me llamo.",
+          "english": "Let's practice: my name is."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "la hora",
+          "english": "time"
+        }
+      ]
+    },
+    {
+      "title": "A1 Final Challenge dialogue 3",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Practiquemos: soy de.",
+          "english": "Let's practice: I am from."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "a las ocho",
+          "english": "at eight"
+        }
+      ]
+    },
+    {
+      "title": "A1 Final Challenge dialogue 4",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Practiquemos: mi familia.",
+          "english": "Let's practice: my family."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "hace frio",
+          "english": "it is cold"
+        }
+      ]
+    },
+    {
+      "title": "A1 Final Challenge dialogue 5",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Practiquemos: la hora.",
+          "english": "Let's practice: time."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "la chaqueta",
+          "english": "jacket"
+        }
+      ]
+    },
+    {
+      "title": "A1 Final Challenge dialogue 6",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Practiquemos: a las ocho.",
+          "english": "Let's practice: at eight."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "el mercado",
+          "english": "market"
+        }
+      ]
+    },
+    {
+      "title": "A1 Final Challenge dialogue 7",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Practiquemos: hace frio.",
+          "english": "Let's practice: it is cold."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "la cuenta",
+          "english": "bill/account"
+        }
+      ]
+    },
+    {
+      "title": "A1 Final Challenge dialogue 8",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Practiquemos: la chaqueta.",
+          "english": "Let's practice: jacket."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "el cafe",
+          "english": "coffee"
+        }
+      ]
+    },
+    {
+      "title": "A1 Final Challenge dialogue 9",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Practiquemos: el mercado.",
+          "english": "Let's practice: market."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "el boleto",
+          "english": "ticket"
+        }
+      ]
+    },
+    {
+      "title": "A1 Final Challenge dialogue 10",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Practiquemos: la cuenta.",
+          "english": "Let's practice: bill/account."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "la playa",
+          "english": "beach"
+        }
+      ]
+    }
+  ],
+  "listeningPhrases": [
+    {
+      "spanish": "hola",
+      "english": "hello"
+    },
+    {
+      "spanish": "me llamo",
+      "english": "my name is"
+    },
+    {
+      "spanish": "soy de",
+      "english": "I am from"
+    },
+    {
+      "spanish": "mi familia",
+      "english": "my family"
+    },
+    {
+      "spanish": "la hora",
+      "english": "time"
+    },
+    {
+      "spanish": "a las ocho",
+      "english": "at eight"
+    },
+    {
+      "spanish": "hace frio",
+      "english": "it is cold"
+    },
+    {
+      "spanish": "la chaqueta",
+      "english": "jacket"
+    },
+    {
+      "spanish": "el mercado",
+      "english": "market"
+    },
+    {
+      "spanish": "la cuenta",
+      "english": "bill/account"
+    }
+  ],
+  "listening": [
+    {
+      "spanish": "hola",
+      "english": "hello"
+    },
+    {
+      "spanish": "me llamo",
+      "english": "my name is"
+    },
+    {
+      "spanish": "soy de",
+      "english": "I am from"
+    },
+    {
+      "spanish": "mi familia",
+      "english": "my family"
+    },
+    {
+      "spanish": "la hora",
+      "english": "time"
+    },
+    {
+      "spanish": "a las ocho",
+      "english": "at eight"
+    },
+    {
+      "spanish": "hace frio",
+      "english": "it is cold"
+    },
+    {
+      "spanish": "la chaqueta",
+      "english": "jacket"
+    },
+    {
+      "spanish": "el mercado",
+      "english": "market"
+    },
+    {
+      "spanish": "la cuenta",
+      "english": "bill/account"
+    }
+  ],
+  "pronunciation": {
+    "focus": "Carlos helps you pronounce key a1 final challenge phrases clearly.",
+    "items": [
+      {
+        "text": "hola",
+        "note": "Say hola slowly, then use it in a short travel sentence."
+      },
+      {
+        "text": "me llamo",
+        "note": "Say me llamo slowly, then use it in a short travel sentence."
+      },
+      {
+        "text": "soy de",
+        "note": "Say soy de slowly, then use it in a short travel sentence."
+      },
+      {
+        "text": "mi familia",
+        "note": "Say mi familia slowly, then use it in a short travel sentence."
+      },
+      {
+        "text": "la hora",
+        "note": "Say la hora slowly, then use it in a short travel sentence."
+      },
+      {
+        "text": "a las ocho",
+        "note": "Say a las ocho slowly, then use it in a short travel sentence."
+      },
+      {
+        "text": "hace frio",
+        "note": "Say hace frio slowly, then use it in a short travel sentence."
+      },
+      {
+        "text": "la chaqueta",
+        "note": "Say la chaqueta slowly, then use it in a short travel sentence."
+      },
+      {
+        "text": "el mercado",
+        "note": "Say el mercado slowly, then use it in a short travel sentence."
+      },
+      {
+        "text": "la cuenta",
+        "note": "Say la cuenta slowly, then use it in a short travel sentence."
+      }
+    ]
+  },
+  "culture": {
+    "title": "A1 Final Challenge in real travel",
+    "text": "A1 Final Challenge situations are easier when you stay polite, brief, and specific. Carlos guides you to name the problem, the place, and the help you need."
+  },
+  "nativeSpeech": {
+    "title": "Carlos native speaker tips",
+    "notes": [
+      "Camion can mean bus in parts of Mexico.",
+      "Coche is the normal car word in Spain; carro is common in Mexico.",
+      "Always confirm destination and price before a taxi ride."
+    ]
+  },
+  "nativeExpressions": [
+    "Camion can mean bus in parts of Mexico.",
+    "Coche is the normal car word in Spain; carro is common in Mexico.",
+    "Always confirm destination and price before a taxi ride."
+  ],
+  "commonMistakes": [
+    {
+      "mistake": "Saying voy con taxi.",
+      "correction": "Say voy en taxi.",
+      "explanation": "Use en for transportation."
+    },
+    {
+      "mistake": "Using boleto everywhere in Spain.",
+      "correction": "Billete is common in Spain for transport tickets.",
+      "explanation": "Both may be understood, but region matters."
+    },
+    {
+      "mistake": "Forgetting al before centro.",
+      "correction": "Say voy al centro.",
+      "explanation": "A + el becomes al."
+    }
+  ],
+  "quiz": [
+    {
+      "type": "multipleChoice",
+      "prompt": "What does hola mean?",
+      "options": [
+        "hello",
+        "my name is",
+        "I am from",
+        "my family"
+      ],
+      "answer": "hello"
+    },
+    {
+      "type": "multipleChoice",
+      "prompt": "What does me llamo mean?",
+      "options": [
+        "my name is",
+        "I am from",
+        "my family",
+        "time"
+      ],
+      "answer": "my name is"
+    },
+    {
+      "type": "multipleChoice",
+      "prompt": "What does soy de mean?",
+      "options": [
+        "I am from",
+        "my family",
+        "time",
+        "at eight"
+      ],
+      "answer": "I am from"
+    },
+    {
+      "type": "multipleChoice",
+      "prompt": "What does mi familia mean?",
+      "options": [
+        "my family",
+        "time",
+        "at eight",
+        "it is cold"
+      ],
+      "answer": "my family"
+    },
+    {
+      "type": "multipleChoice",
+      "prompt": "What does la hora mean?",
+      "options": [
+        "time",
+        "at eight",
+        "it is cold",
+        "jacket"
+      ],
+      "answer": "time"
+    },
+    {
+      "type": "multipleChoice",
+      "prompt": "What does a las ocho mean?",
+      "options": [
+        "at eight",
+        "it is cold",
+        "jacket",
+        "market"
+      ],
+      "answer": "at eight"
+    },
+    {
+      "type": "multipleChoice",
+      "prompt": "What does hace frio mean?",
+      "options": [
+        "it is cold",
+        "jacket",
+        "market",
+        "bill/account"
+      ],
+      "answer": "it is cold"
+    },
+    {
+      "type": "multipleChoice",
+      "prompt": "What does la chaqueta mean?",
+      "options": [
+        "jacket",
+        "market",
+        "bill/account",
+        "coffee"
+      ],
+      "answer": "jacket"
+    },
+    {
+      "type": "multipleChoice",
+      "prompt": "What does el mercado mean?",
+      "options": [
+        "market",
+        "bill/account",
+        "coffee",
+        "ticket"
+      ],
+      "answer": "market"
+    },
+    {
+      "type": "multipleChoice",
+      "prompt": "What does la cuenta mean?",
+      "options": [
+        "bill/account",
+        "coffee",
+        "ticket",
+        "beach"
+      ],
+      "answer": "bill/account"
+    },
+    {
+      "type": "multipleChoice",
+      "prompt": "What does el cafe mean?",
+      "options": [
+        "coffee",
+        "ticket",
+        "beach",
+        "house"
+      ],
+      "answer": "coffee"
+    },
+    {
+      "type": "multipleChoice",
+      "prompt": "What does el boleto mean?",
+      "options": [
+        "ticket",
+        "beach",
+        "house",
+        "I get up"
+      ],
+      "answer": "ticket"
+    },
+    {
+      "type": "translation",
+      "prompt": "Translate: hola",
+      "answer": "hello"
+    },
+    {
+      "type": "translation",
+      "prompt": "Translate: me llamo",
+      "answer": "my name is"
+    },
+    {
+      "type": "multipleChoice",
+      "prompt": "Which phrase fits A1 Final Challenge?",
+      "options": [
+        "soy de",
+        "mi familia",
+        "hace frio",
+        "me gusta leer"
+      ],
+      "answer": "soy de"
+    }
+  ],
+  "speakingChallenge": [
+    {
+      "prompt": "Use hola in a realistic travel sentence with Carlos.",
+      "exampleAnswer": "Hola con Carlos."
+    },
+    {
+      "prompt": "Use me llamo in a realistic travel sentence with Carlos.",
+      "exampleAnswer": "Me llamo con Carlos."
+    },
+    {
+      "prompt": "Use soy de in a realistic travel sentence with Carlos.",
+      "exampleAnswer": "Soy de con Carlos."
+    },
+    {
+      "prompt": "Use mi familia in a realistic travel sentence with Carlos.",
+      "exampleAnswer": "Mi familia con Carlos."
+    },
+    {
+      "prompt": "Use la hora in a realistic travel sentence with Carlos.",
+      "exampleAnswer": "La hora con Carlos."
+    }
+  ],
+  "realLifeMission": {
+    "title": "Real Life Mission",
+    "mission": "Complete your A1 final journey with Carlos: introduce yourself, talk about your family and day, solve a travel problem, ask for help, handle airport/hotel details, and celebrate your A1 progress.",
+    "successCriteria": [
+      "Use at least six words from this lesson.",
+      "Use one phrase from a previous lesson.",
+      "Ask Carlos or another person at least one question.",
+      "Resolve the travel or navigation situation clearly."
+    ],
+    "suggestedPartner": "Carlos",
+    "xpReward": 10
+  },
+  "review": {
+    "recap": [
+      "Carlos reviewed a1 final challenge travel language.",
+      "You practiced A1 Final Challenge A1 travel phrases.",
+      "You recycled earlier A1 vocabulary in a realistic situation."
+    ],
+    "canDo": [
+      "Complete a full guided travel conversation with Carlos using everything from Lessons 1-29.",
+      "Ask for clarification when needed.",
+      "Complete the situation with polite, simple Spanish."
+    ]
+  },
+  "achievementsUnlocked": [
+    "a1_complete"
+  ],
+  "xpReward": 125,
+  "nextLesson": "a2-lesson-01-real-conversations",
+  "fullConversationalScenario": {
+    "title": "A complete A1 travel day with Carlos",
+    "summary": "Use all major A1 topics from Lessons 1-29 in one guided journey.",
+    "stages": [
+      "Greetings",
+      "Introductions",
+      "Family and routine",
+      "Weather and clothing",
+      "Food and shopping",
+      "Directions and transport",
+      "Help, hotel, banking, and airport",
+      "Celebration"
+    ]
+  },
+  "mixedVocabularyReview": [
+    "hola",
+    "me llamo",
+    "soy de",
+    "mi familia",
+    "la hora",
+    "a las ocho",
+    "hace frio",
+    "la chaqueta",
+    "el mercado",
+    "la cuenta",
+    "el cafe",
+    "el boleto",
+    "la playa",
+    "la casa",
+    "me levanto",
+    "la escuela",
+    "el trabajo",
+    "me gusta",
+    "el deporte",
+    "me duele",
+    "la cabeza",
+    "estoy feliz",
+    "a la derecha",
+    "el taxi",
+    "puede ayudarme",
+    "emergencia",
+    "el telefono",
+    "el banco",
+    "el hotel",
+    "el aeropuerto"
+  ],
+  "grammarReview": [
+    "ser vs estar",
+    "tener and necesitar",
+    "querer and me gusta",
+    "ir a for plans",
+    "me duele for health",
+    "polite requests",
+    "sequencing"
+  ],
+  "listeningChallenge": [
+    {
+      "spanish": "hola",
+      "english": "hello"
+    },
+    {
+      "spanish": "me llamo",
+      "english": "my name is"
+    },
+    {
+      "spanish": "soy de",
+      "english": "I am from"
+    },
+    {
+      "spanish": "mi familia",
+      "english": "my family"
+    },
+    {
+      "spanish": "la hora",
+      "english": "time"
+    },
+    {
+      "spanish": "a las ocho",
+      "english": "at eight"
+    },
+    {
+      "spanish": "hace frio",
+      "english": "it is cold"
+    },
+    {
+      "spanish": "la chaqueta",
+      "english": "jacket"
+    },
+    {
+      "spanish": "el mercado",
+      "english": "market"
+    },
+    {
+      "spanish": "la cuenta",
+      "english": "bill/account"
+    }
+  ],
+  "pronunciationChallenge": {
+    "focus": "Carlos helps you pronounce key a1 final challenge phrases clearly.",
+    "items": [
+      {
+        "text": "hola",
+        "note": "Say hola slowly, then use it in a short travel sentence."
+      },
+      {
+        "text": "me llamo",
+        "note": "Say me llamo slowly, then use it in a short travel sentence."
+      },
+      {
+        "text": "soy de",
+        "note": "Say soy de slowly, then use it in a short travel sentence."
+      },
+      {
+        "text": "mi familia",
+        "note": "Say mi familia slowly, then use it in a short travel sentence."
+      },
+      {
+        "text": "la hora",
+        "note": "Say la hora slowly, then use it in a short travel sentence."
+      },
+      {
+        "text": "a las ocho",
+        "note": "Say a las ocho slowly, then use it in a short travel sentence."
+      },
+      {
+        "text": "hace frio",
+        "note": "Say hace frio slowly, then use it in a short travel sentence."
+      },
+      {
+        "text": "la chaqueta",
+        "note": "Say la chaqueta slowly, then use it in a short travel sentence."
+      },
+      {
+        "text": "el mercado",
+        "note": "Say el mercado slowly, then use it in a short travel sentence."
+      },
+      {
+        "text": "la cuenta",
+        "note": "Say la cuenta slowly, then use it in a short travel sentence."
+      }
+    ]
+  },
+  "speakingAssessment": {
+    "prompt": "Complete a 3-minute A1 role-play with Carlos.",
+    "criteria": [
+      "Introduce yourself",
+      "Ask for help",
+      "Solve a travel problem",
+      "Use connectors",
+      "Close politely"
+    ]
+  },
+  "celebration": {
+    "title": "A1 Complete",
+    "message": "Carlos celebrates your A1 journey. You can now handle everyday travel basics in Spanish."
+  }
+}

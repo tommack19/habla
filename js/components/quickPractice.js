@@ -1,11 +1,11 @@
-﻿export function renderQuickPractice() {
+export function renderQuickPractice() {
   const items = [
-    ["&#128075;", "Greetings", "practice"],
-    ["&#9889;", "Verbs", "practice"],
-    ["123", "Numbers", "practice"],
-    ["&#128106;", "Family", "learn"],
-    ["&#128172;", "Phrases", "practice"],
-    ["&#127869;", "Food", "learn"],
+    ["home-icon-chat", "Greetings", "practice"],
+    ["home-icon-practice", "Verbs", "practice"],
+    ["home-icon-progress", "Numbers", "practice"],
+    ["home-icon-people", "Family", "learn"],
+    ["home-icon-phrases", "Phrases", "practice"],
+    ["home-icon-food", "Food", "learn"],
   ];
 
   return `
@@ -14,7 +14,7 @@
       <div class="practice-grid">
         ${items.map(([icon, label, page]) => `
           <button type="button" data-page="${page}">
-            <span class="practice-icon">${icon}</span>
+            <span class="practice-icon home-icon ${icon}" aria-hidden="true"></span>
             <span>${label}</span>
           </button>
         `).join("")}

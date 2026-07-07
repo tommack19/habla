@@ -6,8 +6,38 @@ const LESSON_PATHS = {
   [FIRST_LESSON_ID]: "../../content/A1/lesson-01-greetings.json",
   "a1-lesson-02-introductions": "../../content/A1/lesson-02-introductions.json",
   "lesson-03-family": "../../content/A1/lesson-03-family.json",
+  "lesson-04-numbers-time": "../../content/A1/lesson-04-numbers-time.json",
+  "lesson-05-shopping": "../../content/A1/lesson-05-shopping.json",
+  "lesson-06-food-drinks": "../../content/A1/lesson-06-food-drinks.json",
+  "lesson-07-travel-basics": "../../content/A1/lesson-07-travel-basics.json",
+  "lesson-08-vacation": "../../content/A1/lesson-08-vacation.json",
+  "lesson-09-around-the-house": "../../content/A1/lesson-09-around-the-house.json",
+  "lesson-10-daily-routine": "../../content/A1/lesson-10-daily-routine.json",
+  "lesson-11-weather": "../../content/A1/lesson-11-weather.json",
+  "lesson-12-clothing": "../../content/A1/lesson-12-clothing.json",
+  "lesson-13-school": "../../content/A1/lesson-13-school.json",
+  "lesson-14-work": "../../content/A1/lesson-14-work.json",
+  "lesson-15-hobbies": "../../content/A1/lesson-15-hobbies.json",
+  "lesson-16-sports": "../../content/A1/lesson-16-sports.json",
+  "lesson-17-health": "../../content/A1/lesson-17-health.json",
+  "lesson-18-body-parts": "../../content/A1/lesson-18-body-parts.json",
+  "lesson-19-emotions": "../../content/A1/lesson-19-emotions.json",
+  "lesson-20-everyday-life-review": "../../content/A1/lesson-20-everyday-life-review.json",
+  "lesson-21-directions": "../../content/A1/lesson-21-directions.json",
+  "lesson-22-transportation": "../../content/A1/lesson-22-transportation.json",
+  "lesson-23-asking-for-help": "../../content/A1/lesson-23-asking-for-help.json",
+  "lesson-24-emergencies": "../../content/A1/lesson-24-emergencies.json",
+  "lesson-25-phone-conversations": "../../content/A1/lesson-25-phone-conversations.json",
+  "lesson-26-banking": "../../content/A1/lesson-26-banking.json",
+  "lesson-27-hotels": "../../content/A1/lesson-27-hotels.json",
+  "lesson-28-airport": "../../content/A1/lesson-28-airport.json",
+  "lesson-29-travel-review": "../../content/A1/lesson-29-travel-review.json",
+  "lesson-30-a1-final-challenge": "../../content/A1/lesson-30-a1-final-challenge.json",
 };
 const LESSON_ORDER = Object.keys(LESSON_PATHS);
+const LESSON_ID_ALIASES = {
+  "lesson-21-a1-checkpoint": "lesson-21-directions",
+};
 
 const lessonCache = new Map();
 
@@ -53,7 +83,25 @@ export function getNextAvailableLessonStatus() {
   const currentProgress = progress.lessons[currentLesson.id] || {};
   const nextLessonId = currentLesson.nextLesson || null;
   const nextLesson = nextLessonId ? getLessonById(nextLessonId) : null;
-  const nextUnlocked = nextLessonId ? progress.unlockedLessonIds.includes(nextLessonId) : false;
+  const nextCanonicalId = canonicalLessonId(nextLessonId);
+  const nextUnlocked = nextCanonicalId ? progress.unlockedLessonIds.includes(nextCanonicalId) : false;
+  const loadedLessons = LESSON_ORDER.map(id => getLessonById(id)).filter(Boolean);
+  const allLoadedLessonsCompleted = loadedLessons.length > 0
+    && loadedLessons.every(lesson => progress.lessons[lesson.id]?.completed);
+
+  if (allLoadedLessonsCompleted) {
+    return {
+      type: "course-completed-a1",
+      currentLesson,
+      currentProgress,
+      nextLesson,
+      nextLessonId,
+      nextLessonTitle: nextLesson ? nextLesson.title : formatLessonTitle(nextLessonId),
+      message: nextLesson
+        ? "A1 complete. Your next course is ready."
+        : "A1 complete. You're caught up.",
+    };
+  }
 
   if (nextLesson) {
     return {
@@ -141,7 +189,7 @@ export function getCourseProgress() {
 }
 
 export function getLessonById(id) {
-  return lessonCache.get(id) || null;
+  return lessonCache.get(canonicalLessonId(id)) || null;
 }
 
 export function completeLesson(id) {
@@ -224,16 +272,24 @@ function createProgress() {
 function normalizeProgress(progress) {
   const unlockedLessonIds = Array.from(new Set([FIRST_LESSON_ID, ...(progress.unlockedLessonIds || [])]));
   const completedLessonIds = Array.from(new Set(progress.completedLessonIds || []));
+  const lessons = Object.entries(progress.lessons || {}).reduce((normalizedLessons, [id, lessonProgress]) => {
+    const canonicalId = canonicalLessonId(id);
+    normalizedLessons[canonicalId] = {
+      ...(normalizedLessons[canonicalId] || {}),
+      ...lessonProgress,
+    };
+    return normalizedLessons;
+  }, {});
 
-  for (const id of completedLessonIds) {
+  for (const id of completedLessonIds.map(canonicalLessonId)) {
     const lesson = lessonCache.get(id);
     if (lesson?.nextLesson) unlockedLessonIds.push(lesson.nextLesson);
   }
 
   return {
-    lessons: progress.lessons || {},
-    completedLessonIds,
-    unlockedLessonIds: sortLessonIds(Array.from(new Set(unlockedLessonIds))),
+    lessons,
+    completedLessonIds: completedLessonIds.map(canonicalLessonId),
+    unlockedLessonIds: sortLessonIds(Array.from(new Set(unlockedLessonIds.map(canonicalLessonId)))),
     lastCompletedLessonId: progress.lastCompletedLessonId || null,
     updatedAt: progress.updatedAt || null,
   };
@@ -254,6 +310,8 @@ function unlockLessonInProgress(progress, id, unlockedBy = null) {
     return { type: "lesson:no-next-lesson", id: null, unlockedBy };
   }
 
+  id = canonicalLessonId(id);
+
   if (progress.unlockedLessonIds.includes(id)) {
     return { type: "lesson:already-unlocked", id, lesson: getLessonById(id), unlockedBy };
   }
@@ -262,6 +320,10 @@ function unlockLessonInProgress(progress, id, unlockedBy = null) {
   progress.updatedAt = new Date().toISOString();
 
   return { type: "lesson:unlocked", id, lesson: getLessonById(id), unlockedBy };
+}
+
+function canonicalLessonId(id) {
+  return LESSON_ID_ALIASES[id] || id;
 }
 
 function sortLessonIds(ids) {

@@ -1,0 +1,1051 @@
+{
+  "id": "lesson-11-weather",
+  "title": "Weather: Talking About the Day Outside",
+  "level": "A1",
+  "module": "Weather",
+  "estimatedMinutes": 30,
+  "prerequisiteLesson": "lesson-10-daily-routine",
+  "imagePath": "assets/images/lessons/lesson-11-weather.png",
+  "objectives": [
+    "Talk with Carlos about the weather, temperature, seasons, and simple plans for the day.",
+    "Use 25 or more weather words and phrases in short sentences.",
+    "Recycle greetings, time, family, weather, food, work, health, and emotion phrases from earlier lessons.",
+    "Complete a realistic practice mission with Carlos."
+  ],
+  "vocabularyCategories": [
+    "weather",
+    "temperature",
+    "seasons",
+    "plans"
+  ],
+  "vocabulary": [
+    {
+      "spanish": "el clima",
+      "english": "weather",
+      "partOfSpeech": "weather",
+      "tip": "Use clima for the general weather.",
+      "exampleSpanish": "El clima esta bonito hoy.",
+      "exampleEnglish": "The weather is nice today."
+    },
+    {
+      "spanish": "el tiempo",
+      "english": "weather",
+      "partOfSpeech": "weather",
+      "tip": "In Spain, el tiempo is common for weather.",
+      "exampleSpanish": "El tiempo esta raro.",
+      "exampleEnglish": "The weather is strange."
+    },
+    {
+      "spanish": "hace sol",
+      "english": "it is sunny",
+      "partOfSpeech": "weather phrase",
+      "tip": "Use hace with sol.",
+      "exampleSpanish": "Hoy hace sol.",
+      "exampleEnglish": "It is sunny today."
+    },
+    {
+      "spanish": "hace calor",
+      "english": "it is hot",
+      "partOfSpeech": "weather phrase",
+      "tip": "Literally, it makes heat.",
+      "exampleSpanish": "Hace calor en la tarde.",
+      "exampleEnglish": "It is hot in the afternoon."
+    },
+    {
+      "spanish": "hace frio",
+      "english": "it is cold",
+      "partOfSpeech": "weather phrase",
+      "tip": "Use frio for cold weather.",
+      "exampleSpanish": "Hace frio por la manana.",
+      "exampleEnglish": "It is cold in the morning."
+    },
+    {
+      "spanish": "hace viento",
+      "english": "it is windy",
+      "partOfSpeech": "weather phrase",
+      "tip": "Viento means wind.",
+      "exampleSpanish": "Hace viento en la calle.",
+      "exampleEnglish": "It is windy in the street."
+    },
+    {
+      "spanish": "esta nublado",
+      "english": "it is cloudy",
+      "partOfSpeech": "weather phrase",
+      "tip": "Use esta for current sky conditions.",
+      "exampleSpanish": "Esta nublado ahora.",
+      "exampleEnglish": "It is cloudy now."
+    },
+    {
+      "spanish": "esta lloviendo",
+      "english": "it is raining",
+      "partOfSpeech": "weather phrase",
+      "tip": "Use esta plus -iendo for happening now.",
+      "exampleSpanish": "Esta lloviendo mucho.",
+      "exampleEnglish": "It is raining a lot."
+    },
+    {
+      "spanish": "nieva",
+      "english": "it snows",
+      "partOfSpeech": "verb",
+      "tip": "Simple present for snow.",
+      "exampleSpanish": "En invierno nieva aqui.",
+      "exampleEnglish": "In winter it snows here."
+    },
+    {
+      "spanish": "la lluvia",
+      "english": "rain",
+      "partOfSpeech": "noun",
+      "tip": "The noun form of rain.",
+      "exampleSpanish": "La lluvia es fuerte.",
+      "exampleEnglish": "The rain is strong."
+    },
+    {
+      "spanish": "la nieve",
+      "english": "snow",
+      "partOfSpeech": "noun",
+      "tip": "Use la nieve for snow on the ground.",
+      "exampleSpanish": "La nieve es blanca.",
+      "exampleEnglish": "The snow is white."
+    },
+    {
+      "spanish": "el viento",
+      "english": "wind",
+      "partOfSpeech": "noun",
+      "tip": "Useful for beaches and travel.",
+      "exampleSpanish": "El viento es fuerte.",
+      "exampleEnglish": "The wind is strong."
+    },
+    {
+      "spanish": "la temperatura",
+      "english": "temperature",
+      "partOfSpeech": "noun",
+      "tip": "Looks like English.",
+      "exampleSpanish": "La temperatura es baja.",
+      "exampleEnglish": "The temperature is low."
+    },
+    {
+      "spanish": "los grados",
+      "english": "degrees",
+      "partOfSpeech": "noun",
+      "tip": "Use with numbers.",
+      "exampleSpanish": "Hay veinte grados.",
+      "exampleEnglish": "It is twenty degrees."
+    },
+    {
+      "spanish": "la estacion",
+      "english": "season",
+      "partOfSpeech": "noun",
+      "tip": "Also means station, context matters.",
+      "exampleSpanish": "Mi estacion favorita es verano.",
+      "exampleEnglish": "My favorite season is summer."
+    },
+    {
+      "spanish": "la primavera",
+      "english": "spring",
+      "partOfSpeech": "season",
+      "tip": "Use with en.",
+      "exampleSpanish": "En primavera hay flores.",
+      "exampleEnglish": "In spring there are flowers."
+    },
+    {
+      "spanish": "el verano",
+      "english": "summer",
+      "partOfSpeech": "season",
+      "tip": "Summer is verano.",
+      "exampleSpanish": "En verano hace calor.",
+      "exampleEnglish": "In summer it is hot."
+    },
+    {
+      "spanish": "el otono",
+      "english": "fall",
+      "partOfSpeech": "season",
+      "tip": "Otono means autumn or fall.",
+      "exampleSpanish": "En otono hace fresco.",
+      "exampleEnglish": "In fall it is cool."
+    },
+    {
+      "spanish": "el invierno",
+      "english": "winter",
+      "partOfSpeech": "season",
+      "tip": "Use invierno for winter.",
+      "exampleSpanish": "En invierno hace frio.",
+      "exampleEnglish": "In winter it is cold."
+    },
+    {
+      "spanish": "fresco",
+      "english": "cool",
+      "partOfSpeech": "adjective",
+      "tip": "Good for mild cold.",
+      "exampleSpanish": "La manana esta fresca.",
+      "exampleEnglish": "The morning is cool."
+    },
+    {
+      "spanish": "seco",
+      "english": "dry",
+      "partOfSpeech": "adjective",
+      "tip": "Useful for climates.",
+      "exampleSpanish": "El aire esta seco.",
+      "exampleEnglish": "The air is dry."
+    },
+    {
+      "spanish": "humedo",
+      "english": "humid",
+      "partOfSpeech": "adjective",
+      "tip": "Common in tropical places.",
+      "exampleSpanish": "El clima esta humedo.",
+      "exampleEnglish": "The weather is humid."
+    },
+    {
+      "spanish": "el paraguas",
+      "english": "umbrella",
+      "partOfSpeech": "noun",
+      "tip": "Useful when it rains.",
+      "exampleSpanish": "Necesito un paraguas.",
+      "exampleEnglish": "I need an umbrella."
+    },
+    {
+      "spanish": "la chaqueta",
+      "english": "jacket",
+      "partOfSpeech": "noun",
+      "tip": "Connects to clothing.",
+      "exampleSpanish": "Uso una chaqueta hoy.",
+      "exampleEnglish": "I wear a jacket today."
+    },
+    {
+      "spanish": "salir",
+      "english": "to go out",
+      "partOfSpeech": "verb",
+      "tip": "Use for plans in weather.",
+      "exampleSpanish": "Quiero salir si hace sol.",
+      "exampleEnglish": "I want to go out if it is sunny."
+    },
+    {
+      "spanish": "quedarse",
+      "english": "to stay",
+      "partOfSpeech": "verb",
+      "tip": "Use for bad weather.",
+      "exampleSpanish": "Prefiero quedarme en casa.",
+      "exampleEnglish": "I prefer to stay home."
+    }
+  ],
+  "textbookPhrases": [
+    {
+      "meaning": "What is the weather like?",
+      "phrase": "Como esta el clima?"
+    },
+    {
+      "meaning": "It is very hot.",
+      "phrase": "Hace mucho calor."
+    },
+    {
+      "meaning": "It is raining.",
+      "phrase": "Esta lloviendo."
+    },
+    {
+      "meaning": "Do you want to go out?",
+      "phrase": "Quieres salir?"
+    },
+    {
+      "meaning": "I need an umbrella.",
+      "phrase": "Necesito un paraguas."
+    }
+  ],
+  "naturalEverydayPhrases": [
+    {
+      "meaning": "What is the weather like?",
+      "phrase": "Como esta el clima hoy?"
+    },
+    {
+      "meaning": "It is very hot.",
+      "phrase": "Hace muchisimo calor."
+    },
+    {
+      "meaning": "It is raining.",
+      "phrase": "Esta lloviendo ahorita."
+    },
+    {
+      "meaning": "Do you want to go out?",
+      "phrase": "Quieres salir un rato?"
+    },
+    {
+      "meaning": "I need an umbrella.",
+      "phrase": "Necesito paraguas."
+    }
+  ],
+  "mexicanSpanishVariants": [
+    {
+      "meaning": "What is the weather like?",
+      "phrase": "Como esta el clima?"
+    },
+    {
+      "meaning": "It is very hot.",
+      "phrase": "Hace mucho calor."
+    },
+    {
+      "meaning": "It is raining.",
+      "phrase": "Esta lloviendo."
+    },
+    {
+      "meaning": "Do you want to go out?",
+      "phrase": "Quieres salir?"
+    },
+    {
+      "meaning": "I need an umbrella.",
+      "phrase": "Necesito un paraguas."
+    }
+  ],
+  "spainSpanishVariants": [
+    {
+      "meaning": "What is the weather like?",
+      "phrase": "Que tiempo hace?"
+    },
+    {
+      "meaning": "It is very hot.",
+      "phrase": "Hace mucho calor."
+    },
+    {
+      "meaning": "It is raining.",
+      "phrase": "Esta lloviendo."
+    },
+    {
+      "meaning": "Do you want to go out?",
+      "phrase": "Te apetece salir?"
+    },
+    {
+      "meaning": "I need an umbrella.",
+      "phrase": "Necesito un paraguas."
+    }
+  ],
+  "phraseVariants": [
+    {
+      "meaning": "What is the weather like?",
+      "textbookVersion": "Como esta el clima?",
+      "naturalEverydayVersion": "Como esta el clima hoy?",
+      "mexicanSpanishVersion": "Como esta el clima?",
+      "spainSpanishVersion": "Que tiempo hace?",
+      "whenUsed": "Carlos shows the textbook version first, then the natural version learners are likely to hear in everyday speech."
+    },
+    {
+      "meaning": "It is very hot.",
+      "textbookVersion": "Hace mucho calor.",
+      "naturalEverydayVersion": "Hace muchisimo calor.",
+      "mexicanSpanishVersion": "Hace mucho calor.",
+      "spainSpanishVersion": "Hace mucho calor.",
+      "whenUsed": "Carlos shows the textbook version first, then the natural version learners are likely to hear in everyday speech."
+    },
+    {
+      "meaning": "It is raining.",
+      "textbookVersion": "Esta lloviendo.",
+      "naturalEverydayVersion": "Esta lloviendo ahorita.",
+      "mexicanSpanishVersion": "Esta lloviendo.",
+      "spainSpanishVersion": "Esta lloviendo.",
+      "whenUsed": "Carlos shows the textbook version first, then the natural version learners are likely to hear in everyday speech."
+    },
+    {
+      "meaning": "Do you want to go out?",
+      "textbookVersion": "Quieres salir?",
+      "naturalEverydayVersion": "Quieres salir un rato?",
+      "mexicanSpanishVersion": "Quieres salir?",
+      "spainSpanishVersion": "Te apetece salir?",
+      "whenUsed": "Carlos shows the textbook version first, then the natural version learners are likely to hear in everyday speech."
+    },
+    {
+      "meaning": "I need an umbrella.",
+      "textbookVersion": "Necesito un paraguas.",
+      "naturalEverydayVersion": "Necesito paraguas.",
+      "mexicanSpanishVersion": "Necesito un paraguas.",
+      "spainSpanishVersion": "Necesito un paraguas.",
+      "whenUsed": "Carlos shows the textbook version first, then the natural version learners are likely to hear in everyday speech."
+    }
+  ],
+  "grammar": {
+    "topic": "Hace, esta, and hay for weather",
+    "explanation": "Use hace with general weather or temperature, esta with current conditions, and hay to say there is or there are. Carlos reminds you that Spanish often says it makes heat instead of it is hot.",
+    "examples": [
+      {
+        "spanish": "Hace frio hoy.",
+        "english": "It is cold today."
+      },
+      {
+        "spanish": "Esta nublado esta tarde.",
+        "english": "It is cloudy this afternoon."
+      },
+      {
+        "spanish": "Hay viento en la playa.",
+        "english": "There is wind at the beach."
+      }
+    ],
+    "practicePrompt": "Tell Carlos what the weather is like today and what you want to wear or do."
+  },
+  "dialogue": [
+    {
+      "title": "Warmup with Carlos",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Practiquemos weather: el clima.",
+          "english": "Let's practice weather: weather."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "Hace calor en la tarde.",
+          "english": "It is hot in the afternoon."
+        }
+      ]
+    },
+    {
+      "title": "Real-world question",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Practiquemos weather: el tiempo.",
+          "english": "Let's practice weather: weather."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "Hace frio por la manana.",
+          "english": "It is cold in the morning."
+        }
+      ]
+    },
+    {
+      "title": "Using old vocabulary",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Practiquemos weather: hace sol.",
+          "english": "Let's practice weather: it is sunny."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "Hace viento en la calle.",
+          "english": "It is windy in the street."
+        }
+      ]
+    },
+    {
+      "title": "Making a plan",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Practiquemos weather: hace calor.",
+          "english": "Let's practice weather: it is hot."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "Esta nublado ahora.",
+          "english": "It is cloudy now."
+        }
+      ]
+    },
+    {
+      "title": "Asking for help",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Practiquemos weather: hace frio.",
+          "english": "Let's practice weather: it is cold."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "Esta lloviendo mucho.",
+          "english": "It is raining a lot."
+        }
+      ]
+    },
+    {
+      "title": "Polite correction",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Practiquemos weather: hace viento.",
+          "english": "Let's practice weather: it is windy."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "En invierno nieva aqui.",
+          "english": "In winter it snows here."
+        }
+      ]
+    },
+    {
+      "title": "With family",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Practiquemos weather: esta nublado.",
+          "english": "Let's practice weather: it is cloudy."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "La lluvia es fuerte.",
+          "english": "The rain is strong."
+        }
+      ]
+    },
+    {
+      "title": "At work or school",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Practiquemos weather: esta lloviendo.",
+          "english": "Let's practice weather: it is raining."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "La nieve es blanca.",
+          "english": "The snow is white."
+        }
+      ]
+    },
+    {
+      "title": "Travel moment",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Practiquemos weather: nieva.",
+          "english": "Let's practice weather: it snows."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "El viento es fuerte.",
+          "english": "The wind is strong."
+        }
+      ]
+    },
+    {
+      "title": "Wrap-up challenge",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Practiquemos weather: la lluvia.",
+          "english": "Let's practice weather: rain."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "La temperatura es baja.",
+          "english": "The temperature is low."
+        }
+      ]
+    }
+  ],
+  "dialogues": [
+    {
+      "title": "Warmup with Carlos",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Practiquemos weather: el clima.",
+          "english": "Let's practice weather: weather."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "Hace calor en la tarde.",
+          "english": "It is hot in the afternoon."
+        }
+      ]
+    },
+    {
+      "title": "Real-world question",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Practiquemos weather: el tiempo.",
+          "english": "Let's practice weather: weather."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "Hace frio por la manana.",
+          "english": "It is cold in the morning."
+        }
+      ]
+    },
+    {
+      "title": "Using old vocabulary",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Practiquemos weather: hace sol.",
+          "english": "Let's practice weather: it is sunny."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "Hace viento en la calle.",
+          "english": "It is windy in the street."
+        }
+      ]
+    },
+    {
+      "title": "Making a plan",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Practiquemos weather: hace calor.",
+          "english": "Let's practice weather: it is hot."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "Esta nublado ahora.",
+          "english": "It is cloudy now."
+        }
+      ]
+    },
+    {
+      "title": "Asking for help",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Practiquemos weather: hace frio.",
+          "english": "Let's practice weather: it is cold."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "Esta lloviendo mucho.",
+          "english": "It is raining a lot."
+        }
+      ]
+    },
+    {
+      "title": "Polite correction",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Practiquemos weather: hace viento.",
+          "english": "Let's practice weather: it is windy."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "En invierno nieva aqui.",
+          "english": "In winter it snows here."
+        }
+      ]
+    },
+    {
+      "title": "With family",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Practiquemos weather: esta nublado.",
+          "english": "Let's practice weather: it is cloudy."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "La lluvia es fuerte.",
+          "english": "The rain is strong."
+        }
+      ]
+    },
+    {
+      "title": "At work or school",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Practiquemos weather: esta lloviendo.",
+          "english": "Let's practice weather: it is raining."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "La nieve es blanca.",
+          "english": "The snow is white."
+        }
+      ]
+    },
+    {
+      "title": "Travel moment",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Practiquemos weather: nieva.",
+          "english": "Let's practice weather: it snows."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "El viento es fuerte.",
+          "english": "The wind is strong."
+        }
+      ]
+    },
+    {
+      "title": "Wrap-up challenge",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Practiquemos weather: la lluvia.",
+          "english": "Let's practice weather: rain."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "La temperatura es baja.",
+          "english": "The temperature is low."
+        }
+      ]
+    }
+  ],
+  "listeningPhrases": [
+    {
+      "spanish": "El clima esta bonito hoy.",
+      "english": "The weather is nice today."
+    },
+    {
+      "spanish": "El tiempo esta raro.",
+      "english": "The weather is strange."
+    },
+    {
+      "spanish": "Hoy hace sol.",
+      "english": "It is sunny today."
+    },
+    {
+      "spanish": "Hace calor en la tarde.",
+      "english": "It is hot in the afternoon."
+    },
+    {
+      "spanish": "Hace frio por la manana.",
+      "english": "It is cold in the morning."
+    },
+    {
+      "spanish": "Hace viento en la calle.",
+      "english": "It is windy in the street."
+    },
+    {
+      "spanish": "Esta nublado ahora.",
+      "english": "It is cloudy now."
+    },
+    {
+      "spanish": "Esta lloviendo mucho.",
+      "english": "It is raining a lot."
+    },
+    {
+      "spanish": "En invierno nieva aqui.",
+      "english": "In winter it snows here."
+    },
+    {
+      "spanish": "La lluvia es fuerte.",
+      "english": "The rain is strong."
+    }
+  ],
+  "listening": [
+    {
+      "spanish": "El clima esta bonito hoy.",
+      "english": "The weather is nice today."
+    },
+    {
+      "spanish": "El tiempo esta raro.",
+      "english": "The weather is strange."
+    },
+    {
+      "spanish": "Hoy hace sol.",
+      "english": "It is sunny today."
+    },
+    {
+      "spanish": "Hace calor en la tarde.",
+      "english": "It is hot in the afternoon."
+    },
+    {
+      "spanish": "Hace frio por la manana.",
+      "english": "It is cold in the morning."
+    },
+    {
+      "spanish": "Hace viento en la calle.",
+      "english": "It is windy in the street."
+    },
+    {
+      "spanish": "Esta nublado ahora.",
+      "english": "It is cloudy now."
+    },
+    {
+      "spanish": "Esta lloviendo mucho.",
+      "english": "It is raining a lot."
+    },
+    {
+      "spanish": "En invierno nieva aqui.",
+      "english": "In winter it snows here."
+    },
+    {
+      "spanish": "La lluvia es fuerte.",
+      "english": "The rain is strong."
+    }
+  ],
+  "pronunciation": {
+    "focus": "Carlos helps you practice clear rhythm and useful sounds for weather.",
+    "items": [
+      {
+        "text": "el clima",
+        "note": "Say el clima slowly first, then repeat it in the sentence: El clima esta bonito hoy."
+      },
+      {
+        "text": "el tiempo",
+        "note": "Say el tiempo slowly first, then repeat it in the sentence: El tiempo esta raro."
+      },
+      {
+        "text": "hace sol",
+        "note": "Say hace sol slowly first, then repeat it in the sentence: Hoy hace sol."
+      },
+      {
+        "text": "hace calor",
+        "note": "Say hace calor slowly first, then repeat it in the sentence: Hace calor en la tarde."
+      },
+      {
+        "text": "hace frio",
+        "note": "Say hace frio slowly first, then repeat it in the sentence: Hace frio por la manana."
+      },
+      {
+        "text": "hace viento",
+        "note": "Say hace viento slowly first, then repeat it in the sentence: Hace viento en la calle."
+      },
+      {
+        "text": "esta nublado",
+        "note": "Say esta nublado slowly first, then repeat it in the sentence: Esta nublado ahora."
+      },
+      {
+        "text": "esta lloviendo",
+        "note": "Say esta lloviendo slowly first, then repeat it in the sentence: Esta lloviendo mucho."
+      },
+      {
+        "text": "nieva",
+        "note": "Say nieva slowly first, then repeat it in the sentence: En invierno nieva aqui."
+      },
+      {
+        "text": "la lluvia",
+        "note": "Say la lluvia slowly first, then repeat it in the sentence: La lluvia es fuerte."
+      }
+    ]
+  },
+  "culture": {
+    "title": "Weather in real life",
+    "text": "Weather is a safe small-talk topic across the Spanish-speaking world. Carlos encourages you to mention the weather before talking about plans, clothing, or travel."
+  },
+  "nativeSpeech": {
+    "title": "Carlos native speaker tips",
+    "notes": [
+      "In Mexico, ahorita can mean right now or soon depending on context.",
+      "In Spain, Que tiempo hace? is very common for asking about weather.",
+      "Native speakers often answer with short phrases: Hace frio, Llueve, or Esta nublado."
+    ]
+  },
+  "nativeExpressions": [
+    "In Mexico, ahorita can mean right now or soon depending on context.",
+    "In Spain, Que tiempo hace? is very common for asking about weather.",
+    "Native speakers often answer with short phrases: Hace frio, Llueve, or Esta nublado."
+  ],
+  "commonMistakes": [
+    {
+      "mistake": "Saying es caliente for weather.",
+      "correction": "Say hace calor.",
+      "explanation": "Weather uses hace calor, not es caliente."
+    },
+    {
+      "mistake": "Using soy/eres with weather.",
+      "correction": "Use hace, esta, or hay.",
+      "explanation": "Weather expressions have their own patterns."
+    },
+    {
+      "mistake": "Forgetting en with seasons.",
+      "correction": "Say en verano or en invierno.",
+      "explanation": "Use en for in a season."
+    }
+  ],
+  "quiz": [
+    {
+      "type": "multipleChoice",
+      "prompt": "What does el clima mean?",
+      "options": [
+        "weather",
+        "weather",
+        "it is sunny",
+        "it is hot"
+      ],
+      "answer": "weather"
+    },
+    {
+      "type": "multipleChoice",
+      "prompt": "What does el tiempo mean?",
+      "options": [
+        "weather",
+        "it is sunny",
+        "it is hot",
+        "it is cold"
+      ],
+      "answer": "weather"
+    },
+    {
+      "type": "multipleChoice",
+      "prompt": "What does hace sol mean?",
+      "options": [
+        "it is sunny",
+        "it is hot",
+        "it is cold",
+        "it is windy"
+      ],
+      "answer": "it is sunny"
+    },
+    {
+      "type": "multipleChoice",
+      "prompt": "What does hace calor mean?",
+      "options": [
+        "it is hot",
+        "it is cold",
+        "it is windy",
+        "it is cloudy"
+      ],
+      "answer": "it is hot"
+    },
+    {
+      "type": "multipleChoice",
+      "prompt": "What does hace frio mean?",
+      "options": [
+        "it is cold",
+        "it is windy",
+        "it is cloudy",
+        "it is raining"
+      ],
+      "answer": "it is cold"
+    },
+    {
+      "type": "multipleChoice",
+      "prompt": "What does hace viento mean?",
+      "options": [
+        "it is windy",
+        "it is cloudy",
+        "it is raining",
+        "it snows"
+      ],
+      "answer": "it is windy"
+    },
+    {
+      "type": "multipleChoice",
+      "prompt": "What does esta nublado mean?",
+      "options": [
+        "it is cloudy",
+        "it is raining",
+        "it snows",
+        "rain"
+      ],
+      "answer": "it is cloudy"
+    },
+    {
+      "type": "multipleChoice",
+      "prompt": "What does esta lloviendo mean?",
+      "options": [
+        "it is raining",
+        "it snows",
+        "rain",
+        "snow"
+      ],
+      "answer": "it is raining"
+    },
+    {
+      "type": "multipleChoice",
+      "prompt": "What does nieva mean?",
+      "options": [
+        "it snows",
+        "rain",
+        "snow",
+        "wind"
+      ],
+      "answer": "it snows"
+    },
+    {
+      "type": "multipleChoice",
+      "prompt": "What does la lluvia mean?",
+      "options": [
+        "rain",
+        "snow",
+        "wind",
+        "temperature"
+      ],
+      "answer": "rain"
+    },
+    {
+      "type": "multipleChoice",
+      "prompt": "What does la nieve mean?",
+      "options": [
+        "snow",
+        "wind",
+        "temperature",
+        "degrees"
+      ],
+      "answer": "snow"
+    },
+    {
+      "type": "multipleChoice",
+      "prompt": "What does el viento mean?",
+      "options": [
+        "wind",
+        "temperature",
+        "degrees",
+        "season"
+      ],
+      "answer": "wind"
+    },
+    {
+      "type": "translation",
+      "prompt": "Translate: El clima esta bonito hoy.",
+      "answer": "The weather is nice today."
+    },
+    {
+      "type": "translation",
+      "prompt": "Translate: El tiempo esta raro.",
+      "answer": "The weather is strange."
+    },
+    {
+      "type": "multipleChoice",
+      "prompt": "Which phrase belongs in Weather?",
+      "options": [
+        "hace sol",
+        "mi suegra",
+        "buenos dias",
+        "un boleto"
+      ],
+      "answer": "hace sol"
+    }
+  ],
+  "speakingChallenge": [
+    {
+      "prompt": "Carlos asks you to use el clima in a real sentence.",
+      "exampleAnswer": "El clima esta bonito hoy."
+    },
+    {
+      "prompt": "Carlos asks you to use el tiempo in a real sentence.",
+      "exampleAnswer": "El tiempo esta raro."
+    },
+    {
+      "prompt": "Carlos asks you to use hace sol in a real sentence.",
+      "exampleAnswer": "Hoy hace sol."
+    },
+    {
+      "prompt": "Carlos asks you to use hace calor in a real sentence.",
+      "exampleAnswer": "Hace calor en la tarde."
+    },
+    {
+      "prompt": "Carlos asks you to use hace frio in a real sentence.",
+      "exampleAnswer": "Hace frio por la manana."
+    }
+  ],
+  "realLifeMission": {
+    "title": "Real Life Mission",
+    "mission": "Check the weather with Carlos and decide what to wear and whether to go out. Use at least three weather phrases and one plan phrase.",
+    "successCriteria": [
+      "Use at least six words from this lesson.",
+      "Use one phrase recycled from a previous lesson.",
+      "Ask Carlos at least one question.",
+      "Respond naturally with a short follow-up sentence."
+    ],
+    "suggestedPartner": "Carlos",
+    "xpReward": 10
+  },
+  "review": {
+    "recap": [
+      "Carlos reviewed weather vocabulary.",
+      "You practiced Hace, esta, and hay for weather.",
+      "You connected this lesson to earlier A1 survival conversations."
+    ],
+    "canDo": [
+      "Talk with Carlos about the weather, temperature, seasons, and simple plans for the day.",
+      "Ask and answer simple everyday questions.",
+      "Repair the conversation with a short polite phrase if needed."
+    ]
+  },
+  "achievementsUnlocked": [],
+  "xpReward": 70,
+  "nextLesson": "lesson-12-clothing"
+}

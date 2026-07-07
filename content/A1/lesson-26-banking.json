@@ -1,0 +1,1051 @@
+{
+  "id": "lesson-26-banking",
+  "title": "Banking: Money, Cards, and ATMs",
+  "level": "A1",
+  "module": "Banking",
+  "estimatedMinutes": 32,
+  "prerequisiteLesson": "lesson-25-phone-conversations",
+  "imagePath": "assets/images/lessons/lesson-26-banking.png",
+  "objectives": [
+    "Handle basic banking, ATM, card, cash, and payment situations while traveling.",
+    "Use 26 banking words and phrases in travel or navigation contexts.",
+    "Recycle previous A1 vocabulary naturally with Carlos.",
+    "Complete an authentic travel or navigation Real Life Mission."
+  ],
+  "vocabularyCategories": [
+    "banking",
+    "travel",
+    "conversation",
+    "problem solving"
+  ],
+  "vocabulary": [
+    {
+      "spanish": "el banco",
+      "english": "bank",
+      "partOfSpeech": "travel phrase",
+      "tip": "Carlos uses el banco in practical travel conversation.",
+      "exampleSpanish": "El banco con Carlos.",
+      "exampleEnglish": "Bank with Carlos."
+    },
+    {
+      "spanish": "el cajero automatico",
+      "english": "ATM",
+      "partOfSpeech": "travel phrase",
+      "tip": "Carlos uses el cajero automatico in practical travel conversation.",
+      "exampleSpanish": "El cajero automatico con Carlos.",
+      "exampleEnglish": "ATM with Carlos."
+    },
+    {
+      "spanish": "el dinero",
+      "english": "money",
+      "partOfSpeech": "travel phrase",
+      "tip": "Carlos uses el dinero in practical travel conversation.",
+      "exampleSpanish": "El dinero con Carlos.",
+      "exampleEnglish": "Money with Carlos."
+    },
+    {
+      "spanish": "el efectivo",
+      "english": "cash",
+      "partOfSpeech": "travel phrase",
+      "tip": "Carlos uses el efectivo in practical travel conversation.",
+      "exampleSpanish": "El efectivo con Carlos.",
+      "exampleEnglish": "Cash with Carlos."
+    },
+    {
+      "spanish": "la tarjeta",
+      "english": "card",
+      "partOfSpeech": "travel phrase",
+      "tip": "Carlos uses la tarjeta in practical travel conversation.",
+      "exampleSpanish": "La tarjeta con Carlos.",
+      "exampleEnglish": "Card with Carlos."
+    },
+    {
+      "spanish": "la tarjeta de credito",
+      "english": "credit card",
+      "partOfSpeech": "travel phrase",
+      "tip": "Carlos uses la tarjeta de credito in practical travel conversation.",
+      "exampleSpanish": "La tarjeta de credito con Carlos.",
+      "exampleEnglish": "Credit card with Carlos."
+    },
+    {
+      "spanish": "la tarjeta de debito",
+      "english": "debit card",
+      "partOfSpeech": "travel phrase",
+      "tip": "Carlos uses la tarjeta de debito in practical travel conversation.",
+      "exampleSpanish": "La tarjeta de debito con Carlos.",
+      "exampleEnglish": "Debit card with Carlos."
+    },
+    {
+      "spanish": "la cuenta",
+      "english": "account",
+      "partOfSpeech": "travel phrase",
+      "tip": "Carlos uses la cuenta in practical travel conversation.",
+      "exampleSpanish": "La cuenta con Carlos.",
+      "exampleEnglish": "Account with Carlos."
+    },
+    {
+      "spanish": "el numero de cuenta",
+      "english": "account number",
+      "partOfSpeech": "travel phrase",
+      "tip": "Carlos uses el numero de cuenta in practical travel conversation.",
+      "exampleSpanish": "El numero de cuenta con Carlos.",
+      "exampleEnglish": "Account number with Carlos."
+    },
+    {
+      "spanish": "el PIN",
+      "english": "PIN",
+      "partOfSpeech": "travel phrase",
+      "tip": "Carlos uses el PIN in practical travel conversation.",
+      "exampleSpanish": "El PIN con Carlos.",
+      "exampleEnglish": "PIN with Carlos."
+    },
+    {
+      "spanish": "el recibo",
+      "english": "receipt",
+      "partOfSpeech": "travel phrase",
+      "tip": "Carlos uses el recibo in practical travel conversation.",
+      "exampleSpanish": "El recibo con Carlos.",
+      "exampleEnglish": "Receipt with Carlos."
+    },
+    {
+      "spanish": "la firma",
+      "english": "signature",
+      "partOfSpeech": "travel phrase",
+      "tip": "Carlos uses la firma in practical travel conversation.",
+      "exampleSpanish": "La firma con Carlos.",
+      "exampleEnglish": "Signature with Carlos."
+    },
+    {
+      "spanish": "el cambio",
+      "english": "change",
+      "partOfSpeech": "travel phrase",
+      "tip": "Carlos uses el cambio in practical travel conversation.",
+      "exampleSpanish": "El cambio con Carlos.",
+      "exampleEnglish": "Change with Carlos."
+    },
+    {
+      "spanish": "cambiar dinero",
+      "english": "to exchange money",
+      "partOfSpeech": "travel phrase",
+      "tip": "Carlos uses cambiar dinero in practical travel conversation.",
+      "exampleSpanish": "Cambiar dinero con Carlos.",
+      "exampleEnglish": "To exchange money with Carlos."
+    },
+    {
+      "spanish": "retirar",
+      "english": "to withdraw",
+      "partOfSpeech": "travel phrase",
+      "tip": "Carlos uses retirar in practical travel conversation.",
+      "exampleSpanish": "Retirar con Carlos.",
+      "exampleEnglish": "To withdraw with Carlos."
+    },
+    {
+      "spanish": "depositar",
+      "english": "to deposit",
+      "partOfSpeech": "travel phrase",
+      "tip": "Carlos uses depositar in practical travel conversation.",
+      "exampleSpanish": "Depositar con Carlos.",
+      "exampleEnglish": "To deposit with Carlos."
+    },
+    {
+      "spanish": "pagar",
+      "english": "to pay",
+      "partOfSpeech": "travel phrase",
+      "tip": "Carlos uses pagar in practical travel conversation.",
+      "exampleSpanish": "Pagar con Carlos.",
+      "exampleEnglish": "To pay with Carlos."
+    },
+    {
+      "spanish": "cobrar",
+      "english": "to charge",
+      "partOfSpeech": "travel phrase",
+      "tip": "Carlos uses cobrar in practical travel conversation.",
+      "exampleSpanish": "Cobrar con Carlos.",
+      "exampleEnglish": "To charge with Carlos."
+    },
+    {
+      "spanish": "funcionar",
+      "english": "to work",
+      "partOfSpeech": "travel phrase",
+      "tip": "Carlos uses funcionar in practical travel conversation.",
+      "exampleSpanish": "Funcionar con Carlos.",
+      "exampleEnglish": "To work with Carlos."
+    },
+    {
+      "spanish": "bloqueado",
+      "english": "blocked",
+      "partOfSpeech": "travel phrase",
+      "tip": "Carlos uses bloqueado in practical travel conversation.",
+      "exampleSpanish": "Bloqueado con Carlos.",
+      "exampleEnglish": "Blocked with Carlos."
+    },
+    {
+      "spanish": "perdido",
+      "english": "lost",
+      "partOfSpeech": "travel phrase",
+      "tip": "Carlos uses perdido in practical travel conversation.",
+      "exampleSpanish": "Perdido con Carlos.",
+      "exampleEnglish": "Lost with Carlos."
+    },
+    {
+      "spanish": "robado",
+      "english": "stolen",
+      "partOfSpeech": "travel phrase",
+      "tip": "Carlos uses robado in practical travel conversation.",
+      "exampleSpanish": "Robado con Carlos.",
+      "exampleEnglish": "Stolen with Carlos."
+    },
+    {
+      "spanish": "la moneda",
+      "english": "currency",
+      "partOfSpeech": "travel phrase",
+      "tip": "Carlos uses la moneda in practical travel conversation.",
+      "exampleSpanish": "La moneda con Carlos.",
+      "exampleEnglish": "Currency with Carlos."
+    },
+    {
+      "spanish": "los pesos",
+      "english": "pesos",
+      "partOfSpeech": "travel phrase",
+      "tip": "Carlos uses los pesos in practical travel conversation.",
+      "exampleSpanish": "Los pesos con Carlos.",
+      "exampleEnglish": "Pesos with Carlos."
+    },
+    {
+      "spanish": "los dolares",
+      "english": "dollars",
+      "partOfSpeech": "travel phrase",
+      "tip": "Carlos uses los dolares in practical travel conversation.",
+      "exampleSpanish": "Los dolares con Carlos.",
+      "exampleEnglish": "Dollars with Carlos."
+    },
+    {
+      "spanish": "la identificacion",
+      "english": "ID",
+      "partOfSpeech": "travel phrase",
+      "tip": "Carlos uses la identificacion in practical travel conversation.",
+      "exampleSpanish": "La identificacion con Carlos.",
+      "exampleEnglish": "ID with Carlos."
+    }
+  ],
+  "textbookPhrases": [
+    {
+      "meaning": "bank",
+      "phrase": "el banco"
+    },
+    {
+      "meaning": "ATM",
+      "phrase": "el cajero automatico"
+    },
+    {
+      "meaning": "money",
+      "phrase": "el dinero"
+    },
+    {
+      "meaning": "cash",
+      "phrase": "el efectivo"
+    },
+    {
+      "meaning": "card",
+      "phrase": "la tarjeta"
+    }
+  ],
+  "naturalEverydayPhrases": [
+    {
+      "meaning": "bank",
+      "phrase": "el banco"
+    },
+    {
+      "meaning": "ATM",
+      "phrase": "el cajero automatico"
+    },
+    {
+      "meaning": "money",
+      "phrase": "el dinero"
+    },
+    {
+      "meaning": "cash",
+      "phrase": "el efectivo"
+    },
+    {
+      "meaning": "card",
+      "phrase": "la tarjeta"
+    }
+  ],
+  "mexicanSpanishVariants": [
+    {
+      "meaning": "bank",
+      "phrase": "el banco"
+    },
+    {
+      "meaning": "ATM",
+      "phrase": "el cajero automatico"
+    },
+    {
+      "meaning": "money",
+      "phrase": "el dinero"
+    },
+    {
+      "meaning": "cash",
+      "phrase": "el efectivo"
+    },
+    {
+      "meaning": "card",
+      "phrase": "la tarjeta"
+    }
+  ],
+  "spainSpanishVariants": [
+    {
+      "meaning": "bank",
+      "phrase": "el banco"
+    },
+    {
+      "meaning": "ATM",
+      "phrase": "el cajero automatico"
+    },
+    {
+      "meaning": "money",
+      "phrase": "el dinero"
+    },
+    {
+      "meaning": "cash",
+      "phrase": "el efectivo"
+    },
+    {
+      "meaning": "card",
+      "phrase": "la tarjeta"
+    }
+  ],
+  "phraseVariants": [
+    {
+      "meaning": "bank",
+      "textbookVersion": "el banco",
+      "naturalEverydayVersion": "el banco",
+      "mexicanSpanishVersion": "el banco",
+      "spainSpanishVersion": "el banco",
+      "whenUsed": "Use this in practical travel speech with Carlos."
+    },
+    {
+      "meaning": "ATM",
+      "textbookVersion": "el cajero automatico",
+      "naturalEverydayVersion": "el cajero automatico",
+      "mexicanSpanishVersion": "el cajero automatico",
+      "spainSpanishVersion": "el cajero automatico",
+      "whenUsed": "Use this in practical travel speech with Carlos."
+    },
+    {
+      "meaning": "money",
+      "textbookVersion": "el dinero",
+      "naturalEverydayVersion": "el dinero",
+      "mexicanSpanishVersion": "el dinero",
+      "spainSpanishVersion": "el dinero",
+      "whenUsed": "Use this in practical travel speech with Carlos."
+    },
+    {
+      "meaning": "cash",
+      "textbookVersion": "el efectivo",
+      "naturalEverydayVersion": "el efectivo",
+      "mexicanSpanishVersion": "el efectivo",
+      "spainSpanishVersion": "el efectivo",
+      "whenUsed": "Use this in practical travel speech with Carlos."
+    },
+    {
+      "meaning": "card",
+      "textbookVersion": "la tarjeta",
+      "naturalEverydayVersion": "la tarjeta",
+      "mexicanSpanishVersion": "la tarjeta",
+      "spainSpanishVersion": "la tarjeta",
+      "whenUsed": "Use this in practical travel speech with Carlos."
+    }
+  ],
+  "grammar": {
+    "topic": "Necesito and quisiera for banking requests",
+    "explanation": "Use necesito for direct needs and quisiera for polite service requests. Carlos helps you explain card, cash, and ATM problems.",
+    "examples": [
+      {
+        "spanish": "El banco.",
+        "english": "Bank."
+      },
+      {
+        "spanish": "El cajero automatico.",
+        "english": "ATM."
+      },
+      {
+        "spanish": "El dinero.",
+        "english": "Money."
+      }
+    ],
+    "practicePrompt": "Handle a banking situation with Carlos using at least four lesson words."
+  },
+  "dialogue": [
+    {
+      "title": "Banking dialogue 1",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Practiquemos: el banco.",
+          "english": "Let's practice: bank."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "el efectivo",
+          "english": "cash"
+        }
+      ]
+    },
+    {
+      "title": "Banking dialogue 2",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Practiquemos: el cajero automatico.",
+          "english": "Let's practice: ATM."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "la tarjeta",
+          "english": "card"
+        }
+      ]
+    },
+    {
+      "title": "Banking dialogue 3",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Practiquemos: el dinero.",
+          "english": "Let's practice: money."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "la tarjeta de credito",
+          "english": "credit card"
+        }
+      ]
+    },
+    {
+      "title": "Banking dialogue 4",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Practiquemos: el efectivo.",
+          "english": "Let's practice: cash."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "la tarjeta de debito",
+          "english": "debit card"
+        }
+      ]
+    },
+    {
+      "title": "Banking dialogue 5",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Practiquemos: la tarjeta.",
+          "english": "Let's practice: card."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "la cuenta",
+          "english": "account"
+        }
+      ]
+    },
+    {
+      "title": "Banking dialogue 6",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Practiquemos: la tarjeta de credito.",
+          "english": "Let's practice: credit card."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "el numero de cuenta",
+          "english": "account number"
+        }
+      ]
+    },
+    {
+      "title": "Banking dialogue 7",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Practiquemos: la tarjeta de debito.",
+          "english": "Let's practice: debit card."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "el PIN",
+          "english": "PIN"
+        }
+      ]
+    },
+    {
+      "title": "Banking dialogue 8",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Practiquemos: la cuenta.",
+          "english": "Let's practice: account."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "el recibo",
+          "english": "receipt"
+        }
+      ]
+    },
+    {
+      "title": "Banking dialogue 9",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Practiquemos: el numero de cuenta.",
+          "english": "Let's practice: account number."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "la firma",
+          "english": "signature"
+        }
+      ]
+    },
+    {
+      "title": "Banking dialogue 10",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Practiquemos: el PIN.",
+          "english": "Let's practice: PIN."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "el cambio",
+          "english": "change"
+        }
+      ]
+    }
+  ],
+  "dialogues": [
+    {
+      "title": "Banking dialogue 1",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Practiquemos: el banco.",
+          "english": "Let's practice: bank."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "el efectivo",
+          "english": "cash"
+        }
+      ]
+    },
+    {
+      "title": "Banking dialogue 2",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Practiquemos: el cajero automatico.",
+          "english": "Let's practice: ATM."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "la tarjeta",
+          "english": "card"
+        }
+      ]
+    },
+    {
+      "title": "Banking dialogue 3",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Practiquemos: el dinero.",
+          "english": "Let's practice: money."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "la tarjeta de credito",
+          "english": "credit card"
+        }
+      ]
+    },
+    {
+      "title": "Banking dialogue 4",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Practiquemos: el efectivo.",
+          "english": "Let's practice: cash."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "la tarjeta de debito",
+          "english": "debit card"
+        }
+      ]
+    },
+    {
+      "title": "Banking dialogue 5",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Practiquemos: la tarjeta.",
+          "english": "Let's practice: card."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "la cuenta",
+          "english": "account"
+        }
+      ]
+    },
+    {
+      "title": "Banking dialogue 6",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Practiquemos: la tarjeta de credito.",
+          "english": "Let's practice: credit card."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "el numero de cuenta",
+          "english": "account number"
+        }
+      ]
+    },
+    {
+      "title": "Banking dialogue 7",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Practiquemos: la tarjeta de debito.",
+          "english": "Let's practice: debit card."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "el PIN",
+          "english": "PIN"
+        }
+      ]
+    },
+    {
+      "title": "Banking dialogue 8",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Practiquemos: la cuenta.",
+          "english": "Let's practice: account."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "el recibo",
+          "english": "receipt"
+        }
+      ]
+    },
+    {
+      "title": "Banking dialogue 9",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Practiquemos: el numero de cuenta.",
+          "english": "Let's practice: account number."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "la firma",
+          "english": "signature"
+        }
+      ]
+    },
+    {
+      "title": "Banking dialogue 10",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Practiquemos: el PIN.",
+          "english": "Let's practice: PIN."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "el cambio",
+          "english": "change"
+        }
+      ]
+    }
+  ],
+  "listeningPhrases": [
+    {
+      "spanish": "el banco",
+      "english": "bank"
+    },
+    {
+      "spanish": "el cajero automatico",
+      "english": "ATM"
+    },
+    {
+      "spanish": "el dinero",
+      "english": "money"
+    },
+    {
+      "spanish": "el efectivo",
+      "english": "cash"
+    },
+    {
+      "spanish": "la tarjeta",
+      "english": "card"
+    },
+    {
+      "spanish": "la tarjeta de credito",
+      "english": "credit card"
+    },
+    {
+      "spanish": "la tarjeta de debito",
+      "english": "debit card"
+    },
+    {
+      "spanish": "la cuenta",
+      "english": "account"
+    },
+    {
+      "spanish": "el numero de cuenta",
+      "english": "account number"
+    },
+    {
+      "spanish": "el PIN",
+      "english": "PIN"
+    }
+  ],
+  "listening": [
+    {
+      "spanish": "el banco",
+      "english": "bank"
+    },
+    {
+      "spanish": "el cajero automatico",
+      "english": "ATM"
+    },
+    {
+      "spanish": "el dinero",
+      "english": "money"
+    },
+    {
+      "spanish": "el efectivo",
+      "english": "cash"
+    },
+    {
+      "spanish": "la tarjeta",
+      "english": "card"
+    },
+    {
+      "spanish": "la tarjeta de credito",
+      "english": "credit card"
+    },
+    {
+      "spanish": "la tarjeta de debito",
+      "english": "debit card"
+    },
+    {
+      "spanish": "la cuenta",
+      "english": "account"
+    },
+    {
+      "spanish": "el numero de cuenta",
+      "english": "account number"
+    },
+    {
+      "spanish": "el PIN",
+      "english": "PIN"
+    }
+  ],
+  "pronunciation": {
+    "focus": "Carlos helps you pronounce key banking phrases clearly.",
+    "items": [
+      {
+        "text": "el banco",
+        "note": "Say el banco slowly, then use it in a short travel sentence."
+      },
+      {
+        "text": "el cajero automatico",
+        "note": "Say el cajero automatico slowly, then use it in a short travel sentence."
+      },
+      {
+        "text": "el dinero",
+        "note": "Say el dinero slowly, then use it in a short travel sentence."
+      },
+      {
+        "text": "el efectivo",
+        "note": "Say el efectivo slowly, then use it in a short travel sentence."
+      },
+      {
+        "text": "la tarjeta",
+        "note": "Say la tarjeta slowly, then use it in a short travel sentence."
+      },
+      {
+        "text": "la tarjeta de credito",
+        "note": "Say la tarjeta de credito slowly, then use it in a short travel sentence."
+      },
+      {
+        "text": "la tarjeta de debito",
+        "note": "Say la tarjeta de debito slowly, then use it in a short travel sentence."
+      },
+      {
+        "text": "la cuenta",
+        "note": "Say la cuenta slowly, then use it in a short travel sentence."
+      },
+      {
+        "text": "el numero de cuenta",
+        "note": "Say el numero de cuenta slowly, then use it in a short travel sentence."
+      },
+      {
+        "text": "el PIN",
+        "note": "Say el PIN slowly, then use it in a short travel sentence."
+      }
+    ]
+  },
+  "culture": {
+    "title": "Banking in real travel",
+    "text": "Banking situations are easier when you stay polite, brief, and specific. Carlos guides you to name the problem, the place, and the help you need."
+  },
+  "nativeSpeech": {
+    "title": "Carlos native speaker tips",
+    "notes": [
+      "Camion can mean bus in parts of Mexico.",
+      "Coche is the normal car word in Spain; carro is common in Mexico.",
+      "Always confirm destination and price before a taxi ride."
+    ]
+  },
+  "nativeExpressions": [
+    "Camion can mean bus in parts of Mexico.",
+    "Coche is the normal car word in Spain; carro is common in Mexico.",
+    "Always confirm destination and price before a taxi ride."
+  ],
+  "commonMistakes": [
+    {
+      "mistake": "Saying voy con taxi.",
+      "correction": "Say voy en taxi.",
+      "explanation": "Use en for transportation."
+    },
+    {
+      "mistake": "Using boleto everywhere in Spain.",
+      "correction": "Billete is common in Spain for transport tickets.",
+      "explanation": "Both may be understood, but region matters."
+    },
+    {
+      "mistake": "Forgetting al before centro.",
+      "correction": "Say voy al centro.",
+      "explanation": "A + el becomes al."
+    }
+  ],
+  "quiz": [
+    {
+      "type": "multipleChoice",
+      "prompt": "What does el banco mean?",
+      "options": [
+        "bank",
+        "ATM",
+        "money",
+        "cash"
+      ],
+      "answer": "bank"
+    },
+    {
+      "type": "multipleChoice",
+      "prompt": "What does el cajero automatico mean?",
+      "options": [
+        "ATM",
+        "money",
+        "cash",
+        "card"
+      ],
+      "answer": "ATM"
+    },
+    {
+      "type": "multipleChoice",
+      "prompt": "What does el dinero mean?",
+      "options": [
+        "money",
+        "cash",
+        "card",
+        "credit card"
+      ],
+      "answer": "money"
+    },
+    {
+      "type": "multipleChoice",
+      "prompt": "What does el efectivo mean?",
+      "options": [
+        "cash",
+        "card",
+        "credit card",
+        "debit card"
+      ],
+      "answer": "cash"
+    },
+    {
+      "type": "multipleChoice",
+      "prompt": "What does la tarjeta mean?",
+      "options": [
+        "card",
+        "credit card",
+        "debit card",
+        "account"
+      ],
+      "answer": "card"
+    },
+    {
+      "type": "multipleChoice",
+      "prompt": "What does la tarjeta de credito mean?",
+      "options": [
+        "credit card",
+        "debit card",
+        "account",
+        "account number"
+      ],
+      "answer": "credit card"
+    },
+    {
+      "type": "multipleChoice",
+      "prompt": "What does la tarjeta de debito mean?",
+      "options": [
+        "debit card",
+        "account",
+        "account number",
+        "PIN"
+      ],
+      "answer": "debit card"
+    },
+    {
+      "type": "multipleChoice",
+      "prompt": "What does la cuenta mean?",
+      "options": [
+        "account",
+        "account number",
+        "PIN",
+        "receipt"
+      ],
+      "answer": "account"
+    },
+    {
+      "type": "multipleChoice",
+      "prompt": "What does el numero de cuenta mean?",
+      "options": [
+        "account number",
+        "PIN",
+        "receipt",
+        "signature"
+      ],
+      "answer": "account number"
+    },
+    {
+      "type": "multipleChoice",
+      "prompt": "What does el PIN mean?",
+      "options": [
+        "PIN",
+        "receipt",
+        "signature",
+        "change"
+      ],
+      "answer": "PIN"
+    },
+    {
+      "type": "multipleChoice",
+      "prompt": "What does el recibo mean?",
+      "options": [
+        "receipt",
+        "signature",
+        "change",
+        "to exchange money"
+      ],
+      "answer": "receipt"
+    },
+    {
+      "type": "multipleChoice",
+      "prompt": "What does la firma mean?",
+      "options": [
+        "signature",
+        "change",
+        "to exchange money",
+        "to withdraw"
+      ],
+      "answer": "signature"
+    },
+    {
+      "type": "translation",
+      "prompt": "Translate: el banco",
+      "answer": "bank"
+    },
+    {
+      "type": "translation",
+      "prompt": "Translate: el cajero automatico",
+      "answer": "ATM"
+    },
+    {
+      "type": "multipleChoice",
+      "prompt": "Which phrase fits Banking?",
+      "options": [
+        "el dinero",
+        "mi familia",
+        "hace frio",
+        "me gusta leer"
+      ],
+      "answer": "el dinero"
+    }
+  ],
+  "speakingChallenge": [
+    {
+      "prompt": "Use el banco in a realistic travel sentence with Carlos.",
+      "exampleAnswer": "El banco con Carlos."
+    },
+    {
+      "prompt": "Use el cajero automatico in a realistic travel sentence with Carlos.",
+      "exampleAnswer": "El cajero automatico con Carlos."
+    },
+    {
+      "prompt": "Use el dinero in a realistic travel sentence with Carlos.",
+      "exampleAnswer": "El dinero con Carlos."
+    },
+    {
+      "prompt": "Use el efectivo in a realistic travel sentence with Carlos.",
+      "exampleAnswer": "El efectivo con Carlos."
+    },
+    {
+      "prompt": "Use la tarjeta in a realistic travel sentence with Carlos.",
+      "exampleAnswer": "La tarjeta con Carlos."
+    }
+  ],
+  "realLifeMission": {
+    "title": "Real Life Mission",
+    "mission": "At a bank with Carlos, explain that your card is not working, ask for an ATM, and request a receipt or cash.",
+    "successCriteria": [
+      "Use at least six words from this lesson.",
+      "Use one phrase from a previous lesson.",
+      "Ask Carlos or another person at least one question.",
+      "Resolve the travel or navigation situation clearly."
+    ],
+    "suggestedPartner": "Carlos",
+    "xpReward": 10
+  },
+  "review": {
+    "recap": [
+      "Carlos reviewed banking travel language.",
+      "You practiced Banking A1 travel phrases.",
+      "You recycled earlier A1 vocabulary in a realistic situation."
+    ],
+    "canDo": [
+      "Handle basic banking, ATM, card, cash, and payment situations while traveling.",
+      "Ask for clarification when needed.",
+      "Complete the situation with polite, simple Spanish."
+    ]
+  },
+  "achievementsUnlocked": [],
+  "xpReward": 90,
+  "nextLesson": "lesson-27-hotels"
+}

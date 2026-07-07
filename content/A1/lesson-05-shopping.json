@@ -1,0 +1,834 @@
+{
+  "id": "lesson-05-shopping",
+  "title": "Shopping: Prices, Sizes, and Simple Requests",
+  "level": "A1",
+  "module": "Shopping",
+  "estimatedMinutes": 32,
+  "metadata": {
+    "course": "Habla",
+    "unit": "A1 Beginner",
+    "lessonNumber": 5,
+    "guide": "Carlos",
+    "imagePath": "assets/images/lessons/lesson-05-shopping.png"
+  },
+  "prerequisiteLesson": "lesson-04-numbers-time",
+  "objectives": [
+    "Ask for prices, request items politely, and understand basic shopping phrases.",
+    "Understand Carlos in short guided exchanges.",
+    "Use the lesson language in one realistic conversation."
+  ],
+  "objective": "Ask for prices, request items politely, and understand basic shopping phrases.",
+  "vocabulary": [
+    {
+      "spanish": "la tienda",
+      "english": "store",
+      "partOfSpeech": "noun",
+      "tip": "Carlos tip: practice ?la tienda? in a short real sentence, not as an isolated word.",
+      "exampleSpanish": "Carlos usa la tienda en una frase.",
+      "exampleEnglish": "Carlos uses store in a sentence."
+    },
+    {
+      "spanish": "el mercado",
+      "english": "market",
+      "partOfSpeech": "noun",
+      "tip": "Carlos tip: practice ?el mercado? in a short real sentence, not as an isolated word.",
+      "exampleSpanish": "Carlos usa el mercado en una frase.",
+      "exampleEnglish": "Carlos uses market in a sentence."
+    },
+    {
+      "spanish": "comprar",
+      "english": "to buy",
+      "partOfSpeech": "verb",
+      "tip": "Carlos tip: practice ?comprar? in a short real sentence, not as an isolated word.",
+      "exampleSpanish": "Carlos usa comprar en una frase.",
+      "exampleEnglish": "Carlos uses to buy in a sentence."
+    },
+    {
+      "spanish": "vender",
+      "english": "to sell",
+      "partOfSpeech": "verb",
+      "tip": "Carlos tip: practice ?vender? in a short real sentence, not as an isolated word.",
+      "exampleSpanish": "Carlos usa vender en una frase.",
+      "exampleEnglish": "Carlos uses to sell in a sentence."
+    },
+    {
+      "spanish": "quiero",
+      "english": "I want",
+      "partOfSpeech": "verb phrase",
+      "tip": "Carlos tip: practice ?quiero? in a short real sentence, not as an isolated word.",
+      "exampleSpanish": "Carlos usa quiero en una frase.",
+      "exampleEnglish": "Carlos uses I want in a sentence."
+    },
+    {
+      "spanish": "quisiera",
+      "english": "I would like",
+      "partOfSpeech": "polite phrase",
+      "tip": "Carlos tip: practice ?quisiera? in a short real sentence, not as an isolated word.",
+      "exampleSpanish": "Carlos usa quisiera en una frase.",
+      "exampleEnglish": "Carlos uses I would like in a sentence."
+    },
+    {
+      "spanish": "cuesta",
+      "english": "it costs",
+      "partOfSpeech": "verb",
+      "tip": "Carlos tip: practice ?cuesta? in a short real sentence, not as an isolated word.",
+      "exampleSpanish": "Carlos usa cuesta en una frase.",
+      "exampleEnglish": "Carlos uses it costs in a sentence."
+    },
+    {
+      "spanish": "barato",
+      "english": "cheap",
+      "partOfSpeech": "adjective",
+      "tip": "Carlos tip: practice ?barato? in a short real sentence, not as an isolated word.",
+      "exampleSpanish": "Carlos usa barato en una frase.",
+      "exampleEnglish": "Carlos uses cheap in a sentence."
+    },
+    {
+      "spanish": "caro",
+      "english": "expensive",
+      "partOfSpeech": "adjective",
+      "tip": "Carlos tip: practice ?caro? in a short real sentence, not as an isolated word.",
+      "exampleSpanish": "Carlos usa caro en una frase.",
+      "exampleEnglish": "Carlos uses expensive in a sentence."
+    },
+    {
+      "spanish": "el precio",
+      "english": "price",
+      "partOfSpeech": "noun",
+      "tip": "Carlos tip: practice ?el precio? in a short real sentence, not as an isolated word.",
+      "exampleSpanish": "Carlos usa el precio en una frase.",
+      "exampleEnglish": "Carlos uses price in a sentence."
+    },
+    {
+      "spanish": "el dinero",
+      "english": "money",
+      "partOfSpeech": "noun",
+      "tip": "Carlos tip: practice ?el dinero? in a short real sentence, not as an isolated word.",
+      "exampleSpanish": "Carlos usa el dinero en una frase.",
+      "exampleEnglish": "Carlos uses money in a sentence."
+    },
+    {
+      "spanish": "la tarjeta",
+      "english": "card",
+      "partOfSpeech": "noun",
+      "tip": "Carlos tip: practice ?la tarjeta? in a short real sentence, not as an isolated word.",
+      "exampleSpanish": "Carlos usa la tarjeta en una frase.",
+      "exampleEnglish": "Carlos uses card in a sentence."
+    },
+    {
+      "spanish": "efectivo",
+      "english": "cash",
+      "partOfSpeech": "noun",
+      "tip": "Carlos tip: practice ?efectivo? in a short real sentence, not as an isolated word.",
+      "exampleSpanish": "Carlos usa efectivo en una frase.",
+      "exampleEnglish": "Carlos uses cash in a sentence."
+    },
+    {
+      "spanish": "el recibo",
+      "english": "receipt",
+      "partOfSpeech": "noun",
+      "tip": "Carlos tip: practice ?el recibo? in a short real sentence, not as an isolated word.",
+      "exampleSpanish": "Carlos usa el recibo en una frase.",
+      "exampleEnglish": "Carlos uses receipt in a sentence."
+    },
+    {
+      "spanish": "la bolsa",
+      "english": "bag",
+      "partOfSpeech": "noun",
+      "tip": "Carlos tip: practice ?la bolsa? in a short real sentence, not as an isolated word.",
+      "exampleSpanish": "Carlos usa la bolsa en una frase.",
+      "exampleEnglish": "Carlos uses bag in a sentence."
+    },
+    {
+      "spanish": "la talla",
+      "english": "size",
+      "partOfSpeech": "noun",
+      "tip": "Carlos tip: practice ?la talla? in a short real sentence, not as an isolated word.",
+      "exampleSpanish": "Carlos usa la talla en una frase.",
+      "exampleEnglish": "Carlos uses size in a sentence."
+    },
+    {
+      "spanish": "peque?o",
+      "english": "small",
+      "partOfSpeech": "adjective",
+      "tip": "Carlos tip: practice ?peque?o? in a short real sentence, not as an isolated word.",
+      "exampleSpanish": "Carlos usa peque?o en una frase.",
+      "exampleEnglish": "Carlos uses small in a sentence."
+    },
+    {
+      "spanish": "mediano",
+      "english": "medium",
+      "partOfSpeech": "adjective",
+      "tip": "Carlos tip: practice ?mediano? in a short real sentence, not as an isolated word.",
+      "exampleSpanish": "Carlos usa mediano en una frase.",
+      "exampleEnglish": "Carlos uses medium in a sentence."
+    },
+    {
+      "spanish": "grande",
+      "english": "large",
+      "partOfSpeech": "adjective",
+      "tip": "Carlos tip: practice ?grande? in a short real sentence, not as an isolated word.",
+      "exampleSpanish": "Carlos usa grande en una frase.",
+      "exampleEnglish": "Carlos uses large in a sentence."
+    },
+    {
+      "spanish": "nuevo",
+      "english": "new",
+      "partOfSpeech": "adjective",
+      "tip": "Carlos tip: practice ?nuevo? in a short real sentence, not as an isolated word.",
+      "exampleSpanish": "Carlos usa nuevo en una frase.",
+      "exampleEnglish": "Carlos uses new in a sentence."
+    },
+    {
+      "spanish": "usado",
+      "english": "used",
+      "partOfSpeech": "adjective",
+      "tip": "Carlos tip: practice ?usado? in a short real sentence, not as an isolated word.",
+      "exampleSpanish": "Carlos usa usado en una frase.",
+      "exampleEnglish": "Carlos uses used in a sentence."
+    },
+    {
+      "spanish": "este",
+      "english": "this one",
+      "partOfSpeech": "demonstrative",
+      "tip": "Carlos tip: practice ?este? in a short real sentence, not as an isolated word.",
+      "exampleSpanish": "Carlos usa este en una frase.",
+      "exampleEnglish": "Carlos uses this one in a sentence."
+    },
+    {
+      "spanish": "ese",
+      "english": "that one",
+      "partOfSpeech": "demonstrative",
+      "tip": "Carlos tip: practice ?ese? in a short real sentence, not as an isolated word.",
+      "exampleSpanish": "Carlos usa ese en una frase.",
+      "exampleEnglish": "Carlos uses that one in a sentence."
+    },
+    {
+      "spanish": "?Cu?nto cuesta?",
+      "english": "How much does it cost?",
+      "partOfSpeech": "question",
+      "tip": "Carlos tip: practice ??Cu?nto cuesta?? in a short real sentence, not as an isolated word.",
+      "exampleSpanish": "Carlos usa ?Cu?nto cuesta? en una frase.",
+      "exampleEnglish": "Carlos uses How much does it cost? in a sentence."
+    },
+    {
+      "spanish": "Me llevo esto",
+      "english": "I?ll take this",
+      "partOfSpeech": "phrase",
+      "tip": "Carlos tip: practice ?Me llevo esto? in a short real sentence, not as an isolated word.",
+      "exampleSpanish": "Carlos usa Me llevo esto en una frase.",
+      "exampleEnglish": "Carlos uses I?ll take this in a sentence."
+    }
+  ],
+  "grammar": {
+    "topic": "Polite requests with quiero and quisiera",
+    "explanation": "Quiero is direct and common. Quisiera is softer and more polite when asking for help or buying something.",
+    "examples": [
+      {
+        "spanish": "Quiero una bolsa.",
+        "english": "I want a bag."
+      },
+      {
+        "spanish": "Quisiera este libro.",
+        "english": "I would like this book."
+      },
+      {
+        "spanish": "?Cu?nto cuesta esta camisa?",
+        "english": "How much does this shirt cost?"
+      }
+    ],
+    "practicePrompt": "Say one original sentence using today?s pattern with Carlos."
+  },
+  "dialogue": [
+    {
+      "title": "Shopping with Carlos",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Vamos a practicar shopping.",
+          "english": "Let?s practice shopping."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "S?, quiero practicar.",
+          "english": "Yes, I want to practice."
+        },
+        {
+          "speaker": "Carlos",
+          "spanish": "Muy bien. Usa una frase completa.",
+          "english": "Very good. Use a complete sentence."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "Puedo decirlo otra vez.",
+          "english": "I can say it again."
+        }
+      ]
+    },
+    {
+      "title": "A polite real-life exchange",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Disculpe, tengo una pregunta.",
+          "english": "Excuse me, I have a question."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "Claro, con gusto.",
+          "english": "Of course, gladly."
+        },
+        {
+          "speaker": "Carlos",
+          "spanish": "Gracias por ayudarme.",
+          "english": "Thank you for helping me."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "De nada.",
+          "english": "You?re welcome."
+        }
+      ]
+    },
+    {
+      "title": "Family-friendly practice",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "?C?mo lo dices con tu familia?",
+          "english": "How do you say it with your family?"
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "Lo digo despacio y con respeto.",
+          "english": "I say it slowly and respectfully."
+        },
+        {
+          "speaker": "Carlos",
+          "spanish": "Perfecto, eso suena natural.",
+          "english": "Perfect, that sounds natural."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "Gracias, Carlos.",
+          "english": "Thanks, Carlos."
+        }
+      ]
+    }
+  ],
+  "dialogues": [
+    {
+      "title": "Shopping with Carlos",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Vamos a practicar shopping.",
+          "english": "Let?s practice shopping."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "S?, quiero practicar.",
+          "english": "Yes, I want to practice."
+        },
+        {
+          "speaker": "Carlos",
+          "spanish": "Muy bien. Usa una frase completa.",
+          "english": "Very good. Use a complete sentence."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "Puedo decirlo otra vez.",
+          "english": "I can say it again."
+        }
+      ]
+    },
+    {
+      "title": "A polite real-life exchange",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Disculpe, tengo una pregunta.",
+          "english": "Excuse me, I have a question."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "Claro, con gusto.",
+          "english": "Of course, gladly."
+        },
+        {
+          "speaker": "Carlos",
+          "spanish": "Gracias por ayudarme.",
+          "english": "Thank you for helping me."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "De nada.",
+          "english": "You?re welcome."
+        }
+      ]
+    },
+    {
+      "title": "Family-friendly practice",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "?C?mo lo dices con tu familia?",
+          "english": "How do you say it with your family?"
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "Lo digo despacio y con respeto.",
+          "english": "I say it slowly and respectfully."
+        },
+        {
+          "speaker": "Carlos",
+          "spanish": "Perfecto, eso suena natural.",
+          "english": "Perfect, that sounds natural."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "Gracias, Carlos.",
+          "english": "Thanks, Carlos."
+        }
+      ]
+    }
+  ],
+  "listening": {
+    "phrases": [
+      {
+        "spanish": "la tienda",
+        "english": "store"
+      },
+      {
+        "spanish": "el mercado",
+        "english": "market"
+      },
+      {
+        "spanish": "comprar",
+        "english": "to buy"
+      },
+      {
+        "spanish": "vender",
+        "english": "to sell"
+      },
+      {
+        "spanish": "quiero",
+        "english": "I want"
+      },
+      {
+        "spanish": "quisiera",
+        "english": "I would like"
+      },
+      {
+        "spanish": "cuesta",
+        "english": "it costs"
+      },
+      {
+        "spanish": "barato",
+        "english": "cheap"
+      },
+      {
+        "spanish": "caro",
+        "english": "expensive"
+      },
+      {
+        "spanish": "el precio",
+        "english": "price"
+      }
+    ]
+  },
+  "listeningPhrases": [
+    {
+      "spanish": "la tienda",
+      "english": "store"
+    },
+    {
+      "spanish": "el mercado",
+      "english": "market"
+    },
+    {
+      "spanish": "comprar",
+      "english": "to buy"
+    },
+    {
+      "spanish": "vender",
+      "english": "to sell"
+    },
+    {
+      "spanish": "quiero",
+      "english": "I want"
+    },
+    {
+      "spanish": "quisiera",
+      "english": "I would like"
+    },
+    {
+      "spanish": "cuesta",
+      "english": "it costs"
+    },
+    {
+      "spanish": "barato",
+      "english": "cheap"
+    },
+    {
+      "spanish": "caro",
+      "english": "expensive"
+    },
+    {
+      "spanish": "el precio",
+      "english": "price"
+    }
+  ],
+  "pronunciation": {
+    "focus": "Clear vowels, word stress, and confident phrase rhythm.",
+    "items": [
+      {
+        "text": "la tienda",
+        "note": "Say each vowel clearly and keep the rhythm natural."
+      },
+      {
+        "text": "el mercado",
+        "note": "Say each vowel clearly and keep the rhythm natural."
+      },
+      {
+        "text": "comprar",
+        "note": "Say each vowel clearly and keep the rhythm natural."
+      },
+      {
+        "text": "vender",
+        "note": "Say each vowel clearly and keep the rhythm natural."
+      },
+      {
+        "text": "quiero",
+        "note": "Say each vowel clearly and keep the rhythm natural."
+      },
+      {
+        "text": "quisiera",
+        "note": "Say each vowel clearly and keep the rhythm natural."
+      },
+      {
+        "text": "cuesta",
+        "note": "Say each vowel clearly and keep the rhythm natural."
+      },
+      {
+        "text": "barato",
+        "note": "Say each vowel clearly and keep the rhythm natural."
+      },
+      {
+        "text": "caro",
+        "note": "Say each vowel clearly and keep the rhythm natural."
+      },
+      {
+        "text": "el precio",
+        "note": "Say each vowel clearly and keep the rhythm natural."
+      }
+    ]
+  },
+  "pronunciationExercises": [
+    {
+      "text": "la tienda",
+      "note": "Repeat after Carlos, then say it in a short phrase."
+    },
+    {
+      "text": "el mercado",
+      "note": "Repeat after Carlos, then say it in a short phrase."
+    },
+    {
+      "text": "comprar",
+      "note": "Repeat after Carlos, then say it in a short phrase."
+    },
+    {
+      "text": "vender",
+      "note": "Repeat after Carlos, then say it in a short phrase."
+    },
+    {
+      "text": "quiero",
+      "note": "Repeat after Carlos, then say it in a short phrase."
+    },
+    {
+      "text": "quisiera",
+      "note": "Repeat after Carlos, then say it in a short phrase."
+    },
+    {
+      "text": "cuesta",
+      "note": "Repeat after Carlos, then say it in a short phrase."
+    },
+    {
+      "text": "barato",
+      "note": "Repeat after Carlos, then say it in a short phrase."
+    },
+    {
+      "text": "caro",
+      "note": "Repeat after Carlos, then say it in a short phrase."
+    },
+    {
+      "text": "el precio",
+      "note": "Repeat after Carlos, then say it in a short phrase."
+    }
+  ],
+  "culture": {
+    "title": "Shopping in Real Life",
+    "text": "In markets, greetings and polite phrases matter. A simple ?buenos d?as? before asking a price makes the interaction warmer."
+  },
+  "cultureNotes": [
+    "In markets, greetings and polite phrases matter. A simple ?buenos d?as? before asking a price makes the interaction warmer."
+  ],
+  "nativeSpeech": {
+    "title": "How Carlos would say it naturally",
+    "notes": [
+      "?Me llevo este? means ?I?ll take this one.?",
+      "In Mexico, ??Cu?nto es?? is a natural short way to ask the total."
+    ]
+  },
+  "commonMistakes": [
+    {
+      "mistake": "Using quiero without por favor",
+      "correction": "Quiero este, por favor.",
+      "explanation": "Add por favor to sound polite."
+    },
+    {
+      "mistake": "Confusing este and ese",
+      "correction": "Este is near me; ese is near you.",
+      "explanation": "Pointing helps in real shops."
+    },
+    {
+      "mistake": "Saying dinero for price",
+      "correction": "Use precio or cuesta.",
+      "explanation": "Dinero means money, not price."
+    }
+  ],
+  "quiz": [
+    {
+      "type": "multipleChoice",
+      "prompt": "What does ?la tienda? mean?",
+      "options": [
+        "store",
+        "market",
+        "to buy",
+        "to sell"
+      ],
+      "answer": "store"
+    },
+    {
+      "type": "multipleChoice",
+      "prompt": "What does ?el mercado? mean?",
+      "options": [
+        "market",
+        "store",
+        "to buy",
+        "to sell"
+      ],
+      "answer": "market"
+    },
+    {
+      "type": "multipleChoice",
+      "prompt": "What does ?comprar? mean?",
+      "options": [
+        "to buy",
+        "store",
+        "market",
+        "to sell"
+      ],
+      "answer": "to buy"
+    },
+    {
+      "type": "multipleChoice",
+      "prompt": "What does ?vender? mean?",
+      "options": [
+        "to sell",
+        "store",
+        "market",
+        "to buy"
+      ],
+      "answer": "to sell"
+    },
+    {
+      "type": "multipleChoice",
+      "prompt": "What does ?quiero? mean?",
+      "options": [
+        "I want",
+        "store",
+        "market",
+        "to buy"
+      ],
+      "answer": "I want"
+    },
+    {
+      "type": "multipleChoice",
+      "prompt": "What does ?quisiera? mean?",
+      "options": [
+        "I would like",
+        "store",
+        "market",
+        "to buy"
+      ],
+      "answer": "I would like"
+    },
+    {
+      "type": "multipleChoice",
+      "prompt": "What does ?cuesta? mean?",
+      "options": [
+        "it costs",
+        "store",
+        "market",
+        "to buy"
+      ],
+      "answer": "it costs"
+    },
+    {
+      "type": "multipleChoice",
+      "prompt": "What does ?barato? mean?",
+      "options": [
+        "cheap",
+        "store",
+        "market",
+        "to buy"
+      ],
+      "answer": "cheap"
+    },
+    {
+      "type": "multipleChoice",
+      "prompt": "What does ?caro? mean?",
+      "options": [
+        "expensive",
+        "store",
+        "market",
+        "to buy"
+      ],
+      "answer": "expensive"
+    },
+    {
+      "type": "multipleChoice",
+      "prompt": "What does ?el precio? mean?",
+      "options": [
+        "price",
+        "store",
+        "market",
+        "to buy"
+      ],
+      "answer": "price"
+    },
+    {
+      "type": "multipleChoice",
+      "prompt": "What does ?el dinero? mean?",
+      "options": [
+        "money",
+        "store",
+        "market",
+        "to buy"
+      ],
+      "answer": "money"
+    },
+    {
+      "type": "multipleChoice",
+      "prompt": "What does ?la tarjeta? mean?",
+      "options": [
+        "card",
+        "store",
+        "market",
+        "to buy"
+      ],
+      "answer": "card"
+    },
+    {
+      "type": "multipleChoice",
+      "prompt": "What does ?efectivo? mean?",
+      "options": [
+        "cash",
+        "store",
+        "market",
+        "to buy"
+      ],
+      "answer": "cash"
+    },
+    {
+      "type": "multipleChoice",
+      "prompt": "What does ?el recibo? mean?",
+      "options": [
+        "receipt",
+        "store",
+        "market",
+        "to buy"
+      ],
+      "answer": "receipt"
+    },
+    {
+      "type": "multipleChoice",
+      "prompt": "What does ?la bolsa? mean?",
+      "options": [
+        "bag",
+        "store",
+        "market",
+        "to buy"
+      ],
+      "answer": "bag"
+    }
+  ],
+  "speakingChallenge": [
+    {
+      "prompt": "Use ?la tienda? in a sentence with Carlos.",
+      "exampleAnswer": "La tienda, por favor."
+    },
+    {
+      "prompt": "Use ?el mercado? in a sentence with Carlos.",
+      "exampleAnswer": "El mercado, por favor."
+    },
+    {
+      "prompt": "Use ?comprar? in a sentence with Carlos.",
+      "exampleAnswer": "Comprar, por favor."
+    },
+    {
+      "prompt": "Use ?vender? in a sentence with Carlos.",
+      "exampleAnswer": "Vender, por favor."
+    },
+    {
+      "prompt": "Use ?quiero? in a sentence with Carlos.",
+      "exampleAnswer": "Quiero, por favor."
+    }
+  ],
+  "speakingChallenges": [
+    {
+      "prompt": "Tell Carlos one real thing using ?la tienda?.",
+      "exampleAnswer": "Carlos, practico la tienda."
+    },
+    {
+      "prompt": "Tell Carlos one real thing using ?el mercado?.",
+      "exampleAnswer": "Carlos, practico el mercado."
+    },
+    {
+      "prompt": "Tell Carlos one real thing using ?comprar?.",
+      "exampleAnswer": "Carlos, practico comprar."
+    },
+    {
+      "prompt": "Tell Carlos one real thing using ?vender?.",
+      "exampleAnswer": "Carlos, practico vender."
+    },
+    {
+      "prompt": "Tell Carlos one real thing using ?quiero?.",
+      "exampleAnswer": "Carlos, practico quiero."
+    }
+  ],
+  "realLifeMission": {
+    "title": "Real Life Mission",
+    "mission": "Shop with Carlos in a market: ask the price of two items and politely say what you want to buy.",
+    "successCriteria": [
+      "Use at least three lesson vocabulary items.",
+      "Use the main grammar pattern.",
+      "Answer one follow-up question from Carlos."
+    ],
+    "suggestedPartner": "Carlos",
+    "xpReward": 65
+  },
+  "review": {
+    "summary": "You practiced shopping for everyday Spanish.",
+    "canDo": [
+      "Recognize key vocabulary.",
+      "Answer Carlos with simple complete sentences.",
+      "Use the Real Life Mission in a practical situation."
+    ]
+  },
+  "imagePath": "assets/images/lessons/lesson-05-shopping.png",
+  "achievementsUnlocked": [],
+  "xpReward": 65,
+  "nextLesson": "lesson-06-food-drinks"
+}

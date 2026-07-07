@@ -1,0 +1,842 @@
+{
+  "id": "lesson-06-food-drinks",
+  "title": "Food & Drinks: Ordering with Confidence",
+  "level": "A1",
+  "module": "Food & Drinks",
+  "estimatedMinutes": 35,
+  "metadata": {
+    "course": "Habla",
+    "unit": "A1 Beginner",
+    "lessonNumber": 6,
+    "guide": "Carlos",
+    "imagePath": "assets/images/lessons/lesson-06-food-drinks.png"
+  },
+  "prerequisiteLesson": "lesson-05-shopping",
+  "objectives": [
+    "Order food and drinks, ask for the bill, and describe simple preferences.",
+    "Understand Carlos in short guided exchanges.",
+    "Use the lesson language in one realistic conversation."
+  ],
+  "objective": "Order food and drinks, ask for the bill, and describe simple preferences.",
+  "vocabulary": [
+    {
+      "spanish": "el restaurante",
+      "english": "restaurant",
+      "partOfSpeech": "noun",
+      "tip": "Carlos tip: practice ?el restaurante? in a short real sentence, not as an isolated word.",
+      "exampleSpanish": "Carlos usa el restaurante en una frase.",
+      "exampleEnglish": "Carlos uses restaurant in a sentence."
+    },
+    {
+      "spanish": "la mesa",
+      "english": "table",
+      "partOfSpeech": "noun",
+      "tip": "Carlos tip: practice ?la mesa? in a short real sentence, not as an isolated word.",
+      "exampleSpanish": "Carlos usa la mesa en una frase.",
+      "exampleEnglish": "Carlos uses table in a sentence."
+    },
+    {
+      "spanish": "el men?",
+      "english": "menu",
+      "partOfSpeech": "noun",
+      "tip": "Carlos tip: practice ?el men?? in a short real sentence, not as an isolated word.",
+      "exampleSpanish": "Carlos usa el men? en una frase.",
+      "exampleEnglish": "Carlos uses menu in a sentence."
+    },
+    {
+      "spanish": "el mesero",
+      "english": "waiter",
+      "partOfSpeech": "noun",
+      "tip": "Carlos tip: practice ?el mesero? in a short real sentence, not as an isolated word.",
+      "exampleSpanish": "Carlos usa el mesero en una frase.",
+      "exampleEnglish": "Carlos uses waiter in a sentence."
+    },
+    {
+      "spanish": "la mesera",
+      "english": "waitress",
+      "partOfSpeech": "noun",
+      "tip": "Carlos tip: practice ?la mesera? in a short real sentence, not as an isolated word.",
+      "exampleSpanish": "Carlos usa la mesera en una frase.",
+      "exampleEnglish": "Carlos uses waitress in a sentence."
+    },
+    {
+      "spanish": "la comida",
+      "english": "food / meal",
+      "partOfSpeech": "noun",
+      "tip": "Carlos tip: practice ?la comida? in a short real sentence, not as an isolated word.",
+      "exampleSpanish": "Carlos usa la comida en una frase.",
+      "exampleEnglish": "Carlos uses food / meal in a sentence."
+    },
+    {
+      "spanish": "la bebida",
+      "english": "drink",
+      "partOfSpeech": "noun",
+      "tip": "Carlos tip: practice ?la bebida? in a short real sentence, not as an isolated word.",
+      "exampleSpanish": "Carlos usa la bebida en una frase.",
+      "exampleEnglish": "Carlos uses drink in a sentence."
+    },
+    {
+      "spanish": "el agua",
+      "english": "water",
+      "partOfSpeech": "noun",
+      "tip": "Carlos tip: practice ?el agua? in a short real sentence, not as an isolated word.",
+      "exampleSpanish": "Carlos usa el agua en una frase.",
+      "exampleEnglish": "Carlos uses water in a sentence."
+    },
+    {
+      "spanish": "el caf?",
+      "english": "coffee",
+      "partOfSpeech": "noun",
+      "tip": "Carlos tip: practice ?el caf?? in a short real sentence, not as an isolated word.",
+      "exampleSpanish": "Carlos usa el caf? en una frase.",
+      "exampleEnglish": "Carlos uses coffee in a sentence."
+    },
+    {
+      "spanish": "el t?",
+      "english": "tea",
+      "partOfSpeech": "noun",
+      "tip": "Carlos tip: practice ?el t?? in a short real sentence, not as an isolated word.",
+      "exampleSpanish": "Carlos usa el t? en una frase.",
+      "exampleEnglish": "Carlos uses tea in a sentence."
+    },
+    {
+      "spanish": "el jugo",
+      "english": "juice",
+      "partOfSpeech": "noun",
+      "tip": "Carlos tip: practice ?el jugo? in a short real sentence, not as an isolated word.",
+      "exampleSpanish": "Carlos usa el jugo en una frase.",
+      "exampleEnglish": "Carlos uses juice in a sentence."
+    },
+    {
+      "spanish": "la leche",
+      "english": "milk",
+      "partOfSpeech": "noun",
+      "tip": "Carlos tip: practice ?la leche? in a short real sentence, not as an isolated word.",
+      "exampleSpanish": "Carlos usa la leche en una frase.",
+      "exampleEnglish": "Carlos uses milk in a sentence."
+    },
+    {
+      "spanish": "el pan",
+      "english": "bread",
+      "partOfSpeech": "noun",
+      "tip": "Carlos tip: practice ?el pan? in a short real sentence, not as an isolated word.",
+      "exampleSpanish": "Carlos usa el pan en una frase.",
+      "exampleEnglish": "Carlos uses bread in a sentence."
+    },
+    {
+      "spanish": "el arroz",
+      "english": "rice",
+      "partOfSpeech": "noun",
+      "tip": "Carlos tip: practice ?el arroz? in a short real sentence, not as an isolated word.",
+      "exampleSpanish": "Carlos usa el arroz en una frase.",
+      "exampleEnglish": "Carlos uses rice in a sentence."
+    },
+    {
+      "spanish": "el pollo",
+      "english": "chicken",
+      "partOfSpeech": "noun",
+      "tip": "Carlos tip: practice ?el pollo? in a short real sentence, not as an isolated word.",
+      "exampleSpanish": "Carlos usa el pollo en una frase.",
+      "exampleEnglish": "Carlos uses chicken in a sentence."
+    },
+    {
+      "spanish": "la carne",
+      "english": "meat",
+      "partOfSpeech": "noun",
+      "tip": "Carlos tip: practice ?la carne? in a short real sentence, not as an isolated word.",
+      "exampleSpanish": "Carlos usa la carne en una frase.",
+      "exampleEnglish": "Carlos uses meat in a sentence."
+    },
+    {
+      "spanish": "el pescado",
+      "english": "fish",
+      "partOfSpeech": "noun",
+      "tip": "Carlos tip: practice ?el pescado? in a short real sentence, not as an isolated word.",
+      "exampleSpanish": "Carlos usa el pescado en una frase.",
+      "exampleEnglish": "Carlos uses fish in a sentence."
+    },
+    {
+      "spanish": "la sopa",
+      "english": "soup",
+      "partOfSpeech": "noun",
+      "tip": "Carlos tip: practice ?la sopa? in a short real sentence, not as an isolated word.",
+      "exampleSpanish": "Carlos usa la sopa en una frase.",
+      "exampleEnglish": "Carlos uses soup in a sentence."
+    },
+    {
+      "spanish": "la ensalada",
+      "english": "salad",
+      "partOfSpeech": "noun",
+      "tip": "Carlos tip: practice ?la ensalada? in a short real sentence, not as an isolated word.",
+      "exampleSpanish": "Carlos usa la ensalada en una frase.",
+      "exampleEnglish": "Carlos uses salad in a sentence."
+    },
+    {
+      "spanish": "rico",
+      "english": "tasty",
+      "partOfSpeech": "adjective",
+      "tip": "Carlos tip: practice ?rico? in a short real sentence, not as an isolated word.",
+      "exampleSpanish": "Carlos usa rico en una frase.",
+      "exampleEnglish": "Carlos uses tasty in a sentence."
+    },
+    {
+      "spanish": "caliente",
+      "english": "hot",
+      "partOfSpeech": "adjective",
+      "tip": "Carlos tip: practice ?caliente? in a short real sentence, not as an isolated word.",
+      "exampleSpanish": "Carlos usa caliente en una frase.",
+      "exampleEnglish": "Carlos uses hot in a sentence."
+    },
+    {
+      "spanish": "fr?o",
+      "english": "cold",
+      "partOfSpeech": "adjective",
+      "tip": "Carlos tip: practice ?fr?o? in a short real sentence, not as an isolated word.",
+      "exampleSpanish": "Carlos usa fr?o en una frase.",
+      "exampleEnglish": "Carlos uses cold in a sentence."
+    },
+    {
+      "spanish": "sin",
+      "english": "without",
+      "partOfSpeech": "preposition",
+      "tip": "Carlos tip: practice ?sin? in a short real sentence, not as an isolated word.",
+      "exampleSpanish": "Carlos usa sin en una frase.",
+      "exampleEnglish": "Carlos uses without in a sentence."
+    },
+    {
+      "spanish": "con",
+      "english": "with",
+      "partOfSpeech": "preposition",
+      "tip": "Carlos tip: practice ?con? in a short real sentence, not as an isolated word.",
+      "exampleSpanish": "Carlos usa con en una frase.",
+      "exampleEnglish": "Carlos uses with in a sentence."
+    },
+    {
+      "spanish": "la cuenta",
+      "english": "the bill",
+      "partOfSpeech": "noun",
+      "tip": "Carlos tip: practice ?la cuenta? in a short real sentence, not as an isolated word.",
+      "exampleSpanish": "Carlos usa la cuenta en una frase.",
+      "exampleEnglish": "Carlos uses the bill in a sentence."
+    },
+    {
+      "spanish": "Para m?",
+      "english": "For me",
+      "partOfSpeech": "phrase",
+      "tip": "Carlos tip: practice ?Para m?? in a short real sentence, not as an isolated word.",
+      "exampleSpanish": "Carlos usa Para m? en una frase.",
+      "exampleEnglish": "Carlos uses For me in a sentence."
+    }
+  ],
+  "grammar": {
+    "topic": "Using con and sin",
+    "explanation": "Use con for with and sin for without. These tiny words are powerful in restaurants.",
+    "examples": [
+      {
+        "spanish": "Agua con hielo, por favor.",
+        "english": "Water with ice, please."
+      },
+      {
+        "spanish": "Caf? sin az?car.",
+        "english": "Coffee without sugar."
+      },
+      {
+        "spanish": "Para m?, la sopa.",
+        "english": "For me, the soup."
+      }
+    ],
+    "practicePrompt": "Say one original sentence using today?s pattern with Carlos."
+  },
+  "dialogue": [
+    {
+      "title": "Food & Drinks with Carlos",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Vamos a practicar food & drinks.",
+          "english": "Let?s practice food & drinks."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "S?, quiero practicar.",
+          "english": "Yes, I want to practice."
+        },
+        {
+          "speaker": "Carlos",
+          "spanish": "Muy bien. Usa una frase completa.",
+          "english": "Very good. Use a complete sentence."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "Puedo decirlo otra vez.",
+          "english": "I can say it again."
+        }
+      ]
+    },
+    {
+      "title": "A polite real-life exchange",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Disculpe, tengo una pregunta.",
+          "english": "Excuse me, I have a question."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "Claro, con gusto.",
+          "english": "Of course, gladly."
+        },
+        {
+          "speaker": "Carlos",
+          "spanish": "Gracias por ayudarme.",
+          "english": "Thank you for helping me."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "De nada.",
+          "english": "You?re welcome."
+        }
+      ]
+    },
+    {
+      "title": "Family-friendly practice",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "?C?mo lo dices con tu familia?",
+          "english": "How do you say it with your family?"
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "Lo digo despacio y con respeto.",
+          "english": "I say it slowly and respectfully."
+        },
+        {
+          "speaker": "Carlos",
+          "spanish": "Perfecto, eso suena natural.",
+          "english": "Perfect, that sounds natural."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "Gracias, Carlos.",
+          "english": "Thanks, Carlos."
+        }
+      ]
+    }
+  ],
+  "dialogues": [
+    {
+      "title": "Food & Drinks with Carlos",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Vamos a practicar food & drinks.",
+          "english": "Let?s practice food & drinks."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "S?, quiero practicar.",
+          "english": "Yes, I want to practice."
+        },
+        {
+          "speaker": "Carlos",
+          "spanish": "Muy bien. Usa una frase completa.",
+          "english": "Very good. Use a complete sentence."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "Puedo decirlo otra vez.",
+          "english": "I can say it again."
+        }
+      ]
+    },
+    {
+      "title": "A polite real-life exchange",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Disculpe, tengo una pregunta.",
+          "english": "Excuse me, I have a question."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "Claro, con gusto.",
+          "english": "Of course, gladly."
+        },
+        {
+          "speaker": "Carlos",
+          "spanish": "Gracias por ayudarme.",
+          "english": "Thank you for helping me."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "De nada.",
+          "english": "You?re welcome."
+        }
+      ]
+    },
+    {
+      "title": "Family-friendly practice",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "?C?mo lo dices con tu familia?",
+          "english": "How do you say it with your family?"
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "Lo digo despacio y con respeto.",
+          "english": "I say it slowly and respectfully."
+        },
+        {
+          "speaker": "Carlos",
+          "spanish": "Perfecto, eso suena natural.",
+          "english": "Perfect, that sounds natural."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "Gracias, Carlos.",
+          "english": "Thanks, Carlos."
+        }
+      ]
+    }
+  ],
+  "listening": {
+    "phrases": [
+      {
+        "spanish": "el restaurante",
+        "english": "restaurant"
+      },
+      {
+        "spanish": "la mesa",
+        "english": "table"
+      },
+      {
+        "spanish": "el men?",
+        "english": "menu"
+      },
+      {
+        "spanish": "el mesero",
+        "english": "waiter"
+      },
+      {
+        "spanish": "la mesera",
+        "english": "waitress"
+      },
+      {
+        "spanish": "la comida",
+        "english": "food / meal"
+      },
+      {
+        "spanish": "la bebida",
+        "english": "drink"
+      },
+      {
+        "spanish": "el agua",
+        "english": "water"
+      },
+      {
+        "spanish": "el caf?",
+        "english": "coffee"
+      },
+      {
+        "spanish": "el t?",
+        "english": "tea"
+      }
+    ]
+  },
+  "listeningPhrases": [
+    {
+      "spanish": "el restaurante",
+      "english": "restaurant"
+    },
+    {
+      "spanish": "la mesa",
+      "english": "table"
+    },
+    {
+      "spanish": "el men?",
+      "english": "menu"
+    },
+    {
+      "spanish": "el mesero",
+      "english": "waiter"
+    },
+    {
+      "spanish": "la mesera",
+      "english": "waitress"
+    },
+    {
+      "spanish": "la comida",
+      "english": "food / meal"
+    },
+    {
+      "spanish": "la bebida",
+      "english": "drink"
+    },
+    {
+      "spanish": "el agua",
+      "english": "water"
+    },
+    {
+      "spanish": "el caf?",
+      "english": "coffee"
+    },
+    {
+      "spanish": "el t?",
+      "english": "tea"
+    }
+  ],
+  "pronunciation": {
+    "focus": "Clear vowels, word stress, and confident phrase rhythm.",
+    "items": [
+      {
+        "text": "el restaurante",
+        "note": "Say each vowel clearly and keep the rhythm natural."
+      },
+      {
+        "text": "la mesa",
+        "note": "Say each vowel clearly and keep the rhythm natural."
+      },
+      {
+        "text": "el men?",
+        "note": "Say each vowel clearly and keep the rhythm natural."
+      },
+      {
+        "text": "el mesero",
+        "note": "Say each vowel clearly and keep the rhythm natural."
+      },
+      {
+        "text": "la mesera",
+        "note": "Say each vowel clearly and keep the rhythm natural."
+      },
+      {
+        "text": "la comida",
+        "note": "Say each vowel clearly and keep the rhythm natural."
+      },
+      {
+        "text": "la bebida",
+        "note": "Say each vowel clearly and keep the rhythm natural."
+      },
+      {
+        "text": "el agua",
+        "note": "Say each vowel clearly and keep the rhythm natural."
+      },
+      {
+        "text": "el caf?",
+        "note": "Say each vowel clearly and keep the rhythm natural."
+      },
+      {
+        "text": "el t?",
+        "note": "Say each vowel clearly and keep the rhythm natural."
+      }
+    ]
+  },
+  "pronunciationExercises": [
+    {
+      "text": "el restaurante",
+      "note": "Repeat after Carlos, then say it in a short phrase."
+    },
+    {
+      "text": "la mesa",
+      "note": "Repeat after Carlos, then say it in a short phrase."
+    },
+    {
+      "text": "el men?",
+      "note": "Repeat after Carlos, then say it in a short phrase."
+    },
+    {
+      "text": "el mesero",
+      "note": "Repeat after Carlos, then say it in a short phrase."
+    },
+    {
+      "text": "la mesera",
+      "note": "Repeat after Carlos, then say it in a short phrase."
+    },
+    {
+      "text": "la comida",
+      "note": "Repeat after Carlos, then say it in a short phrase."
+    },
+    {
+      "text": "la bebida",
+      "note": "Repeat after Carlos, then say it in a short phrase."
+    },
+    {
+      "text": "el agua",
+      "note": "Repeat after Carlos, then say it in a short phrase."
+    },
+    {
+      "text": "el caf?",
+      "note": "Repeat after Carlos, then say it in a short phrase."
+    },
+    {
+      "text": "el t?",
+      "note": "Repeat after Carlos, then say it in a short phrase."
+    }
+  ],
+  "culture": {
+    "title": "Food & Drinks in Real Life",
+    "text": "Meal times vary by country. Dinner may be later in Spain, while lunch is often the main meal in many Latin American families."
+  },
+  "cultureNotes": [
+    "Meal times vary by country. Dinner may be later in Spain, while lunch is often the main meal in many Latin American families."
+  ],
+  "nativeSpeech": {
+    "title": "How Carlos would say it naturally",
+    "notes": [
+      "?La cuenta, por favor? is the classic bill phrase.",
+      "??Me trae agua?? sounds natural when asking a server to bring water."
+    ]
+  },
+  "commonMistakes": [
+    {
+      "mistake": "Saying soy hambre",
+      "correction": "Tengo hambre.",
+      "explanation": "Spanish uses tener for hunger."
+    },
+    {
+      "mistake": "Using caliente for spicy",
+      "correction": "Picante means spicy.",
+      "explanation": "Caliente means hot in temperature."
+    },
+    {
+      "mistake": "Forgetting gender",
+      "correction": "La comida, el men?.",
+      "explanation": "Learn food words with el/la."
+    }
+  ],
+  "quiz": [
+    {
+      "type": "multipleChoice",
+      "prompt": "What does ?el restaurante? mean?",
+      "options": [
+        "restaurant",
+        "table",
+        "menu",
+        "waiter"
+      ],
+      "answer": "restaurant"
+    },
+    {
+      "type": "multipleChoice",
+      "prompt": "What does ?la mesa? mean?",
+      "options": [
+        "table",
+        "restaurant",
+        "menu",
+        "waiter"
+      ],
+      "answer": "table"
+    },
+    {
+      "type": "multipleChoice",
+      "prompt": "What does ?el men?? mean?",
+      "options": [
+        "menu",
+        "restaurant",
+        "table",
+        "waiter"
+      ],
+      "answer": "menu"
+    },
+    {
+      "type": "multipleChoice",
+      "prompt": "What does ?el mesero? mean?",
+      "options": [
+        "waiter",
+        "restaurant",
+        "table",
+        "menu"
+      ],
+      "answer": "waiter"
+    },
+    {
+      "type": "multipleChoice",
+      "prompt": "What does ?la mesera? mean?",
+      "options": [
+        "waitress",
+        "restaurant",
+        "table",
+        "menu"
+      ],
+      "answer": "waitress"
+    },
+    {
+      "type": "multipleChoice",
+      "prompt": "What does ?la comida? mean?",
+      "options": [
+        "food / meal",
+        "restaurant",
+        "table",
+        "menu"
+      ],
+      "answer": "food / meal"
+    },
+    {
+      "type": "multipleChoice",
+      "prompt": "What does ?la bebida? mean?",
+      "options": [
+        "drink",
+        "restaurant",
+        "table",
+        "menu"
+      ],
+      "answer": "drink"
+    },
+    {
+      "type": "multipleChoice",
+      "prompt": "What does ?el agua? mean?",
+      "options": [
+        "water",
+        "restaurant",
+        "table",
+        "menu"
+      ],
+      "answer": "water"
+    },
+    {
+      "type": "multipleChoice",
+      "prompt": "What does ?el caf?? mean?",
+      "options": [
+        "coffee",
+        "restaurant",
+        "table",
+        "menu"
+      ],
+      "answer": "coffee"
+    },
+    {
+      "type": "multipleChoice",
+      "prompt": "What does ?el t?? mean?",
+      "options": [
+        "tea",
+        "restaurant",
+        "table",
+        "menu"
+      ],
+      "answer": "tea"
+    },
+    {
+      "type": "multipleChoice",
+      "prompt": "What does ?el jugo? mean?",
+      "options": [
+        "juice",
+        "restaurant",
+        "table",
+        "menu"
+      ],
+      "answer": "juice"
+    },
+    {
+      "type": "multipleChoice",
+      "prompt": "What does ?la leche? mean?",
+      "options": [
+        "milk",
+        "restaurant",
+        "table",
+        "menu"
+      ],
+      "answer": "milk"
+    },
+    {
+      "type": "multipleChoice",
+      "prompt": "What does ?el pan? mean?",
+      "options": [
+        "bread",
+        "restaurant",
+        "table",
+        "menu"
+      ],
+      "answer": "bread"
+    },
+    {
+      "type": "multipleChoice",
+      "prompt": "What does ?el arroz? mean?",
+      "options": [
+        "rice",
+        "restaurant",
+        "table",
+        "menu"
+      ],
+      "answer": "rice"
+    },
+    {
+      "type": "multipleChoice",
+      "prompt": "What does ?el pollo? mean?",
+      "options": [
+        "chicken",
+        "restaurant",
+        "table",
+        "menu"
+      ],
+      "answer": "chicken"
+    }
+  ],
+  "speakingChallenge": [
+    {
+      "prompt": "Use ?el restaurante? in a sentence with Carlos.",
+      "exampleAnswer": "El restaurante, por favor."
+    },
+    {
+      "prompt": "Use ?la mesa? in a sentence with Carlos.",
+      "exampleAnswer": "La mesa, por favor."
+    },
+    {
+      "prompt": "Use ?el men?? in a sentence with Carlos.",
+      "exampleAnswer": "El men?, por favor."
+    },
+    {
+      "prompt": "Use ?el mesero? in a sentence with Carlos.",
+      "exampleAnswer": "El mesero, por favor."
+    },
+    {
+      "prompt": "Use ?la mesera? in a sentence with Carlos.",
+      "exampleAnswer": "La mesera, por favor."
+    }
+  ],
+  "speakingChallenges": [
+    {
+      "prompt": "Tell Carlos one real thing using ?el restaurante?.",
+      "exampleAnswer": "Carlos, practico el restaurante."
+    },
+    {
+      "prompt": "Tell Carlos one real thing using ?la mesa?.",
+      "exampleAnswer": "Carlos, practico la mesa."
+    },
+    {
+      "prompt": "Tell Carlos one real thing using ?el men??.",
+      "exampleAnswer": "Carlos, practico el men?."
+    },
+    {
+      "prompt": "Tell Carlos one real thing using ?el mesero?.",
+      "exampleAnswer": "Carlos, practico el mesero."
+    },
+    {
+      "prompt": "Tell Carlos one real thing using ?la mesera?.",
+      "exampleAnswer": "Carlos, practico la mesera."
+    }
+  ],
+  "realLifeMission": {
+    "title": "Real Life Mission",
+    "mission": "Order a drink and a meal with Carlos, then ask for the bill using polite Spanish.",
+    "successCriteria": [
+      "Use at least three lesson vocabulary items.",
+      "Use the main grammar pattern.",
+      "Answer one follow-up question from Carlos."
+    ],
+    "suggestedPartner": "Carlos",
+    "xpReward": 65
+  },
+  "review": {
+    "summary": "You practiced food & drinks for everyday Spanish.",
+    "canDo": [
+      "Recognize key vocabulary.",
+      "Answer Carlos with simple complete sentences.",
+      "Use the Real Life Mission in a practical situation."
+    ]
+  },
+  "imagePath": "assets/images/lessons/lesson-06-food-drinks.png",
+  "achievementsUnlocked": [],
+  "xpReward": 65,
+  "nextLesson": "lesson-07-travel-basics"
+}

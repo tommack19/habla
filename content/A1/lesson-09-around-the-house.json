@@ -1,0 +1,834 @@
+{
+  "id": "lesson-09-around-the-house",
+  "title": "Around the House: Rooms, Objects, and Location",
+  "level": "A1",
+  "module": "Around the House",
+  "estimatedMinutes": 33,
+  "metadata": {
+    "course": "Habla",
+    "unit": "A1 Beginner",
+    "lessonNumber": 9,
+    "guide": "Carlos",
+    "imagePath": "assets/images/lessons/lesson-09-around-the-house.png"
+  },
+  "prerequisiteLesson": "lesson-08-vacation",
+  "objectives": [
+    "Name rooms and household objects and describe where things are.",
+    "Understand Carlos in short guided exchanges.",
+    "Use the lesson language in one realistic conversation."
+  ],
+  "objective": "Name rooms and household objects and describe where things are.",
+  "vocabulary": [
+    {
+      "spanish": "la casa",
+      "english": "house",
+      "partOfSpeech": "noun",
+      "tip": "Carlos tip: practice ?la casa? in a short real sentence, not as an isolated word.",
+      "exampleSpanish": "Carlos usa la casa en una frase.",
+      "exampleEnglish": "Carlos uses house in a sentence."
+    },
+    {
+      "spanish": "el apartamento",
+      "english": "apartment",
+      "partOfSpeech": "noun",
+      "tip": "Carlos tip: practice ?el apartamento? in a short real sentence, not as an isolated word.",
+      "exampleSpanish": "Carlos usa el apartamento en una frase.",
+      "exampleEnglish": "Carlos uses apartment in a sentence."
+    },
+    {
+      "spanish": "la habitaci?n",
+      "english": "room / bedroom",
+      "partOfSpeech": "noun",
+      "tip": "Carlos tip: practice ?la habitaci?n? in a short real sentence, not as an isolated word.",
+      "exampleSpanish": "Carlos usa la habitaci?n en una frase.",
+      "exampleEnglish": "Carlos uses room / bedroom in a sentence."
+    },
+    {
+      "spanish": "la cocina",
+      "english": "kitchen",
+      "partOfSpeech": "noun",
+      "tip": "Carlos tip: practice ?la cocina? in a short real sentence, not as an isolated word.",
+      "exampleSpanish": "Carlos usa la cocina en una frase.",
+      "exampleEnglish": "Carlos uses kitchen in a sentence."
+    },
+    {
+      "spanish": "el ba?o",
+      "english": "bathroom",
+      "partOfSpeech": "noun",
+      "tip": "Carlos tip: practice ?el ba?o? in a short real sentence, not as an isolated word.",
+      "exampleSpanish": "Carlos usa el ba?o en una frase.",
+      "exampleEnglish": "Carlos uses bathroom in a sentence."
+    },
+    {
+      "spanish": "la sala",
+      "english": "living room",
+      "partOfSpeech": "noun",
+      "tip": "Carlos tip: practice ?la sala? in a short real sentence, not as an isolated word.",
+      "exampleSpanish": "Carlos usa la sala en una frase.",
+      "exampleEnglish": "Carlos uses living room in a sentence."
+    },
+    {
+      "spanish": "el comedor",
+      "english": "dining room",
+      "partOfSpeech": "noun",
+      "tip": "Carlos tip: practice ?el comedor? in a short real sentence, not as an isolated word.",
+      "exampleSpanish": "Carlos usa el comedor en una frase.",
+      "exampleEnglish": "Carlos uses dining room in a sentence."
+    },
+    {
+      "spanish": "la puerta",
+      "english": "door",
+      "partOfSpeech": "noun",
+      "tip": "Carlos tip: practice ?la puerta? in a short real sentence, not as an isolated word.",
+      "exampleSpanish": "Carlos usa la puerta en una frase.",
+      "exampleEnglish": "Carlos uses door in a sentence."
+    },
+    {
+      "spanish": "la ventana",
+      "english": "window",
+      "partOfSpeech": "noun",
+      "tip": "Carlos tip: practice ?la ventana? in a short real sentence, not as an isolated word.",
+      "exampleSpanish": "Carlos usa la ventana en una frase.",
+      "exampleEnglish": "Carlos uses window in a sentence."
+    },
+    {
+      "spanish": "la mesa",
+      "english": "table",
+      "partOfSpeech": "noun",
+      "tip": "Carlos tip: practice ?la mesa? in a short real sentence, not as an isolated word.",
+      "exampleSpanish": "Carlos usa la mesa en una frase.",
+      "exampleEnglish": "Carlos uses table in a sentence."
+    },
+    {
+      "spanish": "la silla",
+      "english": "chair",
+      "partOfSpeech": "noun",
+      "tip": "Carlos tip: practice ?la silla? in a short real sentence, not as an isolated word.",
+      "exampleSpanish": "Carlos usa la silla en una frase.",
+      "exampleEnglish": "Carlos uses chair in a sentence."
+    },
+    {
+      "spanish": "la cama",
+      "english": "bed",
+      "partOfSpeech": "noun",
+      "tip": "Carlos tip: practice ?la cama? in a short real sentence, not as an isolated word.",
+      "exampleSpanish": "Carlos usa la cama en una frase.",
+      "exampleEnglish": "Carlos uses bed in a sentence."
+    },
+    {
+      "spanish": "el sof?",
+      "english": "sofa",
+      "partOfSpeech": "noun",
+      "tip": "Carlos tip: practice ?el sof?? in a short real sentence, not as an isolated word.",
+      "exampleSpanish": "Carlos usa el sof? en una frase.",
+      "exampleEnglish": "Carlos uses sofa in a sentence."
+    },
+    {
+      "spanish": "la l?mpara",
+      "english": "lamp",
+      "partOfSpeech": "noun",
+      "tip": "Carlos tip: practice ?la l?mpara? in a short real sentence, not as an isolated word.",
+      "exampleSpanish": "Carlos usa la l?mpara en una frase.",
+      "exampleEnglish": "Carlos uses lamp in a sentence."
+    },
+    {
+      "spanish": "el tel?fono",
+      "english": "phone",
+      "partOfSpeech": "noun",
+      "tip": "Carlos tip: practice ?el tel?fono? in a short real sentence, not as an isolated word.",
+      "exampleSpanish": "Carlos usa el tel?fono en una frase.",
+      "exampleEnglish": "Carlos uses phone in a sentence."
+    },
+    {
+      "spanish": "la llave",
+      "english": "key",
+      "partOfSpeech": "noun",
+      "tip": "Carlos tip: practice ?la llave? in a short real sentence, not as an isolated word.",
+      "exampleSpanish": "Carlos usa la llave en una frase.",
+      "exampleEnglish": "Carlos uses key in a sentence."
+    },
+    {
+      "spanish": "limpio",
+      "english": "clean",
+      "partOfSpeech": "adjective",
+      "tip": "Carlos tip: practice ?limpio? in a short real sentence, not as an isolated word.",
+      "exampleSpanish": "Carlos usa limpio en una frase.",
+      "exampleEnglish": "Carlos uses clean in a sentence."
+    },
+    {
+      "spanish": "sucio",
+      "english": "dirty",
+      "partOfSpeech": "adjective",
+      "tip": "Carlos tip: practice ?sucio? in a short real sentence, not as an isolated word.",
+      "exampleSpanish": "Carlos usa sucio en una frase.",
+      "exampleEnglish": "Carlos uses dirty in a sentence."
+    },
+    {
+      "spanish": "grande",
+      "english": "big",
+      "partOfSpeech": "adjective",
+      "tip": "Carlos tip: practice ?grande? in a short real sentence, not as an isolated word.",
+      "exampleSpanish": "Carlos usa grande en una frase.",
+      "exampleEnglish": "Carlos uses big in a sentence."
+    },
+    {
+      "spanish": "peque?o",
+      "english": "small",
+      "partOfSpeech": "adjective",
+      "tip": "Carlos tip: practice ?peque?o? in a short real sentence, not as an isolated word.",
+      "exampleSpanish": "Carlos usa peque?o en una frase.",
+      "exampleEnglish": "Carlos uses small in a sentence."
+    },
+    {
+      "spanish": "encima de",
+      "english": "on top of",
+      "partOfSpeech": "preposition",
+      "tip": "Carlos tip: practice ?encima de? in a short real sentence, not as an isolated word.",
+      "exampleSpanish": "Carlos usa encima de en una frase.",
+      "exampleEnglish": "Carlos uses on top of in a sentence."
+    },
+    {
+      "spanish": "debajo de",
+      "english": "under",
+      "partOfSpeech": "preposition",
+      "tip": "Carlos tip: practice ?debajo de? in a short real sentence, not as an isolated word.",
+      "exampleSpanish": "Carlos usa debajo de en una frase.",
+      "exampleEnglish": "Carlos uses under in a sentence."
+    },
+    {
+      "spanish": "al lado de",
+      "english": "next to",
+      "partOfSpeech": "preposition",
+      "tip": "Carlos tip: practice ?al lado de? in a short real sentence, not as an isolated word.",
+      "exampleSpanish": "Carlos usa al lado de en una frase.",
+      "exampleEnglish": "Carlos uses next to in a sentence."
+    },
+    {
+      "spanish": "en",
+      "english": "in / on",
+      "partOfSpeech": "preposition",
+      "tip": "Carlos tip: practice ?en? in a short real sentence, not as an isolated word.",
+      "exampleSpanish": "Carlos usa en en una frase.",
+      "exampleEnglish": "Carlos uses in / on in a sentence."
+    },
+    {
+      "spanish": "Est? en la cocina",
+      "english": "It is in the kitchen",
+      "partOfSpeech": "sentence",
+      "tip": "Carlos tip: practice ?Est? en la cocina? in a short real sentence, not as an isolated word.",
+      "exampleSpanish": "Carlos usa Est? en la cocina en una frase.",
+      "exampleEnglish": "Carlos uses It is in the kitchen in a sentence."
+    }
+  ],
+  "grammar": {
+    "topic": "Location phrases with estar",
+    "explanation": "Use estar with location phrases: est? en, est? al lado de, est? debajo de, est? encima de.",
+    "examples": [
+      {
+        "spanish": "La llave est? en la mesa.",
+        "english": "The key is on the table."
+      },
+      {
+        "spanish": "El tel?fono est? al lado de la cama.",
+        "english": "The phone is next to the bed."
+      },
+      {
+        "spanish": "La cocina est? limpia.",
+        "english": "The kitchen is clean."
+      }
+    ],
+    "practicePrompt": "Say one original sentence using today?s pattern with Carlos."
+  },
+  "dialogue": [
+    {
+      "title": "Around the House with Carlos",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Vamos a practicar around the house.",
+          "english": "Let?s practice around the house."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "S?, quiero practicar.",
+          "english": "Yes, I want to practice."
+        },
+        {
+          "speaker": "Carlos",
+          "spanish": "Muy bien. Usa una frase completa.",
+          "english": "Very good. Use a complete sentence."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "Puedo decirlo otra vez.",
+          "english": "I can say it again."
+        }
+      ]
+    },
+    {
+      "title": "A polite real-life exchange",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Disculpe, tengo una pregunta.",
+          "english": "Excuse me, I have a question."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "Claro, con gusto.",
+          "english": "Of course, gladly."
+        },
+        {
+          "speaker": "Carlos",
+          "spanish": "Gracias por ayudarme.",
+          "english": "Thank you for helping me."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "De nada.",
+          "english": "You?re welcome."
+        }
+      ]
+    },
+    {
+      "title": "Family-friendly practice",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "?C?mo lo dices con tu familia?",
+          "english": "How do you say it with your family?"
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "Lo digo despacio y con respeto.",
+          "english": "I say it slowly and respectfully."
+        },
+        {
+          "speaker": "Carlos",
+          "spanish": "Perfecto, eso suena natural.",
+          "english": "Perfect, that sounds natural."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "Gracias, Carlos.",
+          "english": "Thanks, Carlos."
+        }
+      ]
+    }
+  ],
+  "dialogues": [
+    {
+      "title": "Around the House with Carlos",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Vamos a practicar around the house.",
+          "english": "Let?s practice around the house."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "S?, quiero practicar.",
+          "english": "Yes, I want to practice."
+        },
+        {
+          "speaker": "Carlos",
+          "spanish": "Muy bien. Usa una frase completa.",
+          "english": "Very good. Use a complete sentence."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "Puedo decirlo otra vez.",
+          "english": "I can say it again."
+        }
+      ]
+    },
+    {
+      "title": "A polite real-life exchange",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Disculpe, tengo una pregunta.",
+          "english": "Excuse me, I have a question."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "Claro, con gusto.",
+          "english": "Of course, gladly."
+        },
+        {
+          "speaker": "Carlos",
+          "spanish": "Gracias por ayudarme.",
+          "english": "Thank you for helping me."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "De nada.",
+          "english": "You?re welcome."
+        }
+      ]
+    },
+    {
+      "title": "Family-friendly practice",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "?C?mo lo dices con tu familia?",
+          "english": "How do you say it with your family?"
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "Lo digo despacio y con respeto.",
+          "english": "I say it slowly and respectfully."
+        },
+        {
+          "speaker": "Carlos",
+          "spanish": "Perfecto, eso suena natural.",
+          "english": "Perfect, that sounds natural."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "Gracias, Carlos.",
+          "english": "Thanks, Carlos."
+        }
+      ]
+    }
+  ],
+  "listening": {
+    "phrases": [
+      {
+        "spanish": "la casa",
+        "english": "house"
+      },
+      {
+        "spanish": "el apartamento",
+        "english": "apartment"
+      },
+      {
+        "spanish": "la habitaci?n",
+        "english": "room / bedroom"
+      },
+      {
+        "spanish": "la cocina",
+        "english": "kitchen"
+      },
+      {
+        "spanish": "el ba?o",
+        "english": "bathroom"
+      },
+      {
+        "spanish": "la sala",
+        "english": "living room"
+      },
+      {
+        "spanish": "el comedor",
+        "english": "dining room"
+      },
+      {
+        "spanish": "la puerta",
+        "english": "door"
+      },
+      {
+        "spanish": "la ventana",
+        "english": "window"
+      },
+      {
+        "spanish": "la mesa",
+        "english": "table"
+      }
+    ]
+  },
+  "listeningPhrases": [
+    {
+      "spanish": "la casa",
+      "english": "house"
+    },
+    {
+      "spanish": "el apartamento",
+      "english": "apartment"
+    },
+    {
+      "spanish": "la habitaci?n",
+      "english": "room / bedroom"
+    },
+    {
+      "spanish": "la cocina",
+      "english": "kitchen"
+    },
+    {
+      "spanish": "el ba?o",
+      "english": "bathroom"
+    },
+    {
+      "spanish": "la sala",
+      "english": "living room"
+    },
+    {
+      "spanish": "el comedor",
+      "english": "dining room"
+    },
+    {
+      "spanish": "la puerta",
+      "english": "door"
+    },
+    {
+      "spanish": "la ventana",
+      "english": "window"
+    },
+    {
+      "spanish": "la mesa",
+      "english": "table"
+    }
+  ],
+  "pronunciation": {
+    "focus": "Clear vowels, word stress, and confident phrase rhythm.",
+    "items": [
+      {
+        "text": "la casa",
+        "note": "Say each vowel clearly and keep the rhythm natural."
+      },
+      {
+        "text": "el apartamento",
+        "note": "Say each vowel clearly and keep the rhythm natural."
+      },
+      {
+        "text": "la habitaci?n",
+        "note": "Say each vowel clearly and keep the rhythm natural."
+      },
+      {
+        "text": "la cocina",
+        "note": "Say each vowel clearly and keep the rhythm natural."
+      },
+      {
+        "text": "el ba?o",
+        "note": "Say each vowel clearly and keep the rhythm natural."
+      },
+      {
+        "text": "la sala",
+        "note": "Say each vowel clearly and keep the rhythm natural."
+      },
+      {
+        "text": "el comedor",
+        "note": "Say each vowel clearly and keep the rhythm natural."
+      },
+      {
+        "text": "la puerta",
+        "note": "Say each vowel clearly and keep the rhythm natural."
+      },
+      {
+        "text": "la ventana",
+        "note": "Say each vowel clearly and keep the rhythm natural."
+      },
+      {
+        "text": "la mesa",
+        "note": "Say each vowel clearly and keep the rhythm natural."
+      }
+    ]
+  },
+  "pronunciationExercises": [
+    {
+      "text": "la casa",
+      "note": "Repeat after Carlos, then say it in a short phrase."
+    },
+    {
+      "text": "el apartamento",
+      "note": "Repeat after Carlos, then say it in a short phrase."
+    },
+    {
+      "text": "la habitaci?n",
+      "note": "Repeat after Carlos, then say it in a short phrase."
+    },
+    {
+      "text": "la cocina",
+      "note": "Repeat after Carlos, then say it in a short phrase."
+    },
+    {
+      "text": "el ba?o",
+      "note": "Repeat after Carlos, then say it in a short phrase."
+    },
+    {
+      "text": "la sala",
+      "note": "Repeat after Carlos, then say it in a short phrase."
+    },
+    {
+      "text": "el comedor",
+      "note": "Repeat after Carlos, then say it in a short phrase."
+    },
+    {
+      "text": "la puerta",
+      "note": "Repeat after Carlos, then say it in a short phrase."
+    },
+    {
+      "text": "la ventana",
+      "note": "Repeat after Carlos, then say it in a short phrase."
+    },
+    {
+      "text": "la mesa",
+      "note": "Repeat after Carlos, then say it in a short phrase."
+    }
+  ],
+  "culture": {
+    "title": "Around the House in Real Life",
+    "text": "In many Spanish-speaking homes, the kitchen and dining table are important social spaces. Visitors may be invited to sit and talk there."
+  },
+  "cultureNotes": [
+    "In many Spanish-speaking homes, the kitchen and dining table are important social spaces. Visitors may be invited to sit and talk there."
+  ],
+  "nativeSpeech": {
+    "title": "How Carlos would say it naturally",
+    "notes": [
+      "?Pasa? or ?pase? means ?come in.?",
+      "?Mi casa es tu casa? is a warm hospitality phrase, though often said playfully."
+    ]
+  },
+  "commonMistakes": [
+    {
+      "mistake": "Using es for location",
+      "correction": "La llave est? en la mesa.",
+      "explanation": "Use estar for where things are."
+    },
+    {
+      "mistake": "Forgetting de",
+      "correction": "al lado de la cama",
+      "explanation": "Many location phrases need de."
+    },
+    {
+      "mistake": "Confusing habitaci?n",
+      "correction": "Habitaci?n can mean bedroom or room depending on context.",
+      "explanation": "Casa words vary by region."
+    }
+  ],
+  "quiz": [
+    {
+      "type": "multipleChoice",
+      "prompt": "What does ?la casa? mean?",
+      "options": [
+        "house",
+        "apartment",
+        "room / bedroom",
+        "kitchen"
+      ],
+      "answer": "house"
+    },
+    {
+      "type": "multipleChoice",
+      "prompt": "What does ?el apartamento? mean?",
+      "options": [
+        "apartment",
+        "house",
+        "room / bedroom",
+        "kitchen"
+      ],
+      "answer": "apartment"
+    },
+    {
+      "type": "multipleChoice",
+      "prompt": "What does ?la habitaci?n? mean?",
+      "options": [
+        "room / bedroom",
+        "house",
+        "apartment",
+        "kitchen"
+      ],
+      "answer": "room / bedroom"
+    },
+    {
+      "type": "multipleChoice",
+      "prompt": "What does ?la cocina? mean?",
+      "options": [
+        "kitchen",
+        "house",
+        "apartment",
+        "room / bedroom"
+      ],
+      "answer": "kitchen"
+    },
+    {
+      "type": "multipleChoice",
+      "prompt": "What does ?el ba?o? mean?",
+      "options": [
+        "bathroom",
+        "house",
+        "apartment",
+        "room / bedroom"
+      ],
+      "answer": "bathroom"
+    },
+    {
+      "type": "multipleChoice",
+      "prompt": "What does ?la sala? mean?",
+      "options": [
+        "living room",
+        "house",
+        "apartment",
+        "room / bedroom"
+      ],
+      "answer": "living room"
+    },
+    {
+      "type": "multipleChoice",
+      "prompt": "What does ?el comedor? mean?",
+      "options": [
+        "dining room",
+        "house",
+        "apartment",
+        "room / bedroom"
+      ],
+      "answer": "dining room"
+    },
+    {
+      "type": "multipleChoice",
+      "prompt": "What does ?la puerta? mean?",
+      "options": [
+        "door",
+        "house",
+        "apartment",
+        "room / bedroom"
+      ],
+      "answer": "door"
+    },
+    {
+      "type": "multipleChoice",
+      "prompt": "What does ?la ventana? mean?",
+      "options": [
+        "window",
+        "house",
+        "apartment",
+        "room / bedroom"
+      ],
+      "answer": "window"
+    },
+    {
+      "type": "multipleChoice",
+      "prompt": "What does ?la mesa? mean?",
+      "options": [
+        "table",
+        "house",
+        "apartment",
+        "room / bedroom"
+      ],
+      "answer": "table"
+    },
+    {
+      "type": "multipleChoice",
+      "prompt": "What does ?la silla? mean?",
+      "options": [
+        "chair",
+        "house",
+        "apartment",
+        "room / bedroom"
+      ],
+      "answer": "chair"
+    },
+    {
+      "type": "multipleChoice",
+      "prompt": "What does ?la cama? mean?",
+      "options": [
+        "bed",
+        "house",
+        "apartment",
+        "room / bedroom"
+      ],
+      "answer": "bed"
+    },
+    {
+      "type": "multipleChoice",
+      "prompt": "What does ?el sof?? mean?",
+      "options": [
+        "sofa",
+        "house",
+        "apartment",
+        "room / bedroom"
+      ],
+      "answer": "sofa"
+    },
+    {
+      "type": "multipleChoice",
+      "prompt": "What does ?la l?mpara? mean?",
+      "options": [
+        "lamp",
+        "house",
+        "apartment",
+        "room / bedroom"
+      ],
+      "answer": "lamp"
+    },
+    {
+      "type": "multipleChoice",
+      "prompt": "What does ?el tel?fono? mean?",
+      "options": [
+        "phone",
+        "house",
+        "apartment",
+        "room / bedroom"
+      ],
+      "answer": "phone"
+    }
+  ],
+  "speakingChallenge": [
+    {
+      "prompt": "Use ?la casa? in a sentence with Carlos.",
+      "exampleAnswer": "La casa, por favor."
+    },
+    {
+      "prompt": "Use ?el apartamento? in a sentence with Carlos.",
+      "exampleAnswer": "El apartamento, por favor."
+    },
+    {
+      "prompt": "Use ?la habitaci?n? in a sentence with Carlos.",
+      "exampleAnswer": "La habitaci?n, por favor."
+    },
+    {
+      "prompt": "Use ?la cocina? in a sentence with Carlos.",
+      "exampleAnswer": "La cocina, por favor."
+    },
+    {
+      "prompt": "Use ?el ba?o? in a sentence with Carlos.",
+      "exampleAnswer": "El ba?o, por favor."
+    }
+  ],
+  "speakingChallenges": [
+    {
+      "prompt": "Tell Carlos one real thing using ?la casa?.",
+      "exampleAnswer": "Carlos, practico la casa."
+    },
+    {
+      "prompt": "Tell Carlos one real thing using ?el apartamento?.",
+      "exampleAnswer": "Carlos, practico el apartamento."
+    },
+    {
+      "prompt": "Tell Carlos one real thing using ?la habitaci?n?.",
+      "exampleAnswer": "Carlos, practico la habitaci?n."
+    },
+    {
+      "prompt": "Tell Carlos one real thing using ?la cocina?.",
+      "exampleAnswer": "Carlos, practico la cocina."
+    },
+    {
+      "prompt": "Tell Carlos one real thing using ?el ba?o?.",
+      "exampleAnswer": "Carlos, practico el ba?o."
+    }
+  ],
+  "realLifeMission": {
+    "title": "Real Life Mission",
+    "mission": "Give Carlos a mini tour of your home using three rooms and two location phrases.",
+    "successCriteria": [
+      "Use at least three lesson vocabulary items.",
+      "Use the main grammar pattern.",
+      "Answer one follow-up question from Carlos."
+    ],
+    "suggestedPartner": "Carlos",
+    "xpReward": 70
+  },
+  "review": {
+    "summary": "You practiced around the house for everyday Spanish.",
+    "canDo": [
+      "Recognize key vocabulary.",
+      "Answer Carlos with simple complete sentences.",
+      "Use the Real Life Mission in a practical situation."
+    ]
+  },
+  "imagePath": "assets/images/lessons/lesson-09-around-the-house.png",
+  "achievementsUnlocked": [],
+  "xpReward": 70,
+  "nextLesson": "lesson-10-daily-routine"
+}

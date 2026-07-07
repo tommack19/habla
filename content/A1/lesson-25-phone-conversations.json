@@ -1,0 +1,1051 @@
+{
+  "id": "lesson-25-phone-conversations",
+  "title": "Phone Conversations: Calling and Leaving Messages",
+  "level": "A1",
+  "module": "Phone",
+  "estimatedMinutes": 32,
+  "prerequisiteLesson": "lesson-24-emergencies",
+  "imagePath": "assets/images/lessons/lesson-25-phone-conversations.png",
+  "objectives": [
+    "Handle simple phone calls, wrong numbers, voicemail, and callback requests.",
+    "Use 26 phone words and phrases in travel or navigation contexts.",
+    "Recycle previous A1 vocabulary naturally with Carlos.",
+    "Complete an authentic travel or navigation Real Life Mission."
+  ],
+  "vocabularyCategories": [
+    "phone",
+    "travel",
+    "conversation",
+    "problem solving"
+  ],
+  "vocabulary": [
+    {
+      "spanish": "el telefono",
+      "english": "phone",
+      "partOfSpeech": "travel phrase",
+      "tip": "Carlos uses el telefono in practical travel conversation.",
+      "exampleSpanish": "El telefono con Carlos.",
+      "exampleEnglish": "Phone with Carlos."
+    },
+    {
+      "spanish": "la llamada",
+      "english": "call",
+      "partOfSpeech": "travel phrase",
+      "tip": "Carlos uses la llamada in practical travel conversation.",
+      "exampleSpanish": "La llamada con Carlos.",
+      "exampleEnglish": "Call with Carlos."
+    },
+    {
+      "spanish": "llamar",
+      "english": "to call",
+      "partOfSpeech": "travel phrase",
+      "tip": "Carlos uses llamar in practical travel conversation.",
+      "exampleSpanish": "Llamar con Carlos.",
+      "exampleEnglish": "To call with Carlos."
+    },
+    {
+      "spanish": "contestar",
+      "english": "to answer",
+      "partOfSpeech": "travel phrase",
+      "tip": "Carlos uses contestar in practical travel conversation.",
+      "exampleSpanish": "Contestar con Carlos.",
+      "exampleEnglish": "To answer with Carlos."
+    },
+    {
+      "spanish": "hablar",
+      "english": "to speak",
+      "partOfSpeech": "travel phrase",
+      "tip": "Carlos uses hablar in practical travel conversation.",
+      "exampleSpanish": "Hablar con Carlos.",
+      "exampleEnglish": "To speak with Carlos."
+    },
+    {
+      "spanish": "escuchar",
+      "english": "to hear/listen",
+      "partOfSpeech": "travel phrase",
+      "tip": "Carlos uses escuchar in practical travel conversation.",
+      "exampleSpanish": "Escuchar con Carlos.",
+      "exampleEnglish": "To hear/listen with Carlos."
+    },
+    {
+      "spanish": "oir",
+      "english": "to hear",
+      "partOfSpeech": "travel phrase",
+      "tip": "Carlos uses oir in practical travel conversation.",
+      "exampleSpanish": "Oir con Carlos.",
+      "exampleEnglish": "To hear with Carlos."
+    },
+    {
+      "spanish": "el mensaje",
+      "english": "message",
+      "partOfSpeech": "travel phrase",
+      "tip": "Carlos uses el mensaje in practical travel conversation.",
+      "exampleSpanish": "El mensaje con Carlos.",
+      "exampleEnglish": "Message with Carlos."
+    },
+    {
+      "spanish": "dejar un mensaje",
+      "english": "to leave a message",
+      "partOfSpeech": "travel phrase",
+      "tip": "Carlos uses dejar un mensaje in practical travel conversation.",
+      "exampleSpanish": "Dejar un mensaje con Carlos.",
+      "exampleEnglish": "To leave a message with Carlos."
+    },
+    {
+      "spanish": "el buzon",
+      "english": "voicemail",
+      "partOfSpeech": "travel phrase",
+      "tip": "Carlos uses el buzon in practical travel conversation.",
+      "exampleSpanish": "El buzon con Carlos.",
+      "exampleEnglish": "Voicemail with Carlos."
+    },
+    {
+      "spanish": "el numero",
+      "english": "number",
+      "partOfSpeech": "travel phrase",
+      "tip": "Carlos uses el numero in practical travel conversation.",
+      "exampleSpanish": "El numero con Carlos.",
+      "exampleEnglish": "Number with Carlos."
+    },
+    {
+      "spanish": "numero equivocado",
+      "english": "wrong number",
+      "partOfSpeech": "travel phrase",
+      "tip": "Carlos uses numero equivocado in practical travel conversation.",
+      "exampleSpanish": "Numero equivocado con Carlos.",
+      "exampleEnglish": "Wrong number with Carlos."
+    },
+    {
+      "spanish": "ocupado",
+      "english": "busy",
+      "partOfSpeech": "travel phrase",
+      "tip": "Carlos uses ocupado in practical travel conversation.",
+      "exampleSpanish": "Ocupado con Carlos.",
+      "exampleEnglish": "Busy with Carlos."
+    },
+    {
+      "spanish": "la senal",
+      "english": "signal",
+      "partOfSpeech": "travel phrase",
+      "tip": "Carlos uses la senal in practical travel conversation.",
+      "exampleSpanish": "La senal con Carlos.",
+      "exampleEnglish": "Signal with Carlos."
+    },
+    {
+      "spanish": "la bateria",
+      "english": "battery",
+      "partOfSpeech": "travel phrase",
+      "tip": "Carlos uses la bateria in practical travel conversation.",
+      "exampleSpanish": "La bateria con Carlos.",
+      "exampleEnglish": "Battery with Carlos."
+    },
+    {
+      "spanish": "mas tarde",
+      "english": "later",
+      "partOfSpeech": "travel phrase",
+      "tip": "Carlos uses mas tarde in practical travel conversation.",
+      "exampleSpanish": "Mas tarde con Carlos.",
+      "exampleEnglish": "Later with Carlos."
+    },
+    {
+      "spanish": "ahora",
+      "english": "now",
+      "partOfSpeech": "travel phrase",
+      "tip": "Carlos uses ahora in practical travel conversation.",
+      "exampleSpanish": "Ahora con Carlos.",
+      "exampleEnglish": "Now with Carlos."
+    },
+    {
+      "spanish": "un momento",
+      "english": "one moment",
+      "partOfSpeech": "travel phrase",
+      "tip": "Carlos uses un momento in practical travel conversation.",
+      "exampleSpanish": "Un momento con Carlos.",
+      "exampleEnglish": "One moment with Carlos."
+    },
+    {
+      "spanish": "espere",
+      "english": "wait",
+      "partOfSpeech": "travel phrase",
+      "tip": "Carlos uses espere in practical travel conversation.",
+      "exampleSpanish": "Espere con Carlos.",
+      "exampleEnglish": "Wait with Carlos."
+    },
+    {
+      "spanish": "puedo",
+      "english": "can I",
+      "partOfSpeech": "travel phrase",
+      "tip": "Carlos uses puedo in practical travel conversation.",
+      "exampleSpanish": "Puedo con Carlos.",
+      "exampleEnglish": "Can I with Carlos."
+    },
+    {
+      "spanish": "puede",
+      "english": "can you",
+      "partOfSpeech": "travel phrase",
+      "tip": "Carlos uses puede in practical travel conversation.",
+      "exampleSpanish": "Puede con Carlos.",
+      "exampleEnglish": "Can you with Carlos."
+    },
+    {
+      "spanish": "quien habla",
+      "english": "who is speaking",
+      "partOfSpeech": "travel phrase",
+      "tip": "Carlos uses quien habla in practical travel conversation.",
+      "exampleSpanish": "Quien habla con Carlos.",
+      "exampleEnglish": "Who is speaking with Carlos."
+    },
+    {
+      "spanish": "de parte de quien",
+      "english": "who is calling",
+      "partOfSpeech": "travel phrase",
+      "tip": "Carlos uses de parte de quien in practical travel conversation.",
+      "exampleSpanish": "De parte de quien con Carlos.",
+      "exampleEnglish": "Who is calling with Carlos."
+    },
+    {
+      "spanish": "transferir",
+      "english": "to transfer",
+      "partOfSpeech": "travel phrase",
+      "tip": "Carlos uses transferir in practical travel conversation.",
+      "exampleSpanish": "Transferir con Carlos.",
+      "exampleEnglish": "To transfer with Carlos."
+    },
+    {
+      "spanish": "se corto",
+      "english": "it cut off",
+      "partOfSpeech": "travel phrase",
+      "tip": "Carlos uses se corto in practical travel conversation.",
+      "exampleSpanish": "Se corto con Carlos.",
+      "exampleEnglish": "It cut off with Carlos."
+    },
+    {
+      "spanish": "volver a llamar",
+      "english": "to call back",
+      "partOfSpeech": "travel phrase",
+      "tip": "Carlos uses volver a llamar in practical travel conversation.",
+      "exampleSpanish": "Volver a llamar con Carlos.",
+      "exampleEnglish": "To call back with Carlos."
+    }
+  ],
+  "textbookPhrases": [
+    {
+      "meaning": "phone",
+      "phrase": "el telefono"
+    },
+    {
+      "meaning": "call",
+      "phrase": "la llamada"
+    },
+    {
+      "meaning": "to call",
+      "phrase": "llamar"
+    },
+    {
+      "meaning": "to answer",
+      "phrase": "contestar"
+    },
+    {
+      "meaning": "to speak",
+      "phrase": "hablar"
+    }
+  ],
+  "naturalEverydayPhrases": [
+    {
+      "meaning": "phone",
+      "phrase": "el telefono"
+    },
+    {
+      "meaning": "call",
+      "phrase": "la llamada"
+    },
+    {
+      "meaning": "to call",
+      "phrase": "llamar"
+    },
+    {
+      "meaning": "to answer",
+      "phrase": "contestar"
+    },
+    {
+      "meaning": "to speak",
+      "phrase": "hablar"
+    }
+  ],
+  "mexicanSpanishVariants": [
+    {
+      "meaning": "phone",
+      "phrase": "el telefono"
+    },
+    {
+      "meaning": "call",
+      "phrase": "la llamada"
+    },
+    {
+      "meaning": "to call",
+      "phrase": "llamar"
+    },
+    {
+      "meaning": "to answer",
+      "phrase": "contestar"
+    },
+    {
+      "meaning": "to speak",
+      "phrase": "hablar"
+    }
+  ],
+  "spainSpanishVariants": [
+    {
+      "meaning": "phone",
+      "phrase": "el telefono"
+    },
+    {
+      "meaning": "call",
+      "phrase": "la llamada"
+    },
+    {
+      "meaning": "to call",
+      "phrase": "llamar"
+    },
+    {
+      "meaning": "to answer",
+      "phrase": "contestar"
+    },
+    {
+      "meaning": "to speak",
+      "phrase": "hablar"
+    }
+  ],
+  "phraseVariants": [
+    {
+      "meaning": "phone",
+      "textbookVersion": "el telefono",
+      "naturalEverydayVersion": "el telefono",
+      "mexicanSpanishVersion": "el telefono",
+      "spainSpanishVersion": "el telefono",
+      "whenUsed": "Use this in practical travel speech with Carlos."
+    },
+    {
+      "meaning": "call",
+      "textbookVersion": "la llamada",
+      "naturalEverydayVersion": "la llamada",
+      "mexicanSpanishVersion": "la llamada",
+      "spainSpanishVersion": "la llamada",
+      "whenUsed": "Use this in practical travel speech with Carlos."
+    },
+    {
+      "meaning": "to call",
+      "textbookVersion": "llamar",
+      "naturalEverydayVersion": "llamar",
+      "mexicanSpanishVersion": "llamar",
+      "spainSpanishVersion": "llamar",
+      "whenUsed": "Use this in practical travel speech with Carlos."
+    },
+    {
+      "meaning": "to answer",
+      "textbookVersion": "contestar",
+      "naturalEverydayVersion": "contestar",
+      "mexicanSpanishVersion": "contestar",
+      "spainSpanishVersion": "contestar",
+      "whenUsed": "Use this in practical travel speech with Carlos."
+    },
+    {
+      "meaning": "to speak",
+      "textbookVersion": "hablar",
+      "naturalEverydayVersion": "hablar",
+      "mexicanSpanishVersion": "hablar",
+      "spainSpanishVersion": "hablar",
+      "whenUsed": "Use this in practical travel speech with Carlos."
+    }
+  ],
+  "grammar": {
+    "topic": "Phone phrases with hablar, llamar, and dejar",
+    "explanation": "Use puedo hablar con, le llamo, and dejar un mensaje. Carlos helps you slow phone conversations down.",
+    "examples": [
+      {
+        "spanish": "El telefono.",
+        "english": "Phone."
+      },
+      {
+        "spanish": "La llamada.",
+        "english": "Call."
+      },
+      {
+        "spanish": "Llamar.",
+        "english": "To call."
+      }
+    ],
+    "practicePrompt": "Handle a phone situation with Carlos using at least four lesson words."
+  },
+  "dialogue": [
+    {
+      "title": "Phone dialogue 1",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Practiquemos: el telefono.",
+          "english": "Let's practice: phone."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "contestar",
+          "english": "to answer"
+        }
+      ]
+    },
+    {
+      "title": "Phone dialogue 2",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Practiquemos: la llamada.",
+          "english": "Let's practice: call."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "hablar",
+          "english": "to speak"
+        }
+      ]
+    },
+    {
+      "title": "Phone dialogue 3",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Practiquemos: llamar.",
+          "english": "Let's practice: to call."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "escuchar",
+          "english": "to hear/listen"
+        }
+      ]
+    },
+    {
+      "title": "Phone dialogue 4",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Practiquemos: contestar.",
+          "english": "Let's practice: to answer."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "oir",
+          "english": "to hear"
+        }
+      ]
+    },
+    {
+      "title": "Phone dialogue 5",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Practiquemos: hablar.",
+          "english": "Let's practice: to speak."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "el mensaje",
+          "english": "message"
+        }
+      ]
+    },
+    {
+      "title": "Phone dialogue 6",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Practiquemos: escuchar.",
+          "english": "Let's practice: to hear/listen."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "dejar un mensaje",
+          "english": "to leave a message"
+        }
+      ]
+    },
+    {
+      "title": "Phone dialogue 7",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Practiquemos: oir.",
+          "english": "Let's practice: to hear."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "el buzon",
+          "english": "voicemail"
+        }
+      ]
+    },
+    {
+      "title": "Phone dialogue 8",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Practiquemos: el mensaje.",
+          "english": "Let's practice: message."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "el numero",
+          "english": "number"
+        }
+      ]
+    },
+    {
+      "title": "Phone dialogue 9",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Practiquemos: dejar un mensaje.",
+          "english": "Let's practice: to leave a message."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "numero equivocado",
+          "english": "wrong number"
+        }
+      ]
+    },
+    {
+      "title": "Phone dialogue 10",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Practiquemos: el buzon.",
+          "english": "Let's practice: voicemail."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "ocupado",
+          "english": "busy"
+        }
+      ]
+    }
+  ],
+  "dialogues": [
+    {
+      "title": "Phone dialogue 1",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Practiquemos: el telefono.",
+          "english": "Let's practice: phone."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "contestar",
+          "english": "to answer"
+        }
+      ]
+    },
+    {
+      "title": "Phone dialogue 2",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Practiquemos: la llamada.",
+          "english": "Let's practice: call."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "hablar",
+          "english": "to speak"
+        }
+      ]
+    },
+    {
+      "title": "Phone dialogue 3",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Practiquemos: llamar.",
+          "english": "Let's practice: to call."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "escuchar",
+          "english": "to hear/listen"
+        }
+      ]
+    },
+    {
+      "title": "Phone dialogue 4",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Practiquemos: contestar.",
+          "english": "Let's practice: to answer."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "oir",
+          "english": "to hear"
+        }
+      ]
+    },
+    {
+      "title": "Phone dialogue 5",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Practiquemos: hablar.",
+          "english": "Let's practice: to speak."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "el mensaje",
+          "english": "message"
+        }
+      ]
+    },
+    {
+      "title": "Phone dialogue 6",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Practiquemos: escuchar.",
+          "english": "Let's practice: to hear/listen."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "dejar un mensaje",
+          "english": "to leave a message"
+        }
+      ]
+    },
+    {
+      "title": "Phone dialogue 7",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Practiquemos: oir.",
+          "english": "Let's practice: to hear."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "el buzon",
+          "english": "voicemail"
+        }
+      ]
+    },
+    {
+      "title": "Phone dialogue 8",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Practiquemos: el mensaje.",
+          "english": "Let's practice: message."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "el numero",
+          "english": "number"
+        }
+      ]
+    },
+    {
+      "title": "Phone dialogue 9",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Practiquemos: dejar un mensaje.",
+          "english": "Let's practice: to leave a message."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "numero equivocado",
+          "english": "wrong number"
+        }
+      ]
+    },
+    {
+      "title": "Phone dialogue 10",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Practiquemos: el buzon.",
+          "english": "Let's practice: voicemail."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "ocupado",
+          "english": "busy"
+        }
+      ]
+    }
+  ],
+  "listeningPhrases": [
+    {
+      "spanish": "el telefono",
+      "english": "phone"
+    },
+    {
+      "spanish": "la llamada",
+      "english": "call"
+    },
+    {
+      "spanish": "llamar",
+      "english": "to call"
+    },
+    {
+      "spanish": "contestar",
+      "english": "to answer"
+    },
+    {
+      "spanish": "hablar",
+      "english": "to speak"
+    },
+    {
+      "spanish": "escuchar",
+      "english": "to hear/listen"
+    },
+    {
+      "spanish": "oir",
+      "english": "to hear"
+    },
+    {
+      "spanish": "el mensaje",
+      "english": "message"
+    },
+    {
+      "spanish": "dejar un mensaje",
+      "english": "to leave a message"
+    },
+    {
+      "spanish": "el buzon",
+      "english": "voicemail"
+    }
+  ],
+  "listening": [
+    {
+      "spanish": "el telefono",
+      "english": "phone"
+    },
+    {
+      "spanish": "la llamada",
+      "english": "call"
+    },
+    {
+      "spanish": "llamar",
+      "english": "to call"
+    },
+    {
+      "spanish": "contestar",
+      "english": "to answer"
+    },
+    {
+      "spanish": "hablar",
+      "english": "to speak"
+    },
+    {
+      "spanish": "escuchar",
+      "english": "to hear/listen"
+    },
+    {
+      "spanish": "oir",
+      "english": "to hear"
+    },
+    {
+      "spanish": "el mensaje",
+      "english": "message"
+    },
+    {
+      "spanish": "dejar un mensaje",
+      "english": "to leave a message"
+    },
+    {
+      "spanish": "el buzon",
+      "english": "voicemail"
+    }
+  ],
+  "pronunciation": {
+    "focus": "Carlos helps you pronounce key phone phrases clearly.",
+    "items": [
+      {
+        "text": "el telefono",
+        "note": "Say el telefono slowly, then use it in a short travel sentence."
+      },
+      {
+        "text": "la llamada",
+        "note": "Say la llamada slowly, then use it in a short travel sentence."
+      },
+      {
+        "text": "llamar",
+        "note": "Say llamar slowly, then use it in a short travel sentence."
+      },
+      {
+        "text": "contestar",
+        "note": "Say contestar slowly, then use it in a short travel sentence."
+      },
+      {
+        "text": "hablar",
+        "note": "Say hablar slowly, then use it in a short travel sentence."
+      },
+      {
+        "text": "escuchar",
+        "note": "Say escuchar slowly, then use it in a short travel sentence."
+      },
+      {
+        "text": "oir",
+        "note": "Say oir slowly, then use it in a short travel sentence."
+      },
+      {
+        "text": "el mensaje",
+        "note": "Say el mensaje slowly, then use it in a short travel sentence."
+      },
+      {
+        "text": "dejar un mensaje",
+        "note": "Say dejar un mensaje slowly, then use it in a short travel sentence."
+      },
+      {
+        "text": "el buzon",
+        "note": "Say el buzon slowly, then use it in a short travel sentence."
+      }
+    ]
+  },
+  "culture": {
+    "title": "Phone in real travel",
+    "text": "Phone situations are easier when you stay polite, brief, and specific. Carlos guides you to name the problem, the place, and the help you need."
+  },
+  "nativeSpeech": {
+    "title": "Carlos native speaker tips",
+    "notes": [
+      "Camion can mean bus in parts of Mexico.",
+      "Coche is the normal car word in Spain; carro is common in Mexico.",
+      "Always confirm destination and price before a taxi ride."
+    ]
+  },
+  "nativeExpressions": [
+    "Camion can mean bus in parts of Mexico.",
+    "Coche is the normal car word in Spain; carro is common in Mexico.",
+    "Always confirm destination and price before a taxi ride."
+  ],
+  "commonMistakes": [
+    {
+      "mistake": "Saying voy con taxi.",
+      "correction": "Say voy en taxi.",
+      "explanation": "Use en for transportation."
+    },
+    {
+      "mistake": "Using boleto everywhere in Spain.",
+      "correction": "Billete is common in Spain for transport tickets.",
+      "explanation": "Both may be understood, but region matters."
+    },
+    {
+      "mistake": "Forgetting al before centro.",
+      "correction": "Say voy al centro.",
+      "explanation": "A + el becomes al."
+    }
+  ],
+  "quiz": [
+    {
+      "type": "multipleChoice",
+      "prompt": "What does el telefono mean?",
+      "options": [
+        "phone",
+        "call",
+        "to call",
+        "to answer"
+      ],
+      "answer": "phone"
+    },
+    {
+      "type": "multipleChoice",
+      "prompt": "What does la llamada mean?",
+      "options": [
+        "call",
+        "to call",
+        "to answer",
+        "to speak"
+      ],
+      "answer": "call"
+    },
+    {
+      "type": "multipleChoice",
+      "prompt": "What does llamar mean?",
+      "options": [
+        "to call",
+        "to answer",
+        "to speak",
+        "to hear/listen"
+      ],
+      "answer": "to call"
+    },
+    {
+      "type": "multipleChoice",
+      "prompt": "What does contestar mean?",
+      "options": [
+        "to answer",
+        "to speak",
+        "to hear/listen",
+        "to hear"
+      ],
+      "answer": "to answer"
+    },
+    {
+      "type": "multipleChoice",
+      "prompt": "What does hablar mean?",
+      "options": [
+        "to speak",
+        "to hear/listen",
+        "to hear",
+        "message"
+      ],
+      "answer": "to speak"
+    },
+    {
+      "type": "multipleChoice",
+      "prompt": "What does escuchar mean?",
+      "options": [
+        "to hear/listen",
+        "to hear",
+        "message",
+        "to leave a message"
+      ],
+      "answer": "to hear/listen"
+    },
+    {
+      "type": "multipleChoice",
+      "prompt": "What does oir mean?",
+      "options": [
+        "to hear",
+        "message",
+        "to leave a message",
+        "voicemail"
+      ],
+      "answer": "to hear"
+    },
+    {
+      "type": "multipleChoice",
+      "prompt": "What does el mensaje mean?",
+      "options": [
+        "message",
+        "to leave a message",
+        "voicemail",
+        "number"
+      ],
+      "answer": "message"
+    },
+    {
+      "type": "multipleChoice",
+      "prompt": "What does dejar un mensaje mean?",
+      "options": [
+        "to leave a message",
+        "voicemail",
+        "number",
+        "wrong number"
+      ],
+      "answer": "to leave a message"
+    },
+    {
+      "type": "multipleChoice",
+      "prompt": "What does el buzon mean?",
+      "options": [
+        "voicemail",
+        "number",
+        "wrong number",
+        "busy"
+      ],
+      "answer": "voicemail"
+    },
+    {
+      "type": "multipleChoice",
+      "prompt": "What does el numero mean?",
+      "options": [
+        "number",
+        "wrong number",
+        "busy",
+        "signal"
+      ],
+      "answer": "number"
+    },
+    {
+      "type": "multipleChoice",
+      "prompt": "What does numero equivocado mean?",
+      "options": [
+        "wrong number",
+        "busy",
+        "signal",
+        "battery"
+      ],
+      "answer": "wrong number"
+    },
+    {
+      "type": "translation",
+      "prompt": "Translate: el telefono",
+      "answer": "phone"
+    },
+    {
+      "type": "translation",
+      "prompt": "Translate: la llamada",
+      "answer": "call"
+    },
+    {
+      "type": "multipleChoice",
+      "prompt": "Which phrase fits Phone?",
+      "options": [
+        "llamar",
+        "mi familia",
+        "hace frio",
+        "me gusta leer"
+      ],
+      "answer": "llamar"
+    }
+  ],
+  "speakingChallenge": [
+    {
+      "prompt": "Use el telefono in a realistic travel sentence with Carlos.",
+      "exampleAnswer": "El telefono con Carlos."
+    },
+    {
+      "prompt": "Use la llamada in a realistic travel sentence with Carlos.",
+      "exampleAnswer": "La llamada con Carlos."
+    },
+    {
+      "prompt": "Use llamar in a realistic travel sentence with Carlos.",
+      "exampleAnswer": "Llamar con Carlos."
+    },
+    {
+      "prompt": "Use contestar in a realistic travel sentence with Carlos.",
+      "exampleAnswer": "Contestar con Carlos."
+    },
+    {
+      "prompt": "Use hablar in a realistic travel sentence with Carlos.",
+      "exampleAnswer": "Hablar con Carlos."
+    }
+  ],
+  "realLifeMission": {
+    "title": "Real Life Mission",
+    "mission": "Call a hotel with Carlos. Ask for a person, explain who is calling, leave a short message, and request a callback.",
+    "successCriteria": [
+      "Use at least six words from this lesson.",
+      "Use one phrase from a previous lesson.",
+      "Ask Carlos or another person at least one question.",
+      "Resolve the travel or navigation situation clearly."
+    ],
+    "suggestedPartner": "Carlos",
+    "xpReward": 10
+  },
+  "review": {
+    "recap": [
+      "Carlos reviewed phone travel language.",
+      "You practiced Phone A1 travel phrases.",
+      "You recycled earlier A1 vocabulary in a realistic situation."
+    ],
+    "canDo": [
+      "Handle simple phone calls, wrong numbers, voicemail, and callback requests.",
+      "Ask for clarification when needed.",
+      "Complete the situation with polite, simple Spanish."
+    ]
+  },
+  "achievementsUnlocked": [],
+  "xpReward": 85,
+  "nextLesson": "lesson-26-banking"
+}

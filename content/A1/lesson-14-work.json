@@ -1,0 +1,1051 @@
+{
+  "id": "lesson-14-work",
+  "title": "Work: Talking About Your Job",
+  "level": "A1",
+  "module": "Work",
+  "estimatedMinutes": 30,
+  "prerequisiteLesson": "lesson-13-school",
+  "imagePath": "assets/images/lessons/lesson-14-work.png",
+  "objectives": [
+    "Talk about work, schedules, coworkers, tasks, and simple professional small talk.",
+    "Use 25 or more work words and phrases in short sentences.",
+    "Recycle greetings, time, family, weather, food, work, health, and emotion phrases from earlier lessons.",
+    "Complete a realistic practice mission with Carlos."
+  ],
+  "vocabularyCategories": [
+    "work",
+    "places",
+    "schedule",
+    "tasks"
+  ],
+  "vocabulary": [
+    {
+      "spanish": "el trabajo",
+      "english": "work/job",
+      "partOfSpeech": "noun",
+      "tip": "General word for work.",
+      "exampleSpanish": "Mi trabajo es interesante.",
+      "exampleEnglish": "My job is interesting."
+    },
+    {
+      "spanish": "trabajar",
+      "english": "to work",
+      "partOfSpeech": "verb",
+      "tip": "Regular -ar verb.",
+      "exampleSpanish": "Trabajo hoy.",
+      "exampleEnglish": "I work today."
+    },
+    {
+      "spanish": "la oficina",
+      "english": "office",
+      "partOfSpeech": "noun",
+      "tip": "Workplace.",
+      "exampleSpanish": "La oficina esta cerca.",
+      "exampleEnglish": "The office is nearby."
+    },
+    {
+      "spanish": "la empresa",
+      "english": "company",
+      "partOfSpeech": "noun",
+      "tip": "A business.",
+      "exampleSpanish": "La empresa es grande.",
+      "exampleEnglish": "The company is big."
+    },
+    {
+      "spanish": "el jefe",
+      "english": "boss",
+      "partOfSpeech": "noun",
+      "tip": "Can be male or general.",
+      "exampleSpanish": "Mi jefe es amable.",
+      "exampleEnglish": "My boss is kind."
+    },
+    {
+      "spanish": "la jefa",
+      "english": "female boss",
+      "partOfSpeech": "noun",
+      "tip": "Feminine form.",
+      "exampleSpanish": "Mi jefa habla rapido.",
+      "exampleEnglish": "My boss speaks fast."
+    },
+    {
+      "spanish": "el companero",
+      "english": "coworker/classmate",
+      "partOfSpeech": "noun",
+      "tip": "Male coworker.",
+      "exampleSpanish": "Mi companero trabaja mucho.",
+      "exampleEnglish": "My coworker works a lot."
+    },
+    {
+      "spanish": "la companera",
+      "english": "coworker/classmate",
+      "partOfSpeech": "noun",
+      "tip": "Female coworker.",
+      "exampleSpanish": "Mi companera es simpatico.",
+      "exampleEnglish": "My coworker is nice."
+    },
+    {
+      "spanish": "la reunion",
+      "english": "meeting",
+      "partOfSpeech": "noun",
+      "tip": "Common work word.",
+      "exampleSpanish": "Tengo una reunion.",
+      "exampleEnglish": "I have a meeting."
+    },
+    {
+      "spanish": "el correo",
+      "english": "email/mail",
+      "partOfSpeech": "noun",
+      "tip": "Short for email in many contexts.",
+      "exampleSpanish": "Leo mi correo.",
+      "exampleEnglish": "I read my email."
+    },
+    {
+      "spanish": "el mensaje",
+      "english": "message",
+      "partOfSpeech": "noun",
+      "tip": "Useful for work and phone.",
+      "exampleSpanish": "Tengo un mensaje.",
+      "exampleEnglish": "I have a message."
+    },
+    {
+      "spanish": "la llamada",
+      "english": "call",
+      "partOfSpeech": "noun",
+      "tip": "Phone call.",
+      "exampleSpanish": "Tengo una llamada.",
+      "exampleEnglish": "I have a call."
+    },
+    {
+      "spanish": "el cliente",
+      "english": "client/customer",
+      "partOfSpeech": "noun",
+      "tip": "Can be masculine or general.",
+      "exampleSpanish": "El cliente espera.",
+      "exampleEnglish": "The client is waiting."
+    },
+    {
+      "spanish": "la clienta",
+      "english": "female client",
+      "partOfSpeech": "noun",
+      "tip": "Feminine form.",
+      "exampleSpanish": "La clienta tiene una pregunta.",
+      "exampleEnglish": "The client has a question."
+    },
+    {
+      "spanish": "el horario",
+      "english": "schedule",
+      "partOfSpeech": "noun",
+      "tip": "Work schedule.",
+      "exampleSpanish": "Mi horario es bueno.",
+      "exampleEnglish": "My schedule is good."
+    },
+    {
+      "spanish": "temprano",
+      "english": "early",
+      "partOfSpeech": "adverb",
+      "tip": "Time word.",
+      "exampleSpanish": "Trabajo temprano.",
+      "exampleEnglish": "I work early."
+    },
+    {
+      "spanish": "tarde",
+      "english": "late/afternoon",
+      "partOfSpeech": "adverb",
+      "tip": "Context decides.",
+      "exampleSpanish": "Salgo tarde.",
+      "exampleEnglish": "I leave late."
+    },
+    {
+      "spanish": "descansar",
+      "english": "to rest",
+      "partOfSpeech": "verb",
+      "tip": "Important for balance.",
+      "exampleSpanish": "Quiero descansar.",
+      "exampleEnglish": "I want to rest."
+    },
+    {
+      "spanish": "empezar",
+      "english": "to start",
+      "partOfSpeech": "verb",
+      "tip": "Stem change later.",
+      "exampleSpanish": "Empiezo a las nueve.",
+      "exampleEnglish": "I start at nine."
+    },
+    {
+      "spanish": "terminar",
+      "english": "to finish",
+      "partOfSpeech": "verb",
+      "tip": "Regular -ar verb.",
+      "exampleSpanish": "Termino a las cinco.",
+      "exampleEnglish": "I finish at five."
+    },
+    {
+      "spanish": "ayudar",
+      "english": "to help",
+      "partOfSpeech": "verb",
+      "tip": "Useful at work.",
+      "exampleSpanish": "Ayudo a mi equipo.",
+      "exampleEnglish": "I help my team."
+    },
+    {
+      "spanish": "vender",
+      "english": "to sell",
+      "partOfSpeech": "verb",
+      "tip": "Work action.",
+      "exampleSpanish": "Vendo comida.",
+      "exampleEnglish": "I sell food."
+    },
+    {
+      "spanish": "comprar",
+      "english": "to buy",
+      "partOfSpeech": "verb",
+      "tip": "Review from shopping.",
+      "exampleSpanish": "Compro cafe.",
+      "exampleEnglish": "I buy coffee."
+    },
+    {
+      "spanish": "usar",
+      "english": "to use",
+      "partOfSpeech": "verb",
+      "tip": "Work tools.",
+      "exampleSpanish": "Uso la computadora.",
+      "exampleEnglish": "I use the computer."
+    },
+    {
+      "spanish": "la computadora",
+      "english": "computer",
+      "partOfSpeech": "noun",
+      "tip": "Work tool.",
+      "exampleSpanish": "La computadora es nueva.",
+      "exampleEnglish": "The computer is new."
+    },
+    {
+      "spanish": "ocupado",
+      "english": "busy",
+      "partOfSpeech": "adjective",
+      "tip": "Masculine form.",
+      "exampleSpanish": "Estoy ocupado.",
+      "exampleEnglish": "I am busy."
+    }
+  ],
+  "textbookPhrases": [
+    {
+      "meaning": "Where do you work?",
+      "phrase": "Donde trabaja usted?"
+    },
+    {
+      "meaning": "I work in an office.",
+      "phrase": "Trabajo en una oficina."
+    },
+    {
+      "meaning": "I have a meeting.",
+      "phrase": "Tengo una reunion."
+    },
+    {
+      "meaning": "I am busy today.",
+      "phrase": "Estoy ocupado hoy."
+    },
+    {
+      "meaning": "I finish at five.",
+      "phrase": "Termino a las cinco."
+    }
+  ],
+  "naturalEverydayPhrases": [
+    {
+      "meaning": "Where do you work?",
+      "phrase": "Donde trabajas?"
+    },
+    {
+      "meaning": "I work in an office.",
+      "phrase": "Trabajo en una oficina."
+    },
+    {
+      "meaning": "I have a meeting.",
+      "phrase": "Tengo junta."
+    },
+    {
+      "meaning": "I am busy today.",
+      "phrase": "Estoy ocupado hoy."
+    },
+    {
+      "meaning": "I finish at five.",
+      "phrase": "Salgo a las cinco."
+    }
+  ],
+  "mexicanSpanishVariants": [
+    {
+      "meaning": "Where do you work?",
+      "phrase": "Donde trabajas?"
+    },
+    {
+      "meaning": "I work in an office.",
+      "phrase": "Trabajo en una oficina."
+    },
+    {
+      "meaning": "I have a meeting.",
+      "phrase": "Tengo junta."
+    },
+    {
+      "meaning": "I am busy today.",
+      "phrase": "Estoy ocupado hoy."
+    },
+    {
+      "meaning": "I finish at five.",
+      "phrase": "Salgo a las cinco."
+    }
+  ],
+  "spainSpanishVariants": [
+    {
+      "meaning": "Where do you work?",
+      "phrase": "Donde trabajas?"
+    },
+    {
+      "meaning": "I work in an office.",
+      "phrase": "Trabajo en una oficina."
+    },
+    {
+      "meaning": "I have a meeting.",
+      "phrase": "Tengo una reunion."
+    },
+    {
+      "meaning": "I am busy today.",
+      "phrase": "Estoy liado hoy."
+    },
+    {
+      "meaning": "I finish at five.",
+      "phrase": "Termino a las cinco."
+    }
+  ],
+  "phraseVariants": [
+    {
+      "meaning": "Where do you work?",
+      "textbookVersion": "Donde trabaja usted?",
+      "naturalEverydayVersion": "Donde trabajas?",
+      "mexicanSpanishVersion": "Donde trabajas?",
+      "spainSpanishVersion": "Donde trabajas?",
+      "whenUsed": "Carlos shows the textbook version first, then the natural version learners are likely to hear in everyday speech."
+    },
+    {
+      "meaning": "I work in an office.",
+      "textbookVersion": "Trabajo en una oficina.",
+      "naturalEverydayVersion": "Trabajo en una oficina.",
+      "mexicanSpanishVersion": "Trabajo en una oficina.",
+      "spainSpanishVersion": "Trabajo en una oficina.",
+      "whenUsed": "Carlos shows the textbook version first, then the natural version learners are likely to hear in everyday speech."
+    },
+    {
+      "meaning": "I have a meeting.",
+      "textbookVersion": "Tengo una reunion.",
+      "naturalEverydayVersion": "Tengo junta.",
+      "mexicanSpanishVersion": "Tengo junta.",
+      "spainSpanishVersion": "Tengo una reunion.",
+      "whenUsed": "Carlos shows the textbook version first, then the natural version learners are likely to hear in everyday speech."
+    },
+    {
+      "meaning": "I am busy today.",
+      "textbookVersion": "Estoy ocupado hoy.",
+      "naturalEverydayVersion": "Estoy ocupado hoy.",
+      "mexicanSpanishVersion": "Estoy ocupado hoy.",
+      "spainSpanishVersion": "Estoy liado hoy.",
+      "whenUsed": "Carlos shows the textbook version first, then the natural version learners are likely to hear in everyday speech."
+    },
+    {
+      "meaning": "I finish at five.",
+      "textbookVersion": "Termino a las cinco.",
+      "naturalEverydayVersion": "Salgo a las cinco.",
+      "mexicanSpanishVersion": "Salgo a las cinco.",
+      "spainSpanishVersion": "Termino a las cinco.",
+      "whenUsed": "Carlos shows the textbook version first, then the natural version learners are likely to hear in everyday speech."
+    }
+  ],
+  "grammar": {
+    "topic": "Trabajar, ir a, and simple schedules",
+    "explanation": "Use trabajo for I work and voy a for I am going to. Carlos helps you connect work with time phrases from earlier lessons.",
+    "examples": [
+      {
+        "spanish": "Trabajo en una oficina.",
+        "english": "I work in an office."
+      },
+      {
+        "spanish": "Voy al trabajo a las ocho.",
+        "english": "I go to work at eight."
+      },
+      {
+        "spanish": "Tengo una reunion hoy.",
+        "english": "I have a meeting today."
+      }
+    ],
+    "practicePrompt": "Tell Carlos where you work, when you start, and one thing you do at work."
+  },
+  "dialogue": [
+    {
+      "title": "Warmup with Carlos",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Practiquemos work: el trabajo.",
+          "english": "Let's practice work: work/job."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "La empresa es grande.",
+          "english": "The company is big."
+        }
+      ]
+    },
+    {
+      "title": "Real-world question",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Practiquemos work: trabajar.",
+          "english": "Let's practice work: to work."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "Mi jefe es amable.",
+          "english": "My boss is kind."
+        }
+      ]
+    },
+    {
+      "title": "Using old vocabulary",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Practiquemos work: la oficina.",
+          "english": "Let's practice work: office."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "Mi jefa habla rapido.",
+          "english": "My boss speaks fast."
+        }
+      ]
+    },
+    {
+      "title": "Making a plan",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Practiquemos work: la empresa.",
+          "english": "Let's practice work: company."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "Mi companero trabaja mucho.",
+          "english": "My coworker works a lot."
+        }
+      ]
+    },
+    {
+      "title": "Asking for help",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Practiquemos work: el jefe.",
+          "english": "Let's practice work: boss."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "Mi companera es simpatico.",
+          "english": "My coworker is nice."
+        }
+      ]
+    },
+    {
+      "title": "Polite correction",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Practiquemos work: la jefa.",
+          "english": "Let's practice work: female boss."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "Tengo una reunion.",
+          "english": "I have a meeting."
+        }
+      ]
+    },
+    {
+      "title": "With family",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Practiquemos work: el companero.",
+          "english": "Let's practice work: coworker/classmate."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "Leo mi correo.",
+          "english": "I read my email."
+        }
+      ]
+    },
+    {
+      "title": "At work or school",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Practiquemos work: la companera.",
+          "english": "Let's practice work: coworker/classmate."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "Tengo un mensaje.",
+          "english": "I have a message."
+        }
+      ]
+    },
+    {
+      "title": "Travel moment",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Practiquemos work: la reunion.",
+          "english": "Let's practice work: meeting."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "Tengo una llamada.",
+          "english": "I have a call."
+        }
+      ]
+    },
+    {
+      "title": "Wrap-up challenge",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Practiquemos work: el correo.",
+          "english": "Let's practice work: email/mail."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "El cliente espera.",
+          "english": "The client is waiting."
+        }
+      ]
+    }
+  ],
+  "dialogues": [
+    {
+      "title": "Warmup with Carlos",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Practiquemos work: el trabajo.",
+          "english": "Let's practice work: work/job."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "La empresa es grande.",
+          "english": "The company is big."
+        }
+      ]
+    },
+    {
+      "title": "Real-world question",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Practiquemos work: trabajar.",
+          "english": "Let's practice work: to work."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "Mi jefe es amable.",
+          "english": "My boss is kind."
+        }
+      ]
+    },
+    {
+      "title": "Using old vocabulary",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Practiquemos work: la oficina.",
+          "english": "Let's practice work: office."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "Mi jefa habla rapido.",
+          "english": "My boss speaks fast."
+        }
+      ]
+    },
+    {
+      "title": "Making a plan",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Practiquemos work: la empresa.",
+          "english": "Let's practice work: company."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "Mi companero trabaja mucho.",
+          "english": "My coworker works a lot."
+        }
+      ]
+    },
+    {
+      "title": "Asking for help",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Practiquemos work: el jefe.",
+          "english": "Let's practice work: boss."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "Mi companera es simpatico.",
+          "english": "My coworker is nice."
+        }
+      ]
+    },
+    {
+      "title": "Polite correction",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Practiquemos work: la jefa.",
+          "english": "Let's practice work: female boss."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "Tengo una reunion.",
+          "english": "I have a meeting."
+        }
+      ]
+    },
+    {
+      "title": "With family",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Practiquemos work: el companero.",
+          "english": "Let's practice work: coworker/classmate."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "Leo mi correo.",
+          "english": "I read my email."
+        }
+      ]
+    },
+    {
+      "title": "At work or school",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Practiquemos work: la companera.",
+          "english": "Let's practice work: coworker/classmate."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "Tengo un mensaje.",
+          "english": "I have a message."
+        }
+      ]
+    },
+    {
+      "title": "Travel moment",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Practiquemos work: la reunion.",
+          "english": "Let's practice work: meeting."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "Tengo una llamada.",
+          "english": "I have a call."
+        }
+      ]
+    },
+    {
+      "title": "Wrap-up challenge",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Practiquemos work: el correo.",
+          "english": "Let's practice work: email/mail."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "El cliente espera.",
+          "english": "The client is waiting."
+        }
+      ]
+    }
+  ],
+  "listeningPhrases": [
+    {
+      "spanish": "Mi trabajo es interesante.",
+      "english": "My job is interesting."
+    },
+    {
+      "spanish": "Trabajo hoy.",
+      "english": "I work today."
+    },
+    {
+      "spanish": "La oficina esta cerca.",
+      "english": "The office is nearby."
+    },
+    {
+      "spanish": "La empresa es grande.",
+      "english": "The company is big."
+    },
+    {
+      "spanish": "Mi jefe es amable.",
+      "english": "My boss is kind."
+    },
+    {
+      "spanish": "Mi jefa habla rapido.",
+      "english": "My boss speaks fast."
+    },
+    {
+      "spanish": "Mi companero trabaja mucho.",
+      "english": "My coworker works a lot."
+    },
+    {
+      "spanish": "Mi companera es simpatico.",
+      "english": "My coworker is nice."
+    },
+    {
+      "spanish": "Tengo una reunion.",
+      "english": "I have a meeting."
+    },
+    {
+      "spanish": "Leo mi correo.",
+      "english": "I read my email."
+    }
+  ],
+  "listening": [
+    {
+      "spanish": "Mi trabajo es interesante.",
+      "english": "My job is interesting."
+    },
+    {
+      "spanish": "Trabajo hoy.",
+      "english": "I work today."
+    },
+    {
+      "spanish": "La oficina esta cerca.",
+      "english": "The office is nearby."
+    },
+    {
+      "spanish": "La empresa es grande.",
+      "english": "The company is big."
+    },
+    {
+      "spanish": "Mi jefe es amable.",
+      "english": "My boss is kind."
+    },
+    {
+      "spanish": "Mi jefa habla rapido.",
+      "english": "My boss speaks fast."
+    },
+    {
+      "spanish": "Mi companero trabaja mucho.",
+      "english": "My coworker works a lot."
+    },
+    {
+      "spanish": "Mi companera es simpatico.",
+      "english": "My coworker is nice."
+    },
+    {
+      "spanish": "Tengo una reunion.",
+      "english": "I have a meeting."
+    },
+    {
+      "spanish": "Leo mi correo.",
+      "english": "I read my email."
+    }
+  ],
+  "pronunciation": {
+    "focus": "Carlos helps you practice clear rhythm and useful sounds for work.",
+    "items": [
+      {
+        "text": "el trabajo",
+        "note": "Say el trabajo slowly first, then repeat it in the sentence: Mi trabajo es interesante."
+      },
+      {
+        "text": "trabajar",
+        "note": "Say trabajar slowly first, then repeat it in the sentence: Trabajo hoy."
+      },
+      {
+        "text": "la oficina",
+        "note": "Say la oficina slowly first, then repeat it in the sentence: La oficina esta cerca."
+      },
+      {
+        "text": "la empresa",
+        "note": "Say la empresa slowly first, then repeat it in the sentence: La empresa es grande."
+      },
+      {
+        "text": "el jefe",
+        "note": "Say el jefe slowly first, then repeat it in the sentence: Mi jefe es amable."
+      },
+      {
+        "text": "la jefa",
+        "note": "Say la jefa slowly first, then repeat it in the sentence: Mi jefa habla rapido."
+      },
+      {
+        "text": "el companero",
+        "note": "Say el companero slowly first, then repeat it in the sentence: Mi companero trabaja mucho."
+      },
+      {
+        "text": "la companera",
+        "note": "Say la companera slowly first, then repeat it in the sentence: Mi companera es simpatico."
+      },
+      {
+        "text": "la reunion",
+        "note": "Say la reunion slowly first, then repeat it in the sentence: Tengo una reunion."
+      },
+      {
+        "text": "el correo",
+        "note": "Say el correo slowly first, then repeat it in the sentence: Leo mi correo."
+      }
+    ]
+  },
+  "culture": {
+    "title": "Work in real life",
+    "text": "Work small talk is common but should stay polite and simple at first. Carlos suggests asking about schedule or coffee before personal questions."
+  },
+  "nativeSpeech": {
+    "title": "Carlos native speaker tips",
+    "notes": [
+      "Junta is common in Mexico for a work meeting.",
+      "Estoy liado is common in Spain for I am busy.",
+      "Trabajo can mean work or job depending on context."
+    ]
+  },
+  "nativeExpressions": [
+    "Junta is common in Mexico for a work meeting.",
+    "Estoy liado is common in Spain for I am busy.",
+    "Trabajo can mean work or job depending on context."
+  ],
+  "commonMistakes": [
+    {
+      "mistake": "Saying soy ocupado.",
+      "correction": "Say estoy ocupado.",
+      "explanation": "Busy is a temporary state, so use estar."
+    },
+    {
+      "mistake": "Using trabajo for worker.",
+      "correction": "Use trabajador or empleado when you mean worker.",
+      "explanation": "Trabajo is work/job."
+    },
+    {
+      "mistake": "Forgetting a with times.",
+      "correction": "Say a las ocho.",
+      "explanation": "Use a las with clock times."
+    }
+  ],
+  "quiz": [
+    {
+      "type": "multipleChoice",
+      "prompt": "What does el trabajo mean?",
+      "options": [
+        "work/job",
+        "to work",
+        "office",
+        "company"
+      ],
+      "answer": "work/job"
+    },
+    {
+      "type": "multipleChoice",
+      "prompt": "What does trabajar mean?",
+      "options": [
+        "to work",
+        "office",
+        "company",
+        "boss"
+      ],
+      "answer": "to work"
+    },
+    {
+      "type": "multipleChoice",
+      "prompt": "What does la oficina mean?",
+      "options": [
+        "office",
+        "company",
+        "boss",
+        "female boss"
+      ],
+      "answer": "office"
+    },
+    {
+      "type": "multipleChoice",
+      "prompt": "What does la empresa mean?",
+      "options": [
+        "company",
+        "boss",
+        "female boss",
+        "coworker/classmate"
+      ],
+      "answer": "company"
+    },
+    {
+      "type": "multipleChoice",
+      "prompt": "What does el jefe mean?",
+      "options": [
+        "boss",
+        "female boss",
+        "coworker/classmate",
+        "coworker/classmate"
+      ],
+      "answer": "boss"
+    },
+    {
+      "type": "multipleChoice",
+      "prompt": "What does la jefa mean?",
+      "options": [
+        "female boss",
+        "coworker/classmate",
+        "coworker/classmate",
+        "meeting"
+      ],
+      "answer": "female boss"
+    },
+    {
+      "type": "multipleChoice",
+      "prompt": "What does el companero mean?",
+      "options": [
+        "coworker/classmate",
+        "coworker/classmate",
+        "meeting",
+        "email/mail"
+      ],
+      "answer": "coworker/classmate"
+    },
+    {
+      "type": "multipleChoice",
+      "prompt": "What does la companera mean?",
+      "options": [
+        "coworker/classmate",
+        "meeting",
+        "email/mail",
+        "message"
+      ],
+      "answer": "coworker/classmate"
+    },
+    {
+      "type": "multipleChoice",
+      "prompt": "What does la reunion mean?",
+      "options": [
+        "meeting",
+        "email/mail",
+        "message",
+        "call"
+      ],
+      "answer": "meeting"
+    },
+    {
+      "type": "multipleChoice",
+      "prompt": "What does el correo mean?",
+      "options": [
+        "email/mail",
+        "message",
+        "call",
+        "client/customer"
+      ],
+      "answer": "email/mail"
+    },
+    {
+      "type": "multipleChoice",
+      "prompt": "What does el mensaje mean?",
+      "options": [
+        "message",
+        "call",
+        "client/customer",
+        "female client"
+      ],
+      "answer": "message"
+    },
+    {
+      "type": "multipleChoice",
+      "prompt": "What does la llamada mean?",
+      "options": [
+        "call",
+        "client/customer",
+        "female client",
+        "schedule"
+      ],
+      "answer": "call"
+    },
+    {
+      "type": "translation",
+      "prompt": "Translate: Mi trabajo es interesante.",
+      "answer": "My job is interesting."
+    },
+    {
+      "type": "translation",
+      "prompt": "Translate: Trabajo hoy.",
+      "answer": "I work today."
+    },
+    {
+      "type": "multipleChoice",
+      "prompt": "Which phrase belongs in Work?",
+      "options": [
+        "la oficina",
+        "mi suegra",
+        "buenos dias",
+        "un boleto"
+      ],
+      "answer": "la oficina"
+    }
+  ],
+  "speakingChallenge": [
+    {
+      "prompt": "Carlos asks you to use el trabajo in a real sentence.",
+      "exampleAnswer": "Mi trabajo es interesante."
+    },
+    {
+      "prompt": "Carlos asks you to use trabajar in a real sentence.",
+      "exampleAnswer": "Trabajo hoy."
+    },
+    {
+      "prompt": "Carlos asks you to use la oficina in a real sentence.",
+      "exampleAnswer": "La oficina esta cerca."
+    },
+    {
+      "prompt": "Carlos asks you to use la empresa in a real sentence.",
+      "exampleAnswer": "La empresa es grande."
+    },
+    {
+      "prompt": "Carlos asks you to use el jefe in a real sentence.",
+      "exampleAnswer": "Mi jefe es amable."
+    }
+  ],
+  "realLifeMission": {
+    "title": "Real Life Mission",
+    "mission": "Role-play a first day at work with Carlos. Say where you work, when you start, and ask one polite question.",
+    "successCriteria": [
+      "Use at least six words from this lesson.",
+      "Use one phrase recycled from a previous lesson.",
+      "Ask Carlos at least one question.",
+      "Respond naturally with a short follow-up sentence."
+    ],
+    "suggestedPartner": "Carlos",
+    "xpReward": 10
+  },
+  "review": {
+    "recap": [
+      "Carlos reviewed work vocabulary.",
+      "You practiced Trabajar, ir a, and simple schedules.",
+      "You connected this lesson to earlier A1 survival conversations."
+    ],
+    "canDo": [
+      "Talk about work, schedules, coworkers, tasks, and simple professional small talk.",
+      "Ask and answer simple everyday questions.",
+      "Repair the conversation with a short polite phrase if needed."
+    ]
+  },
+  "achievementsUnlocked": [],
+  "xpReward": 75,
+  "nextLesson": "lesson-15-hobbies"
+}

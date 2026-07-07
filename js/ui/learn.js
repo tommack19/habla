@@ -221,9 +221,9 @@ export function renderLearn() {
       ${renderCurrentLesson(currentLesson)}
 
       <div class="learn-card-grid" role="tablist" aria-label="Learn sections">
-        ${sectionCard("learn-vocab", "learn-card-vocab", "📚", "Vocabulary", "Filter and study A1 words.")}
-        ${sectionCard("learn-roadmap", "learn-card-roadmap", "🗺️", "Roadmap", "Follow the full course path.")}
-        ${sectionCard("learn-grammar", "learn-card-grammar", "✦", "Grammar Basics", "Practice beginner patterns.")}
+        ${sectionCard("learn-vocab", "learn-card-vocab", "learn-icon-vocab", "Vocabulary", "Filter and study A1 words.")}
+        ${sectionCard("learn-roadmap", "learn-card-roadmap", "learn-icon-roadmap", "Roadmap", "Follow the full course path.")}
+        ${sectionCard("learn-grammar", "learn-card-grammar", "learn-icon-grammar", "Grammar Basics", "Practice beginner patterns.")}
       </div>
 
       <div class="learn-panels">
@@ -268,7 +268,7 @@ function renderCurrentLesson(lesson) {
 
       ${progress.completed ? `
         <div class="lesson-complete-badge">
-          <span>✓ Completed</span>
+          <span>Completed</span>
           <strong>${xpEarned} XP earned</strong>
         </div>
       ` : ""}
@@ -330,9 +330,10 @@ function getLessonStatus(progress) {
 }
 
 function sectionCard(id, className, icon, title, copy) {
+  const iconClass = className.replace("learn-card-", "learn-icon-");
   return `
     <label class="learn-card ${className}" for="${id}" role="tab">
-      <div class="learn-card-icon">${icon}</div>
+      <div class="learn-card-icon ${iconClass}" aria-hidden="true"></div>
       <div><h2>${title}</h2><p>${copy}</p></div>
     </label>
   `;
@@ -416,7 +417,7 @@ function renderGrammarPanel() {
 }
 
 function speakButton(text, label) {
-  return `<button class="pronounce-btn" type="button" aria-label="${label}" onclick="speechSynthesis.cancel(); speechSynthesis.speak(Object.assign(new SpeechSynthesisUtterance('${escapeForAttribute(text)}'), { lang: 'es-ES', rate: 0.85, pitch: 1.05 }))">🔊</button>`;
+  return `<button class="pronounce-btn" type="button" aria-label="${label}" onclick="speechSynthesis.cancel(); speechSynthesis.speak(Object.assign(new SpeechSynthesisUtterance('${escapeForAttribute(text)}'), { lang: 'es-ES', rate: 0.85, pitch: 1.05 }))"><span class="ui-icon ui-icon-sound" aria-hidden="true"></span></button>`;
 }
 
 function slug(value) {

@@ -1,0 +1,1051 @@
+{
+  "id": "lesson-13-school",
+  "title": "School: Learning in Class",
+  "level": "A1",
+  "module": "School",
+  "estimatedMinutes": 30,
+  "prerequisiteLesson": "lesson-12-clothing",
+  "imagePath": "assets/images/lessons/lesson-13-school.png",
+  "objectives": [
+    "Talk about school, classes, supplies, schedules, and what you study with Carlos.",
+    "Use 25 or more school words and phrases in short sentences.",
+    "Recycle greetings, time, family, weather, food, work, health, and emotion phrases from earlier lessons.",
+    "Complete a realistic practice mission with Carlos."
+  ],
+  "vocabularyCategories": [
+    "school",
+    "supplies",
+    "classes",
+    "requests"
+  ],
+  "vocabulary": [
+    {
+      "spanish": "la escuela",
+      "english": "school",
+      "partOfSpeech": "noun",
+      "tip": "General word for school.",
+      "exampleSpanish": "La escuela esta cerca.",
+      "exampleEnglish": "The school is nearby."
+    },
+    {
+      "spanish": "la clase",
+      "english": "class",
+      "partOfSpeech": "noun",
+      "tip": "Use for a class session.",
+      "exampleSpanish": "Tengo clase de espanol.",
+      "exampleEnglish": "I have Spanish class."
+    },
+    {
+      "spanish": "el maestro",
+      "english": "male teacher",
+      "partOfSpeech": "noun",
+      "tip": "Mexico uses maestro often.",
+      "exampleSpanish": "El maestro es amable.",
+      "exampleEnglish": "The teacher is kind."
+    },
+    {
+      "spanish": "la maestra",
+      "english": "female teacher",
+      "partOfSpeech": "noun",
+      "tip": "Feminine form.",
+      "exampleSpanish": "La maestra habla claro.",
+      "exampleEnglish": "The teacher speaks clearly."
+    },
+    {
+      "spanish": "el profesor",
+      "english": "male professor/teacher",
+      "partOfSpeech": "noun",
+      "tip": "Common in many countries.",
+      "exampleSpanish": "El profesor explica bien.",
+      "exampleEnglish": "The teacher explains well."
+    },
+    {
+      "spanish": "la profesora",
+      "english": "female professor/teacher",
+      "partOfSpeech": "noun",
+      "tip": "Feminine form.",
+      "exampleSpanish": "La profesora es paciente.",
+      "exampleEnglish": "The teacher is patient."
+    },
+    {
+      "spanish": "el estudiante",
+      "english": "student",
+      "partOfSpeech": "noun",
+      "tip": "Can be masculine or general.",
+      "exampleSpanish": "El estudiante lee.",
+      "exampleEnglish": "The student reads."
+    },
+    {
+      "spanish": "la estudiante",
+      "english": "female student",
+      "partOfSpeech": "noun",
+      "tip": "Feminine with la.",
+      "exampleSpanish": "La estudiante escribe.",
+      "exampleEnglish": "The student writes."
+    },
+    {
+      "spanish": "el libro",
+      "english": "book",
+      "partOfSpeech": "noun",
+      "tip": "Core school word.",
+      "exampleSpanish": "El libro esta en la mesa.",
+      "exampleEnglish": "The book is on the table."
+    },
+    {
+      "spanish": "el cuaderno",
+      "english": "notebook",
+      "partOfSpeech": "noun",
+      "tip": "For notes.",
+      "exampleSpanish": "Mi cuaderno es azul.",
+      "exampleEnglish": "My notebook is blue."
+    },
+    {
+      "spanish": "el lapiz",
+      "english": "pencil",
+      "partOfSpeech": "noun",
+      "tip": "Classroom item.",
+      "exampleSpanish": "Necesito un lapiz.",
+      "exampleEnglish": "I need a pencil."
+    },
+    {
+      "spanish": "la pluma",
+      "english": "pen",
+      "partOfSpeech": "noun",
+      "tip": "Mexico often uses pluma.",
+      "exampleSpanish": "Tengo una pluma negra.",
+      "exampleEnglish": "I have a black pen."
+    },
+    {
+      "spanish": "el boligrafo",
+      "english": "pen",
+      "partOfSpeech": "noun",
+      "tip": "Common in Spain.",
+      "exampleSpanish": "Uso un boligrafo azul.",
+      "exampleEnglish": "I use a blue pen."
+    },
+    {
+      "spanish": "la mochila",
+      "english": "backpack",
+      "partOfSpeech": "noun",
+      "tip": "Useful school item.",
+      "exampleSpanish": "Mi mochila pesa mucho.",
+      "exampleEnglish": "My backpack is heavy."
+    },
+    {
+      "spanish": "la tarea",
+      "english": "homework",
+      "partOfSpeech": "noun",
+      "tip": "A key word.",
+      "exampleSpanish": "Tengo tarea hoy.",
+      "exampleEnglish": "I have homework today."
+    },
+    {
+      "spanish": "el examen",
+      "english": "exam",
+      "partOfSpeech": "noun",
+      "tip": "Test or exam.",
+      "exampleSpanish": "El examen es manana.",
+      "exampleEnglish": "The exam is tomorrow."
+    },
+    {
+      "spanish": "la pregunta",
+      "english": "question",
+      "partOfSpeech": "noun",
+      "tip": "Use with tener.",
+      "exampleSpanish": "Tengo una pregunta.",
+      "exampleEnglish": "I have a question."
+    },
+    {
+      "spanish": "la respuesta",
+      "english": "answer",
+      "partOfSpeech": "noun",
+      "tip": "Opposite of pregunta.",
+      "exampleSpanish": "La respuesta es correcta.",
+      "exampleEnglish": "The answer is correct."
+    },
+    {
+      "spanish": "estudiar",
+      "english": "to study",
+      "partOfSpeech": "verb",
+      "tip": "Regular -ar verb.",
+      "exampleSpanish": "Tengo que estudiar.",
+      "exampleEnglish": "I have to study."
+    },
+    {
+      "spanish": "leer",
+      "english": "to read",
+      "partOfSpeech": "verb",
+      "tip": "Regular -er verb.",
+      "exampleSpanish": "Quiero leer el libro.",
+      "exampleEnglish": "I want to read the book."
+    },
+    {
+      "spanish": "escribir",
+      "english": "to write",
+      "partOfSpeech": "verb",
+      "tip": "Regular -ir verb.",
+      "exampleSpanish": "Voy a escribir.",
+      "exampleEnglish": "I am going to write."
+    },
+    {
+      "spanish": "aprender",
+      "english": "to learn",
+      "partOfSpeech": "verb",
+      "tip": "Useful for Habla.",
+      "exampleSpanish": "Quiero aprender espanol.",
+      "exampleEnglish": "I want to learn Spanish."
+    },
+    {
+      "spanish": "entender",
+      "english": "to understand",
+      "partOfSpeech": "verb",
+      "tip": "Stem-change later, use chunks now.",
+      "exampleSpanish": "No entiendo.",
+      "exampleEnglish": "I do not understand."
+    },
+    {
+      "spanish": "repetir",
+      "english": "to repeat",
+      "partOfSpeech": "verb",
+      "tip": "Classroom request.",
+      "exampleSpanish": "Puede repetir?",
+      "exampleEnglish": "Can you repeat?"
+    },
+    {
+      "spanish": "ayuda",
+      "english": "help",
+      "partOfSpeech": "noun",
+      "tip": "Use with necesito.",
+      "exampleSpanish": "Necesito ayuda.",
+      "exampleEnglish": "I need help."
+    },
+    {
+      "spanish": "permiso",
+      "english": "permission/excuse me",
+      "partOfSpeech": "noun",
+      "tip": "Polite classroom word.",
+      "exampleSpanish": "Con permiso.",
+      "exampleEnglish": "Excuse me."
+    }
+  ],
+  "textbookPhrases": [
+    {
+      "meaning": "I have Spanish class.",
+      "phrase": "Tengo clase de espanol."
+    },
+    {
+      "meaning": "I need help.",
+      "phrase": "Necesito ayuda."
+    },
+    {
+      "meaning": "Can you repeat?",
+      "phrase": "Puede repetir?"
+    },
+    {
+      "meaning": "I do not understand.",
+      "phrase": "No entiendo."
+    },
+    {
+      "meaning": "I have homework.",
+      "phrase": "Tengo tarea."
+    }
+  ],
+  "naturalEverydayPhrases": [
+    {
+      "meaning": "I have Spanish class.",
+      "phrase": "Tengo clase de espanol."
+    },
+    {
+      "meaning": "I need help.",
+      "phrase": "Necesito ayuda."
+    },
+    {
+      "meaning": "Can you repeat?",
+      "phrase": "Puede repetir?"
+    },
+    {
+      "meaning": "I do not understand.",
+      "phrase": "No entiendo."
+    },
+    {
+      "meaning": "I have homework.",
+      "phrase": "Tengo tarea."
+    }
+  ],
+  "mexicanSpanishVariants": [
+    {
+      "meaning": "I have Spanish class.",
+      "phrase": "Tengo clase de espanol."
+    },
+    {
+      "meaning": "I need help.",
+      "phrase": "Necesito ayuda."
+    },
+    {
+      "meaning": "Can you repeat?",
+      "phrase": "Puede repetir?"
+    },
+    {
+      "meaning": "I do not understand.",
+      "phrase": "No entiendo."
+    },
+    {
+      "meaning": "I have homework.",
+      "phrase": "Tengo tarea."
+    }
+  ],
+  "spainSpanishVariants": [
+    {
+      "meaning": "I have Spanish class.",
+      "phrase": "Tengo clase de espanol."
+    },
+    {
+      "meaning": "I need help.",
+      "phrase": "Necesito ayuda."
+    },
+    {
+      "meaning": "Can you repeat?",
+      "phrase": "Puede repetir?"
+    },
+    {
+      "meaning": "I do not understand.",
+      "phrase": "No lo entiendo."
+    },
+    {
+      "meaning": "I have homework.",
+      "phrase": "Tengo deberes."
+    }
+  ],
+  "phraseVariants": [
+    {
+      "meaning": "I have Spanish class.",
+      "textbookVersion": "Tengo clase de espanol.",
+      "naturalEverydayVersion": "Tengo clase de espanol.",
+      "mexicanSpanishVersion": "Tengo clase de espanol.",
+      "spainSpanishVersion": "Tengo clase de espanol.",
+      "whenUsed": "Carlos shows the textbook version first, then the natural version learners are likely to hear in everyday speech."
+    },
+    {
+      "meaning": "I need help.",
+      "textbookVersion": "Necesito ayuda.",
+      "naturalEverydayVersion": "Necesito ayuda.",
+      "mexicanSpanishVersion": "Necesito ayuda.",
+      "spainSpanishVersion": "Necesito ayuda.",
+      "whenUsed": "Carlos shows the textbook version first, then the natural version learners are likely to hear in everyday speech."
+    },
+    {
+      "meaning": "Can you repeat?",
+      "textbookVersion": "Puede repetir?",
+      "naturalEverydayVersion": "Puede repetir?",
+      "mexicanSpanishVersion": "Puede repetir?",
+      "spainSpanishVersion": "Puede repetir?",
+      "whenUsed": "Carlos shows the textbook version first, then the natural version learners are likely to hear in everyday speech."
+    },
+    {
+      "meaning": "I do not understand.",
+      "textbookVersion": "No entiendo.",
+      "naturalEverydayVersion": "No entiendo.",
+      "mexicanSpanishVersion": "No entiendo.",
+      "spainSpanishVersion": "No lo entiendo.",
+      "whenUsed": "Carlos shows the textbook version first, then the natural version learners are likely to hear in everyday speech."
+    },
+    {
+      "meaning": "I have homework.",
+      "textbookVersion": "Tengo tarea.",
+      "naturalEverydayVersion": "Tengo tarea.",
+      "mexicanSpanishVersion": "Tengo tarea.",
+      "spainSpanishVersion": "Tengo deberes.",
+      "whenUsed": "Carlos shows the textbook version first, then the natural version learners are likely to hear in everyday speech."
+    }
+  ],
+  "grammar": {
+    "topic": "Necesitar, tener que, and classroom requests",
+    "explanation": "Use necesito for I need and tengo que for I have to. Carlos guides you to ask simple classroom questions politely. Boleto? no. Use permiso, ayuda, or una pregunta in class.",
+    "examples": [
+      {
+        "spanish": "Necesito un lapiz.",
+        "english": "I need a pencil."
+      },
+      {
+        "spanish": "Tengo que estudiar hoy.",
+        "english": "I have to study today."
+      },
+      {
+        "spanish": "Tengo una pregunta.",
+        "english": "I have a question."
+      }
+    ],
+    "practicePrompt": "Tell Carlos what class you have today, what supplies you need, and one thing you have to study."
+  },
+  "dialogue": [
+    {
+      "title": "Warmup with Carlos",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Practiquemos school: la escuela.",
+          "english": "Let's practice school: school."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "La maestra habla claro.",
+          "english": "The teacher speaks clearly."
+        }
+      ]
+    },
+    {
+      "title": "Real-world question",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Practiquemos school: la clase.",
+          "english": "Let's practice school: class."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "El profesor explica bien.",
+          "english": "The teacher explains well."
+        }
+      ]
+    },
+    {
+      "title": "Using old vocabulary",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Practiquemos school: el maestro.",
+          "english": "Let's practice school: male teacher."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "La profesora es paciente.",
+          "english": "The teacher is patient."
+        }
+      ]
+    },
+    {
+      "title": "Making a plan",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Practiquemos school: la maestra.",
+          "english": "Let's practice school: female teacher."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "El estudiante lee.",
+          "english": "The student reads."
+        }
+      ]
+    },
+    {
+      "title": "Asking for help",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Practiquemos school: el profesor.",
+          "english": "Let's practice school: male professor/teacher."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "La estudiante escribe.",
+          "english": "The student writes."
+        }
+      ]
+    },
+    {
+      "title": "Polite correction",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Practiquemos school: la profesora.",
+          "english": "Let's practice school: female professor/teacher."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "El libro esta en la mesa.",
+          "english": "The book is on the table."
+        }
+      ]
+    },
+    {
+      "title": "With family",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Practiquemos school: el estudiante.",
+          "english": "Let's practice school: student."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "Mi cuaderno es azul.",
+          "english": "My notebook is blue."
+        }
+      ]
+    },
+    {
+      "title": "At work or school",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Practiquemos school: la estudiante.",
+          "english": "Let's practice school: female student."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "Necesito un lapiz.",
+          "english": "I need a pencil."
+        }
+      ]
+    },
+    {
+      "title": "Travel moment",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Practiquemos school: el libro.",
+          "english": "Let's practice school: book."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "Tengo una pluma negra.",
+          "english": "I have a black pen."
+        }
+      ]
+    },
+    {
+      "title": "Wrap-up challenge",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Practiquemos school: el cuaderno.",
+          "english": "Let's practice school: notebook."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "Uso un boligrafo azul.",
+          "english": "I use a blue pen."
+        }
+      ]
+    }
+  ],
+  "dialogues": [
+    {
+      "title": "Warmup with Carlos",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Practiquemos school: la escuela.",
+          "english": "Let's practice school: school."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "La maestra habla claro.",
+          "english": "The teacher speaks clearly."
+        }
+      ]
+    },
+    {
+      "title": "Real-world question",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Practiquemos school: la clase.",
+          "english": "Let's practice school: class."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "El profesor explica bien.",
+          "english": "The teacher explains well."
+        }
+      ]
+    },
+    {
+      "title": "Using old vocabulary",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Practiquemos school: el maestro.",
+          "english": "Let's practice school: male teacher."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "La profesora es paciente.",
+          "english": "The teacher is patient."
+        }
+      ]
+    },
+    {
+      "title": "Making a plan",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Practiquemos school: la maestra.",
+          "english": "Let's practice school: female teacher."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "El estudiante lee.",
+          "english": "The student reads."
+        }
+      ]
+    },
+    {
+      "title": "Asking for help",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Practiquemos school: el profesor.",
+          "english": "Let's practice school: male professor/teacher."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "La estudiante escribe.",
+          "english": "The student writes."
+        }
+      ]
+    },
+    {
+      "title": "Polite correction",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Practiquemos school: la profesora.",
+          "english": "Let's practice school: female professor/teacher."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "El libro esta en la mesa.",
+          "english": "The book is on the table."
+        }
+      ]
+    },
+    {
+      "title": "With family",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Practiquemos school: el estudiante.",
+          "english": "Let's practice school: student."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "Mi cuaderno es azul.",
+          "english": "My notebook is blue."
+        }
+      ]
+    },
+    {
+      "title": "At work or school",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Practiquemos school: la estudiante.",
+          "english": "Let's practice school: female student."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "Necesito un lapiz.",
+          "english": "I need a pencil."
+        }
+      ]
+    },
+    {
+      "title": "Travel moment",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Practiquemos school: el libro.",
+          "english": "Let's practice school: book."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "Tengo una pluma negra.",
+          "english": "I have a black pen."
+        }
+      ]
+    },
+    {
+      "title": "Wrap-up challenge",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Practiquemos school: el cuaderno.",
+          "english": "Let's practice school: notebook."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "Uso un boligrafo azul.",
+          "english": "I use a blue pen."
+        }
+      ]
+    }
+  ],
+  "listeningPhrases": [
+    {
+      "spanish": "La escuela esta cerca.",
+      "english": "The school is nearby."
+    },
+    {
+      "spanish": "Tengo clase de espanol.",
+      "english": "I have Spanish class."
+    },
+    {
+      "spanish": "El maestro es amable.",
+      "english": "The teacher is kind."
+    },
+    {
+      "spanish": "La maestra habla claro.",
+      "english": "The teacher speaks clearly."
+    },
+    {
+      "spanish": "El profesor explica bien.",
+      "english": "The teacher explains well."
+    },
+    {
+      "spanish": "La profesora es paciente.",
+      "english": "The teacher is patient."
+    },
+    {
+      "spanish": "El estudiante lee.",
+      "english": "The student reads."
+    },
+    {
+      "spanish": "La estudiante escribe.",
+      "english": "The student writes."
+    },
+    {
+      "spanish": "El libro esta en la mesa.",
+      "english": "The book is on the table."
+    },
+    {
+      "spanish": "Mi cuaderno es azul.",
+      "english": "My notebook is blue."
+    }
+  ],
+  "listening": [
+    {
+      "spanish": "La escuela esta cerca.",
+      "english": "The school is nearby."
+    },
+    {
+      "spanish": "Tengo clase de espanol.",
+      "english": "I have Spanish class."
+    },
+    {
+      "spanish": "El maestro es amable.",
+      "english": "The teacher is kind."
+    },
+    {
+      "spanish": "La maestra habla claro.",
+      "english": "The teacher speaks clearly."
+    },
+    {
+      "spanish": "El profesor explica bien.",
+      "english": "The teacher explains well."
+    },
+    {
+      "spanish": "La profesora es paciente.",
+      "english": "The teacher is patient."
+    },
+    {
+      "spanish": "El estudiante lee.",
+      "english": "The student reads."
+    },
+    {
+      "spanish": "La estudiante escribe.",
+      "english": "The student writes."
+    },
+    {
+      "spanish": "El libro esta en la mesa.",
+      "english": "The book is on the table."
+    },
+    {
+      "spanish": "Mi cuaderno es azul.",
+      "english": "My notebook is blue."
+    }
+  ],
+  "pronunciation": {
+    "focus": "Carlos helps you practice clear rhythm and useful sounds for school.",
+    "items": [
+      {
+        "text": "la escuela",
+        "note": "Say la escuela slowly first, then repeat it in the sentence: La escuela esta cerca."
+      },
+      {
+        "text": "la clase",
+        "note": "Say la clase slowly first, then repeat it in the sentence: Tengo clase de espanol."
+      },
+      {
+        "text": "el maestro",
+        "note": "Say el maestro slowly first, then repeat it in the sentence: El maestro es amable."
+      },
+      {
+        "text": "la maestra",
+        "note": "Say la maestra slowly first, then repeat it in the sentence: La maestra habla claro."
+      },
+      {
+        "text": "el profesor",
+        "note": "Say el profesor slowly first, then repeat it in the sentence: El profesor explica bien."
+      },
+      {
+        "text": "la profesora",
+        "note": "Say la profesora slowly first, then repeat it in the sentence: La profesora es paciente."
+      },
+      {
+        "text": "el estudiante",
+        "note": "Say el estudiante slowly first, then repeat it in the sentence: El estudiante lee."
+      },
+      {
+        "text": "la estudiante",
+        "note": "Say la estudiante slowly first, then repeat it in the sentence: La estudiante escribe."
+      },
+      {
+        "text": "el libro",
+        "note": "Say el libro slowly first, then repeat it in the sentence: El libro esta en la mesa."
+      },
+      {
+        "text": "el cuaderno",
+        "note": "Say el cuaderno slowly first, then repeat it in the sentence: Mi cuaderno es azul."
+      }
+    ]
+  },
+  "culture": {
+    "title": "School in real life",
+    "text": "In Spanish-speaking classrooms, polite requests matter. Carlos recommends saying por favor and gracias when asking for help."
+  },
+  "nativeSpeech": {
+    "title": "Carlos native speaker tips",
+    "notes": [
+      "In Spain, deberes is common for homework.",
+      "In Mexico, tarea is the everyday word for homework.",
+      "No entiendo is a natural survival phrase in any class."
+    ]
+  },
+  "nativeExpressions": [
+    "In Spain, deberes is common for homework.",
+    "In Mexico, tarea is the everyday word for homework.",
+    "No entiendo is a natural survival phrase in any class."
+  ],
+  "commonMistakes": [
+    {
+      "mistake": "Saying tengo una duda for every question.",
+      "correction": "Use tengo una pregunta as a safe beginner phrase.",
+      "explanation": "Duda is common but pregunta is clearer for beginners."
+    },
+    {
+      "mistake": "Using repetir without politeness.",
+      "correction": "Say Puede repetir, por favor?",
+      "explanation": "Classroom requests sound better with por favor."
+    },
+    {
+      "mistake": "Confusing pluma and boligrafo.",
+      "correction": "Both mean pen, but usage varies by region.",
+      "explanation": "Mexico often says pluma; Spain often says boligrafo."
+    }
+  ],
+  "quiz": [
+    {
+      "type": "multipleChoice",
+      "prompt": "What does la escuela mean?",
+      "options": [
+        "school",
+        "class",
+        "male teacher",
+        "female teacher"
+      ],
+      "answer": "school"
+    },
+    {
+      "type": "multipleChoice",
+      "prompt": "What does la clase mean?",
+      "options": [
+        "class",
+        "male teacher",
+        "female teacher",
+        "male professor/teacher"
+      ],
+      "answer": "class"
+    },
+    {
+      "type": "multipleChoice",
+      "prompt": "What does el maestro mean?",
+      "options": [
+        "male teacher",
+        "female teacher",
+        "male professor/teacher",
+        "female professor/teacher"
+      ],
+      "answer": "male teacher"
+    },
+    {
+      "type": "multipleChoice",
+      "prompt": "What does la maestra mean?",
+      "options": [
+        "female teacher",
+        "male professor/teacher",
+        "female professor/teacher",
+        "student"
+      ],
+      "answer": "female teacher"
+    },
+    {
+      "type": "multipleChoice",
+      "prompt": "What does el profesor mean?",
+      "options": [
+        "male professor/teacher",
+        "female professor/teacher",
+        "student",
+        "female student"
+      ],
+      "answer": "male professor/teacher"
+    },
+    {
+      "type": "multipleChoice",
+      "prompt": "What does la profesora mean?",
+      "options": [
+        "female professor/teacher",
+        "student",
+        "female student",
+        "book"
+      ],
+      "answer": "female professor/teacher"
+    },
+    {
+      "type": "multipleChoice",
+      "prompt": "What does el estudiante mean?",
+      "options": [
+        "student",
+        "female student",
+        "book",
+        "notebook"
+      ],
+      "answer": "student"
+    },
+    {
+      "type": "multipleChoice",
+      "prompt": "What does la estudiante mean?",
+      "options": [
+        "female student",
+        "book",
+        "notebook",
+        "pencil"
+      ],
+      "answer": "female student"
+    },
+    {
+      "type": "multipleChoice",
+      "prompt": "What does el libro mean?",
+      "options": [
+        "book",
+        "notebook",
+        "pencil",
+        "pen"
+      ],
+      "answer": "book"
+    },
+    {
+      "type": "multipleChoice",
+      "prompt": "What does el cuaderno mean?",
+      "options": [
+        "notebook",
+        "pencil",
+        "pen",
+        "pen"
+      ],
+      "answer": "notebook"
+    },
+    {
+      "type": "multipleChoice",
+      "prompt": "What does el lapiz mean?",
+      "options": [
+        "pencil",
+        "pen",
+        "pen",
+        "backpack"
+      ],
+      "answer": "pencil"
+    },
+    {
+      "type": "multipleChoice",
+      "prompt": "What does la pluma mean?",
+      "options": [
+        "pen",
+        "pen",
+        "backpack",
+        "homework"
+      ],
+      "answer": "pen"
+    },
+    {
+      "type": "translation",
+      "prompt": "Translate: La escuela esta cerca.",
+      "answer": "The school is nearby."
+    },
+    {
+      "type": "translation",
+      "prompt": "Translate: Tengo clase de espanol.",
+      "answer": "I have Spanish class."
+    },
+    {
+      "type": "multipleChoice",
+      "prompt": "Which phrase belongs in School?",
+      "options": [
+        "el maestro",
+        "mi suegra",
+        "buenos dias",
+        "un boleto"
+      ],
+      "answer": "el maestro"
+    }
+  ],
+  "speakingChallenge": [
+    {
+      "prompt": "Carlos asks you to use la escuela in a real sentence.",
+      "exampleAnswer": "La escuela esta cerca."
+    },
+    {
+      "prompt": "Carlos asks you to use la clase in a real sentence.",
+      "exampleAnswer": "Tengo clase de espanol."
+    },
+    {
+      "prompt": "Carlos asks you to use el maestro in a real sentence.",
+      "exampleAnswer": "El maestro es amable."
+    },
+    {
+      "prompt": "Carlos asks you to use la maestra in a real sentence.",
+      "exampleAnswer": "La maestra habla claro."
+    },
+    {
+      "prompt": "Carlos asks you to use el profesor in a real sentence.",
+      "exampleAnswer": "El profesor explica bien."
+    }
+  ],
+  "realLifeMission": {
+    "title": "Real Life Mission",
+    "mission": "Join Carlos in a Spanish class. Say what class you have, ask for help, and say one thing you have to study.",
+    "successCriteria": [
+      "Use at least six words from this lesson.",
+      "Use one phrase recycled from a previous lesson.",
+      "Ask Carlos at least one question.",
+      "Respond naturally with a short follow-up sentence."
+    ],
+    "suggestedPartner": "Carlos",
+    "xpReward": 10
+  },
+  "review": {
+    "recap": [
+      "Carlos reviewed school vocabulary.",
+      "You practiced Necesitar, tener que, and classroom requests.",
+      "You connected this lesson to earlier A1 survival conversations."
+    ],
+    "canDo": [
+      "Talk about school, classes, supplies, schedules, and what you study with Carlos.",
+      "Ask and answer simple everyday questions.",
+      "Repair the conversation with a short polite phrase if needed."
+    ]
+  },
+  "achievementsUnlocked": [],
+  "xpReward": 75,
+  "nextLesson": "lesson-14-work"
+}

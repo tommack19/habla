@@ -1,0 +1,1051 @@
+{
+  "id": "lesson-29-travel-review",
+  "title": "Travel Review: City to Airport Mission",
+  "level": "A1",
+  "module": "Travel Review",
+  "estimatedMinutes": 32,
+  "prerequisiteLesson": "lesson-28-airport",
+  "imagePath": "assets/images/lessons/lesson-29-travel-review.png",
+  "objectives": [
+    "Review directions, transport, help, emergency, phone, banking, hotel, and airport Spanish in one travel day.",
+    "Use 26 travel review words and phrases in travel or navigation contexts.",
+    "Recycle previous A1 vocabulary naturally with Carlos.",
+    "Complete an authentic travel or navigation Real Life Mission."
+  ],
+  "vocabularyCategories": [
+    "travel review",
+    "travel",
+    "conversation",
+    "problem solving"
+  ],
+  "vocabulary": [
+    {
+      "spanish": "primero",
+      "english": "first",
+      "partOfSpeech": "travel phrase",
+      "tip": "Carlos uses primero in practical travel conversation.",
+      "exampleSpanish": "Primero con Carlos.",
+      "exampleEnglish": "First with Carlos."
+    },
+    {
+      "spanish": "despues",
+      "english": "then",
+      "partOfSpeech": "travel phrase",
+      "tip": "Carlos uses despues in practical travel conversation.",
+      "exampleSpanish": "Despues con Carlos.",
+      "exampleEnglish": "Then with Carlos."
+    },
+    {
+      "spanish": "luego",
+      "english": "then/later",
+      "partOfSpeech": "travel phrase",
+      "tip": "Carlos uses luego in practical travel conversation.",
+      "exampleSpanish": "Luego con Carlos.",
+      "exampleEnglish": "Then/later with Carlos."
+    },
+    {
+      "spanish": "finalmente",
+      "english": "finally",
+      "partOfSpeech": "travel phrase",
+      "tip": "Carlos uses finalmente in practical travel conversation.",
+      "exampleSpanish": "Finalmente con Carlos.",
+      "exampleEnglish": "Finally with Carlos."
+    },
+    {
+      "spanish": "el mapa",
+      "english": "map",
+      "partOfSpeech": "travel phrase",
+      "tip": "Carlos uses el mapa in practical travel conversation.",
+      "exampleSpanish": "El mapa con Carlos.",
+      "exampleEnglish": "Map with Carlos."
+    },
+    {
+      "spanish": "la direccion",
+      "english": "address",
+      "partOfSpeech": "travel phrase",
+      "tip": "Carlos uses la direccion in practical travel conversation.",
+      "exampleSpanish": "La direccion con Carlos.",
+      "exampleEnglish": "Address with Carlos."
+    },
+    {
+      "spanish": "el taxi",
+      "english": "taxi",
+      "partOfSpeech": "travel phrase",
+      "tip": "Carlos uses el taxi in practical travel conversation.",
+      "exampleSpanish": "El taxi con Carlos.",
+      "exampleEnglish": "Taxi with Carlos."
+    },
+    {
+      "spanish": "el autobus",
+      "english": "bus",
+      "partOfSpeech": "travel phrase",
+      "tip": "Carlos uses el autobus in practical travel conversation.",
+      "exampleSpanish": "El autobus con Carlos.",
+      "exampleEnglish": "Bus with Carlos."
+    },
+    {
+      "spanish": "la estacion",
+      "english": "station",
+      "partOfSpeech": "travel phrase",
+      "tip": "Carlos uses la estacion in practical travel conversation.",
+      "exampleSpanish": "La estacion con Carlos.",
+      "exampleEnglish": "Station with Carlos."
+    },
+    {
+      "spanish": "el hotel",
+      "english": "hotel",
+      "partOfSpeech": "travel phrase",
+      "tip": "Carlos uses el hotel in practical travel conversation.",
+      "exampleSpanish": "El hotel con Carlos.",
+      "exampleEnglish": "Hotel with Carlos."
+    },
+    {
+      "spanish": "la reservacion",
+      "english": "reservation",
+      "partOfSpeech": "travel phrase",
+      "tip": "Carlos uses la reservacion in practical travel conversation.",
+      "exampleSpanish": "La reservacion con Carlos.",
+      "exampleEnglish": "Reservation with Carlos."
+    },
+    {
+      "spanish": "el banco",
+      "english": "bank",
+      "partOfSpeech": "travel phrase",
+      "tip": "Carlos uses el banco in practical travel conversation.",
+      "exampleSpanish": "El banco con Carlos.",
+      "exampleEnglish": "Bank with Carlos."
+    },
+    {
+      "spanish": "el cajero automatico",
+      "english": "ATM",
+      "partOfSpeech": "travel phrase",
+      "tip": "Carlos uses el cajero automatico in practical travel conversation.",
+      "exampleSpanish": "El cajero automatico con Carlos.",
+      "exampleEnglish": "ATM with Carlos."
+    },
+    {
+      "spanish": "la tarjeta",
+      "english": "card",
+      "partOfSpeech": "travel phrase",
+      "tip": "Carlos uses la tarjeta in practical travel conversation.",
+      "exampleSpanish": "La tarjeta con Carlos.",
+      "exampleEnglish": "Card with Carlos."
+    },
+    {
+      "spanish": "el telefono",
+      "english": "phone",
+      "partOfSpeech": "travel phrase",
+      "tip": "Carlos uses el telefono in practical travel conversation.",
+      "exampleSpanish": "El telefono con Carlos.",
+      "exampleEnglish": "Phone with Carlos."
+    },
+    {
+      "spanish": "la llamada",
+      "english": "call",
+      "partOfSpeech": "travel phrase",
+      "tip": "Carlos uses la llamada in practical travel conversation.",
+      "exampleSpanish": "La llamada con Carlos.",
+      "exampleEnglish": "Call with Carlos."
+    },
+    {
+      "spanish": "ayuda",
+      "english": "help",
+      "partOfSpeech": "travel phrase",
+      "tip": "Carlos uses ayuda in practical travel conversation.",
+      "exampleSpanish": "Ayuda con Carlos.",
+      "exampleEnglish": "Help with Carlos."
+    },
+    {
+      "spanish": "urgente",
+      "english": "urgent",
+      "partOfSpeech": "travel phrase",
+      "tip": "Carlos uses urgente in practical travel conversation.",
+      "exampleSpanish": "Urgente con Carlos.",
+      "exampleEnglish": "Urgent with Carlos."
+    },
+    {
+      "spanish": "el pasaporte",
+      "english": "passport",
+      "partOfSpeech": "travel phrase",
+      "tip": "Carlos uses el pasaporte in practical travel conversation.",
+      "exampleSpanish": "El pasaporte con Carlos.",
+      "exampleEnglish": "Passport with Carlos."
+    },
+    {
+      "spanish": "el vuelo",
+      "english": "flight",
+      "partOfSpeech": "travel phrase",
+      "tip": "Carlos uses el vuelo in practical travel conversation.",
+      "exampleSpanish": "El vuelo con Carlos.",
+      "exampleEnglish": "Flight with Carlos."
+    },
+    {
+      "spanish": "la puerta",
+      "english": "gate",
+      "partOfSpeech": "travel phrase",
+      "tip": "Carlos uses la puerta in practical travel conversation.",
+      "exampleSpanish": "La puerta con Carlos.",
+      "exampleEnglish": "Gate with Carlos."
+    },
+    {
+      "spanish": "el equipaje",
+      "english": "luggage",
+      "partOfSpeech": "travel phrase",
+      "tip": "Carlos uses el equipaje in practical travel conversation.",
+      "exampleSpanish": "El equipaje con Carlos.",
+      "exampleEnglish": "Luggage with Carlos."
+    },
+    {
+      "spanish": "perdido",
+      "english": "lost",
+      "partOfSpeech": "travel phrase",
+      "tip": "Carlos uses perdido in practical travel conversation.",
+      "exampleSpanish": "Perdido con Carlos.",
+      "exampleEnglish": "Lost with Carlos."
+    },
+    {
+      "spanish": "retrasado",
+      "english": "delayed",
+      "partOfSpeech": "travel phrase",
+      "tip": "Carlos uses retrasado in practical travel conversation.",
+      "exampleSpanish": "Retrasado con Carlos.",
+      "exampleEnglish": "Delayed with Carlos."
+    },
+    {
+      "spanish": "a tiempo",
+      "english": "on time",
+      "partOfSpeech": "travel phrase",
+      "tip": "Carlos uses a tiempo in practical travel conversation.",
+      "exampleSpanish": "A tiempo con Carlos.",
+      "exampleEnglish": "On time with Carlos."
+    },
+    {
+      "spanish": "con Carlos",
+      "english": "with Carlos",
+      "partOfSpeech": "travel phrase",
+      "tip": "Carlos uses con Carlos in practical travel conversation.",
+      "exampleSpanish": "Con Carlos con Carlos.",
+      "exampleEnglish": "With Carlos with Carlos."
+    }
+  ],
+  "textbookPhrases": [
+    {
+      "meaning": "first",
+      "phrase": "primero"
+    },
+    {
+      "meaning": "then",
+      "phrase": "despues"
+    },
+    {
+      "meaning": "then/later",
+      "phrase": "luego"
+    },
+    {
+      "meaning": "finally",
+      "phrase": "finalmente"
+    },
+    {
+      "meaning": "map",
+      "phrase": "el mapa"
+    }
+  ],
+  "naturalEverydayPhrases": [
+    {
+      "meaning": "first",
+      "phrase": "primero"
+    },
+    {
+      "meaning": "then",
+      "phrase": "despues"
+    },
+    {
+      "meaning": "then/later",
+      "phrase": "luego"
+    },
+    {
+      "meaning": "finally",
+      "phrase": "finalmente"
+    },
+    {
+      "meaning": "map",
+      "phrase": "el mapa"
+    }
+  ],
+  "mexicanSpanishVariants": [
+    {
+      "meaning": "first",
+      "phrase": "primero"
+    },
+    {
+      "meaning": "then",
+      "phrase": "despues"
+    },
+    {
+      "meaning": "then/later",
+      "phrase": "luego"
+    },
+    {
+      "meaning": "finally",
+      "phrase": "finalmente"
+    },
+    {
+      "meaning": "map",
+      "phrase": "el mapa"
+    }
+  ],
+  "spainSpanishVariants": [
+    {
+      "meaning": "first",
+      "phrase": "primero"
+    },
+    {
+      "meaning": "then",
+      "phrase": "despues"
+    },
+    {
+      "meaning": "then/later",
+      "phrase": "luego"
+    },
+    {
+      "meaning": "finally",
+      "phrase": "finalmente"
+    },
+    {
+      "meaning": "map",
+      "phrase": "el mapa"
+    }
+  ],
+  "phraseVariants": [
+    {
+      "meaning": "first",
+      "textbookVersion": "primero",
+      "naturalEverydayVersion": "primero",
+      "mexicanSpanishVersion": "primero",
+      "spainSpanishVersion": "primero",
+      "whenUsed": "Use this in practical travel speech with Carlos."
+    },
+    {
+      "meaning": "then",
+      "textbookVersion": "despues",
+      "naturalEverydayVersion": "despues",
+      "mexicanSpanishVersion": "despues",
+      "spainSpanishVersion": "despues",
+      "whenUsed": "Use this in practical travel speech with Carlos."
+    },
+    {
+      "meaning": "then/later",
+      "textbookVersion": "luego",
+      "naturalEverydayVersion": "luego",
+      "mexicanSpanishVersion": "luego",
+      "spainSpanishVersion": "luego",
+      "whenUsed": "Use this in practical travel speech with Carlos."
+    },
+    {
+      "meaning": "finally",
+      "textbookVersion": "finalmente",
+      "naturalEverydayVersion": "finalmente",
+      "mexicanSpanishVersion": "finalmente",
+      "spainSpanishVersion": "finalmente",
+      "whenUsed": "Use this in practical travel speech with Carlos."
+    },
+    {
+      "meaning": "map",
+      "textbookVersion": "el mapa",
+      "naturalEverydayVersion": "el mapa",
+      "mexicanSpanishVersion": "el mapa",
+      "spainSpanishVersion": "el mapa",
+      "whenUsed": "Use this in practical travel speech with Carlos."
+    }
+  ],
+  "grammar": {
+    "topic": "Sequencing a travel day",
+    "explanation": "Use primero, despues, luego, and finalmente to explain travel steps. Carlos helps you connect simple A1 phrases into a clear plan.",
+    "examples": [
+      {
+        "spanish": "Primero.",
+        "english": "First."
+      },
+      {
+        "spanish": "Despues.",
+        "english": "Then."
+      },
+      {
+        "spanish": "Luego.",
+        "english": "Then/later."
+      }
+    ],
+    "practicePrompt": "Handle a travel review situation with Carlos using at least four lesson words."
+  },
+  "dialogue": [
+    {
+      "title": "Travel Review dialogue 1",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Practiquemos: primero.",
+          "english": "Let's practice: first."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "finalmente",
+          "english": "finally"
+        }
+      ]
+    },
+    {
+      "title": "Travel Review dialogue 2",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Practiquemos: despues.",
+          "english": "Let's practice: then."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "el mapa",
+          "english": "map"
+        }
+      ]
+    },
+    {
+      "title": "Travel Review dialogue 3",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Practiquemos: luego.",
+          "english": "Let's practice: then/later."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "la direccion",
+          "english": "address"
+        }
+      ]
+    },
+    {
+      "title": "Travel Review dialogue 4",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Practiquemos: finalmente.",
+          "english": "Let's practice: finally."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "el taxi",
+          "english": "taxi"
+        }
+      ]
+    },
+    {
+      "title": "Travel Review dialogue 5",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Practiquemos: el mapa.",
+          "english": "Let's practice: map."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "el autobus",
+          "english": "bus"
+        }
+      ]
+    },
+    {
+      "title": "Travel Review dialogue 6",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Practiquemos: la direccion.",
+          "english": "Let's practice: address."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "la estacion",
+          "english": "station"
+        }
+      ]
+    },
+    {
+      "title": "Travel Review dialogue 7",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Practiquemos: el taxi.",
+          "english": "Let's practice: taxi."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "el hotel",
+          "english": "hotel"
+        }
+      ]
+    },
+    {
+      "title": "Travel Review dialogue 8",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Practiquemos: el autobus.",
+          "english": "Let's practice: bus."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "la reservacion",
+          "english": "reservation"
+        }
+      ]
+    },
+    {
+      "title": "Travel Review dialogue 9",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Practiquemos: la estacion.",
+          "english": "Let's practice: station."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "el banco",
+          "english": "bank"
+        }
+      ]
+    },
+    {
+      "title": "Travel Review dialogue 10",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Practiquemos: el hotel.",
+          "english": "Let's practice: hotel."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "el cajero automatico",
+          "english": "ATM"
+        }
+      ]
+    }
+  ],
+  "dialogues": [
+    {
+      "title": "Travel Review dialogue 1",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Practiquemos: primero.",
+          "english": "Let's practice: first."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "finalmente",
+          "english": "finally"
+        }
+      ]
+    },
+    {
+      "title": "Travel Review dialogue 2",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Practiquemos: despues.",
+          "english": "Let's practice: then."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "el mapa",
+          "english": "map"
+        }
+      ]
+    },
+    {
+      "title": "Travel Review dialogue 3",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Practiquemos: luego.",
+          "english": "Let's practice: then/later."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "la direccion",
+          "english": "address"
+        }
+      ]
+    },
+    {
+      "title": "Travel Review dialogue 4",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Practiquemos: finalmente.",
+          "english": "Let's practice: finally."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "el taxi",
+          "english": "taxi"
+        }
+      ]
+    },
+    {
+      "title": "Travel Review dialogue 5",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Practiquemos: el mapa.",
+          "english": "Let's practice: map."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "el autobus",
+          "english": "bus"
+        }
+      ]
+    },
+    {
+      "title": "Travel Review dialogue 6",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Practiquemos: la direccion.",
+          "english": "Let's practice: address."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "la estacion",
+          "english": "station"
+        }
+      ]
+    },
+    {
+      "title": "Travel Review dialogue 7",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Practiquemos: el taxi.",
+          "english": "Let's practice: taxi."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "el hotel",
+          "english": "hotel"
+        }
+      ]
+    },
+    {
+      "title": "Travel Review dialogue 8",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Practiquemos: el autobus.",
+          "english": "Let's practice: bus."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "la reservacion",
+          "english": "reservation"
+        }
+      ]
+    },
+    {
+      "title": "Travel Review dialogue 9",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Practiquemos: la estacion.",
+          "english": "Let's practice: station."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "el banco",
+          "english": "bank"
+        }
+      ]
+    },
+    {
+      "title": "Travel Review dialogue 10",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Practiquemos: el hotel.",
+          "english": "Let's practice: hotel."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "el cajero automatico",
+          "english": "ATM"
+        }
+      ]
+    }
+  ],
+  "listeningPhrases": [
+    {
+      "spanish": "primero",
+      "english": "first"
+    },
+    {
+      "spanish": "despues",
+      "english": "then"
+    },
+    {
+      "spanish": "luego",
+      "english": "then/later"
+    },
+    {
+      "spanish": "finalmente",
+      "english": "finally"
+    },
+    {
+      "spanish": "el mapa",
+      "english": "map"
+    },
+    {
+      "spanish": "la direccion",
+      "english": "address"
+    },
+    {
+      "spanish": "el taxi",
+      "english": "taxi"
+    },
+    {
+      "spanish": "el autobus",
+      "english": "bus"
+    },
+    {
+      "spanish": "la estacion",
+      "english": "station"
+    },
+    {
+      "spanish": "el hotel",
+      "english": "hotel"
+    }
+  ],
+  "listening": [
+    {
+      "spanish": "primero",
+      "english": "first"
+    },
+    {
+      "spanish": "despues",
+      "english": "then"
+    },
+    {
+      "spanish": "luego",
+      "english": "then/later"
+    },
+    {
+      "spanish": "finalmente",
+      "english": "finally"
+    },
+    {
+      "spanish": "el mapa",
+      "english": "map"
+    },
+    {
+      "spanish": "la direccion",
+      "english": "address"
+    },
+    {
+      "spanish": "el taxi",
+      "english": "taxi"
+    },
+    {
+      "spanish": "el autobus",
+      "english": "bus"
+    },
+    {
+      "spanish": "la estacion",
+      "english": "station"
+    },
+    {
+      "spanish": "el hotel",
+      "english": "hotel"
+    }
+  ],
+  "pronunciation": {
+    "focus": "Carlos helps you pronounce key travel review phrases clearly.",
+    "items": [
+      {
+        "text": "primero",
+        "note": "Say primero slowly, then use it in a short travel sentence."
+      },
+      {
+        "text": "despues",
+        "note": "Say despues slowly, then use it in a short travel sentence."
+      },
+      {
+        "text": "luego",
+        "note": "Say luego slowly, then use it in a short travel sentence."
+      },
+      {
+        "text": "finalmente",
+        "note": "Say finalmente slowly, then use it in a short travel sentence."
+      },
+      {
+        "text": "el mapa",
+        "note": "Say el mapa slowly, then use it in a short travel sentence."
+      },
+      {
+        "text": "la direccion",
+        "note": "Say la direccion slowly, then use it in a short travel sentence."
+      },
+      {
+        "text": "el taxi",
+        "note": "Say el taxi slowly, then use it in a short travel sentence."
+      },
+      {
+        "text": "el autobus",
+        "note": "Say el autobus slowly, then use it in a short travel sentence."
+      },
+      {
+        "text": "la estacion",
+        "note": "Say la estacion slowly, then use it in a short travel sentence."
+      },
+      {
+        "text": "el hotel",
+        "note": "Say el hotel slowly, then use it in a short travel sentence."
+      }
+    ]
+  },
+  "culture": {
+    "title": "Travel Review in real travel",
+    "text": "Travel Review situations are easier when you stay polite, brief, and specific. Carlos guides you to name the problem, the place, and the help you need."
+  },
+  "nativeSpeech": {
+    "title": "Carlos native speaker tips",
+    "notes": [
+      "Junto a is a common natural alternative to al lado de.",
+      "In Spain, sigue recto is very common for go straight.",
+      "Repeat the last direction back to confirm you understood."
+    ]
+  },
+  "nativeExpressions": [
+    "Junto a is a common natural alternative to al lado de.",
+    "In Spain, sigue recto is very common for go straight.",
+    "Repeat the last direction back to confirm you understood."
+  ],
+  "commonMistakes": [
+    {
+      "mistake": "Saying soy perdido.",
+      "correction": "Say estoy perdido.",
+      "explanation": "Being lost is a temporary state."
+    },
+    {
+      "mistake": "Confusing derecha and derecho.",
+      "correction": "Derecha is right; derecho can mean straight in directions.",
+      "explanation": "One vowel changes the meaning."
+    },
+    {
+      "mistake": "Trying to understand every word.",
+      "correction": "Listen for landmarks and action words first.",
+      "explanation": "Direction conversations are chunk-based."
+    }
+  ],
+  "quiz": [
+    {
+      "type": "multipleChoice",
+      "prompt": "What does primero mean?",
+      "options": [
+        "first",
+        "then",
+        "then/later",
+        "finally"
+      ],
+      "answer": "first"
+    },
+    {
+      "type": "multipleChoice",
+      "prompt": "What does despues mean?",
+      "options": [
+        "then",
+        "then/later",
+        "finally",
+        "map"
+      ],
+      "answer": "then"
+    },
+    {
+      "type": "multipleChoice",
+      "prompt": "What does luego mean?",
+      "options": [
+        "then/later",
+        "finally",
+        "map",
+        "address"
+      ],
+      "answer": "then/later"
+    },
+    {
+      "type": "multipleChoice",
+      "prompt": "What does finalmente mean?",
+      "options": [
+        "finally",
+        "map",
+        "address",
+        "taxi"
+      ],
+      "answer": "finally"
+    },
+    {
+      "type": "multipleChoice",
+      "prompt": "What does el mapa mean?",
+      "options": [
+        "map",
+        "address",
+        "taxi",
+        "bus"
+      ],
+      "answer": "map"
+    },
+    {
+      "type": "multipleChoice",
+      "prompt": "What does la direccion mean?",
+      "options": [
+        "address",
+        "taxi",
+        "bus",
+        "station"
+      ],
+      "answer": "address"
+    },
+    {
+      "type": "multipleChoice",
+      "prompt": "What does el taxi mean?",
+      "options": [
+        "taxi",
+        "bus",
+        "station",
+        "hotel"
+      ],
+      "answer": "taxi"
+    },
+    {
+      "type": "multipleChoice",
+      "prompt": "What does el autobus mean?",
+      "options": [
+        "bus",
+        "station",
+        "hotel",
+        "reservation"
+      ],
+      "answer": "bus"
+    },
+    {
+      "type": "multipleChoice",
+      "prompt": "What does la estacion mean?",
+      "options": [
+        "station",
+        "hotel",
+        "reservation",
+        "bank"
+      ],
+      "answer": "station"
+    },
+    {
+      "type": "multipleChoice",
+      "prompt": "What does el hotel mean?",
+      "options": [
+        "hotel",
+        "reservation",
+        "bank",
+        "ATM"
+      ],
+      "answer": "hotel"
+    },
+    {
+      "type": "multipleChoice",
+      "prompt": "What does la reservacion mean?",
+      "options": [
+        "reservation",
+        "bank",
+        "ATM",
+        "card"
+      ],
+      "answer": "reservation"
+    },
+    {
+      "type": "multipleChoice",
+      "prompt": "What does el banco mean?",
+      "options": [
+        "bank",
+        "ATM",
+        "card",
+        "phone"
+      ],
+      "answer": "bank"
+    },
+    {
+      "type": "translation",
+      "prompt": "Translate: primero",
+      "answer": "first"
+    },
+    {
+      "type": "translation",
+      "prompt": "Translate: despues",
+      "answer": "then"
+    },
+    {
+      "type": "multipleChoice",
+      "prompt": "Which phrase fits Travel Review?",
+      "options": [
+        "luego",
+        "mi familia",
+        "hace frio",
+        "me gusta leer"
+      ],
+      "answer": "luego"
+    }
+  ],
+  "speakingChallenge": [
+    {
+      "prompt": "Use primero in a realistic travel sentence with Carlos.",
+      "exampleAnswer": "Primero con Carlos."
+    },
+    {
+      "prompt": "Use despues in a realistic travel sentence with Carlos.",
+      "exampleAnswer": "Despues con Carlos."
+    },
+    {
+      "prompt": "Use luego in a realistic travel sentence with Carlos.",
+      "exampleAnswer": "Luego con Carlos."
+    },
+    {
+      "prompt": "Use finalmente in a realistic travel sentence with Carlos.",
+      "exampleAnswer": "Finalmente con Carlos."
+    },
+    {
+      "prompt": "Use el mapa in a realistic travel sentence with Carlos.",
+      "exampleAnswer": "El mapa con Carlos."
+    }
+  ],
+  "realLifeMission": {
+    "title": "Real Life Mission",
+    "mission": "Carlos gives you a city-to-airport challenge. Explain four travel steps, solve one problem, and arrive at the airport on time.",
+    "successCriteria": [
+      "Use at least six words from this lesson.",
+      "Use one phrase from a previous lesson.",
+      "Ask Carlos or another person at least one question.",
+      "Resolve the travel or navigation situation clearly."
+    ],
+    "suggestedPartner": "Carlos",
+    "xpReward": 10
+  },
+  "review": {
+    "recap": [
+      "Carlos reviewed travel review travel language.",
+      "You practiced Travel Review A1 travel phrases.",
+      "You recycled earlier A1 vocabulary in a realistic situation."
+    ],
+    "canDo": [
+      "Review directions, transport, help, emergency, phone, banking, hotel, and airport Spanish in one travel day.",
+      "Ask for clarification when needed.",
+      "Complete the situation with polite, simple Spanish."
+    ]
+  },
+  "achievementsUnlocked": [],
+  "xpReward": 100,
+  "nextLesson": "lesson-30-a1-final-challenge"
+}

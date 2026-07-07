@@ -94,9 +94,9 @@ export function renderCarlos(state) {
 
       <div class="carlos-input-shell" id="input-area">
         <div id="input-row">
-          <button class="ibtn" id="mic-btn" type="button" aria-label="Start listening">🎤</button>
-          <input type="text" id="txt" placeholder="Type or tap 🎤 to speak" autocomplete="off">
-          <button class="ibtn" id="snd-btn" type="button" aria-label="Send message">➤</button>
+          <button class="ibtn" id="mic-btn" type="button" aria-label="Start listening"><span class="ui-icon ui-icon-mic" aria-hidden="true"></span></button>
+          <input type="text" id="txt" placeholder="Type or tap mic to speak" autocomplete="off">
+          <button class="ibtn" id="snd-btn" type="button" aria-label="Send message"><span class="ui-icon ui-icon-send" aria-hidden="true"></span></button>
         </div>
         <button id="stop-btn" type="button">Stop Carlos</button>
         <div id="mic-err"></div>
@@ -143,12 +143,12 @@ function getCarlosGreeting(name) {
   const hour = new Date().getHours();
 
   if (hour < 12) {
-    return `Buenos días, ${name} ☀️`;
+    return `Buenos d&iacute;as, ${name} &#x2600;&#xFE0F;`;
   }
 
   if (hour < 18) {
-    return `Buenas tardes, ${name} 🌤️`;
+    return `Buenas tardes, ${name} &#x1F324;&#xFE0F;`;
   }
 
-  return `Buenas noches, ${name} 🌙`;
+  return `Buenas noches, ${name} &#x1F319;`;
 }

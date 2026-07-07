@@ -1,0 +1,1051 @@
+{
+  "id": "lesson-17-health",
+  "title": "Health: Saying How You Feel Physically",
+  "level": "A1",
+  "module": "Health",
+  "estimatedMinutes": 30,
+  "prerequisiteLesson": "lesson-16-sports",
+  "imagePath": "assets/images/lessons/lesson-17-health.png",
+  "objectives": [
+    "Explain simple health problems, ask for help, and say what you need.",
+    "Use 25 or more health words and phrases in short sentences.",
+    "Recycle greetings, time, family, weather, food, work, health, and emotion phrases from earlier lessons.",
+    "Complete a realistic practice mission with Carlos."
+  ],
+  "vocabularyCategories": [
+    "health",
+    "symptoms",
+    "help",
+    "needs"
+  ],
+  "vocabulary": [
+    {
+      "spanish": "la salud",
+      "english": "health",
+      "partOfSpeech": "noun",
+      "tip": "General health.",
+      "exampleSpanish": "La salud es importante.",
+      "exampleEnglish": "Health is important."
+    },
+    {
+      "spanish": "enfermo",
+      "english": "sick",
+      "partOfSpeech": "adjective",
+      "tip": "Masculine.",
+      "exampleSpanish": "Estoy enfermo.",
+      "exampleEnglish": "I am sick."
+    },
+    {
+      "spanish": "enferma",
+      "english": "sick",
+      "partOfSpeech": "adjective",
+      "tip": "Feminine.",
+      "exampleSpanish": "Estoy enferma.",
+      "exampleEnglish": "I am sick."
+    },
+    {
+      "spanish": "bien",
+      "english": "well",
+      "partOfSpeech": "adverb",
+      "tip": "Review.",
+      "exampleSpanish": "Estoy bien.",
+      "exampleEnglish": "I am well."
+    },
+    {
+      "spanish": "mal",
+      "english": "badly/unwell",
+      "partOfSpeech": "adverb",
+      "tip": "Health answer.",
+      "exampleSpanish": "Me siento mal.",
+      "exampleEnglish": "I feel bad."
+    },
+    {
+      "spanish": "me siento",
+      "english": "I feel",
+      "partOfSpeech": "phrase",
+      "tip": "Use with adjectives.",
+      "exampleSpanish": "Me siento cansado.",
+      "exampleEnglish": "I feel tired."
+    },
+    {
+      "spanish": "me duele",
+      "english": "it hurts me",
+      "partOfSpeech": "phrase",
+      "tip": "Use with one body part.",
+      "exampleSpanish": "Me duele la cabeza.",
+      "exampleEnglish": "My head hurts."
+    },
+    {
+      "spanish": "el dolor",
+      "english": "pain",
+      "partOfSpeech": "noun",
+      "tip": "General pain.",
+      "exampleSpanish": "Tengo dolor.",
+      "exampleEnglish": "I have pain."
+    },
+    {
+      "spanish": "la fiebre",
+      "english": "fever",
+      "partOfSpeech": "noun",
+      "tip": "Use tener.",
+      "exampleSpanish": "Tengo fiebre.",
+      "exampleEnglish": "I have a fever."
+    },
+    {
+      "spanish": "la tos",
+      "english": "cough",
+      "partOfSpeech": "noun",
+      "tip": "Use tener.",
+      "exampleSpanish": "Tengo tos.",
+      "exampleEnglish": "I have a cough."
+    },
+    {
+      "spanish": "el resfriado",
+      "english": "cold",
+      "partOfSpeech": "noun",
+      "tip": "Common illness.",
+      "exampleSpanish": "Tengo un resfriado.",
+      "exampleEnglish": "I have a cold."
+    },
+    {
+      "spanish": "la gripe",
+      "english": "flu",
+      "partOfSpeech": "noun",
+      "tip": "More serious.",
+      "exampleSpanish": "Tengo gripe.",
+      "exampleEnglish": "I have the flu."
+    },
+    {
+      "spanish": "la alergia",
+      "english": "allergy",
+      "partOfSpeech": "noun",
+      "tip": "Useful health word.",
+      "exampleSpanish": "Tengo alergia.",
+      "exampleEnglish": "I have an allergy."
+    },
+    {
+      "spanish": "el doctor",
+      "english": "doctor",
+      "partOfSpeech": "noun",
+      "tip": "Male doctor.",
+      "exampleSpanish": "Necesito un doctor.",
+      "exampleEnglish": "I need a doctor."
+    },
+    {
+      "spanish": "la doctora",
+      "english": "doctor",
+      "partOfSpeech": "noun",
+      "tip": "Female doctor.",
+      "exampleSpanish": "La doctora ayuda.",
+      "exampleEnglish": "The doctor helps."
+    },
+    {
+      "spanish": "la farmacia",
+      "english": "pharmacy",
+      "partOfSpeech": "noun",
+      "tip": "Place for medicine.",
+      "exampleSpanish": "La farmacia esta cerca.",
+      "exampleEnglish": "The pharmacy is nearby."
+    },
+    {
+      "spanish": "la medicina",
+      "english": "medicine",
+      "partOfSpeech": "noun",
+      "tip": "General medicine.",
+      "exampleSpanish": "Necesito medicina.",
+      "exampleEnglish": "I need medicine."
+    },
+    {
+      "spanish": "el agua",
+      "english": "water",
+      "partOfSpeech": "noun",
+      "tip": "Review.",
+      "exampleSpanish": "Necesito agua.",
+      "exampleEnglish": "I need water."
+    },
+    {
+      "spanish": "descansar",
+      "english": "to rest",
+      "partOfSpeech": "verb",
+      "tip": "Health action.",
+      "exampleSpanish": "Necesito descansar.",
+      "exampleEnglish": "I need to rest."
+    },
+    {
+      "spanish": "dormir",
+      "english": "to sleep",
+      "partOfSpeech": "verb",
+      "tip": "Stem change later.",
+      "exampleSpanish": "Quiero dormir.",
+      "exampleEnglish": "I want to sleep."
+    },
+    {
+      "spanish": "comer",
+      "english": "to eat",
+      "partOfSpeech": "verb",
+      "tip": "Health action.",
+      "exampleSpanish": "Necesito comer.",
+      "exampleEnglish": "I need to eat."
+    },
+    {
+      "spanish": "tomar",
+      "english": "to take/drink",
+      "partOfSpeech": "verb",
+      "tip": "Use for medicine/water.",
+      "exampleSpanish": "Voy a tomar agua.",
+      "exampleEnglish": "I am going to drink water."
+    },
+    {
+      "spanish": "ayuda",
+      "english": "help",
+      "partOfSpeech": "noun",
+      "tip": "Review.",
+      "exampleSpanish": "Necesito ayuda.",
+      "exampleEnglish": "I need help."
+    },
+    {
+      "spanish": "urgente",
+      "english": "urgent",
+      "partOfSpeech": "adjective",
+      "tip": "Important word.",
+      "exampleSpanish": "Es urgente.",
+      "exampleEnglish": "It is urgent."
+    },
+    {
+      "spanish": "mejor",
+      "english": "better",
+      "partOfSpeech": "adjective/adverb",
+      "tip": "Health update.",
+      "exampleSpanish": "Estoy mejor.",
+      "exampleEnglish": "I am better."
+    },
+    {
+      "spanish": "peor",
+      "english": "worse",
+      "partOfSpeech": "adjective/adverb",
+      "tip": "Health update.",
+      "exampleSpanish": "Estoy peor.",
+      "exampleEnglish": "I am worse."
+    }
+  ],
+  "textbookPhrases": [
+    {
+      "meaning": "I feel bad.",
+      "phrase": "Me siento mal."
+    },
+    {
+      "meaning": "My head hurts.",
+      "phrase": "Me duele la cabeza."
+    },
+    {
+      "meaning": "I have a fever.",
+      "phrase": "Tengo fiebre."
+    },
+    {
+      "meaning": "I need a pharmacy.",
+      "phrase": "Necesito una farmacia."
+    },
+    {
+      "meaning": "I need to rest.",
+      "phrase": "Necesito descansar."
+    }
+  ],
+  "naturalEverydayPhrases": [
+    {
+      "meaning": "I feel bad.",
+      "phrase": "Me siento mal."
+    },
+    {
+      "meaning": "My head hurts.",
+      "phrase": "Me duele la cabeza."
+    },
+    {
+      "meaning": "I have a fever.",
+      "phrase": "Tengo fiebre."
+    },
+    {
+      "meaning": "I need a pharmacy.",
+      "phrase": "Necesito una farmacia."
+    },
+    {
+      "meaning": "I need to rest.",
+      "phrase": "Necesito descansar."
+    }
+  ],
+  "mexicanSpanishVariants": [
+    {
+      "meaning": "I feel bad.",
+      "phrase": "Me siento mal."
+    },
+    {
+      "meaning": "My head hurts.",
+      "phrase": "Me duele la cabeza."
+    },
+    {
+      "meaning": "I have a fever.",
+      "phrase": "Tengo fiebre."
+    },
+    {
+      "meaning": "I need a pharmacy.",
+      "phrase": "Necesito una farmacia."
+    },
+    {
+      "meaning": "I need to rest.",
+      "phrase": "Necesito descansar."
+    }
+  ],
+  "spainSpanishVariants": [
+    {
+      "meaning": "I feel bad.",
+      "phrase": "Me encuentro mal."
+    },
+    {
+      "meaning": "My head hurts.",
+      "phrase": "Me duele la cabeza."
+    },
+    {
+      "meaning": "I have a fever.",
+      "phrase": "Tengo fiebre."
+    },
+    {
+      "meaning": "I need a pharmacy.",
+      "phrase": "Necesito una farmacia."
+    },
+    {
+      "meaning": "I need to rest.",
+      "phrase": "Necesito descansar."
+    }
+  ],
+  "phraseVariants": [
+    {
+      "meaning": "I feel bad.",
+      "textbookVersion": "Me siento mal.",
+      "naturalEverydayVersion": "Me siento mal.",
+      "mexicanSpanishVersion": "Me siento mal.",
+      "spainSpanishVersion": "Me encuentro mal.",
+      "whenUsed": "Carlos shows the textbook version first, then the natural version learners are likely to hear in everyday speech."
+    },
+    {
+      "meaning": "My head hurts.",
+      "textbookVersion": "Me duele la cabeza.",
+      "naturalEverydayVersion": "Me duele la cabeza.",
+      "mexicanSpanishVersion": "Me duele la cabeza.",
+      "spainSpanishVersion": "Me duele la cabeza.",
+      "whenUsed": "Carlos shows the textbook version first, then the natural version learners are likely to hear in everyday speech."
+    },
+    {
+      "meaning": "I have a fever.",
+      "textbookVersion": "Tengo fiebre.",
+      "naturalEverydayVersion": "Tengo fiebre.",
+      "mexicanSpanishVersion": "Tengo fiebre.",
+      "spainSpanishVersion": "Tengo fiebre.",
+      "whenUsed": "Carlos shows the textbook version first, then the natural version learners are likely to hear in everyday speech."
+    },
+    {
+      "meaning": "I need a pharmacy.",
+      "textbookVersion": "Necesito una farmacia.",
+      "naturalEverydayVersion": "Necesito una farmacia.",
+      "mexicanSpanishVersion": "Necesito una farmacia.",
+      "spainSpanishVersion": "Necesito una farmacia.",
+      "whenUsed": "Carlos shows the textbook version first, then the natural version learners are likely to hear in everyday speech."
+    },
+    {
+      "meaning": "I need to rest.",
+      "textbookVersion": "Necesito descansar.",
+      "naturalEverydayVersion": "Necesito descansar.",
+      "mexicanSpanishVersion": "Necesito descansar.",
+      "spainSpanishVersion": "Necesito descansar.",
+      "whenUsed": "Carlos shows the textbook version first, then the natural version learners are likely to hear in everyday speech."
+    }
+  ],
+  "grammar": {
+    "topic": "Me duele and tener symptoms",
+    "explanation": "Use me duele for one painful body part and me duelen for more than one. Use tengo for symptoms like fever, cough, or allergies.",
+    "examples": [
+      {
+        "spanish": "Me duele la cabeza.",
+        "english": "My head hurts."
+      },
+      {
+        "spanish": "Tengo fiebre.",
+        "english": "I have a fever."
+      },
+      {
+        "spanish": "Necesito descansar.",
+        "english": "I need to rest."
+      }
+    ],
+    "practicePrompt": "Tell Carlos how you feel, what hurts, and what you need."
+  },
+  "dialogue": [
+    {
+      "title": "Warmup with Carlos",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Practiquemos health: la salud.",
+          "english": "Let's practice health: health."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "Estoy bien.",
+          "english": "I am well."
+        }
+      ]
+    },
+    {
+      "title": "Real-world question",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Practiquemos health: enfermo.",
+          "english": "Let's practice health: sick."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "Me siento mal.",
+          "english": "I feel bad."
+        }
+      ]
+    },
+    {
+      "title": "Using old vocabulary",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Practiquemos health: enferma.",
+          "english": "Let's practice health: sick."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "Me siento cansado.",
+          "english": "I feel tired."
+        }
+      ]
+    },
+    {
+      "title": "Making a plan",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Practiquemos health: bien.",
+          "english": "Let's practice health: well."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "Me duele la cabeza.",
+          "english": "My head hurts."
+        }
+      ]
+    },
+    {
+      "title": "Asking for help",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Practiquemos health: mal.",
+          "english": "Let's practice health: badly/unwell."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "Tengo dolor.",
+          "english": "I have pain."
+        }
+      ]
+    },
+    {
+      "title": "Polite correction",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Practiquemos health: me siento.",
+          "english": "Let's practice health: I feel."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "Tengo fiebre.",
+          "english": "I have a fever."
+        }
+      ]
+    },
+    {
+      "title": "With family",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Practiquemos health: me duele.",
+          "english": "Let's practice health: it hurts me."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "Tengo tos.",
+          "english": "I have a cough."
+        }
+      ]
+    },
+    {
+      "title": "At work or school",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Practiquemos health: el dolor.",
+          "english": "Let's practice health: pain."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "Tengo un resfriado.",
+          "english": "I have a cold."
+        }
+      ]
+    },
+    {
+      "title": "Travel moment",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Practiquemos health: la fiebre.",
+          "english": "Let's practice health: fever."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "Tengo gripe.",
+          "english": "I have the flu."
+        }
+      ]
+    },
+    {
+      "title": "Wrap-up challenge",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Practiquemos health: la tos.",
+          "english": "Let's practice health: cough."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "Tengo alergia.",
+          "english": "I have an allergy."
+        }
+      ]
+    }
+  ],
+  "dialogues": [
+    {
+      "title": "Warmup with Carlos",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Practiquemos health: la salud.",
+          "english": "Let's practice health: health."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "Estoy bien.",
+          "english": "I am well."
+        }
+      ]
+    },
+    {
+      "title": "Real-world question",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Practiquemos health: enfermo.",
+          "english": "Let's practice health: sick."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "Me siento mal.",
+          "english": "I feel bad."
+        }
+      ]
+    },
+    {
+      "title": "Using old vocabulary",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Practiquemos health: enferma.",
+          "english": "Let's practice health: sick."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "Me siento cansado.",
+          "english": "I feel tired."
+        }
+      ]
+    },
+    {
+      "title": "Making a plan",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Practiquemos health: bien.",
+          "english": "Let's practice health: well."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "Me duele la cabeza.",
+          "english": "My head hurts."
+        }
+      ]
+    },
+    {
+      "title": "Asking for help",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Practiquemos health: mal.",
+          "english": "Let's practice health: badly/unwell."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "Tengo dolor.",
+          "english": "I have pain."
+        }
+      ]
+    },
+    {
+      "title": "Polite correction",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Practiquemos health: me siento.",
+          "english": "Let's practice health: I feel."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "Tengo fiebre.",
+          "english": "I have a fever."
+        }
+      ]
+    },
+    {
+      "title": "With family",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Practiquemos health: me duele.",
+          "english": "Let's practice health: it hurts me."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "Tengo tos.",
+          "english": "I have a cough."
+        }
+      ]
+    },
+    {
+      "title": "At work or school",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Practiquemos health: el dolor.",
+          "english": "Let's practice health: pain."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "Tengo un resfriado.",
+          "english": "I have a cold."
+        }
+      ]
+    },
+    {
+      "title": "Travel moment",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Practiquemos health: la fiebre.",
+          "english": "Let's practice health: fever."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "Tengo gripe.",
+          "english": "I have the flu."
+        }
+      ]
+    },
+    {
+      "title": "Wrap-up challenge",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Practiquemos health: la tos.",
+          "english": "Let's practice health: cough."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "Tengo alergia.",
+          "english": "I have an allergy."
+        }
+      ]
+    }
+  ],
+  "listeningPhrases": [
+    {
+      "spanish": "La salud es importante.",
+      "english": "Health is important."
+    },
+    {
+      "spanish": "Estoy enfermo.",
+      "english": "I am sick."
+    },
+    {
+      "spanish": "Estoy enferma.",
+      "english": "I am sick."
+    },
+    {
+      "spanish": "Estoy bien.",
+      "english": "I am well."
+    },
+    {
+      "spanish": "Me siento mal.",
+      "english": "I feel bad."
+    },
+    {
+      "spanish": "Me siento cansado.",
+      "english": "I feel tired."
+    },
+    {
+      "spanish": "Me duele la cabeza.",
+      "english": "My head hurts."
+    },
+    {
+      "spanish": "Tengo dolor.",
+      "english": "I have pain."
+    },
+    {
+      "spanish": "Tengo fiebre.",
+      "english": "I have a fever."
+    },
+    {
+      "spanish": "Tengo tos.",
+      "english": "I have a cough."
+    }
+  ],
+  "listening": [
+    {
+      "spanish": "La salud es importante.",
+      "english": "Health is important."
+    },
+    {
+      "spanish": "Estoy enfermo.",
+      "english": "I am sick."
+    },
+    {
+      "spanish": "Estoy enferma.",
+      "english": "I am sick."
+    },
+    {
+      "spanish": "Estoy bien.",
+      "english": "I am well."
+    },
+    {
+      "spanish": "Me siento mal.",
+      "english": "I feel bad."
+    },
+    {
+      "spanish": "Me siento cansado.",
+      "english": "I feel tired."
+    },
+    {
+      "spanish": "Me duele la cabeza.",
+      "english": "My head hurts."
+    },
+    {
+      "spanish": "Tengo dolor.",
+      "english": "I have pain."
+    },
+    {
+      "spanish": "Tengo fiebre.",
+      "english": "I have a fever."
+    },
+    {
+      "spanish": "Tengo tos.",
+      "english": "I have a cough."
+    }
+  ],
+  "pronunciation": {
+    "focus": "Carlos helps you practice clear rhythm and useful sounds for health.",
+    "items": [
+      {
+        "text": "la salud",
+        "note": "Say la salud slowly first, then repeat it in the sentence: La salud es importante."
+      },
+      {
+        "text": "enfermo",
+        "note": "Say enfermo slowly first, then repeat it in the sentence: Estoy enfermo."
+      },
+      {
+        "text": "enferma",
+        "note": "Say enferma slowly first, then repeat it in the sentence: Estoy enferma."
+      },
+      {
+        "text": "bien",
+        "note": "Say bien slowly first, then repeat it in the sentence: Estoy bien."
+      },
+      {
+        "text": "mal",
+        "note": "Say mal slowly first, then repeat it in the sentence: Me siento mal."
+      },
+      {
+        "text": "me siento",
+        "note": "Say me siento slowly first, then repeat it in the sentence: Me siento cansado."
+      },
+      {
+        "text": "me duele",
+        "note": "Say me duele slowly first, then repeat it in the sentence: Me duele la cabeza."
+      },
+      {
+        "text": "el dolor",
+        "note": "Say el dolor slowly first, then repeat it in the sentence: Tengo dolor."
+      },
+      {
+        "text": "la fiebre",
+        "note": "Say la fiebre slowly first, then repeat it in the sentence: Tengo fiebre."
+      },
+      {
+        "text": "la tos",
+        "note": "Say la tos slowly first, then repeat it in the sentence: Tengo tos."
+      }
+    ]
+  },
+  "culture": {
+    "title": "Health in real life",
+    "text": "In many Spanish-speaking places, pharmacies can help with minor issues. Carlos reminds learners to use clear, simple phrases and seek professional help for serious symptoms."
+  },
+  "nativeSpeech": {
+    "title": "Carlos native speaker tips",
+    "notes": [
+      "Me encuentro mal is common in Spain for I feel unwell.",
+      "Tengo gripa may be heard in parts of Latin America; gripe is widely understood.",
+      "Use urgente only when something is truly urgent."
+    ]
+  },
+  "nativeExpressions": [
+    "Me encuentro mal is common in Spain for I feel unwell.",
+    "Tengo gripa may be heard in parts of Latin America; gripe is widely understood.",
+    "Use urgente only when something is truly urgent."
+  ],
+  "commonMistakes": [
+    {
+      "mistake": "Saying soy enfermo for temporary sickness.",
+      "correction": "Say estoy enfermo.",
+      "explanation": "Temporary health states use estar."
+    },
+    {
+      "mistake": "Saying mi cabeza duele.",
+      "correction": "Say me duele la cabeza.",
+      "explanation": "Spanish uses me duele plus body part."
+    },
+    {
+      "mistake": "Using tomar only for take.",
+      "correction": "Tomar can mean drink or take medicine.",
+      "explanation": "Context tells the meaning."
+    }
+  ],
+  "quiz": [
+    {
+      "type": "multipleChoice",
+      "prompt": "What does la salud mean?",
+      "options": [
+        "health",
+        "sick",
+        "sick",
+        "well"
+      ],
+      "answer": "health"
+    },
+    {
+      "type": "multipleChoice",
+      "prompt": "What does enfermo mean?",
+      "options": [
+        "sick",
+        "sick",
+        "well",
+        "badly/unwell"
+      ],
+      "answer": "sick"
+    },
+    {
+      "type": "multipleChoice",
+      "prompt": "What does enferma mean?",
+      "options": [
+        "sick",
+        "well",
+        "badly/unwell",
+        "I feel"
+      ],
+      "answer": "sick"
+    },
+    {
+      "type": "multipleChoice",
+      "prompt": "What does bien mean?",
+      "options": [
+        "well",
+        "badly/unwell",
+        "I feel",
+        "it hurts me"
+      ],
+      "answer": "well"
+    },
+    {
+      "type": "multipleChoice",
+      "prompt": "What does mal mean?",
+      "options": [
+        "badly/unwell",
+        "I feel",
+        "it hurts me",
+        "pain"
+      ],
+      "answer": "badly/unwell"
+    },
+    {
+      "type": "multipleChoice",
+      "prompt": "What does me siento mean?",
+      "options": [
+        "I feel",
+        "it hurts me",
+        "pain",
+        "fever"
+      ],
+      "answer": "I feel"
+    },
+    {
+      "type": "multipleChoice",
+      "prompt": "What does me duele mean?",
+      "options": [
+        "it hurts me",
+        "pain",
+        "fever",
+        "cough"
+      ],
+      "answer": "it hurts me"
+    },
+    {
+      "type": "multipleChoice",
+      "prompt": "What does el dolor mean?",
+      "options": [
+        "pain",
+        "fever",
+        "cough",
+        "cold"
+      ],
+      "answer": "pain"
+    },
+    {
+      "type": "multipleChoice",
+      "prompt": "What does la fiebre mean?",
+      "options": [
+        "fever",
+        "cough",
+        "cold",
+        "flu"
+      ],
+      "answer": "fever"
+    },
+    {
+      "type": "multipleChoice",
+      "prompt": "What does la tos mean?",
+      "options": [
+        "cough",
+        "cold",
+        "flu",
+        "allergy"
+      ],
+      "answer": "cough"
+    },
+    {
+      "type": "multipleChoice",
+      "prompt": "What does el resfriado mean?",
+      "options": [
+        "cold",
+        "flu",
+        "allergy",
+        "doctor"
+      ],
+      "answer": "cold"
+    },
+    {
+      "type": "multipleChoice",
+      "prompt": "What does la gripe mean?",
+      "options": [
+        "flu",
+        "allergy",
+        "doctor",
+        "doctor"
+      ],
+      "answer": "flu"
+    },
+    {
+      "type": "translation",
+      "prompt": "Translate: La salud es importante.",
+      "answer": "Health is important."
+    },
+    {
+      "type": "translation",
+      "prompt": "Translate: Estoy enfermo.",
+      "answer": "I am sick."
+    },
+    {
+      "type": "multipleChoice",
+      "prompt": "Which phrase belongs in Health?",
+      "options": [
+        "enferma",
+        "mi suegra",
+        "buenos dias",
+        "un boleto"
+      ],
+      "answer": "enferma"
+    }
+  ],
+  "speakingChallenge": [
+    {
+      "prompt": "Carlos asks you to use la salud in a real sentence.",
+      "exampleAnswer": "La salud es importante."
+    },
+    {
+      "prompt": "Carlos asks you to use enfermo in a real sentence.",
+      "exampleAnswer": "Estoy enfermo."
+    },
+    {
+      "prompt": "Carlos asks you to use enferma in a real sentence.",
+      "exampleAnswer": "Estoy enferma."
+    },
+    {
+      "prompt": "Carlos asks you to use bien in a real sentence.",
+      "exampleAnswer": "Estoy bien."
+    },
+    {
+      "prompt": "Carlos asks you to use mal in a real sentence.",
+      "exampleAnswer": "Me siento mal."
+    }
+  ],
+  "realLifeMission": {
+    "title": "Real Life Mission",
+    "mission": "Tell Carlos you do not feel well. Explain one symptom, what hurts, and ask where the pharmacy is.",
+    "successCriteria": [
+      "Use at least six words from this lesson.",
+      "Use one phrase recycled from a previous lesson.",
+      "Ask Carlos at least one question.",
+      "Respond naturally with a short follow-up sentence."
+    ],
+    "suggestedPartner": "Carlos",
+    "xpReward": 10
+  },
+  "review": {
+    "recap": [
+      "Carlos reviewed health vocabulary.",
+      "You practiced Me duele and tener symptoms.",
+      "You connected this lesson to earlier A1 survival conversations."
+    ],
+    "canDo": [
+      "Explain simple health problems, ask for help, and say what you need.",
+      "Ask and answer simple everyday questions.",
+      "Repair the conversation with a short polite phrase if needed."
+    ]
+  },
+  "achievementsUnlocked": [],
+  "xpReward": 80,
+  "nextLesson": "lesson-18-body-parts"
+}

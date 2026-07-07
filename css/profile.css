@@ -295,3 +295,105 @@
     grid-template-columns: repeat(2, 1fr);
   }
 }
+
+/* HABLA DESIGN SYSTEM V1 - PROFILE POLISH */
+#dashboard.profile-page {
+  padding: 24px var(--habla-page-pad-x, 16px) calc(var(--habla-bottom-nav-h, 76px) + 32px);
+}
+
+.profile-screen {
+  gap: 24px;
+}
+
+.profile-header {
+  padding-top: 0;
+}
+
+.profile-header h1 {
+  font-size: clamp(2.15rem, 11vw, 3rem);
+  letter-spacing: 0;
+}
+
+.profile-card,
+.profile-row,
+.profile-stat,
+.achievement {
+  border-radius: var(--habla-radius-card, 24px);
+  border-color: var(--habla-border, rgba(244, 190, 88, 0.18));
+  background:
+    linear-gradient(180deg, rgba(18, 28, 40, 0.94), rgba(7, 13, 20, 0.9));
+  box-shadow: var(--habla-shadow-card, 0 24px 70px rgba(0, 0, 0, 0.32));
+}
+
+.profile-card {
+  padding: 20px;
+  min-width: 0;
+}
+
+.profile-row,
+.profile-stat,
+.achievement {
+  border-radius: 18px;
+  box-shadow: none;
+}
+
+.avatar-mark,
+.achievement-icon {
+  border-color: rgba(244, 190, 88, 0.3);
+  background:
+    radial-gradient(circle at 35% 25%, rgba(244, 190, 88, 0.26), transparent 44%),
+    rgba(5, 10, 16, 0.76);
+  color: var(--habla-gold, var(--gold));
+}
+
+.profile-stat-list,
+.progress-stat-grid,
+.achievement-grid,
+.dev-actions {
+  gap: 16px;
+  min-width: 0;
+}
+
+.profile-field textarea,
+.profile-field select,
+.profile-save-btn,
+.dev-actions button {
+  min-height: 48px;
+  border-radius: var(--habla-radius-button, 18px);
+}
+
+.profile-row strong,
+.profile-stat strong,
+.achievement h3,
+.achievement p,
+.profile-field textarea,
+.profile-field select {
+  overflow-wrap: anywhere;
+}
+
+.profile-save-btn,
+.dev-actions button {
+  padding-left: 14px;
+  padding-right: 14px;
+}
+
+.level-progress-track {
+  height: 12px;
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.level-progress-track div {
+  background: linear-gradient(90deg, var(--habla-green, var(--green)), var(--habla-gold, var(--gold)));
+}
+
+.achievement.unlocked {
+  border-color: rgba(244, 190, 88, 0.48);
+  background:
+    linear-gradient(180deg, rgba(244, 190, 88, 0.12), rgba(7, 13, 20, 0.9));
+}
+
+@media (max-width: 380px) {
+  .profile-card {
+    padding: 16px;
+  }
+}

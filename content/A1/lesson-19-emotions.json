@@ -1,0 +1,1051 @@
+{
+  "id": "lesson-19-emotions",
+  "title": "Emotions: Saying How You Feel",
+  "level": "A1",
+  "module": "Emotions",
+  "estimatedMinutes": 30,
+  "prerequisiteLesson": "lesson-18-body-parts",
+  "imagePath": "assets/images/lessons/lesson-19-emotions.png",
+  "objectives": [
+    "Share simple emotions, explain why, and respond kindly to others.",
+    "Use 25 or more emotions words and phrases in short sentences.",
+    "Recycle greetings, time, family, weather, food, work, health, and emotion phrases from earlier lessons.",
+    "Complete a realistic practice mission with Carlos."
+  ],
+  "vocabularyCategories": [
+    "emotions",
+    "feelings",
+    "reasons",
+    "support"
+  ],
+  "vocabulary": [
+    {
+      "spanish": "feliz",
+      "english": "happy",
+      "partOfSpeech": "adjective",
+      "tip": "Works for all genders.",
+      "exampleSpanish": "Estoy feliz.",
+      "exampleEnglish": "I am happy."
+    },
+    {
+      "spanish": "contento",
+      "english": "happy/content",
+      "partOfSpeech": "adjective",
+      "tip": "Masculine.",
+      "exampleSpanish": "Estoy contento.",
+      "exampleEnglish": "I am happy."
+    },
+    {
+      "spanish": "contenta",
+      "english": "happy/content",
+      "partOfSpeech": "adjective",
+      "tip": "Feminine.",
+      "exampleSpanish": "Estoy contenta.",
+      "exampleEnglish": "I am happy."
+    },
+    {
+      "spanish": "triste",
+      "english": "sad",
+      "partOfSpeech": "adjective",
+      "tip": "Same form.",
+      "exampleSpanish": "Estoy triste.",
+      "exampleEnglish": "I am sad."
+    },
+    {
+      "spanish": "cansado",
+      "english": "tired",
+      "partOfSpeech": "adjective",
+      "tip": "Masculine.",
+      "exampleSpanish": "Estoy cansado.",
+      "exampleEnglish": "I am tired."
+    },
+    {
+      "spanish": "cansada",
+      "english": "tired",
+      "partOfSpeech": "adjective",
+      "tip": "Feminine.",
+      "exampleSpanish": "Estoy cansada.",
+      "exampleEnglish": "I am tired."
+    },
+    {
+      "spanish": "nervioso",
+      "english": "nervous",
+      "partOfSpeech": "adjective",
+      "tip": "Masculine.",
+      "exampleSpanish": "Estoy nervioso.",
+      "exampleEnglish": "I am nervous."
+    },
+    {
+      "spanish": "nerviosa",
+      "english": "nervous",
+      "partOfSpeech": "adjective",
+      "tip": "Feminine.",
+      "exampleSpanish": "Estoy nerviosa.",
+      "exampleEnglish": "I am nervous."
+    },
+    {
+      "spanish": "tranquilo",
+      "english": "calm",
+      "partOfSpeech": "adjective",
+      "tip": "Masculine.",
+      "exampleSpanish": "Estoy tranquilo.",
+      "exampleEnglish": "I am calm."
+    },
+    {
+      "spanish": "tranquila",
+      "english": "calm",
+      "partOfSpeech": "adjective",
+      "tip": "Feminine.",
+      "exampleSpanish": "Estoy tranquila.",
+      "exampleEnglish": "I am calm."
+    },
+    {
+      "spanish": "emocionado",
+      "english": "excited",
+      "partOfSpeech": "adjective",
+      "tip": "Masculine.",
+      "exampleSpanish": "Estoy emocionado.",
+      "exampleEnglish": "I am excited."
+    },
+    {
+      "spanish": "emocionada",
+      "english": "excited",
+      "partOfSpeech": "adjective",
+      "tip": "Feminine.",
+      "exampleSpanish": "Estoy emocionada.",
+      "exampleEnglish": "I am excited."
+    },
+    {
+      "spanish": "preocupado",
+      "english": "worried",
+      "partOfSpeech": "adjective",
+      "tip": "Masculine.",
+      "exampleSpanish": "Estoy preocupado.",
+      "exampleEnglish": "I am worried."
+    },
+    {
+      "spanish": "preocupada",
+      "english": "worried",
+      "partOfSpeech": "adjective",
+      "tip": "Feminine.",
+      "exampleSpanish": "Estoy preocupada.",
+      "exampleEnglish": "I am worried."
+    },
+    {
+      "spanish": "enojado",
+      "english": "angry",
+      "partOfSpeech": "adjective",
+      "tip": "Masculine.",
+      "exampleSpanish": "Estoy enojado.",
+      "exampleEnglish": "I am angry."
+    },
+    {
+      "spanish": "enojada",
+      "english": "angry",
+      "partOfSpeech": "adjective",
+      "tip": "Feminine.",
+      "exampleSpanish": "Estoy enojada.",
+      "exampleEnglish": "I am angry."
+    },
+    {
+      "spanish": "aburrido",
+      "english": "bored",
+      "partOfSpeech": "adjective",
+      "tip": "Masculine.",
+      "exampleSpanish": "Estoy aburrido.",
+      "exampleEnglish": "I am bored."
+    },
+    {
+      "spanish": "aburrida",
+      "english": "bored",
+      "partOfSpeech": "adjective",
+      "tip": "Feminine.",
+      "exampleSpanish": "Estoy aburrida.",
+      "exampleEnglish": "I am bored."
+    },
+    {
+      "spanish": "bien",
+      "english": "well/okay",
+      "partOfSpeech": "adverb",
+      "tip": "Review.",
+      "exampleSpanish": "Estoy bien.",
+      "exampleEnglish": "I am okay."
+    },
+    {
+      "spanish": "mal",
+      "english": "bad",
+      "partOfSpeech": "adverb",
+      "tip": "Review.",
+      "exampleSpanish": "Estoy mal.",
+      "exampleEnglish": "I am not well."
+    },
+    {
+      "spanish": "me siento",
+      "english": "I feel",
+      "partOfSpeech": "phrase",
+      "tip": "Use before feelings.",
+      "exampleSpanish": "Me siento feliz.",
+      "exampleEnglish": "I feel happy."
+    },
+    {
+      "spanish": "porque",
+      "english": "because",
+      "partOfSpeech": "connector",
+      "tip": "Gives a reason.",
+      "exampleSpanish": "Estoy feliz porque descanso.",
+      "exampleEnglish": "I am happy because I rest."
+    },
+    {
+      "spanish": "hoy",
+      "english": "today",
+      "partOfSpeech": "adverb",
+      "tip": "Review.",
+      "exampleSpanish": "Hoy estoy cansado.",
+      "exampleEnglish": "Today I am tired."
+    },
+    {
+      "spanish": "un poco",
+      "english": "a little",
+      "partOfSpeech": "phrase",
+      "tip": "Softens emotions.",
+      "exampleSpanish": "Estoy un poco nervioso.",
+      "exampleEnglish": "I am a little nervous."
+    },
+    {
+      "spanish": "muy",
+      "english": "very",
+      "partOfSpeech": "adverb",
+      "tip": "Intensifier.",
+      "exampleSpanish": "Estoy muy feliz.",
+      "exampleEnglish": "I am very happy."
+    },
+    {
+      "spanish": "estas bien",
+      "english": "are you okay",
+      "partOfSpeech": "phrase",
+      "tip": "Caring question.",
+      "exampleSpanish": "Estas bien?",
+      "exampleEnglish": "Are you okay?"
+    }
+  ],
+  "textbookPhrases": [
+    {
+      "meaning": "How do you feel?",
+      "phrase": "Como se siente?"
+    },
+    {
+      "meaning": "I am happy.",
+      "phrase": "Estoy feliz."
+    },
+    {
+      "meaning": "I am a little nervous.",
+      "phrase": "Estoy un poco nervioso."
+    },
+    {
+      "meaning": "Are you okay?",
+      "phrase": "Esta bien?"
+    },
+    {
+      "meaning": "I am tired because I work.",
+      "phrase": "Estoy cansado porque trabajo."
+    }
+  ],
+  "naturalEverydayPhrases": [
+    {
+      "meaning": "How do you feel?",
+      "phrase": "Como te sientes?"
+    },
+    {
+      "meaning": "I am happy.",
+      "phrase": "Estoy feliz."
+    },
+    {
+      "meaning": "I am a little nervous.",
+      "phrase": "Estoy un poco nervioso."
+    },
+    {
+      "meaning": "Are you okay?",
+      "phrase": "Estas bien?"
+    },
+    {
+      "meaning": "I am tired because I work.",
+      "phrase": "Estoy cansado porque trabajo."
+    }
+  ],
+  "mexicanSpanishVariants": [
+    {
+      "meaning": "How do you feel?",
+      "phrase": "Como te sientes?"
+    },
+    {
+      "meaning": "I am happy.",
+      "phrase": "Estoy feliz."
+    },
+    {
+      "meaning": "I am a little nervous.",
+      "phrase": "Estoy un poco nervioso."
+    },
+    {
+      "meaning": "Are you okay?",
+      "phrase": "Estas bien?"
+    },
+    {
+      "meaning": "I am tired because I work.",
+      "phrase": "Estoy cansado porque trabajo."
+    }
+  ],
+  "spainSpanishVariants": [
+    {
+      "meaning": "How do you feel?",
+      "phrase": "Como estas?"
+    },
+    {
+      "meaning": "I am happy.",
+      "phrase": "Estoy contento."
+    },
+    {
+      "meaning": "I am a little nervous.",
+      "phrase": "Estoy un poco nervioso."
+    },
+    {
+      "meaning": "Are you okay?",
+      "phrase": "Estas bien?"
+    },
+    {
+      "meaning": "I am tired because I work.",
+      "phrase": "Estoy cansado porque trabajo."
+    }
+  ],
+  "phraseVariants": [
+    {
+      "meaning": "How do you feel?",
+      "textbookVersion": "Como se siente?",
+      "naturalEverydayVersion": "Como te sientes?",
+      "mexicanSpanishVersion": "Como te sientes?",
+      "spainSpanishVersion": "Como estas?",
+      "whenUsed": "Carlos shows the textbook version first, then the natural version learners are likely to hear in everyday speech."
+    },
+    {
+      "meaning": "I am happy.",
+      "textbookVersion": "Estoy feliz.",
+      "naturalEverydayVersion": "Estoy feliz.",
+      "mexicanSpanishVersion": "Estoy feliz.",
+      "spainSpanishVersion": "Estoy contento.",
+      "whenUsed": "Carlos shows the textbook version first, then the natural version learners are likely to hear in everyday speech."
+    },
+    {
+      "meaning": "I am a little nervous.",
+      "textbookVersion": "Estoy un poco nervioso.",
+      "naturalEverydayVersion": "Estoy un poco nervioso.",
+      "mexicanSpanishVersion": "Estoy un poco nervioso.",
+      "spainSpanishVersion": "Estoy un poco nervioso.",
+      "whenUsed": "Carlos shows the textbook version first, then the natural version learners are likely to hear in everyday speech."
+    },
+    {
+      "meaning": "Are you okay?",
+      "textbookVersion": "Esta bien?",
+      "naturalEverydayVersion": "Estas bien?",
+      "mexicanSpanishVersion": "Estas bien?",
+      "spainSpanishVersion": "Estas bien?",
+      "whenUsed": "Carlos shows the textbook version first, then the natural version learners are likely to hear in everyday speech."
+    },
+    {
+      "meaning": "I am tired because I work.",
+      "textbookVersion": "Estoy cansado porque trabajo.",
+      "naturalEverydayVersion": "Estoy cansado porque trabajo.",
+      "mexicanSpanishVersion": "Estoy cansado porque trabajo.",
+      "spainSpanishVersion": "Estoy cansado porque trabajo.",
+      "whenUsed": "Carlos shows the textbook version first, then the natural version learners are likely to hear in everyday speech."
+    }
+  ],
+  "grammar": {
+    "topic": "Estar with emotions and porque",
+    "explanation": "Use estar for feelings that can change. Add porque to give a simple reason. Carlos helps you sound warm and human, not robotic.",
+    "examples": [
+      {
+        "spanish": "Estoy feliz porque veo a mi familia.",
+        "english": "I am happy because I see my family."
+      },
+      {
+        "spanish": "Estoy nervioso hoy.",
+        "english": "I am nervous today."
+      },
+      {
+        "spanish": "Estas bien?",
+        "english": "Are you okay?"
+      }
+    ],
+    "practicePrompt": "Tell Carlos how you feel today and give one reason with porque."
+  },
+  "dialogue": [
+    {
+      "title": "Warmup with Carlos",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Practiquemos emotions: feliz.",
+          "english": "Let's practice emotions: happy."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "Estoy triste.",
+          "english": "I am sad."
+        }
+      ]
+    },
+    {
+      "title": "Real-world question",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Practiquemos emotions: contento.",
+          "english": "Let's practice emotions: happy/content."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "Estoy cansado.",
+          "english": "I am tired."
+        }
+      ]
+    },
+    {
+      "title": "Using old vocabulary",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Practiquemos emotions: contenta.",
+          "english": "Let's practice emotions: happy/content."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "Estoy cansada.",
+          "english": "I am tired."
+        }
+      ]
+    },
+    {
+      "title": "Making a plan",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Practiquemos emotions: triste.",
+          "english": "Let's practice emotions: sad."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "Estoy nervioso.",
+          "english": "I am nervous."
+        }
+      ]
+    },
+    {
+      "title": "Asking for help",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Practiquemos emotions: cansado.",
+          "english": "Let's practice emotions: tired."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "Estoy nerviosa.",
+          "english": "I am nervous."
+        }
+      ]
+    },
+    {
+      "title": "Polite correction",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Practiquemos emotions: cansada.",
+          "english": "Let's practice emotions: tired."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "Estoy tranquilo.",
+          "english": "I am calm."
+        }
+      ]
+    },
+    {
+      "title": "With family",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Practiquemos emotions: nervioso.",
+          "english": "Let's practice emotions: nervous."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "Estoy tranquila.",
+          "english": "I am calm."
+        }
+      ]
+    },
+    {
+      "title": "At work or school",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Practiquemos emotions: nerviosa.",
+          "english": "Let's practice emotions: nervous."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "Estoy emocionado.",
+          "english": "I am excited."
+        }
+      ]
+    },
+    {
+      "title": "Travel moment",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Practiquemos emotions: tranquilo.",
+          "english": "Let's practice emotions: calm."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "Estoy emocionada.",
+          "english": "I am excited."
+        }
+      ]
+    },
+    {
+      "title": "Wrap-up challenge",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Practiquemos emotions: tranquila.",
+          "english": "Let's practice emotions: calm."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "Estoy preocupado.",
+          "english": "I am worried."
+        }
+      ]
+    }
+  ],
+  "dialogues": [
+    {
+      "title": "Warmup with Carlos",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Practiquemos emotions: feliz.",
+          "english": "Let's practice emotions: happy."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "Estoy triste.",
+          "english": "I am sad."
+        }
+      ]
+    },
+    {
+      "title": "Real-world question",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Practiquemos emotions: contento.",
+          "english": "Let's practice emotions: happy/content."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "Estoy cansado.",
+          "english": "I am tired."
+        }
+      ]
+    },
+    {
+      "title": "Using old vocabulary",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Practiquemos emotions: contenta.",
+          "english": "Let's practice emotions: happy/content."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "Estoy cansada.",
+          "english": "I am tired."
+        }
+      ]
+    },
+    {
+      "title": "Making a plan",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Practiquemos emotions: triste.",
+          "english": "Let's practice emotions: sad."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "Estoy nervioso.",
+          "english": "I am nervous."
+        }
+      ]
+    },
+    {
+      "title": "Asking for help",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Practiquemos emotions: cansado.",
+          "english": "Let's practice emotions: tired."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "Estoy nerviosa.",
+          "english": "I am nervous."
+        }
+      ]
+    },
+    {
+      "title": "Polite correction",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Practiquemos emotions: cansada.",
+          "english": "Let's practice emotions: tired."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "Estoy tranquilo.",
+          "english": "I am calm."
+        }
+      ]
+    },
+    {
+      "title": "With family",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Practiquemos emotions: nervioso.",
+          "english": "Let's practice emotions: nervous."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "Estoy tranquila.",
+          "english": "I am calm."
+        }
+      ]
+    },
+    {
+      "title": "At work or school",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Practiquemos emotions: nerviosa.",
+          "english": "Let's practice emotions: nervous."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "Estoy emocionado.",
+          "english": "I am excited."
+        }
+      ]
+    },
+    {
+      "title": "Travel moment",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Practiquemos emotions: tranquilo.",
+          "english": "Let's practice emotions: calm."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "Estoy emocionada.",
+          "english": "I am excited."
+        }
+      ]
+    },
+    {
+      "title": "Wrap-up challenge",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Practiquemos emotions: tranquila.",
+          "english": "Let's practice emotions: calm."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "Estoy preocupado.",
+          "english": "I am worried."
+        }
+      ]
+    }
+  ],
+  "listeningPhrases": [
+    {
+      "spanish": "Estoy feliz.",
+      "english": "I am happy."
+    },
+    {
+      "spanish": "Estoy contento.",
+      "english": "I am happy."
+    },
+    {
+      "spanish": "Estoy contenta.",
+      "english": "I am happy."
+    },
+    {
+      "spanish": "Estoy triste.",
+      "english": "I am sad."
+    },
+    {
+      "spanish": "Estoy cansado.",
+      "english": "I am tired."
+    },
+    {
+      "spanish": "Estoy cansada.",
+      "english": "I am tired."
+    },
+    {
+      "spanish": "Estoy nervioso.",
+      "english": "I am nervous."
+    },
+    {
+      "spanish": "Estoy nerviosa.",
+      "english": "I am nervous."
+    },
+    {
+      "spanish": "Estoy tranquilo.",
+      "english": "I am calm."
+    },
+    {
+      "spanish": "Estoy tranquila.",
+      "english": "I am calm."
+    }
+  ],
+  "listening": [
+    {
+      "spanish": "Estoy feliz.",
+      "english": "I am happy."
+    },
+    {
+      "spanish": "Estoy contento.",
+      "english": "I am happy."
+    },
+    {
+      "spanish": "Estoy contenta.",
+      "english": "I am happy."
+    },
+    {
+      "spanish": "Estoy triste.",
+      "english": "I am sad."
+    },
+    {
+      "spanish": "Estoy cansado.",
+      "english": "I am tired."
+    },
+    {
+      "spanish": "Estoy cansada.",
+      "english": "I am tired."
+    },
+    {
+      "spanish": "Estoy nervioso.",
+      "english": "I am nervous."
+    },
+    {
+      "spanish": "Estoy nerviosa.",
+      "english": "I am nervous."
+    },
+    {
+      "spanish": "Estoy tranquilo.",
+      "english": "I am calm."
+    },
+    {
+      "spanish": "Estoy tranquila.",
+      "english": "I am calm."
+    }
+  ],
+  "pronunciation": {
+    "focus": "Carlos helps you practice clear rhythm and useful sounds for emotions.",
+    "items": [
+      {
+        "text": "feliz",
+        "note": "Say feliz slowly first, then repeat it in the sentence: Estoy feliz."
+      },
+      {
+        "text": "contento",
+        "note": "Say contento slowly first, then repeat it in the sentence: Estoy contento."
+      },
+      {
+        "text": "contenta",
+        "note": "Say contenta slowly first, then repeat it in the sentence: Estoy contenta."
+      },
+      {
+        "text": "triste",
+        "note": "Say triste slowly first, then repeat it in the sentence: Estoy triste."
+      },
+      {
+        "text": "cansado",
+        "note": "Say cansado slowly first, then repeat it in the sentence: Estoy cansado."
+      },
+      {
+        "text": "cansada",
+        "note": "Say cansada slowly first, then repeat it in the sentence: Estoy cansada."
+      },
+      {
+        "text": "nervioso",
+        "note": "Say nervioso slowly first, then repeat it in the sentence: Estoy nervioso."
+      },
+      {
+        "text": "nerviosa",
+        "note": "Say nerviosa slowly first, then repeat it in the sentence: Estoy nerviosa."
+      },
+      {
+        "text": "tranquilo",
+        "note": "Say tranquilo slowly first, then repeat it in the sentence: Estoy tranquilo."
+      },
+      {
+        "text": "tranquila",
+        "note": "Say tranquila slowly first, then repeat it in the sentence: Estoy tranquila."
+      }
+    ]
+  },
+  "culture": {
+    "title": "Emotions in real life",
+    "text": "Spanish conversations often include checking on people. Carlos teaches simple emotional honesty without over-sharing."
+  },
+  "nativeSpeech": {
+    "title": "Carlos native speaker tips",
+    "notes": [
+      "Que tal? can ask how someone is feeling in a casual way.",
+      "Estoy bien can mean I am okay, not only physically well.",
+      "Un poco makes feelings softer and more natural."
+    ]
+  },
+  "nativeExpressions": [
+    "Que tal? can ask how someone is feeling in a casual way.",
+    "Estoy bien can mean I am okay, not only physically well.",
+    "Un poco makes feelings softer and more natural."
+  ],
+  "commonMistakes": [
+    {
+      "mistake": "Saying soy feliz for temporary mood.",
+      "correction": "Say estoy feliz for how you feel now.",
+      "explanation": "Emotions often use estar."
+    },
+    {
+      "mistake": "Forgetting gender agreement.",
+      "correction": "Say cansado/cansada, nervioso/nerviosa.",
+      "explanation": "Many feeling words change by gender."
+    },
+    {
+      "mistake": "Using por que instead of porque in answers.",
+      "correction": "Use porque for because.",
+      "explanation": "Porque gives a reason."
+    }
+  ],
+  "quiz": [
+    {
+      "type": "multipleChoice",
+      "prompt": "What does feliz mean?",
+      "options": [
+        "happy",
+        "happy/content",
+        "happy/content",
+        "sad"
+      ],
+      "answer": "happy"
+    },
+    {
+      "type": "multipleChoice",
+      "prompt": "What does contento mean?",
+      "options": [
+        "happy/content",
+        "happy/content",
+        "sad",
+        "tired"
+      ],
+      "answer": "happy/content"
+    },
+    {
+      "type": "multipleChoice",
+      "prompt": "What does contenta mean?",
+      "options": [
+        "happy/content",
+        "sad",
+        "tired",
+        "tired"
+      ],
+      "answer": "happy/content"
+    },
+    {
+      "type": "multipleChoice",
+      "prompt": "What does triste mean?",
+      "options": [
+        "sad",
+        "tired",
+        "tired",
+        "nervous"
+      ],
+      "answer": "sad"
+    },
+    {
+      "type": "multipleChoice",
+      "prompt": "What does cansado mean?",
+      "options": [
+        "tired",
+        "tired",
+        "nervous",
+        "nervous"
+      ],
+      "answer": "tired"
+    },
+    {
+      "type": "multipleChoice",
+      "prompt": "What does cansada mean?",
+      "options": [
+        "tired",
+        "nervous",
+        "nervous",
+        "calm"
+      ],
+      "answer": "tired"
+    },
+    {
+      "type": "multipleChoice",
+      "prompt": "What does nervioso mean?",
+      "options": [
+        "nervous",
+        "nervous",
+        "calm",
+        "calm"
+      ],
+      "answer": "nervous"
+    },
+    {
+      "type": "multipleChoice",
+      "prompt": "What does nerviosa mean?",
+      "options": [
+        "nervous",
+        "calm",
+        "calm",
+        "excited"
+      ],
+      "answer": "nervous"
+    },
+    {
+      "type": "multipleChoice",
+      "prompt": "What does tranquilo mean?",
+      "options": [
+        "calm",
+        "calm",
+        "excited",
+        "excited"
+      ],
+      "answer": "calm"
+    },
+    {
+      "type": "multipleChoice",
+      "prompt": "What does tranquila mean?",
+      "options": [
+        "calm",
+        "excited",
+        "excited",
+        "worried"
+      ],
+      "answer": "calm"
+    },
+    {
+      "type": "multipleChoice",
+      "prompt": "What does emocionado mean?",
+      "options": [
+        "excited",
+        "excited",
+        "worried",
+        "worried"
+      ],
+      "answer": "excited"
+    },
+    {
+      "type": "multipleChoice",
+      "prompt": "What does emocionada mean?",
+      "options": [
+        "excited",
+        "worried",
+        "worried",
+        "angry"
+      ],
+      "answer": "excited"
+    },
+    {
+      "type": "translation",
+      "prompt": "Translate: Estoy feliz.",
+      "answer": "I am happy."
+    },
+    {
+      "type": "translation",
+      "prompt": "Translate: Estoy contento.",
+      "answer": "I am happy."
+    },
+    {
+      "type": "multipleChoice",
+      "prompt": "Which phrase belongs in Emotions?",
+      "options": [
+        "contenta",
+        "mi suegra",
+        "buenos dias",
+        "un boleto"
+      ],
+      "answer": "contenta"
+    }
+  ],
+  "speakingChallenge": [
+    {
+      "prompt": "Carlos asks you to use feliz in a real sentence.",
+      "exampleAnswer": "Estoy feliz."
+    },
+    {
+      "prompt": "Carlos asks you to use contento in a real sentence.",
+      "exampleAnswer": "Estoy contento."
+    },
+    {
+      "prompt": "Carlos asks you to use contenta in a real sentence.",
+      "exampleAnswer": "Estoy contenta."
+    },
+    {
+      "prompt": "Carlos asks you to use triste in a real sentence.",
+      "exampleAnswer": "Estoy triste."
+    },
+    {
+      "prompt": "Carlos asks you to use cansado in a real sentence.",
+      "exampleAnswer": "Estoy cansado."
+    }
+  ],
+  "realLifeMission": {
+    "title": "Real Life Mission",
+    "mission": "Check in with Carlos. Say how you feel today, ask how he feels, and explain your feeling with porque.",
+    "successCriteria": [
+      "Use at least six words from this lesson.",
+      "Use one phrase recycled from a previous lesson.",
+      "Ask Carlos at least one question.",
+      "Respond naturally with a short follow-up sentence."
+    ],
+    "suggestedPartner": "Carlos",
+    "xpReward": 10
+  },
+  "review": {
+    "recap": [
+      "Carlos reviewed emotions vocabulary.",
+      "You practiced Estar with emotions and porque.",
+      "You connected this lesson to earlier A1 survival conversations."
+    ],
+    "canDo": [
+      "Share simple emotions, explain why, and respond kindly to others.",
+      "Ask and answer simple everyday questions.",
+      "Repair the conversation with a short polite phrase if needed."
+    ]
+  },
+  "achievementsUnlocked": [],
+  "xpReward": 80,
+  "nextLesson": "lesson-20-everyday-life-review"
+}

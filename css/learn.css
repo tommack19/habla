@@ -626,3 +626,129 @@
   from { opacity: 0; transform: translateY(4px); }
   to { opacity: 1; transform: none; }
 }
+
+/* HABLA DESIGN SYSTEM V1 - LEARN POLISH */
+#dashboard.learn-page {
+  padding: 24px var(--habla-page-pad-x, 16px) calc(var(--habla-bottom-nav-h, 76px) + 32px);
+}
+
+.learn-screen {
+  gap: 24px;
+}
+
+.learn-header {
+  padding-top: 0;
+}
+
+.learn-header h1 {
+  font-size: clamp(2.15rem, 11vw, 3rem);
+  letter-spacing: 0;
+}
+
+.learn-card-grid,
+.learn-vocab-grid,
+.grammar-grid,
+.roadmap-list {
+  gap: 16px;
+}
+
+.learn-card-grid,
+.learn-vocab-grid,
+.grammar-grid,
+.roadmap-list,
+.lesson-metrics,
+.lesson-preview-list,
+.module-list {
+  min-width: 0;
+}
+
+.learn-card,
+.learn-panel,
+.current-lesson-card,
+.learn-vocab-card,
+.grammar-card,
+.roadmap-card {
+  border-radius: var(--habla-radius-card, 24px);
+  border-color: var(--habla-border, rgba(244, 190, 88, 0.18));
+  background:
+    linear-gradient(180deg, rgba(18, 28, 40, 0.94), rgba(7, 13, 20, 0.9));
+  box-shadow: var(--habla-shadow-card, 0 24px 70px rgba(0, 0, 0, 0.32));
+}
+
+.learn-card {
+  min-height: 96px;
+  padding: 16px;
+  overflow: hidden;
+}
+
+.learn-card-icon,
+.pronounce-btn {
+  border-radius: 16px;
+  border-color: rgba(244, 190, 88, 0.3);
+  background:
+    radial-gradient(circle at 35% 25%, rgba(244, 190, 88, 0.26), transparent 44%),
+    rgba(5, 10, 16, 0.76);
+  color: var(--habla-gold, var(--gold));
+}
+
+.current-lesson-card,
+.learn-panel {
+  padding: 20px;
+}
+
+.section-heading {
+  margin-bottom: 16px;
+}
+
+.section-heading h2,
+.learn-card h2 {
+  font-size: clamp(1rem, 4.5vw, 1.2rem);
+  line-height: 1.16;
+  overflow-wrap: anywhere;
+}
+
+.learn-card p,
+.learn-vocab-card p,
+.roadmap-card p,
+.grammar-card p,
+.example-row span {
+  overflow-wrap: anywhere;
+}
+
+.lesson-status,
+.lesson-metrics div,
+.lesson-preview-list div,
+.module-list div {
+  border-radius: 16px;
+  border-color: var(--habla-border, rgba(244, 190, 88, 0.18));
+}
+
+.vocab-category-row,
+.lesson-actions {
+  gap: 8px;
+}
+
+.vocab-category-row label,
+.lesson-actions button {
+  min-height: 44px;
+  border-radius: 14px;
+}
+
+.pronounce-btn {
+  min-height: 36px;
+  min-width: 36px;
+}
+
+@media (max-width: 430px) {
+  .lesson-metrics {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 380px) {
+  .learn-card,
+  .current-lesson-card,
+  .learn-panel {
+    padding: 16px;
+  }
+}

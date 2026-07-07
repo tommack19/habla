@@ -1,0 +1,1051 @@
+{
+  "id": "lesson-12-clothing",
+  "title": "Clothing: Choosing What to Wear",
+  "level": "A1",
+  "module": "Clothing",
+  "estimatedMinutes": 30,
+  "prerequisiteLesson": "lesson-11-weather",
+  "imagePath": "assets/images/lessons/lesson-12-clothing.png",
+  "objectives": [
+    "Describe clothing, colors, sizes, and what you wear in different weather.",
+    "Use 25 or more clothing words and phrases in short sentences.",
+    "Recycle greetings, time, family, weather, food, work, health, and emotion phrases from earlier lessons.",
+    "Complete a realistic practice mission with Carlos."
+  ],
+  "vocabularyCategories": [
+    "clothing",
+    "colors",
+    "sizes",
+    "shopping"
+  ],
+  "vocabulary": [
+    {
+      "spanish": "la ropa",
+      "english": "clothes",
+      "partOfSpeech": "noun",
+      "tip": "General word for clothes.",
+      "exampleSpanish": "Mi ropa esta limpia.",
+      "exampleEnglish": "My clothes are clean."
+    },
+    {
+      "spanish": "la camisa",
+      "english": "shirt",
+      "partOfSpeech": "noun",
+      "tip": "Usually a button-up shirt.",
+      "exampleSpanish": "Llevo una camisa azul.",
+      "exampleEnglish": "I am wearing a blue shirt."
+    },
+    {
+      "spanish": "la camiseta",
+      "english": "t-shirt",
+      "partOfSpeech": "noun",
+      "tip": "Casual shirt.",
+      "exampleSpanish": "Uso una camiseta verde.",
+      "exampleEnglish": "I wear a green t-shirt."
+    },
+    {
+      "spanish": "los pantalones",
+      "english": "pants",
+      "partOfSpeech": "noun",
+      "tip": "Always plural in Spanish.",
+      "exampleSpanish": "Los pantalones son comodos.",
+      "exampleEnglish": "The pants are comfortable."
+    },
+    {
+      "spanish": "los jeans",
+      "english": "jeans",
+      "partOfSpeech": "noun",
+      "tip": "Common borrowed word.",
+      "exampleSpanish": "Mis jeans son negros.",
+      "exampleEnglish": "My jeans are black."
+    },
+    {
+      "spanish": "el vestido",
+      "english": "dress",
+      "partOfSpeech": "noun",
+      "tip": "A dress.",
+      "exampleSpanish": "El vestido es bonito.",
+      "exampleEnglish": "The dress is pretty."
+    },
+    {
+      "spanish": "la falda",
+      "english": "skirt",
+      "partOfSpeech": "noun",
+      "tip": "A skirt.",
+      "exampleSpanish": "La falda es roja.",
+      "exampleEnglish": "The skirt is red."
+    },
+    {
+      "spanish": "la chaqueta",
+      "english": "jacket",
+      "partOfSpeech": "noun",
+      "tip": "Useful with weather.",
+      "exampleSpanish": "Necesito una chaqueta.",
+      "exampleEnglish": "I need a jacket."
+    },
+    {
+      "spanish": "el abrigo",
+      "english": "coat",
+      "partOfSpeech": "noun",
+      "tip": "Warmer than a jacket.",
+      "exampleSpanish": "El abrigo es grande.",
+      "exampleEnglish": "The coat is big."
+    },
+    {
+      "spanish": "los zapatos",
+      "english": "shoes",
+      "partOfSpeech": "noun",
+      "tip": "Plural.",
+      "exampleSpanish": "Mis zapatos son comodos.",
+      "exampleEnglish": "My shoes are comfortable."
+    },
+    {
+      "spanish": "los tenis",
+      "english": "sneakers",
+      "partOfSpeech": "noun",
+      "tip": "Very common in Mexico.",
+      "exampleSpanish": "Uso tenis para caminar.",
+      "exampleEnglish": "I wear sneakers to walk."
+    },
+    {
+      "spanish": "las botas",
+      "english": "boots",
+      "partOfSpeech": "noun",
+      "tip": "Good for rain or cold.",
+      "exampleSpanish": "Las botas son nuevas.",
+      "exampleEnglish": "The boots are new."
+    },
+    {
+      "spanish": "el sombrero",
+      "english": "hat",
+      "partOfSpeech": "noun",
+      "tip": "General hat.",
+      "exampleSpanish": "El sombrero es cafe.",
+      "exampleEnglish": "The hat is brown."
+    },
+    {
+      "spanish": "la gorra",
+      "english": "cap",
+      "partOfSpeech": "noun",
+      "tip": "Baseball cap.",
+      "exampleSpanish": "Uso una gorra negra.",
+      "exampleEnglish": "I wear a black cap."
+    },
+    {
+      "spanish": "los calcetines",
+      "english": "socks",
+      "partOfSpeech": "noun",
+      "tip": "Spain also says calcetines.",
+      "exampleSpanish": "Mis calcetines son blancos.",
+      "exampleEnglish": "My socks are white."
+    },
+    {
+      "spanish": "la talla",
+      "english": "size",
+      "partOfSpeech": "noun",
+      "tip": "Clothing size.",
+      "exampleSpanish": "Que talla necesita?",
+      "exampleEnglish": "What size do you need?"
+    },
+    {
+      "spanish": "pequeno",
+      "english": "small",
+      "partOfSpeech": "adjective",
+      "tip": "Masculine form.",
+      "exampleSpanish": "El abrigo es pequeno.",
+      "exampleEnglish": "The coat is small."
+    },
+    {
+      "spanish": "pequena",
+      "english": "small",
+      "partOfSpeech": "adjective",
+      "tip": "Feminine form.",
+      "exampleSpanish": "La camisa es pequena.",
+      "exampleEnglish": "The shirt is small."
+    },
+    {
+      "spanish": "mediano",
+      "english": "medium",
+      "partOfSpeech": "adjective",
+      "tip": "Size word.",
+      "exampleSpanish": "Necesito mediano.",
+      "exampleEnglish": "I need medium."
+    },
+    {
+      "spanish": "grande",
+      "english": "large",
+      "partOfSpeech": "adjective",
+      "tip": "Same form for masculine/feminine.",
+      "exampleSpanish": "La talla grande esta aqui.",
+      "exampleEnglish": "The large size is here."
+    },
+    {
+      "spanish": "comodo",
+      "english": "comfortable",
+      "partOfSpeech": "adjective",
+      "tip": "Masculine form.",
+      "exampleSpanish": "El pantalon es comodo.",
+      "exampleEnglish": "The pants are comfortable."
+    },
+    {
+      "spanish": "comoda",
+      "english": "comfortable",
+      "partOfSpeech": "adjective",
+      "tip": "Feminine form.",
+      "exampleSpanish": "La camisa es comoda.",
+      "exampleEnglish": "The shirt is comfortable."
+    },
+    {
+      "spanish": "barato",
+      "english": "cheap",
+      "partOfSpeech": "adjective",
+      "tip": "Good for shopping.",
+      "exampleSpanish": "El sombrero es barato.",
+      "exampleEnglish": "The hat is cheap."
+    },
+    {
+      "spanish": "caro",
+      "english": "expensive",
+      "partOfSpeech": "adjective",
+      "tip": "Use before deciding.",
+      "exampleSpanish": "El abrigo es caro.",
+      "exampleEnglish": "The coat is expensive."
+    },
+    {
+      "spanish": "probarse",
+      "english": "to try on",
+      "partOfSpeech": "verb",
+      "tip": "Reflexive verb.",
+      "exampleSpanish": "Quiero probarme la camisa.",
+      "exampleEnglish": "I want to try on the shirt."
+    },
+    {
+      "spanish": "llevar",
+      "english": "to wear/carry",
+      "partOfSpeech": "verb",
+      "tip": "Use for wearing clothes.",
+      "exampleSpanish": "Llevo una chaqueta.",
+      "exampleEnglish": "I am wearing a jacket."
+    }
+  ],
+  "textbookPhrases": [
+    {
+      "meaning": "What size are you?",
+      "phrase": "Que talla es usted?"
+    },
+    {
+      "meaning": "I wear medium.",
+      "phrase": "Uso talla mediana."
+    },
+    {
+      "meaning": "Can I try it on?",
+      "phrase": "Puedo probarmelo?"
+    },
+    {
+      "meaning": "It is too expensive.",
+      "phrase": "Es demasiado caro."
+    },
+    {
+      "meaning": "I like this shirt.",
+      "phrase": "Me gusta esta camisa."
+    }
+  ],
+  "naturalEverydayPhrases": [
+    {
+      "meaning": "What size are you?",
+      "phrase": "Que talla eres?"
+    },
+    {
+      "meaning": "I wear medium.",
+      "phrase": "Soy mediana."
+    },
+    {
+      "meaning": "Can I try it on?",
+      "phrase": "Me lo puedo probar?"
+    },
+    {
+      "meaning": "It is too expensive.",
+      "phrase": "Esta muy caro."
+    },
+    {
+      "meaning": "I like this shirt.",
+      "phrase": "Me gusta esta camisa."
+    }
+  ],
+  "mexicanSpanishVariants": [
+    {
+      "meaning": "What size are you?",
+      "phrase": "Que talla eres?"
+    },
+    {
+      "meaning": "I wear medium.",
+      "phrase": "Soy mediana."
+    },
+    {
+      "meaning": "Can I try it on?",
+      "phrase": "Me lo puedo probar?"
+    },
+    {
+      "meaning": "It is too expensive.",
+      "phrase": "Esta muy caro."
+    },
+    {
+      "meaning": "I like this shirt.",
+      "phrase": "Me late esta camisa."
+    }
+  ],
+  "spainSpanishVariants": [
+    {
+      "meaning": "What size are you?",
+      "phrase": "Que talla tienes?"
+    },
+    {
+      "meaning": "I wear medium.",
+      "phrase": "Uso una mediana."
+    },
+    {
+      "meaning": "Can I try it on?",
+      "phrase": "Puedo probarmelo?"
+    },
+    {
+      "meaning": "It is too expensive.",
+      "phrase": "Es muy caro."
+    },
+    {
+      "meaning": "I like this shirt.",
+      "phrase": "Me gusta esta camisa."
+    }
+  ],
+  "phraseVariants": [
+    {
+      "meaning": "What size are you?",
+      "textbookVersion": "Que talla es usted?",
+      "naturalEverydayVersion": "Que talla eres?",
+      "mexicanSpanishVersion": "Que talla eres?",
+      "spainSpanishVersion": "Que talla tienes?",
+      "whenUsed": "Carlos shows the textbook version first, then the natural version learners are likely to hear in everyday speech."
+    },
+    {
+      "meaning": "I wear medium.",
+      "textbookVersion": "Uso talla mediana.",
+      "naturalEverydayVersion": "Soy mediana.",
+      "mexicanSpanishVersion": "Soy mediana.",
+      "spainSpanishVersion": "Uso una mediana.",
+      "whenUsed": "Carlos shows the textbook version first, then the natural version learners are likely to hear in everyday speech."
+    },
+    {
+      "meaning": "Can I try it on?",
+      "textbookVersion": "Puedo probarmelo?",
+      "naturalEverydayVersion": "Me lo puedo probar?",
+      "mexicanSpanishVersion": "Me lo puedo probar?",
+      "spainSpanishVersion": "Puedo probarmelo?",
+      "whenUsed": "Carlos shows the textbook version first, then the natural version learners are likely to hear in everyday speech."
+    },
+    {
+      "meaning": "It is too expensive.",
+      "textbookVersion": "Es demasiado caro.",
+      "naturalEverydayVersion": "Esta muy caro.",
+      "mexicanSpanishVersion": "Esta muy caro.",
+      "spainSpanishVersion": "Es muy caro.",
+      "whenUsed": "Carlos shows the textbook version first, then the natural version learners are likely to hear in everyday speech."
+    },
+    {
+      "meaning": "I like this shirt.",
+      "textbookVersion": "Me gusta esta camisa.",
+      "naturalEverydayVersion": "Me gusta esta camisa.",
+      "mexicanSpanishVersion": "Me late esta camisa.",
+      "spainSpanishVersion": "Me gusta esta camisa.",
+      "whenUsed": "Carlos shows the textbook version first, then the natural version learners are likely to hear in everyday speech."
+    }
+  ],
+  "grammar": {
+    "topic": "Llevar, usar, and adjective agreement",
+    "explanation": "Use llevo or uso to say what you wear. Clothing words are masculine or feminine, and color adjectives usually match number and gender.",
+    "examples": [
+      {
+        "spanish": "Llevo una camisa blanca.",
+        "english": "I am wearing a white shirt."
+      },
+      {
+        "spanish": "Uso zapatos negros.",
+        "english": "I wear black shoes."
+      },
+      {
+        "spanish": "La chaqueta es pequena.",
+        "english": "The jacket is small."
+      }
+    ],
+    "practicePrompt": "Tell Carlos what you are wearing today and whether it matches the weather."
+  },
+  "dialogue": [
+    {
+      "title": "Warmup with Carlos",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Practiquemos clothing: la ropa.",
+          "english": "Let's practice clothing: clothes."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "Los pantalones son comodos.",
+          "english": "The pants are comfortable."
+        }
+      ]
+    },
+    {
+      "title": "Real-world question",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Practiquemos clothing: la camisa.",
+          "english": "Let's practice clothing: shirt."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "Mis jeans son negros.",
+          "english": "My jeans are black."
+        }
+      ]
+    },
+    {
+      "title": "Using old vocabulary",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Practiquemos clothing: la camiseta.",
+          "english": "Let's practice clothing: t-shirt."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "El vestido es bonito.",
+          "english": "The dress is pretty."
+        }
+      ]
+    },
+    {
+      "title": "Making a plan",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Practiquemos clothing: los pantalones.",
+          "english": "Let's practice clothing: pants."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "La falda es roja.",
+          "english": "The skirt is red."
+        }
+      ]
+    },
+    {
+      "title": "Asking for help",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Practiquemos clothing: los jeans.",
+          "english": "Let's practice clothing: jeans."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "Necesito una chaqueta.",
+          "english": "I need a jacket."
+        }
+      ]
+    },
+    {
+      "title": "Polite correction",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Practiquemos clothing: el vestido.",
+          "english": "Let's practice clothing: dress."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "El abrigo es grande.",
+          "english": "The coat is big."
+        }
+      ]
+    },
+    {
+      "title": "With family",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Practiquemos clothing: la falda.",
+          "english": "Let's practice clothing: skirt."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "Mis zapatos son comodos.",
+          "english": "My shoes are comfortable."
+        }
+      ]
+    },
+    {
+      "title": "At work or school",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Practiquemos clothing: la chaqueta.",
+          "english": "Let's practice clothing: jacket."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "Uso tenis para caminar.",
+          "english": "I wear sneakers to walk."
+        }
+      ]
+    },
+    {
+      "title": "Travel moment",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Practiquemos clothing: el abrigo.",
+          "english": "Let's practice clothing: coat."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "Las botas son nuevas.",
+          "english": "The boots are new."
+        }
+      ]
+    },
+    {
+      "title": "Wrap-up challenge",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Practiquemos clothing: los zapatos.",
+          "english": "Let's practice clothing: shoes."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "El sombrero es cafe.",
+          "english": "The hat is brown."
+        }
+      ]
+    }
+  ],
+  "dialogues": [
+    {
+      "title": "Warmup with Carlos",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Practiquemos clothing: la ropa.",
+          "english": "Let's practice clothing: clothes."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "Los pantalones son comodos.",
+          "english": "The pants are comfortable."
+        }
+      ]
+    },
+    {
+      "title": "Real-world question",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Practiquemos clothing: la camisa.",
+          "english": "Let's practice clothing: shirt."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "Mis jeans son negros.",
+          "english": "My jeans are black."
+        }
+      ]
+    },
+    {
+      "title": "Using old vocabulary",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Practiquemos clothing: la camiseta.",
+          "english": "Let's practice clothing: t-shirt."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "El vestido es bonito.",
+          "english": "The dress is pretty."
+        }
+      ]
+    },
+    {
+      "title": "Making a plan",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Practiquemos clothing: los pantalones.",
+          "english": "Let's practice clothing: pants."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "La falda es roja.",
+          "english": "The skirt is red."
+        }
+      ]
+    },
+    {
+      "title": "Asking for help",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Practiquemos clothing: los jeans.",
+          "english": "Let's practice clothing: jeans."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "Necesito una chaqueta.",
+          "english": "I need a jacket."
+        }
+      ]
+    },
+    {
+      "title": "Polite correction",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Practiquemos clothing: el vestido.",
+          "english": "Let's practice clothing: dress."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "El abrigo es grande.",
+          "english": "The coat is big."
+        }
+      ]
+    },
+    {
+      "title": "With family",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Practiquemos clothing: la falda.",
+          "english": "Let's practice clothing: skirt."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "Mis zapatos son comodos.",
+          "english": "My shoes are comfortable."
+        }
+      ]
+    },
+    {
+      "title": "At work or school",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Practiquemos clothing: la chaqueta.",
+          "english": "Let's practice clothing: jacket."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "Uso tenis para caminar.",
+          "english": "I wear sneakers to walk."
+        }
+      ]
+    },
+    {
+      "title": "Travel moment",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Practiquemos clothing: el abrigo.",
+          "english": "Let's practice clothing: coat."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "Las botas son nuevas.",
+          "english": "The boots are new."
+        }
+      ]
+    },
+    {
+      "title": "Wrap-up challenge",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Practiquemos clothing: los zapatos.",
+          "english": "Let's practice clothing: shoes."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "El sombrero es cafe.",
+          "english": "The hat is brown."
+        }
+      ]
+    }
+  ],
+  "listeningPhrases": [
+    {
+      "spanish": "Mi ropa esta limpia.",
+      "english": "My clothes are clean."
+    },
+    {
+      "spanish": "Llevo una camisa azul.",
+      "english": "I am wearing a blue shirt."
+    },
+    {
+      "spanish": "Uso una camiseta verde.",
+      "english": "I wear a green t-shirt."
+    },
+    {
+      "spanish": "Los pantalones son comodos.",
+      "english": "The pants are comfortable."
+    },
+    {
+      "spanish": "Mis jeans son negros.",
+      "english": "My jeans are black."
+    },
+    {
+      "spanish": "El vestido es bonito.",
+      "english": "The dress is pretty."
+    },
+    {
+      "spanish": "La falda es roja.",
+      "english": "The skirt is red."
+    },
+    {
+      "spanish": "Necesito una chaqueta.",
+      "english": "I need a jacket."
+    },
+    {
+      "spanish": "El abrigo es grande.",
+      "english": "The coat is big."
+    },
+    {
+      "spanish": "Mis zapatos son comodos.",
+      "english": "My shoes are comfortable."
+    }
+  ],
+  "listening": [
+    {
+      "spanish": "Mi ropa esta limpia.",
+      "english": "My clothes are clean."
+    },
+    {
+      "spanish": "Llevo una camisa azul.",
+      "english": "I am wearing a blue shirt."
+    },
+    {
+      "spanish": "Uso una camiseta verde.",
+      "english": "I wear a green t-shirt."
+    },
+    {
+      "spanish": "Los pantalones son comodos.",
+      "english": "The pants are comfortable."
+    },
+    {
+      "spanish": "Mis jeans son negros.",
+      "english": "My jeans are black."
+    },
+    {
+      "spanish": "El vestido es bonito.",
+      "english": "The dress is pretty."
+    },
+    {
+      "spanish": "La falda es roja.",
+      "english": "The skirt is red."
+    },
+    {
+      "spanish": "Necesito una chaqueta.",
+      "english": "I need a jacket."
+    },
+    {
+      "spanish": "El abrigo es grande.",
+      "english": "The coat is big."
+    },
+    {
+      "spanish": "Mis zapatos son comodos.",
+      "english": "My shoes are comfortable."
+    }
+  ],
+  "pronunciation": {
+    "focus": "Carlos helps you practice clear rhythm and useful sounds for clothing.",
+    "items": [
+      {
+        "text": "la ropa",
+        "note": "Say la ropa slowly first, then repeat it in the sentence: Mi ropa esta limpia."
+      },
+      {
+        "text": "la camisa",
+        "note": "Say la camisa slowly first, then repeat it in the sentence: Llevo una camisa azul."
+      },
+      {
+        "text": "la camiseta",
+        "note": "Say la camiseta slowly first, then repeat it in the sentence: Uso una camiseta verde."
+      },
+      {
+        "text": "los pantalones",
+        "note": "Say los pantalones slowly first, then repeat it in the sentence: Los pantalones son comodos."
+      },
+      {
+        "text": "los jeans",
+        "note": "Say los jeans slowly first, then repeat it in the sentence: Mis jeans son negros."
+      },
+      {
+        "text": "el vestido",
+        "note": "Say el vestido slowly first, then repeat it in the sentence: El vestido es bonito."
+      },
+      {
+        "text": "la falda",
+        "note": "Say la falda slowly first, then repeat it in the sentence: La falda es roja."
+      },
+      {
+        "text": "la chaqueta",
+        "note": "Say la chaqueta slowly first, then repeat it in the sentence: Necesito una chaqueta."
+      },
+      {
+        "text": "el abrigo",
+        "note": "Say el abrigo slowly first, then repeat it in the sentence: El abrigo es grande."
+      },
+      {
+        "text": "los zapatos",
+        "note": "Say los zapatos slowly first, then repeat it in the sentence: Mis zapatos son comodos."
+      }
+    ]
+  },
+  "culture": {
+    "title": "Clothing in real life",
+    "text": "Clothing sizes vary by country and store. Carlos recommends learning talla and probarse before shopping."
+  },
+  "nativeSpeech": {
+    "title": "Carlos native speaker tips",
+    "notes": [
+      "In Mexico, tenis often means sneakers.",
+      "In Spain, camiseta is common for t-shirt.",
+      "Esta muy caro is common in Mexico when reacting to a price."
+    ]
+  },
+  "nativeExpressions": [
+    "In Mexico, tenis often means sneakers.",
+    "In Spain, camiseta is common for t-shirt.",
+    "Esta muy caro is common in Mexico when reacting to a price."
+  ],
+  "commonMistakes": [
+    {
+      "mistake": "Saying la pantalones.",
+      "correction": "Say los pantalones.",
+      "explanation": "Pantalones is plural masculine."
+    },
+    {
+      "mistake": "Forgetting adjective agreement.",
+      "correction": "Say camisa blanca, zapatos negros.",
+      "explanation": "Colors often match gender and number."
+    },
+    {
+      "mistake": "Using vestir for every clothing sentence.",
+      "correction": "Use llevo or uso for beginner everyday speech.",
+      "explanation": "They are simpler and very common."
+    }
+  ],
+  "quiz": [
+    {
+      "type": "multipleChoice",
+      "prompt": "What does la ropa mean?",
+      "options": [
+        "clothes",
+        "shirt",
+        "t-shirt",
+        "pants"
+      ],
+      "answer": "clothes"
+    },
+    {
+      "type": "multipleChoice",
+      "prompt": "What does la camisa mean?",
+      "options": [
+        "shirt",
+        "t-shirt",
+        "pants",
+        "jeans"
+      ],
+      "answer": "shirt"
+    },
+    {
+      "type": "multipleChoice",
+      "prompt": "What does la camiseta mean?",
+      "options": [
+        "t-shirt",
+        "pants",
+        "jeans",
+        "dress"
+      ],
+      "answer": "t-shirt"
+    },
+    {
+      "type": "multipleChoice",
+      "prompt": "What does los pantalones mean?",
+      "options": [
+        "pants",
+        "jeans",
+        "dress",
+        "skirt"
+      ],
+      "answer": "pants"
+    },
+    {
+      "type": "multipleChoice",
+      "prompt": "What does los jeans mean?",
+      "options": [
+        "jeans",
+        "dress",
+        "skirt",
+        "jacket"
+      ],
+      "answer": "jeans"
+    },
+    {
+      "type": "multipleChoice",
+      "prompt": "What does el vestido mean?",
+      "options": [
+        "dress",
+        "skirt",
+        "jacket",
+        "coat"
+      ],
+      "answer": "dress"
+    },
+    {
+      "type": "multipleChoice",
+      "prompt": "What does la falda mean?",
+      "options": [
+        "skirt",
+        "jacket",
+        "coat",
+        "shoes"
+      ],
+      "answer": "skirt"
+    },
+    {
+      "type": "multipleChoice",
+      "prompt": "What does la chaqueta mean?",
+      "options": [
+        "jacket",
+        "coat",
+        "shoes",
+        "sneakers"
+      ],
+      "answer": "jacket"
+    },
+    {
+      "type": "multipleChoice",
+      "prompt": "What does el abrigo mean?",
+      "options": [
+        "coat",
+        "shoes",
+        "sneakers",
+        "boots"
+      ],
+      "answer": "coat"
+    },
+    {
+      "type": "multipleChoice",
+      "prompt": "What does los zapatos mean?",
+      "options": [
+        "shoes",
+        "sneakers",
+        "boots",
+        "hat"
+      ],
+      "answer": "shoes"
+    },
+    {
+      "type": "multipleChoice",
+      "prompt": "What does los tenis mean?",
+      "options": [
+        "sneakers",
+        "boots",
+        "hat",
+        "cap"
+      ],
+      "answer": "sneakers"
+    },
+    {
+      "type": "multipleChoice",
+      "prompt": "What does las botas mean?",
+      "options": [
+        "boots",
+        "hat",
+        "cap",
+        "socks"
+      ],
+      "answer": "boots"
+    },
+    {
+      "type": "translation",
+      "prompt": "Translate: Mi ropa esta limpia.",
+      "answer": "My clothes are clean."
+    },
+    {
+      "type": "translation",
+      "prompt": "Translate: Llevo una camisa azul.",
+      "answer": "I am wearing a blue shirt."
+    },
+    {
+      "type": "multipleChoice",
+      "prompt": "Which phrase belongs in Clothing?",
+      "options": [
+        "la camiseta",
+        "mi suegra",
+        "buenos dias",
+        "un boleto"
+      ],
+      "answer": "la camiseta"
+    }
+  ],
+  "speakingChallenge": [
+    {
+      "prompt": "Carlos asks you to use la ropa in a real sentence.",
+      "exampleAnswer": "Mi ropa esta limpia."
+    },
+    {
+      "prompt": "Carlos asks you to use la camisa in a real sentence.",
+      "exampleAnswer": "Llevo una camisa azul."
+    },
+    {
+      "prompt": "Carlos asks you to use la camiseta in a real sentence.",
+      "exampleAnswer": "Uso una camiseta verde."
+    },
+    {
+      "prompt": "Carlos asks you to use los pantalones in a real sentence.",
+      "exampleAnswer": "Los pantalones son comodos."
+    },
+    {
+      "prompt": "Carlos asks you to use los jeans in a real sentence.",
+      "exampleAnswer": "Mis jeans son negros."
+    }
+  ],
+  "realLifeMission": {
+    "title": "Real Life Mission",
+    "mission": "Go shopping with Carlos. Describe what you want, ask for a size, and say whether the item is comfortable or expensive.",
+    "successCriteria": [
+      "Use at least six words from this lesson.",
+      "Use one phrase recycled from a previous lesson.",
+      "Ask Carlos at least one question.",
+      "Respond naturally with a short follow-up sentence."
+    ],
+    "suggestedPartner": "Carlos",
+    "xpReward": 10
+  },
+  "review": {
+    "recap": [
+      "Carlos reviewed clothing vocabulary.",
+      "You practiced Llevar, usar, and adjective agreement.",
+      "You connected this lesson to earlier A1 survival conversations."
+    ],
+    "canDo": [
+      "Describe clothing, colors, sizes, and what you wear in different weather.",
+      "Ask and answer simple everyday questions.",
+      "Repair the conversation with a short polite phrase if needed."
+    ]
+  },
+  "achievementsUnlocked": [],
+  "xpReward": 70,
+  "nextLesson": "lesson-13-school"
+}

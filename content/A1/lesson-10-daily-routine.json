@@ -1,0 +1,834 @@
+{
+  "id": "lesson-10-daily-routine",
+  "title": "Daily Routine: Your Day in Simple Spanish",
+  "level": "A1",
+  "module": "Daily Routine",
+  "estimatedMinutes": 36,
+  "metadata": {
+    "course": "Habla",
+    "unit": "A1 Beginner",
+    "lessonNumber": 10,
+    "guide": "Carlos",
+    "imagePath": "assets/images/lessons/lesson-10-daily-routine.png"
+  },
+  "prerequisiteLesson": "lesson-09-around-the-house",
+  "objectives": [
+    "Describe a simple daily routine using common verbs, times, and sequence words.",
+    "Understand Carlos in short guided exchanges.",
+    "Use the lesson language in one realistic conversation."
+  ],
+  "objective": "Describe a simple daily routine using common verbs, times, and sequence words.",
+  "vocabulary": [
+    {
+      "spanish": "la rutina",
+      "english": "routine",
+      "partOfSpeech": "noun",
+      "tip": "Carlos tip: practice ?la rutina? in a short real sentence, not as an isolated word.",
+      "exampleSpanish": "Carlos usa la rutina en una frase.",
+      "exampleEnglish": "Carlos uses routine in a sentence."
+    },
+    {
+      "spanish": "me levanto",
+      "english": "I get up",
+      "partOfSpeech": "reflexive verb",
+      "tip": "Carlos tip: practice ?me levanto? in a short real sentence, not as an isolated word.",
+      "exampleSpanish": "Carlos usa me levanto en una frase.",
+      "exampleEnglish": "Carlos uses I get up in a sentence."
+    },
+    {
+      "spanish": "me ducho",
+      "english": "I shower",
+      "partOfSpeech": "reflexive verb",
+      "tip": "Carlos tip: practice ?me ducho? in a short real sentence, not as an isolated word.",
+      "exampleSpanish": "Carlos usa me ducho en una frase.",
+      "exampleEnglish": "Carlos uses I shower in a sentence."
+    },
+    {
+      "spanish": "me visto",
+      "english": "I get dressed",
+      "partOfSpeech": "reflexive verb",
+      "tip": "Carlos tip: practice ?me visto? in a short real sentence, not as an isolated word.",
+      "exampleSpanish": "Carlos usa me visto en una frase.",
+      "exampleEnglish": "Carlos uses I get dressed in a sentence."
+    },
+    {
+      "spanish": "desayuno",
+      "english": "I eat breakfast",
+      "partOfSpeech": "verb",
+      "tip": "Carlos tip: practice ?desayuno? in a short real sentence, not as an isolated word.",
+      "exampleSpanish": "Carlos usa desayuno en una frase.",
+      "exampleEnglish": "Carlos uses I eat breakfast in a sentence."
+    },
+    {
+      "spanish": "trabajo",
+      "english": "I work",
+      "partOfSpeech": "verb",
+      "tip": "Carlos tip: practice ?trabajo? in a short real sentence, not as an isolated word.",
+      "exampleSpanish": "Carlos usa trabajo en una frase.",
+      "exampleEnglish": "Carlos uses I work in a sentence."
+    },
+    {
+      "spanish": "estudio",
+      "english": "I study",
+      "partOfSpeech": "verb",
+      "tip": "Carlos tip: practice ?estudio? in a short real sentence, not as an isolated word.",
+      "exampleSpanish": "Carlos usa estudio en una frase.",
+      "exampleEnglish": "Carlos uses I study in a sentence."
+    },
+    {
+      "spanish": "practico",
+      "english": "I practice",
+      "partOfSpeech": "verb",
+      "tip": "Carlos tip: practice ?practico? in a short real sentence, not as an isolated word.",
+      "exampleSpanish": "Carlos usa practico en una frase.",
+      "exampleEnglish": "Carlos uses I practice in a sentence."
+    },
+    {
+      "spanish": "como",
+      "english": "I eat",
+      "partOfSpeech": "verb",
+      "tip": "Carlos tip: practice ?como? in a short real sentence, not as an isolated word.",
+      "exampleSpanish": "Carlos usa como en una frase.",
+      "exampleEnglish": "Carlos uses I eat in a sentence."
+    },
+    {
+      "spanish": "ceno",
+      "english": "I eat dinner",
+      "partOfSpeech": "verb",
+      "tip": "Carlos tip: practice ?ceno? in a short real sentence, not as an isolated word.",
+      "exampleSpanish": "Carlos usa ceno en una frase.",
+      "exampleEnglish": "Carlos uses I eat dinner in a sentence."
+    },
+    {
+      "spanish": "duermo",
+      "english": "I sleep",
+      "partOfSpeech": "verb",
+      "tip": "Carlos tip: practice ?duermo? in a short real sentence, not as an isolated word.",
+      "exampleSpanish": "Carlos usa duermo en una frase.",
+      "exampleEnglish": "Carlos uses I sleep in a sentence."
+    },
+    {
+      "spanish": "salgo",
+      "english": "I go out",
+      "partOfSpeech": "verb",
+      "tip": "Carlos tip: practice ?salgo? in a short real sentence, not as an isolated word.",
+      "exampleSpanish": "Carlos usa salgo en una frase.",
+      "exampleEnglish": "Carlos uses I go out in a sentence."
+    },
+    {
+      "spanish": "vuelvo",
+      "english": "I return",
+      "partOfSpeech": "verb",
+      "tip": "Carlos tip: practice ?vuelvo? in a short real sentence, not as an isolated word.",
+      "exampleSpanish": "Carlos usa vuelvo en una frase.",
+      "exampleEnglish": "Carlos uses I return in a sentence."
+    },
+    {
+      "spanish": "temprano",
+      "english": "early",
+      "partOfSpeech": "adverb",
+      "tip": "Carlos tip: practice ?temprano? in a short real sentence, not as an isolated word.",
+      "exampleSpanish": "Carlos usa temprano en una frase.",
+      "exampleEnglish": "Carlos uses early in a sentence."
+    },
+    {
+      "spanish": "tarde",
+      "english": "late",
+      "partOfSpeech": "adverb",
+      "tip": "Carlos tip: practice ?tarde? in a short real sentence, not as an isolated word.",
+      "exampleSpanish": "Carlos usa tarde en una frase.",
+      "exampleEnglish": "Carlos uses late in a sentence."
+    },
+    {
+      "spanish": "por la ma?ana",
+      "english": "in the morning",
+      "partOfSpeech": "time phrase",
+      "tip": "Carlos tip: practice ?por la ma?ana? in a short real sentence, not as an isolated word.",
+      "exampleSpanish": "Carlos usa por la ma?ana en una frase.",
+      "exampleEnglish": "Carlos uses in the morning in a sentence."
+    },
+    {
+      "spanish": "por la tarde",
+      "english": "in the afternoon",
+      "partOfSpeech": "time phrase",
+      "tip": "Carlos tip: practice ?por la tarde? in a short real sentence, not as an isolated word.",
+      "exampleSpanish": "Carlos usa por la tarde en una frase.",
+      "exampleEnglish": "Carlos uses in the afternoon in a sentence."
+    },
+    {
+      "spanish": "por la noche",
+      "english": "at night",
+      "partOfSpeech": "time phrase",
+      "tip": "Carlos tip: practice ?por la noche? in a short real sentence, not as an isolated word.",
+      "exampleSpanish": "Carlos usa por la noche en una frase.",
+      "exampleEnglish": "Carlos uses at night in a sentence."
+    },
+    {
+      "spanish": "primero",
+      "english": "first",
+      "partOfSpeech": "sequence word",
+      "tip": "Carlos tip: practice ?primero? in a short real sentence, not as an isolated word.",
+      "exampleSpanish": "Carlos usa primero en una frase.",
+      "exampleEnglish": "Carlos uses first in a sentence."
+    },
+    {
+      "spanish": "despu?s",
+      "english": "afterward",
+      "partOfSpeech": "sequence word",
+      "tip": "Carlos tip: practice ?despu?s? in a short real sentence, not as an isolated word.",
+      "exampleSpanish": "Carlos usa despu?s en una frase.",
+      "exampleEnglish": "Carlos uses afterward in a sentence."
+    },
+    {
+      "spanish": "luego",
+      "english": "then",
+      "partOfSpeech": "sequence word",
+      "tip": "Carlos tip: practice ?luego? in a short real sentence, not as an isolated word.",
+      "exampleSpanish": "Carlos usa luego en una frase.",
+      "exampleEnglish": "Carlos uses then in a sentence."
+    },
+    {
+      "spanish": "todos los d?as",
+      "english": "every day",
+      "partOfSpeech": "time phrase",
+      "tip": "Carlos tip: practice ?todos los d?as? in a short real sentence, not as an isolated word.",
+      "exampleSpanish": "Carlos usa todos los d?as en una frase.",
+      "exampleEnglish": "Carlos uses every day in a sentence."
+    },
+    {
+      "spanish": "a veces",
+      "english": "sometimes",
+      "partOfSpeech": "adverb",
+      "tip": "Carlos tip: practice ?a veces? in a short real sentence, not as an isolated word.",
+      "exampleSpanish": "Carlos usa a veces en una frase.",
+      "exampleEnglish": "Carlos uses sometimes in a sentence."
+    },
+    {
+      "spanish": "siempre",
+      "english": "always",
+      "partOfSpeech": "adverb",
+      "tip": "Carlos tip: practice ?siempre? in a short real sentence, not as an isolated word.",
+      "exampleSpanish": "Carlos usa siempre en una frase.",
+      "exampleEnglish": "Carlos uses always in a sentence."
+    },
+    {
+      "spanish": "nunca",
+      "english": "never",
+      "partOfSpeech": "adverb",
+      "tip": "Carlos tip: practice ?nunca? in a short real sentence, not as an isolated word.",
+      "exampleSpanish": "Carlos usa nunca en una frase.",
+      "exampleEnglish": "Carlos uses never in a sentence."
+    }
+  ],
+  "grammar": {
+    "topic": "Routine verbs and sequence words",
+    "explanation": "Use simple present verbs for routine. Add primero, despu?s, and luego to make your day sound organized.",
+    "examples": [
+      {
+        "spanish": "Primero, me levanto a las siete.",
+        "english": "First, I get up at seven."
+      },
+      {
+        "spanish": "Despu?s, desayuno con caf?.",
+        "english": "Afterward, I eat breakfast with coffee."
+      },
+      {
+        "spanish": "Por la noche, practico espa?ol.",
+        "english": "At night, I practice Spanish."
+      }
+    ],
+    "practicePrompt": "Say one original sentence using today?s pattern with Carlos."
+  },
+  "dialogue": [
+    {
+      "title": "Daily Routine with Carlos",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Vamos a practicar daily routine.",
+          "english": "Let?s practice daily routine."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "S?, quiero practicar.",
+          "english": "Yes, I want to practice."
+        },
+        {
+          "speaker": "Carlos",
+          "spanish": "Muy bien. Usa una frase completa.",
+          "english": "Very good. Use a complete sentence."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "Puedo decirlo otra vez.",
+          "english": "I can say it again."
+        }
+      ]
+    },
+    {
+      "title": "A polite real-life exchange",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Disculpe, tengo una pregunta.",
+          "english": "Excuse me, I have a question."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "Claro, con gusto.",
+          "english": "Of course, gladly."
+        },
+        {
+          "speaker": "Carlos",
+          "spanish": "Gracias por ayudarme.",
+          "english": "Thank you for helping me."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "De nada.",
+          "english": "You?re welcome."
+        }
+      ]
+    },
+    {
+      "title": "Family-friendly practice",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "?C?mo lo dices con tu familia?",
+          "english": "How do you say it with your family?"
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "Lo digo despacio y con respeto.",
+          "english": "I say it slowly and respectfully."
+        },
+        {
+          "speaker": "Carlos",
+          "spanish": "Perfecto, eso suena natural.",
+          "english": "Perfect, that sounds natural."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "Gracias, Carlos.",
+          "english": "Thanks, Carlos."
+        }
+      ]
+    }
+  ],
+  "dialogues": [
+    {
+      "title": "Daily Routine with Carlos",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Vamos a practicar daily routine.",
+          "english": "Let?s practice daily routine."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "S?, quiero practicar.",
+          "english": "Yes, I want to practice."
+        },
+        {
+          "speaker": "Carlos",
+          "spanish": "Muy bien. Usa una frase completa.",
+          "english": "Very good. Use a complete sentence."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "Puedo decirlo otra vez.",
+          "english": "I can say it again."
+        }
+      ]
+    },
+    {
+      "title": "A polite real-life exchange",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Disculpe, tengo una pregunta.",
+          "english": "Excuse me, I have a question."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "Claro, con gusto.",
+          "english": "Of course, gladly."
+        },
+        {
+          "speaker": "Carlos",
+          "spanish": "Gracias por ayudarme.",
+          "english": "Thank you for helping me."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "De nada.",
+          "english": "You?re welcome."
+        }
+      ]
+    },
+    {
+      "title": "Family-friendly practice",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "?C?mo lo dices con tu familia?",
+          "english": "How do you say it with your family?"
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "Lo digo despacio y con respeto.",
+          "english": "I say it slowly and respectfully."
+        },
+        {
+          "speaker": "Carlos",
+          "spanish": "Perfecto, eso suena natural.",
+          "english": "Perfect, that sounds natural."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "Gracias, Carlos.",
+          "english": "Thanks, Carlos."
+        }
+      ]
+    }
+  ],
+  "listening": {
+    "phrases": [
+      {
+        "spanish": "la rutina",
+        "english": "routine"
+      },
+      {
+        "spanish": "me levanto",
+        "english": "I get up"
+      },
+      {
+        "spanish": "me ducho",
+        "english": "I shower"
+      },
+      {
+        "spanish": "me visto",
+        "english": "I get dressed"
+      },
+      {
+        "spanish": "desayuno",
+        "english": "I eat breakfast"
+      },
+      {
+        "spanish": "trabajo",
+        "english": "I work"
+      },
+      {
+        "spanish": "estudio",
+        "english": "I study"
+      },
+      {
+        "spanish": "practico",
+        "english": "I practice"
+      },
+      {
+        "spanish": "como",
+        "english": "I eat"
+      },
+      {
+        "spanish": "ceno",
+        "english": "I eat dinner"
+      }
+    ]
+  },
+  "listeningPhrases": [
+    {
+      "spanish": "la rutina",
+      "english": "routine"
+    },
+    {
+      "spanish": "me levanto",
+      "english": "I get up"
+    },
+    {
+      "spanish": "me ducho",
+      "english": "I shower"
+    },
+    {
+      "spanish": "me visto",
+      "english": "I get dressed"
+    },
+    {
+      "spanish": "desayuno",
+      "english": "I eat breakfast"
+    },
+    {
+      "spanish": "trabajo",
+      "english": "I work"
+    },
+    {
+      "spanish": "estudio",
+      "english": "I study"
+    },
+    {
+      "spanish": "practico",
+      "english": "I practice"
+    },
+    {
+      "spanish": "como",
+      "english": "I eat"
+    },
+    {
+      "spanish": "ceno",
+      "english": "I eat dinner"
+    }
+  ],
+  "pronunciation": {
+    "focus": "Clear vowels, word stress, and confident phrase rhythm.",
+    "items": [
+      {
+        "text": "la rutina",
+        "note": "Say each vowel clearly and keep the rhythm natural."
+      },
+      {
+        "text": "me levanto",
+        "note": "Say each vowel clearly and keep the rhythm natural."
+      },
+      {
+        "text": "me ducho",
+        "note": "Say each vowel clearly and keep the rhythm natural."
+      },
+      {
+        "text": "me visto",
+        "note": "Say each vowel clearly and keep the rhythm natural."
+      },
+      {
+        "text": "desayuno",
+        "note": "Say each vowel clearly and keep the rhythm natural."
+      },
+      {
+        "text": "trabajo",
+        "note": "Say each vowel clearly and keep the rhythm natural."
+      },
+      {
+        "text": "estudio",
+        "note": "Say each vowel clearly and keep the rhythm natural."
+      },
+      {
+        "text": "practico",
+        "note": "Say each vowel clearly and keep the rhythm natural."
+      },
+      {
+        "text": "como",
+        "note": "Say each vowel clearly and keep the rhythm natural."
+      },
+      {
+        "text": "ceno",
+        "note": "Say each vowel clearly and keep the rhythm natural."
+      }
+    ]
+  },
+  "pronunciationExercises": [
+    {
+      "text": "la rutina",
+      "note": "Repeat after Carlos, then say it in a short phrase."
+    },
+    {
+      "text": "me levanto",
+      "note": "Repeat after Carlos, then say it in a short phrase."
+    },
+    {
+      "text": "me ducho",
+      "note": "Repeat after Carlos, then say it in a short phrase."
+    },
+    {
+      "text": "me visto",
+      "note": "Repeat after Carlos, then say it in a short phrase."
+    },
+    {
+      "text": "desayuno",
+      "note": "Repeat after Carlos, then say it in a short phrase."
+    },
+    {
+      "text": "trabajo",
+      "note": "Repeat after Carlos, then say it in a short phrase."
+    },
+    {
+      "text": "estudio",
+      "note": "Repeat after Carlos, then say it in a short phrase."
+    },
+    {
+      "text": "practico",
+      "note": "Repeat after Carlos, then say it in a short phrase."
+    },
+    {
+      "text": "como",
+      "note": "Repeat after Carlos, then say it in a short phrase."
+    },
+    {
+      "text": "ceno",
+      "note": "Repeat after Carlos, then say it in a short phrase."
+    }
+  ],
+  "culture": {
+    "title": "Daily Routine in Real Life",
+    "text": "Daily routines vary by country and family. In some places lunch is longer, dinner is later, and family time is built into the day."
+  },
+  "cultureNotes": [
+    "Daily routines vary by country and family. In some places lunch is longer, dinner is later, and family time is built into the day."
+  ],
+  "nativeSpeech": {
+    "title": "How Carlos would say it naturally",
+    "notes": [
+      "??Qu? haces en la ma?ana?? is a natural routine question.",
+      "?Normalmente? is a useful word for describing what you usually do."
+    ]
+  },
+  "commonMistakes": [
+    {
+      "mistake": "Translating I shower as ducho only",
+      "correction": "Me ducho.",
+      "explanation": "Many routine actions use me."
+    },
+    {
+      "mistake": "Using en la ma?ana everywhere",
+      "correction": "Por la ma?ana is widely understood.",
+      "explanation": "Both exist, but por la ma?ana is very common."
+    },
+    {
+      "mistake": "Listing verbs without sequence",
+      "correction": "Use primero, despu?s, luego.",
+      "explanation": "Sequence words make your Spanish clearer."
+    }
+  ],
+  "quiz": [
+    {
+      "type": "multipleChoice",
+      "prompt": "What does ?la rutina? mean?",
+      "options": [
+        "routine",
+        "I get up",
+        "I shower",
+        "I get dressed"
+      ],
+      "answer": "routine"
+    },
+    {
+      "type": "multipleChoice",
+      "prompt": "What does ?me levanto? mean?",
+      "options": [
+        "I get up",
+        "routine",
+        "I shower",
+        "I get dressed"
+      ],
+      "answer": "I get up"
+    },
+    {
+      "type": "multipleChoice",
+      "prompt": "What does ?me ducho? mean?",
+      "options": [
+        "I shower",
+        "routine",
+        "I get up",
+        "I get dressed"
+      ],
+      "answer": "I shower"
+    },
+    {
+      "type": "multipleChoice",
+      "prompt": "What does ?me visto? mean?",
+      "options": [
+        "I get dressed",
+        "routine",
+        "I get up",
+        "I shower"
+      ],
+      "answer": "I get dressed"
+    },
+    {
+      "type": "multipleChoice",
+      "prompt": "What does ?desayuno? mean?",
+      "options": [
+        "I eat breakfast",
+        "routine",
+        "I get up",
+        "I shower"
+      ],
+      "answer": "I eat breakfast"
+    },
+    {
+      "type": "multipleChoice",
+      "prompt": "What does ?trabajo? mean?",
+      "options": [
+        "I work",
+        "routine",
+        "I get up",
+        "I shower"
+      ],
+      "answer": "I work"
+    },
+    {
+      "type": "multipleChoice",
+      "prompt": "What does ?estudio? mean?",
+      "options": [
+        "I study",
+        "routine",
+        "I get up",
+        "I shower"
+      ],
+      "answer": "I study"
+    },
+    {
+      "type": "multipleChoice",
+      "prompt": "What does ?practico? mean?",
+      "options": [
+        "I practice",
+        "routine",
+        "I get up",
+        "I shower"
+      ],
+      "answer": "I practice"
+    },
+    {
+      "type": "multipleChoice",
+      "prompt": "What does ?como? mean?",
+      "options": [
+        "I eat",
+        "routine",
+        "I get up",
+        "I shower"
+      ],
+      "answer": "I eat"
+    },
+    {
+      "type": "multipleChoice",
+      "prompt": "What does ?ceno? mean?",
+      "options": [
+        "I eat dinner",
+        "routine",
+        "I get up",
+        "I shower"
+      ],
+      "answer": "I eat dinner"
+    },
+    {
+      "type": "multipleChoice",
+      "prompt": "What does ?duermo? mean?",
+      "options": [
+        "I sleep",
+        "routine",
+        "I get up",
+        "I shower"
+      ],
+      "answer": "I sleep"
+    },
+    {
+      "type": "multipleChoice",
+      "prompt": "What does ?salgo? mean?",
+      "options": [
+        "I go out",
+        "routine",
+        "I get up",
+        "I shower"
+      ],
+      "answer": "I go out"
+    },
+    {
+      "type": "multipleChoice",
+      "prompt": "What does ?vuelvo? mean?",
+      "options": [
+        "I return",
+        "routine",
+        "I get up",
+        "I shower"
+      ],
+      "answer": "I return"
+    },
+    {
+      "type": "multipleChoice",
+      "prompt": "What does ?temprano? mean?",
+      "options": [
+        "early",
+        "routine",
+        "I get up",
+        "I shower"
+      ],
+      "answer": "early"
+    },
+    {
+      "type": "multipleChoice",
+      "prompt": "What does ?tarde? mean?",
+      "options": [
+        "late",
+        "routine",
+        "I get up",
+        "I shower"
+      ],
+      "answer": "late"
+    }
+  ],
+  "speakingChallenge": [
+    {
+      "prompt": "Use ?la rutina? in a sentence with Carlos.",
+      "exampleAnswer": "La rutina, por favor."
+    },
+    {
+      "prompt": "Use ?me levanto? in a sentence with Carlos.",
+      "exampleAnswer": "Me levanto, por favor."
+    },
+    {
+      "prompt": "Use ?me ducho? in a sentence with Carlos.",
+      "exampleAnswer": "Me ducho, por favor."
+    },
+    {
+      "prompt": "Use ?me visto? in a sentence with Carlos.",
+      "exampleAnswer": "Me visto, por favor."
+    },
+    {
+      "prompt": "Use ?desayuno? in a sentence with Carlos.",
+      "exampleAnswer": "Desayuno, por favor."
+    }
+  ],
+  "speakingChallenges": [
+    {
+      "prompt": "Tell Carlos one real thing using ?la rutina?.",
+      "exampleAnswer": "Carlos, practico la rutina."
+    },
+    {
+      "prompt": "Tell Carlos one real thing using ?me levanto?.",
+      "exampleAnswer": "Carlos, practico me levanto."
+    },
+    {
+      "prompt": "Tell Carlos one real thing using ?me ducho?.",
+      "exampleAnswer": "Carlos, practico me ducho."
+    },
+    {
+      "prompt": "Tell Carlos one real thing using ?me visto?.",
+      "exampleAnswer": "Carlos, practico me visto."
+    },
+    {
+      "prompt": "Tell Carlos one real thing using ?desayuno?.",
+      "exampleAnswer": "Carlos, practico desayuno."
+    }
+  ],
+  "realLifeMission": {
+    "title": "Real Life Mission",
+    "mission": "Tell Carlos your daily routine with at least five actions and two time phrases.",
+    "successCriteria": [
+      "Use at least three lesson vocabulary items.",
+      "Use the main grammar pattern.",
+      "Answer one follow-up question from Carlos."
+    ],
+    "suggestedPartner": "Carlos",
+    "xpReward": 75
+  },
+  "review": {
+    "summary": "You practiced daily routine for everyday Spanish.",
+    "canDo": [
+      "Recognize key vocabulary.",
+      "Answer Carlos with simple complete sentences.",
+      "Use the Real Life Mission in a practical situation."
+    ]
+  },
+  "imagePath": "assets/images/lessons/lesson-10-daily-routine.png",
+  "achievementsUnlocked": [],
+  "xpReward": 75,
+  "nextLesson": "lesson-11-weather"
+}

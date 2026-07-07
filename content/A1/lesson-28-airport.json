@@ -1,0 +1,1051 @@
+{
+  "id": "lesson-28-airport",
+  "title": "Airport: Departures, Security, and Boarding",
+  "level": "A1",
+  "module": "Airport",
+  "estimatedMinutes": 32,
+  "prerequisiteLesson": "lesson-27-hotels",
+  "imagePath": "assets/images/lessons/lesson-28-airport.png",
+  "objectives": [
+    "Navigate airport check-in, security, gates, boarding, and baggage with Carlos.",
+    "Use 26 airport words and phrases in travel or navigation contexts.",
+    "Recycle previous A1 vocabulary naturally with Carlos.",
+    "Complete an authentic travel or navigation Real Life Mission."
+  ],
+  "vocabularyCategories": [
+    "airport",
+    "travel",
+    "conversation",
+    "problem solving"
+  ],
+  "vocabulary": [
+    {
+      "spanish": "el aeropuerto",
+      "english": "airport",
+      "partOfSpeech": "travel phrase",
+      "tip": "Carlos uses el aeropuerto in practical travel conversation.",
+      "exampleSpanish": "El aeropuerto con Carlos.",
+      "exampleEnglish": "Airport with Carlos."
+    },
+    {
+      "spanish": "el vuelo",
+      "english": "flight",
+      "partOfSpeech": "travel phrase",
+      "tip": "Carlos uses el vuelo in practical travel conversation.",
+      "exampleSpanish": "El vuelo con Carlos.",
+      "exampleEnglish": "Flight with Carlos."
+    },
+    {
+      "spanish": "la aerolinea",
+      "english": "airline",
+      "partOfSpeech": "travel phrase",
+      "tip": "Carlos uses la aerolinea in practical travel conversation.",
+      "exampleSpanish": "La aerolinea con Carlos.",
+      "exampleEnglish": "Airline with Carlos."
+    },
+    {
+      "spanish": "el boleto",
+      "english": "ticket",
+      "partOfSpeech": "travel phrase",
+      "tip": "Carlos uses el boleto in practical travel conversation.",
+      "exampleSpanish": "El boleto con Carlos.",
+      "exampleEnglish": "Ticket with Carlos."
+    },
+    {
+      "spanish": "el billete",
+      "english": "ticket",
+      "partOfSpeech": "travel phrase",
+      "tip": "Carlos uses el billete in practical travel conversation.",
+      "exampleSpanish": "El billete con Carlos.",
+      "exampleEnglish": "Ticket with Carlos."
+    },
+    {
+      "spanish": "la puerta",
+      "english": "gate",
+      "partOfSpeech": "travel phrase",
+      "tip": "Carlos uses la puerta in practical travel conversation.",
+      "exampleSpanish": "La puerta con Carlos.",
+      "exampleEnglish": "Gate with Carlos."
+    },
+    {
+      "spanish": "la terminal",
+      "english": "terminal",
+      "partOfSpeech": "travel phrase",
+      "tip": "Carlos uses la terminal in practical travel conversation.",
+      "exampleSpanish": "La terminal con Carlos.",
+      "exampleEnglish": "Terminal with Carlos."
+    },
+    {
+      "spanish": "la salida",
+      "english": "departure",
+      "partOfSpeech": "travel phrase",
+      "tip": "Carlos uses la salida in practical travel conversation.",
+      "exampleSpanish": "La salida con Carlos.",
+      "exampleEnglish": "Departure with Carlos."
+    },
+    {
+      "spanish": "la llegada",
+      "english": "arrival",
+      "partOfSpeech": "travel phrase",
+      "tip": "Carlos uses la llegada in practical travel conversation.",
+      "exampleSpanish": "La llegada con Carlos.",
+      "exampleEnglish": "Arrival with Carlos."
+    },
+    {
+      "spanish": "el equipaje",
+      "english": "luggage",
+      "partOfSpeech": "travel phrase",
+      "tip": "Carlos uses el equipaje in practical travel conversation.",
+      "exampleSpanish": "El equipaje con Carlos.",
+      "exampleEnglish": "Luggage with Carlos."
+    },
+    {
+      "spanish": "la maleta",
+      "english": "suitcase",
+      "partOfSpeech": "travel phrase",
+      "tip": "Carlos uses la maleta in practical travel conversation.",
+      "exampleSpanish": "La maleta con Carlos.",
+      "exampleEnglish": "Suitcase with Carlos."
+    },
+    {
+      "spanish": "la mochila",
+      "english": "backpack",
+      "partOfSpeech": "travel phrase",
+      "tip": "Carlos uses la mochila in practical travel conversation.",
+      "exampleSpanish": "La mochila con Carlos.",
+      "exampleEnglish": "Backpack with Carlos."
+    },
+    {
+      "spanish": "facturar",
+      "english": "to check in/check bags",
+      "partOfSpeech": "travel phrase",
+      "tip": "Carlos uses facturar in practical travel conversation.",
+      "exampleSpanish": "Facturar con Carlos.",
+      "exampleEnglish": "To check in/check bags with Carlos."
+    },
+    {
+      "spanish": "abordar",
+      "english": "to board",
+      "partOfSpeech": "travel phrase",
+      "tip": "Carlos uses abordar in practical travel conversation.",
+      "exampleSpanish": "Abordar con Carlos.",
+      "exampleEnglish": "To board with Carlos."
+    },
+    {
+      "spanish": "embarcar",
+      "english": "to board",
+      "partOfSpeech": "travel phrase",
+      "tip": "Carlos uses embarcar in practical travel conversation.",
+      "exampleSpanish": "Embarcar con Carlos.",
+      "exampleEnglish": "To board with Carlos."
+    },
+    {
+      "spanish": "seguridad",
+      "english": "security",
+      "partOfSpeech": "travel phrase",
+      "tip": "Carlos uses seguridad in practical travel conversation.",
+      "exampleSpanish": "Seguridad con Carlos.",
+      "exampleEnglish": "Security with Carlos."
+    },
+    {
+      "spanish": "el pasaporte",
+      "english": "passport",
+      "partOfSpeech": "travel phrase",
+      "tip": "Carlos uses el pasaporte in practical travel conversation.",
+      "exampleSpanish": "El pasaporte con Carlos.",
+      "exampleEnglish": "Passport with Carlos."
+    },
+    {
+      "spanish": "la identificacion",
+      "english": "ID",
+      "partOfSpeech": "travel phrase",
+      "tip": "Carlos uses la identificacion in practical travel conversation.",
+      "exampleSpanish": "La identificacion con Carlos.",
+      "exampleEnglish": "ID with Carlos."
+    },
+    {
+      "spanish": "la pantalla",
+      "english": "screen",
+      "partOfSpeech": "travel phrase",
+      "tip": "Carlos uses la pantalla in practical travel conversation.",
+      "exampleSpanish": "La pantalla con Carlos.",
+      "exampleEnglish": "Screen with Carlos."
+    },
+    {
+      "spanish": "retrasado",
+      "english": "delayed",
+      "partOfSpeech": "travel phrase",
+      "tip": "Carlos uses retrasado in practical travel conversation.",
+      "exampleSpanish": "Retrasado con Carlos.",
+      "exampleEnglish": "Delayed with Carlos."
+    },
+    {
+      "spanish": "cancelado",
+      "english": "cancelled",
+      "partOfSpeech": "travel phrase",
+      "tip": "Carlos uses cancelado in practical travel conversation.",
+      "exampleSpanish": "Cancelado con Carlos.",
+      "exampleEnglish": "Cancelled with Carlos."
+    },
+    {
+      "spanish": "a tiempo",
+      "english": "on time",
+      "partOfSpeech": "travel phrase",
+      "tip": "Carlos uses a tiempo in practical travel conversation.",
+      "exampleSpanish": "A tiempo con Carlos.",
+      "exampleEnglish": "On time with Carlos."
+    },
+    {
+      "spanish": "la fila",
+      "english": "line",
+      "partOfSpeech": "travel phrase",
+      "tip": "Carlos uses la fila in practical travel conversation.",
+      "exampleSpanish": "La fila con Carlos.",
+      "exampleEnglish": "Line with Carlos."
+    },
+    {
+      "spanish": "el asiento",
+      "english": "seat",
+      "partOfSpeech": "travel phrase",
+      "tip": "Carlos uses el asiento in practical travel conversation.",
+      "exampleSpanish": "El asiento con Carlos.",
+      "exampleEnglish": "Seat with Carlos."
+    },
+    {
+      "spanish": "la ventana",
+      "english": "window",
+      "partOfSpeech": "travel phrase",
+      "tip": "Carlos uses la ventana in practical travel conversation.",
+      "exampleSpanish": "La ventana con Carlos.",
+      "exampleEnglish": "Window with Carlos."
+    },
+    {
+      "spanish": "el pasillo",
+      "english": "aisle",
+      "partOfSpeech": "travel phrase",
+      "tip": "Carlos uses el pasillo in practical travel conversation.",
+      "exampleSpanish": "El pasillo con Carlos.",
+      "exampleEnglish": "Aisle with Carlos."
+    }
+  ],
+  "textbookPhrases": [
+    {
+      "meaning": "airport",
+      "phrase": "el aeropuerto"
+    },
+    {
+      "meaning": "flight",
+      "phrase": "el vuelo"
+    },
+    {
+      "meaning": "airline",
+      "phrase": "la aerolinea"
+    },
+    {
+      "meaning": "ticket",
+      "phrase": "el boleto"
+    },
+    {
+      "meaning": "ticket",
+      "phrase": "el billete"
+    }
+  ],
+  "naturalEverydayPhrases": [
+    {
+      "meaning": "airport",
+      "phrase": "el aeropuerto"
+    },
+    {
+      "meaning": "flight",
+      "phrase": "el vuelo"
+    },
+    {
+      "meaning": "airline",
+      "phrase": "la aerolinea"
+    },
+    {
+      "meaning": "ticket",
+      "phrase": "el boleto"
+    },
+    {
+      "meaning": "ticket",
+      "phrase": "el billete"
+    }
+  ],
+  "mexicanSpanishVariants": [
+    {
+      "meaning": "airport",
+      "phrase": "el aeropuerto"
+    },
+    {
+      "meaning": "flight",
+      "phrase": "el vuelo"
+    },
+    {
+      "meaning": "airline",
+      "phrase": "la aerolinea"
+    },
+    {
+      "meaning": "ticket",
+      "phrase": "el boleto"
+    },
+    {
+      "meaning": "ticket",
+      "phrase": "el billete"
+    }
+  ],
+  "spainSpanishVariants": [
+    {
+      "meaning": "airport",
+      "phrase": "el aeropuerto"
+    },
+    {
+      "meaning": "flight",
+      "phrase": "el vuelo"
+    },
+    {
+      "meaning": "airline",
+      "phrase": "la aerolinea"
+    },
+    {
+      "meaning": "ticket",
+      "phrase": "el boleto"
+    },
+    {
+      "meaning": "ticket",
+      "phrase": "el billete"
+    }
+  ],
+  "phraseVariants": [
+    {
+      "meaning": "airport",
+      "textbookVersion": "el aeropuerto",
+      "naturalEverydayVersion": "el aeropuerto",
+      "mexicanSpanishVersion": "el aeropuerto",
+      "spainSpanishVersion": "el aeropuerto",
+      "whenUsed": "Use this in practical travel speech with Carlos."
+    },
+    {
+      "meaning": "flight",
+      "textbookVersion": "el vuelo",
+      "naturalEverydayVersion": "el vuelo",
+      "mexicanSpanishVersion": "el vuelo",
+      "spainSpanishVersion": "el vuelo",
+      "whenUsed": "Use this in practical travel speech with Carlos."
+    },
+    {
+      "meaning": "airline",
+      "textbookVersion": "la aerolinea",
+      "naturalEverydayVersion": "la aerolinea",
+      "mexicanSpanishVersion": "la aerolinea",
+      "spainSpanishVersion": "la aerolinea",
+      "whenUsed": "Use this in practical travel speech with Carlos."
+    },
+    {
+      "meaning": "ticket",
+      "textbookVersion": "el boleto",
+      "naturalEverydayVersion": "el boleto",
+      "mexicanSpanishVersion": "el boleto",
+      "spainSpanishVersion": "el boleto",
+      "whenUsed": "Use this in practical travel speech with Carlos."
+    },
+    {
+      "meaning": "ticket",
+      "textbookVersion": "el billete",
+      "naturalEverydayVersion": "el billete",
+      "mexicanSpanishVersion": "el billete",
+      "spainSpanishVersion": "el billete",
+      "whenUsed": "Use this in practical travel speech with Carlos."
+    }
+  ],
+  "grammar": {
+    "topic": "Tener que for airport tasks",
+    "explanation": "Use tengo que for travel obligations: tengo que facturar, tengo que pasar seguridad, tengo que abordar. Carlos helps you manage airport steps.",
+    "examples": [
+      {
+        "spanish": "El aeropuerto.",
+        "english": "Airport."
+      },
+      {
+        "spanish": "El vuelo.",
+        "english": "Flight."
+      },
+      {
+        "spanish": "La aerolinea.",
+        "english": "Airline."
+      }
+    ],
+    "practicePrompt": "Handle a airport situation with Carlos using at least four lesson words."
+  },
+  "dialogue": [
+    {
+      "title": "Airport dialogue 1",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Practiquemos: el aeropuerto.",
+          "english": "Let's practice: airport."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "el boleto",
+          "english": "ticket"
+        }
+      ]
+    },
+    {
+      "title": "Airport dialogue 2",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Practiquemos: el vuelo.",
+          "english": "Let's practice: flight."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "el billete",
+          "english": "ticket"
+        }
+      ]
+    },
+    {
+      "title": "Airport dialogue 3",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Practiquemos: la aerolinea.",
+          "english": "Let's practice: airline."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "la puerta",
+          "english": "gate"
+        }
+      ]
+    },
+    {
+      "title": "Airport dialogue 4",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Practiquemos: el boleto.",
+          "english": "Let's practice: ticket."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "la terminal",
+          "english": "terminal"
+        }
+      ]
+    },
+    {
+      "title": "Airport dialogue 5",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Practiquemos: el billete.",
+          "english": "Let's practice: ticket."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "la salida",
+          "english": "departure"
+        }
+      ]
+    },
+    {
+      "title": "Airport dialogue 6",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Practiquemos: la puerta.",
+          "english": "Let's practice: gate."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "la llegada",
+          "english": "arrival"
+        }
+      ]
+    },
+    {
+      "title": "Airport dialogue 7",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Practiquemos: la terminal.",
+          "english": "Let's practice: terminal."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "el equipaje",
+          "english": "luggage"
+        }
+      ]
+    },
+    {
+      "title": "Airport dialogue 8",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Practiquemos: la salida.",
+          "english": "Let's practice: departure."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "la maleta",
+          "english": "suitcase"
+        }
+      ]
+    },
+    {
+      "title": "Airport dialogue 9",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Practiquemos: la llegada.",
+          "english": "Let's practice: arrival."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "la mochila",
+          "english": "backpack"
+        }
+      ]
+    },
+    {
+      "title": "Airport dialogue 10",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Practiquemos: el equipaje.",
+          "english": "Let's practice: luggage."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "facturar",
+          "english": "to check in/check bags"
+        }
+      ]
+    }
+  ],
+  "dialogues": [
+    {
+      "title": "Airport dialogue 1",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Practiquemos: el aeropuerto.",
+          "english": "Let's practice: airport."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "el boleto",
+          "english": "ticket"
+        }
+      ]
+    },
+    {
+      "title": "Airport dialogue 2",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Practiquemos: el vuelo.",
+          "english": "Let's practice: flight."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "el billete",
+          "english": "ticket"
+        }
+      ]
+    },
+    {
+      "title": "Airport dialogue 3",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Practiquemos: la aerolinea.",
+          "english": "Let's practice: airline."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "la puerta",
+          "english": "gate"
+        }
+      ]
+    },
+    {
+      "title": "Airport dialogue 4",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Practiquemos: el boleto.",
+          "english": "Let's practice: ticket."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "la terminal",
+          "english": "terminal"
+        }
+      ]
+    },
+    {
+      "title": "Airport dialogue 5",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Practiquemos: el billete.",
+          "english": "Let's practice: ticket."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "la salida",
+          "english": "departure"
+        }
+      ]
+    },
+    {
+      "title": "Airport dialogue 6",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Practiquemos: la puerta.",
+          "english": "Let's practice: gate."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "la llegada",
+          "english": "arrival"
+        }
+      ]
+    },
+    {
+      "title": "Airport dialogue 7",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Practiquemos: la terminal.",
+          "english": "Let's practice: terminal."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "el equipaje",
+          "english": "luggage"
+        }
+      ]
+    },
+    {
+      "title": "Airport dialogue 8",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Practiquemos: la salida.",
+          "english": "Let's practice: departure."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "la maleta",
+          "english": "suitcase"
+        }
+      ]
+    },
+    {
+      "title": "Airport dialogue 9",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Practiquemos: la llegada.",
+          "english": "Let's practice: arrival."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "la mochila",
+          "english": "backpack"
+        }
+      ]
+    },
+    {
+      "title": "Airport dialogue 10",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Practiquemos: el equipaje.",
+          "english": "Let's practice: luggage."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "facturar",
+          "english": "to check in/check bags"
+        }
+      ]
+    }
+  ],
+  "listeningPhrases": [
+    {
+      "spanish": "el aeropuerto",
+      "english": "airport"
+    },
+    {
+      "spanish": "el vuelo",
+      "english": "flight"
+    },
+    {
+      "spanish": "la aerolinea",
+      "english": "airline"
+    },
+    {
+      "spanish": "el boleto",
+      "english": "ticket"
+    },
+    {
+      "spanish": "el billete",
+      "english": "ticket"
+    },
+    {
+      "spanish": "la puerta",
+      "english": "gate"
+    },
+    {
+      "spanish": "la terminal",
+      "english": "terminal"
+    },
+    {
+      "spanish": "la salida",
+      "english": "departure"
+    },
+    {
+      "spanish": "la llegada",
+      "english": "arrival"
+    },
+    {
+      "spanish": "el equipaje",
+      "english": "luggage"
+    }
+  ],
+  "listening": [
+    {
+      "spanish": "el aeropuerto",
+      "english": "airport"
+    },
+    {
+      "spanish": "el vuelo",
+      "english": "flight"
+    },
+    {
+      "spanish": "la aerolinea",
+      "english": "airline"
+    },
+    {
+      "spanish": "el boleto",
+      "english": "ticket"
+    },
+    {
+      "spanish": "el billete",
+      "english": "ticket"
+    },
+    {
+      "spanish": "la puerta",
+      "english": "gate"
+    },
+    {
+      "spanish": "la terminal",
+      "english": "terminal"
+    },
+    {
+      "spanish": "la salida",
+      "english": "departure"
+    },
+    {
+      "spanish": "la llegada",
+      "english": "arrival"
+    },
+    {
+      "spanish": "el equipaje",
+      "english": "luggage"
+    }
+  ],
+  "pronunciation": {
+    "focus": "Carlos helps you pronounce key airport phrases clearly.",
+    "items": [
+      {
+        "text": "el aeropuerto",
+        "note": "Say el aeropuerto slowly, then use it in a short travel sentence."
+      },
+      {
+        "text": "el vuelo",
+        "note": "Say el vuelo slowly, then use it in a short travel sentence."
+      },
+      {
+        "text": "la aerolinea",
+        "note": "Say la aerolinea slowly, then use it in a short travel sentence."
+      },
+      {
+        "text": "el boleto",
+        "note": "Say el boleto slowly, then use it in a short travel sentence."
+      },
+      {
+        "text": "el billete",
+        "note": "Say el billete slowly, then use it in a short travel sentence."
+      },
+      {
+        "text": "la puerta",
+        "note": "Say la puerta slowly, then use it in a short travel sentence."
+      },
+      {
+        "text": "la terminal",
+        "note": "Say la terminal slowly, then use it in a short travel sentence."
+      },
+      {
+        "text": "la salida",
+        "note": "Say la salida slowly, then use it in a short travel sentence."
+      },
+      {
+        "text": "la llegada",
+        "note": "Say la llegada slowly, then use it in a short travel sentence."
+      },
+      {
+        "text": "el equipaje",
+        "note": "Say el equipaje slowly, then use it in a short travel sentence."
+      }
+    ]
+  },
+  "culture": {
+    "title": "Airport in real travel",
+    "text": "Airport situations are easier when you stay polite, brief, and specific. Carlos guides you to name the problem, the place, and the help you need."
+  },
+  "nativeSpeech": {
+    "title": "Carlos native speaker tips",
+    "notes": [
+      "Camion can mean bus in parts of Mexico.",
+      "Coche is the normal car word in Spain; carro is common in Mexico.",
+      "Always confirm destination and price before a taxi ride."
+    ]
+  },
+  "nativeExpressions": [
+    "Camion can mean bus in parts of Mexico.",
+    "Coche is the normal car word in Spain; carro is common in Mexico.",
+    "Always confirm destination and price before a taxi ride."
+  ],
+  "commonMistakes": [
+    {
+      "mistake": "Saying voy con taxi.",
+      "correction": "Say voy en taxi.",
+      "explanation": "Use en for transportation."
+    },
+    {
+      "mistake": "Using boleto everywhere in Spain.",
+      "correction": "Billete is common in Spain for transport tickets.",
+      "explanation": "Both may be understood, but region matters."
+    },
+    {
+      "mistake": "Forgetting al before centro.",
+      "correction": "Say voy al centro.",
+      "explanation": "A + el becomes al."
+    }
+  ],
+  "quiz": [
+    {
+      "type": "multipleChoice",
+      "prompt": "What does el aeropuerto mean?",
+      "options": [
+        "airport",
+        "flight",
+        "airline",
+        "ticket"
+      ],
+      "answer": "airport"
+    },
+    {
+      "type": "multipleChoice",
+      "prompt": "What does el vuelo mean?",
+      "options": [
+        "flight",
+        "airline",
+        "ticket",
+        "ticket"
+      ],
+      "answer": "flight"
+    },
+    {
+      "type": "multipleChoice",
+      "prompt": "What does la aerolinea mean?",
+      "options": [
+        "airline",
+        "ticket",
+        "ticket",
+        "gate"
+      ],
+      "answer": "airline"
+    },
+    {
+      "type": "multipleChoice",
+      "prompt": "What does el boleto mean?",
+      "options": [
+        "ticket",
+        "ticket",
+        "gate",
+        "terminal"
+      ],
+      "answer": "ticket"
+    },
+    {
+      "type": "multipleChoice",
+      "prompt": "What does el billete mean?",
+      "options": [
+        "ticket",
+        "gate",
+        "terminal",
+        "departure"
+      ],
+      "answer": "ticket"
+    },
+    {
+      "type": "multipleChoice",
+      "prompt": "What does la puerta mean?",
+      "options": [
+        "gate",
+        "terminal",
+        "departure",
+        "arrival"
+      ],
+      "answer": "gate"
+    },
+    {
+      "type": "multipleChoice",
+      "prompt": "What does la terminal mean?",
+      "options": [
+        "terminal",
+        "departure",
+        "arrival",
+        "luggage"
+      ],
+      "answer": "terminal"
+    },
+    {
+      "type": "multipleChoice",
+      "prompt": "What does la salida mean?",
+      "options": [
+        "departure",
+        "arrival",
+        "luggage",
+        "suitcase"
+      ],
+      "answer": "departure"
+    },
+    {
+      "type": "multipleChoice",
+      "prompt": "What does la llegada mean?",
+      "options": [
+        "arrival",
+        "luggage",
+        "suitcase",
+        "backpack"
+      ],
+      "answer": "arrival"
+    },
+    {
+      "type": "multipleChoice",
+      "prompt": "What does el equipaje mean?",
+      "options": [
+        "luggage",
+        "suitcase",
+        "backpack",
+        "to check in/check bags"
+      ],
+      "answer": "luggage"
+    },
+    {
+      "type": "multipleChoice",
+      "prompt": "What does la maleta mean?",
+      "options": [
+        "suitcase",
+        "backpack",
+        "to check in/check bags",
+        "to board"
+      ],
+      "answer": "suitcase"
+    },
+    {
+      "type": "multipleChoice",
+      "prompt": "What does la mochila mean?",
+      "options": [
+        "backpack",
+        "to check in/check bags",
+        "to board",
+        "to board"
+      ],
+      "answer": "backpack"
+    },
+    {
+      "type": "translation",
+      "prompt": "Translate: el aeropuerto",
+      "answer": "airport"
+    },
+    {
+      "type": "translation",
+      "prompt": "Translate: el vuelo",
+      "answer": "flight"
+    },
+    {
+      "type": "multipleChoice",
+      "prompt": "Which phrase fits Airport?",
+      "options": [
+        "la aerolinea",
+        "mi familia",
+        "hace frio",
+        "me gusta leer"
+      ],
+      "answer": "la aerolinea"
+    }
+  ],
+  "speakingChallenge": [
+    {
+      "prompt": "Use el aeropuerto in a realistic travel sentence with Carlos.",
+      "exampleAnswer": "El aeropuerto con Carlos."
+    },
+    {
+      "prompt": "Use el vuelo in a realistic travel sentence with Carlos.",
+      "exampleAnswer": "El vuelo con Carlos."
+    },
+    {
+      "prompt": "Use la aerolinea in a realistic travel sentence with Carlos.",
+      "exampleAnswer": "La aerolinea con Carlos."
+    },
+    {
+      "prompt": "Use el boleto in a realistic travel sentence with Carlos.",
+      "exampleAnswer": "El boleto con Carlos."
+    },
+    {
+      "prompt": "Use el billete in a realistic travel sentence with Carlos.",
+      "exampleAnswer": "El billete con Carlos."
+    }
+  ],
+  "realLifeMission": {
+    "title": "Real Life Mission",
+    "mission": "Navigate the airport with Carlos. Say your flight time, ask for your gate, explain that you have to pass security, and choose window or aisle.",
+    "successCriteria": [
+      "Use at least six words from this lesson.",
+      "Use one phrase from a previous lesson.",
+      "Ask Carlos or another person at least one question.",
+      "Resolve the travel or navigation situation clearly."
+    ],
+    "suggestedPartner": "Carlos",
+    "xpReward": 10
+  },
+  "review": {
+    "recap": [
+      "Carlos reviewed airport travel language.",
+      "You practiced Airport A1 travel phrases.",
+      "You recycled earlier A1 vocabulary in a realistic situation."
+    ],
+    "canDo": [
+      "Navigate airport check-in, security, gates, boarding, and baggage with Carlos.",
+      "Ask for clarification when needed.",
+      "Complete the situation with polite, simple Spanish."
+    ]
+  },
+  "achievementsUnlocked": [],
+  "xpReward": 95,
+  "nextLesson": "lesson-29-travel-review"
+}
