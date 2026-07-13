@@ -7,6 +7,7 @@ import { contentReady, getCurrentLesson, setActiveLesson } from "./core/content.
 import { renderNavigation } from "./ui/navigation.js";
 
 const PRACTICE_TOPIC_KEY = 'habla_selected_practice_topic_v1';
+const PRACTICE_SESSION_KEY = 'habla_practice_session_v2';
 
 console.log("Habla state loaded:", state);
 
@@ -489,7 +490,7 @@ initializeProgressEngine(state, {
 
 contentReady
   .then(() => {
-    if (currentPage === "home" || currentPage === "learn" || currentPage === "carlos") {
+    if (currentPage === "home" || currentPage === "learn" || currentPage === "carlos" || currentPage === "practice") {
       renderAppPage(currentPage);
     }
   })
@@ -591,10 +592,30 @@ document.addEventListener('click', (event) => {
   }
   if (pageTarget.dataset.practiceTopic) {
     localStorage.setItem(PRACTICE_TOPIC_KEY, pageTarget.dataset.practiceTopic);
+    let practiceSession = {};
+    try { practiceSession = JSON.parse(sessionStorage.getItem(PRACTICE_SESSION_KEY) || '{}'); } catch {}
+    practiceSession.topic = pageTarget.dataset.practiceTopic;
+    practiceSession.view = 'launcher';
+    sessionStorage.setItem(PRACTICE_SESSION_KEY, JSON.stringify(practiceSession));
   } else if (pageTarget.dataset.page === 'practice') {
     localStorage.removeItem(PRACTICE_TOPIC_KEY);
+    sessionStorage.removeItem(PRACTICE_SESSION_KEY);
   }
   renderAppPage(pageTarget.dataset.page);
+});
+
+window.addEventListener('habla:practice-render', () => {
+  if (currentPage === 'practice') renderAppPage('practice');
+});
+
+window.addEventListener('habla:practice-conversation', (event) => {
+  renderAppPage('carlos');
+  const input = document.getElementById('txt');
+  if (input) {
+    input.value = `Let's practice a short ${event.detail?.title || 'Spanish'} conversation.`;
+    input.dispatchEvent(new Event('input', { bubbles: true }));
+    input.focus();
+  }
 });
 
 document.getElementById('level-btn').addEventListener('click',()=>document.getElementById('level-overlay').classList.add('open'));

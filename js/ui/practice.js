@@ -1,632 +1,315 @@
-import { completeLesson, getActiveLesson } from "../core/content.js";
+import { getActiveLesson, getUnlockedLessons } from "../core/content.js";
 
-const PRACTICE_TOPIC_KEY = "habla_selected_practice_topic_v1";
-const PRACTICE_TOPICS = {
-  greetings: {
-    title: "Greetings",
-    description: "Practice hellos, goodbyes, introductions, and polite everyday openers.",
-    count: "8 / 15",
-    icon: "topic-greetings",
-    progress: 40,
-    xp: 120,
-  },
-  family: {
-    title: "Family",
-    description: "Talk naturally about relatives, relationships, and the people close to you.",
-    count: "10 / 20",
-    icon: "topic-family",
-    progress: 52,
-    xp: 130,
-  },
-  "food-restaurants": {
-    title: "Restaurants",
-    description: "Order food and drinks, ask simple questions, and speak politely with staff.",
-    count: "12 / 20",
-    icon: "topic-restaurants",
-    progress: 48,
-    xp: 140,
-  },
-  travel: {
-    title: "Travel",
-    description: "Practice airport, hotel, transport, and direction phrases for real trips.",
-    count: "14 / 20",
-    icon: "topic-travel",
-    progress: 44,
-    xp: 140,
-  },
-  shopping: {
-    title: "Shopping",
-    description: "Ask prices, sizes, quantities, and checkout questions in shops and markets.",
-    count: "9 / 15",
-    icon: "topic-shopping",
-    progress: 42,
-    xp: 120,
-  },
-  work: {
-    title: "Work",
-    description: "Use simple Spanish for schedules, jobs, meetings, and workplace small talk.",
-    count: "8 / 15",
-    icon: "topic-work",
-    progress: 32,
-    xp: 120,
-  },
-  phrases: {
-    title: "Small Talk",
-    description: "Build relaxed conversation with useful phrases, follow-ups, and quick replies.",
-    count: "11 / 15",
-    icon: "topic-smalltalk",
-    progress: 58,
-    xp: 130,
-  },
-  conversation: {
-    title: "Free Chat",
-    description: "Open Carlos and practice any conversation you want in natural Spanish.",
-    count: "Unlimited",
-    icon: "topic-freechat",
-    progress: 0,
-    xp: 0,
-  },
+const TOPIC_KEY = "habla_selected_practice_topic_v1";
+const SESSION_KEY = "habla_practice_session_v2";
+const MODES = ["quiz", "flashcards", "pronunciation", "conversation"];
+const TOPICS = {
+  greetings: { title: "Greetings", icon: "greetings", lessons: ["a1-lesson-01-greetings", "a1-lesson-02-introductions"] },
+  family: { title: "Family", icon: "family", lessons: ["lesson-03-family"] },
+  "food-restaurants": { title: "Restaurants", icon: "restaurants", lessons: ["lesson-06-food-drinks"] },
+  travel: { title: "Travel", icon: "travel", lessons: ["lesson-07-travel-basics", "lesson-08-vacation"] },
+  shopping: { title: "Shopping", icon: "shopping", lessons: ["lesson-05-shopping"] },
+  work: { title: "Work", icon: "work", lessons: ["lesson-14-work"] },
+  phrases: { title: "Small Talk", icon: "phrases", lessons: ["a1-lesson-02-introductions"] },
+  numbers: { title: "Numbers", icon: "numbers", lessons: ["lesson-04-numbers-time"] },
 };
 
-const practiceWords = [
-  ["hola", "hello"], ["adiós", "goodbye"], ["gracias", "thank you"], ["por favor", "please"],
-  ["buenos días", "good morning"], ["buenas tardes", "good afternoon"], ["buenas noches", "good evening"],
-  ["familia", "family"], ["esposa", "wife"], ["hermano", "brother"], ["casa", "house"], ["trabajo", "work"],
-  ["agua", "water"], ["café", "coffee"], ["comida", "food"], ["pan", "bread"], ["pollo", "chicken"],
-  ["uno", "one"], ["dos", "two"], ["tres", "three"], ["diez", "ten"], ["lunes", "Monday"],
-  ["viernes", "Friday"], ["enero", "January"], ["mayo", "May"], ["rojo", "red"], ["azul", "blue"],
-  ["hablar", "to speak"], ["comer", "to eat"], ["vivir", "to live"], ["quiero", "I want"], ["no entiendo", "I don't understand"],
-];
+let recorder = null;
+let recordingStream = null;
+let recordingChunks = [];
+let playbackUrl = "";
 
-const quizQuestions = practiceWords.slice(0, 10).map(([es, en], index) => ({
-  es,
-  en,
-  options: buildOptions(en, index),
-}));
+export function renderPractice(appState = {}) {
+  const session = readSession();
+  const topic = TOPICS[session.topic] || TOPICS.greetings;
+  const lesson = getLessonForTopic(session.topic);
 
-const pronunciationItems = [
-  "hola",
-  "buenos días",
-  "gracias",
-  "mi familia",
-  "quiero agua",
-  "no entiendo",
-  "más despacio",
-  "la cuenta, por favor",
-];
-
-function getPracticeContent() {
-  const lesson = getActiveLesson();
-
-  if (!lesson) {
-    return {
-      words: practiceWords,
-      quiz: quizQuestions,
-      pronunciation: pronunciationItems.map(text => ({ text, note: "" })),
-    };
+  if (session.view === "activity") {
+    if (!lesson && session.mode !== "conversation") return renderLockedActivity(session, topic);
+    if (lesson && getModeCount(session.mode, lesson) === 0) return renderNoDataActivity(session, topic, lesson);
+    if (session.mode === "quiz") return renderQuizActivity(session, topic, lesson);
+    if (session.mode === "flashcards") return renderFlashcardActivity(session, topic, lesson);
+    if (session.mode === "pronunciation") return renderPronunciationActivity(session, topic, lesson);
   }
 
-  const words = lesson.vocabulary?.length
-    ? lesson.vocabulary.map(item => [item.spanish, item.english])
-    : practiceWords;
-
-  const quiz = lesson.quiz?.length
-    ? lesson.quiz.map((question, index) => ({
-        prompt: question.prompt || "Choose the correct answer.",
-        es: getQuizDisplayText(question),
-        en: question.answer,
-        options: question.options?.length ? question.options : buildLessonOptions(question.answer, index, words),
-      }))
-    : quizQuestions;
-
-  const pronunciation = lesson.pronunciation?.items?.length
-    ? lesson.pronunciation.items.map(item => ({
-        text: typeof item === "string" ? item : item.text,
-        note: typeof item === "string" ? "" : item.note,
-      }))
-    : pronunciationItems.map(text => ({ text, note: "" }));
-
-  return { words, quiz, pronunciation };
+  if (session.view === "results") return renderResults(session, topic, lesson);
+  return renderLauncher(session, topic, lesson, appState);
 }
 
-if (typeof window !== "undefined") {
-  window.hablaPractice = {
-    answerQuiz(button) {
-      const panel = button.closest(".quiz-panel");
-      const question = button.closest(".quiz-question");
-      if (!panel || !question || question.dataset.answered === "true") return;
-
-      question.dataset.answered = "true";
-      const isCorrect = button.dataset.answer === question.dataset.correct;
-      button.classList.add(isCorrect ? "correct" : "wrong");
-
-      question.querySelectorAll(".quiz-option").forEach(option => {
-        option.disabled = true;
-        if (option.dataset.answer === question.dataset.correct) option.classList.add("reveal");
-      });
-
-      if (isCorrect) panel.dataset.score = String(Number(panel.dataset.score || "0") + 1);
-      panel.querySelector(".practice-score strong").textContent = panel.dataset.score || "0";
-      const feedback = question.querySelector(".quiz-feedback");
-      feedback.textContent = isCorrect ? "Correct! Nice work." : `Not quite. The answer is "${question.dataset.correct}".`;
-      feedback.className = `quiz-feedback ${isCorrect ? "ok" : "bad"}`;
-    },
-
-    nextQuiz(button) {
-      const panel = button.closest(".quiz-panel");
-      const current = panel?.querySelector(".quiz-question.active");
-      if (!panel || !current) return;
-
-      if (current.dataset.answered !== "true") {
-        current.querySelector(".quiz-feedback").textContent = "Choose an answer first.";
-        return;
-      }
-
-      const questions = [...panel.querySelectorAll(".quiz-question")];
-      const currentIndex = questions.indexOf(current);
-      current.classList.remove("active");
-
-      if (currentIndex + 1 >= questions.length) {
-        const completeMessage = panel.querySelector(".quiz-complete");
-        if (completeMessage) {
-          completeMessage.textContent = completeCurrentLesson();
-          completeMessage.hidden = false;
-        }
-        button.disabled = true;
-        panel.querySelector(".practice-progress span").textContent = `${questions.length}/${questions.length}`;
-        panel.querySelector(".practice-progress-bar").style.width = "100%";
-        return;
-      }
-
-      const next = questions[currentIndex + 1];
-      next.classList.add("active");
-      panel.querySelector(".practice-progress span").textContent = `${currentIndex + 2}/${questions.length}`;
-      panel.querySelector(".practice-progress-bar").style.width = `${((currentIndex + 2) / questions.length) * 100}%`;
-    },
-
-    flipCard(button) {
-      button.closest(".flashcard-panel")?.querySelector(".flash-slide.active")?.classList.toggle("flipped");
-    },
-
-    nextCard(button) {
-      const panel = button.closest(".flashcard-panel");
-      const slides = [...(panel?.querySelectorAll(".flash-slide") || [])];
-      const current = panel?.querySelector(".flash-slide.active");
-      if (!panel || !current) return;
-
-      const nextIndex = (slides.indexOf(current) + 1) % slides.length;
-      current.classList.remove("active", "flipped");
-      slides[nextIndex].classList.add("active");
-      panel.querySelector(".flash-count").textContent = `${nextIndex + 1}/${slides.length}`;
-    },
-
-    speakFrom(button, selector) {
-      const text = button.closest(".practice-mode-panel")?.querySelector(selector)?.textContent?.trim();
-      speakSpanish(text);
-    },
-
-    speakText(text) {
-      speakSpanish(text);
-    },
-
-    nextPronunciation(button) {
-      const panel = button.closest(".pronunciation-panel");
-      const slides = [...(panel?.querySelectorAll(".pron-slide") || [])];
-      const current = panel?.querySelector(".pron-slide.active");
-      if (!panel || !current) return;
-
-      const nextIndex = (slides.indexOf(current) + 1) % slides.length;
-      current.classList.remove("active");
-      slides[nextIndex].classList.add("active");
-      panel.querySelector(".pron-output").textContent = "Tap the microphone and repeat the phrase.";
-      panel.querySelector(".pron-feedback").textContent = "";
-      panel.querySelector(".pron-count").textContent = `${nextIndex + 1}/${slides.length}`;
-    },
-
-    listen(button) {
-      const panel = button.closest(".pronunciation-panel");
-      const active = panel?.querySelector(".pron-slide.active");
-      const output = panel?.querySelector(".pron-output");
-      const feedback = panel?.querySelector(".pron-feedback");
-      const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
-
-      if (!SpeechRecognition) {
-        output.textContent = "SpeechRecognition is not available in this browser.";
-        feedback.textContent = "Try Chrome or use the pronunciation audio.";
-        feedback.className = "pron-feedback close";
-        return;
-      }
-
-      const target = active.dataset.phrase;
-      const recognition = new SpeechRecognition();
-      recognition.lang = "es-ES";
-      recognition.interimResults = false;
-      recognition.maxAlternatives = 1;
-      output.textContent = "Listening...";
-      feedback.textContent = "";
-
-      recognition.onresult = event => {
-        const said = event.results[0][0].transcript;
-        output.textContent = `You said: ${said}`;
-        const score = compareSpeech(target, said);
-        feedback.textContent = score === "great" ? "Great try" : score === "close" ? "Close" : "Try again";
-        feedback.className = `pron-feedback ${score}`;
-      };
-
-      recognition.onerror = () => {
-        output.textContent = "Microphone did not catch that.";
-        feedback.textContent = "Try again";
-        feedback.className = "pron-feedback retry";
-      };
-
-      recognition.start();
-    },
-  };
-}
-
-function completeCurrentLesson() {
-  const lesson = getActiveLesson();
-
-  if (!lesson) {
-    return "Quiz complete. Great session.";
-  }
-
-  const event = completeLesson(lesson.id);
-
-  if (event.type === "lesson:already-completed") {
-    return "Lesson already completed. Great review session.";
-  }
-
-  if (event.type === "lesson:completed") {
-    return `Lesson complete! You earned ${event.progress?.xpAwarded || lesson.xpReward || 0} XP.`;
-  }
-
-  return "Quiz complete. Great session.";
-}
-
-export function renderPractice() {
-  const content = getPracticeContent();
-  const lesson = getActiveLesson();
-  const selectedTopic = getSelectedPracticeTopic();
-
+function renderLauncher(session, topic, lesson, appState) {
   return `
-    <section class="practice-screen" aria-label="Practice">
-      <input class="practice-tab-input" type="radio" name="practice-mode" id="mode-quiz" checked>
-      <input class="practice-tab-input" type="radio" name="practice-mode" id="mode-flashcards">
-      <input class="practice-tab-input" type="radio" name="practice-mode" id="mode-pronunciation">
-
-      ${renderPracticeHeader()}
-
-      <div class="practice-mode-grid" role="tablist" aria-label="Practice modes">
-        ${modeCard("mode-quiz", "quiz", "practice-icon-quiz", "Quiz Mode")}
-        ${modeCard("mode-flashcards", "flashcards", "practice-icon-cards", "Flashcards")}
-        ${modeCard("mode-pronunciation", "pronunciation", "practice-icon-mic", "Pronunciation")}
-        <button class="practice-mode-card conversation" type="button" data-page="carlos">
-          <div class="practice-mode-icon practice-icon-chat" aria-hidden="true"></div>
-          <h2>Conversation</h2>
-        </button>
+    <section class="practice-shell practice-launcher" aria-label="Practice launcher">
+      <header class="practice-launcher-head">
+        <div><span class="practice-kicker">Habla.</span><h1>Practice</h1><p>Practice speaking, listening and more.</p></div>
+        <span class="practice-level">A1 Beginner</span>
+      </header>
+      <div class="practice-mode-tabs" role="tablist" aria-label="Practice mode">
+        ${modeTab("quiz", "Quiz", session.mode)}
+        ${modeTab("flashcards", "Flashcards", session.mode)}
+        ${modeTab("pronunciation", "Pronunciation", session.mode)}
+        ${modeTab("conversation", "Conversation", session.mode)}
       </div>
-
-      ${renderPracticeFocus(lesson, content.quiz.length, selectedTopic)}
-      ${renderPracticeTopics(selectedTopic?.slug)}
-      ${renderTopicLanding(selectedTopic)}
-      ${renderWeeklyGoal()}
-      ${renderRecentActivity()}
-
-      <div class="practice-panels">
-        ${renderQuiz(content.quiz)}
-        ${renderFlashcards(content.words)}
-        ${renderPronunciation(content.pronunciation)}
-      </div>
-    </section>
-  `;
-}
-
-function renderPracticeHeader() {
-  return `
-    <header class="practice-header">
-      <div class="practice-title-row">
-        <div>
-          <h1>Practice</h1>
-          <p>Practice speaking, listening and more.</p>
+      ${renderSummary(session.mode, topic, lesson)}
+      <section class="practice-topic-section">
+        <div class="practice-section-title"><h2>Practice by Topic</h2><span>Choose a focus</span></div>
+        <div class="practice-topic-grid">
+          ${Object.entries(TOPICS).map(([slug, item]) => {
+            const availableLesson = getLessonForTopic(slug);
+            const count = availableLesson ? getModeCount(session.mode, availableLesson) : 0;
+            return `<button class="practice-topic ${session.topic === slug ? "selected" : ""} ${availableLesson ? "" : "locked"}" type="button" onclick="hablaPractice.selectTopic('${slug}')" aria-pressed="${session.topic === slug}">
+              <span class="practice-topic-icon topic-${item.icon}" aria-hidden="true"></span>
+              <strong>${item.title}</strong><small>${availableLesson ? `${count} ${unitForMode(session.mode, count)}` : "Locked"}</small>
+            </button>`;
+          }).join("")}
         </div>
-        <button class="practice-level-pill" type="button">A1 Beginner <span aria-hidden="true">&rsaquo;</span></button>
-      </div>
-    </header>
-  `;
-}
-
-function modeCard(id, key, icon, title) {
-  const iconClass = `practice-icon-${key === "flashcards" ? "cards" : key === "pronunciation" ? "mic" : "quiz"}`;
-  return `
-    <label class="practice-mode-card ${key}" for="${id}" role="tab">
-      <div class="practice-mode-icon ${iconClass}" aria-hidden="true"></div>
-      <h2>${title}</h2>
-    </label>
-  `;
-}
-
-function renderPracticeFocus(lesson, questionCount = 15, selectedTopic = null) {
-  const title = selectedTopic?.title || (lesson?.title ? shortLessonTitle(lesson.title) : "Greetings & Introductions");
-  const objective = selectedTopic?.description || lesson?.objective || lesson?.objectives?.[0] || "Warm hellos, goodbyes, and introducing yourself in Spanish.";
-  const xp = Number(selectedTopic?.xp || lesson?.xpReward || 150);
-
-  return `
-    <section class="practice-focus-card">
-      <div class="practice-focus-copy">
-        <p>Today&rsquo;s Focus</p>
-        <h2>${escapeHtml(title)}</h2>
-        <span>${escapeHtml(objective)}</span>
-        <div class="practice-focus-meta">
-          <span><i class="meta-check" aria-hidden="true"></i>${questionCount} Questions</span>
-          <span><i class="meta-clock" aria-hidden="true"></i>10 Min</span>
-          <span><i class="meta-star" aria-hidden="true"></i>${xp} XP</span>
+      </section>
+      <section class="practice-weekly-card">
+        <div><span>Weekly Goal</span><strong>${Math.min(Number(appState?.user?.streak || 0), 7)} of 7</strong><small>Active study days</small></div>
+        <div class="practice-week-dots" aria-label="Current streak">
+          ${Array.from({ length: 7 }, (_, index) => `<i class="${index < Math.min(Number(appState?.user?.streak || 0), 7) ? "done" : ""}"></i>`).join("")}
         </div>
-        <button type="button" class="practice-start-quiz" onclick="document.getElementById('mode-quiz').checked=true;document.querySelector('.quiz-panel')?.scrollIntoView({behavior:'smooth',block:'start'});">
-          Start Quiz <span aria-hidden="true">&rsaquo;</span>
-        </button>
-      </div>
-      <div class="practice-focus-art" aria-hidden="true">
-        <span class="practice-girl"></span>
-        <img src="assets/images/carlos-home.png" alt="">
-        <em class="bubble-green">&iexcl;Hola!<small>Hello!</small></em>
-        <em class="bubble-gold">&iquest;C&oacute;mo est&aacute;s?<small>How are you?</small></em>
-      </div>
-    </section>
-  `;
+      </section>
+      <section class="practice-recent">
+        <div class="practice-section-title"><h2>Recent Activity</h2></div>
+        <div class="practice-empty-row"><span aria-hidden="true">↗</span><div><strong>Your practice history starts here</strong><small>Complete a focused session to build your review habit.</small></div></div>
+      </section>
+    </section>`;
 }
 
-function shortLessonTitle(title) {
-  return String(title || "Lesson").replace(/^.*?:\s*/, match => match.length > 18 ? "" : match);
+function modeTab(mode, label, selected) {
+  return `<button class="practice-mode-tab mode-${mode} ${selected === mode ? "selected" : ""}" type="button" role="tab" aria-selected="${selected === mode}" onclick="hablaPractice.selectMode('${mode}')"><span aria-hidden="true"></span><small>${label}</small></button>`;
 }
 
-function getSelectedPracticeTopic() {
-  try {
-    const slug = localStorage.getItem(PRACTICE_TOPIC_KEY);
-    if (!slug || !PRACTICE_TOPICS[slug]) return null;
-    return { slug, ...PRACTICE_TOPICS[slug] };
-  } catch (error) {
-    return null;
-  }
-}
-
-function renderPracticeTopics(selectedSlug = "") {
-  const topics = Object.entries(PRACTICE_TOPICS);
-
-  return `
-    <section class="practice-topic-section">
-      <div class="practice-section-head">
-        <h2>Practice by Topic</h2>
-        <button type="button" data-page="learn">View all <span aria-hidden="true">&rsaquo;</span></button>
-      </div>
-      <div class="practice-topic-grid">
-        ${topics.map(([slug, topic]) => `
-          <button class="practice-topic-tile${selectedSlug === slug ? " selected" : ""}" type="button" data-page="${slug === "conversation" ? "carlos" : "practice"}" data-practice-topic="${escapeAttr(slug)}">
-            <span class="topic-icon ${topic.icon}" aria-hidden="true">${renderTopicSvg(topic.icon)}</span>
-            <strong>${escapeHtml(topic.title)}</strong>
-            <small>${escapeHtml(topic.count)}</small>
-            ${topic.progress ? `<i class="topic-progress"><b style="width:${topic.progress}%"></b></i>` : ""}
-          </button>
-        `).join("")}
-      </div>
-    </section>
-  `;
-}
-
-function renderTopicLanding(topic) {
-  if (!topic || topic.slug === "conversation") return "";
-
-  return `
-    <section class="practice-topic-active-card">
-      <span class="topic-icon ${topic.icon}" aria-hidden="true">${renderTopicSvg(topic.icon)}</span>
-      <div>
-        <p>Selected Topic</p>
-        <h2>${escapeHtml(topic.title)}</h2>
-        <span>${escapeHtml(topic.description)}</span>
-      </div>
-      <button type="button" onclick="document.getElementById('mode-quiz').checked=true;document.querySelector('.quiz-panel')?.scrollIntoView({behavior:'smooth',block:'start'});">
-        Start Practice <span aria-hidden="true">&rsaquo;</span>
-      </button>
-    </section>
-  `;
-}
-
-function renderTopicSvg(iconClass) {
-  const icons = {
-    "topic-greetings": `<svg viewBox="0 0 48 48"><path d="M8 23c0-8 7-14 16-14s16 6 16 14-7 14-16 14c-2.5 0-5-.5-7-1.5L9 40l2.2-8C9.2 29.5 8 26.4 8 23Z"/><circle cx="18" cy="23" r="2.3"/><circle cx="24" cy="23" r="2.3"/><circle cx="30" cy="23" r="2.3"/></svg>`,
-    "topic-family": `<svg viewBox="0 0 48 48"><circle cx="18" cy="16" r="6"/><circle cx="31" cy="16" r="6"/><path d="M8 37c1.5-8 6-12 12-12s10.5 4 12 12H8Z"/><path d="M24 37c1.2-7 5-11 10-11 4.5 0 8 3.6 9 11H24Z"/></svg>`,
-    "topic-restaurants": `<svg viewBox="0 0 48 48"><path d="M14 7v17M20 7v17M11 7v10c0 5 12 5 12 0V7M17 24v17"/><path d="M34 7c-4 4-6 9-6 15h8v19"/></svg>`,
-    "topic-travel": `<svg viewBox="0 0 48 48"><path d="M4 28 43 9c1.4-.7 2.8.8 2 2.2L25 44l-5-16-16 0Z"/><path d="M20 28 43 10"/></svg>`,
-    "topic-shopping": `<svg viewBox="0 0 48 48"><path d="M12 18h24l3 24H9l3-24Z"/><path d="M18 18c0-6 12-6 12 0"/></svg>`,
-    "topic-work": `<svg viewBox="0 0 48 48"><path d="M16 15v-5h16v5"/><rect x="8" y="15" width="32" height="25" rx="4"/><path d="M8 26h32M21 26h6"/></svg>`,
-    "topic-smalltalk": `<svg viewBox="0 0 48 48"><path d="M8 23c0-8 7-14 16-14s16 6 16 14-7 14-16 14c-2.5 0-5-.5-7-1.5L9 40l2.2-8C9.2 29.5 8 26.4 8 23Z"/><circle cx="18" cy="23" r="2.3"/><circle cx="24" cy="23" r="2.3"/><circle cx="30" cy="23" r="2.3"/></svg>`,
-    "topic-freechat": `<svg viewBox="0 0 48 48"><rect x="18" y="6" width="12" height="24" rx="6"/><path d="M11 22c0 8 5 13 13 13s13-5 13-13M24 35v7M18 42h12"/></svg>`
+function renderSummary(mode, topic, lesson) {
+  const definitions = {
+    quiz: ["Quiz Practice", "Test your knowledge with multiple choice.", "Start Quiz"],
+    flashcards: ["Flashcards", "Review vocabulary from your available lesson.", "Start Flashcards"],
+    pronunciation: ["Pronunciation Practice", "Listen, record, and repeat useful phrases.", "Start Speaking"],
+    conversation: ["Speak with Carlos", "Use this topic as context for a focused conversation.", "Start Conversation"],
   };
-  return icons[iconClass] || "";
+  const [title, description, action] = definitions[mode];
+  const count = lesson ? getModeCount(mode, lesson) : 0;
+  const meta = mode === "conversation" ? "Topic context ready" : lesson ? `${count} ${unitForMode(mode, count)} · ${estimateMinutes(mode, count)} min` : "Complete earlier lessons to unlock";
+  return `<section class="practice-summary mode-${mode}">
+    <div class="practice-summary-copy"><span class="practice-summary-label">${title}</span><h2>${topic.title}</h2><p>${lesson || mode === "conversation" ? description : "This topic is not available in your unlocked lessons yet."}</p><small>${meta}</small></div>
+    <div class="practice-summary-mark" aria-hidden="true"></div>
+    <button class="practice-primary" type="button" onclick="hablaPractice.start()">${action}<span aria-hidden="true">›</span></button>
+  </section>`;
 }
 
-function renderWeeklyGoal() {
-  return `
-    <section class="weekly-goal-card">
-      <div>
-        <p>Weekly Goal</p>
-        <h2>4 of 7</h2>
-        <span>Lessons Completed</span>
-        <i class="weekly-progress"><b style="width:57%"></b></i>
-      </div>
-      <div class="weekly-days" aria-label="Weekly activity">
-        <strong><span>★</span> +350 XP</strong>
-        ${["M", "T", "W", "T", "F", "S", "S"].map((day, index) => `
-          <span class="${index < 2 ? "done" : index === 2 ? "today" : index === 6 ? "miss" : ""}">${day}<i></i></span>
-        `).join("")}
-      </div>
-    </section>
-  `;
+function renderActivityHeader(title) {
+  return `<header class="practice-activity-head"><button type="button" onclick="hablaPractice.back()" aria-label="Back to Practice">‹</button><h1>${title}</h1><span></span></header>`;
 }
 
-function renderRecentActivity() {
-  const rows = [
-    ["activity-quiz", "Quiz: Greetings & Introductions", "15 questions &bull; 10 min", "+150 XP", "Today, 9:30 PM"],
-    ["activity-mic", "Pronunciation: Basic Phrases", "Completed 10 exercises", "+80 XP", "Today, 7:15 PM"],
-    ["activity-chat", "Conversation: Ordering Coffee", "Spoke for 8 minutes", "+120 XP", "Today, 5:45 PM"],
-  ];
-
-  return `
-    <section class="recent-activity-section">
-      <div class="practice-section-head">
-        <h2>Recent Activity</h2>
-        <button type="button" data-page="profile">View all activity <span aria-hidden="true">&rsaquo;</span></button>
-      </div>
-      <div class="recent-activity-card">
-        ${rows.map(([icon, title, detail, xp, time]) => `
-          <button type="button" data-page="practice">
-            <span class="${icon}" aria-hidden="true"></span>
-            <span><strong>${title}</strong><small>${detail}</small></span>
-            <em>${xp}<small>${time}</small></em>
-            <i aria-hidden="true">&rsaquo;</i>
-          </button>
-        `).join("")}
-      </div>
-    </section>
-  `;
+function renderTopicSummary(topic, lesson, current, total, mode) {
+  const percent = total ? Math.round((current / total) * 100) : 0;
+  return `<section class="practice-activity-summary mode-${mode}">
+    <span class="practice-topic-icon topic-${topic.icon}" aria-hidden="true"></span>
+    <div><strong>${topic.title}</strong><small>${lesson ? shortLessonTitle(lesson.title) : "Practice"}</small></div>
+    <div class="practice-summary-progress"><b>${current} / ${total}</b><i><span style="width:${percent}%"></span></i></div>
+  </section>`;
 }
 
-function renderQuiz(questions = quizQuestions) {
-  return `
-    <section class="practice-mode-panel quiz-panel" data-score="0" aria-label="Quiz Mode">
-      <div class="practice-panel-head">
-        <div><span class="practice-eyebrow">Multiple choice</span><h2>Spanish to English</h2></div>
-        <div class="practice-score">Score <strong>0</strong></div>
-      </div>
-      <div class="practice-progress"><div><div class="practice-progress-bar" style="width:${100 / questions.length}%"></div></div><span>1/${questions.length}</span></div>
-      ${questions.map((question, index) => `
-        <article class="quiz-question${index === 0 ? " active" : ""}" data-correct="${escapeAttr(question.en)}">
-          <p>${escapeHtml(question.prompt || "What does this mean?")}</p>
-          <h3>${escapeHtml(question.es)}</h3>
-          <div class="quiz-options">
-            ${question.options.map(option => `<button class="quiz-option" type="button" data-answer="${escapeAttr(option)}" onclick="hablaPractice.answerQuiz(this)">${escapeHtml(option)}</button>`).join("")}
-          </div>
-          <div class="quiz-feedback"></div>
-        </article>
-      `).join("")}
-      <div class="quiz-complete" hidden>Quiz complete. Great session.</div>
-      <button class="practice-primary" type="button" onclick="hablaPractice.nextQuiz(this)">Next</button>
-    </section>
-  `;
+function renderQuizActivity(session, topic, lesson) {
+  ensureQuizSession(session, lesson);
+  const question = session.quiz.questions[session.quiz.index];
+  const total = session.quiz.questions.length;
+  const selected = session.quiz.selected;
+  return `<section class="practice-shell practice-activity quiz-activity">
+    ${renderActivityHeader("Quiz")}
+    ${renderTopicSummary(topic, lesson, session.quiz.index + 1, total, "quiz")}
+    <article class="practice-question-card">
+      <div class="practice-question-step"><span>Question ${session.quiz.index + 1} of ${total}</span><i><b style="width:${((session.quiz.index + 1) / total) * 100}%"></b></i></div>
+      <h2>${escapeHtml(question.prompt)}</h2>
+      <div class="practice-answer-list">${question.options.map((option, index) => {
+        const isCorrect = selected && option === question.answer;
+        const isWrong = selected === option && option !== question.answer;
+        return `<button type="button" class="practice-answer ${isCorrect ? "correct" : ""} ${isWrong ? "wrong" : ""}" ${selected ? "disabled" : ""} onclick="hablaPractice.answer(${index})"><span>${String.fromCharCode(65 + index)}</span>${escapeHtml(option)}</button>`;
+      }).join("")}</div>
+    </article>
+    ${selected ? `<section class="practice-feedback ${selected === question.answer ? "correct" : "wrong"}"><strong>${selected === question.answer ? "Correct!" : "Keep going"}</strong><p>${selected === question.answer ? `“${escapeHtml(question.answer)}” is the right answer.` : `The correct answer is “${escapeHtml(question.answer)}”.`}</p></section>` : ""}
+    <button class="practice-primary practice-next" type="button" ${selected ? "" : "disabled"} onclick="hablaPractice.nextQuiz()">${session.quiz.index + 1 === total ? "See Results" : "Next Question"}<span>›</span></button>
+  </section>`;
 }
 
-function renderFlashcards(words = practiceWords) {
-  return `
-    <section class="practice-mode-panel flashcard-panel" aria-label="Flashcards">
-      <div class="practice-panel-head">
-        <div><span class="practice-eyebrow">Recall</span><h2>Flashcards</h2></div>
-        <div class="flash-count">1/${words.length}</div>
-      </div>
-      <div class="flash-stage">
-        ${words.map(([es, en], index) => `
-          <article class="flash-slide${index === 0 ? " active" : ""}">
-            <div class="flash-face flash-front"><span>Spanish</span><strong class="flash-es">${escapeHtml(es)}</strong></div>
-            <div class="flash-face flash-back"><span>English</span><strong>${escapeHtml(en)}</strong></div>
-          </article>
-        `).join("")}
-      </div>
-      <div class="practice-actions">
-        <button type="button" onclick="hablaPractice.speakFrom(this, '.flash-slide.active .flash-es')"><span class="ui-icon ui-icon-sound" aria-hidden="true"></span> Hear</button>
-        <button type="button" onclick="hablaPractice.flipCard(this)">Flip</button>
-        <button type="button" onclick="hablaPractice.nextCard(this)">Next Card</button>
-      </div>
-    </section>
-  `;
+function renderFlashcardActivity(session, topic, lesson) {
+  ensureFlashSession(session, lesson);
+  const cards = getCards(lesson);
+  const orderedCards = session.flash.order.map(index => cards[index]).filter(Boolean);
+  const card = orderedCards[session.flash.index];
+  const total = orderedCards.length;
+  return `<section class="practice-shell practice-activity flash-activity">
+    ${renderActivityHeader("Flashcards")}
+    ${renderTopicSummary(topic, lesson, session.flash.index + 1, total, "flashcards")}
+    <button class="practice-flashcard ${session.flash.flipped ? "flipped" : ""}" type="button" onclick="hablaPractice.flip()" aria-label="Flip flashcard">
+      <span class="flash-star">☆</span>
+      <span class="flash-audio" data-phrase="${escapeAttr(card.spanish)}" onclick="event.stopPropagation();hablaPractice.speak(this.dataset.phrase)" aria-label="Hear Spanish">⌕</span>
+      <span class="flash-front"><strong>${escapeHtml(card.spanish)}</strong><small>Tap card to flip</small></span>
+      <span class="flash-back"><em>${escapeHtml(card.english)}</em>${card.exampleSpanish ? `<strong>${escapeHtml(card.exampleSpanish)}</strong><p>${escapeHtml(card.exampleEnglish || "")}</p>` : ""}${card.tip ? `<small>${escapeHtml(card.tip)}</small>` : ""}</span>
+    </button>
+    <div class="practice-card-nav"><button type="button" onclick="hablaPractice.prevCard()" aria-label="Previous card">‹</button><strong>${session.flash.index + 1} / ${total}</strong><button type="button" onclick="hablaPractice.nextCard()" aria-label="Next card">›</button></div>
+    <button class="practice-secondary" type="button" onclick="hablaPractice.shuffleCards()">⌘&nbsp; Shuffle Cards</button>
+  </section>`;
 }
 
-function renderPronunciation(items = pronunciationItems.map(text => ({ text, note: "" }))) {
-  return `
-    <section class="practice-mode-panel pronunciation-panel" aria-label="Pronunciation Practice">
-      <div class="practice-panel-head">
-        <div><span class="practice-eyebrow">Speech</span><h2>Pronunciation Practice</h2></div>
-        <div class="pron-count">1/${items.length}</div>
-      </div>
-      <div class="pron-stage">
-        ${items.map((item, index) => `
-          <article class="pron-slide${index === 0 ? " active" : ""}" data-phrase="${escapeAttr(item.text)}">
-            <span>Repeat this</span>
-            <strong>${escapeHtml(item.text)}</strong>
-            ${item.note ? `<small>${escapeHtml(item.note)}</small>` : ""}
-          </article>
-        `).join("")}
-      </div>
-      <div class="practice-actions">
-        <button type="button" onclick="hablaPractice.speakFrom(this, '.pron-slide.active strong')"><span class="ui-icon ui-icon-sound" aria-hidden="true"></span> Hear</button>
-        <button type="button" onclick="hablaPractice.listen(this)"><span class="ui-icon ui-icon-mic" aria-hidden="true"></span> Start Microphone</button>
-        <button type="button" onclick="hablaPractice.nextPronunciation(this)">Next Phrase</button>
-      </div>
-      <div class="pron-output">Tap the microphone and repeat the phrase.</div>
-      <div class="pron-feedback"></div>
-    </section>
-  `;
+function renderPronunciationActivity(session, topic, lesson) {
+  ensurePronunciationSession(session, lesson);
+  const exercises = getPronunciation(lesson);
+  const item = exercises[session.pronunciation.index];
+  const total = exercises.length;
+  return `<section class="practice-shell practice-activity pronunciation-activity">
+    ${renderActivityHeader("Pronunciation")}
+    ${renderTopicSummary(topic, lesson, session.pronunciation.index + 1, total, "pronunciation")}
+    <div class="pronunciation-stage">
+      <span>Listen and repeat</span><h2>${escapeHtml(item.text)}</h2>
+      ${item.english ? `<p>${escapeHtml(item.english)}</p>` : ""}
+      <button class="pron-listen" type="button" data-phrase="${escapeAttr(item.text)}" onclick="hablaPractice.speak(this.dataset.phrase)" aria-label="Listen to phrase">⌕</button>
+      <button class="pron-mic ${session.pronunciation.recording ? "recording" : ""}" type="button" onclick="hablaPractice.toggleRecording()"><span>♩</span><small>${session.pronunciation.recording ? "Tap to stop" : "Tap to record"}</small></button>
+      <div class="pron-status" aria-live="polite">${escapeHtml(session.pronunciation.message || "Speak now when you’re ready.")}</div>
+      <audio class="pron-playback" controls ${playbackUrl ? `src="${escapeAttr(playbackUrl)}"` : "hidden"}></audio>
+      <div class="pron-wave" aria-hidden="true">${Array.from({length: 26}, (_, i) => `<i style="height:${8 + ((i * 11) % 27)}px"></i>`).join("")}</div>
+      ${item.note ? `<small class="pron-note">${escapeHtml(item.note)}</small>` : ""}
+    </div>
+    <div class="pron-actions"><button type="button" data-phrase="${escapeAttr(item.text)}" onclick="hablaPractice.speak(this.dataset.phrase)">↻ Listen Again</button><button type="button" onclick="hablaPractice.nextPronunciation()">${session.pronunciation.index + 1 === total ? "Finish" : "Next"}<span>›</span></button></div>
+  </section>`;
 }
 
-function buildOptions(answer, index) {
-  const wrong = practiceWords
-    .map(([, en]) => en)
-    .filter(option => option !== answer);
-  const options = [answer, wrong[(index + 3) % wrong.length], wrong[(index + 11) % wrong.length], wrong[(index + 19) % wrong.length]];
-  return options.sort((a, b) => (a.length + index) % 3 - (b.length + index) % 3);
+function renderLockedActivity(session, topic) {
+  return `<section class="practice-shell practice-activity">${renderActivityHeader(modeTitle(session.mode))}<div class="practice-locked-state"><span>◇</span><h2>${topic.title} practice is still locked</h2><p>Continue your lessons to unlock real ${topic.title.toLowerCase()} vocabulary and exercises.</p><button class="practice-primary" onclick="hablaPractice.back()">Back to Practice</button></div></section>`;
 }
 
-function buildLessonOptions(answer, index, words) {
-  const wrong = words
-    .map(([, en]) => en)
-    .filter(option => option !== answer);
-  const options = [answer, wrong[(index + 2) % wrong.length], wrong[(index + 7) % wrong.length], wrong[(index + 13) % wrong.length]];
-  return options.sort((a, b) => (a.length + index) % 3 - (b.length + index) % 3);
+function renderNoDataActivity(session, topic, lesson) {
+  return `<section class="practice-shell practice-activity">${renderActivityHeader(modeTitle(session.mode))}<div class="practice-locked-state"><span>◇</span><h2>No ${modeTitle(session.mode).toLowerCase()} material yet</h2><p>${escapeHtml(shortLessonTitle(lesson.title))} does not include this practice type. Nothing unrelated has been substituted.</p><button class="practice-primary" onclick="hablaPractice.back()">Back to Practice</button></div></section>`;
 }
 
-function getQuizDisplayText(question) {
-  if (question.type === "translation") {
-    return question.prompt.replace(/^Translate:\s*/i, "");
-  }
-
-  if (question.type === "fillBlank") {
-    return question.prompt;
-  }
-
-  return question.prompt;
+function renderResults(session, topic, lesson) {
+  const total = session.quiz?.questions?.length || 0;
+  const score = session.quiz?.score || 0;
+  const percent = total ? Math.round((score / total) * 100) : 0;
+  return `<section class="practice-shell practice-activity practice-results">${renderActivityHeader("Results")}<div class="results-card"><span>Session complete</span><strong>${percent}%</strong><h2>${topic.title} Quiz</h2><p>${score} of ${total} correct</p><button class="practice-primary" onclick="hablaPractice.restartQuiz()">Practice Again</button><button class="practice-secondary" onclick="hablaPractice.back()">Back to Practice</button></div></section>`;
 }
 
-function speakSpanish(text) {
-  if (!text || typeof speechSynthesis === "undefined") return;
-  speechSynthesis.cancel();
-  const utterance = new SpeechSynthesisUtterance(text);
-  utterance.lang = "es-ES";
-  utterance.rate = 0.85;
-  utterance.pitch = 1.05;
-  speechSynthesis.speak(utterance);
+function getLessonForTopic(slug) {
+  const topic = TOPICS[slug] || TOPICS.greetings;
+  const unlocked = getUnlockedLessons();
+  return topic.lessons.map(id => unlocked.find(lesson => lesson.id === id)).find(Boolean) || null;
 }
 
-function compareSpeech(target, said) {
-  const normalizedTarget = normalize(target);
-  const normalizedSaid = normalize(said);
-  if (normalizedSaid === normalizedTarget || normalizedSaid.includes(normalizedTarget)) return "great";
-  const targetWords = normalizedTarget.split(" ");
-  const saidWords = normalizedSaid.split(" ");
-  if (targetWords.some(word => saidWords.includes(word)) || normalizedTarget[0] === normalizedSaid[0]) return "close";
-  return "retry";
+function getCards(lesson) {
+  const seen = new Set();
+  return (lesson?.vocabulary || []).filter(item => item?.spanish && item?.english && !seen.has(item.spanish.toLowerCase()) && seen.add(item.spanish.toLowerCase())).map(item => ({ spanish: item.spanish, english: item.english, exampleSpanish: item.exampleSpanish, exampleEnglish: item.exampleEnglish, tip: item.tip }));
 }
 
-function normalize(value) {
-  return value.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/[¿?¡!.,]/g, "").trim();
+function getPronunciation(lesson) {
+  const vocab = lesson?.vocabulary || [];
+  const listening = lesson?.listeningPhrases || [];
+  return (lesson?.pronunciation?.items || []).map(raw => {
+    const item = typeof raw === "string" ? { text: raw, note: "" } : raw;
+    const normalized = normalize(item.text);
+    const word = vocab.find(entry => normalize(entry.spanish) === normalized);
+    const phrase = listening.find(entry => normalize(entry.spanish) === normalized);
+    return { text: item.text, note: item.note || "", english: word?.english || phrase?.english || "" };
+  }).filter(item => item.text);
 }
 
-function escapeAttr(value) {
-  return String(value).replace(/&/g, "&amp;").replace(/"/g, "&quot;");
+function getModeCount(mode, lesson) {
+  if (mode === "flashcards") return getCards(lesson).length;
+  if (mode === "pronunciation") return getPronunciation(lesson).length;
+  if (mode === "conversation") return 1;
+  return (lesson?.quiz || []).length;
 }
 
-function escapeHtml(value) {
-  return String(value)
-    .replace(/&/g, "&amp;")
-    .replace(/</g, "&lt;")
-    .replace(/>/g, "&gt;")
-    .replace(/"/g, "&quot;")
-    .replace(/'/g, "&#39;");
+function unitForMode(mode, count) {
+  if (mode === "flashcards") return count === 1 ? "card" : "cards";
+  if (mode === "pronunciation") return count === 1 ? "exercise" : "exercises";
+  if (mode === "conversation") return "conversation";
+  return count === 1 ? "question" : "questions";
 }
+
+function estimateMinutes(mode, count) { return Math.max(2, Math.ceil(count * (mode === "pronunciation" ? .7 : .45))); }
+
+function ensureQuizSession(session, lesson, force = false) {
+  if (!force && session.quiz?.lessonId === lesson.id && session.quiz.questions?.length) return;
+  const questions = (lesson.quiz || []).map((question, index, all) => {
+    let options = Array.isArray(question.options) ? [...question.options] : [];
+    options = [question.answer, ...options.filter(option => option !== question.answer)];
+    const pool = [...all.map(item => item.answer), ...getCards(lesson).map(item => item.english)].filter(Boolean);
+    for (const option of shuffle(pool)) if (options.length < 4 && !options.includes(option)) options.push(option);
+    return { prompt: question.prompt || "Choose the correct answer.", answer: question.answer, options: shuffle(options.slice(0, 4)) };
+  });
+  session.quiz = { lessonId: lesson.id, questions: shuffle(questions), index: 0, score: 0, selected: "" };
+  writeSession(session);
+}
+
+function ensureFlashSession(session, lesson, force = false) {
+  const cards = getCards(lesson);
+  if (!force && session.flash?.lessonId === lesson.id && session.flash.order?.length === cards.length) return;
+  session.flash = { lessonId: lesson.id, order: cards.map((_, index) => index), index: 0, flipped: false };
+  writeSession(session);
+}
+
+function ensurePronunciationSession(session, lesson) {
+  if (session.pronunciation?.lessonId === lesson.id) return;
+  session.pronunciation = { lessonId: lesson.id, index: 0, recording: false, message: "" };
+  writeSession(session);
+}
+
+function readSession() {
+  let saved = {};
+  try { saved = JSON.parse(sessionStorage.getItem(SESSION_KEY) || "{}"); } catch {}
+  let suppliedTopic = "";
+  try { suppliedTopic = localStorage.getItem(TOPIC_KEY) || ""; } catch {}
+  const topic = TOPICS[suppliedTopic] ? suppliedTopic : (TOPICS[saved.topic] ? saved.topic : "greetings");
+  return { ...saved, mode: MODES.includes(saved.mode) ? saved.mode : "quiz", topic, view: ["launcher", "activity", "results"].includes(saved.view) ? saved.view : "launcher" };
+}
+
+function writeSession(session) { sessionStorage.setItem(SESSION_KEY, JSON.stringify(session)); }
+function rerender() { window.dispatchEvent(new CustomEvent("habla:practice-render")); }
+
+function stopRecordingResources() {
+  if (recordingStream) recordingStream.getTracks().forEach(track => track.stop());
+  recordingStream = null;
+  recorder = null;
+}
+
+window.hablaPractice = {
+  selectMode(mode) { const session = readSession(); session.mode = MODES.includes(mode) ? mode : "quiz"; session.view = "launcher"; writeSession(session); rerender(); },
+  selectTopic(topic) { const session = readSession(); session.topic = TOPICS[topic] ? topic : "greetings"; localStorage.setItem(TOPIC_KEY, session.topic); session.view = "launcher"; writeSession(session); rerender(); },
+  start() { const session = readSession(); if (session.mode === "conversation") { window.dispatchEvent(new CustomEvent("habla:practice-conversation", { detail: { topic: session.topic, title: TOPICS[session.topic].title } })); return; } session.view = "activity"; writeSession(session); rerender(); },
+  back() { stopRecordingResources(); const session = readSession(); session.view = "launcher"; if (session.pronunciation) session.pronunciation.recording = false; writeSession(session); rerender(); },
+  answer(index) { const session = readSession(); const question = session.quiz?.questions?.[session.quiz.index]; if (!question || session.quiz.selected) return; const answer = question.options[index]; session.quiz.selected = answer; if (answer === question.answer) session.quiz.score += 1; writeSession(session); rerender(); },
+  nextQuiz() { const session = readSession(); if (!session.quiz?.selected) return; if (session.quiz.index + 1 >= session.quiz.questions.length) session.view = "results"; else { session.quiz.index += 1; session.quiz.selected = ""; } writeSession(session); rerender(); },
+  restartQuiz() { const session = readSession(); const lesson = getLessonForTopic(session.topic); if (!lesson) return; ensureQuizSession(session, lesson, true); session.view = "activity"; writeSession(session); rerender(); },
+  flip() { const session = readSession(); session.flash.flipped = !session.flash.flipped; writeSession(session); rerender(); },
+  prevCard() { const session = readSession(); const total = session.flash.order.length; session.flash.index = (session.flash.index - 1 + total) % total; session.flash.flipped = false; writeSession(session); rerender(); },
+  nextCard() { const session = readSession(); session.flash.index = (session.flash.index + 1) % session.flash.order.length; session.flash.flipped = false; writeSession(session); rerender(); },
+  shuffleCards() { const session = readSession(); session.flash.order = shuffle(session.flash.order); session.flash.index = 0; session.flash.flipped = false; writeSession(session); rerender(); },
+  speak(text) { speakSpanish(text); },
+  async toggleRecording() {
+    const session = readSession();
+    if (recorder?.state === "recording") { recorder.stop(); return; }
+    if (!navigator.mediaDevices?.getUserMedia || typeof MediaRecorder === "undefined") { session.pronunciation.message = "Recording isn’t supported here. You can still listen, retry, and continue."; writeSession(session); rerender(); return; }
+    try {
+      recordingStream = await navigator.mediaDevices.getUserMedia({ audio: true });
+      recordingChunks = [];
+      recorder = new MediaRecorder(recordingStream);
+      recorder.ondataavailable = event => { if (event.data.size) recordingChunks.push(event.data); };
+      recorder.onstop = () => { if (playbackUrl) URL.revokeObjectURL(playbackUrl); playbackUrl = URL.createObjectURL(new Blob(recordingChunks, { type: recorder.mimeType || "audio/webm" })); const next = readSession(); next.pronunciation.recording = false; next.pronunciation.message = "Attempt recorded. Play it back or try again."; writeSession(next); stopRecordingResources(); rerender(); };
+      recorder.start(); session.pronunciation.recording = true; session.pronunciation.message = "Recording… tap again when you’re finished."; writeSession(session); rerender();
+    } catch { session.pronunciation.recording = false; session.pronunciation.message = "Microphone access wasn’t available. You can still listen and continue."; writeSession(session); stopRecordingResources(); rerender(); }
+  },
+  nextPronunciation() { const session = readSession(); const lesson = getLessonForTopic(session.topic); const total = getPronunciation(lesson).length; if (session.pronunciation.index + 1 >= total) { session.view = "launcher"; session.pronunciation.index = 0; } else session.pronunciation.index += 1; session.pronunciation.message = ""; writeSession(session); rerender(); },
+};
+
+function shuffle(values) {
+  const result = [...values];
+  for (let i = result.length - 1; i > 0; i -= 1) { const j = Math.floor(Math.random() * (i + 1)); [result[i], result[j]] = [result[j], result[i]]; }
+  return result;
+}
+
+function speakSpanish(text) { if (!text || !window.speechSynthesis) return; speechSynthesis.cancel(); const utterance = new SpeechSynthesisUtterance(text); utterance.lang = "es-ES"; utterance.rate = .85; speechSynthesis.speak(utterance); }
+function normalize(value) { return String(value || "").toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/[¿?¡!.,]/g, "").trim(); }
+function shortLessonTitle(title) { return String(title || "Lesson").replace(/^.*?:\s*/, ""); }
+function modeTitle(mode) { return mode === "flashcards" ? "Flashcards" : mode === "pronunciation" ? "Pronunciation" : "Quiz"; }
+function escapeAttr(value) { return escapeHtml(value).replace(/`/g, "&#96;"); }
+function escapeHtml(value) { return String(value ?? "").replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;").replace(/'/g, "&#39;"); }
