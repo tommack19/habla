@@ -851,8 +851,8 @@
       "options": [
         "hotel",
         "reservation",
-        "reservation",
-        "front desk"
+        "front desk",
+        "receptionist"
       ],
       "answer": "hotel"
     },
@@ -860,10 +860,10 @@
       "type": "multipleChoice",
       "prompt": "What does la reservacion mean?",
       "options": [
-        "reservation",
-        "reservation",
         "front desk",
-        "receptionist"
+        "reservation",
+        "receptionist",
+        "hotel"
       ],
       "answer": "reservation"
     },
@@ -871,10 +871,10 @@
       "type": "multipleChoice",
       "prompt": "What does la reserva mean?",
       "options": [
-        "reservation",
         "front desk",
         "receptionist",
-        "receptionist"
+        "reservation",
+        "hotel"
       ],
       "answer": "reservation"
     },
@@ -882,10 +882,10 @@
       "type": "multipleChoice",
       "prompt": "What does la recepcion mean?",
       "options": [
-        "front desk",
         "receptionist",
-        "receptionist",
-        "room"
+        "room",
+        "hotel",
+        "front desk"
       ],
       "answer": "front desk"
     },
@@ -894,9 +894,9 @@
       "prompt": "What does el recepcionista mean?",
       "options": [
         "receptionist",
-        "receptionist",
         "room",
-        "room"
+        "hotel",
+        "reservation"
       ],
       "answer": "receptionist"
     },
@@ -904,10 +904,10 @@
       "type": "multipleChoice",
       "prompt": "What does la recepcionista mean?",
       "options": [
+        "room",
         "receptionist",
-        "room",
-        "room",
-        "key"
+        "key",
+        "hotel"
       ],
       "answer": "receptionist"
     },
@@ -915,10 +915,10 @@
       "type": "multipleChoice",
       "prompt": "What does la habitacion mean?",
       "options": [
-        "room",
-        "room",
         "key",
-        "key card"
+        "key card",
+        "room",
+        "hotel"
       ],
       "answer": "room"
     },
@@ -926,10 +926,10 @@
       "type": "multipleChoice",
       "prompt": "What does el cuarto mean?",
       "options": [
-        "room",
         "key",
         "key card",
-        "elevator"
+        "elevator",
+        "room"
       ],
       "answer": "room"
     },
@@ -940,7 +940,7 @@
         "key",
         "key card",
         "elevator",
-        "elevator"
+        "hotel"
       ],
       "answer": "key"
     },
@@ -948,10 +948,10 @@
       "type": "multipleChoice",
       "prompt": "What does la tarjeta llave mean?",
       "options": [
+        "elevator",
         "key card",
-        "elevator",
-        "elevator",
-        "floor"
+        "floor",
+        "hotel"
       ],
       "answer": "key card"
     },
@@ -959,10 +959,10 @@
       "type": "multipleChoice",
       "prompt": "What does el ascensor mean?",
       "options": [
-        "elevator",
-        "elevator",
         "floor",
-        "bed"
+        "bed",
+        "elevator",
+        "hotel"
       ],
       "answer": "elevator"
     },
@@ -970,10 +970,10 @@
       "type": "multipleChoice",
       "prompt": "What does el elevador mean?",
       "options": [
-        "elevator",
         "floor",
         "bed",
-        "bathroom"
+        "bathroom",
+        "elevator"
       ],
       "answer": "elevator"
     },
@@ -991,9 +991,9 @@
       "type": "multipleChoice",
       "prompt": "Which phrase fits Hotels?",
       "options": [
-        "la reserva",
         "mi familia",
         "hace frio",
+        "la reserva",
         "me gusta leer"
       ],
       "answer": "la reserva"

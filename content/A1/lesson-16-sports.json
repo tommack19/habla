@@ -860,8 +860,8 @@
       "type": "multipleChoice",
       "prompt": "What does el futbol mean?",
       "options": [
-        "soccer",
         "football",
+        "soccer",
         "baseball",
         "basketball"
       ],
@@ -871,10 +871,10 @@
       "type": "multipleChoice",
       "prompt": "What does el futbol americano mean?",
       "options": [
-        "football",
         "baseball",
         "basketball",
-        "basketball"
+        "football",
+        "sport"
       ],
       "answer": "football"
     },
@@ -882,10 +882,10 @@
       "type": "multipleChoice",
       "prompt": "What does el beisbol mean?",
       "options": [
-        "baseball",
         "basketball",
-        "basketball",
-        "tennis"
+        "tennis",
+        "sport",
+        "baseball"
       ],
       "answer": "baseball"
     },
@@ -894,9 +894,9 @@
       "prompt": "What does el basquetbol mean?",
       "options": [
         "basketball",
-        "basketball",
         "tennis",
-        "swimming"
+        "swimming",
+        "sport"
       ],
       "answer": "basketball"
     },
@@ -904,8 +904,8 @@
       "type": "multipleChoice",
       "prompt": "What does el baloncesto mean?",
       "options": [
-        "basketball",
         "tennis",
+        "basketball",
         "swimming",
         "to run"
       ],
@@ -915,9 +915,9 @@
       "type": "multipleChoice",
       "prompt": "What does el tenis mean?",
       "options": [
-        "tennis",
         "swimming",
         "to run",
+        "tennis",
         "to walk"
       ],
       "answer": "tennis"
@@ -926,10 +926,10 @@
       "type": "multipleChoice",
       "prompt": "What does la natacion mean?",
       "options": [
-        "swimming",
         "to run",
         "to walk",
-        "to play"
+        "to play",
+        "swimming"
       ],
       "answer": "swimming"
     },
@@ -948,8 +948,8 @@
       "type": "multipleChoice",
       "prompt": "What does caminar mean?",
       "options": [
-        "to walk",
         "to play",
+        "to walk",
         "to practice",
         "to watch"
       ],
@@ -959,9 +959,9 @@
       "type": "multipleChoice",
       "prompt": "What does jugar mean?",
       "options": [
-        "to play",
         "to practice",
         "to watch",
+        "to play",
         "game/match"
       ],
       "answer": "to play"
@@ -970,10 +970,10 @@
       "type": "multipleChoice",
       "prompt": "What does practicar mean?",
       "options": [
-        "to practice",
         "to watch",
         "game/match",
-        "team"
+        "team",
+        "to practice"
       ],
       "answer": "to practice"
     },
@@ -991,9 +991,9 @@
       "type": "multipleChoice",
       "prompt": "Which phrase belongs in Sports?",
       "options": [
-        "el futbol americano",
         "mi suegra",
         "buenos dias",
+        "el futbol americano",
         "un boleto"
       ],
       "answer": "el futbol americano"

@@ -851,8 +851,8 @@
       "options": [
         "health",
         "sick",
-        "sick",
-        "well"
+        "well",
+        "badly/unwell"
       ],
       "answer": "health"
     },
@@ -860,10 +860,10 @@
       "type": "multipleChoice",
       "prompt": "What does enfermo mean?",
       "options": [
-        "sick",
-        "sick",
         "well",
-        "badly/unwell"
+        "sick",
+        "badly/unwell",
+        "health"
       ],
       "answer": "sick"
     },
@@ -871,9 +871,9 @@
       "type": "multipleChoice",
       "prompt": "What does enferma mean?",
       "options": [
-        "sick",
         "well",
         "badly/unwell",
+        "sick",
         "I feel"
       ],
       "answer": "sick"
@@ -882,10 +882,10 @@
       "type": "multipleChoice",
       "prompt": "What does bien mean?",
       "options": [
-        "well",
         "badly/unwell",
         "I feel",
-        "it hurts me"
+        "it hurts me",
+        "well"
       ],
       "answer": "well"
     },
@@ -904,8 +904,8 @@
       "type": "multipleChoice",
       "prompt": "What does me siento mean?",
       "options": [
-        "I feel",
         "it hurts me",
+        "I feel",
         "pain",
         "fever"
       ],
@@ -915,9 +915,9 @@
       "type": "multipleChoice",
       "prompt": "What does me duele mean?",
       "options": [
-        "it hurts me",
         "pain",
         "fever",
+        "it hurts me",
         "cough"
       ],
       "answer": "it hurts me"
@@ -926,10 +926,10 @@
       "type": "multipleChoice",
       "prompt": "What does el dolor mean?",
       "options": [
-        "pain",
         "fever",
         "cough",
-        "cold"
+        "cold",
+        "pain"
       ],
       "answer": "pain"
     },
@@ -948,8 +948,8 @@
       "type": "multipleChoice",
       "prompt": "What does la tos mean?",
       "options": [
-        "cough",
         "cold",
+        "cough",
         "flu",
         "allergy"
       ],
@@ -959,9 +959,9 @@
       "type": "multipleChoice",
       "prompt": "What does el resfriado mean?",
       "options": [
-        "cold",
         "flu",
         "allergy",
+        "cold",
         "doctor"
       ],
       "answer": "cold"
@@ -970,10 +970,10 @@
       "type": "multipleChoice",
       "prompt": "What does la gripe mean?",
       "options": [
-        "flu",
         "allergy",
         "doctor",
-        "doctor"
+        "health",
+        "flu"
       ],
       "answer": "flu"
     },
@@ -991,9 +991,9 @@
       "type": "multipleChoice",
       "prompt": "Which phrase belongs in Health?",
       "options": [
-        "enferma",
         "mi suegra",
         "buenos dias",
+        "enferma",
         "un boleto"
       ],
       "answer": "enferma"

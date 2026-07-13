@@ -860,8 +860,8 @@
       "type": "multipleChoice",
       "prompt": "What does la llamada mean?",
       "options": [
-        "call",
         "to call",
+        "call",
         "to answer",
         "to speak"
       ],
@@ -871,9 +871,9 @@
       "type": "multipleChoice",
       "prompt": "What does llamar mean?",
       "options": [
-        "to call",
         "to answer",
         "to speak",
+        "to call",
         "to hear/listen"
       ],
       "answer": "to call"
@@ -882,10 +882,10 @@
       "type": "multipleChoice",
       "prompt": "What does contestar mean?",
       "options": [
-        "to answer",
         "to speak",
         "to hear/listen",
-        "to hear"
+        "to hear",
+        "to answer"
       ],
       "answer": "to answer"
     },
@@ -904,8 +904,8 @@
       "type": "multipleChoice",
       "prompt": "What does escuchar mean?",
       "options": [
-        "to hear/listen",
         "to hear",
+        "to hear/listen",
         "message",
         "to leave a message"
       ],
@@ -915,9 +915,9 @@
       "type": "multipleChoice",
       "prompt": "What does oir mean?",
       "options": [
-        "to hear",
         "message",
         "to leave a message",
+        "to hear",
         "voicemail"
       ],
       "answer": "to hear"
@@ -926,10 +926,10 @@
       "type": "multipleChoice",
       "prompt": "What does el mensaje mean?",
       "options": [
-        "message",
         "to leave a message",
         "voicemail",
-        "number"
+        "number",
+        "message"
       ],
       "answer": "message"
     },
@@ -948,8 +948,8 @@
       "type": "multipleChoice",
       "prompt": "What does el buzon mean?",
       "options": [
-        "voicemail",
         "number",
+        "voicemail",
         "wrong number",
         "busy"
       ],
@@ -959,9 +959,9 @@
       "type": "multipleChoice",
       "prompt": "What does el numero mean?",
       "options": [
-        "number",
         "wrong number",
         "busy",
+        "number",
         "signal"
       ],
       "answer": "number"
@@ -970,10 +970,10 @@
       "type": "multipleChoice",
       "prompt": "What does numero equivocado mean?",
       "options": [
-        "wrong number",
         "busy",
         "signal",
-        "battery"
+        "battery",
+        "wrong number"
       ],
       "answer": "wrong number"
     },
@@ -991,9 +991,9 @@
       "type": "multipleChoice",
       "prompt": "Which phrase fits Phone?",
       "options": [
-        "llamar",
         "mi familia",
         "hace frio",
+        "llamar",
         "me gusta leer"
       ],
       "answer": "llamar"

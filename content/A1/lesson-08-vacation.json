@@ -4,6 +4,7 @@
   "level": "A1",
   "module": "Vacation",
   "estimatedMinutes": 34,
+  "image": "assets/images/lessons/lesson-08-vacation.png",
   "metadata": {
     "course": "Habla",
     "unit": "A1 Beginner",
@@ -241,154 +242,304 @@
   },
   "dialogue": [
     {
-      "title": "Vacation with Carlos",
+      "title": "Vacation plans",
       "lines": [
         {
           "speaker": "Carlos",
-          "spanish": "Vamos a practicar vacation.",
-          "english": "Let?s practice vacation."
+          "spanish": "A donde vas de vacaciones?",
+          "english": "Where are you going on vacation?"
         },
         {
           "speaker": "Learner",
-          "spanish": "S?, quiero practicar.",
-          "english": "Yes, I want to practice."
-        },
-        {
-          "speaker": "Carlos",
-          "spanish": "Muy bien. Usa una frase completa.",
-          "english": "Very good. Use a complete sentence."
-        },
-        {
-          "speaker": "Learner",
-          "spanish": "Puedo decirlo otra vez.",
-          "english": "I can say it again."
+          "spanish": "Voy a Mexico.",
+          "english": "I am going to Mexico."
         }
       ]
     },
     {
-      "title": "A polite real-life exchange",
+      "title": "At the beach",
       "lines": [
         {
-          "speaker": "Carlos",
-          "spanish": "Disculpe, tengo una pregunta.",
-          "english": "Excuse me, I have a question."
-        },
-        {
           "speaker": "Learner",
-          "spanish": "Claro, con gusto.",
-          "english": "Of course, gladly."
+          "spanish": "Quiero ir a la playa.",
+          "english": "I want to go to the beach."
         },
         {
           "speaker": "Carlos",
-          "spanish": "Gracias por ayudarme.",
-          "english": "Thank you for helping me."
-        },
-        {
-          "speaker": "Learner",
-          "spanish": "De nada.",
-          "english": "You?re welcome."
+          "spanish": "Buena idea. Hace sol.",
+          "english": "Good idea. It is sunny."
         }
       ]
     },
     {
-      "title": "Family-friendly practice",
+      "title": "Hotel question",
+      "lines": [
+        {
+          "speaker": "Learner",
+          "spanish": "Donde esta el hotel?",
+          "english": "Where is the hotel?"
+        },
+        {
+          "speaker": "Carlos",
+          "spanish": "El hotel esta cerca de la playa.",
+          "english": "The hotel is near the beach."
+        }
+      ]
+    },
+    {
+      "title": "Taking photos",
       "lines": [
         {
           "speaker": "Carlos",
-          "spanish": "?C?mo lo dices con tu familia?",
-          "english": "How do you say it with your family?"
+          "spanish": "Quieres tomar fotos?",
+          "english": "Do you want to take photos?"
         },
         {
           "speaker": "Learner",
-          "spanish": "Lo digo despacio y con respeto.",
-          "english": "I say it slowly and respectfully."
+          "spanish": "Si, quiero tomar fotos.",
+          "english": "Yes, I want to take photos."
+        }
+      ]
+    },
+    {
+      "title": "Vacation food",
+      "lines": [
+        {
+          "speaker": "Learner",
+          "spanish": "Quisiera probar comida local.",
+          "english": "I would like to try local food."
         },
         {
           "speaker": "Carlos",
-          "spanish": "Perfecto, eso suena natural.",
-          "english": "Perfect, that sounds natural."
+          "spanish": "Excelente. Vamos al mercado.",
+          "english": "Excellent. Let's go to the market."
+        }
+      ]
+    },
+    {
+      "title": "Talking about weather",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Hace calor hoy.",
+          "english": "It is hot today."
         },
         {
           "speaker": "Learner",
-          "spanish": "Gracias, Carlos.",
-          "english": "Thanks, Carlos."
+          "spanish": "Si, necesito agua.",
+          "english": "Yes, I need water."
+        }
+      ]
+    },
+    {
+      "title": "Making plans",
+      "lines": [
+        {
+          "speaker": "Learner",
+          "spanish": "Manana quiero visitar el centro.",
+          "english": "Tomorrow I want to visit downtown."
+        },
+        {
+          "speaker": "Carlos",
+          "spanish": "Perfecto. Vamos por la manana.",
+          "english": "Perfect. Let's go in the morning."
+        }
+      ]
+    },
+    {
+      "title": "Buying a souvenir",
+      "lines": [
+        {
+          "speaker": "Learner",
+          "spanish": "Quisiera un recuerdo, por favor.",
+          "english": "I would like a souvenir, please."
+        },
+        {
+          "speaker": "Carlos",
+          "spanish": "Claro. Este es bonito.",
+          "english": "Of course. This one is pretty."
+        }
+      ]
+    },
+    {
+      "title": "Resting",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Quieres descansar?",
+          "english": "Do you want to rest?"
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "Si, estoy cansado.",
+          "english": "Yes, I am tired."
+        }
+      ]
+    },
+    {
+      "title": "Vacation summary",
+      "lines": [
+        {
+          "speaker": "Learner",
+          "spanish": "Mi vacacion es tranquila y bonita.",
+          "english": "My vacation is calm and beautiful."
+        },
+        {
+          "speaker": "Carlos",
+          "spanish": "Muy natural, Tom.",
+          "english": "Very natural, Tom."
         }
       ]
     }
   ],
   "dialogues": [
     {
-      "title": "Vacation with Carlos",
+      "title": "Vacation plans",
       "lines": [
         {
           "speaker": "Carlos",
-          "spanish": "Vamos a practicar vacation.",
-          "english": "Let?s practice vacation."
+          "spanish": "A donde vas de vacaciones?",
+          "english": "Where are you going on vacation?"
         },
         {
           "speaker": "Learner",
-          "spanish": "S?, quiero practicar.",
-          "english": "Yes, I want to practice."
-        },
-        {
-          "speaker": "Carlos",
-          "spanish": "Muy bien. Usa una frase completa.",
-          "english": "Very good. Use a complete sentence."
-        },
-        {
-          "speaker": "Learner",
-          "spanish": "Puedo decirlo otra vez.",
-          "english": "I can say it again."
+          "spanish": "Voy a Mexico.",
+          "english": "I am going to Mexico."
         }
       ]
     },
     {
-      "title": "A polite real-life exchange",
+      "title": "At the beach",
       "lines": [
         {
-          "speaker": "Carlos",
-          "spanish": "Disculpe, tengo una pregunta.",
-          "english": "Excuse me, I have a question."
-        },
-        {
           "speaker": "Learner",
-          "spanish": "Claro, con gusto.",
-          "english": "Of course, gladly."
+          "spanish": "Quiero ir a la playa.",
+          "english": "I want to go to the beach."
         },
         {
           "speaker": "Carlos",
-          "spanish": "Gracias por ayudarme.",
-          "english": "Thank you for helping me."
-        },
-        {
-          "speaker": "Learner",
-          "spanish": "De nada.",
-          "english": "You?re welcome."
+          "spanish": "Buena idea. Hace sol.",
+          "english": "Good idea. It is sunny."
         }
       ]
     },
     {
-      "title": "Family-friendly practice",
+      "title": "Hotel question",
+      "lines": [
+        {
+          "speaker": "Learner",
+          "spanish": "Donde esta el hotel?",
+          "english": "Where is the hotel?"
+        },
+        {
+          "speaker": "Carlos",
+          "spanish": "El hotel esta cerca de la playa.",
+          "english": "The hotel is near the beach."
+        }
+      ]
+    },
+    {
+      "title": "Taking photos",
       "lines": [
         {
           "speaker": "Carlos",
-          "spanish": "?C?mo lo dices con tu familia?",
-          "english": "How do you say it with your family?"
+          "spanish": "Quieres tomar fotos?",
+          "english": "Do you want to take photos?"
         },
         {
           "speaker": "Learner",
-          "spanish": "Lo digo despacio y con respeto.",
-          "english": "I say it slowly and respectfully."
+          "spanish": "Si, quiero tomar fotos.",
+          "english": "Yes, I want to take photos."
+        }
+      ]
+    },
+    {
+      "title": "Vacation food",
+      "lines": [
+        {
+          "speaker": "Learner",
+          "spanish": "Quisiera probar comida local.",
+          "english": "I would like to try local food."
         },
         {
           "speaker": "Carlos",
-          "spanish": "Perfecto, eso suena natural.",
-          "english": "Perfect, that sounds natural."
+          "spanish": "Excelente. Vamos al mercado.",
+          "english": "Excellent. Let's go to the market."
+        }
+      ]
+    },
+    {
+      "title": "Talking about weather",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Hace calor hoy.",
+          "english": "It is hot today."
         },
         {
           "speaker": "Learner",
-          "spanish": "Gracias, Carlos.",
-          "english": "Thanks, Carlos."
+          "spanish": "Si, necesito agua.",
+          "english": "Yes, I need water."
+        }
+      ]
+    },
+    {
+      "title": "Making plans",
+      "lines": [
+        {
+          "speaker": "Learner",
+          "spanish": "Manana quiero visitar el centro.",
+          "english": "Tomorrow I want to visit downtown."
+        },
+        {
+          "speaker": "Carlos",
+          "spanish": "Perfecto. Vamos por la manana.",
+          "english": "Perfect. Let's go in the morning."
+        }
+      ]
+    },
+    {
+      "title": "Buying a souvenir",
+      "lines": [
+        {
+          "speaker": "Learner",
+          "spanish": "Quisiera un recuerdo, por favor.",
+          "english": "I would like a souvenir, please."
+        },
+        {
+          "speaker": "Carlos",
+          "spanish": "Claro. Este es bonito.",
+          "english": "Of course. This one is pretty."
+        }
+      ]
+    },
+    {
+      "title": "Resting",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Quieres descansar?",
+          "english": "Do you want to rest?"
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "Si, estoy cansado.",
+          "english": "Yes, I am tired."
+        }
+      ]
+    },
+    {
+      "title": "Vacation summary",
+      "lines": [
+        {
+          "speaker": "Learner",
+          "spanish": "Mi vacacion es tranquila y bonita.",
+          "english": "My vacation is calm and beautiful."
+        },
+        {
+          "speaker": "Carlos",
+          "spanish": "Muy natural, Tom.",
+          "english": "Very natural, Tom."
         }
       ]
     }
@@ -613,8 +764,8 @@
       "type": "multipleChoice",
       "prompt": "What does ?la playa? mean?",
       "options": [
-        "beach",
         "vacation",
+        "beach",
         "sea",
         "mountain"
       ],
@@ -624,9 +775,9 @@
       "type": "multipleChoice",
       "prompt": "What does ?el mar? mean?",
       "options": [
-        "sea",
         "vacation",
         "beach",
+        "sea",
         "mountain"
       ],
       "answer": "sea"
@@ -635,10 +786,10 @@
       "type": "multipleChoice",
       "prompt": "What does ?la monta?a? mean?",
       "options": [
-        "mountain",
         "vacation",
         "beach",
-        "sea"
+        "sea",
+        "mountain"
       ],
       "answer": "mountain"
     },
@@ -657,8 +808,8 @@
       "type": "multipleChoice",
       "prompt": "What does ?el museo? mean?",
       "options": [
-        "museum",
         "vacation",
+        "museum",
         "beach",
         "sea"
       ],
@@ -668,9 +819,9 @@
       "type": "multipleChoice",
       "prompt": "What does ?el parque? mean?",
       "options": [
-        "park",
         "vacation",
         "beach",
+        "park",
         "sea"
       ],
       "answer": "park"
@@ -679,10 +830,10 @@
       "type": "multipleChoice",
       "prompt": "What does ?la foto? mean?",
       "options": [
-        "photo",
         "vacation",
         "beach",
-        "sea"
+        "sea",
+        "photo"
       ],
       "answer": "photo"
     },
@@ -701,8 +852,8 @@
       "type": "multipleChoice",
       "prompt": "What does ?la lluvia? mean?",
       "options": [
-        "rain",
         "vacation",
+        "rain",
         "beach",
         "sea"
       ],
@@ -712,9 +863,9 @@
       "type": "multipleChoice",
       "prompt": "What does ?hace calor? mean?",
       "options": [
-        "it is hot",
         "vacation",
         "beach",
+        "it is hot",
         "sea"
       ],
       "answer": "it is hot"
@@ -723,10 +874,10 @@
       "type": "multipleChoice",
       "prompt": "What does ?hace fr?o? mean?",
       "options": [
-        "it is cold",
         "vacation",
         "beach",
-        "sea"
+        "sea",
+        "it is cold"
       ],
       "answer": "it is cold"
     },
@@ -745,8 +896,8 @@
       "type": "multipleChoice",
       "prompt": "What does ?visitar? mean?",
       "options": [
-        "to visit",
         "vacation",
+        "to visit",
         "beach",
         "sea"
       ],
@@ -756,9 +907,9 @@
       "type": "multipleChoice",
       "prompt": "What does ?nadar? mean?",
       "options": [
-        "to swim",
         "vacation",
         "beach",
+        "to swim",
         "sea"
       ],
       "answer": "to swim"
@@ -825,6 +976,12 @@
       "Recognize key vocabulary.",
       "Answer Carlos with simple complete sentences.",
       "Use the Real Life Mission in a practical situation."
+    ],
+    "selfCheck": [
+      "Can I use the main lesson phrases in a complete sentence?",
+      "Can I answer Carlos with a short natural response?",
+      "Can I use one polite phrase from earlier lessons?",
+      "Can I complete the real life mission without reading every word?"
     ]
   },
   "imagePath": "assets/images/lessons/lesson-08-vacation.png",

@@ -860,8 +860,8 @@
       "type": "multipleChoice",
       "prompt": "What does la camisa mean?",
       "options": [
-        "shirt",
         "t-shirt",
+        "shirt",
         "pants",
         "jeans"
       ],
@@ -871,9 +871,9 @@
       "type": "multipleChoice",
       "prompt": "What does la camiseta mean?",
       "options": [
-        "t-shirt",
         "pants",
         "jeans",
+        "t-shirt",
         "dress"
       ],
       "answer": "t-shirt"
@@ -882,10 +882,10 @@
       "type": "multipleChoice",
       "prompt": "What does los pantalones mean?",
       "options": [
-        "pants",
         "jeans",
         "dress",
-        "skirt"
+        "skirt",
+        "pants"
       ],
       "answer": "pants"
     },
@@ -904,8 +904,8 @@
       "type": "multipleChoice",
       "prompt": "What does el vestido mean?",
       "options": [
-        "dress",
         "skirt",
+        "dress",
         "jacket",
         "coat"
       ],
@@ -915,9 +915,9 @@
       "type": "multipleChoice",
       "prompt": "What does la falda mean?",
       "options": [
-        "skirt",
         "jacket",
         "coat",
+        "skirt",
         "shoes"
       ],
       "answer": "skirt"
@@ -926,10 +926,10 @@
       "type": "multipleChoice",
       "prompt": "What does la chaqueta mean?",
       "options": [
-        "jacket",
         "coat",
         "shoes",
-        "sneakers"
+        "sneakers",
+        "jacket"
       ],
       "answer": "jacket"
     },
@@ -948,8 +948,8 @@
       "type": "multipleChoice",
       "prompt": "What does los zapatos mean?",
       "options": [
-        "shoes",
         "sneakers",
+        "shoes",
         "boots",
         "hat"
       ],
@@ -959,9 +959,9 @@
       "type": "multipleChoice",
       "prompt": "What does los tenis mean?",
       "options": [
-        "sneakers",
         "boots",
         "hat",
+        "sneakers",
         "cap"
       ],
       "answer": "sneakers"
@@ -970,10 +970,10 @@
       "type": "multipleChoice",
       "prompt": "What does las botas mean?",
       "options": [
-        "boots",
         "hat",
         "cap",
-        "socks"
+        "socks",
+        "boots"
       ],
       "answer": "boots"
     },
@@ -991,9 +991,9 @@
       "type": "multipleChoice",
       "prompt": "Which phrase belongs in Clothing?",
       "options": [
-        "la camiseta",
         "mi suegra",
         "buenos dias",
+        "la camiseta",
         "un boleto"
       ],
       "answer": "la camiseta"

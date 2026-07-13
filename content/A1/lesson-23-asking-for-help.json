@@ -860,8 +860,8 @@
       "type": "multipleChoice",
       "prompt": "What does ayudar mean?",
       "options": [
-        "to help",
         "excuse me",
+        "to help",
         "sorry",
         "please"
       ],
@@ -871,9 +871,9 @@
       "type": "multipleChoice",
       "prompt": "What does disculpe mean?",
       "options": [
-        "excuse me",
         "sorry",
         "please",
+        "excuse me",
         "thank you"
       ],
       "answer": "excuse me"
@@ -882,10 +882,10 @@
       "type": "multipleChoice",
       "prompt": "What does perdon mean?",
       "options": [
-        "sorry",
         "please",
         "thank you",
-        "I do not understand"
+        "I do not understand",
+        "sorry"
       ],
       "answer": "sorry"
     },
@@ -904,8 +904,8 @@
       "type": "multipleChoice",
       "prompt": "What does gracias mean?",
       "options": [
-        "thank you",
         "I do not understand",
+        "thank you",
         "slower",
         "again"
       ],
@@ -915,9 +915,9 @@
       "type": "multipleChoice",
       "prompt": "What does no entiendo mean?",
       "options": [
-        "I do not understand",
         "slower",
         "again",
+        "I do not understand",
         "can you repeat"
       ],
       "answer": "I do not understand"
@@ -926,10 +926,10 @@
       "type": "multipleChoice",
       "prompt": "What does mas despacio mean?",
       "options": [
-        "slower",
         "again",
         "can you repeat",
-        "can you write it"
+        "can you write it",
+        "slower"
       ],
       "answer": "slower"
     },
@@ -948,8 +948,8 @@
       "type": "multipleChoice",
       "prompt": "What does puede repetir mean?",
       "options": [
-        "can you repeat",
         "can you write it",
+        "can you repeat",
         "can you show me",
         "can you explain it"
       ],
@@ -959,9 +959,9 @@
       "type": "multipleChoice",
       "prompt": "What does puede escribirlo mean?",
       "options": [
-        "can you write it",
         "can you show me",
         "can you explain it",
+        "can you write it",
         "word"
       ],
       "answer": "can you write it"
@@ -970,10 +970,10 @@
       "type": "multipleChoice",
       "prompt": "What does puede mostrarme mean?",
       "options": [
-        "can you show me",
         "can you explain it",
         "word",
-        "phrase"
+        "phrase",
+        "can you show me"
       ],
       "answer": "can you show me"
     },
@@ -991,9 +991,9 @@
       "type": "multipleChoice",
       "prompt": "Which phrase fits Help?",
       "options": [
-        "disculpe",
         "mi familia",
         "hace frio",
+        "disculpe",
         "me gusta leer"
       ],
       "answer": "disculpe"

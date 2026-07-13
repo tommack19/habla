@@ -892,8 +892,8 @@
       "type": "multipleChoice",
       "prompt": "What does me llamo mean?",
       "options": [
-        "my name is",
         "I am from",
+        "my name is",
         "my family",
         "time"
       ],
@@ -903,9 +903,9 @@
       "type": "multipleChoice",
       "prompt": "What does soy de mean?",
       "options": [
-        "I am from",
         "my family",
         "time",
+        "I am from",
         "at eight"
       ],
       "answer": "I am from"
@@ -914,10 +914,10 @@
       "type": "multipleChoice",
       "prompt": "What does mi familia mean?",
       "options": [
-        "my family",
         "time",
         "at eight",
-        "it is cold"
+        "it is cold",
+        "my family"
       ],
       "answer": "my family"
     },
@@ -936,8 +936,8 @@
       "type": "multipleChoice",
       "prompt": "What does a las ocho mean?",
       "options": [
-        "at eight",
         "it is cold",
+        "at eight",
         "jacket",
         "market"
       ],
@@ -947,9 +947,9 @@
       "type": "multipleChoice",
       "prompt": "What does hace frio mean?",
       "options": [
-        "it is cold",
         "jacket",
         "market",
+        "it is cold",
         "bill/account"
       ],
       "answer": "it is cold"
@@ -958,10 +958,10 @@
       "type": "multipleChoice",
       "prompt": "What does la chaqueta mean?",
       "options": [
-        "jacket",
         "market",
         "bill/account",
-        "coffee"
+        "coffee",
+        "jacket"
       ],
       "answer": "jacket"
     },
@@ -980,8 +980,8 @@
       "type": "multipleChoice",
       "prompt": "What does la cuenta mean?",
       "options": [
-        "bill/account",
         "coffee",
+        "bill/account",
         "ticket",
         "beach"
       ],
@@ -991,9 +991,9 @@
       "type": "multipleChoice",
       "prompt": "What does el cafe mean?",
       "options": [
-        "coffee",
         "ticket",
         "beach",
+        "coffee",
         "house"
       ],
       "answer": "coffee"
@@ -1002,10 +1002,10 @@
       "type": "multipleChoice",
       "prompt": "What does el boleto mean?",
       "options": [
-        "ticket",
         "beach",
         "house",
-        "I get up"
+        "I get up",
+        "ticket"
       ],
       "answer": "ticket"
     },
@@ -1023,9 +1023,9 @@
       "type": "multipleChoice",
       "prompt": "Which phrase fits A1 Final Challenge?",
       "options": [
-        "soy de",
         "mi familia",
         "hace frio",
+        "soy de",
         "me gusta leer"
       ],
       "answer": "soy de"

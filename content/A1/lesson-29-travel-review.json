@@ -860,8 +860,8 @@
       "type": "multipleChoice",
       "prompt": "What does despues mean?",
       "options": [
-        "then",
         "then/later",
+        "then",
         "finally",
         "map"
       ],
@@ -871,9 +871,9 @@
       "type": "multipleChoice",
       "prompt": "What does luego mean?",
       "options": [
-        "then/later",
         "finally",
         "map",
+        "then/later",
         "address"
       ],
       "answer": "then/later"
@@ -882,10 +882,10 @@
       "type": "multipleChoice",
       "prompt": "What does finalmente mean?",
       "options": [
-        "finally",
         "map",
         "address",
-        "taxi"
+        "taxi",
+        "finally"
       ],
       "answer": "finally"
     },
@@ -904,8 +904,8 @@
       "type": "multipleChoice",
       "prompt": "What does la direccion mean?",
       "options": [
-        "address",
         "taxi",
+        "address",
         "bus",
         "station"
       ],
@@ -915,9 +915,9 @@
       "type": "multipleChoice",
       "prompt": "What does el taxi mean?",
       "options": [
-        "taxi",
         "bus",
         "station",
+        "taxi",
         "hotel"
       ],
       "answer": "taxi"
@@ -926,10 +926,10 @@
       "type": "multipleChoice",
       "prompt": "What does el autobus mean?",
       "options": [
-        "bus",
         "station",
         "hotel",
-        "reservation"
+        "reservation",
+        "bus"
       ],
       "answer": "bus"
     },
@@ -948,8 +948,8 @@
       "type": "multipleChoice",
       "prompt": "What does el hotel mean?",
       "options": [
-        "hotel",
         "reservation",
+        "hotel",
         "bank",
         "ATM"
       ],
@@ -959,9 +959,9 @@
       "type": "multipleChoice",
       "prompt": "What does la reservacion mean?",
       "options": [
-        "reservation",
         "bank",
         "ATM",
+        "reservation",
         "card"
       ],
       "answer": "reservation"
@@ -970,10 +970,10 @@
       "type": "multipleChoice",
       "prompt": "What does el banco mean?",
       "options": [
-        "bank",
         "ATM",
         "card",
-        "phone"
+        "phone",
+        "bank"
       ],
       "answer": "bank"
     },
@@ -991,9 +991,9 @@
       "type": "multipleChoice",
       "prompt": "Which phrase fits Travel Review?",
       "options": [
-        "luego",
         "mi familia",
         "hace frio",
+        "luego",
         "me gusta leer"
       ],
       "answer": "luego"

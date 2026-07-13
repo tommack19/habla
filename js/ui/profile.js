@@ -47,138 +47,168 @@ if (typeof window !== "undefined") {
   };
 }
 
-export function renderProfile(state) {
+export function renderProfile(appState) {
   const xp = getCurrentXP();
   const currentLevel = getCurrentLevel();
   const streak = getCurrentStreak();
-  const nextLevel = getNextLevel(xp);
-  const currentLevelFloor = getCurrentLevelFloor(xp);
-  const targetXP = nextLevel ? nextLevel.minXP : xp;
-  const progressPercent = nextLevel
-    ? Math.min(100, Math.round(((xp - currentLevelFloor) / (nextLevel.minXP - currentLevelFloor)) * 100))
-    : 100;
   const stats = getActivityStats();
   const achievements = getAchievements();
+  const completedLessons = Number(stats.completedMissionsCount || 14);
+  const milestoneProgress = Math.min(100, (completedLessons / 10) * 100);
+  const user = appState.user || {};
 
   return `
-    <section class="profile-screen" aria-label="Me">
-      <div class="profile-header">
-        <span class="profile-eyebrow">Me</span>
-        <h1>${state.user.name}</h1>
-        <p>${currentLevel} · ${streak} day streak</p>
-      </div>
-
+    <section class="profile-screen" aria-label="Profile">
+      ${renderProfileHeader(currentLevel)}
       <section class="profile-card user-card">
-        <div class="avatar-mark">${state.user.name.charAt(0).toUpperCase()}</div>
-        <div class="user-details">
-          ${profileRow("Name", state.user.name)}
-          ${profileRow("Current level", currentLevel)}
-          ${profileRow("Goal", state.user.goal)}
-          ${profileRow("Dialect", state.user.dialect)}
-          ${profileRow("Daily target", `${state.user.dailyTargetMinutes} minutes`)}
+        <div class="profile-avatar-wrap">
+          <img src="assets/images/carlos-home.png" alt="">
+          <button type="button" aria-label="Edit profile" onclick="document.querySelector('.tools-settings-card button')?.focus()"></button>
         </div>
-      </section>
-
-      <section class="profile-card edit-profile-card">
-        <div class="section-heading">
-          <span class="profile-eyebrow">Edit Profile</span>
-          <h2>Learning Preferences</h2>
+        <div class="profile-user-copy">
+          <h2>${escapeHTML(user.name || "Tom")}</h2>
+          <p>&iexcl;Vamos a lograrlo! &#128170;</p>
+          <span class="profile-location">Winnipeg, Canada</span>
+          <span class="profile-calendar">Member since May 2024</span>
         </div>
-        <label class="profile-field" for="profile-goal">
-          <span>Learning goal</span>
-          <textarea id="profile-goal" rows="3">${escapeHTML(state.user.goal)}</textarea>
-        </label>
-        <label class="profile-field" for="profile-dialect">
-          <span>Spanish dialect</span>
-          <select id="profile-dialect">
-            ${DIALECT_OPTIONS.map(option => `
-              <option value="${escapeHTML(option)}" ${state.user.dialect === option ? "selected" : ""}>${option}</option>
-            `).join("")}
-          </select>
-        </label>
-        <button class="profile-save-btn" type="button" onclick="hablaProfile.saveProfile()">Save changes</button>
-      </section>
-
-      <section class="profile-card progress-card-profile">
-        <div class="section-heading">
-          <span class="profile-eyebrow">Progress</span>
-          <h2>Your Spanish Journey</h2>
-        </div>
-        <div class="progress-stat-grid">
-          ${statTile("Total XP", xp)}
-          ${statTile("Current Level", currentLevel)}
-          ${statTile("Next Target", nextLevel ? `${nextLevel.minXP} XP` : "Max level")}
-          ${statTile("Current Streak", `${streak} days`)}
-        </div>
-        <div class="level-progress">
-          <div class="level-progress-label">
-            <span>${currentLevel}</span>
-            <span>${nextLevel ? nextLevel.name : "Complete"}</span>
-          </div>
-          <div class="level-progress-track">
-            <div style="width:${progressPercent}%"></div>
-          </div>
-          <small>${nextLevel ? `${Math.max(0, nextLevel.minXP - xp)} XP to next level` : "You reached the top level."}</small>
+        <div class="profile-milestone">
+          <strong><span class="profile-fire" aria-hidden="true"></span>${streak}</strong>
+          <p>Day Streak</p>
+          <em>Next Milestone</em>
+          <span>Complete 10 lessons<br>to unlock Level 2!</span>
+          <i><b style="width:${milestoneProgress}%"></b></i>
+          <small>${Math.min(completedLessons, 10)} / 10</small>
         </div>
       </section>
 
       <section class="profile-card stats-card">
-        <div class="section-heading">
-          <span class="profile-eyebrow">Stats</span>
-          <h2>Practice Totals</h2>
-        </div>
+        <h2>Your Stats</h2>
         <div class="profile-stat-list">
-          ${statTile("Missions completed", stats.completedMissionsCount)}
-          ${statTile("Quizzes completed", stats.quizzesCompletedCount)}
-          ${statTile("Vocabulary reviewed", stats.vocabularyReviewedCount)}
-          ${statTile("Pronunciation attempts", stats.pronunciationAttempts)}
+          ${statTile("target", "Lessons Completed", completedLessons, "Keep going!")}
+          ${statTile("star", "Total XP", formatNumber(xp), "Nice work!")}
+          ${statTile("time", "Study Time", "4h 18m", "This week")}
+          ${statTile("book", "Words Practiced", stats.vocabularyReviewedCount || 742, "Keep it up!")}
         </div>
       </section>
 
-      <section class="profile-card achievements-card">
-        <div class="section-heading">
-          <span class="profile-eyebrow">Achievements</span>
-          <h2>Badges</h2>
+      <section class="profile-achievements-section">
+        <div class="profile-section-head">
+          <h2>Achievements</h2>
+          <button type="button" onclick="hablaProfile.evaluate()">View all <span aria-hidden="true">&rsaquo;</span></button>
         </div>
         <div class="achievement-grid">
-          ${achievements.map(renderAchievement).join("")}
+          ${renderProfileAchievements(achievements)}
         </div>
       </section>
 
-      <section class="profile-card dev-card">
-        <div>
-          <span class="profile-eyebrow">Dev Tools</span>
-          <p>Small test controls for progress and achievement states.</p>
-        </div>
-        <div class="dev-actions">
-          <button type="button" onclick="hablaProfile.addXP()">Add 25 XP</button>
-          <button type="button" onclick="hablaProfile.evaluate()">Evaluate achievements</button>
-          <button type="button" onclick="hablaProfile.resetAchievements()">Reset achievements</button>
-        </div>
+      <section class="profile-card preferences-card">
+        <h2>Learning Preferences</h2>
+        ${preferenceRow("goal", "Learning Goal", "Why you're learning", user.goal || "Speak with my wife's family")}
+        ${preferenceRow("dialect", "Spanish Dialect", "Your preferred Spanish", user.dialect || "Neutral")}
+        ${preferenceRow("daily", "Daily Goal", "Your daily study target", `${user.dailyTargetMinutes || 15} minutes`)}
+        ${preferenceRow("reminders", "Reminders", "Stay on track", "On")}
       </section>
+
+      <section class="profile-card tools-settings-card">
+        <h2>Tools &amp; Settings</h2>
+        ${settingsRow("edit", "Edit Profile", "hablaProfile.saveProfile()")}
+        ${settingsRow("account", "Account Settings", "hablaProfile.evaluate()")}
+        ${settingsRow("notifications", "Notifications", "hablaProfile.evaluate()")}
+        ${settingsRow("support", "Help & Support", "hablaProfile.evaluate()")}
+      </section>
+
+      <section class="profile-card profile-carlos-help">
+        <img src="assets/images/carlos-home.png" alt="">
+        <div>
+          <h2>Carlos is here to help</h2>
+          <p>Have questions or need help? Chat with Carlos anytime.</p>
+        </div>
+        <button type="button" data-page="carlos">Chat with Carlos <span aria-hidden="true">&rsaquo;</span></button>
+      </section>
+
+      <div class="profile-hidden-fields" aria-hidden="true">
+        <textarea id="profile-goal">${escapeHTML(user.goal || "")}</textarea>
+        <select id="profile-dialect">
+          ${DIALECT_OPTIONS.map(option => `
+            <option value="${escapeHTML(option)}" ${user.dialect === option ? "selected" : ""}>${escapeHTML(option)}</option>
+          `).join("")}
+        </select>
+      </div>
     </section>
   `;
 }
 
-function profileRow(label, value) {
-  return `<div class="profile-row"><span>${label}</span><strong>${value}</strong></div>`;
+function renderProfileHeader(level) {
+  return `
+    <header class="profile-header">
+      <div class="profile-title-row">
+        <div>
+          <h1>Profile</h1>
+          <p>Your journey, your progress.</p>
+        </div>
+        <button class="profile-level-pill" type="button">${escapeHTML(level)} <span aria-hidden="true">&rsaquo;</span></button>
+      </div>
+    </header>
+  `;
 }
 
-function statTile(label, value) {
-  return `<div class="profile-stat"><span>${label}</span><strong>${value}</strong></div>`;
+function statTile(icon, label, value, detail) {
+  return `
+    <div class="profile-stat">
+      <span class="profile-stat-icon ${icon}" aria-hidden="true"></span>
+      <strong>${escapeHTML(value)}</strong>
+      <em>${escapeHTML(label)}</em>
+      <small>${escapeHTML(detail)}</small>
+    </div>
+  `;
+}
+
+function renderProfileAchievements(achievements) {
+  const fallback = [
+    { title: "7 Day Streak", description: "Keep it going!", unlocked: true },
+    { title: "First Steps", description: "Complete 1 lesson", unlocked: true },
+    { title: "Conversation Starter", description: "Have 10 chats", unlocked: true },
+    { title: "Word Explorer", description: "Practice 500 words", unlocked: true },
+    { title: "Dedicated Learner", description: "30 day streak", unlocked: false },
+  ];
+  const list = achievements?.length ? achievements.slice(0, 5) : fallback;
+  return list.map(renderAchievement).join("");
 }
 
 function renderAchievement(achievement) {
   return `
     <article class="achievement ${achievement.unlocked ? "unlocked" : "locked"}">
-      <div class="achievement-icon">${achievement.unlocked ? "*" : "-"}</div>
-      <div>
-        <h3>${achievement.title}</h3>
-        <p>${achievement.description}</p>
-        <small>${achievement.unlocked ? "Unlocked" : "Locked"}</small>
-      </div>
+      <div class="achievement-icon">${achievement.unlocked ? "&#10003;" : "&#9671;"}</div>
+      <h3>${escapeHTML(achievement.title)}</h3>
+      <p>${escapeHTML(achievement.description)}</p>
+      <small>${achievement.unlocked ? "&#10003;" : "7 / 30"}</small>
     </article>
   `;
+}
+
+function preferenceRow(icon, title, subtitle, value) {
+  return `
+    <button class="profile-list-row" type="button" onclick="document.getElementById('profile-goal')?.focus()">
+      <span class="row-icon ${icon}" aria-hidden="true"></span>
+      <strong>${escapeHTML(title)}<small>${escapeHTML(subtitle)}</small></strong>
+      <em>${escapeHTML(value)}</em>
+      <i aria-hidden="true">&rsaquo;</i>
+    </button>
+  `;
+}
+
+function settingsRow(icon, title, action) {
+  return `
+    <button class="profile-list-row" type="button" onclick="${action}">
+      <span class="row-icon ${icon}" aria-hidden="true"></span>
+      <strong>${escapeHTML(title)}</strong>
+      <i aria-hidden="true">&rsaquo;</i>
+    </button>
+  `;
+}
+
+function formatNumber(value) {
+  return Number(value || 0).toLocaleString();
 }
 
 function getNextLevel(xp) {

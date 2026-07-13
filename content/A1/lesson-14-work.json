@@ -860,8 +860,8 @@
       "type": "multipleChoice",
       "prompt": "What does trabajar mean?",
       "options": [
-        "to work",
         "office",
+        "to work",
         "company",
         "boss"
       ],
@@ -871,9 +871,9 @@
       "type": "multipleChoice",
       "prompt": "What does la oficina mean?",
       "options": [
-        "office",
         "company",
         "boss",
+        "office",
         "female boss"
       ],
       "answer": "office"
@@ -882,10 +882,10 @@
       "type": "multipleChoice",
       "prompt": "What does la empresa mean?",
       "options": [
-        "company",
         "boss",
         "female boss",
-        "coworker/classmate"
+        "coworker/classmate",
+        "company"
       ],
       "answer": "company"
     },
@@ -896,7 +896,7 @@
         "boss",
         "female boss",
         "coworker/classmate",
-        "coworker/classmate"
+        "work/job"
       ],
       "answer": "boss"
     },
@@ -904,10 +904,10 @@
       "type": "multipleChoice",
       "prompt": "What does la jefa mean?",
       "options": [
+        "coworker/classmate",
         "female boss",
-        "coworker/classmate",
-        "coworker/classmate",
-        "meeting"
+        "meeting",
+        "work/job"
       ],
       "answer": "female boss"
     },
@@ -915,10 +915,10 @@
       "type": "multipleChoice",
       "prompt": "What does el companero mean?",
       "options": [
-        "coworker/classmate",
-        "coworker/classmate",
         "meeting",
-        "email/mail"
+        "email/mail",
+        "coworker/classmate",
+        "work/job"
       ],
       "answer": "coworker/classmate"
     },
@@ -926,10 +926,10 @@
       "type": "multipleChoice",
       "prompt": "What does la companera mean?",
       "options": [
-        "coworker/classmate",
         "meeting",
         "email/mail",
-        "message"
+        "message",
+        "coworker/classmate"
       ],
       "answer": "coworker/classmate"
     },
@@ -948,8 +948,8 @@
       "type": "multipleChoice",
       "prompt": "What does el correo mean?",
       "options": [
-        "email/mail",
         "message",
+        "email/mail",
         "call",
         "client/customer"
       ],
@@ -959,9 +959,9 @@
       "type": "multipleChoice",
       "prompt": "What does el mensaje mean?",
       "options": [
-        "message",
         "call",
         "client/customer",
+        "message",
         "female client"
       ],
       "answer": "message"
@@ -970,10 +970,10 @@
       "type": "multipleChoice",
       "prompt": "What does la llamada mean?",
       "options": [
-        "call",
         "client/customer",
         "female client",
-        "schedule"
+        "schedule",
+        "call"
       ],
       "answer": "call"
     },
@@ -991,9 +991,9 @@
       "type": "multipleChoice",
       "prompt": "Which phrase belongs in Work?",
       "options": [
-        "la oficina",
         "mi suegra",
         "buenos dias",
+        "la oficina",
         "un boleto"
       ],
       "answer": "la oficina"

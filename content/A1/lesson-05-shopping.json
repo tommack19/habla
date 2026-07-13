@@ -4,6 +4,7 @@
   "level": "A1",
   "module": "Shopping",
   "estimatedMinutes": 32,
+  "image": "assets/images/lessons/lesson-05-shopping.png",
   "metadata": {
     "course": "Habla",
     "unit": "A1 Beginner",
@@ -241,154 +242,304 @@
   },
   "dialogue": [
     {
-      "title": "Shopping with Carlos",
+      "title": "Entering a store",
       "lines": [
         {
-          "speaker": "Carlos",
-          "spanish": "Vamos a practicar shopping.",
-          "english": "Let?s practice shopping."
-        },
-        {
           "speaker": "Learner",
-          "spanish": "S?, quiero practicar.",
-          "english": "Yes, I want to practice."
+          "spanish": "Buenos dias. Quisiera comprar una bolsa.",
+          "english": "Good morning. I would like to buy a bag."
         },
         {
           "speaker": "Carlos",
-          "spanish": "Muy bien. Usa una frase completa.",
-          "english": "Very good. Use a complete sentence."
-        },
-        {
-          "speaker": "Learner",
-          "spanish": "Puedo decirlo otra vez.",
-          "english": "I can say it again."
+          "spanish": "Claro. Esta bolsa es buena.",
+          "english": "Of course. This bag is good."
         }
       ]
     },
     {
-      "title": "A polite real-life exchange",
+      "title": "Asking the price",
       "lines": [
         {
-          "speaker": "Carlos",
-          "spanish": "Disculpe, tengo una pregunta.",
-          "english": "Excuse me, I have a question."
-        },
-        {
           "speaker": "Learner",
-          "spanish": "Claro, con gusto.",
-          "english": "Of course, gladly."
+          "spanish": "Cuanto cuesta este?",
+          "english": "How much does this one cost?"
         },
         {
           "speaker": "Carlos",
-          "spanish": "Gracias por ayudarme.",
-          "english": "Thank you for helping me."
-        },
-        {
-          "speaker": "Learner",
-          "spanish": "De nada.",
-          "english": "You?re welcome."
+          "spanish": "Cuesta diez dolares.",
+          "english": "It costs ten dollars."
         }
       ]
     },
     {
-      "title": "Family-friendly practice",
+      "title": "Choosing this or that",
       "lines": [
         {
           "speaker": "Carlos",
-          "spanish": "?C?mo lo dices con tu familia?",
-          "english": "How do you say it with your family?"
+          "spanish": "Quieres este o ese?",
+          "english": "Do you want this one or that one?"
         },
         {
           "speaker": "Learner",
-          "spanish": "Lo digo despacio y con respeto.",
-          "english": "I say it slowly and respectfully."
+          "spanish": "Quiero este, por favor.",
+          "english": "I want this one, please."
+        }
+      ]
+    },
+    {
+      "title": "Paying by card",
+      "lines": [
+        {
+          "speaker": "Learner",
+          "spanish": "Puedo pagar con tarjeta?",
+          "english": "Can I pay by card?"
         },
         {
           "speaker": "Carlos",
-          "spanish": "Perfecto, eso suena natural.",
-          "english": "Perfect, that sounds natural."
+          "spanish": "Si, puede pagar con tarjeta.",
+          "english": "Yes, you can pay by card."
+        }
+      ]
+    },
+    {
+      "title": "Paying cash",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Tiene efectivo?",
+          "english": "Do you have cash?"
         },
         {
           "speaker": "Learner",
-          "spanish": "Gracias, Carlos.",
-          "english": "Thanks, Carlos."
+          "spanish": "Si, tengo efectivo.",
+          "english": "Yes, I have cash."
+        }
+      ]
+    },
+    {
+      "title": "Asking for a receipt",
+      "lines": [
+        {
+          "speaker": "Learner",
+          "spanish": "El recibo, por favor.",
+          "english": "The receipt, please."
+        },
+        {
+          "speaker": "Carlos",
+          "spanish": "Claro, aqui tiene.",
+          "english": "Of course, here you go."
+        }
+      ]
+    },
+    {
+      "title": "Talking about size",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Que talla necesita?",
+          "english": "What size do you need?"
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "Necesito una talla mediana.",
+          "english": "I need a medium size."
+        }
+      ]
+    },
+    {
+      "title": "Too expensive",
+      "lines": [
+        {
+          "speaker": "Learner",
+          "spanish": "Es un poco caro.",
+          "english": "It is a little expensive."
+        },
+        {
+          "speaker": "Carlos",
+          "spanish": "Si, pero este es mas barato.",
+          "english": "Yes, but this one is cheaper."
+        }
+      ]
+    },
+    {
+      "title": "At the market",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "En el mercado, saluda primero.",
+          "english": "At the market, greet first."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "Buenos dias. Cuanto cuesta?",
+          "english": "Good morning. How much does it cost?"
+        }
+      ]
+    },
+    {
+      "title": "Final purchase",
+      "lines": [
+        {
+          "speaker": "Learner",
+          "spanish": "Me llevo esto, por favor.",
+          "english": "I will take this, please."
+        },
+        {
+          "speaker": "Carlos",
+          "spanish": "Muy bien. Suena natural.",
+          "english": "Very good. That sounds natural."
         }
       ]
     }
   ],
   "dialogues": [
     {
-      "title": "Shopping with Carlos",
+      "title": "Entering a store",
       "lines": [
         {
-          "speaker": "Carlos",
-          "spanish": "Vamos a practicar shopping.",
-          "english": "Let?s practice shopping."
-        },
-        {
           "speaker": "Learner",
-          "spanish": "S?, quiero practicar.",
-          "english": "Yes, I want to practice."
+          "spanish": "Buenos dias. Quisiera comprar una bolsa.",
+          "english": "Good morning. I would like to buy a bag."
         },
         {
           "speaker": "Carlos",
-          "spanish": "Muy bien. Usa una frase completa.",
-          "english": "Very good. Use a complete sentence."
-        },
-        {
-          "speaker": "Learner",
-          "spanish": "Puedo decirlo otra vez.",
-          "english": "I can say it again."
+          "spanish": "Claro. Esta bolsa es buena.",
+          "english": "Of course. This bag is good."
         }
       ]
     },
     {
-      "title": "A polite real-life exchange",
+      "title": "Asking the price",
       "lines": [
         {
-          "speaker": "Carlos",
-          "spanish": "Disculpe, tengo una pregunta.",
-          "english": "Excuse me, I have a question."
-        },
-        {
           "speaker": "Learner",
-          "spanish": "Claro, con gusto.",
-          "english": "Of course, gladly."
+          "spanish": "Cuanto cuesta este?",
+          "english": "How much does this one cost?"
         },
         {
           "speaker": "Carlos",
-          "spanish": "Gracias por ayudarme.",
-          "english": "Thank you for helping me."
-        },
-        {
-          "speaker": "Learner",
-          "spanish": "De nada.",
-          "english": "You?re welcome."
+          "spanish": "Cuesta diez dolares.",
+          "english": "It costs ten dollars."
         }
       ]
     },
     {
-      "title": "Family-friendly practice",
+      "title": "Choosing this or that",
       "lines": [
         {
           "speaker": "Carlos",
-          "spanish": "?C?mo lo dices con tu familia?",
-          "english": "How do you say it with your family?"
+          "spanish": "Quieres este o ese?",
+          "english": "Do you want this one or that one?"
         },
         {
           "speaker": "Learner",
-          "spanish": "Lo digo despacio y con respeto.",
-          "english": "I say it slowly and respectfully."
+          "spanish": "Quiero este, por favor.",
+          "english": "I want this one, please."
+        }
+      ]
+    },
+    {
+      "title": "Paying by card",
+      "lines": [
+        {
+          "speaker": "Learner",
+          "spanish": "Puedo pagar con tarjeta?",
+          "english": "Can I pay by card?"
         },
         {
           "speaker": "Carlos",
-          "spanish": "Perfecto, eso suena natural.",
-          "english": "Perfect, that sounds natural."
+          "spanish": "Si, puede pagar con tarjeta.",
+          "english": "Yes, you can pay by card."
+        }
+      ]
+    },
+    {
+      "title": "Paying cash",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Tiene efectivo?",
+          "english": "Do you have cash?"
         },
         {
           "speaker": "Learner",
-          "spanish": "Gracias, Carlos.",
-          "english": "Thanks, Carlos."
+          "spanish": "Si, tengo efectivo.",
+          "english": "Yes, I have cash."
+        }
+      ]
+    },
+    {
+      "title": "Asking for a receipt",
+      "lines": [
+        {
+          "speaker": "Learner",
+          "spanish": "El recibo, por favor.",
+          "english": "The receipt, please."
+        },
+        {
+          "speaker": "Carlos",
+          "spanish": "Claro, aqui tiene.",
+          "english": "Of course, here you go."
+        }
+      ]
+    },
+    {
+      "title": "Talking about size",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Que talla necesita?",
+          "english": "What size do you need?"
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "Necesito una talla mediana.",
+          "english": "I need a medium size."
+        }
+      ]
+    },
+    {
+      "title": "Too expensive",
+      "lines": [
+        {
+          "speaker": "Learner",
+          "spanish": "Es un poco caro.",
+          "english": "It is a little expensive."
+        },
+        {
+          "speaker": "Carlos",
+          "spanish": "Si, pero este es mas barato.",
+          "english": "Yes, but this one is cheaper."
+        }
+      ]
+    },
+    {
+      "title": "At the market",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "En el mercado, saluda primero.",
+          "english": "At the market, greet first."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "Buenos dias. Cuanto cuesta?",
+          "english": "Good morning. How much does it cost?"
+        }
+      ]
+    },
+    {
+      "title": "Final purchase",
+      "lines": [
+        {
+          "speaker": "Learner",
+          "spanish": "Me llevo esto, por favor.",
+          "english": "I will take this, please."
+        },
+        {
+          "speaker": "Carlos",
+          "spanish": "Muy bien. Suena natural.",
+          "english": "Very good. That sounds natural."
         }
       ]
     }
@@ -613,8 +764,8 @@
       "type": "multipleChoice",
       "prompt": "What does ?el mercado? mean?",
       "options": [
-        "market",
         "store",
+        "market",
         "to buy",
         "to sell"
       ],
@@ -624,9 +775,9 @@
       "type": "multipleChoice",
       "prompt": "What does ?comprar? mean?",
       "options": [
-        "to buy",
         "store",
         "market",
+        "to buy",
         "to sell"
       ],
       "answer": "to buy"
@@ -635,10 +786,10 @@
       "type": "multipleChoice",
       "prompt": "What does ?vender? mean?",
       "options": [
-        "to sell",
         "store",
         "market",
-        "to buy"
+        "to buy",
+        "to sell"
       ],
       "answer": "to sell"
     },
@@ -657,8 +808,8 @@
       "type": "multipleChoice",
       "prompt": "What does ?quisiera? mean?",
       "options": [
-        "I would like",
         "store",
+        "I would like",
         "market",
         "to buy"
       ],
@@ -668,9 +819,9 @@
       "type": "multipleChoice",
       "prompt": "What does ?cuesta? mean?",
       "options": [
-        "it costs",
         "store",
         "market",
+        "it costs",
         "to buy"
       ],
       "answer": "it costs"
@@ -679,10 +830,10 @@
       "type": "multipleChoice",
       "prompt": "What does ?barato? mean?",
       "options": [
-        "cheap",
         "store",
         "market",
-        "to buy"
+        "to buy",
+        "cheap"
       ],
       "answer": "cheap"
     },
@@ -701,8 +852,8 @@
       "type": "multipleChoice",
       "prompt": "What does ?el precio? mean?",
       "options": [
-        "price",
         "store",
+        "price",
         "market",
         "to buy"
       ],
@@ -712,9 +863,9 @@
       "type": "multipleChoice",
       "prompt": "What does ?el dinero? mean?",
       "options": [
-        "money",
         "store",
         "market",
+        "money",
         "to buy"
       ],
       "answer": "money"
@@ -723,10 +874,10 @@
       "type": "multipleChoice",
       "prompt": "What does ?la tarjeta? mean?",
       "options": [
-        "card",
         "store",
         "market",
-        "to buy"
+        "to buy",
+        "card"
       ],
       "answer": "card"
     },
@@ -745,8 +896,8 @@
       "type": "multipleChoice",
       "prompt": "What does ?el recibo? mean?",
       "options": [
-        "receipt",
         "store",
+        "receipt",
         "market",
         "to buy"
       ],
@@ -756,9 +907,9 @@
       "type": "multipleChoice",
       "prompt": "What does ?la bolsa? mean?",
       "options": [
-        "bag",
         "store",
         "market",
+        "bag",
         "to buy"
       ],
       "answer": "bag"
@@ -825,6 +976,12 @@
       "Recognize key vocabulary.",
       "Answer Carlos with simple complete sentences.",
       "Use the Real Life Mission in a practical situation."
+    ],
+    "selfCheck": [
+      "Can I use the main lesson phrases in a complete sentence?",
+      "Can I answer Carlos with a short natural response?",
+      "Can I use one polite phrase from earlier lessons?",
+      "Can I complete the real life mission without reading every word?"
     ]
   },
   "imagePath": "assets/images/lessons/lesson-05-shopping.png",

@@ -860,8 +860,8 @@
       "type": "multipleChoice",
       "prompt": "What does me llamo mean?",
       "options": [
-        "my name is",
         "I am from",
+        "my name is",
         "my family",
         "it is cold"
       ],
@@ -871,9 +871,9 @@
       "type": "multipleChoice",
       "prompt": "What does soy de mean?",
       "options": [
-        "I am from",
         "my family",
         "it is cold",
+        "I am from",
         "it is hot"
       ],
       "answer": "I am from"
@@ -882,10 +882,10 @@
       "type": "multipleChoice",
       "prompt": "What does mi familia mean?",
       "options": [
-        "my family",
         "it is cold",
         "it is hot",
-        "I wear"
+        "I wear",
+        "my family"
       ],
       "answer": "my family"
     },
@@ -904,8 +904,8 @@
       "type": "multipleChoice",
       "prompt": "What does hace calor mean?",
       "options": [
-        "it is hot",
         "I wear",
+        "it is hot",
         "I want",
         "I need"
       ],
@@ -915,9 +915,9 @@
       "type": "multipleChoice",
       "prompt": "What does llevo mean?",
       "options": [
-        "I wear",
         "I want",
         "I need",
+        "I wear",
         "I am going to"
       ],
       "answer": "I wear"
@@ -926,10 +926,10 @@
       "type": "multipleChoice",
       "prompt": "What does quiero mean?",
       "options": [
-        "I want",
         "I need",
         "I am going to",
-        "I work/work"
+        "I work/work",
+        "I want"
       ],
       "answer": "I want"
     },
@@ -948,8 +948,8 @@
       "type": "multipleChoice",
       "prompt": "What does voy a mean?",
       "options": [
-        "I am going to",
         "I work/work",
+        "I am going to",
         "I study",
         "I like"
       ],
@@ -959,9 +959,9 @@
       "type": "multipleChoice",
       "prompt": "What does trabajo mean?",
       "options": [
-        "I work/work",
         "I study",
         "I like",
+        "I work/work",
         "I play"
       ],
       "answer": "I work/work"
@@ -970,10 +970,10 @@
       "type": "multipleChoice",
       "prompt": "What does estudio mean?",
       "options": [
-        "I study",
         "I like",
         "I play",
-        "it hurts me"
+        "it hurts me",
+        "I study"
       ],
       "answer": "I study"
     },
@@ -991,9 +991,9 @@
       "type": "multipleChoice",
       "prompt": "Which phrase belongs in Review?",
       "options": [
-        "soy de",
         "mi suegra",
         "buenos dias",
+        "soy de",
         "un boleto"
       ],
       "answer": "soy de"
@@ -1047,5 +1047,5 @@
   },
   "achievementsUnlocked": [],
   "xpReward": 100,
-  "nextLesson": "lesson-21-a1-checkpoint"
+  "nextLesson": "lesson-21-directions"
 }

@@ -1,4 +1,72 @@
-import { completeLesson, getCurrentLesson } from "../core/content.js";
+import { completeLesson, getActiveLesson } from "../core/content.js";
+
+const PRACTICE_TOPIC_KEY = "habla_selected_practice_topic_v1";
+const PRACTICE_TOPICS = {
+  greetings: {
+    title: "Greetings",
+    description: "Practice hellos, goodbyes, introductions, and polite everyday openers.",
+    count: "8 / 15",
+    icon: "topic-greetings",
+    progress: 40,
+    xp: 120,
+  },
+  family: {
+    title: "Family",
+    description: "Talk naturally about relatives, relationships, and the people close to you.",
+    count: "10 / 20",
+    icon: "topic-family",
+    progress: 52,
+    xp: 130,
+  },
+  "food-restaurants": {
+    title: "Restaurants",
+    description: "Order food and drinks, ask simple questions, and speak politely with staff.",
+    count: "12 / 20",
+    icon: "topic-restaurants",
+    progress: 48,
+    xp: 140,
+  },
+  travel: {
+    title: "Travel",
+    description: "Practice airport, hotel, transport, and direction phrases for real trips.",
+    count: "14 / 20",
+    icon: "topic-travel",
+    progress: 44,
+    xp: 140,
+  },
+  shopping: {
+    title: "Shopping",
+    description: "Ask prices, sizes, quantities, and checkout questions in shops and markets.",
+    count: "9 / 15",
+    icon: "topic-shopping",
+    progress: 42,
+    xp: 120,
+  },
+  work: {
+    title: "Work",
+    description: "Use simple Spanish for schedules, jobs, meetings, and workplace small talk.",
+    count: "8 / 15",
+    icon: "topic-work",
+    progress: 32,
+    xp: 120,
+  },
+  phrases: {
+    title: "Small Talk",
+    description: "Build relaxed conversation with useful phrases, follow-ups, and quick replies.",
+    count: "11 / 15",
+    icon: "topic-smalltalk",
+    progress: 58,
+    xp: 130,
+  },
+  conversation: {
+    title: "Free Chat",
+    description: "Open Carlos and practice any conversation you want in natural Spanish.",
+    count: "Unlimited",
+    icon: "topic-freechat",
+    progress: 0,
+    xp: 0,
+  },
+};
 
 const practiceWords = [
   ["hola", "hello"], ["adiós", "goodbye"], ["gracias", "thank you"], ["por favor", "please"],
@@ -28,7 +96,7 @@ const pronunciationItems = [
 ];
 
 function getPracticeContent() {
-  const lesson = getCurrentLesson();
+  const lesson = getActiveLesson();
 
   if (!lesson) {
     return {
@@ -197,7 +265,7 @@ if (typeof window !== "undefined") {
 }
 
 function completeCurrentLesson() {
-  const lesson = getCurrentLesson();
+  const lesson = getActiveLesson();
 
   if (!lesson) {
     return "Quiz complete. Great session.";
@@ -218,6 +286,8 @@ function completeCurrentLesson() {
 
 export function renderPractice() {
   const content = getPracticeContent();
+  const lesson = getActiveLesson();
+  const selectedTopic = getSelectedPracticeTopic();
 
   return `
     <section class="practice-screen" aria-label="Practice">
@@ -225,17 +295,23 @@ export function renderPractice() {
       <input class="practice-tab-input" type="radio" name="practice-mode" id="mode-flashcards">
       <input class="practice-tab-input" type="radio" name="practice-mode" id="mode-pronunciation">
 
-      <div class="practice-header">
-        <span class="practice-eyebrow">Training room</span>
-        <h1>Practice</h1>
-        <p>Test recall, flip through cards, and train pronunciation with browser tools.</p>
-      </div>
+      ${renderPracticeHeader()}
 
       <div class="practice-mode-grid" role="tablist" aria-label="Practice modes">
-        ${modeCard("mode-quiz", "quiz", "practice-icon-quiz", "Quiz Mode", "Choose the English meaning.")}
-        ${modeCard("mode-flashcards", "flashcards", "practice-icon-cards", "Flashcards", "Flip and review words.")}
-        ${modeCard("mode-pronunciation", "pronunciation", "practice-icon-mic", "Pronunciation", "Listen, speak, and compare.")}
+        ${modeCard("mode-quiz", "quiz", "practice-icon-quiz", "Quiz Mode")}
+        ${modeCard("mode-flashcards", "flashcards", "practice-icon-cards", "Flashcards")}
+        ${modeCard("mode-pronunciation", "pronunciation", "practice-icon-mic", "Pronunciation")}
+        <button class="practice-mode-card conversation" type="button" data-page="carlos">
+          <div class="practice-mode-icon practice-icon-chat" aria-hidden="true"></div>
+          <h2>Conversation</h2>
+        </button>
       </div>
+
+      ${renderPracticeFocus(lesson, content.quiz.length, selectedTopic)}
+      ${renderPracticeTopics(selectedTopic?.slug)}
+      ${renderTopicLanding(selectedTopic)}
+      ${renderWeeklyGoal()}
+      ${renderRecentActivity()}
 
       <div class="practice-panels">
         ${renderQuiz(content.quiz)}
@@ -246,13 +322,172 @@ export function renderPractice() {
   `;
 }
 
-function modeCard(id, key, icon, title, copy) {
+function renderPracticeHeader() {
+  return `
+    <header class="practice-header">
+      <div class="practice-title-row">
+        <div>
+          <h1>Practice</h1>
+          <p>Practice speaking, listening and more.</p>
+        </div>
+        <button class="practice-level-pill" type="button">A1 Beginner <span aria-hidden="true">&rsaquo;</span></button>
+      </div>
+    </header>
+  `;
+}
+
+function modeCard(id, key, icon, title) {
   const iconClass = `practice-icon-${key === "flashcards" ? "cards" : key === "pronunciation" ? "mic" : "quiz"}`;
   return `
     <label class="practice-mode-card ${key}" for="${id}" role="tab">
       <div class="practice-mode-icon ${iconClass}" aria-hidden="true"></div>
-      <div><h2>${title}</h2><p>${copy}</p></div>
+      <h2>${title}</h2>
     </label>
+  `;
+}
+
+function renderPracticeFocus(lesson, questionCount = 15, selectedTopic = null) {
+  const title = selectedTopic?.title || (lesson?.title ? shortLessonTitle(lesson.title) : "Greetings & Introductions");
+  const objective = selectedTopic?.description || lesson?.objective || lesson?.objectives?.[0] || "Warm hellos, goodbyes, and introducing yourself in Spanish.";
+  const xp = Number(selectedTopic?.xp || lesson?.xpReward || 150);
+
+  return `
+    <section class="practice-focus-card">
+      <div class="practice-focus-copy">
+        <p>Today&rsquo;s Focus</p>
+        <h2>${escapeHtml(title)}</h2>
+        <span>${escapeHtml(objective)}</span>
+        <div class="practice-focus-meta">
+          <span><i class="meta-check" aria-hidden="true"></i>${questionCount} Questions</span>
+          <span><i class="meta-clock" aria-hidden="true"></i>10 Min</span>
+          <span><i class="meta-star" aria-hidden="true"></i>${xp} XP</span>
+        </div>
+        <button type="button" class="practice-start-quiz" onclick="document.getElementById('mode-quiz').checked=true;document.querySelector('.quiz-panel')?.scrollIntoView({behavior:'smooth',block:'start'});">
+          Start Quiz <span aria-hidden="true">&rsaquo;</span>
+        </button>
+      </div>
+      <div class="practice-focus-art" aria-hidden="true">
+        <span class="practice-girl"></span>
+        <img src="assets/images/carlos-home.png" alt="">
+        <em class="bubble-green">&iexcl;Hola!<small>Hello!</small></em>
+        <em class="bubble-gold">&iquest;C&oacute;mo est&aacute;s?<small>How are you?</small></em>
+      </div>
+    </section>
+  `;
+}
+
+function shortLessonTitle(title) {
+  return String(title || "Lesson").replace(/^.*?:\s*/, match => match.length > 18 ? "" : match);
+}
+
+function getSelectedPracticeTopic() {
+  try {
+    const slug = localStorage.getItem(PRACTICE_TOPIC_KEY);
+    if (!slug || !PRACTICE_TOPICS[slug]) return null;
+    return { slug, ...PRACTICE_TOPICS[slug] };
+  } catch (error) {
+    return null;
+  }
+}
+
+function renderPracticeTopics(selectedSlug = "") {
+  const topics = Object.entries(PRACTICE_TOPICS);
+
+  return `
+    <section class="practice-topic-section">
+      <div class="practice-section-head">
+        <h2>Practice by Topic</h2>
+        <button type="button" data-page="learn">View all <span aria-hidden="true">&rsaquo;</span></button>
+      </div>
+      <div class="practice-topic-grid">
+        ${topics.map(([slug, topic]) => `
+          <button class="practice-topic-tile${selectedSlug === slug ? " selected" : ""}" type="button" data-page="${slug === "conversation" ? "carlos" : "practice"}" data-practice-topic="${escapeAttr(slug)}">
+            <span class="topic-icon ${topic.icon}" aria-hidden="true">${renderTopicSvg(topic.icon)}</span>
+            <strong>${escapeHtml(topic.title)}</strong>
+            <small>${escapeHtml(topic.count)}</small>
+            ${topic.progress ? `<i class="topic-progress"><b style="width:${topic.progress}%"></b></i>` : ""}
+          </button>
+        `).join("")}
+      </div>
+    </section>
+  `;
+}
+
+function renderTopicLanding(topic) {
+  if (!topic || topic.slug === "conversation") return "";
+
+  return `
+    <section class="practice-topic-active-card">
+      <span class="topic-icon ${topic.icon}" aria-hidden="true">${renderTopicSvg(topic.icon)}</span>
+      <div>
+        <p>Selected Topic</p>
+        <h2>${escapeHtml(topic.title)}</h2>
+        <span>${escapeHtml(topic.description)}</span>
+      </div>
+      <button type="button" onclick="document.getElementById('mode-quiz').checked=true;document.querySelector('.quiz-panel')?.scrollIntoView({behavior:'smooth',block:'start'});">
+        Start Practice <span aria-hidden="true">&rsaquo;</span>
+      </button>
+    </section>
+  `;
+}
+
+function renderTopicSvg(iconClass) {
+  const icons = {
+    "topic-greetings": `<svg viewBox="0 0 48 48"><path d="M8 23c0-8 7-14 16-14s16 6 16 14-7 14-16 14c-2.5 0-5-.5-7-1.5L9 40l2.2-8C9.2 29.5 8 26.4 8 23Z"/><circle cx="18" cy="23" r="2.3"/><circle cx="24" cy="23" r="2.3"/><circle cx="30" cy="23" r="2.3"/></svg>`,
+    "topic-family": `<svg viewBox="0 0 48 48"><circle cx="18" cy="16" r="6"/><circle cx="31" cy="16" r="6"/><path d="M8 37c1.5-8 6-12 12-12s10.5 4 12 12H8Z"/><path d="M24 37c1.2-7 5-11 10-11 4.5 0 8 3.6 9 11H24Z"/></svg>`,
+    "topic-restaurants": `<svg viewBox="0 0 48 48"><path d="M14 7v17M20 7v17M11 7v10c0 5 12 5 12 0V7M17 24v17"/><path d="M34 7c-4 4-6 9-6 15h8v19"/></svg>`,
+    "topic-travel": `<svg viewBox="0 0 48 48"><path d="M4 28 43 9c1.4-.7 2.8.8 2 2.2L25 44l-5-16-16 0Z"/><path d="M20 28 43 10"/></svg>`,
+    "topic-shopping": `<svg viewBox="0 0 48 48"><path d="M12 18h24l3 24H9l3-24Z"/><path d="M18 18c0-6 12-6 12 0"/></svg>`,
+    "topic-work": `<svg viewBox="0 0 48 48"><path d="M16 15v-5h16v5"/><rect x="8" y="15" width="32" height="25" rx="4"/><path d="M8 26h32M21 26h6"/></svg>`,
+    "topic-smalltalk": `<svg viewBox="0 0 48 48"><path d="M8 23c0-8 7-14 16-14s16 6 16 14-7 14-16 14c-2.5 0-5-.5-7-1.5L9 40l2.2-8C9.2 29.5 8 26.4 8 23Z"/><circle cx="18" cy="23" r="2.3"/><circle cx="24" cy="23" r="2.3"/><circle cx="30" cy="23" r="2.3"/></svg>`,
+    "topic-freechat": `<svg viewBox="0 0 48 48"><rect x="18" y="6" width="12" height="24" rx="6"/><path d="M11 22c0 8 5 13 13 13s13-5 13-13M24 35v7M18 42h12"/></svg>`
+  };
+  return icons[iconClass] || "";
+}
+
+function renderWeeklyGoal() {
+  return `
+    <section class="weekly-goal-card">
+      <div>
+        <p>Weekly Goal</p>
+        <h2>4 of 7</h2>
+        <span>Lessons Completed</span>
+        <i class="weekly-progress"><b style="width:57%"></b></i>
+      </div>
+      <div class="weekly-days" aria-label="Weekly activity">
+        <strong><span>★</span> +350 XP</strong>
+        ${["M", "T", "W", "T", "F", "S", "S"].map((day, index) => `
+          <span class="${index < 2 ? "done" : index === 2 ? "today" : index === 6 ? "miss" : ""}">${day}<i></i></span>
+        `).join("")}
+      </div>
+    </section>
+  `;
+}
+
+function renderRecentActivity() {
+  const rows = [
+    ["activity-quiz", "Quiz: Greetings & Introductions", "15 questions &bull; 10 min", "+150 XP", "Today, 9:30 PM"],
+    ["activity-mic", "Pronunciation: Basic Phrases", "Completed 10 exercises", "+80 XP", "Today, 7:15 PM"],
+    ["activity-chat", "Conversation: Ordering Coffee", "Spoke for 8 minutes", "+120 XP", "Today, 5:45 PM"],
+  ];
+
+  return `
+    <section class="recent-activity-section">
+      <div class="practice-section-head">
+        <h2>Recent Activity</h2>
+        <button type="button" data-page="profile">View all activity <span aria-hidden="true">&rsaquo;</span></button>
+      </div>
+      <div class="recent-activity-card">
+        ${rows.map(([icon, title, detail, xp, time]) => `
+          <button type="button" data-page="practice">
+            <span class="${icon}" aria-hidden="true"></span>
+            <span><strong>${title}</strong><small>${detail}</small></span>
+            <em>${xp}<small>${time}</small></em>
+            <i aria-hidden="true">&rsaquo;</i>
+          </button>
+        `).join("")}
+      </div>
+    </section>
   `;
 }
 

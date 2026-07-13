@@ -860,8 +860,8 @@
       "type": "multipleChoice",
       "prompt": "What does el tiempo libre mean?",
       "options": [
-        "free time",
         "to read",
+        "free time",
         "to cook",
         "to travel"
       ],
@@ -871,9 +871,9 @@
       "type": "multipleChoice",
       "prompt": "What does leer mean?",
       "options": [
-        "to read",
         "to cook",
         "to travel",
+        "to read",
         "to walk"
       ],
       "answer": "to read"
@@ -882,10 +882,10 @@
       "type": "multipleChoice",
       "prompt": "What does cocinar mean?",
       "options": [
-        "to cook",
         "to travel",
         "to walk",
-        "to run"
+        "to run",
+        "to cook"
       ],
       "answer": "to cook"
     },
@@ -904,8 +904,8 @@
       "type": "multipleChoice",
       "prompt": "What does caminar mean?",
       "options": [
-        "to walk",
         "to run",
+        "to walk",
         "to dance",
         "to sing"
       ],
@@ -915,9 +915,9 @@
       "type": "multipleChoice",
       "prompt": "What does correr mean?",
       "options": [
-        "to run",
         "to dance",
         "to sing",
+        "to run",
         "to listen to music"
       ],
       "answer": "to run"
@@ -926,10 +926,10 @@
       "type": "multipleChoice",
       "prompt": "What does bailar mean?",
       "options": [
-        "to dance",
         "to sing",
         "to listen to music",
-        "to watch movies"
+        "to watch movies",
+        "to dance"
       ],
       "answer": "to dance"
     },
@@ -948,8 +948,8 @@
       "type": "multipleChoice",
       "prompt": "What does escuchar musica mean?",
       "options": [
-        "to listen to music",
         "to watch movies",
+        "to listen to music",
         "to play video games",
         "to draw"
       ],
@@ -959,9 +959,9 @@
       "type": "multipleChoice",
       "prompt": "What does ver peliculas mean?",
       "options": [
-        "to watch movies",
         "to play video games",
         "to draw",
+        "to watch movies",
         "to paint"
       ],
       "answer": "to watch movies"
@@ -970,10 +970,10 @@
       "type": "multipleChoice",
       "prompt": "What does jugar videojuegos mean?",
       "options": [
-        "to play video games",
         "to draw",
         "to paint",
-        "to take photos"
+        "to take photos",
+        "to play video games"
       ],
       "answer": "to play video games"
     },
@@ -991,9 +991,9 @@
       "type": "multipleChoice",
       "prompt": "Which phrase belongs in Hobbies?",
       "options": [
-        "leer",
         "mi suegra",
         "buenos dias",
+        "leer",
         "un boleto"
       ],
       "answer": "leer"

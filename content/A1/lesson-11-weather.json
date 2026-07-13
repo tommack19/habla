@@ -850,9 +850,9 @@
       "prompt": "What does el clima mean?",
       "options": [
         "weather",
-        "weather",
         "it is sunny",
-        "it is hot"
+        "it is hot",
+        "it is cold"
       ],
       "answer": "weather"
     },
@@ -860,8 +860,8 @@
       "type": "multipleChoice",
       "prompt": "What does el tiempo mean?",
       "options": [
-        "weather",
         "it is sunny",
+        "weather",
         "it is hot",
         "it is cold"
       ],
@@ -871,9 +871,9 @@
       "type": "multipleChoice",
       "prompt": "What does hace sol mean?",
       "options": [
-        "it is sunny",
         "it is hot",
         "it is cold",
+        "it is sunny",
         "it is windy"
       ],
       "answer": "it is sunny"
@@ -882,10 +882,10 @@
       "type": "multipleChoice",
       "prompt": "What does hace calor mean?",
       "options": [
-        "it is hot",
         "it is cold",
         "it is windy",
-        "it is cloudy"
+        "it is cloudy",
+        "it is hot"
       ],
       "answer": "it is hot"
     },
@@ -904,8 +904,8 @@
       "type": "multipleChoice",
       "prompt": "What does hace viento mean?",
       "options": [
-        "it is windy",
         "it is cloudy",
+        "it is windy",
         "it is raining",
         "it snows"
       ],
@@ -915,9 +915,9 @@
       "type": "multipleChoice",
       "prompt": "What does esta nublado mean?",
       "options": [
-        "it is cloudy",
         "it is raining",
         "it snows",
+        "it is cloudy",
         "rain"
       ],
       "answer": "it is cloudy"
@@ -926,10 +926,10 @@
       "type": "multipleChoice",
       "prompt": "What does esta lloviendo mean?",
       "options": [
-        "it is raining",
         "it snows",
         "rain",
-        "snow"
+        "snow",
+        "it is raining"
       ],
       "answer": "it is raining"
     },
@@ -948,8 +948,8 @@
       "type": "multipleChoice",
       "prompt": "What does la lluvia mean?",
       "options": [
-        "rain",
         "snow",
+        "rain",
         "wind",
         "temperature"
       ],
@@ -959,9 +959,9 @@
       "type": "multipleChoice",
       "prompt": "What does la nieve mean?",
       "options": [
-        "snow",
         "wind",
         "temperature",
+        "snow",
         "degrees"
       ],
       "answer": "snow"
@@ -970,10 +970,10 @@
       "type": "multipleChoice",
       "prompt": "What does el viento mean?",
       "options": [
-        "wind",
         "temperature",
         "degrees",
-        "season"
+        "season",
+        "wind"
       ],
       "answer": "wind"
     },
@@ -991,9 +991,9 @@
       "type": "multipleChoice",
       "prompt": "Which phrase belongs in Weather?",
       "options": [
-        "hace sol",
         "mi suegra",
         "buenos dias",
+        "hace sol",
         "un boleto"
       ],
       "answer": "hace sol"

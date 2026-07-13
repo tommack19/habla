@@ -860,8 +860,8 @@
       "type": "multipleChoice",
       "prompt": "What does la clase mean?",
       "options": [
-        "class",
         "male teacher",
+        "class",
         "female teacher",
         "male professor/teacher"
       ],
@@ -871,9 +871,9 @@
       "type": "multipleChoice",
       "prompt": "What does el maestro mean?",
       "options": [
-        "male teacher",
         "female teacher",
         "male professor/teacher",
+        "male teacher",
         "female professor/teacher"
       ],
       "answer": "male teacher"
@@ -882,10 +882,10 @@
       "type": "multipleChoice",
       "prompt": "What does la maestra mean?",
       "options": [
-        "female teacher",
         "male professor/teacher",
         "female professor/teacher",
-        "student"
+        "student",
+        "female teacher"
       ],
       "answer": "female teacher"
     },
@@ -904,8 +904,8 @@
       "type": "multipleChoice",
       "prompt": "What does la profesora mean?",
       "options": [
-        "female professor/teacher",
         "student",
+        "female professor/teacher",
         "female student",
         "book"
       ],
@@ -915,9 +915,9 @@
       "type": "multipleChoice",
       "prompt": "What does el estudiante mean?",
       "options": [
-        "student",
         "female student",
         "book",
+        "student",
         "notebook"
       ],
       "answer": "student"
@@ -926,10 +926,10 @@
       "type": "multipleChoice",
       "prompt": "What does la estudiante mean?",
       "options": [
-        "female student",
         "book",
         "notebook",
-        "pencil"
+        "pencil",
+        "female student"
       ],
       "answer": "female student"
     },
@@ -948,10 +948,10 @@
       "type": "multipleChoice",
       "prompt": "What does el cuaderno mean?",
       "options": [
-        "notebook",
         "pencil",
+        "notebook",
         "pen",
-        "pen"
+        "school"
       ],
       "answer": "notebook"
     },
@@ -959,10 +959,10 @@
       "type": "multipleChoice",
       "prompt": "What does el lapiz mean?",
       "options": [
+        "pen",
+        "backpack",
         "pencil",
-        "pen",
-        "pen",
-        "backpack"
+        "school"
       ],
       "answer": "pencil"
     },
@@ -970,10 +970,10 @@
       "type": "multipleChoice",
       "prompt": "What does la pluma mean?",
       "options": [
-        "pen",
-        "pen",
         "backpack",
-        "homework"
+        "homework",
+        "school",
+        "pen"
       ],
       "answer": "pen"
     },
@@ -991,9 +991,9 @@
       "type": "multipleChoice",
       "prompt": "Which phrase belongs in School?",
       "options": [
-        "el maestro",
         "mi suegra",
         "buenos dias",
+        "el maestro",
         "un boleto"
       ],
       "answer": "el maestro"

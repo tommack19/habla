@@ -860,10 +860,10 @@
       "type": "multipleChoice",
       "prompt": "What does el vuelo mean?",
       "options": [
-        "flight",
         "airline",
+        "flight",
         "ticket",
-        "ticket"
+        "airport"
       ],
       "answer": "flight"
     },
@@ -871,10 +871,10 @@
       "type": "multipleChoice",
       "prompt": "What does la aerolinea mean?",
       "options": [
+        "ticket",
+        "gate",
         "airline",
-        "ticket",
-        "ticket",
-        "gate"
+        "airport"
       ],
       "answer": "airline"
     },
@@ -882,10 +882,10 @@
       "type": "multipleChoice",
       "prompt": "What does el boleto mean?",
       "options": [
-        "ticket",
-        "ticket",
         "gate",
-        "terminal"
+        "terminal",
+        "airport",
+        "ticket"
       ],
       "answer": "ticket"
     },
@@ -904,8 +904,8 @@
       "type": "multipleChoice",
       "prompt": "What does la puerta mean?",
       "options": [
-        "gate",
         "terminal",
+        "gate",
         "departure",
         "arrival"
       ],
@@ -915,9 +915,9 @@
       "type": "multipleChoice",
       "prompt": "What does la terminal mean?",
       "options": [
-        "terminal",
         "departure",
         "arrival",
+        "terminal",
         "luggage"
       ],
       "answer": "terminal"
@@ -926,10 +926,10 @@
       "type": "multipleChoice",
       "prompt": "What does la salida mean?",
       "options": [
-        "departure",
         "arrival",
         "luggage",
-        "suitcase"
+        "suitcase",
+        "departure"
       ],
       "answer": "departure"
     },
@@ -948,8 +948,8 @@
       "type": "multipleChoice",
       "prompt": "What does el equipaje mean?",
       "options": [
-        "luggage",
         "suitcase",
+        "luggage",
         "backpack",
         "to check in/check bags"
       ],
@@ -959,9 +959,9 @@
       "type": "multipleChoice",
       "prompt": "What does la maleta mean?",
       "options": [
-        "suitcase",
         "backpack",
         "to check in/check bags",
+        "suitcase",
         "to board"
       ],
       "answer": "suitcase"
@@ -970,10 +970,10 @@
       "type": "multipleChoice",
       "prompt": "What does la mochila mean?",
       "options": [
-        "backpack",
         "to check in/check bags",
         "to board",
-        "to board"
+        "airport",
+        "backpack"
       ],
       "answer": "backpack"
     },
@@ -991,9 +991,9 @@
       "type": "multipleChoice",
       "prompt": "Which phrase fits Airport?",
       "options": [
-        "la aerolinea",
         "mi familia",
         "hace frio",
+        "la aerolinea",
         "me gusta leer"
       ],
       "answer": "la aerolinea"

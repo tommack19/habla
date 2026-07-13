@@ -3,8 +3,10 @@ import { saveState, loadState } from "./core/storage.js";
 import { renderPage } from "./core/router.js";
 import { initializeProgressEngine } from "./core/progress.js";
 import { completeMission as completeDailyMission } from "./core/missions.js";
-import { contentReady, getCurrentLesson } from "./core/content.js";
+import { contentReady, getCurrentLesson, setActiveLesson } from "./core/content.js";
 import { renderNavigation } from "./ui/navigation.js";
+
+const PRACTICE_TOPIC_KEY = 'habla_selected_practice_topic_v1';
 
 console.log("Habla state loaded:", state);
 
@@ -584,6 +586,14 @@ document.addEventListener('click', (event) => {
 
   const pageTarget = event.target.closest('[data-page]');
   if (!pageTarget) return;
+  if (pageTarget.dataset.lessonId) {
+    setActiveLesson(pageTarget.dataset.lessonId);
+  }
+  if (pageTarget.dataset.practiceTopic) {
+    localStorage.setItem(PRACTICE_TOPIC_KEY, pageTarget.dataset.practiceTopic);
+  } else if (pageTarget.dataset.page === 'practice') {
+    localStorage.removeItem(PRACTICE_TOPIC_KEY);
+  }
   renderAppPage(pageTarget.dataset.page);
 });
 

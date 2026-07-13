@@ -860,8 +860,8 @@
       "type": "multipleChoice",
       "prompt": "What does urgente mean?",
       "options": [
-        "urgent",
         "help",
+        "urgent",
         "now",
         "police"
       ],
@@ -871,9 +871,9 @@
       "type": "multipleChoice",
       "prompt": "What does ayuda mean?",
       "options": [
-        "help",
         "now",
         "police",
+        "help",
         "ambulance"
       ],
       "answer": "help"
@@ -882,10 +882,10 @@
       "type": "multipleChoice",
       "prompt": "What does ahora mean?",
       "options": [
-        "now",
         "police",
         "ambulance",
-        "hospital"
+        "hospital",
+        "now"
       ],
       "answer": "now"
     },
@@ -904,10 +904,10 @@
       "type": "multipleChoice",
       "prompt": "What does la ambulancia mean?",
       "options": [
-        "ambulance",
         "hospital",
+        "ambulance",
         "doctor",
-        "doctor"
+        "emergency"
       ],
       "answer": "ambulance"
     },
@@ -915,10 +915,10 @@
       "type": "multipleChoice",
       "prompt": "What does el hospital mean?",
       "options": [
+        "doctor",
+        "accident",
         "hospital",
-        "doctor",
-        "doctor",
-        "accident"
+        "emergency"
       ],
       "answer": "hospital"
     },
@@ -926,10 +926,10 @@
       "type": "multipleChoice",
       "prompt": "What does el doctor mean?",
       "options": [
-        "doctor",
-        "doctor",
         "accident",
-        "fire"
+        "fire",
+        "emergency",
+        "doctor"
       ],
       "answer": "doctor"
     },
@@ -948,8 +948,8 @@
       "type": "multipleChoice",
       "prompt": "What does el accidente mean?",
       "options": [
-        "accident",
         "fire",
+        "accident",
         "danger",
         "safe"
       ],
@@ -959,9 +959,9 @@
       "type": "multipleChoice",
       "prompt": "What does el fuego mean?",
       "options": [
-        "fire",
         "danger",
         "safe",
+        "fire",
         "unsafe"
       ],
       "answer": "fire"
@@ -970,10 +970,10 @@
       "type": "multipleChoice",
       "prompt": "What does peligro mean?",
       "options": [
-        "danger",
         "safe",
         "unsafe",
-        "injured"
+        "injured",
+        "danger"
       ],
       "answer": "danger"
     },
@@ -991,9 +991,9 @@
       "type": "multipleChoice",
       "prompt": "Which phrase fits Emergencies?",
       "options": [
-        "ayuda",
         "mi familia",
         "hace frio",
+        "ayuda",
         "me gusta leer"
       ],
       "answer": "ayuda"

@@ -2,6 +2,7 @@ import { awardXP } from "./progress.js";
 
 const FIRST_LESSON_ID = "a1-lesson-01-greetings";
 const PROGRESS_KEY = "habla_lesson_progress_v1";
+const ACTIVE_LESSON_KEY = "habla_active_lesson_id_v1";
 const LESSON_PATHS = {
   [FIRST_LESSON_ID]: "../../content/A1/lesson-01-greetings.json",
   "a1-lesson-02-introductions": "../../content/A1/lesson-02-introductions.json",
@@ -64,6 +65,18 @@ export function getCurrentLesson() {
   const unlockedLoadedIds = progress.unlockedLessonIds.filter(id => getLessonById(id));
   const currentId = unlockedLoadedIds.find(id => !progress.lessons[id]?.completed);
   return getLessonById(currentId || unlockedLoadedIds[unlockedLoadedIds.length - 1] || FIRST_LESSON_ID);
+}
+
+export function getActiveLesson() {
+  const activeId = readActiveLessonId();
+  return getLessonById(activeId) || getCurrentLesson();
+}
+
+export function setActiveLesson(id) {
+  const lesson = getLessonById(id);
+  if (!lesson) return null;
+  localStorage.setItem(ACTIVE_LESSON_KEY, lesson.id);
+  return lesson;
 }
 
 export function getNextLesson() {
@@ -252,6 +265,14 @@ function readProgress() {
   } catch (error) {
     console.error("Could not load lesson progress:", error);
     return createProgress();
+  }
+}
+
+function readActiveLessonId() {
+  try {
+    return canonicalLessonId(localStorage.getItem(ACTIVE_LESSON_KEY) || "");
+  } catch {
+    return "";
   }
 }
 

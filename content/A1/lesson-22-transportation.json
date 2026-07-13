@@ -860,8 +860,8 @@
       "type": "multipleChoice",
       "prompt": "What does el autobus mean?",
       "options": [
-        "bus",
         "bus/truck",
+        "bus",
         "taxi",
         "train"
       ],
@@ -871,9 +871,9 @@
       "type": "multipleChoice",
       "prompt": "What does el camion mean?",
       "options": [
-        "bus/truck",
         "taxi",
         "train",
+        "bus/truck",
         "subway"
       ],
       "answer": "bus/truck"
@@ -882,10 +882,10 @@
       "type": "multipleChoice",
       "prompt": "What does el taxi mean?",
       "options": [
-        "taxi",
         "train",
         "subway",
-        "car"
+        "car",
+        "taxi"
       ],
       "answer": "taxi"
     },
@@ -896,7 +896,7 @@
         "train",
         "subway",
         "car",
-        "car"
+        "transportation"
       ],
       "answer": "train"
     },
@@ -904,10 +904,10 @@
       "type": "multipleChoice",
       "prompt": "What does el metro mean?",
       "options": [
+        "car",
         "subway",
-        "car",
-        "car",
-        "bicycle"
+        "bicycle",
+        "transportation"
       ],
       "answer": "subway"
     },
@@ -915,10 +915,10 @@
       "type": "multipleChoice",
       "prompt": "What does el coche mean?",
       "options": [
-        "car",
-        "car",
         "bicycle",
-        "ticket"
+        "ticket",
+        "car",
+        "transportation"
       ],
       "answer": "car"
     },
@@ -926,10 +926,10 @@
       "type": "multipleChoice",
       "prompt": "What does el carro mean?",
       "options": [
-        "car",
         "bicycle",
         "ticket",
-        "ticket"
+        "transportation",
+        "car"
       ],
       "answer": "car"
     },
@@ -939,8 +939,8 @@
       "options": [
         "bicycle",
         "ticket",
-        "ticket",
-        "stop"
+        "stop",
+        "transportation"
       ],
       "answer": "bicycle"
     },
@@ -948,10 +948,10 @@
       "type": "multipleChoice",
       "prompt": "What does el boleto mean?",
       "options": [
-        "ticket",
-        "ticket",
         "stop",
-        "station"
+        "ticket",
+        "station",
+        "transportation"
       ],
       "answer": "ticket"
     },
@@ -959,9 +959,9 @@
       "type": "multipleChoice",
       "prompt": "What does el billete mean?",
       "options": [
-        "ticket",
         "stop",
         "station",
+        "ticket",
         "exit/departure"
       ],
       "answer": "ticket"
@@ -970,10 +970,10 @@
       "type": "multipleChoice",
       "prompt": "What does la parada mean?",
       "options": [
-        "stop",
         "station",
         "exit/departure",
-        "arrival"
+        "arrival",
+        "stop"
       ],
       "answer": "stop"
     },
@@ -991,9 +991,9 @@
       "type": "multipleChoice",
       "prompt": "Which phrase best fits Transportation?",
       "options": [
-        "el camion",
         "mi esposa",
         "hace frio",
+        "el camion",
         "me gusta leer"
       ],
       "answer": "el camion"

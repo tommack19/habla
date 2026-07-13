@@ -851,8 +851,8 @@
       "options": [
         "happy",
         "happy/content",
-        "happy/content",
-        "sad"
+        "sad",
+        "tired"
       ],
       "answer": "happy"
     },
@@ -860,10 +860,10 @@
       "type": "multipleChoice",
       "prompt": "What does contento mean?",
       "options": [
-        "happy/content",
-        "happy/content",
         "sad",
-        "tired"
+        "happy/content",
+        "tired",
+        "happy"
       ],
       "answer": "happy/content"
     },
@@ -871,10 +871,10 @@
       "type": "multipleChoice",
       "prompt": "What does contenta mean?",
       "options": [
-        "happy/content",
         "sad",
         "tired",
-        "tired"
+        "happy/content",
+        "happy"
       ],
       "answer": "happy/content"
     },
@@ -882,10 +882,10 @@
       "type": "multipleChoice",
       "prompt": "What does triste mean?",
       "options": [
-        "sad",
         "tired",
-        "tired",
-        "nervous"
+        "nervous",
+        "happy",
+        "sad"
       ],
       "answer": "sad"
     },
@@ -894,9 +894,9 @@
       "prompt": "What does cansado mean?",
       "options": [
         "tired",
-        "tired",
         "nervous",
-        "nervous"
+        "happy",
+        "happy/content"
       ],
       "answer": "tired"
     },
@@ -904,10 +904,10 @@
       "type": "multipleChoice",
       "prompt": "What does cansada mean?",
       "options": [
+        "nervous",
         "tired",
-        "nervous",
-        "nervous",
-        "calm"
+        "calm",
+        "happy"
       ],
       "answer": "tired"
     },
@@ -915,10 +915,10 @@
       "type": "multipleChoice",
       "prompt": "What does nervioso mean?",
       "options": [
-        "nervous",
-        "nervous",
         "calm",
-        "calm"
+        "happy",
+        "nervous",
+        "happy/content"
       ],
       "answer": "nervous"
     },
@@ -926,10 +926,10 @@
       "type": "multipleChoice",
       "prompt": "What does nerviosa mean?",
       "options": [
-        "nervous",
         "calm",
-        "calm",
-        "excited"
+        "excited",
+        "happy",
+        "nervous"
       ],
       "answer": "nervous"
     },
@@ -938,9 +938,9 @@
       "prompt": "What does tranquilo mean?",
       "options": [
         "calm",
-        "calm",
         "excited",
-        "excited"
+        "happy",
+        "happy/content"
       ],
       "answer": "calm"
     },
@@ -948,10 +948,10 @@
       "type": "multipleChoice",
       "prompt": "What does tranquila mean?",
       "options": [
+        "excited",
         "calm",
-        "excited",
-        "excited",
-        "worried"
+        "worried",
+        "happy"
       ],
       "answer": "calm"
     },
@@ -959,10 +959,10 @@
       "type": "multipleChoice",
       "prompt": "What does emocionado mean?",
       "options": [
-        "excited",
-        "excited",
         "worried",
-        "worried"
+        "happy",
+        "excited",
+        "happy/content"
       ],
       "answer": "excited"
     },
@@ -970,10 +970,10 @@
       "type": "multipleChoice",
       "prompt": "What does emocionada mean?",
       "options": [
-        "excited",
         "worried",
-        "worried",
-        "angry"
+        "angry",
+        "happy",
+        "excited"
       ],
       "answer": "excited"
     },
@@ -991,9 +991,9 @@
       "type": "multipleChoice",
       "prompt": "Which phrase belongs in Emotions?",
       "options": [
-        "contenta",
         "mi suegra",
         "buenos dias",
+        "contenta",
         "un boleto"
       ],
       "answer": "contenta"

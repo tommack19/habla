@@ -860,8 +860,8 @@
       "type": "multipleChoice",
       "prompt": "What does el cajero automatico mean?",
       "options": [
-        "ATM",
         "money",
+        "ATM",
         "cash",
         "card"
       ],
@@ -871,9 +871,9 @@
       "type": "multipleChoice",
       "prompt": "What does el dinero mean?",
       "options": [
-        "money",
         "cash",
         "card",
+        "money",
         "credit card"
       ],
       "answer": "money"
@@ -882,10 +882,10 @@
       "type": "multipleChoice",
       "prompt": "What does el efectivo mean?",
       "options": [
-        "cash",
         "card",
         "credit card",
-        "debit card"
+        "debit card",
+        "cash"
       ],
       "answer": "cash"
     },
@@ -904,8 +904,8 @@
       "type": "multipleChoice",
       "prompt": "What does la tarjeta de credito mean?",
       "options": [
-        "credit card",
         "debit card",
+        "credit card",
         "account",
         "account number"
       ],
@@ -915,9 +915,9 @@
       "type": "multipleChoice",
       "prompt": "What does la tarjeta de debito mean?",
       "options": [
-        "debit card",
         "account",
         "account number",
+        "debit card",
         "PIN"
       ],
       "answer": "debit card"
@@ -926,10 +926,10 @@
       "type": "multipleChoice",
       "prompt": "What does la cuenta mean?",
       "options": [
-        "account",
         "account number",
         "PIN",
-        "receipt"
+        "receipt",
+        "account"
       ],
       "answer": "account"
     },
@@ -948,8 +948,8 @@
       "type": "multipleChoice",
       "prompt": "What does el PIN mean?",
       "options": [
-        "PIN",
         "receipt",
+        "PIN",
         "signature",
         "change"
       ],
@@ -959,9 +959,9 @@
       "type": "multipleChoice",
       "prompt": "What does el recibo mean?",
       "options": [
-        "receipt",
         "signature",
         "change",
+        "receipt",
         "to exchange money"
       ],
       "answer": "receipt"
@@ -970,10 +970,10 @@
       "type": "multipleChoice",
       "prompt": "What does la firma mean?",
       "options": [
-        "signature",
         "change",
         "to exchange money",
-        "to withdraw"
+        "to withdraw",
+        "signature"
       ],
       "answer": "signature"
     },
@@ -991,9 +991,9 @@
       "type": "multipleChoice",
       "prompt": "Which phrase fits Banking?",
       "options": [
-        "el dinero",
         "mi familia",
         "hace frio",
+        "el dinero",
         "me gusta leer"
       ],
       "answer": "el dinero"

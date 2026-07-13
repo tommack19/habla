@@ -860,8 +860,8 @@
       "type": "multipleChoice",
       "prompt": "What does a la derecha mean?",
       "options": [
-        "to the right",
         "to the left",
+        "to the right",
         "street",
         "avenue"
       ],
@@ -871,9 +871,9 @@
       "type": "multipleChoice",
       "prompt": "What does a la izquierda mean?",
       "options": [
-        "to the left",
         "street",
         "avenue",
+        "to the left",
         "corner"
       ],
       "answer": "to the left"
@@ -882,10 +882,10 @@
       "type": "multipleChoice",
       "prompt": "What does la calle mean?",
       "options": [
-        "street",
         "avenue",
         "corner",
-        "block"
+        "block",
+        "street"
       ],
       "answer": "street"
     },
@@ -904,8 +904,8 @@
       "type": "multipleChoice",
       "prompt": "What does la esquina mean?",
       "options": [
-        "corner",
         "block",
+        "corner",
         "traffic light",
         "crossing/intersection"
       ],
@@ -915,9 +915,9 @@
       "type": "multipleChoice",
       "prompt": "What does la cuadra mean?",
       "options": [
-        "block",
         "traffic light",
         "crossing/intersection",
+        "block",
         "map"
       ],
       "answer": "block"
@@ -926,10 +926,10 @@
       "type": "multipleChoice",
       "prompt": "What does el semaforo mean?",
       "options": [
-        "traffic light",
         "crossing/intersection",
         "map",
-        "near"
+        "near",
+        "traffic light"
       ],
       "answer": "traffic light"
     },
@@ -948,8 +948,8 @@
       "type": "multipleChoice",
       "prompt": "What does el mapa mean?",
       "options": [
-        "map",
         "near",
+        "map",
         "far",
         "in front of"
       ],
@@ -959,9 +959,9 @@
       "type": "multipleChoice",
       "prompt": "What does cerca mean?",
       "options": [
-        "near",
         "far",
         "in front of",
+        "near",
         "behind"
       ],
       "answer": "near"
@@ -970,10 +970,10 @@
       "type": "multipleChoice",
       "prompt": "What does lejos mean?",
       "options": [
-        "far",
         "in front of",
         "behind",
-        "next to"
+        "next to",
+        "far"
       ],
       "answer": "far"
     },
@@ -991,9 +991,9 @@
       "type": "multipleChoice",
       "prompt": "Which phrase best fits Directions?",
       "options": [
-        "a la izquierda",
         "mi esposa",
         "hace frio",
+        "a la izquierda",
         "me gusta leer"
       ],
       "answer": "a la izquierda"

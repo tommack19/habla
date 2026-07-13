@@ -241,154 +241,304 @@
   },
   "dialogue": [
     {
-      "title": "Around the House with Carlos",
+      "title": "Showing the house",
       "lines": [
         {
-          "speaker": "Carlos",
-          "spanish": "Vamos a practicar around the house.",
-          "english": "Let?s practice around the house."
-        },
-        {
           "speaker": "Learner",
-          "spanish": "S?, quiero practicar.",
-          "english": "Yes, I want to practice."
+          "spanish": "Esta es mi casa.",
+          "english": "This is my house."
         },
         {
           "speaker": "Carlos",
-          "spanish": "Muy bien. Usa una frase completa.",
-          "english": "Very good. Use a complete sentence."
-        },
-        {
-          "speaker": "Learner",
-          "spanish": "Puedo decirlo otra vez.",
-          "english": "I can say it again."
+          "spanish": "Muy bonita.",
+          "english": "Very nice."
         }
       ]
     },
     {
-      "title": "A polite real-life exchange",
+      "title": "In the kitchen",
       "lines": [
         {
           "speaker": "Carlos",
-          "spanish": "Disculpe, tengo una pregunta.",
-          "english": "Excuse me, I have a question."
+          "spanish": "Donde esta la cocina?",
+          "english": "Where is the kitchen?"
         },
         {
           "speaker": "Learner",
-          "spanish": "Claro, con gusto.",
-          "english": "Of course, gladly."
-        },
-        {
-          "speaker": "Carlos",
-          "spanish": "Gracias por ayudarme.",
-          "english": "Thank you for helping me."
-        },
-        {
-          "speaker": "Learner",
-          "spanish": "De nada.",
-          "english": "You?re welcome."
+          "spanish": "La cocina esta aqui.",
+          "english": "The kitchen is here."
         }
       ]
     },
     {
-      "title": "Family-friendly practice",
+      "title": "In the bathroom",
+      "lines": [
+        {
+          "speaker": "Learner",
+          "spanish": "Donde esta el bano?",
+          "english": "Where is the bathroom?"
+        },
+        {
+          "speaker": "Carlos",
+          "spanish": "Esta a la derecha.",
+          "english": "It is on the right."
+        }
+      ]
+    },
+    {
+      "title": "Living room",
+      "lines": [
+        {
+          "speaker": "Learner",
+          "spanish": "Mi familia esta en la sala.",
+          "english": "My family is in the living room."
+        },
+        {
+          "speaker": "Carlos",
+          "spanish": "Perfecto, vamos a saludar.",
+          "english": "Perfect, let's say hello."
+        }
+      ]
+    },
+    {
+      "title": "Bedroom",
       "lines": [
         {
           "speaker": "Carlos",
-          "spanish": "?C?mo lo dices con tu familia?",
-          "english": "How do you say it with your family?"
+          "spanish": "Tu cuarto es grande?",
+          "english": "Is your room big?"
         },
         {
           "speaker": "Learner",
-          "spanish": "Lo digo despacio y con respeto.",
-          "english": "I say it slowly and respectfully."
+          "spanish": "No, mi cuarto es pequeno.",
+          "english": "No, my room is small."
+        }
+      ]
+    },
+    {
+      "title": "Need something",
+      "lines": [
+        {
+          "speaker": "Learner",
+          "spanish": "Necesito una silla.",
+          "english": "I need a chair."
         },
         {
           "speaker": "Carlos",
-          "spanish": "Perfecto, eso suena natural.",
-          "english": "Perfect, that sounds natural."
+          "spanish": "Hay una silla aqui.",
+          "english": "There is a chair here."
+        }
+      ]
+    },
+    {
+      "title": "House location",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Donde vives?",
+          "english": "Where do you live?"
         },
         {
           "speaker": "Learner",
-          "spanish": "Gracias, Carlos.",
-          "english": "Thanks, Carlos."
+          "spanish": "Vivo en una casa en Winnipeg.",
+          "english": "I live in a house in Winnipeg."
+        }
+      ]
+    },
+    {
+      "title": "Cleaning",
+      "lines": [
+        {
+          "speaker": "Learner",
+          "spanish": "Limpio la cocina hoy.",
+          "english": "I clean the kitchen today."
+        },
+        {
+          "speaker": "Carlos",
+          "spanish": "Muy bien.",
+          "english": "Very good."
+        }
+      ]
+    },
+    {
+      "title": "Family visit",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Tu familia viene a casa?",
+          "english": "Is your family coming home?"
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "Si, mi familia viene hoy.",
+          "english": "Yes, my family is coming today."
+        }
+      ]
+    },
+    {
+      "title": "House tour",
+      "lines": [
+        {
+          "speaker": "Learner",
+          "spanish": "Aqui esta la sala, la cocina y el bano.",
+          "english": "Here are the living room, kitchen, and bathroom."
+        },
+        {
+          "speaker": "Carlos",
+          "spanish": "Excelente descripcion.",
+          "english": "Excellent description."
         }
       ]
     }
   ],
   "dialogues": [
     {
-      "title": "Around the House with Carlos",
+      "title": "Showing the house",
       "lines": [
         {
-          "speaker": "Carlos",
-          "spanish": "Vamos a practicar around the house.",
-          "english": "Let?s practice around the house."
-        },
-        {
           "speaker": "Learner",
-          "spanish": "S?, quiero practicar.",
-          "english": "Yes, I want to practice."
+          "spanish": "Esta es mi casa.",
+          "english": "This is my house."
         },
         {
           "speaker": "Carlos",
-          "spanish": "Muy bien. Usa una frase completa.",
-          "english": "Very good. Use a complete sentence."
-        },
-        {
-          "speaker": "Learner",
-          "spanish": "Puedo decirlo otra vez.",
-          "english": "I can say it again."
+          "spanish": "Muy bonita.",
+          "english": "Very nice."
         }
       ]
     },
     {
-      "title": "A polite real-life exchange",
+      "title": "In the kitchen",
       "lines": [
         {
           "speaker": "Carlos",
-          "spanish": "Disculpe, tengo una pregunta.",
-          "english": "Excuse me, I have a question."
+          "spanish": "Donde esta la cocina?",
+          "english": "Where is the kitchen?"
         },
         {
           "speaker": "Learner",
-          "spanish": "Claro, con gusto.",
-          "english": "Of course, gladly."
-        },
-        {
-          "speaker": "Carlos",
-          "spanish": "Gracias por ayudarme.",
-          "english": "Thank you for helping me."
-        },
-        {
-          "speaker": "Learner",
-          "spanish": "De nada.",
-          "english": "You?re welcome."
+          "spanish": "La cocina esta aqui.",
+          "english": "The kitchen is here."
         }
       ]
     },
     {
-      "title": "Family-friendly practice",
+      "title": "In the bathroom",
+      "lines": [
+        {
+          "speaker": "Learner",
+          "spanish": "Donde esta el bano?",
+          "english": "Where is the bathroom?"
+        },
+        {
+          "speaker": "Carlos",
+          "spanish": "Esta a la derecha.",
+          "english": "It is on the right."
+        }
+      ]
+    },
+    {
+      "title": "Living room",
+      "lines": [
+        {
+          "speaker": "Learner",
+          "spanish": "Mi familia esta en la sala.",
+          "english": "My family is in the living room."
+        },
+        {
+          "speaker": "Carlos",
+          "spanish": "Perfecto, vamos a saludar.",
+          "english": "Perfect, let's say hello."
+        }
+      ]
+    },
+    {
+      "title": "Bedroom",
       "lines": [
         {
           "speaker": "Carlos",
-          "spanish": "?C?mo lo dices con tu familia?",
-          "english": "How do you say it with your family?"
+          "spanish": "Tu cuarto es grande?",
+          "english": "Is your room big?"
         },
         {
           "speaker": "Learner",
-          "spanish": "Lo digo despacio y con respeto.",
-          "english": "I say it slowly and respectfully."
+          "spanish": "No, mi cuarto es pequeno.",
+          "english": "No, my room is small."
+        }
+      ]
+    },
+    {
+      "title": "Need something",
+      "lines": [
+        {
+          "speaker": "Learner",
+          "spanish": "Necesito una silla.",
+          "english": "I need a chair."
         },
         {
           "speaker": "Carlos",
-          "spanish": "Perfecto, eso suena natural.",
-          "english": "Perfect, that sounds natural."
+          "spanish": "Hay una silla aqui.",
+          "english": "There is a chair here."
+        }
+      ]
+    },
+    {
+      "title": "House location",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Donde vives?",
+          "english": "Where do you live?"
         },
         {
           "speaker": "Learner",
-          "spanish": "Gracias, Carlos.",
-          "english": "Thanks, Carlos."
+          "spanish": "Vivo en una casa en Winnipeg.",
+          "english": "I live in a house in Winnipeg."
+        }
+      ]
+    },
+    {
+      "title": "Cleaning",
+      "lines": [
+        {
+          "speaker": "Learner",
+          "spanish": "Limpio la cocina hoy.",
+          "english": "I clean the kitchen today."
+        },
+        {
+          "speaker": "Carlos",
+          "spanish": "Muy bien.",
+          "english": "Very good."
+        }
+      ]
+    },
+    {
+      "title": "Family visit",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Tu familia viene a casa?",
+          "english": "Is your family coming home?"
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "Si, mi familia viene hoy.",
+          "english": "Yes, my family is coming today."
+        }
+      ]
+    },
+    {
+      "title": "House tour",
+      "lines": [
+        {
+          "speaker": "Learner",
+          "spanish": "Aqui esta la sala, la cocina y el bano.",
+          "english": "Here are the living room, kitchen, and bathroom."
+        },
+        {
+          "speaker": "Carlos",
+          "spanish": "Excelente descripcion.",
+          "english": "Excellent description."
         }
       ]
     }
@@ -613,8 +763,8 @@
       "type": "multipleChoice",
       "prompt": "What does ?el apartamento? mean?",
       "options": [
-        "apartment",
         "house",
+        "apartment",
         "room / bedroom",
         "kitchen"
       ],
@@ -624,9 +774,9 @@
       "type": "multipleChoice",
       "prompt": "What does ?la habitaci?n? mean?",
       "options": [
-        "room / bedroom",
         "house",
         "apartment",
+        "room / bedroom",
         "kitchen"
       ],
       "answer": "room / bedroom"
@@ -635,10 +785,10 @@
       "type": "multipleChoice",
       "prompt": "What does ?la cocina? mean?",
       "options": [
-        "kitchen",
         "house",
         "apartment",
-        "room / bedroom"
+        "room / bedroom",
+        "kitchen"
       ],
       "answer": "kitchen"
     },
@@ -657,8 +807,8 @@
       "type": "multipleChoice",
       "prompt": "What does ?la sala? mean?",
       "options": [
-        "living room",
         "house",
+        "living room",
         "apartment",
         "room / bedroom"
       ],
@@ -668,9 +818,9 @@
       "type": "multipleChoice",
       "prompt": "What does ?el comedor? mean?",
       "options": [
-        "dining room",
         "house",
         "apartment",
+        "dining room",
         "room / bedroom"
       ],
       "answer": "dining room"
@@ -679,10 +829,10 @@
       "type": "multipleChoice",
       "prompt": "What does ?la puerta? mean?",
       "options": [
-        "door",
         "house",
         "apartment",
-        "room / bedroom"
+        "room / bedroom",
+        "door"
       ],
       "answer": "door"
     },
@@ -701,8 +851,8 @@
       "type": "multipleChoice",
       "prompt": "What does ?la mesa? mean?",
       "options": [
-        "table",
         "house",
+        "table",
         "apartment",
         "room / bedroom"
       ],
@@ -712,9 +862,9 @@
       "type": "multipleChoice",
       "prompt": "What does ?la silla? mean?",
       "options": [
-        "chair",
         "house",
         "apartment",
+        "chair",
         "room / bedroom"
       ],
       "answer": "chair"
@@ -723,10 +873,10 @@
       "type": "multipleChoice",
       "prompt": "What does ?la cama? mean?",
       "options": [
-        "bed",
         "house",
         "apartment",
-        "room / bedroom"
+        "room / bedroom",
+        "bed"
       ],
       "answer": "bed"
     },
@@ -745,8 +895,8 @@
       "type": "multipleChoice",
       "prompt": "What does ?la l?mpara? mean?",
       "options": [
-        "lamp",
         "house",
+        "lamp",
         "apartment",
         "room / bedroom"
       ],
@@ -756,9 +906,9 @@
       "type": "multipleChoice",
       "prompt": "What does ?el tel?fono? mean?",
       "options": [
-        "phone",
         "house",
         "apartment",
+        "phone",
         "room / bedroom"
       ],
       "answer": "phone"
@@ -825,6 +975,12 @@
       "Recognize key vocabulary.",
       "Answer Carlos with simple complete sentences.",
       "Use the Real Life Mission in a practical situation."
+    ],
+    "selfCheck": [
+      "Can I use the main lesson phrases in a complete sentence?",
+      "Can I answer Carlos with a short natural response?",
+      "Can I use one polite phrase from earlier lessons?",
+      "Can I complete the real life mission without reading every word?"
     ]
   },
   "imagePath": "assets/images/lessons/lesson-09-around-the-house.png",

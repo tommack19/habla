@@ -860,8 +860,8 @@
       "type": "multipleChoice",
       "prompt": "What does la cabeza mean?",
       "options": [
-        "head",
         "face",
+        "head",
         "eye",
         "eyes"
       ],
@@ -871,9 +871,9 @@
       "type": "multipleChoice",
       "prompt": "What does la cara mean?",
       "options": [
-        "face",
         "eye",
         "eyes",
+        "face",
         "nose"
       ],
       "answer": "face"
@@ -882,10 +882,10 @@
       "type": "multipleChoice",
       "prompt": "What does el ojo mean?",
       "options": [
-        "eye",
         "eyes",
         "nose",
-        "mouth"
+        "mouth",
+        "eye"
       ],
       "answer": "eye"
     },
@@ -904,8 +904,8 @@
       "type": "multipleChoice",
       "prompt": "What does la nariz mean?",
       "options": [
-        "nose",
         "mouth",
+        "nose",
         "tooth",
         "teeth"
       ],
@@ -915,9 +915,9 @@
       "type": "multipleChoice",
       "prompt": "What does la boca mean?",
       "options": [
-        "mouth",
         "tooth",
         "teeth",
+        "mouth",
         "throat"
       ],
       "answer": "mouth"
@@ -926,10 +926,10 @@
       "type": "multipleChoice",
       "prompt": "What does el diente mean?",
       "options": [
-        "tooth",
         "teeth",
         "throat",
-        "neck"
+        "neck",
+        "tooth"
       ],
       "answer": "tooth"
     },
@@ -948,8 +948,8 @@
       "type": "multipleChoice",
       "prompt": "What does la garganta mean?",
       "options": [
-        "throat",
         "neck",
+        "throat",
         "shoulder",
         "arm"
       ],
@@ -959,9 +959,9 @@
       "type": "multipleChoice",
       "prompt": "What does el cuello mean?",
       "options": [
-        "neck",
         "shoulder",
         "arm",
+        "neck",
         "hand"
       ],
       "answer": "neck"
@@ -970,10 +970,10 @@
       "type": "multipleChoice",
       "prompt": "What does el hombro mean?",
       "options": [
-        "shoulder",
         "arm",
         "hand",
-        "finger/toe"
+        "finger/toe",
+        "shoulder"
       ],
       "answer": "shoulder"
     },
@@ -991,9 +991,9 @@
       "type": "multipleChoice",
       "prompt": "Which phrase belongs in Body Parts?",
       "options": [
-        "la cara",
         "mi suegra",
         "buenos dias",
+        "la cara",
         "un boleto"
       ],
       "answer": "la cara"

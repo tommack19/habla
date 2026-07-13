@@ -349,27 +349,27 @@
   ],
   "grammar": {
     "topic": "Greeting politely and choosing formal or informal speech",
-    "explanation": "Spanish greetings change depending on time of day, formality, and region. Use tú forms with people you know or peers. Use usted forms when you want to sound respectful.",
+    "explanation": "Spanish greetings depend on time of day, relationship, and level of respect. Use tú forms with friends, peers, and family. Use usted forms with strangers, elders, clients, or anyone you want to address politely.",
     "notes": [
       {
         "title": "Tú vs usted",
-        "text": "Use tú for informal situations and usted for formal or respectful situations."
+        "text": "Use tú with people you know well. Use usted when you want to sound respectful or professional."
       },
       {
         "title": "Me llamo vs soy",
-        "text": "Me llamo is clear and textbook-friendly. Soy is shorter and natural when giving your name."
+        "text": "Me llamo is clear and works in any introduction. Soy plus your name is shorter and common in casual introductions."
       },
       {
         "title": "Buenos vs buenas",
-        "text": "Buenos días uses buenos. Buenas tardes and buenas noches use buenas."
+        "text": "Use buenos with días: buenos días. Use buenas with tardes and noches: buenas tardes, buenas noches."
       },
       {
         "title": "Encantado / encantada",
-        "text": "Use encantado if the speaker is male and encantada if the speaker is female."
+        "text": "Use encantado if the speaker identifies as male and encantada if the speaker identifies as female. The word describes the speaker, not the person being greeted."
       },
       {
         "title": "Returning the question",
-        "text": "After answering ¿cómo estás?, add ¿y tú? or ¿y usted? to keep the conversation going."
+        "text": "After answering ¿cómo estás? or ¿cómo está?, add ¿y tú? or ¿y usted? to keep the exchange polite and natural."
       }
     ],
     "examples": [
@@ -382,201 +382,509 @@
         "english": "Nice to meet you, I am Ana."
       }
     ],
-    "practicePrompt": "Introduce yourself formally and informally."
+    "practicePrompt": "Introduce yourself once to a friend and once to an older family member."
   },
   "dialogue": [
     {
-      "title": "Formal introduction",
+      "title": "Formal greeting with Carlos",
       "lines": [
-        { "speaker": "Carlos", "spanish": "Buenos días, me llamo Carlos.", "english": "Good morning, my name is Carlos." },
-        { "speaker": "Learner", "spanish": "Mucho gusto, me llamo Tom.", "english": "Nice to meet you, my name is Tom." }
+        {
+          "speaker": "Carlos",
+          "spanish": "Buenos días. Me llamo Carlos.",
+          "english": "Good morning. My name is Carlos."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "Mucho gusto, me llamo Tom.",
+          "english": "Nice to meet you, my name is Tom."
+        }
       ]
     },
     {
-      "title": "Casual hello",
+      "title": "Casual greeting with a friend",
       "lines": [
-        { "speaker": "Ana", "spanish": "Hola, ¿qué tal?", "english": "Hi, how's it going?" },
-        { "speaker": "Learner", "spanish": "Muy bien, ¿y tú?", "english": "Very well, and you?" }
+        {
+          "speaker": "Ana",
+          "spanish": "Hola, ¿qué tal?",
+          "english": "Hi, how's it going?"
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "Bien, gracias. ¿Y tú?",
+          "english": "Good, thanks. And you?"
+        }
       ]
     },
     {
-      "title": "Meeting family",
+      "title": "Meeting an older relative",
       "lines": [
-        { "speaker": "Padre", "spanish": "Buenas tardes, ¿cómo está?", "english": "Good afternoon, how are you?" },
-        { "speaker": "Learner", "spanish": "Muy bien, gracias. ¿Y usted?", "english": "Very well, thank you. And you?" }
+        {
+          "speaker": "Señora López",
+          "spanish": "Buenas tardes, ¿cómo está?",
+          "english": "Good afternoon, how are you?"
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "Muy bien, gracias. ¿Y usted?",
+          "english": "Very well, thank you. And you?"
+        }
       ]
     },
     {
-      "title": "Asking a name",
+      "title": "Asking a name politely",
       "lines": [
-        { "speaker": "Carlos", "spanish": "¿Cómo te llamas?", "english": "What is your name?" },
-        { "speaker": "Learner", "spanish": "Me llamo Tom.", "english": "My name is Tom." }
+        {
+          "speaker": "Carlos",
+          "spanish": "Perdón, ¿cómo se llama?",
+          "english": "Excuse me, what is your name?"
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "Me llamo Tom. Mucho gusto.",
+          "english": "My name is Tom. Nice to meet you."
+        }
       ]
     },
     {
-      "title": "Saying where you are from",
+      "title": "Giving a simple introduction",
       "lines": [
-        { "speaker": "Ana", "spanish": "¿De dónde eres?", "english": "Where are you from?" },
-        { "speaker": "Learner", "spanish": "Soy de Canadá.", "english": "I am from Canada." }
+        {
+          "speaker": "Ana",
+          "spanish": "Hola, soy Ana.",
+          "english": "Hi, I'm Ana."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "Hola, soy Tom. Soy de Canadá.",
+          "english": "Hi, I'm Tom. I'm from Canada."
+        }
       ]
     },
     {
-      "title": "Polite repetition",
+      "title": "Asking Carlos to repeat",
       "lines": [
-        { "speaker": "Carlos", "spanish": "Mucho gusto en conocerte.", "english": "Nice to meet you." },
-        { "speaker": "Learner", "spanish": "Perdón, ¿puede repetir?", "english": "Pardon, can you repeat?" }
+        {
+          "speaker": "Carlos",
+          "spanish": "Mucho gusto en conocerte.",
+          "english": "Nice to meet you."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "Perdón, ¿puede repetir?",
+          "english": "Pardon, can you repeat?"
+        }
       ]
     },
     {
-      "title": "Too fast",
+      "title": "When someone speaks too fast",
       "lines": [
-        { "speaker": "Ana", "spanish": "Hola, ¿qué tal? ¿Cómo va todo?", "english": "Hi, how are you? How is everything going?" },
-        { "speaker": "Learner", "spanish": "Más despacio, por favor.", "english": "More slowly, please." }
+        {
+          "speaker": "Carlos",
+          "spanish": "Hola, ¿qué tal? ¿Cómo va todo?",
+          "english": "Hi, how's it going? How is everything?"
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "Más despacio, por favor.",
+          "english": "More slowly, please."
+        }
       ]
     },
     {
-      "title": "Saying goodbye",
+      "title": "Friendly goodbye",
       "lines": [
-        { "speaker": "Carlos", "spanish": "Hasta luego, Tom.", "english": "See you later, Tom." },
-        { "speaker": "Learner", "spanish": "Hasta luego, Carlos.", "english": "See you later, Carlos." }
+        {
+          "speaker": "Carlos",
+          "spanish": "Hasta luego, Tom.",
+          "english": "See you later, Tom."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "Nos vemos, Carlos.",
+          "english": "See you, Carlos."
+        }
       ]
     },
     {
-      "title": "At the door",
+      "title": "Entering a room politely",
       "lines": [
-        { "speaker": "Learner", "spanish": "Con permiso.", "english": "Excuse me." },
-        { "speaker": "Ana", "spanish": "Claro, adelante.", "english": "Of course, come in." }
+        {
+          "speaker": "Learner",
+          "spanish": "Con permiso.",
+          "english": "Excuse me."
+        },
+        {
+          "speaker": "Ana",
+          "spanish": "Claro, adelante.",
+          "english": "Of course, come in."
+        }
       ]
     },
     {
-      "title": "Warm family greeting",
+      "title": "Warm family welcome",
       "lines": [
-        { "speaker": "Tía", "spanish": "Bienvenido a la familia.", "english": "Welcome to the family." },
-        { "speaker": "Learner", "spanish": "Muchas gracias, mucho gusto.", "english": "Thank you very much, nice to meet you." }
+        {
+          "speaker": "Tía",
+          "spanish": "Bienvenido a la familia.",
+          "english": "Welcome to the family."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "Muchas gracias, mucho gusto.",
+          "english": "Thank you very much, nice to meet you."
+        }
       ]
     }
   ],
   "pronunciation": {
-    "focus": "Clear vowels, silent h, and natural greeting rhythm.",
+    "focus": "Clear vowels, silent h, Spanish ñ, and polite greeting rhythm.",
     "tips": [
-      "The h in hola is silent: say ola.",
-      "Spanish vowels are short and steady: a, e, i, o, u.",
-      "The ñ sound in mañana is like ny in canyon.",
-      "In gracias, many Latin American speakers use an s sound for c.",
-      "In Spain, gracias may sound closer to gra-thias in many regions."
+      "The h is silent in hola and hasta. Start with the vowel sound: ola, asta.",
+      "Keep Spanish vowels short and steady. Do not turn hola into hoh-luh.",
+      "The ñ in mañana sounds like ny in canyon: ma-NYA-na.",
+      "In most of Latin America, gracias uses an s sound: GRA-sias.",
+      "In much of Spain, gracias may use a th sound: GRA-thias.",
+      "In ¿cómo está?, stress the final tá. In ¿cómo estás?, stress tás.",
+      "For polite requests, slow down slightly: Perdón... ¿puede repetir?"
     ],
     "items": [
-      { "text": "hola", "note": "Silent h." },
-      { "text": "buenos días", "note": "Stress dí in días." },
-      { "text": "buenas tardes", "note": "Keep vowels clean and open." },
-      { "text": "buenas noches", "note": "Do not reduce the final es." },
-      { "text": "mucho gusto", "note": "The u in gusto is strong." },
-      { "text": "encantado", "note": "Stress ta: en-can-TA-do." },
-      { "text": "¿cómo estás?", "note": "Rise slightly at the end." },
-      { "text": "gracias", "note": "Latin America: gra-sias; Spain: gra-thias." },
-      { "text": "hasta luego", "note": "The h is silent in hasta." },
-      { "text": "más despacio", "note": "Pause between más and despacio." }
+      {
+        "text": "hola",
+        "note": "Do not pronounce the h: ola."
+      },
+      {
+        "text": "buenos días",
+        "note": "Stress dí in días; keep buenos smooth."
+      },
+      {
+        "text": "buenas tardes",
+        "note": "Keep the final s light but audible."
+      },
+      {
+        "text": "buenas noches",
+        "note": "Say both words clearly; do not drop buenas."
+      },
+      {
+        "text": "mucho gusto",
+        "note": "The u in gusto is pronounced: GUS-to."
+      },
+      {
+        "text": "encantado",
+        "note": "Stress ta: en-can-TA-do."
+      },
+      {
+        "text": "¿cómo está?",
+        "note": "Formal; stress the final tá."
+      },
+      {
+        "text": "¿cómo estás?",
+        "note": "Informal; keep the final s audible."
+      },
+      {
+        "text": "gracias",
+        "note": "Latin America: GRA-sias. Spain: GRA-thias."
+      },
+      {
+        "text": "más despacio",
+        "note": "Pause slightly after más for clarity."
+      }
     ]
   },
   "listeningPhrases": [
-    { "spanish": "Hola, ¿cómo estás?", "english": "Hi, how are you?" },
-    { "spanish": "Buenos días, mucho gusto.", "english": "Good morning, nice to meet you." },
-    { "spanish": "¿Cómo se llama usted?", "english": "What is your name?" },
-    { "spanish": "Me llamo Carlos.", "english": "My name is Carlos." },
-    { "spanish": "Soy de México.", "english": "I am from Mexico." },
-    { "spanish": "Muy bien, gracias.", "english": "Very well, thank you." },
-    { "spanish": "¿Y tú?", "english": "And you?" },
-    { "spanish": "Perdón, ¿puede repetir?", "english": "Pardon, can you repeat?" },
-    { "spanish": "Más despacio, por favor.", "english": "More slowly, please." },
-    { "spanish": "Hasta luego.", "english": "See you later." }
+    {
+      "spanish": "Hola, ¿cómo estás?",
+      "english": "Hi, how are you?"
+    },
+    {
+      "spanish": "Buenos días, mucho gusto.",
+      "english": "Good morning, nice to meet you."
+    },
+    {
+      "spanish": "¿Cómo se llama usted?",
+      "english": "What is your name?"
+    },
+    {
+      "spanish": "Me llamo Carlos.",
+      "english": "My name is Carlos."
+    },
+    {
+      "spanish": "Soy de México.",
+      "english": "I am from Mexico."
+    },
+    {
+      "spanish": "Muy bien, gracias.",
+      "english": "Very well, thank you."
+    },
+    {
+      "spanish": "¿Y tú?",
+      "english": "And you?"
+    },
+    {
+      "spanish": "Perdón, ¿puede repetir?",
+      "english": "Pardon, can you repeat?"
+    },
+    {
+      "spanish": "Más despacio, por favor.",
+      "english": "More slowly, please."
+    },
+    {
+      "spanish": "Hasta luego.",
+      "english": "See you later."
+    }
   ],
   "culture": {
     "title": "Greeting with warmth and respect",
-    "text": "Spanish-speaking cultures often value warm greetings. A simple hola plus mucho gusto can make a first meeting feel respectful. In many family settings, greetings may include handshakes, hugs, or cheek kisses depending on closeness and region. When unsure, start politely with usted and follow the other person's tone."
+    "text": "A good Spanish greeting is usually more than one word. In a first meeting, use a greeting plus mucho gusto and choose usted if the person is older, a client, or someone you want to respect. With friends or people your age, hola and ¿qué tal? sound natural. In family settings, people may greet warmly with a handshake, hug, or cheek kiss depending on the country and closeness. When unsure, start politely and copy the other person’s level of formality."
   },
   "nativeSpeech": {
     "title": "How native speakers really greet",
     "notes": [
-      "Many speakers shorten buenas tardes or buenas noches to buenas.",
-      "¿Qué tal? is a very common natural greeting, especially in Spain.",
-      "In Mexico, ¿qué onda? is casual and friendly, but not formal.",
-      "Native speakers often combine greetings: Hola, ¿qué tal? Mucho gusto.",
-      "The response bien, gracias, ¿y tú? is simple, polite, and always useful."
+      "Many speakers shorten buenas tardes or buenas noches to buenas in casual settings.",
+      "¿Qué tal? is one of the safest natural greetings across Spain and much of Latin America.",
+      "In Mexico, ¿qué onda? is friendly and casual, but it is not for formal introductions.",
+      "Native speakers often stack phrases: Hola, ¿qué tal? Mucho gusto.",
+      "Bien, gracias. ¿Y tú? is simple, polite, and useful when you are just starting.",
+      "With older relatives or professional contacts, ¿cómo está? sounds warmer and safer than ¿cómo estás?"
     ]
   },
   "commonMistakes": [
     {
       "mistake": "Using ¿cómo estás? with everyone.",
-      "correction": "Use ¿cómo está? in formal situations.",
-      "explanation": "The formal version sounds more respectful with strangers and elders."
+      "correction": "Use ¿cómo está? in formal or respectful situations.",
+      "explanation": "The formal version is safer with strangers, elders, and people you have just met."
     },
     {
-      "mistake": "Pronouncing the h in hola.",
-      "correction": "Say ola.",
+      "mistake": "Pronouncing the h in hola or hasta.",
+      "correction": "Say ola and asta.",
       "explanation": "The Spanish h is silent."
     },
     {
-      "mistake": "Using adiós when you mean see you soon.",
+      "mistake": "Using adiós when you expect to see someone soon.",
       "correction": "Use hasta luego or nos vemos.",
-      "explanation": "Adiós can feel more final."
+      "explanation": "Adiós can sound more final than see you later."
     },
     {
       "mistake": "Saying bueno días.",
       "correction": "Say buenos días.",
-      "explanation": "The phrase is plural: buenos días."
+      "explanation": "The fixed greeting is plural: buenos días."
     },
     {
-      "mistake": "Forgetting to return the greeting question.",
-      "correction": "Add ¿y tú? or ¿y usted?",
-      "explanation": "This keeps the conversation polite and natural."
+      "mistake": "Answering bien and stopping there.",
+      "correction": "Say bien, gracias. ¿Y tú? or ¿y usted?",
+      "explanation": "Returning the question makes the greeting feel complete and polite."
     }
   ],
   "quiz": [
-    { "type": "multipleChoice", "prompt": "What does hola mean?", "options": ["hello", "goodbye", "please", "sorry"], "answer": "hello" },
-    { "type": "multipleChoice", "prompt": "Which greeting is used in the morning?", "options": ["buenos días", "buenas noches", "hasta luego", "de nada"], "answer": "buenos días" },
-    { "type": "multipleChoice", "prompt": "What does mucho gusto mean?", "options": ["nice to meet you", "good night", "excuse me", "see you later"], "answer": "nice to meet you" },
-    { "type": "multipleChoice", "prompt": "Choose the formal version of how are you.", "options": ["¿cómo está?", "¿cómo estás?", "¿qué onda?", "¿y tú?"], "answer": "¿cómo está?" },
-    { "type": "multipleChoice", "prompt": "What is the natural Spain Spanish greeting for how's it going?", "options": ["¿qué tal?", "¿qué onda?", "¿mande?", "¿qué hubo?"], "answer": "¿qué tal?" },
-    { "type": "multipleChoice", "prompt": "What is a casual Mexican greeting?", "options": ["¿qué onda?", "encantado", "con permiso", "buenos días"], "answer": "¿qué onda?" },
-    { "type": "multipleChoice", "prompt": "What does de nada mean?", "options": ["you're welcome", "please", "I'm sorry", "my name is"], "answer": "you're welcome" },
-    { "type": "multipleChoice", "prompt": "How do you say please?", "options": ["por favor", "perdón", "gracias", "bien"], "answer": "por favor" },
-    { "type": "multipleChoice", "prompt": "What does me llamo mean?", "options": ["my name is", "I am from", "thank you", "see you later"], "answer": "my name is" },
-    { "type": "multipleChoice", "prompt": "Choose the formal and you.", "options": ["¿y usted?", "¿y tú?", "¿qué tal?", "¿qué onda?"], "answer": "¿y usted?" },
-    { "type": "translation", "prompt": "Translate: Buenas noches.", "answer": "Good evening / good night" },
-    { "type": "translation", "prompt": "Translate: Hasta luego.", "answer": "See you later" },
-    { "type": "fillBlank", "prompt": "_____ días means good morning.", "answer": "Buenos" },
-    { "type": "fillBlank", "prompt": "Me _____ Tom.", "answer": "llamo" },
-    { "type": "multipleChoice", "prompt": "What should you say if someone speaks too fast?", "options": ["Más despacio, por favor.", "Adiós.", "Soy de Canadá.", "Encantado."], "answer": "Más despacio, por favor." }
+    {
+      "type": "multipleChoice",
+      "difficulty": "easy recognition",
+      "prompt": "What does hola mean?",
+      "options": [
+        "hello",
+        "goodbye",
+        "please",
+        "excuse me"
+      ],
+      "answer": "hello"
+    },
+    {
+      "type": "multipleChoice",
+      "difficulty": "easy recognition",
+      "prompt": "Which phrase means good morning?",
+      "options": [
+        "buenas tardes",
+        "buenos días",
+        "buenas noches",
+        "hasta luego"
+      ],
+      "answer": "buenos días"
+    },
+    {
+      "type": "multipleChoice",
+      "difficulty": "easy recognition",
+      "prompt": "What does mucho gusto mean?",
+      "options": [
+        "thank you very much",
+        "see you later",
+        "nice to meet you",
+        "I am from Canada"
+      ],
+      "answer": "nice to meet you"
+    },
+    {
+      "type": "multipleChoice",
+      "difficulty": "medium similar meanings",
+      "prompt": "Choose the formal way to ask “How are you?”",
+      "options": [
+        "¿Cómo estás?",
+        "¿Qué tal?",
+        "¿Y tú?",
+        "¿Cómo está?"
+      ],
+      "answer": "¿Cómo está?"
+    },
+    {
+      "type": "multipleChoice",
+      "difficulty": "medium similar meanings",
+      "prompt": "Which phrase is the formal “And you?”",
+      "options": [
+        "¿Y usted?",
+        "¿Y tú?",
+        "¿Qué tal?",
+        "¿Cómo va?"
+      ],
+      "answer": "¿Y usted?"
+    },
+    {
+      "type": "multipleChoice",
+      "difficulty": "hard natural usage",
+      "prompt": "You are meeting your partner’s grandmother. Choose the safest greeting.",
+      "options": [
+        "¿Qué onda?",
+        "Buenas tardes, ¿cómo está?",
+        "Hola, ¿qué tal, amiga?",
+        "Nos vemos mañana"
+      ],
+      "answer": "Buenas tardes, ¿cómo está?"
+    },
+    {
+      "type": "multipleChoice",
+      "difficulty": "hard natural usage",
+      "prompt": "Choose the natural casual Mexican greeting.",
+      "options": [
+        "¿Cómo está usted?",
+        "Con permiso",
+        "¿Qué onda?",
+        "Mucho gusto en conocerle"
+      ],
+      "answer": "¿Qué onda?"
+    },
+    {
+      "type": "multipleChoice",
+      "difficulty": "hard natural usage",
+      "prompt": "Choose the natural Spain Spanish greeting for “How’s it going?”",
+      "options": [
+        "¿Mande?",
+        "¿Qué onda?",
+        "¿Y usted?",
+        "¿Qué tal?"
+      ],
+      "answer": "¿Qué tal?"
+    },
+    {
+      "type": "multipleChoice",
+      "difficulty": "medium similar meanings",
+      "prompt": "What does de nada mean?",
+      "options": [
+        "you're welcome",
+        "please",
+        "I'm sorry",
+        "nice to meet you"
+      ],
+      "answer": "you're welcome"
+    },
+    {
+      "type": "multipleChoice",
+      "difficulty": "easy recognition",
+      "prompt": "How do you say please?",
+      "options": [
+        "gracias",
+        "por favor",
+        "perdón",
+        "bien"
+      ],
+      "answer": "por favor"
+    },
+    {
+      "type": "multipleChoice",
+      "difficulty": "English to Spanish",
+      "prompt": "Choose the Spanish for “My name is Tom.”",
+      "options": [
+        "Soy de Tom.",
+        "Mucho gusto Tom.",
+        "Me llamo Tom.",
+        "¿Y usted, Tom?"
+      ],
+      "answer": "Me llamo Tom."
+    },
+    {
+      "type": "multipleChoice",
+      "difficulty": "choose the natural phrase",
+      "prompt": "A friend says: Hola, ¿qué tal? Choose a natural reply.",
+      "options": [
+        "Adiós, por favor.",
+        "Me llamo gracias.",
+        "Con permiso, buenas noches.",
+        "Bien, gracias. ¿Y tú?"
+      ],
+      "answer": "Bien, gracias. ¿Y tú?"
+    },
+    {
+      "type": "translation",
+      "difficulty": "Spanish to English",
+      "prompt": "Translate: Buenas noches.",
+      "answer": "Good evening / good night"
+    },
+    {
+      "type": "translation",
+      "difficulty": "Spanish to English",
+      "prompt": "Translate: Hasta luego.",
+      "answer": "See you later"
+    },
+    {
+      "type": "fillBlank",
+      "difficulty": "fill in the blank",
+      "prompt": "_____ días means good morning.",
+      "answer": "Buenos"
+    },
+    {
+      "type": "fillBlank",
+      "difficulty": "fill in the blank",
+      "prompt": "Me _____ Tom.",
+      "answer": "llamo"
+    },
+    {
+      "type": "multipleChoice",
+      "difficulty": "hard natural usage",
+      "prompt": "Someone speaks too fast. What should you say?",
+      "options": [
+        "Más despacio, por favor.",
+        "Soy de Canadá.",
+        "Encantado.",
+        "Hasta mañana."
+      ],
+      "answer": "Más despacio, por favor."
+    }
   ],
   "speakingChallenge": [
     {
-      "prompt": "Introduce yourself informally.",
-      "exampleAnswer": "Hola, me llamo Tom. Mucho gusto."
+      "prompt": "Carlos has just introduced himself. Greet him, say your name, and say nice to meet you.",
+      "exampleAnswer": "Hola, Carlos. Me llamo Tom. Mucho gusto."
     },
     {
-      "prompt": "Introduce yourself formally.",
-      "exampleAnswer": "Buenos días, me llamo Tom. Mucho gusto."
+      "prompt": "You are meeting an older family member for the first time. Use a formal greeting and return the question politely.",
+      "exampleAnswer": "Buenas tardes. Muy bien, gracias. ¿Y usted?"
     },
     {
-      "prompt": "Answer how are you and return the question.",
-      "exampleAnswer": "Muy bien, gracias. ¿Y tú?"
+      "prompt": "A friend your age says “Hola, ¿qué tal?” Answer naturally and ask “and you?”",
+      "exampleAnswer": "Bien, gracias. ¿Y tú?"
     },
     {
-      "prompt": "Ask someone to repeat more slowly.",
+      "prompt": "Carlos speaks too quickly. Ask him politely to repeat more slowly.",
       "exampleAnswer": "Perdón, ¿puede repetir más despacio, por favor?"
     },
     {
-      "prompt": "Greet your spouse's family politely.",
-      "exampleAnswer": "Buenas tardes, mucho gusto. Soy Tom."
+      "prompt": "Introduce yourself to your spouse’s family using one time-of-day greeting, your name, and one polite expression.",
+      "exampleAnswer": "Buenas tardes, me llamo Tom. Mucho gusto."
     }
   ],
   "realLifeMission": {
     "title": "Real Life Mission",
     "mission": "Introduce yourself to Carlos using at least three greetings and one polite expression.",
     "successCriteria": [
-      "Start with one time-of-day greeting, such as buenos dias, buenas tardes, or buenas noches.",
+      "Start with one time-of-day greeting, such as buenos días, buenas tardes, or buenas noches.",
       "Use at least two additional greetings or introduction phrases from the lesson.",
-      "Include at least one polite expression, such as por favor, gracias, mucho gusto, or perdon.",
+      "Include at least one polite expression, such as por favor, gracias, mucho gusto, or perdón.",
       "End naturally with a short closing, such as hasta luego or nos vemos."
     ],
     "suggestedPartner": "Carlos",
@@ -586,5 +894,6 @@
     "first_steps"
   ],
   "xpReward": 50,
-  "nextLesson": "a1-lesson-02-introductions"
+  "nextLesson": "a1-lesson-02-introductions",
+  "image": "assets/images/lessons/lesson-01-greetings.png"
 }

@@ -4,6 +4,7 @@
   "level": "A1",
   "module": "Numbers & Time",
   "estimatedMinutes": 30,
+  "image": "assets/images/lessons/lesson-04-numbers-time.png",
   "metadata": {
     "course": "Habla",
     "unit": "A1 Beginner",
@@ -13,9 +14,11 @@
   },
   "prerequisiteLesson": "lesson-03-family",
   "objectives": [
-    "Use numbers, clock time, days, and calendar phrases to make simple plans with Carlos.",
-    "Understand Carlos in short guided exchanges.",
-    "Use the lesson language in one realistic conversation."
+    "Count confidently from 0 to 100.",
+    "Ask and answer what time it is.",
+    "Say your age using tengo ... años.",
+    "Talk about days of the week, today, tomorrow, and yesterday.",
+    "Make simple plans with a day and time."
   ],
   "objective": "Use numbers, clock time, days, and calendar phrases to make simple plans with Carlos.",
   "vocabulary": [
@@ -23,817 +26,805 @@
       "spanish": "cero",
       "english": "zero",
       "partOfSpeech": "number",
-      "tip": "Carlos tip: practice ?cero? in a short real sentence, not as an isolated word.",
-      "exampleSpanish": "Carlos usa cero en una frase.",
-      "exampleEnglish": "Carlos uses zero in a sentence."
+      "tip": "Useful for phone numbers, room numbers, and counting.",
+      "exampleSpanish": "Mi número tiene un cero.",
+      "exampleEnglish": "My number has a zero."
     },
     {
       "spanish": "uno",
       "english": "one",
       "partOfSpeech": "number",
-      "tip": "Carlos tip: practice ?uno? in a short real sentence, not as an isolated word.",
-      "exampleSpanish": "Carlos usa uno en una frase.",
-      "exampleEnglish": "Carlos uses one in a sentence."
-    },
-    {
-      "spanish": "dos",
-      "english": "two",
-      "partOfSpeech": "number",
-      "tip": "Carlos tip: practice ?dos? in a short real sentence, not as an isolated word.",
-      "exampleSpanish": "Carlos usa dos en una frase.",
-      "exampleEnglish": "Carlos uses two in a sentence."
+      "tip": "Uno changes to un before masculine nouns: un café.",
+      "exampleSpanish": "Quiero un café.",
+      "exampleEnglish": "I want one coffee."
     },
     {
       "spanish": "tres",
       "english": "three",
       "partOfSpeech": "number",
-      "tip": "Carlos tip: practice ?tres? in a short real sentence, not as an isolated word.",
-      "exampleSpanish": "Carlos usa tres en una frase.",
-      "exampleEnglish": "Carlos uses three in a sentence."
-    },
-    {
-      "spanish": "cuatro",
-      "english": "four",
-      "partOfSpeech": "number",
-      "tip": "Carlos tip: practice ?cuatro? in a short real sentence, not as an isolated word.",
-      "exampleSpanish": "Carlos usa cuatro en una frase.",
-      "exampleEnglish": "Carlos uses four in a sentence."
-    },
-    {
-      "spanish": "cinco",
-      "english": "five",
-      "partOfSpeech": "number",
-      "tip": "Carlos tip: practice ?cinco? in a short real sentence, not as an isolated word.",
-      "exampleSpanish": "Carlos usa cinco en una frase.",
-      "exampleEnglish": "Carlos uses five in a sentence."
-    },
-    {
-      "spanish": "seis",
-      "english": "six",
-      "partOfSpeech": "number",
-      "tip": "Carlos tip: practice ?seis? in a short real sentence, not as an isolated word.",
-      "exampleSpanish": "Carlos usa seis en una frase.",
-      "exampleEnglish": "Carlos uses six in a sentence."
-    },
-    {
-      "spanish": "siete",
-      "english": "seven",
-      "partOfSpeech": "number",
-      "tip": "Carlos tip: practice ?siete? in a short real sentence, not as an isolated word.",
-      "exampleSpanish": "Carlos usa siete en una frase.",
-      "exampleEnglish": "Carlos uses seven in a sentence."
-    },
-    {
-      "spanish": "ocho",
-      "english": "eight",
-      "partOfSpeech": "number",
-      "tip": "Carlos tip: practice ?ocho? in a short real sentence, not as an isolated word.",
-      "exampleSpanish": "Carlos usa ocho en una frase.",
-      "exampleEnglish": "Carlos uses eight in a sentence."
-    },
-    {
-      "spanish": "nueve",
-      "english": "nine",
-      "partOfSpeech": "number",
-      "tip": "Carlos tip: practice ?nueve? in a short real sentence, not as an isolated word.",
-      "exampleSpanish": "Carlos usa nueve en una frase.",
-      "exampleEnglish": "Carlos uses nine in a sentence."
-    },
-    {
-      "spanish": "diez",
-      "english": "ten",
-      "partOfSpeech": "number",
-      "tip": "Carlos tip: practice ?diez? in a short real sentence, not as an isolated word.",
-      "exampleSpanish": "Carlos usa diez en una frase.",
-      "exampleEnglish": "Carlos uses ten in a sentence."
-    },
-    {
-      "spanish": "once",
-      "english": "eleven",
-      "partOfSpeech": "number",
-      "tip": "Carlos tip: practice ?once? in a short real sentence, not as an isolated word.",
-      "exampleSpanish": "Carlos usa once en una frase.",
-      "exampleEnglish": "Carlos uses eleven in a sentence."
-    },
-    {
-      "spanish": "doce",
-      "english": "twelve",
-      "partOfSpeech": "number",
-      "tip": "Carlos tip: practice ?doce? in a short real sentence, not as an isolated word.",
-      "exampleSpanish": "Carlos usa doce en una frase.",
-      "exampleEnglish": "Carlos uses twelve in a sentence."
-    },
-    {
-      "spanish": "quince",
-      "english": "fifteen",
-      "partOfSpeech": "number",
-      "tip": "Carlos tip: practice ?quince? in a short real sentence, not as an isolated word.",
-      "exampleSpanish": "Carlos usa quince en una frase.",
-      "exampleEnglish": "Carlos uses fifteen in a sentence."
+      "tip": "Useful for simple meeting times.",
+      "exampleSpanish": "Nos vemos a las tres.",
+      "exampleEnglish": "See you at three."
     },
     {
       "spanish": "veinte",
       "english": "twenty",
       "partOfSpeech": "number",
-      "tip": "Carlos tip: practice ?veinte? in a short real sentence, not as an isolated word.",
-      "exampleSpanish": "Carlos usa veinte en una frase.",
-      "exampleEnglish": "Carlos uses twenty in a sentence."
+      "tip": "Use veinte for 20; numbers 21-29 start with veinti-.",
+      "exampleSpanish": "Tengo veinte años.",
+      "exampleEnglish": "I am twenty years old."
     },
     {
       "spanish": "treinta",
       "english": "thirty",
       "partOfSpeech": "number",
-      "tip": "Carlos tip: practice ?treinta? in a short real sentence, not as an isolated word.",
-      "exampleSpanish": "Carlos usa treinta en una frase.",
-      "exampleEnglish": "Carlos uses thirty in a sentence."
+      "tip": "For 31-39, use treinta y plus the smaller number.",
+      "exampleSpanish": "Tengo treinta años.",
+      "exampleEnglish": "I am thirty years old."
+    },
+    {
+      "spanish": "cuarenta",
+      "english": "forty",
+      "partOfSpeech": "number",
+      "tip": "Do not pronounce it like English quarantine; keep Spanish vowels clean.",
+      "exampleSpanish": "Mi padre tiene cuarenta años.",
+      "exampleEnglish": "My father is forty years old."
+    },
+    {
+      "spanish": "cincuenta",
+      "english": "fifty",
+      "partOfSpeech": "number",
+      "tip": "Notice the cinc- beginning, like cinco.",
+      "exampleSpanish": "Mi mamá tiene cincuenta años.",
+      "exampleEnglish": "My mom is fifty years old."
+    },
+    {
+      "spanish": "sesenta",
+      "english": "sixty",
+      "partOfSpeech": "number",
+      "tip": "Keep the stress in the middle: se-SEN-ta.",
+      "exampleSpanish": "Hay sesenta minutos en una hora.",
+      "exampleEnglish": "There are sixty minutes in an hour."
+    },
+    {
+      "spanish": "setenta",
+      "english": "seventy",
+      "partOfSpeech": "number",
+      "tip": "Setenta and sesenta look similar, so listen carefully.",
+      "exampleSpanish": "Mi abuelo tiene setenta años.",
+      "exampleEnglish": "My grandfather is seventy years old."
+    },
+    {
+      "spanish": "ochenta",
+      "english": "eighty",
+      "partOfSpeech": "number",
+      "tip": "Ocho is hiding inside ochenta.",
+      "exampleSpanish": "Mi abuela tiene ochenta años.",
+      "exampleEnglish": "My grandmother is eighty years old."
+    },
+    {
+      "spanish": "noventa",
+      "english": "ninety",
+      "partOfSpeech": "number",
+      "tip": "Nueve is related to noventa.",
+      "exampleSpanish": "Son noventa minutos.",
+      "exampleEnglish": "It is ninety minutes."
+    },
+    {
+      "spanish": "cien",
+      "english": "one hundred",
+      "partOfSpeech": "number",
+      "tip": "Use cien for exactly 100.",
+      "exampleSpanish": "Cien pesos, por favor.",
+      "exampleEnglish": "One hundred pesos, please."
     },
     {
       "spanish": "la hora",
       "english": "time / hour",
       "partOfSpeech": "noun",
-      "tip": "Carlos tip: practice ?la hora? in a short real sentence, not as an isolated word.",
-      "exampleSpanish": "Carlos usa la hora en una frase.",
-      "exampleEnglish": "Carlos uses time / hour in a sentence."
+      "tip": "Use hora for time and for an hour.",
+      "exampleSpanish": "Qué hora es?",
+      "exampleEnglish": "What time is it?"
     },
     {
-      "spanish": "el minuto",
-      "english": "minute",
+      "spanish": "el reloj",
+      "english": "clock / watch",
       "partOfSpeech": "noun",
-      "tip": "Carlos tip: practice ?el minuto? in a short real sentence, not as an isolated word.",
-      "exampleSpanish": "Carlos usa el minuto en una frase.",
-      "exampleEnglish": "Carlos uses minute in a sentence."
+      "tip": "Reloj can mean a clock or a watch.",
+      "exampleSpanish": "El reloj dice las tres.",
+      "exampleEnglish": "The clock says three o'clock."
+    },
+    {
+      "spanish": "Qué hora es?",
+      "english": "What time is it?",
+      "partOfSpeech": "question",
+      "tip": "Use this to ask the current time.",
+      "exampleSpanish": "Carlos, qué hora es?",
+      "exampleEnglish": "Carlos, what time is it?"
+    },
+    {
+      "spanish": "Es la una",
+      "english": "It is one o'clock",
+      "partOfSpeech": "time phrase",
+      "tip": "Use es la only for one o'clock.",
+      "exampleSpanish": "Es la una de la tarde.",
+      "exampleEnglish": "It is one in the afternoon."
+    },
+    {
+      "spanish": "Son las tres",
+      "english": "It is three o'clock",
+      "partOfSpeech": "time phrase",
+      "tip": "Use son las for every hour except one.",
+      "exampleSpanish": "Son las tres de la tarde.",
+      "exampleEnglish": "It is three in the afternoon."
+    },
+    {
+      "spanish": "y cuarto",
+      "english": "quarter past",
+      "partOfSpeech": "time phrase",
+      "tip": "Use after the hour for fifteen minutes past.",
+      "exampleSpanish": "Son las tres y cuarto.",
+      "exampleEnglish": "It is quarter past three."
+    },
+    {
+      "spanish": "y media",
+      "english": "half past",
+      "partOfSpeech": "time phrase",
+      "tip": "Use after the hour for thirty minutes past.",
+      "exampleSpanish": "Son las seis y media.",
+      "exampleEnglish": "It is half past six."
+    },
+    {
+      "spanish": "menos cuarto",
+      "english": "quarter to",
+      "partOfSpeech": "time phrase",
+      "tip": "Use before the next hour for fifteen minutes before.",
+      "exampleSpanish": "Son las cuatro menos cuarto.",
+      "exampleEnglish": "It is quarter to four."
+    },
+    {
+      "spanish": "de la mañana",
+      "english": "in the morning / AM",
+      "partOfSpeech": "time phrase",
+      "tip": "Use for morning times.",
+      "exampleSpanish": "Trabajo a las ocho de la mañana.",
+      "exampleEnglish": "I work at eight in the morning."
+    },
+    {
+      "spanish": "de la tarde",
+      "english": "in the afternoon / PM",
+      "partOfSpeech": "time phrase",
+      "tip": "Use for afternoon and early evening times.",
+      "exampleSpanish": "Tomamos café a las tres de la tarde.",
+      "exampleEnglish": "We have coffee at three in the afternoon."
+    },
+    {
+      "spanish": "de la noche",
+      "english": "at night / PM",
+      "partOfSpeech": "time phrase",
+      "tip": "Use for night times.",
+      "exampleSpanish": "Ceno a las ocho de la noche.",
+      "exampleEnglish": "I eat dinner at eight at night."
     },
     {
       "spanish": "hoy",
       "english": "today",
       "partOfSpeech": "adverb",
-      "tip": "Carlos tip: practice ?hoy? in a short real sentence, not as an isolated word.",
-      "exampleSpanish": "Carlos usa hoy en una frase.",
-      "exampleEnglish": "Carlos uses today in a sentence."
+      "tip": "Use hoy for the current day.",
+      "exampleSpanish": "Hoy es lunes.",
+      "exampleEnglish": "Today is Monday."
     },
     {
-      "spanish": "ma?ana",
+      "spanish": "mañana",
       "english": "tomorrow / morning",
-      "partOfSpeech": "adverb",
-      "tip": "Carlos tip: practice ?ma?ana? in a short real sentence, not as an isolated word.",
-      "exampleSpanish": "Carlos usa ma?ana en una frase.",
-      "exampleEnglish": "Carlos uses tomorrow / morning in a sentence."
+      "partOfSpeech": "adverb / noun",
+      "tip": "Mañana can mean tomorrow or morning; context tells you which.",
+      "exampleSpanish": "Mañana veo a Carlos.",
+      "exampleEnglish": "Tomorrow I see Carlos."
     },
     {
       "spanish": "ayer",
       "english": "yesterday",
       "partOfSpeech": "adverb",
-      "tip": "Carlos tip: practice ?ayer? in a short real sentence, not as an isolated word.",
-      "exampleSpanish": "Carlos usa ayer en una frase.",
-      "exampleEnglish": "Carlos uses yesterday in a sentence."
+      "tip": "Use ayer for the day before today.",
+      "exampleSpanish": "Ayer practiqué español.",
+      "exampleEnglish": "Yesterday I practiced Spanish."
+    },
+    {
+      "spanish": "lunes a domingo",
+      "english": "Monday to Sunday",
+      "partOfSpeech": "days of the week",
+      "tip": "Days of the week are lowercase in Spanish.",
+      "exampleSpanish": "Trabajo de lunes a viernes.",
+      "exampleEnglish": "I work from Monday to Friday."
     },
     {
       "spanish": "la semana",
       "english": "week",
       "partOfSpeech": "noun",
-      "tip": "Carlos tip: practice ?la semana? in a short real sentence, not as an isolated word.",
-      "exampleSpanish": "Carlos usa la semana en una frase.",
-      "exampleEnglish": "Carlos uses week in a sentence."
+      "tip": "Use semana for week.",
+      "exampleSpanish": "Esta semana estudio español.",
+      "exampleEnglish": "This week I study Spanish."
     },
     {
       "spanish": "el mes",
       "english": "month",
       "partOfSpeech": "noun",
-      "tip": "Carlos tip: practice ?el mes? in a short real sentence, not as an isolated word.",
-      "exampleSpanish": "Carlos usa el mes en una frase.",
-      "exampleEnglish": "Carlos uses month in a sentence."
+      "tip": "Use mes for month.",
+      "exampleSpanish": "Mi cumpleaños es este mes.",
+      "exampleEnglish": "My birthday is this month."
     },
     {
-      "spanish": "a las tres",
-      "english": "at three o?clock",
-      "partOfSpeech": "time phrase",
-      "tip": "Carlos tip: practice ?a las tres? in a short real sentence, not as an isolated word.",
-      "exampleSpanish": "Carlos usa a las tres en una frase.",
-      "exampleEnglish": "Carlos uses at three o?clock in a sentence."
+      "spanish": "el año",
+      "english": "year",
+      "partOfSpeech": "noun",
+      "tip": "Año has ñ. Do not confuse it with ano, which is a different word.",
+      "exampleSpanish": "Tengo treinta años.",
+      "exampleEnglish": "I am thirty years old."
     },
     {
-      "spanish": "?Qu? hora es?",
-      "english": "What time is it?",
-      "partOfSpeech": "question",
-      "tip": "Carlos tip: practice ??Qu? hora es?? in a short real sentence, not as an isolated word.",
-      "exampleSpanish": "Carlos usa ?Qu? hora es? en una frase.",
-      "exampleEnglish": "Carlos uses What time is it? in a sentence."
+      "spanish": "tengo ... años",
+      "english": "I am ... years old",
+      "partOfSpeech": "age phrase",
+      "tip": "Spanish uses tener for age: literally, I have ... years.",
+      "exampleSpanish": "Tengo treinta años.",
+      "exampleEnglish": "I am thirty years old."
     },
     {
-      "spanish": "Son las dos",
-      "english": "It is two o?clock",
-      "partOfSpeech": "sentence",
-      "tip": "Carlos tip: practice ?Son las dos? in a short real sentence, not as an isolated word.",
-      "exampleSpanish": "Carlos usa Son las dos en una frase.",
-      "exampleEnglish": "Carlos uses It is two o?clock in a sentence."
+      "spanish": "cumpleaños",
+      "english": "birthday",
+      "partOfSpeech": "noun",
+      "tip": "Cumpleaños is used for birthday and stays the same in singular.",
+      "exampleSpanish": "Mi cumpleaños es mañana.",
+      "exampleEnglish": "My birthday is tomorrow."
+    },
+    {
+      "spanish": "temprano / tarde",
+      "english": "early / late",
+      "partOfSpeech": "adverb",
+      "tip": "Tarde can mean late or afternoon depending on context.",
+      "exampleSpanish": "Me levanto temprano, pero ceno tarde.",
+      "exampleEnglish": "I wake up early, but I eat dinner late."
+    },
+    {
+      "spanish": "ahora / después / antes",
+      "english": "now / after / before",
+      "partOfSpeech": "time adverbs",
+      "tip": "Use these to order a simple schedule.",
+      "exampleSpanish": "Ahora estudio y después ceno.",
+      "exampleEnglish": "Now I study and afterward I eat dinner."
+    },
+    {
+      "spanish": "siempre / nunca",
+      "english": "always / never",
+      "partOfSpeech": "frequency adverbs",
+      "tip": "Use with simple routines.",
+      "exampleSpanish": "Siempre practico; nunca llego tarde.",
+      "exampleEnglish": "I always practice; I never arrive late."
     }
   ],
   "grammar": {
-    "topic": "Telling time with es la / son las",
-    "explanation": "Use es la una for one o?clock and son las for every other hour. Use a las to say when something happens.",
-    "examples": [
+    "topic": "Numbers, time, age, and simple schedules",
+    "explanation": "Spanish uses set patterns for time and age. Use es la una for one o'clock, son las for other times, tener for age, and lowercase days of the week for schedules.",
+    "notes": [
       {
-        "spanish": "Es la una.",
-        "english": "It is one o?clock."
+        "title": "Es la vs son las",
+        "text": "Use es la for one o'clock and son las for every other hour: Es la una. = It is one o'clock. Son las tres. = It is three o'clock. Practice: ask Carlos the time and answer with one o'clock, then three o'clock. Watch out: do not say es las tres."
       },
       {
-        "spanish": "Son las tres.",
-        "english": "It is three o?clock."
+        "title": "Telling time",
+        "text": "Use the hour plus y cuarto, y media, or menos cuarto: Son las tres y cuarto. = It is quarter past three. Son las seis y media. = It is half past six. Practice: say 3:15 and 6:30. Watch out: remember las before most hours."
       },
       {
-        "spanish": "Practico a las siete.",
-        "english": "I practice at seven."
+        "title": "Saying your age with tener",
+        "text": "Spanish uses tener for age: Tengo veinte años. = I am twenty years old. Carlos tiene treinta años. = Carlos is thirty years old. Practice: tell Carlos your age. Watch out: do not say soy veinte años."
+      },
+      {
+        "title": "Today, tomorrow, yesterday",
+        "text": "Hoy means today, mañana can mean tomorrow, and ayer means yesterday: Hoy es lunes. = Today is Monday. Mañana veo a Carlos. = Tomorrow I see Carlos. Practice: say one sentence with each word. Watch out: mañana can also mean morning."
+      },
+      {
+        "title": "Days of the week",
+        "text": "Spanish days are lowercase: lunes, martes, miércoles, jueves, viernes, sábado, domingo. Hoy es martes. = Today is Tuesday. Practice: say today's day and tomorrow's day. Watch out: do not capitalize days unless they start a sentence."
+      },
+      {
+        "title": "Simple schedules",
+        "text": "Use a las plus the time for schedules: Trabajo a las ocho. = I work at eight. Ceno a las siete. = I eat dinner at seven. Practice: say when you wake up and when you eat dinner. Watch out: use a las, not en las."
+      },
+      {
+        "title": "AM and PM expressions",
+        "text": "Use de la mañana, de la tarde, and de la noche for AM and PM: A las ocho de la mañana. = At eight in the morning. A las ocho de la noche. = At eight at night. Practice: make one morning plan and one evening plan. Watch out: Spanish does not always say AM or PM in casual speech."
       }
     ],
-    "practicePrompt": "Say one original sentence using today?s pattern with Carlos."
+    "examples": [
+      {
+        "spanish": "Qué hora es?",
+        "english": "What time is it?"
+      },
+      {
+        "spanish": "Son las tres de la tarde.",
+        "english": "It is three in the afternoon."
+      },
+      {
+        "spanish": "Tengo treinta años.",
+        "english": "I am thirty years old."
+      },
+      {
+        "spanish": "Nos vemos el sábado a las diez.",
+        "english": "We will see each other on Saturday at ten."
+      }
+    ],
+    "practicePrompt": "Tell Carlos your age, today's day, and one plan with a day and time."
   },
   "dialogue": [
     {
-      "title": "Numbers & Time with Carlos",
+      "title": "Asking Carlos the time",
       "lines": [
-        {
-          "speaker": "Carlos",
-          "spanish": "Vamos a practicar numbers & time.",
-          "english": "Let?s practice numbers & time."
-        },
-        {
-          "speaker": "Learner",
-          "spanish": "S?, quiero practicar.",
-          "english": "Yes, I want to practice."
-        },
-        {
-          "speaker": "Carlos",
-          "spanish": "Muy bien. Usa una frase completa.",
-          "english": "Very good. Use a complete sentence."
-        },
-        {
-          "speaker": "Learner",
-          "spanish": "Puedo decirlo otra vez.",
-          "english": "I can say it again."
-        }
+        { "speaker": "Learner", "spanish": "Carlos, qué hora es?", "english": "Carlos, what time is it?" },
+        { "speaker": "Carlos", "spanish": "Son las dos y media.", "english": "It is half past two." }
       ]
     },
     {
-      "title": "A polite real-life exchange",
+      "title": "Coffee at three PM",
       "lines": [
-        {
-          "speaker": "Carlos",
-          "spanish": "Disculpe, tengo una pregunta.",
-          "english": "Excuse me, I have a question."
-        },
-        {
-          "speaker": "Learner",
-          "spanish": "Claro, con gusto.",
-          "english": "Of course, gladly."
-        },
-        {
-          "speaker": "Carlos",
-          "spanish": "Gracias por ayudarme.",
-          "english": "Thank you for helping me."
-        },
-        {
-          "speaker": "Learner",
-          "spanish": "De nada.",
-          "english": "You?re welcome."
-        }
+        { "speaker": "Carlos", "spanish": "Tomamos café hoy?", "english": "Are we having coffee today?" },
+        { "speaker": "Learner", "spanish": "Sí, a las tres de la tarde.", "english": "Yes, at three in the afternoon." }
       ]
     },
     {
-      "title": "Family-friendly practice",
+      "title": "Asking someone's age",
       "lines": [
-        {
-          "speaker": "Carlos",
-          "spanish": "?C?mo lo dices con tu familia?",
-          "english": "How do you say it with your family?"
-        },
-        {
-          "speaker": "Learner",
-          "spanish": "Lo digo despacio y con respeto.",
-          "english": "I say it slowly and respectfully."
-        },
-        {
-          "speaker": "Carlos",
-          "spanish": "Perfecto, eso suena natural.",
-          "english": "Perfect, that sounds natural."
-        },
-        {
-          "speaker": "Learner",
-          "spanish": "Gracias, Carlos.",
-          "english": "Thanks, Carlos."
-        }
+        { "speaker": "Carlos", "spanish": "Cuántos años tienes?", "english": "How old are you?" },
+        { "speaker": "Learner", "spanish": "Tengo treinta años.", "english": "I am thirty years old." }
+      ]
+    },
+    {
+      "title": "Talking about a birthday",
+      "lines": [
+        { "speaker": "Learner", "spanish": "Mi cumpleaños es mañana.", "english": "My birthday is tomorrow." },
+        { "speaker": "Carlos", "spanish": "Feliz cumpleaños, amigo.", "english": "Happy birthday, my friend." }
+      ]
+    },
+    {
+      "title": "Weekend plans",
+      "lines": [
+        { "speaker": "Carlos", "spanish": "Qué haces el sábado?", "english": "What are you doing on Saturday?" },
+        { "speaker": "Learner", "spanish": "El sábado veo a mi familia.", "english": "On Saturday I see my family." }
+      ]
+    },
+    {
+      "title": "Work schedule",
+      "lines": [
+        { "speaker": "Learner", "spanish": "Trabajo de lunes a viernes.", "english": "I work from Monday to Friday." },
+        { "speaker": "Carlos", "spanish": "Muy bien. Y descansas el domingo?", "english": "Very good. And do you rest on Sunday?" }
+      ]
+    },
+    {
+      "title": "What day is it?",
+      "lines": [
+        { "speaker": "Learner", "spanish": "Qué día es hoy?", "english": "What day is it today?" },
+        { "speaker": "Carlos", "spanish": "Hoy es martes.", "english": "Today is Tuesday." }
+      ]
+    },
+    {
+      "title": "Dinner time",
+      "lines": [
+        { "speaker": "Carlos", "spanish": "A qué hora cenas con tu familia?", "english": "What time do you eat dinner with your family?" },
+        { "speaker": "Learner", "spanish": "Ceno a las siete de la noche.", "english": "I eat dinner at seven at night." }
+      ]
+    },
+    {
+      "title": "Meeting tomorrow",
+      "lines": [
+        { "speaker": "Learner", "spanish": "Nos vemos mañana a las diez?", "english": "Will we see each other tomorrow at ten?" },
+        { "speaker": "Carlos", "spanish": "Sí, mañana a las diez.", "english": "Yes, tomorrow at ten." }
+      ]
+    },
+    {
+      "title": "Simple daily routine",
+      "lines": [
+        { "speaker": "Learner", "spanish": "Me levanto temprano y estudio después.", "english": "I wake up early and study afterward." },
+        { "speaker": "Carlos", "spanish": "Excelente rutina. Nunca llegues tarde.", "english": "Excellent routine. Never arrive late." }
       ]
     }
   ],
   "dialogues": [
     {
-      "title": "Numbers & Time with Carlos",
+      "title": "Asking Carlos the time",
       "lines": [
-        {
-          "speaker": "Carlos",
-          "spanish": "Vamos a practicar numbers & time.",
-          "english": "Let?s practice numbers & time."
-        },
-        {
-          "speaker": "Learner",
-          "spanish": "S?, quiero practicar.",
-          "english": "Yes, I want to practice."
-        },
-        {
-          "speaker": "Carlos",
-          "spanish": "Muy bien. Usa una frase completa.",
-          "english": "Very good. Use a complete sentence."
-        },
-        {
-          "speaker": "Learner",
-          "spanish": "Puedo decirlo otra vez.",
-          "english": "I can say it again."
-        }
+        { "speaker": "Learner", "spanish": "Carlos, qué hora es?", "english": "Carlos, what time is it?" },
+        { "speaker": "Carlos", "spanish": "Son las dos y media.", "english": "It is half past two." }
       ]
     },
     {
-      "title": "A polite real-life exchange",
+      "title": "Coffee at three PM",
       "lines": [
-        {
-          "speaker": "Carlos",
-          "spanish": "Disculpe, tengo una pregunta.",
-          "english": "Excuse me, I have a question."
-        },
-        {
-          "speaker": "Learner",
-          "spanish": "Claro, con gusto.",
-          "english": "Of course, gladly."
-        },
-        {
-          "speaker": "Carlos",
-          "spanish": "Gracias por ayudarme.",
-          "english": "Thank you for helping me."
-        },
-        {
-          "speaker": "Learner",
-          "spanish": "De nada.",
-          "english": "You?re welcome."
-        }
+        { "speaker": "Carlos", "spanish": "Tomamos café hoy?", "english": "Are we having coffee today?" },
+        { "speaker": "Learner", "spanish": "Sí, a las tres de la tarde.", "english": "Yes, at three in the afternoon." }
       ]
     },
     {
-      "title": "Family-friendly practice",
+      "title": "Asking someone's age",
       "lines": [
-        {
-          "speaker": "Carlos",
-          "spanish": "?C?mo lo dices con tu familia?",
-          "english": "How do you say it with your family?"
-        },
-        {
-          "speaker": "Learner",
-          "spanish": "Lo digo despacio y con respeto.",
-          "english": "I say it slowly and respectfully."
-        },
-        {
-          "speaker": "Carlos",
-          "spanish": "Perfecto, eso suena natural.",
-          "english": "Perfect, that sounds natural."
-        },
-        {
-          "speaker": "Learner",
-          "spanish": "Gracias, Carlos.",
-          "english": "Thanks, Carlos."
-        }
+        { "speaker": "Carlos", "spanish": "Cuántos años tienes?", "english": "How old are you?" },
+        { "speaker": "Learner", "spanish": "Tengo treinta años.", "english": "I am thirty years old." }
+      ]
+    },
+    {
+      "title": "Talking about a birthday",
+      "lines": [
+        { "speaker": "Learner", "spanish": "Mi cumpleaños es mañana.", "english": "My birthday is tomorrow." },
+        { "speaker": "Carlos", "spanish": "Feliz cumpleaños, amigo.", "english": "Happy birthday, my friend." }
+      ]
+    },
+    {
+      "title": "Weekend plans",
+      "lines": [
+        { "speaker": "Carlos", "spanish": "Qué haces el sábado?", "english": "What are you doing on Saturday?" },
+        { "speaker": "Learner", "spanish": "El sábado veo a mi familia.", "english": "On Saturday I see my family." }
+      ]
+    },
+    {
+      "title": "Work schedule",
+      "lines": [
+        { "speaker": "Learner", "spanish": "Trabajo de lunes a viernes.", "english": "I work from Monday to Friday." },
+        { "speaker": "Carlos", "spanish": "Muy bien. Y descansas el domingo?", "english": "Very good. And do you rest on Sunday?" }
+      ]
+    },
+    {
+      "title": "What day is it?",
+      "lines": [
+        { "speaker": "Learner", "spanish": "Qué día es hoy?", "english": "What day is it today?" },
+        { "speaker": "Carlos", "spanish": "Hoy es martes.", "english": "Today is Tuesday." }
+      ]
+    },
+    {
+      "title": "Dinner time",
+      "lines": [
+        { "speaker": "Carlos", "spanish": "A qué hora cenas con tu familia?", "english": "What time do you eat dinner with your family?" },
+        { "speaker": "Learner", "spanish": "Ceno a las siete de la noche.", "english": "I eat dinner at seven at night." }
+      ]
+    },
+    {
+      "title": "Meeting tomorrow",
+      "lines": [
+        { "speaker": "Learner", "spanish": "Nos vemos mañana a las diez?", "english": "Will we see each other tomorrow at ten?" },
+        { "speaker": "Carlos", "spanish": "Sí, mañana a las diez.", "english": "Yes, tomorrow at ten." }
+      ]
+    },
+    {
+      "title": "Simple daily routine",
+      "lines": [
+        { "speaker": "Learner", "spanish": "Me levanto temprano y estudio después.", "english": "I wake up early and study afterward." },
+        { "speaker": "Carlos", "spanish": "Excelente rutina. Nunca llegues tarde.", "english": "Excellent routine. Never arrive late." }
       ]
     }
   ],
   "listening": {
     "phrases": [
-      {
-        "spanish": "cero",
-        "english": "zero"
-      },
-      {
-        "spanish": "uno",
-        "english": "one"
-      },
-      {
-        "spanish": "dos",
-        "english": "two"
-      },
-      {
-        "spanish": "tres",
-        "english": "three"
-      },
-      {
-        "spanish": "cuatro",
-        "english": "four"
-      },
-      {
-        "spanish": "cinco",
-        "english": "five"
-      },
-      {
-        "spanish": "seis",
-        "english": "six"
-      },
-      {
-        "spanish": "siete",
-        "english": "seven"
-      },
-      {
-        "spanish": "ocho",
-        "english": "eight"
-      },
-      {
-        "spanish": "nueve",
-        "english": "nine"
-      }
+      { "spanish": "cero, diez, veinte, treinta", "english": "zero, ten, twenty, thirty", "note": "Listen for the tens pattern." },
+      { "spanish": "Son las tres.", "english": "It is three o'clock.", "note": "Listen for son las before the hour." },
+      { "spanish": "Es la una y cuarto.", "english": "It is quarter past one.", "note": "One o'clock uses es la." },
+      { "spanish": "Son las seis y media.", "english": "It is half past six.", "note": "Y media means half past." },
+      { "spanish": "Son las cuatro menos cuarto.", "english": "It is quarter to four.", "note": "Menos cuarto means quarter to." },
+      { "spanish": "Tengo treinta años.", "english": "I am thirty years old.", "note": "Spanish uses tengo for age." },
+      { "spanish": "Hoy es lunes.", "english": "Today is Monday.", "note": "Days are lowercase in Spanish." },
+      { "spanish": "Mañana trabajo a las ocho.", "english": "Tomorrow I work at eight.", "note": "Mañana means tomorrow here." },
+      { "spanish": "Ceno a las siete de la noche.", "english": "I eat dinner at seven at night.", "note": "Listen for de la noche." },
+      { "spanish": "Nos vemos el sábado a las diez.", "english": "We will see each other on Saturday at ten.", "note": "Listen for day plus time." }
     ]
   },
   "listeningPhrases": [
-    {
-      "spanish": "cero",
-      "english": "zero"
-    },
-    {
-      "spanish": "uno",
-      "english": "one"
-    },
-    {
-      "spanish": "dos",
-      "english": "two"
-    },
-    {
-      "spanish": "tres",
-      "english": "three"
-    },
-    {
-      "spanish": "cuatro",
-      "english": "four"
-    },
-    {
-      "spanish": "cinco",
-      "english": "five"
-    },
-    {
-      "spanish": "seis",
-      "english": "six"
-    },
-    {
-      "spanish": "siete",
-      "english": "seven"
-    },
-    {
-      "spanish": "ocho",
-      "english": "eight"
-    },
-    {
-      "spanish": "nueve",
-      "english": "nine"
-    }
+    { "spanish": "cero, diez, veinte, treinta", "english": "zero, ten, twenty, thirty", "note": "Listen for the tens pattern." },
+    { "spanish": "Son las tres.", "english": "It is three o'clock.", "note": "Listen for son las before the hour." },
+    { "spanish": "Es la una y cuarto.", "english": "It is quarter past one.", "note": "One o'clock uses es la." },
+    { "spanish": "Son las seis y media.", "english": "It is half past six.", "note": "Y media means half past." },
+    { "spanish": "Son las cuatro menos cuarto.", "english": "It is quarter to four.", "note": "Menos cuarto means quarter to." },
+    { "spanish": "Tengo treinta años.", "english": "I am thirty years old.", "note": "Spanish uses tengo for age." },
+    { "spanish": "Hoy es lunes.", "english": "Today is Monday.", "note": "Days are lowercase in Spanish." },
+    { "spanish": "Mañana trabajo a las ocho.", "english": "Tomorrow I work at eight.", "note": "Mañana means tomorrow here." },
+    { "spanish": "Ceno a las siete de la noche.", "english": "I eat dinner at seven at night.", "note": "Listen for de la noche." },
+    { "spanish": "Nos vemos el sábado a las diez.", "english": "We will see each other on Saturday at ten.", "note": "Listen for day plus time." }
   ],
   "pronunciation": {
-    "focus": "Clear vowels, word stress, and confident phrase rhythm.",
+    "focus": "Tens, reloj, años, mañana, rolled R, ñ, and stress patterns.",
+    "tips": [
+      "The single r in treinta and cuarenta is tapped lightly, not pronounced like English r.",
+      "The rr sound is stronger, but this lesson mostly needs a light tapped r.",
+      "The ñ in años and mañana sounds like ny in canyon.",
+      "Words ending in -enta usually stress the middle syllable: cua-REN-ta, cin-CUEN-ta.",
+      "Do not add an English-style w sound to reloj; start with a light Spanish r."
+    ],
     "items": [
-      {
-        "text": "cero",
-        "note": "Say each vowel clearly and keep the rhythm natural."
-      },
-      {
-        "text": "uno",
-        "note": "Say each vowel clearly and keep the rhythm natural."
-      },
-      {
-        "text": "dos",
-        "note": "Say each vowel clearly and keep the rhythm natural."
-      },
-      {
-        "text": "tres",
-        "note": "Say each vowel clearly and keep the rhythm natural."
-      },
-      {
-        "text": "cuatro",
-        "note": "Say each vowel clearly and keep the rhythm natural."
-      },
-      {
-        "text": "cinco",
-        "note": "Say each vowel clearly and keep the rhythm natural."
-      },
-      {
-        "text": "seis",
-        "note": "Say each vowel clearly and keep the rhythm natural."
-      },
-      {
-        "text": "siete",
-        "note": "Say each vowel clearly and keep the rhythm natural."
-      },
-      {
-        "text": "ocho",
-        "note": "Say each vowel clearly and keep the rhythm natural."
-      },
-      {
-        "text": "nueve",
-        "note": "Say each vowel clearly and keep the rhythm natural."
-      }
+      { "text": "treinta", "note": "Stress trein gently; keep the r light." },
+      { "text": "cuarenta", "note": "Stress REN: cua-REN-ta." },
+      { "text": "cincuenta", "note": "Stress CUEN: cin-CUEN-ta." },
+      { "text": "sesenta", "note": "Stress SEN: se-SEN-ta." },
+      { "text": "setenta", "note": "Stress TEN: se-TEN-ta." },
+      { "text": "ochenta", "note": "Stress CHEN: o-CHEN-ta." },
+      { "text": "noventa", "note": "Stress VEN: no-VEN-ta." },
+      { "text": "reloj", "note": "Use a light Spanish r and finish with a clear j sound." },
+      { "text": "años", "note": "The ñ sounds like ny; do not say anos." },
+      { "text": "mañana", "note": "The ñ sounds like ny; context decides morning or tomorrow." }
     ]
   },
   "pronunciationExercises": [
-    {
-      "text": "cero",
-      "note": "Repeat after Carlos, then say it in a short phrase."
-    },
-    {
-      "text": "uno",
-      "note": "Repeat after Carlos, then say it in a short phrase."
-    },
-    {
-      "text": "dos",
-      "note": "Repeat after Carlos, then say it in a short phrase."
-    },
-    {
-      "text": "tres",
-      "note": "Repeat after Carlos, then say it in a short phrase."
-    },
-    {
-      "text": "cuatro",
-      "note": "Repeat after Carlos, then say it in a short phrase."
-    },
-    {
-      "text": "cinco",
-      "note": "Repeat after Carlos, then say it in a short phrase."
-    },
-    {
-      "text": "seis",
-      "note": "Repeat after Carlos, then say it in a short phrase."
-    },
-    {
-      "text": "siete",
-      "note": "Repeat after Carlos, then say it in a short phrase."
-    },
-    {
-      "text": "ocho",
-      "note": "Repeat after Carlos, then say it in a short phrase."
-    },
-    {
-      "text": "nueve",
-      "note": "Repeat after Carlos, then say it in a short phrase."
-    }
+    { "text": "treinta", "note": "Stress trein gently; keep the r light." },
+    { "text": "cuarenta", "note": "Stress REN: cua-REN-ta." },
+    { "text": "cincuenta", "note": "Stress CUEN: cin-CUEN-ta." },
+    { "text": "sesenta", "note": "Stress SEN: se-SEN-ta." },
+    { "text": "setenta", "note": "Stress TEN: se-TEN-ta." },
+    { "text": "ochenta", "note": "Stress CHEN: o-CHEN-ta." },
+    { "text": "noventa", "note": "Stress VEN: no-VEN-ta." },
+    { "text": "reloj", "note": "Use a light Spanish r and finish with a clear j sound." },
+    { "text": "años", "note": "The ñ sounds like ny; do not say anos." },
+    { "text": "mañana", "note": "The ñ sounds like ny; context decides morning or tomorrow." }
   ],
   "culture": {
-    "title": "Numbers & Time in Real Life",
-    "text": "In many Spanish-speaking places, people use both 12-hour and 24-hour time. For casual plans, context usually makes morning or evening clear."
+    "title": "Time, age, and schedules in real life",
+    "text": "Spanish speakers may use the 24-hour clock for transportation, appointments, school, and official times, while the 12-hour clock is common in everyday conversation. In Spain, lunch and dinner often happen later than in North America, so dinner at nine or ten can be normal. Spanish uses tengo años for age because age is expressed as something you have. Days of the week are lowercase. Birthdays often include family greetings, food, songs, and warm messages. Punctuality expectations vary by country, region, event, and relationship, so confirm the exact time when plans matter."
   },
   "cultureNotes": [
-    "In many Spanish-speaking places, people use both 12-hour and 24-hour time. For casual plans, context usually makes morning or evening clear."
+    "Use the 24-hour clock for official times and the 12-hour clock in many casual conversations.",
+    "Meal times in Spain can be later than in North America.",
+    "Spanish uses tener for age: tengo treinta años.",
+    "Days of the week are lowercase in Spanish.",
+    "For plans, confirm the day and time clearly."
   ],
   "nativeSpeech": {
     "title": "How Carlos would say it naturally",
     "notes": [
-      "Native speakers often say ??A qu? hora?? for ?At what time??",
-      "?Nos vemos a las ocho? is a natural way to say ?See you at eight.?"
+      "Qué hora es? is the standard way to ask the time.",
+      "A qué hora? means At what time?",
+      "Nos vemos el sábado a las diez is a natural plan.",
+      "For casual plans, people often skip AM or PM if the context is clear.",
+      "Tengo treinta años sounds natural; soy treinta años does not."
     ]
   },
   "commonMistakes": [
     {
-      "mistake": "Using es for every hour",
-      "correction": "Son las dos.",
-      "explanation": "Only one o?clock uses es la."
+      "mistake": "Saying soy 25 años.",
+      "correction": "Say tengo 25 años.",
+      "explanation": "Spanish uses tener for age."
     },
     {
-      "mistake": "Forgetting a in time plans",
-      "correction": "Practico a las seis.",
-      "explanation": "Use a las to mean at a time."
+      "mistake": "Saying es las tres.",
+      "correction": "Say son las tres.",
+      "explanation": "Use son las for every hour except one."
     },
     {
-      "mistake": "Confusing ma?ana",
-      "correction": "ma?ana can mean tomorrow or morning.",
-      "explanation": "Context tells you which meaning is intended."
+      "mistake": "Forgetting las.",
+      "correction": "Say a las tres or son las tres.",
+      "explanation": "Most time expressions need las before the hour."
+    },
+    {
+      "mistake": "Confusing mañana with morning.",
+      "correction": "Use context: mañana can mean tomorrow, and la mañana means the morning.",
+      "explanation": "Mañana trabajo means tomorrow I work. De la mañana means in the morning."
+    },
+    {
+      "mistake": "Using PM directly in every casual sentence.",
+      "correction": "Use de la tarde or de la noche when you need clarity.",
+      "explanation": "Spanish commonly says tres de la tarde or ocho de la noche."
+    },
+    {
+      "mistake": "Saying tengo años veinte.",
+      "correction": "Say tengo veinte años.",
+      "explanation": "The number goes before años."
     }
   ],
   "quiz": [
     {
       "type": "multipleChoice",
-      "prompt": "What does ?cero? mean?",
-      "options": [
-        "zero",
-        "one",
-        "two",
-        "three"
-      ],
-      "answer": "zero"
+      "difficulty": "easy",
+      "prompt": "Qué hora es?",
+      "options": ["Where are you?", "What time is it?", "How old are you?", "What day is it?"],
+      "answer": "What time is it?"
     },
     {
       "type": "multipleChoice",
-      "prompt": "What does ?uno? mean?",
-      "options": [
-        "one",
-        "zero",
-        "two",
-        "three"
-      ],
-      "answer": "one"
+      "difficulty": "easy",
+      "prompt": "What does Tengo veinte años mean?",
+      "options": ["I have twenty books.", "I work twenty hours.", "I am twenty years old.", "I am twenty tomorrow."],
+      "answer": "I am twenty years old."
     },
     {
       "type": "multipleChoice",
-      "prompt": "What does ?dos? mean?",
-      "options": [
-        "two",
-        "zero",
-        "one",
-        "three"
-      ],
-      "answer": "two"
+      "difficulty": "easy",
+      "prompt": "Choose the Spanish for It is one o'clock.",
+      "options": ["Son las una.", "Es la una.", "Es las una.", "Son la una."],
+      "answer": "Es la una."
     },
     {
       "type": "multipleChoice",
-      "prompt": "What does ?tres? mean?",
-      "options": [
-        "three",
-        "zero",
-        "one",
-        "two"
-      ],
-      "answer": "three"
+      "difficulty": "easy",
+      "prompt": "What does hoy mean?",
+      "options": ["tomorrow", "yesterday", "morning", "today"],
+      "answer": "today"
     },
     {
       "type": "multipleChoice",
-      "prompt": "What does ?cuatro? mean?",
-      "options": [
-        "four",
-        "zero",
-        "one",
-        "two"
-      ],
-      "answer": "four"
+      "difficulty": "easy",
+      "prompt": "Which number is cincuenta?",
+      "options": ["fifty", "fifteen", "sixty", "seventy"],
+      "answer": "fifty"
     },
     {
       "type": "multipleChoice",
-      "prompt": "What does ?cinco? mean?",
-      "options": [
-        "five",
-        "zero",
-        "one",
-        "two"
-      ],
-      "answer": "five"
+      "difficulty": "medium",
+      "prompt": "Choose the correct time: 3:15.",
+      "options": ["Son las tres y cuarto.", "Son las tres y media.", "Son las cuatro menos cuarto.", "Es la tres y cuarto."],
+      "answer": "Son las tres y cuarto."
     },
     {
       "type": "multipleChoice",
-      "prompt": "What does ?seis? mean?",
-      "options": [
-        "six",
-        "zero",
-        "one",
-        "two"
-      ],
-      "answer": "six"
+      "difficulty": "medium",
+      "prompt": "Choose the correct time: 6:30.",
+      "options": ["Son las seis menos cuarto.", "Es la seis y media.", "Son las seis y media.", "Son las siete y cuarto."],
+      "answer": "Son las seis y media."
     },
     {
       "type": "multipleChoice",
-      "prompt": "What does ?siete? mean?",
-      "options": [
-        "seven",
-        "zero",
-        "one",
-        "two"
-      ],
-      "answer": "seven"
+      "difficulty": "medium",
+      "prompt": "Which phrase means in the afternoon?",
+      "options": ["de la noche", "de la mañana", "de la tarde", "ahora"],
+      "answer": "de la tarde"
     },
     {
       "type": "multipleChoice",
-      "prompt": "What does ?ocho? mean?",
-      "options": [
-        "eight",
-        "zero",
-        "one",
-        "two"
-      ],
-      "answer": "eight"
+      "difficulty": "medium",
+      "prompt": "Choose the correct day order.",
+      "options": ["lunes, martes, miércoles", "martes, lunes, miércoles", "domingo, viernes, lunes", "jueves, lunes, sábado"],
+      "answer": "lunes, martes, miércoles"
     },
     {
       "type": "multipleChoice",
-      "prompt": "What does ?nueve? mean?",
-      "options": [
-        "nine",
-        "zero",
-        "one",
-        "two"
-      ],
-      "answer": "nine"
+      "difficulty": "medium",
+      "prompt": "Complete: Trabajo _____ las ocho.",
+      "options": ["en", "de", "a", "por"],
+      "answer": "a"
     },
     {
       "type": "multipleChoice",
-      "prompt": "What does ?diez? mean?",
-      "options": [
-        "ten",
-        "zero",
-        "one",
-        "two"
-      ],
-      "answer": "ten"
+      "difficulty": "hard",
+      "prompt": "Carlos asks: A qué hora cenas? Choose the best answer.",
+      "options": ["Ceno a las siete.", "Tengo treinta años.", "Hoy es lunes.", "Mañana es mi cumpleaños."],
+      "answer": "Ceno a las siete."
     },
     {
       "type": "multipleChoice",
-      "prompt": "What does ?once? mean?",
-      "options": [
-        "eleven",
-        "zero",
-        "one",
-        "two"
-      ],
-      "answer": "eleven"
+      "difficulty": "hard",
+      "prompt": "Which sentence is correct?",
+      "options": ["Soy treinta años.", "Tengo treinta años.", "Tengo años treinta.", "Son treinta años."],
+      "answer": "Tengo treinta años."
     },
     {
       "type": "multipleChoice",
-      "prompt": "What does ?doce? mean?",
-      "options": [
-        "twelve",
-        "zero",
-        "one",
-        "two"
-      ],
-      "answer": "twelve"
+      "difficulty": "hard",
+      "prompt": "Choose the best plan sentence.",
+      "options": ["Nos vemos el sábado a las diez.", "Nos vemos sábado en diez.", "Vemos el sábado las diez.", "Nos vemos a sábado de diez."],
+      "answer": "Nos vemos el sábado a las diez."
     },
     {
       "type": "multipleChoice",
-      "prompt": "What does ?quince? mean?",
-      "options": [
-        "fifteen",
-        "zero",
-        "one",
-        "two"
-      ],
-      "answer": "fifteen"
+      "difficulty": "hard",
+      "prompt": "What does mañana mean in Mañana trabajo?",
+      "options": ["morning", "tomorrow", "yesterday", "late"],
+      "answer": "tomorrow"
     },
     {
       "type": "multipleChoice",
-      "prompt": "What does ?veinte? mean?",
-      "options": [
-        "twenty",
-        "zero",
-        "one",
-        "two"
-      ],
-      "answer": "twenty"
+      "difficulty": "hard",
+      "prompt": "Complete: Son las cuatro _____ cuarto. (3:45)",
+      "options": ["y", "media", "menos", "mañana"],
+      "answer": "menos"
+    },
+    {
+      "type": "translation",
+      "difficulty": "Spanish to English",
+      "prompt": "Translate: Son las tres de la tarde.",
+      "answer": "It is three in the afternoon."
+    },
+    {
+      "type": "translation",
+      "difficulty": "English to Spanish",
+      "prompt": "Translate: I am thirty years old.",
+      "answer": "Tengo treinta años."
+    },
+    {
+      "type": "fillBlank",
+      "difficulty": "fill in the blank",
+      "prompt": "Son _____ tres.",
+      "answer": "las"
+    },
+    {
+      "type": "fillBlank",
+      "difficulty": "fill in the blank",
+      "prompt": "Tengo veinte _____.",
+      "answer": "años"
+    },
+    {
+      "type": "multipleChoice",
+      "difficulty": "practical usage",
+      "prompt": "You want coffee with Carlos at 3 PM. What do you say?",
+      "options": ["Tomamos café a las tres de la tarde.", "Tengo tres cafés.", "Qué hora es el café?", "Ayer café a las tres."],
+      "answer": "Tomamos café a las tres de la tarde."
     }
   ],
   "speakingChallenge": [
     {
-      "prompt": "Use ?cero? in a sentence with Carlos.",
-      "exampleAnswer": "Cero, por favor."
+      "prompt": "Count from 1 to 20.",
+      "exampleAnswer": "Uno, dos, tres, cuatro, cinco, seis, siete, ocho, nueve, diez, once, doce, trece, catorce, quince, dieciséis, diecisiete, dieciocho, diecinueve, veinte."
     },
     {
-      "prompt": "Use ?uno? in a sentence with Carlos.",
-      "exampleAnswer": "Uno, por favor."
+      "prompt": "Tell Carlos your age.",
+      "exampleAnswer": "Tengo treinta años."
     },
     {
-      "prompt": "Use ?dos? in a sentence with Carlos.",
-      "exampleAnswer": "Dos, por favor."
+      "prompt": "Say today's day.",
+      "exampleAnswer": "Hoy es lunes."
     },
     {
-      "prompt": "Use ?tres? in a sentence with Carlos.",
-      "exampleAnswer": "Tres, por favor."
+      "prompt": "Tell Carlos what time you wake up and eat dinner.",
+      "exampleAnswer": "Me levanto a las siete de la mañana y ceno a las siete de la noche."
     },
     {
-      "prompt": "Use ?cuatro? in a sentence with Carlos.",
-      "exampleAnswer": "Cuatro, por favor."
+      "prompt": "Arrange a meeting with Carlos using a day and time.",
+      "exampleAnswer": "Carlos, nos vemos el sábado a las tres de la tarde."
     }
   ],
   "speakingChallenges": [
     {
-      "prompt": "Tell Carlos one real thing using ?cero?.",
-      "exampleAnswer": "Carlos, practico cero."
+      "prompt": "Count from 1 to 20.",
+      "exampleAnswer": "Uno, dos, tres, cuatro, cinco, seis, siete, ocho, nueve, diez, once, doce, trece, catorce, quince, dieciséis, diecisiete, dieciocho, diecinueve, veinte."
     },
     {
-      "prompt": "Tell Carlos one real thing using ?uno?.",
-      "exampleAnswer": "Carlos, practico uno."
+      "prompt": "Tell Carlos your age.",
+      "exampleAnswer": "Tengo treinta años."
     },
     {
-      "prompt": "Tell Carlos one real thing using ?dos?.",
-      "exampleAnswer": "Carlos, practico dos."
+      "prompt": "Say today's day.",
+      "exampleAnswer": "Hoy es lunes."
     },
     {
-      "prompt": "Tell Carlos one real thing using ?tres?.",
-      "exampleAnswer": "Carlos, practico tres."
+      "prompt": "Tell Carlos what time you wake up and eat dinner.",
+      "exampleAnswer": "Me levanto a las siete de la mañana y ceno a las siete de la noche."
     },
     {
-      "prompt": "Tell Carlos one real thing using ?cuatro?.",
-      "exampleAnswer": "Carlos, practico cuatro."
+      "prompt": "Arrange a meeting with Carlos using a day and time.",
+      "exampleAnswer": "Carlos, nos vemos el sábado a las tres de la tarde."
     }
   ],
   "realLifeMission": {
     "title": "Real Life Mission",
-    "mission": "Tell Carlos what time you practice Spanish today and make one plan using a day, a number, and a time.",
+    "mission": "Arrange to meet Carlos for coffee. Include a greeting, the day, the time, your age, and a goodbye.",
     "successCriteria": [
-      "Use at least three lesson vocabulary items.",
-      "Use the main grammar pattern.",
-      "Answer one follow-up question from Carlos."
+      "Start with a greeting from Lessons 1 or 2.",
+      "Say your age with tengo ... años.",
+      "Choose a day of the week.",
+      "Choose a clear coffee time using a las.",
+      "End with a natural goodbye, such as nos vemos or hasta luego."
     ],
     "suggestedPartner": "Carlos",
     "xpReward": 60
   },
   "review": {
-    "summary": "You practiced numbers & time for everyday Spanish.",
+    "summary": "You can now count from 0 to 100, ask and tell the time, say your age, name days of the week, and make simple plans with a day and time.",
     "canDo": [
-      "Recognize key vocabulary.",
-      "Answer Carlos with simple complete sentences.",
-      "Use the Real Life Mission in a practical situation."
-    ]
+      "Use numbers for age, time, and simple schedules.",
+      "Ask Qué hora es? and answer with es la or son las.",
+      "Say your age with tengo ... años.",
+      "Use hoy, mañana, ayer, and days of the week.",
+      "Arrange a simple meeting with Carlos."
+    ],
+    "selfCheck": [
+      "Can I count from 1 to 20 without stopping?",
+      "Can I say 1:00, 3:15, 6:30, and 3:45?",
+      "Can I say my age correctly with tengo?",
+      "Can I say today's day and tomorrow's day?",
+      "Can I arrange coffee with Carlos using a day and time?"
+    ],
+    "nextStep": "Now that you can talk about time and schedules, you're ready to use Spanish while shopping in real stores and markets."
   },
   "imagePath": "assets/images/lessons/lesson-04-numbers-time.png",
   "achievementsUnlocked": [],
