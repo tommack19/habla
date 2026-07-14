@@ -1,4 +1,5 @@
 import { getCurrentLesson } from "../core/content.js";
+import { CARLOS_FALLBACK_ONERROR, getCarlosAsset } from "../data/carlosAssets.js";
 
 export function renderCarlos(state) {
   const greeting = getCarlosGreeting(state.user.name);
@@ -21,7 +22,7 @@ export function renderCarlos(state) {
 
         <section class="carlos-chat-hero" id="stage">
           ${renderCarlosSvg()}
-          <img src="assets/images/carlos-home.png" alt="Carlos, your Spanish tutor" loading="lazy">
+          <img src="${getCarlosAsset("speaking")}" alt="Carlos, your Spanish tutor, ready to chat" loading="lazy" onerror="${CARLOS_FALLBACK_ONERROR}">
         </section>
 
         <section class="carlos-static-thread" aria-label="Example Carlos conversation">
@@ -74,7 +75,7 @@ function renderStaticUser(text, time) {
 function renderStaticCarlos(html, time) {
   return `
     <article class="static-message ai">
-      <img src="assets/images/carlos-home.png" alt="">
+      <img src="${getCarlosAsset("speaking")}" alt="Carlos, your Spanish tutor" onerror="${CARLOS_FALLBACK_ONERROR}">
       <div>
         <p>${html}</p>
         <time>${time}</time>

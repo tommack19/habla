@@ -31,12 +31,14 @@
         <div class="speech-bubble">
           Today we're practicing real Spanish, one confident sentence at a time.
         </div>
-        <img class="carlos-home-img" src="assets/images/carlos-home.png" alt="Carlos, your Spanish coach" onerror="this.style.display='none'; this.nextElementSibling.style.display='grid';">
+        <img class="carlos-home-img" src="${getCarlosAsset("home")}" alt="Carlos, your Spanish coach" onerror="${CARLOS_FALLBACK_ONERROR}">
         <div class="carlos-home-fallback" style="display:none">Carlos</div>
       </div>
     </section>
   `;
 }
+
+import { CARLOS_FALLBACK_ONERROR, getCarlosAsset } from "../data/carlosAssets.js";
 
 function getTimeGreeting() {
   const hour = new Date().getHours();

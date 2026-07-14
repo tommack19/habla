@@ -8,6 +8,7 @@ import {
   setActiveLesson,
 } from "../core/content.js";
 import { getCurrentStreak } from "../core/progress.js";
+import { CARLOS_FALLBACK_ONERROR, getCarlosAsset } from "../data/carlosAssets.js";
 
 const LEARN_STEPS = [
   "Vocabulary",
@@ -209,7 +210,7 @@ function renderTodayLessonCard(lesson) {
       </div>
       <div class="learn-current-art" aria-hidden="true">
         <span class="learn-girl"></span>
-        <img src="assets/images/carlos-home.png" alt="">
+        <img src="${getCarlosAsset("home")}" alt="Carlos introducing the current lesson" onerror="${CARLOS_FALLBACK_ONERROR}">
         <em class="learn-bubble-green">&iexcl;Hola!<small>Hello!</small></em>
         <em class="learn-bubble-gold">Mucho gusto.<small>Nice to meet you.</small></em>
         <div class="learn-current-progress">
@@ -242,7 +243,7 @@ function renderLearnSideRail(stats) {
       <section class="learn-tip-card">
         <h2>Carlos&rsquo; Tip</h2>
         <div>
-          <img src="assets/images/carlos-home.png" alt="">
+          <img src="${getCarlosAsset("thinking")}" alt="Carlos sharing a learning tip" onerror="${CARLOS_FALLBACK_ONERROR}">
           <p>Consistency is the key! A little every day goes a long way.</p>
         </div>
         <span class="learn-tip-dots" aria-hidden="true"><i></i><i></i><i></i><i></i></span>

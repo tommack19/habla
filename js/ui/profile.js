@@ -2,6 +2,7 @@ import { awardXP, getCurrentXP, getCurrentLevel, getCurrentStreak } from "../cor
 import { evaluateAchievements, getAchievements, resetAchievements } from "../core/achievements.js";
 import { state } from "../core/state.js";
 import { saveState } from "../core/storage.js";
+import { CARLOS_FALLBACK_ONERROR, getCarlosAsset } from "../data/carlosAssets.js";
 
 const LEVELS = [
   { name: "A1 Beginner", minXP: 0 },
@@ -62,7 +63,7 @@ export function renderProfile(appState) {
       ${renderProfileHeader(currentLevel)}
       <section class="profile-card user-card">
         <div class="profile-avatar-wrap">
-          <img src="assets/images/carlos-home.png" alt="">
+          <img src="${getCarlosAsset("profile")}" alt="Carlos profile portrait" onerror="${CARLOS_FALLBACK_ONERROR}">
           <button type="button" aria-label="Edit profile" onclick="document.querySelector('.tools-settings-card button')?.focus()"></button>
         </div>
         <div class="profile-user-copy">
@@ -118,7 +119,7 @@ export function renderProfile(appState) {
       </section>
 
       <section class="profile-card profile-carlos-help">
-        <img src="assets/images/carlos-home.png" alt="">
+        <img src="${getCarlosAsset("speaking")}" alt="Carlos offering help with your Spanish" onerror="${CARLOS_FALLBACK_ONERROR}">
         <div>
           <h2>Carlos is here to help</h2>
           <p>Have questions or need help? Chat with Carlos anytime.</p>
