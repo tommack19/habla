@@ -39,17 +39,15 @@ function renderHomeHeader(state) {
 function renderCarlosHero(state, lesson, mission, courseProgress) {
   const name = escapeHtml(((state.user && state.user.name) || "Tom").split(" ")[0]);
   const period = getHomeHeroPeriod();
-  const title = getConversationTitle(lesson, mission);
-  const objective = lesson?.objective || lesson?.objectives?.[0] || "Build confidence with practical Spanish.";
+  const objective = lesson?.homeSummary || lesson?.objective || lesson?.objectives?.[0] || "Build confidence with practical Spanish.";
   const lessonNumber = Number(courseProgress?.currentLessonNumber || getLessonNumber(lesson) || 0);
-  const lessonTotal = Number(courseProgress?.totalLoadedLessons || 0);
   const minutes = Number(lesson?.estimatedMinutes || lesson?.durationMinutes || 10);
   const xpReward = Number(lesson?.xpReward || mission?.xpReward || 0);
-  const lessonPosition = lessonNumber ? `Lesson ${lessonNumber}${lessonTotal ? ` of ${lessonTotal}` : ""}` : "Today&rsquo;s lesson";
+  const lessonPosition = lessonNumber ? `Lesson ${lessonNumber}` : "Today&rsquo;s lesson";
 
   return `
     <section class="home-carlos-hero home-daily-hero time-${period.id}">
-      <img class="home-hero-background" src="${escapeAttr(period.image)}" alt="" loading="eager">
+      <img class="home-hero-background" src="${escapeAttr(period.image)}" alt="Carlos in a ${period.id} Spanish city scene" loading="eager" onerror="${CARLOS_FALLBACK_ONERROR}">
       <div class="home-hero-copy">
         <h1>&iexcl;${period.greeting}, ${name}! <span aria-hidden="true">${period.symbol}</span></h1>
         <h2>Let&rsquo;s continue your<br>Spanish journey.</h2>
@@ -57,9 +55,9 @@ function renderCarlosHero(state, lesson, mission, courseProgress) {
       </div>
       <div class="home-hero-lesson-bar">
         <div class="home-hero-lesson-metrics">
-          <span><i aria-hidden="true">${renderHeroMetaIcon("lesson")}</i><b>${lessonPosition}</b><small>${escapeHtml(title)}</small></span>
-          <span><i aria-hidden="true">${renderHeroMetaIcon("time")}</i><b>${minutes} min</b><small>Estimated</small></span>
-          ${xpReward ? `<span><i aria-hidden="true">${renderHeroMetaIcon("xp")}</i><b>+${xpReward} XP</b><small>Reward</small></span>` : ""}
+          <span><i aria-hidden="true">${renderHeroMetaIcon("lesson")}</i><b>${lessonPosition}</b></span>
+          <span><i aria-hidden="true">${renderHeroMetaIcon("time")}</i><b>${minutes} min</b></span>
+          ${xpReward ? `<span><i aria-hidden="true">${renderHeroMetaIcon("xp")}</i><b>+${xpReward} XP</b></span>` : ""}
         </div>
         <button class="home-hero-start" type="button" data-page="learn" ${lesson?.id ? `data-lesson-id="${escapeAttr(lesson.id)}"` : ""}>Start Lesson <span aria-hidden="true">&rsaquo;</span></button>
       </div>
@@ -109,10 +107,10 @@ function renderPracticeCategories() {
 function renderTopicSvg(iconClass) {
   const icons = {
     "cat-greetings": `<svg viewBox="0 0 48 48"><path d="M8 23c0-8 7-14 16-14s16 6 16 14-7 14-16 14c-2.5 0-5-.5-7-1.5L9 40l2.2-8C9.2 29.5 8 26.4 8 23Z"/><circle cx="18" cy="23" r="2.3"/><circle cx="24" cy="23" r="2.3"/><circle cx="30" cy="23" r="2.3"/></svg>`,
-    "cat-family": `<svg viewBox="0 0 48 48"><circle cx="18" cy="16" r="6"/><circle cx="31" cy="16" r="6"/><path d="M8 37c1.5-8 6-12 12-12s10.5 4 12 12H8Z"/><path d="M24 37c1.2-7 5-11 10-11 4.5 0 8 3.6 9 11H24Z"/></svg>`,
-    "cat-restaurants": `<svg viewBox="0 0 48 48"><path d="M14 7v17M20 7v17M11 7v10c0 5 12 5 12 0V7M17 24v17"/><path d="M34 7c-4 4-6 9-6 15h8v19"/></svg>`,
+    "cat-family": `<svg viewBox="0 0 48 48"><circle cx="16" cy="16" r="5.8"/><circle cx="31.5" cy="16.8" r="5.2"/><circle cx="24.2" cy="18.8" r="4.1"/><path d="M6.5 37c1.7-7.9 6.3-11.8 11.7-11.8S28.2 29 30 37M20.8 37c1.3-5.8 4.8-8.6 9.3-8.6 4.4 0 7.7 2.8 9 8.6M18.2 24.8c1.7-1.7 3.8-2.6 5.9-2.6s4.2.9 5.9 2.6"/></svg>`,
+    "cat-restaurants": `<svg viewBox="0 0 48 48"><path d="M12 7v11M17 7v11M9.5 7v10.2c0 4.3 12 4.3 12 0V7M15.5 18v22"/><path d="M35 7c-3.7 3.4-5.7 8.1-5.7 13.8h7.5V40"/><path d="M28.3 27.5h13.2"/><circle cx="28.5" cy="12" r="1.8" fill="currentColor" stroke="none"/></svg>`,
     "cat-travel": `<svg viewBox="0 0 48 48"><path d="M24 3c-2.4 0-4 2.2-4 5v11L6 29v5l14-4v9l-5 4v2l9-2 9 2v-2l-5-4v-9l14 4v-5L28 19V8c0-2.8-1.6-5-4-5Z"/></svg>`,
-    "cat-shopping": `<svg viewBox="0 0 48 48"><path d="M12 18h24l3 24H9l3-24Z"/><path d="M18 18c0-6 12-6 12 0"/></svg>`,
+    "cat-shopping": `<svg viewBox="0 0 48 48"><path d="M13 17.5h22l2.7 23H10.3l2.7-23Z"/><path d="M18 17.5c0-5.3 12-5.3 12 0"/><path d="M18 24.5h12"/><path d="M16.5 20.2h15"/></svg>`,
     "cat-work": `<svg viewBox="0 0 48 48"><path d="M16 15v-5h16v5"/><rect x="8" y="15" width="32" height="25" rx="4"/><path d="M8 26h32M21 26h6"/></svg>`,
     "cat-smalltalk": `<svg viewBox="0 0 48 48"><path d="M8 23c0-8 7-14 16-14s16 6 16 14-7 14-16 14c-2.5 0-5-.5-7-1.5L9 40l2.2-8C9.2 29.5 8 26.4 8 23Z"/><circle cx="18" cy="23" r="2.3"/><circle cx="24" cy="23" r="2.3"/><circle cx="30" cy="23" r="2.3"/></svg>`,
     "cat-freechat": `<svg viewBox="0 0 48 48"><rect x="18" y="6" width="12" height="24" rx="6"/><path d="M11 22c0 8 5 13 13 13s13-5 13-13M24 35v7M18 42h12"/></svg>`
@@ -175,10 +173,14 @@ function renderCarlosAskBar() {
         <span></span>
       </button>
       <button class="ask-input" type="button" data-page="carlos">Ask Carlos anything...</button>
-      <button class="ask-mic" type="button" data-page="carlos" aria-label="Practice speaking"></button>
+      <button class="ask-mic" type="button" data-page="carlos" aria-label="Practice speaking">${renderAskMicSvg()}</button>
       <button class="ask-keyboard" type="button" data-page="carlos" aria-label="Type to Carlos"></button>
     </section>
   `;
+}
+
+function renderAskMicSvg() {
+  return `<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="8.2" y="4.5" width="7.6" height="10.5" rx="3.8"/><path d="M5.7 11.4c0 3.5 2.8 6.3 6.3 6.3s6.3-2.8 6.3-6.3"/><path d="M12 17.7v3.1"/><path d="M8.8 20.8h6.4"/></svg>`;
 }
 
 function getHomeStats(state, courseProgress) {
@@ -194,11 +196,6 @@ function getHomeStats(state, courseProgress) {
     words: Number(activity.vocabularyReviewedCount || vocab || 0),
     pronunciationScore: Number(activity.pronunciationScore || 0)
   };
-}
-
-function getConversationTitle(lesson, mission) {
-  if (lesson?.title) return lesson.title.replace(/^[^:]+:\s*/, "");
-  return mission?.title || "Ordering coffee";
 }
 
 function getLessonNumber(lesson) {

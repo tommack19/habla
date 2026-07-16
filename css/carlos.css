@@ -1613,3 +1613,437 @@
 .static-message {
   max-width: 78%;
 }
+
+/* Immersive Carlos conversation */
+body.carlos-mode #app > header {
+  display: none;
+}
+
+#dashboard.carlos-page,
+.carlos-screen {
+  height: 100%;
+}
+
+.carlos-screen {
+  background:
+    radial-gradient(circle at 72% 5%, rgba(244, 190, 88, 0.08), transparent 28%),
+    linear-gradient(180deg, #04090d 0%, #071014 58%, #04080b 100%);
+  overflow-x: hidden;
+  overflow-y: auto;
+  overscroll-behavior-y: contain;
+  scrollbar-width: none;
+}
+
+.carlos-screen::-webkit-scrollbar {
+  display: none;
+}
+
+.carlos-page-column {
+  display: block;
+  max-width: 520px;
+  min-height: 100%;
+  padding: 0;
+}
+
+.carlos-screen #stage.carlos-chat-hero {
+  background: #071014;
+  border: 0;
+  border-radius: 0 0 28px 28px;
+  box-shadow: 0 20px 44px rgba(0, 0, 0, 0.38);
+  display: block;
+  height: clamp(310px, 76vw, 380px);
+  min-height: 310px;
+  overflow: hidden;
+  position: relative;
+}
+
+.carlos-screen #stage.carlos-chat-hero::after {
+  background:
+    linear-gradient(180deg, rgba(2, 7, 11, 0.84) 0%, rgba(2, 7, 11, 0.1) 30%, rgba(2, 7, 11, 0.02) 58%, #061015 100%),
+    linear-gradient(90deg, rgba(2, 7, 11, 0.34), transparent 45%, rgba(2, 7, 11, 0.1));
+  content: "";
+  inset: 0;
+  pointer-events: none;
+  position: absolute;
+  z-index: 1;
+}
+
+.carlos-screen #stage .carlos-hero-scene {
+  height: 100%;
+  inset: 0;
+  object-fit: cover;
+  object-position: 69% center;
+  position: absolute;
+  width: 100%;
+}
+
+.carlos-chat-header {
+  background: transparent;
+  border: 0;
+  inset: 0 0 auto;
+  padding: max(18px, env(safe-area-inset-top)) 18px 0;
+  position: absolute;
+  z-index: 3;
+}
+
+.carlos-top-row {
+  align-items: center;
+  display: grid;
+  grid-template-columns: minmax(104px, 1fr) auto minmax(104px, 1fr);
+  min-height: 56px;
+  width: 100%;
+}
+
+.carlos-back {
+  cursor: pointer;
+  justify-self: start;
+}
+
+.carlos-title-lockup {
+  min-width: 104px;
+}
+
+.carlos-top-row h1 {
+  color: #f8f4ec;
+  font-size: clamp(1.8rem, 7vw, 2.2rem);
+  text-shadow: 0 4px 18px rgba(0, 0, 0, 0.62);
+}
+
+.carlos-top-row span {
+  color: rgba(255, 255, 255, 0.76);
+  font-size: 0.78rem;
+  margin-top: 5px;
+}
+
+.carlos-level-pill {
+  backdrop-filter: blur(12px);
+  background: rgba(4, 9, 12, 0.64);
+  height: 44px;
+  justify-self: end;
+  min-width: 116px;
+}
+
+.carlos-level-pill > span {
+  color: inherit;
+  display: inline;
+  font-size: 0.9rem;
+  margin: 0;
+}
+
+.carlos-hero-more {
+  align-items: center;
+  backdrop-filter: blur(10px);
+  background: rgba(5, 10, 14, 0.55);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  gap: 4px;
+  height: 44px;
+  justify-content: center;
+  position: absolute;
+  right: 18px;
+  top: 82px;
+  width: 44px;
+  z-index: 3;
+}
+
+.carlos-hero-more span {
+  background: #fff;
+  border-radius: 50%;
+  height: 4px;
+  width: 4px;
+}
+
+.carlos-conversation-thread {
+  margin-top: -28px;
+  min-height: 180px;
+  position: relative;
+  z-index: 4;
+}
+
+.carlos-screen #messages {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  max-height: none;
+  min-height: 180px;
+  overflow: visible;
+  padding-left: 16px;
+  padding-right: 16px;
+}
+
+.carlos-screen #messages:empty,
+.carlos-screen #messages:not(:empty) {
+  border: 0;
+  display: flex;
+  margin: 0;
+  padding-top: 0;
+}
+
+.carlos-screen .bub {
+  animation: carlosFadeIn 0.2s ease;
+  box-shadow: none;
+  font: 500 0.94rem/1.48 Inter, system-ui, sans-serif;
+  overflow-wrap: anywhere;
+  padding: 0;
+}
+
+.carlos-screen .bub.ai {
+  align-items: start;
+  align-self: flex-start;
+  background: transparent;
+  border: 0;
+  display: grid;
+  gap: 9px;
+  grid-template-columns: 42px minmax(0, 1fr);
+  max-width: 88%;
+}
+
+.carlos-screen .bub.user {
+  align-self: flex-end;
+  background: linear-gradient(135deg, rgba(17, 125, 67, 0.98), rgba(7, 77, 43, 0.98));
+  border: 1px solid rgba(47, 207, 112, 0.22);
+  border-radius: 20px 20px 3px 20px;
+  color: #fff;
+  max-width: 82%;
+  padding: 13px 15px 10px;
+}
+
+.carlos-screen .bub.ai .bub-body {
+  background:
+    linear-gradient(145deg, rgba(255, 255, 255, 0.065), rgba(255, 255, 255, 0.018)),
+    rgba(13, 23, 29, 0.97);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 3px 20px 20px 20px;
+  box-shadow: 0 14px 34px rgba(0, 0, 0, 0.22);
+  padding: 14px 15px 10px;
+}
+
+.carlos-screen .bub-avatar {
+  background: linear-gradient(145deg, #f7c65f, #9c6415);
+  border: 2px solid #eeb64c;
+  border-radius: 50%;
+  height: 42px;
+  object-fit: cover;
+  object-position: 50% 8%;
+  width: 42px;
+}
+
+.carlos-screen .bub-copy {
+  color: #f7f6f2;
+}
+
+.carlos-screen .bub .es {
+  color: #f4ba43;
+  font-style: normal;
+  font-weight: 750;
+}
+
+.carlos-screen .bub:first-child.ai .es {
+  color: #2bd574;
+  font-size: 1.08rem;
+}
+
+.carlos-screen .bub time {
+  color: rgba(237, 242, 239, 0.55);
+  display: block;
+  font-size: 0.68rem;
+  font-weight: 500;
+  margin-top: 6px;
+}
+
+.carlos-screen .bub.user time {
+  text-align: right;
+}
+
+.carlos-screen .bub.user time span {
+  color: #2fe37c;
+  letter-spacing: -3px;
+  margin-left: 3px;
+}
+
+.carlos-screen #messages > .bub:last-child {
+  margin-bottom: 22px;
+}
+
+.carlos-screen #input-area.carlos-chat-action {
+  backdrop-filter: blur(18px);
+  background: rgba(7, 13, 16, 0.94);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 999px;
+  box-shadow: 0 14px 42px rgba(0, 0, 0, 0.5);
+  left: 50%;
+  max-width: 496px;
+  padding: 6px;
+  transform: translateX(-50%);
+  width: calc(100% - 24px);
+  z-index: 60;
+}
+
+.carlos-screen #input-row {
+  align-items: center;
+  display: grid;
+  gap: 7px;
+  grid-template-columns: 44px minmax(0, 1fr) 44px 44px;
+}
+
+.carlos-screen .carlos-more-btn {
+  height: 44px;
+  width: 44px;
+}
+
+.carlos-screen .carlos-chat-meta[hidden] {
+  display: none !important;
+}
+
+.carlos-screen #txt {
+  background: rgba(255, 255, 255, 0.045);
+  border-color: rgba(255, 255, 255, 0.08);
+  font-size: 0.86rem;
+  height: 44px;
+  min-width: 0;
+  padding-inline: 14px;
+}
+
+.carlos-screen #txt:focus {
+  border-color: rgba(244, 190, 88, 0.62);
+  box-shadow: 0 0 0 3px rgba(244, 190, 88, 0.07);
+}
+
+.carlos-screen .ibtn {
+  height: 44px;
+  width: 44px;
+}
+
+.carlos-screen #mic-btn::before,
+.carlos-screen #mic-btn::after,
+.carlos-screen #snd-btn::before,
+.carlos-screen #snd-btn::after,
+.carlos-screen #mic-btn .ui-icon::before,
+.carlos-screen #mic-btn .ui-icon::after,
+.carlos-screen #snd-btn .ui-icon::before,
+.carlos-screen #snd-btn .ui-icon::after {
+  content: none;
+}
+
+.carlos-screen #mic-btn svg,
+.carlos-screen #snd-btn svg {
+  display: block;
+  fill: none;
+  height: 24px;
+  pointer-events: none;
+  stroke: currentColor;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 1.8;
+  width: 24px;
+}
+
+.carlos-screen #snd-btn svg {
+  height: 22px;
+  width: 22px;
+}
+
+.carlos-screen #snd-btn .composer-send-icon {
+  display: none;
+}
+
+.carlos-screen #snd-btn.ok .composer-keyboard-icon {
+  display: none;
+}
+
+.carlos-screen #snd-btn.ok .composer-send-icon {
+  display: block;
+}
+
+.carlos-screen #mic-btn {
+  background: linear-gradient(145deg, #25a65c, #12773f);
+  color: #fff;
+  opacity: 1;
+}
+
+.carlos-screen #snd-btn {
+  background: rgba(255, 255, 255, 0.075);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  color: #f4be58;
+  opacity: 0.55;
+}
+
+.carlos-screen #snd-btn.ok {
+  background: linear-gradient(145deg, #f7c85f, #d89b26);
+  color: #120d03;
+  opacity: 1;
+}
+
+.carlos-screen #hint {
+  display: none;
+}
+
+.carlos-screen #mic-err {
+  background: rgba(105, 18, 18, 0.94);
+  border-radius: 12px;
+  color: #ffd8d8;
+  font-size: 0.72rem;
+  margin: 8px 4px 2px;
+  padding: 8px 10px;
+}
+
+@media (max-width: 390px) {
+  .carlos-screen #stage.carlos-chat-hero {
+    height: 305px;
+    min-height: 305px;
+  }
+
+  .carlos-chat-header {
+    padding-inline: 12px;
+  }
+
+  .carlos-top-row {
+    grid-template-columns: 76px minmax(96px, 1fr) 108px;
+  }
+
+  .carlos-level-pill {
+    font-size: 0.68rem;
+    min-width: 108px;
+    padding-inline: 9px;
+  }
+
+  .carlos-hero-more {
+    right: 13px;
+  }
+
+  .carlos-screen #messages {
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+
+  .carlos-screen .bub.ai {
+    max-width: 94%;
+  }
+
+  .carlos-screen .bub.user {
+    max-width: 86%;
+  }
+
+  .carlos-screen #input-row {
+    gap: 6px;
+    grid-template-columns: 44px minmax(0, 1fr) 44px 44px;
+  }
+
+  .carlos-more-btn {
+    height: 44px;
+    width: 44px;
+  }
+
+  .carlos-screen .ibtn {
+    height: 44px;
+    width: 44px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .carlos-screen .bub {
+    animation: none;
+  }
+}

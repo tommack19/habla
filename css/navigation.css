@@ -93,7 +93,7 @@
 
 /* Carlos has its own fixed composer, which sits directly above the shared nav. */
 #dashboard.carlos-page .carlos-screen #input-area {
-  bottom: var(--habla-bottom-nav-total-h, calc(76px + env(safe-area-inset-bottom)));
+  bottom: calc(var(--habla-bottom-nav-total-h, calc(76px + env(safe-area-inset-bottom))) + 4px);
 }
 
 #dashboard.carlos-page .carlos-screen #messages {

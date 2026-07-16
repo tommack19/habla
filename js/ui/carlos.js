@@ -2,49 +2,39 @@ import { getCurrentLesson } from "../core/content.js";
 import { CARLOS_FALLBACK_ONERROR, getCarlosAsset } from "../data/carlosAssets.js";
 
 export function renderCarlos(state) {
-  const greeting = getCarlosGreeting(state.user.name);
   const lesson = getCurrentLesson();
   const suggestedPrompts = getSuggestedPrompts(lesson);
+  const heroAsset = getCarlosHeroAsset();
 
   return `
     <section class="carlos-screen" aria-label="Carlos Spanish tutor">
       <div class="carlos-page-column">
-        <header class="carlos-chat-header">
-          <div class="carlos-top-row">
-            <button type="button" class="carlos-back" data-page="home" aria-label="Back to home"></button>
-            <div>
-              <h1>Carlos</h1>
-              <span><i></i><b id="status-label">AI Tutor</b></span>
-            </div>
-            <button class="carlos-level-pill" type="button">A1 Beginner <span aria-hidden="true">&rsaquo;</span></button>
-          </div>
-        </header>
-
         <section class="carlos-chat-hero" id="stage">
+          <img class="carlos-hero-scene" src="${heroAsset}" alt="Carlos, your Spanish tutor, ready for a conversation" loading="eager" onerror="${CARLOS_FALLBACK_ONERROR}">
           ${renderCarlosSvg()}
-          <img src="${getCarlosAsset("speaking")}" alt="Carlos, your Spanish tutor, ready to chat" loading="lazy" onerror="${CARLOS_FALLBACK_ONERROR}">
+          <header class="carlos-chat-header">
+            <div class="carlos-top-row">
+              <button type="button" class="carlos-back" data-page="home" aria-label="Back to home"></button>
+              <div class="carlos-title-lockup">
+                <h1>Carlos</h1>
+                <span><i></i><b id="status-label">AI Tutor</b></span>
+              </div>
+              <button class="carlos-level-pill" type="button">${escapeHtml(state.user.level || "A1 Beginner")} <span aria-hidden="true">&#8964;</span></button>
+            </div>
+          </header>
+          <button class="carlos-hero-more" type="button" data-carlos-prompt="${escapeAttr(suggestedPrompts[0] || "Give me a useful Spanish phrase.")}" aria-label="Conversation suggestions"><span></span><span></span><span></span></button>
         </section>
 
-        <section class="carlos-static-thread" aria-label="Example Carlos conversation">
-          <article class="carlos-intro-bubble">
-            <h2>${greeting} &#128075;</h2>
-            <p>I&rsquo;m Carlos, your AI Spanish tutor.<br>How can I help you today?</p>
-          </article>
-          ${renderStaticUser("Can you help me order coffee in Spanish?", "9:41 PM")}
-          ${renderStaticCarlos("&iexcl;Claro! Puedes decir:<br><strong>&ldquo;Quisiera un caf&eacute;, por favor.&rdquo;</strong><br>That means &ldquo;I would like a coffee, please.&rdquo;", "9:41 PM")}
-          ${renderStaticUser("How do I say &ldquo;with oat milk&rdquo;?", "9:42 PM")}
-          ${renderStaticCarlos("Puedes decir:<br><strong>&ldquo;Con leche de avena, por favor.&rdquo;</strong><br>That means &ldquo;With oat milk, please.&rdquo; &#9749;", "9:42 PM")}
-          ${renderStaticUser("Thank you! Can you give me another example?", "9:42 PM")}
-          ${renderStaticCarlos("&iexcl;Por supuesto! &#128588;<br>You can also try:<br><strong>&ldquo;Me gustar&iacute;a un caf&eacute; con leche de avena.&rdquo;</strong><br>That means &ldquo;I would like a coffee with oat milk.&rdquo;", "9:42 PM")}
-          <div id="messages" aria-live="polite"></div>
+        <section class="carlos-conversation-thread" aria-label="Conversation with Carlos">
+          <div id="messages" aria-live="polite" aria-relevant="additions"></div>
         </section>
 
         <section class="carlos-chat-action" id="input-area" aria-label="Chat with Carlos">
           <div id="input-row">
             <button class="carlos-more-btn" type="button" data-carlos-prompt="${escapeAttr(suggestedPrompts[0] || "Give me a useful Spanish phrase.")}" aria-label="More options"></button>
-            <input type="text" id="txt" placeholder="Ask Carlos anything in Spanish..." autocomplete="off">
-            <button class="ibtn" id="mic-btn" type="button" aria-label="Start listening"><span class="ui-icon ui-icon-mic" aria-hidden="true"></span></button>
-            <button class="ibtn" id="snd-btn" type="button" aria-label="Send message"><span class="ui-icon ui-icon-send" aria-hidden="true"></span></button>
+            <input type="text" id="txt" placeholder="Ask Carlos anything in Spanish..." autocomplete="off" enterkeyhint="send" aria-label="Message Carlos">
+            <button class="ibtn" id="mic-btn" type="button" aria-label="Start listening">${renderCarlosControlIcon("mic")}</button>
+            <button class="ibtn" id="snd-btn" type="button" aria-label="Send message">${renderCarlosControlIcon("composerAction")}</button>
           </div>
           <div class="carlos-chat-meta" hidden>
             <button id="stop-btn" type="button">Stop Carlos</button>
@@ -63,25 +53,23 @@ export function renderCarlos(state) {
   `;
 }
 
-function renderStaticUser(text, time) {
-  return `
-    <article class="static-message user">
-      <p>${text}</p>
-      <time>${time} <span aria-hidden="true">&#10003;&#10003;</span></time>
-    </article>
-  `;
+function getCarlosHeroAsset() {
+  const hour = new Date().getHours();
+  if (hour < 12) return getCarlosAsset("morning");
+  if (hour < 18) return getCarlosAsset("afternoon");
+  return getCarlosAsset("evening");
 }
 
-function renderStaticCarlos(html, time) {
-  return `
-    <article class="static-message ai">
-      <img src="${getCarlosAsset("speaking")}" alt="Carlos, your Spanish tutor" onerror="${CARLOS_FALLBACK_ONERROR}">
-      <div>
-        <p>${html}</p>
-        <time>${time}</time>
-      </div>
-    </article>
-  `;
+function renderCarlosControlIcon(name) {
+  const paths = {
+    mic: `<rect x="8.25" y="3.5" width="7.5" height="11.5" rx="3.75"/><path d="M5.5 11.5a6.5 6.5 0 0 0 13 0M12 18v3M8.75 21h6.5"/>`,
+    send: `<path d="M5 12h13M13 6l6 6-6 6"/>`,
+    keyboard: `<rect x="3.5" y="5.5" width="17" height="13" rx="2.5"/><path d="M7 9h.01M10.3 9h.01M13.7 9h.01M17 9h.01M7 12.2h.01M10.3 12.2h.01M13.7 12.2h.01M17 12.2h.01M7.5 15.2h9"/>`
+  };
+  if (name === "composerAction") {
+    return `<svg class="composer-keyboard-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">${paths.keyboard}</svg><svg class="composer-send-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">${paths.send}</svg>`;
+  }
+  return `<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">${paths[name] || ""}</svg>`;
 }
 
 function renderCarlosSvg() {
@@ -234,18 +222,4 @@ function getSuggestedPrompts(lesson) {
     : [];
 
   return [...speakingPrompts, ...dialoguePrompts].slice(0, 3);
-}
-
-function getCarlosGreeting(name) {
-  const hour = new Date().getHours();
-
-  if (hour < 12) {
-    return `Buenos d&iacute;as, ${name} &#x2600;&#xFE0F;`;
-  }
-
-  if (hour < 18) {
-    return `Buenas tardes, ${name} &#x1F324;&#xFE0F;`;
-  }
-
-  return `Buenas noches, ${name} &#x1F319;`;
 }

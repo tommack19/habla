@@ -905,29 +905,19 @@
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.18);
 }
 
-.home-page .ask-mic::before {
-  background: #fff;
-  border-radius: 8px;
-  content: "";
-  height: 18px;
-  left: 50%;
-  position: absolute;
-  top: 11px;
-  transform: translateX(-50%);
-  width: 8px;
+.home-page .ask-mic svg {
+  display: block;
+  height: 24px;
+  width: 24px;
 }
 
-.home-page .ask-mic::after {
-  border: 2px solid #fff;
-  border-radius: 0 0 12px 12px;
-  border-top: 0;
-  content: "";
-  height: 12px;
-  left: 50%;
-  position: absolute;
-  top: 18px;
-  transform: translateX(-50%);
-  width: 15px;
+.home-page .ask-mic svg path,
+.home-page .ask-mic svg rect {
+  fill: none;
+  stroke: #fff;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 1.8;
 }
 
 .home-page .ask-keyboard {
@@ -1431,17 +1421,17 @@
 .home-page .home-daily-hero .home-hero-copy {
   display: block;
   height: auto;
-  max-width: 53%;
-  padding: 16px 0 0 16px;
+  max-width: min(250px, 58%);
+  padding: 28px 0 0 18px;
   position: relative;
   z-index: 2;
 }
 
 .home-page .home-daily-hero .home-hero-copy h1 {
   color: var(--habla-gold);
-  font: 700 0.62rem/1.1 Inter, system-ui, sans-serif;
+  font: 650 0.72rem/1.1 Inter, system-ui, sans-serif;
   letter-spacing: 0;
-  margin: 0 0 8px;
+  margin: 0 0 15px;
 }
 
 .home-page .home-daily-hero .home-hero-copy h1 span {
@@ -1451,18 +1441,18 @@
 
 .home-page .home-daily-hero .home-hero-copy h2 {
   color: #f8f5ef;
-  font: 700 1.42rem/0.98 "Playfair Display", Georgia, serif;
+  font: 700 1.42rem/1.14 "Playfair Display", Georgia, serif;
   letter-spacing: -0.025em;
-  margin: 0 0 8px;
+  margin: 0 0 18px;
   text-shadow: 0 3px 18px rgba(0, 0, 0, 0.45);
 }
 
 .home-page .home-daily-hero .home-hero-copy p {
   color: rgba(240, 242, 238, 0.8);
   display: block;
-  font: 500 0.56rem/1.42 Inter, system-ui, sans-serif;
+  font: 500 0.58rem/1.5 Inter, system-ui, sans-serif;
   margin: 0;
-  max-width: 245px;
+  max-width: 235px;
   overflow: visible;
   -webkit-line-clamp: unset;
 }
@@ -1491,12 +1481,11 @@
 }
 
 .home-page .home-hero-lesson-metrics > span {
-  align-content: center;
+  align-items: center;
   display: grid;
   flex: 1 1 0;
-  gap: 1px 6px;
+  gap: 6px;
   grid-template-columns: 18px minmax(0, 1fr);
-  grid-template-rows: auto auto;
   min-width: 0;
   padding: 7px 6px;
 }
@@ -1508,7 +1497,6 @@
 .home-page .home-hero-lesson-metrics i {
   align-self: center;
   color: var(--habla-gold);
-  grid-row: 1 / 3;
 }
 
 .home-page .home-hero-lesson-metrics svg {
@@ -1522,23 +1510,15 @@
   width: 17px;
 }
 
-.home-page .home-hero-lesson-metrics b,
-.home-page .home-hero-lesson-metrics small {
+.home-page .home-hero-lesson-metrics b {
   display: block;
   min-width: 0;
-  overflow: hidden;
-  text-overflow: ellipsis;
   white-space: nowrap;
 }
 
 .home-page .home-hero-lesson-metrics b {
   color: #f3efe7;
-  font: 700 0.52rem/1.15 Inter, system-ui, sans-serif;
-}
-
-.home-page .home-hero-lesson-metrics small {
-  color: rgba(235, 238, 233, 0.58);
-  font: 500 0.43rem/1.15 Inter, system-ui, sans-serif;
+  font: 700 0.64rem/1.15 Inter, system-ui, sans-serif;
 }
 
 .home-page .home-hero-start {
@@ -1574,8 +1554,8 @@
   }
 
   .home-page .home-daily-hero .home-hero-copy {
-    max-width: 57%;
-    padding: 13px 0 0 13px;
+    max-width: 60%;
+    padding: 24px 0 0 14px;
   }
 
   .home-page .home-daily-hero .home-hero-copy h2 {
@@ -1589,7 +1569,7 @@
   }
 
   .home-page .home-hero-lesson-metrics > span {
-    gap: 1px 4px;
+    gap: 4px;
     grid-template-columns: 15px minmax(0, 1fr);
     padding: 6px 5px;
   }
@@ -1600,11 +1580,7 @@
   }
 
   .home-page .home-hero-lesson-metrics b {
-    font-size: 0.46rem;
-  }
-
-  .home-page .home-hero-lesson-metrics small {
-    font-size: 0.39rem;
+    font-size: 0.54rem;
   }
 
   .home-page .home-hero-start {

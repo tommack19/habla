@@ -5,9 +5,11 @@ import { initializeProgressEngine } from "./core/progress.js";
 import { completeMission as completeDailyMission } from "./core/missions.js";
 import { contentReady, getCurrentLesson, setActiveLesson } from "./core/content.js";
 import { renderNavigation } from "./ui/navigation.js";
+import { CARLOS_FALLBACK_ONERROR, getCarlosAsset } from "./data/carlosAssets.js";
 
 const PRACTICE_TOPIC_KEY = 'habla_selected_practice_topic_v1';
 const PRACTICE_SESSION_KEY = 'habla_practice_session_v2';
+const CARLOS_HISTORY_KEY = 'habla_carlos_history_v1';
 
 console.log("Habla state loaded:", state);
 
@@ -191,7 +193,7 @@ function setAvatar(state) {
   mouth.setAttribute('d', MOUTH_IDLE);
 
   const colors = {speaking:'#e8b86d', listening:'#c0392b', thinking:'#8e44ad', idle:'#27ae60'};
-  const labels = {speaking:'â— Speaking', listening:'â— Listening', thinking:'â— Thinkingâ€¦', idle:'Carlos'};
+  const labels = {speaking:'● Speaking', listening:'● Listening', thinking:'● Thinking…', idle:'AI Tutor'};
   glow.setAttribute('stroke', colors[state] || colors.idle);
   glow.setAttribute('opacity', state === 'idle' ? '0' : '0.55');
   lbl.textContent = labels[state] || 'Carlos';
@@ -241,7 +243,7 @@ function getBestVoice() {
 let isSpeaking = false;
 function speakText(text, onDone) {
   window.speechSynthesis.cancel();
-  const clean = text.replace(/\*/g,'').replace(/[Â¡Â¿]/g,'').trim();
+  const clean = text.replace(/\*/g,'').replace(/[¡¿]/g,'').trim();
   const utter = new SpeechSynthesisUtterance(clean);
   const v = getBestVoice(); if(v){utter.voice=v;utter.lang=v.lang;}else{utter.lang='es-ES';}
   utter.rate = 0.82; utter.pitch = 1.1;
@@ -253,25 +255,30 @@ function speakText(text, onDone) {
 // â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
 // CHAT
 // â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
-let apiHistory = [], isLoading = false, autoSpeak = true, level = 'Beginner Â· A1';
+let apiHistory = loadCarlosHistory(), isLoading = false, autoSpeak = true, level = state.user?.level || 'A1 Beginner';
 
 function fmtText(text) {
-  return text.replace(/\*([^*]+)\*/g,'<span class="es">$1</span>').replace(/\n/g,'<br>');
+  return escapeCarlosText(text).replace(/\*([^*]+)\*/g,'<strong class="es">$1</strong>').replace(/\n/g,'<br>');
 }
 function addBubble(role, text) {
   const msgs = document.getElementById('messages');
   if (!msgs) return;
-  const d = document.createElement('div');
-  d.className = `bub ${role==='user'?'user':'ai'}`;
-  d.innerHTML = `<div class="bub-lbl">${role==='user'?'You':'Carlos'}</div><div>${fmtText(text)}</div>`;
-  msgs.appendChild(d); msgs.scrollTop = msgs.scrollHeight;
+  const isUser = role === 'user';
+  const d = document.createElement('article');
+  d.className = `bub ${isUser ? 'user' : 'ai'}`;
+  const time = new Intl.DateTimeFormat([], {hour:'numeric',minute:'2-digit'}).format(new Date());
+  d.innerHTML = isUser
+    ? `<div class="bub-body"><div class="bub-copy">${fmtText(text)}</div><time>${time} <span aria-hidden="true">✓✓</span></time></div>`
+    : `<img class="bub-avatar" src="${getCarlosAsset('speaking')}" alt="Carlos" onerror="${CARLOS_FALLBACK_ONERROR}"><div class="bub-body"><div class="bub-copy">${fmtText(text)}</div><time>${time}</time></div>`;
+  msgs.appendChild(d);
+  requestAnimationFrame(() => d.scrollIntoView({behavior:'smooth',block:'end'}));
 }
 function showTyping() {
   const msgs = document.getElementById('messages');
   if (!msgs) return;
-  const d = document.createElement('div'); d.id='typing-bub'; d.className='bub ai';
-  d.innerHTML='<div class="bub-lbl">Carlos</div><div class="typing"><div class="dot"></div><div class="dot"></div><div class="dot"></div></div>';
-  msgs.appendChild(d); msgs.scrollTop=msgs.scrollHeight;
+  const d = document.createElement('article'); d.id='typing-bub'; d.className='bub ai';
+  d.innerHTML=`<img class="bub-avatar" src="${getCarlosAsset('thinking')}" alt="" onerror="${CARLOS_FALLBACK_ONERROR}"><div class="bub-body"><div class="typing" aria-label="Carlos is typing"><div class="dot"></div><div class="dot"></div><div class="dot"></div></div></div>`;
+  msgs.appendChild(d); d.scrollIntoView({behavior:'smooth',block:'end'});
 }
 async function sendMessage(text) {
   if(!text || isLoading) return;
@@ -280,20 +287,86 @@ async function sendMessage(text) {
   if (stopBtn) stopBtn.style.display='none';
   addBubble('user',text);
   apiHistory.push({role:'user',content:text});
+  saveCarlosHistory();
   setAvatar('thinking'); showTyping();
   try {
-    const res = await fetch('/chat',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({messages:apiHistory,level})});
-    const data = await res.json();
+    const data = await requestCarlosReply();
     document.getElementById('typing-bub')?.remove();
     if(data.error) throw new Error(data.error);
     apiHistory.push({role:'assistant',content:data.reply});
+    saveCarlosHistory();
     addBubble('ai',data.reply);
     if(autoSpeak) speakText(data.reply); else setAvatar('idle');
   } catch(e) {
     document.getElementById('typing-bub')?.remove();
-    addBubble('ai','âš ï¸ AI connection is not set up yet. You can still use vocabulary, quizzes, and speech tools.');
-    setAvatar('idle');
+    const fallbackReply = getOfflineCarlosReply(text);
+    apiHistory.push({role:'assistant',content:fallbackReply});
+    saveCarlosHistory();
+    addBubble('ai',fallbackReply);
+    if(autoSpeak) speakText(fallbackReply); else setAvatar('idle');
   } finally { isLoading=false; }
+}
+
+async function requestCarlosReply() {
+  const controller = new AbortController();
+  const timeout = setTimeout(() => controller.abort(), 5000);
+  try {
+    const res = await fetch('/chat', {
+      method:'POST',
+      headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({messages:apiHistory,level,context:getCarlosConversationContext()}),
+      signal:controller.signal
+    });
+    if (!res.ok) throw new Error(`Carlos service returned ${res.status}`);
+    return await res.json();
+  } finally {
+    clearTimeout(timeout);
+  }
+}
+
+function getCarlosConversationContext() {
+  const lesson = getCurrentLesson();
+  return {
+    learnerName: state.user?.name || '',
+    level: state.user?.level || level,
+    learningGoal: state.user?.learningGoal || state.user?.goal || '',
+    dialect: state.user?.dialect || state.user?.preferredDialect || '',
+    lesson: lesson ? {id:lesson.id || '',title:lesson.title || ''} : null
+  };
+}
+
+function getOfflineCarlosReply(text) {
+  const message = text.toLocaleLowerCase();
+  if (/oat milk|leche de avena/.test(message)) return 'Puedes decir:\n*Con leche de avena, por favor.*\nThat means “With oat milk, please.”';
+  if (/coffee|café|cafe/.test(message)) return '¡Claro! Puedes decir:\n*Quisiera un café, por favor.*\nThat means “I would like a coffee, please.” What would you like to add to it?';
+  if (/thank|gracias|another example/.test(message)) return '¡Por supuesto!\n*Me gustaría practicar otro ejemplo.*\nThat means “I would like to practice another example.” Can you repeat it in Spanish?';
+  if (/hola|hello|buenos días|buenas tardes|buenas noches/.test(message)) return '¡Hola! Me alegra hablar contigo. *¿Cómo estás hoy?*';
+  if (/my name is|me llamo|introduc/.test(message)) return '¡Mucho gusto! Try this pattern: *Me llamo… y soy de…* What city are you from?';
+  return '¡Buena pregunta! My full AI conversation service is not connected yet, but we can still practice a simple A1 exchange. Try asking me about greetings, introductions, or ordering coffee.';
+}
+
+function loadCarlosHistory() {
+  try {
+    const saved = JSON.parse(localStorage.getItem(CARLOS_HISTORY_KEY) || '[]');
+    return Array.isArray(saved) ? saved.filter(entry => entry && ['user','assistant'].includes(entry.role) && typeof entry.content === 'string').slice(-40) : [];
+  } catch (error) {
+    return [];
+  }
+}
+
+function saveCarlosHistory() {
+  try {
+    localStorage.setItem(CARLOS_HISTORY_KEY, JSON.stringify(apiHistory.slice(-40)));
+  } catch (error) {}
+}
+
+function escapeCarlosText(text) {
+  return String(text)
+    .replace(/&/g,'&amp;')
+    .replace(/</g,'&lt;')
+    .replace(/>/g,'&gt;')
+    .replace(/"/g,'&quot;')
+    .replace(/'/g,'&#39;');
 }
 
 // â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
@@ -307,12 +380,12 @@ function startListening() {
   if (!errEl || !txt || !micBtn) return;
   errEl.style.display='none';
   const SR = window.SpeechRecognition || window.webkitSpeechRecognition;
-  if(!SR){errEl.textContent='Speech recognition not supported â€” try Chrome.';errEl.style.display='block';return;}
+  if(!SR){errEl.textContent='Speech recognition is not supported here. You can still type to Carlos.';errEl.style.display='block';return;}
   window.speechSynthesis.cancel();
   recognition = new SR();
   recognition.lang='es-ES'; recognition.continuous=false; recognition.interimResults=true;
   let final='';
-  recognition.onstart=()=>{isListening=true;micBtn.classList.add('on');txt.placeholder='ðŸ”´ Listeningâ€¦ speak now';setAvatar('listening');};
+  recognition.onstart=()=>{isListening=true;micBtn.classList.add('on');txt.placeholder='Listening… speak now';setAvatar('listening');};
   recognition.onresult=(e)=>{
     let interim=''; final='';
     for(const r of e.results){if(r.isFinal)final+=r[0].transcript;else interim+=r[0].transcript;}
@@ -321,7 +394,7 @@ function startListening() {
   };
   recognition.onerror=(e)=>{
     stopListening();
-    const msgs={['not-allowed']:'Mic blocked â€” allow microphone in browser settings for this site.',['network']:'Network error â€” make sure you\'re on HTTPS or localhost.',};
+    const msgs={['not-allowed']:'Microphone blocked — allow it in your browser settings.',['network']:'Microphone connection error — try typing instead.',};
     errEl.textContent=msgs[e.error]||`Mic error: ${e.error}. Try typing instead.`;
     errEl.style.display='block';
   };
@@ -337,7 +410,7 @@ function stopListening(){
   isListening=false;
   document.getElementById('mic-btn')?.classList.remove('on');
   const txt = document.getElementById('txt');
-  if (txt) txt.placeholder='Type or tap ðŸŽ¤ to speak';
+  if (txt) txt.placeholder='Ask Carlos anything in Spanish...';
   try{recognition?.stop();}catch(e){}
   if(!isSpeaking) setAvatar('idle');
 }
@@ -501,6 +574,7 @@ saveState(state);
 
 function renderAppPage(page) {
   currentPage = page;
+  document.body.classList.toggle('carlos-mode', page === 'carlos');
   renderPage(page);
   const navMount = document.getElementById('bottom-nav');
   if (navMount) navMount.innerHTML = renderNavigation(page);
@@ -534,6 +608,7 @@ function initializeCarlosUI() {
 
   if (apiHistory.length === 0) {
     apiHistory.push({role:'assistant',content:intro});
+    saveCarlosHistory();
     addBubble('ai',intro);
     setTimeout(()=>{if(autoSpeak && document.getElementById('messages'))speakText(intro);},900);
   } else {
@@ -560,12 +635,8 @@ function initializeCarlosUI() {
 }
 
 function getCarlosIntro() {
-  const lesson = getCurrentLesson();
-
-  if (!lesson) return FALLBACK_INTRO;
-
-  const mission = lesson.realLifeMission?.mission || lesson.objectives?.[0] || "practice a real Spanish conversation";
-  return `¡Hola amigo! Today we're working on *${lesson.title}*. Your real life mission is: ${mission} I'll help you practice naturally, one short turn at a time. Try one of the suggested prompts, or introduce yourself to me now.`;
+  const name = String(state.user?.name || 'amigo').split(' ')[0];
+  return `*¡Hola ${name}!* 👋\nI’m Carlos, your Spanish tutor. How can I help you today?`;
 }
 
 function toggleAutoSpeak() {
