@@ -1659,7 +1659,7 @@ body.carlos-mode #app > header {
 
 .carlos-screen #stage.carlos-chat-hero::after {
   background:
-    linear-gradient(180deg, rgba(2, 7, 11, 0.84) 0%, rgba(2, 7, 11, 0.1) 30%, rgba(2, 7, 11, 0.02) 58%, #061015 100%),
+    linear-gradient(180deg, rgba(2, 7, 11, 0.86) 0%, rgba(2, 7, 11, 0.12) 28%, rgba(3, 9, 13, 0.42) 52%, #061015 82%, #061015 100%),
     linear-gradient(90deg, rgba(2, 7, 11, 0.34), transparent 45%, rgba(2, 7, 11, 0.1));
   content: "";
   inset: 0;
@@ -1738,6 +1738,7 @@ body.carlos-mode #app > header {
   border-radius: 50%;
   cursor: pointer;
   display: flex;
+  flex-direction: column;
   gap: 4px;
   height: 44px;
   justify-content: center;
@@ -1755,11 +1756,118 @@ body.carlos-mode #app > header {
   width: 4px;
 }
 
+.carlos-quick-menu {
+  backdrop-filter: blur(18px);
+  background: rgba(8, 15, 19, 0.96);
+  border: 1px solid rgba(255, 255, 255, 0.13);
+  border-radius: 18px;
+  box-shadow: 0 18px 42px rgba(0, 0, 0, 0.48);
+  display: grid;
+  overflow: hidden;
+  position: absolute;
+  right: 18px;
+  top: 134px;
+  width: 218px;
+  z-index: 5;
+}
+
+.carlos-quick-menu[hidden],
+.carlos-suggestions[hidden] {
+  display: none !important;
+}
+
+.carlos-quick-menu button {
+  align-items: center;
+  background: transparent;
+  border: 0;
+  color: #eef2ef;
+  cursor: pointer;
+  display: grid;
+  font: 600 0.76rem/1.2 Inter, system-ui, sans-serif;
+  gap: 10px;
+  grid-template-columns: 20px minmax(0, 1fr) auto;
+  min-height: 46px;
+  padding: 9px 12px;
+  text-align: left;
+}
+
+.carlos-quick-menu button + button {
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.carlos-quick-menu button:active {
+  background: rgba(244, 190, 88, 0.08);
+}
+
+.carlos-quick-menu svg,
+.carlos-suggestions svg {
+  fill: none;
+  height: 20px;
+  stroke: currentColor;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 1.7;
+  width: 20px;
+}
+
+.carlos-quick-menu svg {
+  color: #f4be58;
+}
+
+.carlos-quick-menu small {
+  color: #2bd574;
+  font-size: 0.65rem;
+}
+
 .carlos-conversation-thread {
   margin-top: -28px;
-  min-height: 180px;
+  min-height: 0;
   position: relative;
   z-index: 4;
+}
+
+.carlos-suggestions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding: 10px 16px 26px 67px;
+}
+
+.carlos-suggestions button {
+  align-items: center;
+  background: rgba(12, 24, 29, 0.88);
+  border: 1px solid rgba(244, 190, 88, 0.18);
+  border-radius: 999px;
+  color: rgba(242, 244, 240, 0.88);
+  cursor: pointer;
+  display: inline-flex;
+  font: 600 0.7rem/1.2 Inter, system-ui, sans-serif;
+  gap: 7px;
+  min-height: 44px;
+  padding: 8px 12px;
+  transition: border-color 0.18s ease, background 0.18s ease, transform 0.18s ease;
+}
+
+.carlos-suggestions button:active {
+  background: rgba(244, 190, 88, 0.09);
+  border-color: rgba(244, 190, 88, 0.5);
+  transform: scale(0.98);
+}
+
+.carlos-suggestions svg {
+  color: #f4be58;
+  height: 17px;
+  width: 17px;
+}
+
+.carlos-screen .typing {
+  align-items: center;
+  color: rgba(238, 242, 239, 0.58);
+  font-size: 0.72rem;
+}
+
+.carlos-screen .typing span {
+  margin-right: 5px;
 }
 
 .carlos-screen #messages {
@@ -1767,7 +1875,7 @@ body.carlos-mode #app > header {
   flex-direction: column;
   gap: 15px;
   max-height: none;
-  min-height: 180px;
+  min-height: 0;
   overflow: visible;
   padding-left: 16px;
   padding-right: 16px;
@@ -2015,6 +2123,11 @@ body.carlos-mode #app > header {
 
   .carlos-screen #messages {
     padding-left: 12px;
+    padding-right: 12px;
+  }
+
+  .carlos-suggestions {
+    padding-left: 63px;
     padding-right: 12px;
   }
 

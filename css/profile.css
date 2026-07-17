@@ -927,3 +927,231 @@
 .tools-settings-card {
   padding-block: 14px;
 }
+
+/* ============================================================
+   PROFILE — PREMIUM DATA-DRIVEN POLISH
+   ============================================================ */
+
+.profile-svg-icon {
+  display: block;
+  height: 100%;
+  width: 100%;
+}
+
+.profile-header h1 {
+  font-size: clamp(3rem, 13vw, 3.75rem);
+}
+
+.profile-level-pill {
+  height: 44px;
+  min-width: 122px;
+}
+
+.profile-user-avatar {
+  align-items: center;
+  aspect-ratio: 1;
+  background:
+    radial-gradient(circle at 35% 25%, rgba(255, 255, 255, 0.28), transparent 30%),
+    linear-gradient(145deg, #f6cf72, #bc7520);
+  border: 2px solid rgba(244, 190, 88, 0.72);
+  border-radius: 50%;
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.28);
+  color: #211509;
+  display: flex;
+  font: 800 1.8rem "Playfair Display", Georgia, serif;
+  height: 94px;
+  justify-content: center;
+  width: 94px;
+}
+
+.profile-avatar-wrap button {
+  color: #fff;
+  display: grid;
+  padding: 6px;
+  place-items: center;
+}
+
+.profile-avatar-wrap button .profile-svg-icon { height: 14px; width: 14px; }
+
+.profile-user-copy span {
+  align-items: center;
+  display: flex;
+  gap: 7px;
+}
+
+.profile-user-copy span .profile-svg-icon {
+  color: rgba(255, 255, 255, 0.56);
+  height: 17px;
+  width: 17px;
+}
+
+.profile-fire {
+  background: transparent;
+  border-radius: 0;
+  color: #ff7a35;
+  height: 27px;
+  width: 23px;
+}
+
+.profile-stat-icon,
+.profile-stat-icon.target,
+.profile-stat-icon.star,
+.profile-stat-icon.time,
+.profile-stat-icon.book {
+  background: transparent;
+  border: 0;
+  border-radius: 0;
+  clip-path: none;
+  height: 30px;
+  width: 30px;
+}
+
+.profile-stat-icon.target { color: #29d66e; }
+.profile-stat-icon.star { color: #f4be58; }
+.profile-stat-icon.time { color: #9c5cff; }
+.profile-stat-icon.book { color: #4399ff; }
+
+.profile-stat strong {
+  font-size: 1.55rem;
+}
+
+.profile-stat small {
+  color: rgba(255, 255, 255, 0.48);
+  margin-top: 4px;
+}
+
+.profile-section-head button {
+  align-items: center;
+  cursor: pointer;
+  display: inline-flex;
+  gap: 5px;
+  min-height: 44px;
+  padding: 0 4px;
+}
+
+.profile-section-head button i {
+  font-style: normal;
+  transition: transform 180ms ease;
+}
+
+.profile-section-head button[aria-expanded="true"] i { transform: rotate(90deg); }
+.achievement.is-extra { display: none; }
+.achievement-grid.expanded .achievement.is-extra { display: grid; }
+
+.achievement {
+  min-height: 128px;
+  padding-block: 12px;
+  transition: border-color 180ms ease, transform 180ms ease;
+}
+
+.achievement.unlocked:hover { transform: translateY(-2px); }
+
+.achievement-icon {
+  background: rgba(41, 214, 110, 0.07);
+  border-color: rgba(41, 214, 110, 0.52);
+  border-radius: 14px;
+  color: #29d66e;
+  height: 46px;
+  padding: 9px;
+  width: 46px;
+}
+
+.achievement:nth-child(2) .achievement-icon { background: rgba(244, 190, 88, 0.07); border-color: rgba(244, 190, 88, 0.52); color: #f4be58; }
+.achievement:nth-child(3) .achievement-icon { background: rgba(156, 92, 255, 0.07); border-color: rgba(156, 92, 255, 0.52); color: #9c5cff; }
+.achievement:nth-child(4) .achievement-icon { background: rgba(67, 153, 255, 0.07); border-color: rgba(67, 153, 255, 0.52); color: #4399ff; }
+.achievement:nth-child(5) .achievement-icon { background: rgba(239, 63, 105, 0.07); border-color: rgba(239, 63, 105, 0.52); color: #ef3f69; }
+
+.achievement small {
+  align-items: center;
+  display: inline-flex;
+  gap: 4px;
+  justify-content: center;
+}
+
+.achievement small .profile-svg-icon { height: 13px; width: 13px; }
+
+.row-icon {
+  align-items: center;
+  background: color-mix(in srgb, currentColor 11%, transparent) !important;
+  border: 1px solid color-mix(in srgb, currentColor 32%, transparent);
+  display: flex;
+  justify-content: center;
+  padding: 7px;
+}
+
+.row-icon.goal,
+.row-icon.edit { color: #29d66e; }
+.row-icon.dialect,
+.row-icon.notifications { color: #9c5cff; }
+.row-icon.daily,
+.row-icon.account { color: #4399ff; }
+.row-icon.reminders,
+.row-icon.support { color: #f4be58; }
+
+.profile-list-row {
+  cursor: pointer;
+  min-height: 58px;
+  transition: background 160ms ease;
+}
+
+.profile-list-row:hover { background: rgba(255, 255, 255, 0.02); }
+.profile-list-row:active { background: rgba(255, 255, 255, 0.035); }
+
+.profile-carlos-help {
+  background:
+    radial-gradient(circle at 100% 0, rgba(41, 214, 110, 0.12), transparent 44%),
+    linear-gradient(145deg, rgba(41, 214, 110, 0.06), rgba(13, 15, 15, 0.94));
+}
+
+.profile-carlos-help img {
+  border: 1px solid rgba(244, 190, 88, 0.6);
+}
+
+.profile-carlos-help button {
+  align-items: center;
+  display: flex;
+  gap: 7px;
+  justify-content: center;
+  min-height: 46px;
+}
+
+.profile-carlos-help button > .profile-svg-icon { height: 18px; width: 18px; }
+
+@media (max-width: 430px) {
+  .user-card {
+    grid-template-columns: 82px minmax(0, 1fr);
+  }
+
+  .profile-user-avatar { height: 80px; width: 80px; }
+
+  .profile-milestone {
+    align-items: center;
+    border-left: 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    display: grid;
+    gap: 4px 10px;
+    grid-column: 1 / -1;
+    grid-template-columns: auto minmax(0, 1fr) auto;
+    padding: 13px 0 0;
+  }
+
+  .profile-milestone strong { grid-row: 1 / span 2; }
+  .profile-milestone p { grid-column: 2; }
+  .profile-milestone em { grid-column: 2; margin: 0; }
+  .profile-milestone > span { grid-column: 2 / 4; }
+  .profile-milestone > i { grid-column: 2; margin-top: 5px; }
+  .profile-milestone > small { grid-column: 3; grid-row: 4; }
+
+  .profile-stat-list {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    row-gap: 18px;
+  }
+
+  .profile-stat:nth-child(2) { border-right: 0; }
+  .profile-stat:nth-child(n + 3) { border-top: 1px solid rgba(255, 255, 255, 0.08); padding-top: 16px; }
+
+  .achievement-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .profile-list-row { grid-template-columns: 34px minmax(0, 1fr) minmax(72px, auto) 12px; }
+  .profile-carlos-help { grid-template-columns: 48px minmax(0, 1fr); }
+  .profile-carlos-help button { grid-column: 1 / -1; }
+}

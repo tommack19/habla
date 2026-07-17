@@ -17,16 +17,24 @@ export function renderCarlos(state) {
               <button type="button" class="carlos-back" data-page="home" aria-label="Back to home"></button>
               <div class="carlos-title-lockup">
                 <h1>Carlos</h1>
-                <span><i></i><b id="status-label">AI Tutor</b></span>
+                <span><i></i><b id="status-label">Ready to practice</b></span>
               </div>
               <button class="carlos-level-pill" type="button">${escapeHtml(state.user.level || "A1 Beginner")} <span aria-hidden="true">&#8964;</span></button>
             </div>
           </header>
-          <button class="carlos-hero-more" type="button" data-carlos-prompt="${escapeAttr(suggestedPrompts[0] || "Give me a useful Spanish phrase.")}" aria-label="Conversation suggestions"><span></span><span></span><span></span></button>
+          <button class="carlos-hero-more" type="button" data-carlos-menu aria-label="Carlos settings" aria-expanded="false" aria-controls="carlos-quick-menu"><span></span><span></span><span></span></button>
+          <div class="carlos-quick-menu" id="carlos-quick-menu" hidden>
+            <button type="button" data-carlos-voice-toggle>${renderCarlosMenuIcon("voice")}<span>Voice replies</span><small id="carlos-voice-state">On</small></button>
+            <button type="button" data-carlos-reset>${renderCarlosMenuIcon("reset")}<span>Reset conversation</span></button>
+            <button type="button" data-page="profile">${renderCarlosMenuIcon("settings")}<span>Learning preferences</span></button>
+          </div>
         </section>
 
         <section class="carlos-conversation-thread" aria-label="Conversation with Carlos">
           <div id="messages" aria-live="polite" aria-relevant="additions"></div>
+          <div class="carlos-suggestions" id="carlos-suggestions" aria-label="Start a conversation">
+            ${renderCarlosSuggestions(lesson)}
+          </div>
         </section>
 
         <section class="carlos-chat-action" id="input-area" aria-label="Chat with Carlos">
@@ -69,6 +77,32 @@ function renderCarlosControlIcon(name) {
   if (name === "composerAction") {
     return `<svg class="composer-keyboard-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">${paths.keyboard}</svg><svg class="composer-send-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">${paths.send}</svg>`;
   }
+  return `<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">${paths[name] || ""}</svg>`;
+}
+
+function renderCarlosSuggestions(lesson) {
+  const lessonTitle = String(lesson?.title || "today's lesson").replace(/^[^:]+:\s*/, "");
+  const suggestions = [
+    ["lesson", "Practice today’s lesson", `Let's practice ${lessonTitle}.`],
+    ["review", "Review recent lesson", "Help me review something I learned recently."],
+    ["chat", "Free conversation", "Let's have a simple A1 Spanish conversation."]
+  ];
+  return suggestions.map(([icon, label, prompt]) => `
+    <button type="button" data-carlos-send-prompt="${escapeAttr(prompt)}">
+      ${renderCarlosMenuIcon(icon)}<span>${label}</span>
+    </button>
+  `).join("");
+}
+
+function renderCarlosMenuIcon(name) {
+  const paths = {
+    voice: `<path d="M5 9v6M8.5 7v10M12 4v16M15.5 8v8M19 10v4"/>`,
+    reset: `<path d="M4 8V3m0 0h5M4.5 4.5A9 9 0 1 1 3 15"/>`,
+    settings: `<circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.9l.1.1-2.8 2.8-.1-.1a1.7 1.7 0 0 0-1.9-.3 1.7 1.7 0 0 0-1 1.6v.2h-4V21a1.7 1.7 0 0 0-1-1.6 1.7 1.7 0 0 0-1.9.3l-.1.1L4.2 17l.1-.1a1.7 1.7 0 0 0 .3-1.9A1.7 1.7 0 0 0 3 14H2.8v-4H3a1.7 1.7 0 0 0 1.6-1 1.7 1.7 0 0 0-.3-1.9L4.2 7 7 4.2l.1.1a1.7 1.7 0 0 0 1.9.3A1.7 1.7 0 0 0 10 3V2.8h4V3a1.7 1.7 0 0 0 1 1.6 1.7 1.7 0 0 0 1.9-.3l.1-.1L19.8 7l-.1.1a1.7 1.7 0 0 0-.3 1.9 1.7 1.7 0 0 0 1.6 1h.2v4H21a1.7 1.7 0 0 0-1.6 1Z"/>`,
+    lesson: `<path d="M4 5.5A3.5 3.5 0 0 1 7.5 2H20v17H7.5A3.5 3.5 0 0 0 4 22V5.5Z"/><path d="M8 7h8M8 11h5"/>`,
+    review: `<path d="M4 8V3m0 0h5M4.5 4.5A9 9 0 1 1 3 15"/><path d="m9 12 2 2 4-5"/>`,
+    chat: `<path d="M4 5h16v12H9l-5 4V5Z"/><path d="M8 10h.01M12 10h.01M16 10h.01"/>`
+  };
   return `<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">${paths[name] || ""}</svg>`;
 }
 

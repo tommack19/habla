@@ -8,6 +8,7 @@ import {
   setActiveLesson,
 } from "../core/content.js";
 import { getCurrentStreak } from "../core/progress.js";
+import { getAchievements } from "../core/achievements.js";
 import { CARLOS_FALLBACK_ONERROR, getCarlosAsset } from "../data/carlosAssets.js";
 
 const LEARN_STEPS = [
@@ -19,6 +20,7 @@ const LEARN_STEPS = [
   "Speaking",
   "Culture",
 ];
+const A1_LESSON_TOTAL = 30;
 
 if (typeof window !== "undefined") {
   window.hablaLearn = {
@@ -38,10 +40,14 @@ if (typeof window !== "undefined") {
 
       target.innerHTML = renderTodayLessonCard(lesson);
 
-      const grammarTarget = document.getElementById("learn-grammar-detail");
-      const cultureTarget = document.getElementById("learn-culture-detail");
-      if (grammarTarget) grammarTarget.innerHTML = renderGrammarPanel(lesson);
-      if (cultureTarget) cultureTarget.innerHTML = renderCulturePanel(lesson);
+    },
+    toggleAllLessons(button) {
+      const list = document.querySelector(".learn-path-list");
+      if (!list) return;
+      const expanded = list.classList.toggle("expanded");
+      button?.setAttribute("aria-expanded", String(expanded));
+      const label = button?.querySelector("[data-learn-view-label]");
+      if (label) label.textContent = expanded ? "Show Less" : "View Full Curriculum";
     },
   };
 }
@@ -54,27 +60,27 @@ export function renderLearn(state = {}) {
   const unlockedIds = new Set(getUnlockedLessons().map(lesson => lesson.id));
   const streak = getCurrentStreak();
   const stats = getLearnStats(state, courseProgress, streak);
+  const currentIndex = Math.max(lessons.findIndex(lesson => lesson.id === currentLesson?.id), 0);
 
   return `
     <section class="learn-screen" aria-label="Learn">
       <input class="learn-tab-input" type="radio" name="learn-view" id="learn-tab-lessons" checked>
-      <input class="learn-tab-input" type="radio" name="learn-view" id="learn-tab-grammar">
-      <input class="learn-tab-input" type="radio" name="learn-view" id="learn-tab-culture">
+      <input class="learn-tab-input" type="radio" name="learn-view" id="learn-tab-roadmap">
 
-      ${renderLearnHeader(stats.level)}
+      ${renderLearnHeader()}
 
       <nav class="learn-top-tabs" aria-label="Learn sections">
         <label class="learn-top-tab lessons" for="learn-tab-lessons">
-          <span class="learn-tab-icon learn-tab-icon-book" aria-hidden="true"></span>
+          <span class="learn-tab-icon" aria-hidden="true">${renderLearnIcon("book")}</span>
           Lessons
         </label>
-        <label class="learn-top-tab grammar" for="learn-tab-grammar">
-          <span class="learn-tab-icon learn-tab-icon-grammar" aria-hidden="true"></span>
+        <button class="learn-top-tab grammar" type="button" data-page="practice" data-practice-library="true">
+          <span class="learn-tab-icon" aria-hidden="true">${renderLearnIcon("grammar")}</span>
           Grammar
-        </label>
-        <label class="learn-top-tab culture" for="learn-tab-culture">
-          <span class="learn-tab-icon learn-tab-icon-culture" aria-hidden="true"></span>
-          Culture
+        </button>
+        <label class="learn-top-tab roadmap" for="learn-tab-roadmap">
+          <span class="learn-tab-icon" aria-hidden="true">${renderLearnIcon("roadmap")}</span>
+          Roadmap
         </label>
       </nav>
 
@@ -86,12 +92,12 @@ export function renderLearn(state = {}) {
         <div class="learn-tab-panels">
           <div class="learn-lessons-panel">
             <section class="learn-path-panel">
-              <div class="learn-section-title"><h2>All Lessons</h2></div>
+              <div class="learn-section-title"><h2>Your Lesson Path</h2></div>
               <div class="learn-path-list" aria-label="A1 lesson list">
-                ${lessons.map((lesson, index) => renderLessonListCard(lesson, index, selectedLesson, currentLesson, unlockedIds)).join("")}
+                ${lessons.map((lesson, index) => renderLessonListCard(lesson, index, selectedLesson, currentLesson, unlockedIds, currentIndex)).join("")}
               </div>
-              <button class="learn-view-all" type="button">
-                <span><i class="learn-view-icon" aria-hidden="true"></i>View All Lessons</span>
+              <button class="learn-view-all" type="button" aria-expanded="false" onclick="hablaLearn.toggleAllLessons(this)">
+                <span>${renderLearnIcon("roadmap")}<b data-learn-view-label>View Full Curriculum</b></span>
                 <span class="learn-arrow" aria-hidden="true"></span>
               </button>
             </section>
@@ -99,12 +105,8 @@ export function renderLearn(state = {}) {
             ${renderLearnSideRail(stats)}
           </div>
 
-          <section class="learn-support-panel learn-grammar-panel" id="learn-grammar-detail" aria-label="Grammar">
-            ${renderGrammarPanel(selectedLesson)}
-          </section>
-
-          <section class="learn-support-panel learn-culture-panel" id="learn-culture-detail" aria-label="Culture">
-            ${renderCulturePanel(selectedLesson)}
+          <section class="learn-support-panel learn-roadmap-panel" aria-label="A1 Roadmap">
+            ${renderRoadmapPanel(lessons, currentLesson, unlockedIds)}
           </section>
         </div>
       </section>
@@ -112,7 +114,7 @@ export function renderLearn(state = {}) {
   `;
 }
 
-function renderLearnHeader(level) {
+function renderLearnHeader() {
   return `
     <header class="learn-hero">
       <div class="learn-title-row">
@@ -120,35 +122,40 @@ function renderLearnHeader(level) {
           <h1>Learn</h1>
           <p>Build your Spanish skills step by step.</p>
         </div>
-        <button class="learn-level-badge" type="button">${escapeHtml(level)} <span aria-hidden="true">&rsaquo;</span></button>
       </div>
     </header>
   `;
 }
 
-function renderLessonListCard(lesson, index, selectedLesson, currentLesson, unlockedIds) {
+function renderLessonListCard(lesson, index, selectedLesson, currentLesson, unlockedIds, currentIndex) {
   const progress = getLessonProgress(lesson.id);
   const completed = Boolean(progress.completed);
   const selected = selectedLesson?.id === lesson.id;
   const locked = !unlockedIds.has(lesson.id) && !completed;
   const current = currentLesson?.id === lesson.id && !completed;
-  const percent = completed ? 100 : index === 0 ? 40 : index === 1 ? 20 : 0;
-  const copy = getLessonSubtitle(index);
+  const percent = getLessonCompletionPercent(progress);
+  const copy = getLessonSubtitle(lesson, index);
+  const upcoming = !locked && !completed && !current;
+  const status = completed ? "Completed" : current ? "In Progress" : upcoming ? "Up Next" : "Locked";
+  const visibleCompleted = completed && index >= Math.max(0, currentIndex - 3);
+  const visibleUpcoming = !completed && index <= currentIndex + 2;
+  const remaining = !(visibleCompleted || visibleUpcoming || selected || current);
 
   return `
     <button
-      class="learn-path-card ${selected ? "selected" : ""} ${completed ? "completed" : ""} ${current ? "current" : ""} ${locked ? "locked" : ""}"
+      class="learn-path-card ${selected ? "selected" : ""} ${completed ? "completed" : ""} ${current ? "current" : ""} ${locked ? "locked" : ""} ${remaining ? "is-remaining" : ""}"
       type="button"
       data-lesson-id="${escapeAttr(lesson.id)}"
       onclick="hablaLearn.selectLesson('${escapeAttr(lesson.id)}')"
       ${locked ? "aria-disabled=\"true\"" : ""}
     >
       <span class="learn-lesson-number">${index + 1}</span>
+      <span class="learn-path-category-icon" aria-hidden="true">${renderLearnIcon(getLessonIconName(lesson, index))}</span>
       <span class="learn-lesson-copy">
         <strong>${escapeHtml(shortLessonTitle(lesson.title))}</strong>
         <em>${escapeHtml(copy)}</em>
       </span>
-      <span class="learn-lesson-reward">${percent}%<i><b style="width:${percent}%"></b></i></span>
+      <span class="learn-lesson-status">${status}</span>
       ${renderLessonStateIcon({ completed, current, locked, percent })}
     </button>
   `;
@@ -183,16 +190,18 @@ function renderTodayLessonCard(lesson) {
 
   const progress = getLessonProgress(lesson.id);
   const completed = Boolean(progress.completed);
-  const percent = completed ? 100 : 40;
+  const percent = getLessonCompletionPercent(progress);
   const lessonNumber = getLessonNumber(lesson);
   const title = shortLessonTitle(lesson.title);
   const objective = lesson.objective || lesson.objectives?.[0] || "Learn real Spanish for everyday conversations.";
   const wordCount = lesson.vocabulary?.length || 25;
   const phraseCount = countLessonItems(lesson.dialogue || lesson.dialogues) || 15;
   const minutes = lesson.estimatedMinutes || 10;
+  const artwork = getLessonArtwork(lesson);
 
   return `
     <article class="learn-today-card">
+      <img class="learn-current-scene" src="${escapeAttr(artwork)}" alt="Artwork for ${escapeAttr(title)}" onerror="${CARLOS_FALLBACK_ONERROR}">
       <div class="learn-current-copy">
         <span class="learn-current-badge">Current Lesson</span>
         <em>Lesson ${lessonNumber}</em>
@@ -204,58 +213,64 @@ function renderTodayLessonCard(lesson) {
           <span><i class="meta-clock"></i>${minutes} Min</span>
         </div>
         <button class="learn-continue h-btn h-btn--primary" type="button" data-page="practice" data-lesson-id="${escapeAttr(lesson.id)}">
-          Continue Lesson
+          <span>Continue Lesson<small>Lesson ${lessonNumber} of ${A1_LESSON_TOTAL}</small></span>
           <span class="learn-arrow" aria-hidden="true"></span>
         </button>
       </div>
-      <div class="learn-current-art" aria-hidden="true">
-        <span class="learn-girl"></span>
-        <img src="${getCarlosAsset("home")}" alt="Carlos introducing the current lesson" onerror="${CARLOS_FALLBACK_ONERROR}">
-        <em class="learn-bubble-green">&iexcl;Hola!<small>Hello!</small></em>
-        <em class="learn-bubble-gold">Mucho gusto.<small>Nice to meet you.</small></em>
-        <div class="learn-current-progress">
-          <span>Your Progress</span>
-          <i><b style="width:${percent}%"></b></i>
-          <strong>${percent}%</strong>
-        </div>
+      <div class="learn-current-progress">
+        <span>Lesson Progress</span>
+        <i><b style="width:${percent}%"></b></i>
+        <strong>${completed ? "Complete" : `${percent}%`}</strong>
       </div>
     </article>
   `;
 }
 
 function renderLearnSideRail(stats) {
+  const milestoneGoal = 10;
+  const milestoneProgress = Math.min(stats.completedLessons, milestoneGoal);
+  const milestonePercent = Math.round((milestoneProgress / milestoneGoal) * 100);
+  const lessonsRemaining = Math.max(milestoneGoal - milestoneProgress, 0);
+  const achievements = getAchievements()
+    .sort((a, b) => Number(b.unlocked) - Number(a.unlocked))
+    .slice(0, 3);
   return `
     <aside class="learn-side-rail">
       <section class="learn-stats-card">
-        <h2>Your Stats</h2>
+        <h2>Your Progress</h2>
         ${sideStat("fire", stats.streak, "Day Streak")}
         ${sideStat("star", formatNumber(stats.xp), "Total XP")}
         ${sideStat("target", stats.completedLessons, "Lessons Completed")}
-        ${sideStat("time", formatMinutes(stats.studyMinutes), "Study Time")}
+        ${sideStat("book", formatNumber(stats.wordsLearned), "Words Learned")}
       </section>
-      <section class="learn-milestone-card">
-        <h2>Next Milestone</h2>
-        <strong>10</strong>
-        <p>Complete 10 lessons to unlock Level 2!</p>
-        <i><b style="width:40%"></b></i>
-        <span>4 / 10</span>
+      <section class="learn-coach-card">
+        <img src="${getCarlosAsset("thinking")}" alt="Carlos, your Spanish coach" onerror="${CARLOS_FALLBACK_ONERROR}">
+        <div><small>Carlos&rsquo; Coach Tip</small><strong>${escapeHtml(getCarlosCoachMessage(stats))}</strong><em>${lessonsRemaining ? `${lessonsRemaining} ${lessonsRemaining === 1 ? "lesson" : "lessons"} to Level 2` : "Level 2 milestone reached"}</em></div>
+        <i aria-hidden="true"><b style="width:${milestonePercent}%"></b></i>
+        <span>${milestoneProgress} / ${milestoneGoal}</span>
       </section>
-      <section class="learn-tip-card">
-        <h2>Carlos&rsquo; Tip</h2>
-        <div>
-          <img src="${getCarlosAsset("thinking")}" alt="Carlos sharing a learning tip" onerror="${CARLOS_FALLBACK_ONERROR}">
-          <p>Consistency is the key! A little every day goes a long way.</p>
+      <section class="learn-achievements-card">
+        <header><h2>Achievements</h2><button type="button" data-page="me">View All</button></header>
+        <div class="learn-achievement-list">
+          ${achievements.map(renderLearnAchievement).join("")}
         </div>
-        <span class="learn-tip-dots" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
       </section>
     </aside>
   `;
 }
 
+function renderLearnAchievement(achievement) {
+  return `<article class="learn-achievement ${achievement.unlocked ? "unlocked" : "locked"}">
+    <span aria-hidden="true">${renderLearnIcon(getAchievementIconName(achievement.id))}</span>
+    <strong>${escapeHtml(achievement.title)}</strong>
+    <small>${achievement.unlocked ? "Unlocked" : escapeHtml(achievement.description)}</small>
+  </article>`;
+}
+
 function sideStat(icon, value, label) {
   return `
     <div class="learn-side-stat">
-      <span class="${icon}" aria-hidden="true"></span>
+      <span class="learn-side-icon ${icon}" aria-hidden="true">${renderLearnIcon(icon)}</span>
       <strong>${escapeHtml(value)}</strong>
       <small>${escapeHtml(label)}</small>
     </div>
@@ -270,20 +285,132 @@ function getLearnStats(state, courseProgress, streak) {
     streak,
     xp: Number(progress.xp ?? state.user?.xp ?? 0),
     completedLessons: Number(courseProgress.completedCount || 0),
-    studyMinutes: Number(activity.speakingMinutes || 0)
+    studyMinutes: Number(activity.studyMinutes || activity.learningMinutes || activity.speakingMinutes || 0),
+    wordsLearned: Number(activity.vocabularyReviewedCount ?? state.vocabulary?.learned?.length ?? 0),
+    currentLessonTitle: shortLessonTitle(courseProgress.currentLesson?.title || "your next lesson"),
   };
 }
 
-function getLessonSubtitle(index) {
+function getLessonCompletionPercent(progress = {}) {
+  if (progress.completed) return 100;
+  const explicit = Number(progress.percent ?? progress.completionPercent ?? progress.progress ?? 0);
+  return Math.max(0, Math.min(100, Number.isFinite(explicit) ? Math.round(explicit) : 0));
+}
+
+function getLessonArtwork(lesson) {
+  const curatedArtwork = {
+    1: "lesson-01-greetings.png.png",
+    2: "lesson-02-introductions.png.png",
+    3: "lesson-03-family.png.png",
+    4: "lesson-04-numbers-time.png.png",
+    5: "lesson-05-shopping.png.png",
+    6: "lesson-06-food-drinks.png.png",
+    7: "lesson-07-travel.png.png",
+    8: "lesson-08-vacation.png.png",
+  };
+  const curatedFile = curatedArtwork[getLessonNumber(lesson)];
+  if (curatedFile) return `assets/images/lessons/${curatedFile}`;
+  return lesson?.image || lesson?.imagePath || getCarlosAsset("home");
+}
+
+function getDailyLearnTip() {
+  const tips = [
+    "A few focused minutes every day will take you further than one long session each week.",
+    "Say each new phrase aloud. Your voice helps your memory hold onto it.",
+    "Build complete phrases instead of memorizing isolated words.",
+    "Review one older lesson before starting something new.",
+    "Mistakes are useful—they show you exactly what to practice next.",
+    "Listen once for the main idea, then again for the details.",
+  ];
+  const dayKey = Math.floor(new Date().setHours(0, 0, 0, 0) / 86400000);
+  return tips[((dayKey % tips.length) + tips.length) % tips.length];
+}
+
+function getCarlosCoachMessage(stats) {
+  if (!stats.completedLessons) {
+    return `Let’s begin with ${stats.currentLessonTitle}. A few focused minutes is enough to make progress today.`;
+  }
+  return `Great work—you’ve completed ${stats.completedLessons} ${stats.completedLessons === 1 ? "lesson" : "lessons"}. Next, keep building with ${stats.currentLessonTitle}.`;
+}
+
+function getAchievementIconName(id) {
+  if (id === "on_fire") return "fire";
+  if (id === "vocab_starter" || id === "pronunciation_start") return "book";
+  if (id === "quiz_rookie") return "target";
+  if (id === "family_ready") return "family";
+  return "star";
+}
+
+function getLessonIconName(lesson, index) {
+  const iconByLesson = [
+    "conversation", "person", "family", "calendar", "shopping", "restaurant", "travel", "travel",
+    "home", "time", "weather", "shopping", "book", "work", "star", "target", "health", "person",
+    "conversation", "target", "roadmap", "travel", "conversation", "health", "conversation", "work",
+    "home", "travel", "roadmap", "star",
+  ];
+  return iconByLesson[index] || (lesson?.module ? "book" : "roadmap");
+}
+
+function renderRoadmapPanel(lessons, currentLesson, unlockedIds) {
+  const chapters = [
+    { title: "Chapter 1", subtitle: "Build your foundation", lessons: lessons.slice(0, 10) },
+    { title: "Chapter 2", subtitle: "Spanish for everyday life", lessons: lessons.slice(10, 20) },
+    { title: "Chapter 3", subtitle: "Speak with confidence", lessons: lessons.slice(20, 30) },
+  ];
+
+  return `<div class="learn-roadmap-intro"><small>A1 Course Roadmap</small><h2>Your path to everyday Spanish</h2><p>Move from greetings and family conversations to travel, emergencies, and a complete A1 speaking challenge.</p></div>
+    <div class="learn-roadmap-chapters">${chapters.map((chapter, chapterIndex) => `
+      <article class="learn-roadmap-chapter">
+        <header><span>${chapterIndex + 1}</span><div><strong>${chapter.title}</strong><small>${chapter.subtitle}</small></div></header>
+        <ol>${chapter.lessons.map(lesson => {
+          const progress = getLessonProgress(lesson.id);
+          const current = currentLesson?.id === lesson.id && !progress.completed;
+          const unlocked = unlockedIds.has(lesson.id) || progress.completed;
+          const state = progress.completed ? "complete" : current ? "current" : unlocked ? "available" : "locked";
+          return `<li class="${state}"><i aria-hidden="true">${renderLearnIcon(getLessonIconName(lesson, getLessonNumber(lesson) - 1))}</i><span><b>Lesson ${getLessonNumber(lesson)}</b><strong>${escapeHtml(shortLessonTitle(lesson.title))}</strong></span><em>${progress.completed ? "Complete" : current ? "Current" : unlocked ? "Ready" : "Locked"}</em></li>`;
+        }).join("")}</ol>
+      </article>`).join("")}</div>`;
+}
+
+function renderLearnIcon(name) {
+  const paths = {
+    book: `<path d="M4 5.5A3.5 3.5 0 0 1 7.5 2H12v18H7.5A3.5 3.5 0 0 0 4 23V5.5Z"/><path d="M20 5.5A3.5 3.5 0 0 0 16.5 2H12v18h4.5A3.5 3.5 0 0 1 20 23V5.5Z"/>`,
+    grammar: `<path d="M5 4h14v16H5z"/><path d="M8 8h8M8 12h5M8 16h7"/>`,
+    culture: `<circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3 3 15 0 18M12 3c-3 3-3 15 0 18"/>`,
+    roadmap: `<path d="M5 3v18M5 6h9l-2.5 3L14 12H5"/><circle cx="5" cy="20" r="1.5"/>`,
+    conversation: `<path d="M4 5h16v11H9l-5 4V5Z"/><path d="M8 9h8M8 12h5"/>`,
+    person: `<circle cx="12" cy="7" r="4"/><path d="M4.5 21c.6-5 3.1-7.5 7.5-7.5s6.9 2.5 7.5 7.5"/>`,
+    family: `<circle cx="8" cy="8" r="3"/><circle cx="17" cy="9" r="2.5"/><path d="M2.5 21c.5-4.5 2.3-6.7 5.5-6.7s5 2.2 5.5 6.7M13 15c1-.9 2.3-1.4 4-1.4 2.7 0 4.3 2 4.7 6"/>`,
+    calendar: `<rect x="3" y="5" width="18" height="16" rx="2"/><path d="M8 3v4M16 3v4M3 10h18M8 14h2M14 14h2M8 17h2"/>`,
+    shopping: `<path d="M5 8h14l1.5 13h-17L5 8Z"/><path d="M8.5 9V6.5a3.5 3.5 0 0 1 7 0V9"/>`,
+    restaurant: `<path d="M6 3v8M9 3v8M4 3v5c0 2 1 3 3 3s3-1 3-3V3M7 11v10M16 3c-2 2-3 5-3 8h4v10"/>`,
+    travel: `<path d="m3 13 18-9-7.5 16-2.8-6.2L3 13Z"/><path d="m10.7 13.8 10-9.3"/>`,
+    home: `<path d="m3 11 9-8 9 8v10H3V11Z"/><path d="M9 21v-6h6v6"/>`,
+    work: `<rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8 7V4h8v3M3 12h18"/>`,
+    health: `<path d="M12 20S4 15.5 4 9.5A4.5 4.5 0 0 1 12 6a4.5 4.5 0 0 1 8 3.5C20 15.5 12 20 12 20Z"/><path d="M8 12h2l1-3 2 6 1-3h2"/>`,
+    weather: `<path d="M7 18h10a4 4 0 1 0-.8-7.9A6 6 0 0 0 5 13a3 3 0 0 0 2 5Z"/><path d="M8 5V3M3.8 7.2 2.4 5.8M12.2 7.2l1.4-1.4"/>`,
+    fire: `<path d="M13.5 2.5c.8 4-2.4 5-1.5 8.2 1-1.2 2.2-2 3.8-2.5 1.5 1.7 2.2 3.7 2.2 5.8a6 6 0 1 1-12 0c0-3.3 2-6.3 5.8-9.2-.2 2.5.5 3.5 1.7 4.3.8-2 .5-4.2 0-6.6Z"/>`,
+    star: `<path d="m12 2.5 2.9 5.9 6.5.9-4.7 4.6 1.1 6.5-5.8-3.1-5.8 3.1 1.1-6.5-4.7-4.6 6.5-.9L12 2.5Z"/>`,
+    target: `<circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1.5"/><path d="m14.5 9.5 6-6M16 3.5h4.5V8"/>`,
+    time: `<circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2"/>`,
+  };
+  return `<svg viewBox="0 0 24 24" focusable="false" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">${paths[name] || ""}</svg>`;
+}
+
+function getLessonSubtitle(lesson, index) {
+  const lessonObjective = lesson?.objective || lesson?.objectives?.[0];
+  if (lessonObjective) return lessonObjective;
   const subtitles = [
     "Say hello, goodbye and introduce yourself.",
-    "Everyday phrases for daily conversations.",
-    "Count, tell time and use dates.",
+    "Share your name, origin and first questions.",
     "Talk about your family and friends.",
-    "Order food and talk about what you like.",
+    "Count, tell time and use dates.",
+    "Buy what you need and ask questions.",
+    "Order food and drinks with confidence.",
+    "Use essential Spanish while travelling.",
+    "Talk about holidays and vacation plans.",
     "Routine, activities and daily tasks.",
     "Ask for and give directions with confidence.",
-    "Buy what you need and ask questions.",
   ];
   return subtitles[index] || "Build your Spanish step by step.";
 }

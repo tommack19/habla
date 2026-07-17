@@ -193,7 +193,7 @@ function setAvatar(state) {
   mouth.setAttribute('d', MOUTH_IDLE);
 
   const colors = {speaking:'#e8b86d', listening:'#c0392b', thinking:'#8e44ad', idle:'#27ae60'};
-  const labels = {speaking:'● Speaking', listening:'● Listening', thinking:'● Thinking…', idle:'AI Tutor'};
+  const labels = {speaking:'Speaking', listening:'Listening', thinking:'Thinking…', idle:'Ready to practice'};
   glow.setAttribute('stroke', colors[state] || colors.idle);
   glow.setAttribute('opacity', state === 'idle' ? '0' : '0.55');
   lbl.textContent = labels[state] || 'Carlos';
@@ -277,12 +277,13 @@ function showTyping() {
   const msgs = document.getElementById('messages');
   if (!msgs) return;
   const d = document.createElement('article'); d.id='typing-bub'; d.className='bub ai';
-  d.innerHTML=`<img class="bub-avatar" src="${getCarlosAsset('thinking')}" alt="" onerror="${CARLOS_FALLBACK_ONERROR}"><div class="bub-body"><div class="typing" aria-label="Carlos is typing"><div class="dot"></div><div class="dot"></div><div class="dot"></div></div></div>`;
+  d.innerHTML=`<img class="bub-avatar" src="${getCarlosAsset('thinking')}" alt="" onerror="${CARLOS_FALLBACK_ONERROR}"><div class="bub-body"><div class="typing" aria-label="Carlos is thinking"><span>Carlos is thinking</span><div class="dot"></div><div class="dot"></div><div class="dot"></div></div></div>`;
   msgs.appendChild(d); d.scrollIntoView({behavior:'smooth',block:'end'});
 }
 async function sendMessage(text) {
   if(!text || isLoading) return;
   isLoading=true; window.speechSynthesis.cancel();
+  document.getElementById('carlos-suggestions')?.setAttribute('hidden','');
   const stopBtn = document.getElementById('stop-btn');
   if (stopBtn) stopBtn.style.display='none';
   addBubble('user',text);
@@ -337,6 +338,10 @@ function getCarlosConversationContext() {
 
 function getOfflineCarlosReply(text) {
   const message = text.toLocaleLowerCase();
+  const lessonTitle = String(getCurrentLesson()?.title || 'today’s lesson').replace(/^[^:]+:\s*/, '');
+  if (/let's practice|practice today/.test(message)) return `¡Perfecto! We’ll practice *${lessonTitle}* together. I’ll keep it simple and help when you need it. *¿Empezamos?*`;
+  if (/review something|review recent/.test(message)) return '¡Claro! Let’s review one useful pattern first: *Quiero + infinitive* means “I want to…” Can you make a sentence with it?';
+  if (/simple a1|free conversation/.test(message)) return '¡Perfecto! Let’s have a simple conversation. *¿Cómo estás hoy?* You can answer: “Estoy bien,” “Estoy cansado,” or “Estoy feliz.”';
   if (/oat milk|leche de avena/.test(message)) return 'Puedes decir:\n*Con leche de avena, por favor.*\nThat means “With oat milk, please.”';
   if (/coffee|café|cafe/.test(message)) return '¡Claro! Puedes decir:\n*Quisiera un café, por favor.*\nThat means “I would like a coffee, please.” What would you like to add to it?';
   if (/thank|gracias|another example/.test(message)) return '¡Por supuesto!\n*Me gustaría practicar otro ejemplo.*\nThat means “I would like to practice another example.” Can you repeat it in Spanish?';
@@ -546,8 +551,6 @@ function resetQuiz(){
 // â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
 // EVENTS & INIT
 // â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
-const FALLBACK_INTRO="¡Hola amigo! I'm Carlos, your Spanish tutor from Madrid! I heard you want to connect with your wife's family — that's *una razón perfecta* to learn Spanish, a perfect reason! Let's start from scratch and build you up step by step. First question: have you ever tried to say anything in Spanish before?";
-
 let currentPage = "home";
 
 initializeProgressEngine(state, {
@@ -596,14 +599,18 @@ function initializeCarlosUI() {
   const stopBtn = document.getElementById('stop-btn');
   const autoToggle = document.getElementById('auto-toggle');
   const messages = document.getElementById('messages');
+  const suggestions = document.getElementById('carlos-suggestions');
+  const menuButton = document.querySelector('[data-carlos-menu]');
+  const quickMenu = document.getElementById('carlos-quick-menu');
 
   if (!txt || !sendBtn || !micBtn || !stopBtn || !autoToggle || !messages) return;
 
   messages.innerHTML = '';
   const intro = getCarlosIntro();
 
-  if (apiHistory.length === 1 && apiHistory[0].role === 'assistant' && apiHistory[0].content === FALLBACK_INTRO && intro !== FALLBACK_INTRO) {
+  if (apiHistory.length === 1 && apiHistory[0].role === 'assistant') {
     apiHistory[0].content = intro;
+    saveCarlosHistory();
   }
 
   if (apiHistory.length === 0) {
@@ -614,6 +621,11 @@ function initializeCarlosUI() {
   } else {
     apiHistory.forEach(entry => addBubble(entry.role, entry.content));
   }
+
+  if (apiHistory.some(entry => entry.role === 'user')) suggestions?.setAttribute('hidden','');
+  else suggestions?.removeAttribute('hidden');
+  const voiceState = document.getElementById('carlos-voice-state');
+  if (voiceState) voiceState.textContent = autoSpeak ? 'On' : 'Off';
 
   txt.addEventListener('input',updateSendBtn);
   txt.addEventListener('keydown',e=>{if(e.key==='Enter'){const t=e.target.value.trim();if(t){e.target.value='';updateSendBtn();sendMessage(t);}}});
@@ -629,6 +641,30 @@ function initializeCarlosUI() {
       txt.focus();
     });
   });
+  document.querySelectorAll('[data-carlos-send-prompt]').forEach(button => {
+    button.addEventListener('click', () => sendMessage(button.dataset.carlosSendPrompt || ''));
+  });
+  menuButton?.addEventListener('click', () => {
+    const willOpen = quickMenu?.hasAttribute('hidden');
+    quickMenu?.toggleAttribute('hidden', !willOpen);
+    menuButton.setAttribute('aria-expanded', String(Boolean(willOpen)));
+  });
+  document.querySelector('[data-carlos-voice-toggle]')?.addEventListener('click', () => {
+    toggleAutoSpeak();
+    const voiceState = document.getElementById('carlos-voice-state');
+    if (voiceState) voiceState.textContent = autoSpeak ? 'On' : 'Off';
+  });
+  document.querySelector('[data-carlos-reset]')?.addEventListener('click', () => {
+    window.speechSynthesis.cancel();
+    apiHistory = [{role:'assistant',content:intro}];
+    saveCarlosHistory();
+    messages.innerHTML = '';
+    addBubble('ai', intro);
+    suggestions?.removeAttribute('hidden');
+    quickMenu?.setAttribute('hidden','');
+    menuButton?.setAttribute('aria-expanded','false');
+    setAvatar('idle');
+  });
 
   updateSendBtn();
   setAvatar('idle');
@@ -636,7 +672,28 @@ function initializeCarlosUI() {
 
 function getCarlosIntro() {
   const name = String(state.user?.name || 'amigo').split(' ')[0];
-  return `*¡Hola ${name}!* 👋\nI’m Carlos, your Spanish tutor. How can I help you today?`;
+  const lesson = getCurrentLesson();
+  const lessonTitle = String(lesson?.title || '').replace(/^[^:]+:\s*/, '');
+  const now = new Date();
+  const hour = now.getHours();
+  const isWeekend = now.getDay() === 0 || now.getDay() === 6;
+  const variant = now.getDate() % 3;
+  let greeting;
+
+  if (isWeekend) {
+    greeting = `*¡Hola ${name}!* ☕ Want to chat over coffee today?`;
+  } else if (hour < 12) {
+    const morning = ['Ready for five minutes of Spanish?', 'Let’s build some Spanish confidence.', 'What should we practice together today?'];
+    greeting = `*¡Buenos días, ${name}!* ${morning[variant]}`;
+  } else if (hour < 18) {
+    const afternoon = ['Ready for a quick Spanish conversation?', 'Let’s keep your momentum going.', 'It’s a great time for a little Spanish.'];
+    greeting = `*¡Buenas tardes, ${name}!* ${afternoon[variant]}`;
+  } else {
+    const evening = ['Welcome back. Let’s keep your streak alive.', 'Ready for a relaxed Spanish chat?', 'A few minutes of Spanish would be perfect.'];
+    greeting = `*¡Buenas noches, ${name}!* ${evening[variant]}`;
+  }
+
+  return lessonTitle ? `${greeting}\nWant to practice *${lessonTitle}* together?` : `${greeting}\nHow can I help you today?`;
 }
 
 function toggleAutoSpeak() {
@@ -661,7 +718,17 @@ document.addEventListener('click', (event) => {
   if (pageTarget.dataset.lessonId) {
     setActiveLesson(pageTarget.dataset.lessonId);
   }
-  if (pageTarget.dataset.practiceTopic) {
+  if (pageTarget.dataset.practiceLibrary) {
+    localStorage.removeItem(PRACTICE_TOPIC_KEY);
+    let practiceSession = {};
+    try { practiceSession = JSON.parse(sessionStorage.getItem(PRACTICE_SESSION_KEY) || '{}'); } catch {}
+    practiceSession.view = 'library';
+    delete practiceSession.libraryCategoryId;
+    delete practiceSession.libraryCollectionId;
+    delete practiceSession.libraryItemId;
+    delete practiceSession.returnView;
+    sessionStorage.setItem(PRACTICE_SESSION_KEY, JSON.stringify(practiceSession));
+  } else if (pageTarget.dataset.practiceTopic) {
     localStorage.setItem(PRACTICE_TOPIC_KEY, pageTarget.dataset.practiceTopic);
     let practiceSession = {};
     try { practiceSession = JSON.parse(sessionStorage.getItem(PRACTICE_SESSION_KEY) || '{}'); } catch {}
