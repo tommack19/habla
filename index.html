@@ -5,6 +5,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
 <link rel="manifest" href="manifest.json">
+<link rel="icon" href="assets/brand/habla-mark.svg" type="image/svg+xml">
 <meta name="theme-color" content="#e8b86d">
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -14,15 +15,38 @@
 <link rel="stylesheet" href="css/home.css">
 <link rel="stylesheet" href="css/carlos.css">
 <link rel="stylesheet" href="css/learn.css">
+<link rel="stylesheet" href="css/lesson.css">
 <link rel="stylesheet" href="css/practice.css">
 <link rel="stylesheet" href="css/profile.css">
+<link rel="stylesheet" href="css/journey.css">
 <link rel="stylesheet" href="css/navigation.css">
+<link rel="stylesheet" href="css/header.css">
 </head>
 <body>
 <div id="app">
-  <header>
-    <div class="logo">Habla<span>.</span></div>
-    <button id="level-btn">Beginner A1</button>
+  <header class="primary-header" aria-label="Primary header">
+    <div class="primary-header-dock">
+      <button class="primary-brand" type="button" data-page="home" aria-label="Go to Home">
+        <img src="assets/brand/habla-mark.svg" alt="" aria-hidden="true">
+        <span>Habla<i>.</i></span>
+      </button>
+      <div class="primary-header-actions">
+        <button id="level-btn" type="button" aria-haspopup="dialog" aria-controls="level-sheet" aria-expanded="false">
+          <svg class="header-level-mark" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3.5 12h17M12 3c2.6 2.4 4 5.4 4 9s-1.4 6.6-4 9c-2.6-2.4-4-5.4-4-9s1.4-6.6 4-9Z"/></svg>
+          <span id="header-level-label">Explorer</span>
+          <small id="header-level-code">A1</small>
+          <svg viewBox="0 0 20 20" aria-hidden="true"><path d="m6 8 4 4 4-4"/></svg>
+        </button>
+        <button class="header-notifications" type="button" aria-label="Notifications">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.5 9.5a5.5 5.5 0 0 1 11 0c0 6 2.5 6.2 2.5 8H4c0-1.8 2.5-2 2.5-8Z"/><path d="M10 21h4"/></svg>
+          <i aria-hidden="true"></i>
+        </button>
+        <button class="header-profile" type="button" data-page="profile" aria-label="Open profile">
+          <span id="header-avatar">T</span>
+          <i aria-hidden="true"></i>
+        </button>
+      </div>
+    </div>
   </header>
 
   <main id="dashboard"></main>
@@ -30,14 +54,35 @@
 
 <div id="bottom-nav"></div>
 
-<div id="level-overlay">
-  <div id="level-sheet">
-    <h3>Your Level</h3>
-    <p>Carlos adapts to where you are</p>
-    <button class="lopt sel" data-level="Beginner A1"><strong>Absolute Beginner</strong><small>A1 - I know zero Spanish</small></button>
-    <button class="lopt" data-level="Elementary A2"><strong>Elementary</strong><small>A2 - I know some basics</small></button>
-    <button class="lopt" data-level="Intermediate B1"><strong>Intermediate</strong><small>B1 - I can form sentences</small></button>
-    <button class="lopt" data-level="Upper-Int B2"><strong>Upper Intermediate</strong><small>B2 - I can hold conversations</small></button>
+<div id="level-overlay" aria-hidden="true">
+  <div id="level-sheet" role="dialog" aria-modal="true" aria-labelledby="level-journey-title">
+    <div class="level-sheet-heading">
+      <span>Your journey</span>
+      <small>Earned from your progress</small>
+    </div>
+    <div class="level-current">
+      <span class="level-current-mark" aria-hidden="true">
+        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M3.5 12h17M12 3c2.6 2.4 4 5.4 4 9s-1.4 6.6-4 9c-2.6-2.4-4-5.4-4-9s1.4-6.6 4-9Z"/></svg>
+      </span>
+      <div>
+        <h3 id="level-journey-title">Explorer</h3>
+        <p id="level-journey-cefr">A1 Beginner</p>
+      </div>
+      <em>Current</em>
+    </div>
+    <div class="level-xp-copy">
+      <span id="level-journey-xp">0 / 500 XP</span>
+      <b id="level-journey-percent">0%</b>
+    </div>
+    <div class="level-xp-track" aria-hidden="true"><i id="level-journey-progress"></i></div>
+    <div class="level-next">
+      <div><small>Next destination</small><strong id="level-journey-next">Traveler</strong></div>
+      <span id="level-journey-remaining">500 XP remaining</span>
+    </div>
+    <button id="level-view-journey" class="level-view-journey" type="button" data-page="journey">
+      <span>View Journey</span>
+      <svg viewBox="0 0 20 20" aria-hidden="true"><path d="m7 4 6 6-6 6"/></svg>
+    </button>
   </div>
 </div>
 

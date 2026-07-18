@@ -1,991 +1,329 @@
 {
   "id": "lesson-07-travel-basics",
-  "title": "Travel Basics: Hotels, Taxis, and Simple Directions",
-  "level": "A1",
-  "module": "Travel Basics",
-  "estimatedMinutes": 34,
+  "contentVersion": "1.0",
+  "title": "Walking Through Madrid",
   "image": "assets/images/lessons/lesson-07-travel.png",
-  "metadata": {
-    "course": "Habla",
-    "unit": "A1 Beginner",
-    "lessonNumber": 7,
-    "guide": "Carlos",
-    "imagePath": "assets/images/lessons/lesson-07-travel-basics.png"
-  },
+  "level": "A1",
+  "module": "Places and Directions",
+  "estimatedMinutes": 30,
   "prerequisiteLesson": "lesson-06-food-drinks",
-  "objectives": [
-    "Use essential travel phrases for hotels, taxis, bags, and nearby places.",
-    "Understand Carlos in short guided exchanges.",
-    "Use the lesson language in one realistic conversation."
-  ],
-  "objective": "Use essential travel phrases for hotels, taxis, bags, and nearby places.",
-  "vocabulary": [
+  "story": {
+    "chapter": 1,
+    "city": "Madrid",
+    "location": "The streets between the café and Plaza Mayor",
+    "time": "Saturday, late morning",
+    "scene": "Carlos steps outside the café and points toward the old streets, but he does not lead. He asks you to find Plaza Mayor by speaking with a local and following three short direction cues.",
+    "mission": "Today you’ll ask where Plaza Mayor is, understand three simple directions, and identify the destination.",
+    "continuity": "The walk begins immediately after Lesson 6. Carlos briefly acknowledges the learner’s stored drink preference, then steps back so the learner can navigate."
+  },
+  "emotionalArc": {
+    "emotion": "Independence",
+    "startsWith": "The learner expects Carlos to lead through the unfamiliar streets.",
+    "endsWith": "The learner reaches the plaza by asking, listening, and making the final navigation decision independently.",
+    "earnedBy": "Understanding a short real-world route after Carlos deliberately stops giving the answers."
+  },
+  "memoryCallbacks": [
     {
-      "spanish": "viajar",
-      "english": "to travel",
-      "partOfSpeech": "verb",
-      "tip": "Carlos tip: practice ?viajar? in a short real sentence, not as an isolated word.",
-      "exampleSpanish": "Carlos usa viajar en una frase.",
-      "exampleEnglish": "Carlos uses to travel in a sentence."
-    },
-    {
-      "spanish": "el viaje",
-      "english": "trip",
-      "partOfSpeech": "noun",
-      "tip": "Carlos tip: practice ?el viaje? in a short real sentence, not as an isolated word.",
-      "exampleSpanish": "Carlos usa el viaje en una frase.",
-      "exampleEnglish": "Carlos uses trip in a sentence."
-    },
-    {
-      "spanish": "el hotel",
-      "english": "hotel",
-      "partOfSpeech": "noun",
-      "tip": "Carlos tip: practice ?el hotel? in a short real sentence, not as an isolated word.",
-      "exampleSpanish": "Carlos usa el hotel en una frase.",
-      "exampleEnglish": "Carlos uses hotel in a sentence."
-    },
-    {
-      "spanish": "la reserva",
-      "english": "reservation",
-      "partOfSpeech": "noun",
-      "tip": "Carlos tip: practice ?la reserva? in a short real sentence, not as an isolated word.",
-      "exampleSpanish": "Carlos usa la reserva en una frase.",
-      "exampleEnglish": "Carlos uses reservation in a sentence."
-    },
-    {
-      "spanish": "el taxi",
-      "english": "taxi",
-      "partOfSpeech": "noun",
-      "tip": "Carlos tip: practice ?el taxi? in a short real sentence, not as an isolated word.",
-      "exampleSpanish": "Carlos usa el taxi en una frase.",
-      "exampleEnglish": "Carlos uses taxi in a sentence."
-    },
-    {
-      "spanish": "el autob?s",
-      "english": "bus",
-      "partOfSpeech": "noun",
-      "tip": "Carlos tip: practice ?el autob?s? in a short real sentence, not as an isolated word.",
-      "exampleSpanish": "Carlos usa el autob?s en una frase.",
-      "exampleEnglish": "Carlos uses bus in a sentence."
-    },
-    {
-      "spanish": "el tren",
-      "english": "train",
-      "partOfSpeech": "noun",
-      "tip": "Carlos tip: practice ?el tren? in a short real sentence, not as an isolated word.",
-      "exampleSpanish": "Carlos usa el tren en una frase.",
-      "exampleEnglish": "Carlos uses train in a sentence."
-    },
-    {
-      "spanish": "el aeropuerto",
-      "english": "airport",
-      "partOfSpeech": "noun",
-      "tip": "Carlos tip: practice ?el aeropuerto? in a short real sentence, not as an isolated word.",
-      "exampleSpanish": "Carlos usa el aeropuerto en una frase.",
-      "exampleEnglish": "Carlos uses airport in a sentence."
-    },
-    {
-      "spanish": "la estaci?n",
-      "english": "station",
-      "partOfSpeech": "noun",
-      "tip": "Carlos tip: practice ?la estaci?n? in a short real sentence, not as an isolated word.",
-      "exampleSpanish": "Carlos usa la estaci?n en una frase.",
-      "exampleEnglish": "Carlos uses station in a sentence."
-    },
-    {
-      "spanish": "la maleta",
-      "english": "suitcase",
-      "partOfSpeech": "noun",
-      "tip": "Carlos tip: practice ?la maleta? in a short real sentence, not as an isolated word.",
-      "exampleSpanish": "Carlos usa la maleta en una frase.",
-      "exampleEnglish": "Carlos uses suitcase in a sentence."
-    },
-    {
-      "spanish": "el pasaporte",
-      "english": "passport",
-      "partOfSpeech": "noun",
-      "tip": "Carlos tip: practice ?el pasaporte? in a short real sentence, not as an isolated word.",
-      "exampleSpanish": "Carlos usa el pasaporte en una frase.",
-      "exampleEnglish": "Carlos uses passport in a sentence."
-    },
-    {
-      "spanish": "el boleto",
-      "english": "ticket",
-      "partOfSpeech": "noun",
-      "tip": "Carlos tip: practice ?el boleto? in a short real sentence, not as an isolated word.",
-      "exampleSpanish": "Carlos usa el boleto en una frase.",
-      "exampleEnglish": "Carlos uses ticket in a sentence."
-    },
-    {
-      "spanish": "la puerta",
-      "english": "gate / door",
-      "partOfSpeech": "noun",
-      "tip": "Carlos tip: practice ?la puerta? in a short real sentence, not as an isolated word.",
-      "exampleSpanish": "Carlos usa la puerta en una frase.",
-      "exampleEnglish": "Carlos uses gate / door in a sentence."
-    },
-    {
-      "spanish": "la salida",
-      "english": "exit / departure",
-      "partOfSpeech": "noun",
-      "tip": "Carlos tip: practice ?la salida? in a short real sentence, not as an isolated word.",
-      "exampleSpanish": "Carlos usa la salida en una frase.",
-      "exampleEnglish": "Carlos uses exit / departure in a sentence."
-    },
-    {
-      "spanish": "la llegada",
-      "english": "arrival",
-      "partOfSpeech": "noun",
-      "tip": "Carlos tip: practice ?la llegada? in a short real sentence, not as an isolated word.",
-      "exampleSpanish": "Carlos usa la llegada en una frase.",
-      "exampleEnglish": "Carlos uses arrival in a sentence."
-    },
-    {
-      "spanish": "cerca",
-      "english": "near",
-      "partOfSpeech": "adverb",
-      "tip": "Carlos tip: practice ?cerca? in a short real sentence, not as an isolated word.",
-      "exampleSpanish": "Carlos usa cerca en una frase.",
-      "exampleEnglish": "Carlos uses near in a sentence."
-    },
-    {
-      "spanish": "lejos",
-      "english": "far",
-      "partOfSpeech": "adverb",
-      "tip": "Carlos tip: practice ?lejos? in a short real sentence, not as an isolated word.",
-      "exampleSpanish": "Carlos usa lejos en una frase.",
-      "exampleEnglish": "Carlos uses far in a sentence."
-    },
-    {
-      "spanish": "aqu?",
-      "english": "here",
-      "partOfSpeech": "adverb",
-      "tip": "Carlos tip: practice ?aqu?? in a short real sentence, not as an isolated word.",
-      "exampleSpanish": "Carlos usa aqu? en una frase.",
-      "exampleEnglish": "Carlos uses here in a sentence."
-    },
-    {
-      "spanish": "all?",
-      "english": "there",
-      "partOfSpeech": "adverb",
-      "tip": "Carlos tip: practice ?all?? in a short real sentence, not as an isolated word.",
-      "exampleSpanish": "Carlos usa all? en una frase.",
-      "exampleEnglish": "Carlos uses there in a sentence."
-    },
-    {
-      "spanish": "derecha",
-      "english": "right",
-      "partOfSpeech": "noun",
-      "tip": "Carlos tip: practice ?derecha? in a short real sentence, not as an isolated word.",
-      "exampleSpanish": "Carlos usa derecha en una frase.",
-      "exampleEnglish": "Carlos uses right in a sentence."
-    },
-    {
-      "spanish": "izquierda",
-      "english": "left",
-      "partOfSpeech": "noun",
-      "tip": "Carlos tip: practice ?izquierda? in a short real sentence, not as an isolated word.",
-      "exampleSpanish": "Carlos usa izquierda en una frase.",
-      "exampleEnglish": "Carlos uses left in a sentence."
-    },
-    {
-      "spanish": "recto",
-      "english": "straight",
-      "partOfSpeech": "adverb",
-      "tip": "Carlos tip: practice ?recto? in a short real sentence, not as an isolated word.",
-      "exampleSpanish": "Carlos usa recto en una frase.",
-      "exampleEnglish": "Carlos uses straight in a sentence."
-    },
-    {
-      "spanish": "el ba?o",
-      "english": "bathroom",
-      "partOfSpeech": "noun",
-      "tip": "Carlos tip: practice ?el ba?o? in a short real sentence, not as an isolated word.",
-      "exampleSpanish": "Carlos usa el ba?o en una frase.",
-      "exampleEnglish": "Carlos uses bathroom in a sentence."
-    },
-    {
-      "spanish": "Necesito ayuda",
-      "english": "I need help",
-      "partOfSpeech": "phrase",
-      "tip": "Carlos tip: practice ?Necesito ayuda? in a short real sentence, not as an isolated word.",
-      "exampleSpanish": "Carlos usa Necesito ayuda en una frase.",
-      "exampleEnglish": "Carlos uses I need help in a sentence."
-    },
-    {
-      "spanish": "?D?nde est?...?",
-      "english": "Where is...?",
-      "partOfSpeech": "question",
-      "tip": "Carlos tip: practice ??D?nde est?...?? in a short real sentence, not as an isolated word.",
-      "exampleSpanish": "Carlos usa ?D?nde est?...? en una frase.",
-      "exampleEnglish": "Carlos uses Where is...? in a sentence."
+      "sourceLessonId": "lesson-06-food-drinks",
+      "byChoice": {
+        "coffee": { "spanish": "Antes de caminar, ¿quieres terminar tu café?", "english": "Before we walk, do you want to finish your coffee?" },
+        "tea": { "spanish": "Antes de caminar, ¿quieres terminar tu té?", "english": "Before we walk, do you want to finish your tea?" },
+        "juice": { "spanish": "Antes de caminar, ¿quieres terminar tu zumo?", "english": "Before we walk, do you want to finish your juice?" }
+      }
     }
+  ],
+  "memory": {
+    "onComplete": [
+      { "key": "story.visitedPlazaMayor", "value": true }
+    ]
+  },
+  "microCliffhanger": {
+    "speaker": "Carlos",
+    "spanish": "Empieza a llover. Estamos cerca de mi apartamento. ¿Quieres verlo?",
+    "english": "It’s starting to rain. We’re close to my apartment. Would you like to see it?",
+    "payoffLesson": "lesson-08-vacation"
+  },
+  "carlosIntroduction": {
+    "eyebrow": "Your mission",
+    "title": "You lead the way",
+    "message": "Plaza Mayor is close, but I’m not going to guide us this time. You’ll ask a local where it is, listen for three short street cues, and tell me when we’ve arrived. I’ll help only if communication breaks down.",
+    "prompt": "Begin with: Perdón, ¿dónde está Plaza Mayor?"
+  },
+  "canDo": [
+    "Ask where a place is.",
+    "Understand right, left, and straight ahead.",
+    "Recognize simple location phrases with está.",
+    "Thank someone for directions and identify the destination."
+  ],
+  "objectives": [
+    "Ask a local where Plaza Mayor is.",
+    "Follow three short direction cues in order.",
+    "Use está to say where a singular place is.",
+    "Complete the route without Carlos giving the answer."
+  ],
+  "recycledLanguage": [
+    { "fromLesson": "a1-lesson-01-greetings", "language": ["Perdón", "Buenos días", "gracias", "hasta luego"], "use": "Approach a local and close the exchange politely." },
+    { "fromLesson": "lesson-04-numbers-time", "language": ["ahora", "después", "antes"], "use": "Understand the sequence of the route." },
+    { "fromLesson": "lesson-05-shopping", "language": ["el mercado", "la panadería", "la cafetería"], "use": "Use familiar places as landmarks." },
+    { "fromLesson": "lesson-06-food-drinks", "language": ["el café", "la terraza", "la mesa"], "use": "Begin outside the place the learner just visited." }
+  ],
+  "essentialPhrases": [
+    { "spanish": "Perdón, ¿dónde está...?", "english": "Excuse me, where is...?", "usage": "Politely ask for a place.", "exampleSpanish": "Perdón, ¿dónde está Plaza Mayor?", "exampleEnglish": "Excuse me, where is Plaza Mayor?" },
+    { "spanish": "Está aquí.", "english": "It is here.", "usage": "Say a place is at the current location.", "exampleSpanish": "La plaza está aquí.", "exampleEnglish": "The plaza is here." },
+    { "spanish": "Está allí.", "english": "It is there.", "usage": "Point to a place farther away.", "exampleSpanish": "La fuente está allí.", "exampleEnglish": "The fountain is there." },
+    { "spanish": "Todo recto.", "english": "Straight ahead.", "usage": "Follow the street without turning.", "exampleSpanish": "Sigue todo recto.", "exampleEnglish": "Continue straight ahead." },
+    { "spanish": "A la derecha.", "english": "To the right.", "usage": "Recognize a right turn or right-side location.", "exampleSpanish": "Gira a la derecha.", "exampleEnglish": "Turn right." },
+    { "spanish": "A la izquierda.", "english": "To the left.", "usage": "Recognize a left turn or left-side location.", "exampleSpanish": "Gira a la izquierda.", "exampleEnglish": "Turn left." },
+    { "spanish": "Está al lado de...", "english": "It is beside...", "usage": "Locate a place using a familiar landmark.", "exampleSpanish": "La plaza está al lado de la cafetería.", "exampleEnglish": "The plaza is beside the café." },
+    { "spanish": "Gracias por la ayuda.", "english": "Thank you for the help.", "usage": "Close a direction exchange warmly.", "exampleSpanish": "Perfecto. Gracias por la ayuda.", "exampleEnglish": "Perfect. Thank you for the help." }
+  ],
+  "vocabulary": [
+    { "spanish": "la plaza", "english": "square / plaza", "partOfSpeech": "noun", "tier": 1, "group": "Places", "tip": "A plaza is a public square and common meeting place.", "exampleSpanish": "La plaza está cerca.", "exampleEnglish": "The plaza is nearby." },
+    { "spanish": "la calle", "english": "street", "partOfSpeech": "noun", "tier": 1, "group": "Places", "tip": "Street names often appear on tiled signs in Madrid.", "exampleSpanish": "Sigue por esta calle.", "exampleEnglish": "Continue along this street." },
+    { "spanish": "la esquina", "english": "corner", "partOfSpeech": "noun", "tier": 1, "group": "Places", "tip": "En la esquina means on the corner.", "exampleSpanish": "Gira en la esquina.", "exampleEnglish": "Turn at the corner." },
+    { "spanish": "el semáforo", "english": "traffic light", "partOfSpeech": "noun", "tier": 1, "group": "Places", "tip": "A useful landmark when following directions.", "exampleSpanish": "Cruza en el semáforo.", "exampleEnglish": "Cross at the traffic light." },
+    { "spanish": "la fuente", "english": "fountain", "partOfSpeech": "noun", "tier": 1, "group": "Places", "tip": "Fountains are common visual landmarks in plazas.", "exampleSpanish": "La fuente está allí.", "exampleEnglish": "The fountain is there." },
+    { "spanish": "la farmacia", "english": "pharmacy", "partOfSpeech": "noun", "tier": 1, "group": "Places", "tip": "Look for the green pharmacy cross in Spain.", "exampleSpanish": "La farmacia está a la derecha.", "exampleEnglish": "The pharmacy is on the right." },
+    { "spanish": "la panadería", "english": "bakery", "partOfSpeech": "noun", "tier": 1, "group": "Places", "tip": "This returns from the market as a street landmark.", "exampleSpanish": "La panadería está en la esquina.", "exampleEnglish": "The bakery is on the corner." },
+    { "spanish": "la cafetería", "english": "café", "partOfSpeech": "noun", "tier": 1, "group": "Places", "tip": "The route begins beside the café from Lesson 6.", "exampleSpanish": "La cafetería está detrás.", "exampleEnglish": "The café is behind us." },
+    { "spanish": "la estación", "english": "station", "partOfSpeech": "noun", "tier": 2, "group": "Places", "tip": "Useful for future travel; recognize it on signs.", "exampleSpanish": "¿Dónde está la estación?", "exampleEnglish": "Where is the station?" },
+    { "spanish": "¿dónde?", "english": "where?", "partOfSpeech": "question word", "tier": 1, "group": "Finding the way", "tip": "The written accent marks the question word.", "exampleSpanish": "¿Dónde está la plaza?", "exampleEnglish": "Where is the plaza?" },
+    { "spanish": "está", "english": "is / is located", "partOfSpeech": "verb", "tier": 1, "group": "Finding the way", "tip": "Use está for one place or thing.", "exampleSpanish": "La plaza está cerca.", "exampleEnglish": "The plaza is nearby." },
+    { "spanish": "busco", "english": "I’m looking for", "partOfSpeech": "verb", "tier": 1, "group": "Finding the way", "tip": "A useful backup if the full question feels difficult.", "exampleSpanish": "Busco Plaza Mayor.", "exampleEnglish": "I’m looking for Plaza Mayor." },
+    { "spanish": "aquí", "english": "here", "partOfSpeech": "adverb", "tier": 1, "group": "Location", "tip": "Aquí refers to the current place.", "exampleSpanish": "La entrada está aquí.", "exampleEnglish": "The entrance is here." },
+    { "spanish": "allí", "english": "there", "partOfSpeech": "adverb", "tier": 1, "group": "Location", "tip": "Allí points to a place farther away.", "exampleSpanish": "La fuente está allí.", "exampleEnglish": "The fountain is there." },
+    { "spanish": "cerca", "english": "near / nearby", "partOfSpeech": "adverb", "tier": 1, "group": "Location", "tip": "Está cerca is a complete useful response.", "exampleSpanish": "Plaza Mayor está cerca.", "exampleEnglish": "Plaza Mayor is nearby." },
+    { "spanish": "lejos", "english": "far", "partOfSpeech": "adverb", "tier": 1, "group": "Location", "tip": "¿Está lejos? asks whether a place is far.", "exampleSpanish": "No, no está lejos.", "exampleEnglish": "No, it isn’t far." },
+    { "spanish": "al lado de", "english": "beside / next to", "partOfSpeech": "location phrase", "tier": 1, "group": "Location", "tip": "Follow it with a landmark.", "exampleSpanish": "Está al lado de la farmacia.", "exampleEnglish": "It is beside the pharmacy." },
+    { "spanish": "enfrente de", "english": "opposite / across from", "partOfSpeech": "location phrase", "tier": 1, "group": "Location", "tip": "Use it when two places face each other.", "exampleSpanish": "Está enfrente de la fuente.", "exampleEnglish": "It is across from the fountain." },
+    { "spanish": "todo recto", "english": "straight ahead", "partOfSpeech": "direction phrase", "tier": 1, "group": "Direction cues", "tip": "Treat this as one fixed street cue.", "exampleSpanish": "Sigue todo recto.", "exampleEnglish": "Continue straight ahead." },
+    { "spanish": "a la derecha", "english": "to the right", "partOfSpeech": "direction phrase", "tier": 1, "group": "Direction cues", "tip": "Connect derecha with your right hand.", "exampleSpanish": "Gira a la derecha.", "exampleEnglish": "Turn right." },
+    { "spanish": "a la izquierda", "english": "to the left", "partOfSpeech": "direction phrase", "tier": 1, "group": "Direction cues", "tip": "Connect izquierda with your left hand.", "exampleSpanish": "Gira a la izquierda.", "exampleEnglish": "Turn left." },
+    { "spanish": "sigue", "english": "continue / keep going", "partOfSpeech": "direction cue", "tier": 1, "group": "Direction cues", "tip": "Recognize it as a direction; command grammar comes later.", "exampleSpanish": "Sigue todo recto.", "exampleEnglish": "Continue straight ahead." },
+    { "spanish": "gira", "english": "turn", "partOfSpeech": "direction cue", "tier": 1, "group": "Direction cues", "tip": "Listen for the side that follows.", "exampleSpanish": "Gira a la derecha.", "exampleEnglish": "Turn right." },
+    { "spanish": "cruza", "english": "cross", "partOfSpeech": "direction cue", "tier": 1, "group": "Direction cues", "tip": "Recognize it before a street or traffic light.", "exampleSpanish": "Cruza la calle.", "exampleEnglish": "Cross the street." },
+    { "spanish": "Perdón", "english": "Excuse me", "partOfSpeech": "polite opener", "tier": 1, "group": "Asking politely", "tip": "Use it before stopping someone for help.", "exampleSpanish": "Perdón, ¿dónde está la plaza?", "exampleEnglish": "Excuse me, where is the plaza?" },
+    { "spanish": "Gracias por la ayuda", "english": "Thank you for the help", "partOfSpeech": "closing phrase", "tier": 1, "group": "Asking politely", "tip": "A warm closing after receiving directions.", "exampleSpanish": "Perfecto. Gracias por la ayuda.", "exampleEnglish": "Perfect. Thank you for the help." }
   ],
   "grammar": {
-    "topic": "Est? for location",
-    "explanation": "Use est? to say where something is. Use ?D?nde est?...? to ask where a place or thing is.",
-    "examples": [
-      {
-        "spanish": "El hotel est? cerca.",
-        "english": "The hotel is nearby."
-      },
-      {
-        "spanish": "?D?nde est? el taxi?",
-        "english": "Where is the taxi?"
-      },
-      {
-        "spanish": "La estaci?n est? a la derecha.",
-        "english": "The station is on the right."
-      }
-    ],
-    "practicePrompt": "Say one original sentence using today?s pattern with Carlos."
-  },
-  "dialogue": [
-    {
-      "title": "At the station",
-      "lines": [
-        {
-          "speaker": "Learner",
-          "spanish": "Disculpe, donde esta la estacion?",
-          "english": "Excuse me, where is the station?"
-        },
-        {
-          "speaker": "Carlos",
-          "spanish": "La estacion esta cerca.",
-          "english": "The station is nearby."
-        }
-      ]
-    },
-    {
-      "title": "Buying a ticket",
-      "lines": [
-        {
-          "speaker": "Learner",
-          "spanish": "Quisiera un boleto, por favor.",
-          "english": "I would like a ticket, please."
-        },
-        {
-          "speaker": "Carlos",
-          "spanish": "Claro. A donde va?",
-          "english": "Of course. Where are you going?"
-        }
-      ]
-    },
-    {
-      "title": "Saying destination",
-      "lines": [
-        {
-          "speaker": "Carlos",
-          "spanish": "A donde va?",
-          "english": "Where are you going?"
-        },
-        {
-          "speaker": "Learner",
-          "spanish": "Voy a Madrid.",
-          "english": "I am going to Madrid."
-        }
-      ]
-    },
-    {
-      "title": "Travel time",
-      "lines": [
-        {
-          "speaker": "Learner",
-          "spanish": "A que hora sale el tren?",
-          "english": "What time does the train leave?"
-        },
-        {
-          "speaker": "Carlos",
-          "spanish": "Sale a las ocho.",
-          "english": "It leaves at eight."
-        }
-      ]
-    },
-    {
-      "title": "Asking for help",
-      "lines": [
-        {
-          "speaker": "Learner",
-          "spanish": "Puede ayudarme, por favor?",
-          "english": "Can you help me, please?"
-        },
-        {
-          "speaker": "Carlos",
-          "spanish": "Si, con gusto.",
-          "english": "Yes, gladly."
-        }
-      ]
-    },
-    {
-      "title": "Passport check",
-      "lines": [
-        {
-          "speaker": "Carlos",
-          "spanish": "Tiene su pasaporte?",
-          "english": "Do you have your passport?"
-        },
-        {
-          "speaker": "Learner",
-          "spanish": "Si, aqui esta.",
-          "english": "Yes, here it is."
-        }
-      ]
-    },
-    {
-      "title": "Hotel arrival",
-      "lines": [
-        {
-          "speaker": "Learner",
-          "spanish": "Tengo una reserva.",
-          "english": "I have a reservation."
-        },
-        {
-          "speaker": "Carlos",
-          "spanish": "Perfecto. Su nombre, por favor.",
-          "english": "Perfect. Your name, please."
-        }
-      ]
-    },
-    {
-      "title": "Taxi phrase",
-      "lines": [
-        {
-          "speaker": "Learner",
-          "spanish": "Quisiera un taxi al hotel.",
-          "english": "I would like a taxi to the hotel."
-        },
-        {
-          "speaker": "Carlos",
-          "spanish": "Claro, un taxi al hotel.",
-          "english": "Of course, a taxi to the hotel."
-        }
-      ]
-    },
-    {
-      "title": "Travel problem",
-      "lines": [
-        {
-          "speaker": "Carlos",
-          "spanish": "Esta perdido?",
-          "english": "Are you lost?"
-        },
-        {
-          "speaker": "Learner",
-          "spanish": "Si, necesito ayuda.",
-          "english": "Yes, I need help."
-        }
-      ]
-    },
-    {
-      "title": "Simple travel plan",
-      "lines": [
-        {
-          "speaker": "Learner",
-          "spanish": "Voy al hotel y despues al restaurante.",
-          "english": "I am going to the hotel and then to the restaurant."
-        },
-        {
-          "speaker": "Carlos",
-          "spanish": "Muy bien. Buen viaje.",
-          "english": "Very good. Have a good trip."
-        }
-      ]
-    }
-  ],
-  "dialogues": [
-    {
-      "title": "At the station",
-      "lines": [
-        {
-          "speaker": "Learner",
-          "spanish": "Disculpe, donde esta la estacion?",
-          "english": "Excuse me, where is the station?"
-        },
-        {
-          "speaker": "Carlos",
-          "spanish": "La estacion esta cerca.",
-          "english": "The station is nearby."
-        }
-      ]
-    },
-    {
-      "title": "Buying a ticket",
-      "lines": [
-        {
-          "speaker": "Learner",
-          "spanish": "Quisiera un boleto, por favor.",
-          "english": "I would like a ticket, please."
-        },
-        {
-          "speaker": "Carlos",
-          "spanish": "Claro. A donde va?",
-          "english": "Of course. Where are you going?"
-        }
-      ]
-    },
-    {
-      "title": "Saying destination",
-      "lines": [
-        {
-          "speaker": "Carlos",
-          "spanish": "A donde va?",
-          "english": "Where are you going?"
-        },
-        {
-          "speaker": "Learner",
-          "spanish": "Voy a Madrid.",
-          "english": "I am going to Madrid."
-        }
-      ]
-    },
-    {
-      "title": "Travel time",
-      "lines": [
-        {
-          "speaker": "Learner",
-          "spanish": "A que hora sale el tren?",
-          "english": "What time does the train leave?"
-        },
-        {
-          "speaker": "Carlos",
-          "spanish": "Sale a las ocho.",
-          "english": "It leaves at eight."
-        }
-      ]
-    },
-    {
-      "title": "Asking for help",
-      "lines": [
-        {
-          "speaker": "Learner",
-          "spanish": "Puede ayudarme, por favor?",
-          "english": "Can you help me, please?"
-        },
-        {
-          "speaker": "Carlos",
-          "spanish": "Si, con gusto.",
-          "english": "Yes, gladly."
-        }
-      ]
-    },
-    {
-      "title": "Passport check",
-      "lines": [
-        {
-          "speaker": "Carlos",
-          "spanish": "Tiene su pasaporte?",
-          "english": "Do you have your passport?"
-        },
-        {
-          "speaker": "Learner",
-          "spanish": "Si, aqui esta.",
-          "english": "Yes, here it is."
-        }
-      ]
-    },
-    {
-      "title": "Hotel arrival",
-      "lines": [
-        {
-          "speaker": "Learner",
-          "spanish": "Tengo una reserva.",
-          "english": "I have a reservation."
-        },
-        {
-          "speaker": "Carlos",
-          "spanish": "Perfecto. Su nombre, por favor.",
-          "english": "Perfect. Your name, please."
-        }
-      ]
-    },
-    {
-      "title": "Taxi phrase",
-      "lines": [
-        {
-          "speaker": "Learner",
-          "spanish": "Quisiera un taxi al hotel.",
-          "english": "I would like a taxi to the hotel."
-        },
-        {
-          "speaker": "Carlos",
-          "spanish": "Claro, un taxi al hotel.",
-          "english": "Of course, a taxi to the hotel."
-        }
-      ]
-    },
-    {
-      "title": "Travel problem",
-      "lines": [
-        {
-          "speaker": "Carlos",
-          "spanish": "Esta perdido?",
-          "english": "Are you lost?"
-        },
-        {
-          "speaker": "Learner",
-          "spanish": "Si, necesito ayuda.",
-          "english": "Yes, I need help."
-        }
-      ]
-    },
-    {
-      "title": "Simple travel plan",
-      "lines": [
-        {
-          "speaker": "Learner",
-          "spanish": "Voy al hotel y despues al restaurante.",
-          "english": "I am going to the hotel and then to the restaurant."
-        },
-        {
-          "speaker": "Carlos",
-          "spanish": "Muy bien. Buen viaje.",
-          "english": "Very good. Have a good trip."
-        }
-      ]
-    }
-  ],
-  "listening": {
-    "phrases": [
-      {
-        "spanish": "viajar",
-        "english": "to travel"
-      },
-      {
-        "spanish": "el viaje",
-        "english": "trip"
-      },
-      {
-        "spanish": "el hotel",
-        "english": "hotel"
-      },
-      {
-        "spanish": "la reserva",
-        "english": "reservation"
-      },
-      {
-        "spanish": "el taxi",
-        "english": "taxi"
-      },
-      {
-        "spanish": "el autob?s",
-        "english": "bus"
-      },
-      {
-        "spanish": "el tren",
-        "english": "train"
-      },
-      {
-        "spanish": "el aeropuerto",
-        "english": "airport"
-      },
-      {
-        "spanish": "la estaci?n",
-        "english": "station"
-      },
-      {
-        "spanish": "la maleta",
-        "english": "suitcase"
-      }
-    ]
-  },
-  "listeningPhrases": [
-    {
-      "spanish": "viajar",
-      "english": "to travel"
-    },
-    {
-      "spanish": "el viaje",
-      "english": "trip"
-    },
-    {
-      "spanish": "el hotel",
-      "english": "hotel"
-    },
-    {
-      "spanish": "la reserva",
-      "english": "reservation"
-    },
-    {
-      "spanish": "el taxi",
-      "english": "taxi"
-    },
-    {
-      "spanish": "el autob?s",
-      "english": "bus"
-    },
-    {
-      "spanish": "el tren",
-      "english": "train"
-    },
-    {
-      "spanish": "el aeropuerto",
-      "english": "airport"
-    },
-    {
-      "spanish": "la estaci?n",
-      "english": "station"
-    },
-    {
-      "spanish": "la maleta",
-      "english": "suitcase"
-    }
-  ],
-  "pronunciation": {
-    "focus": "Clear vowels, word stress, and confident phrase rhythm.",
-    "items": [
-      {
-        "text": "viajar",
-        "note": "Say each vowel clearly and keep the rhythm natural."
-      },
-      {
-        "text": "el viaje",
-        "note": "Say each vowel clearly and keep the rhythm natural."
-      },
-      {
-        "text": "el hotel",
-        "note": "Say each vowel clearly and keep the rhythm natural."
-      },
-      {
-        "text": "la reserva",
-        "note": "Say each vowel clearly and keep the rhythm natural."
-      },
-      {
-        "text": "el taxi",
-        "note": "Say each vowel clearly and keep the rhythm natural."
-      },
-      {
-        "text": "el autob?s",
-        "note": "Say each vowel clearly and keep the rhythm natural."
-      },
-      {
-        "text": "el tren",
-        "note": "Say each vowel clearly and keep the rhythm natural."
-      },
-      {
-        "text": "el aeropuerto",
-        "note": "Say each vowel clearly and keep the rhythm natural."
-      },
-      {
-        "text": "la estaci?n",
-        "note": "Say each vowel clearly and keep the rhythm natural."
-      },
-      {
-        "text": "la maleta",
-        "note": "Say each vowel clearly and keep the rhythm natural."
-      }
-    ]
-  },
-  "pronunciationExercises": [
-    {
-      "text": "viajar",
-      "note": "Repeat after Carlos, then say it in a short phrase."
-    },
-    {
-      "text": "el viaje",
-      "note": "Repeat after Carlos, then say it in a short phrase."
-    },
-    {
-      "text": "el hotel",
-      "note": "Repeat after Carlos, then say it in a short phrase."
-    },
-    {
-      "text": "la reserva",
-      "note": "Repeat after Carlos, then say it in a short phrase."
-    },
-    {
-      "text": "el taxi",
-      "note": "Repeat after Carlos, then say it in a short phrase."
-    },
-    {
-      "text": "el autob?s",
-      "note": "Repeat after Carlos, then say it in a short phrase."
-    },
-    {
-      "text": "el tren",
-      "note": "Repeat after Carlos, then say it in a short phrase."
-    },
-    {
-      "text": "el aeropuerto",
-      "note": "Repeat after Carlos, then say it in a short phrase."
-    },
-    {
-      "text": "la estaci?n",
-      "note": "Repeat after Carlos, then say it in a short phrase."
-    },
-    {
-      "text": "la maleta",
-      "note": "Repeat after Carlos, then say it in a short phrase."
-    }
-  ],
-  "culture": {
-    "title": "Travel Basics in Real Life",
-    "text": "In travel situations, short polite phrases are better than perfect grammar. Start with disculpe to get attention politely."
-  },
-  "cultureNotes": [
-    "In travel situations, short polite phrases are better than perfect grammar. Start with disculpe to get attention politely."
-  ],
-  "nativeSpeech": {
-    "title": "How Carlos would say it naturally",
+    "topic": "Locating one place with está",
+    "meaning": "Ask where one place is and say where it is located.",
+    "explanation": "Use ¿Dónde está + place? to ask for one location. Answer with está plus a simple location phrase: está aquí, está cerca, está a la derecha. Today, está is the productive tool. You may hear hay una plaza to say that a plaza exists; Lesson 8 will compare hay and está directly.",
     "notes": [
-      "??Me puede ayudar?? is a natural help phrase.",
-      "?Todo recto? means straight ahead in many direction conversations."
+      { "title": "Ask", "text": "¿Dónde está Plaza Mayor?" },
+      { "title": "Locate", "text": "Está cerca. Está a la derecha." },
+      { "title": "Use a landmark", "text": "Está al lado de la farmacia." },
+      { "title": "Preview only", "text": "Hay una plaza cerca means there is a plaza nearby. Recognize it today; do not replace the está pattern yet." }
+    ],
+    "examples": [
+      { "spanish": "¿Dónde está Plaza Mayor?", "english": "Where is Plaza Mayor?" },
+      { "spanish": "Está todo recto.", "english": "It is straight ahead." },
+      { "spanish": "La fuente está a la izquierda.", "english": "The fountain is on the left." },
+      { "spanish": "La plaza está al lado de la panadería.", "english": "The plaza is beside the bakery." }
+    ],
+    "practicePrompt": "Choose one nearby place and ask where it is, then answer with está."
+  },
+  "dialogue": {
+    "title": "Finding Plaza Mayor",
+    "setting": "Outside the café, Carlos lets the learner stop a local resident and follow the route.",
+    "lines": [
+      { "speaker": "Carlos", "spanish": "La plaza está cerca, pero hoy tú guías.", "english": "The plaza is nearby, but today you lead." },
+      { "speaker": "Learner", "spanish": "Perdón, ¿dónde está Plaza Mayor?", "english": "Excuse me, where is Plaza Mayor?" },
+      { "speaker": "Vecina", "spanish": "Está cerca. Sigue todo recto.", "english": "It’s nearby. Continue straight ahead." },
+      { "speaker": "Learner", "spanish": "Todo recto. Perfecto.", "english": "Straight ahead. Perfect." },
+      { "speaker": "Vecina", "spanish": "Después, gira a la derecha en la panadería.", "english": "Then turn right at the bakery." },
+      { "speaker": "Learner", "spanish": "A la derecha en la panadería.", "english": "Right at the bakery." },
+      { "speaker": "Vecina", "spanish": "Cruza la calle. La plaza está a la izquierda.", "english": "Cross the street. The plaza is on the left." },
+      { "speaker": "Learner", "spanish": "Gracias por la ayuda.", "english": "Thank you for the help." },
+      { "speaker": "Vecina", "spanish": "De nada. ¡Buen paseo!", "english": "You’re welcome. Enjoy your walk!" },
+      { "speaker": "Carlos", "spanish": "¿Y ahora? ¿Dónde está la plaza?", "english": "And now? Where is the plaza?" },
+      { "speaker": "Learner", "spanish": "Está allí, a la izquierda.", "english": "It’s there, on the left." },
+      { "speaker": "Carlos", "spanish": "¡Exacto! Has encontrado Plaza Mayor.", "english": "Exactly! You found Plaza Mayor." }
+    ],
+    "comprehension": [
+      { "prompt": "What is the first direction?", "options": ["Go straight", "Turn left", "Cross the street"], "answer": "Go straight" },
+      { "prompt": "Where does the learner turn right?", "options": ["At the bakery", "At the fountain", "At the café"], "answer": "At the bakery" },
+      { "prompt": "Where is the plaza at the end?", "options": ["On the left", "On the right", "Behind the market"], "answer": "On the left" }
     ]
   },
-  "commonMistakes": [
+  "listening": {
+    "title": "Three cues through the city",
+    "instructions": "Listen to the complete route at natural speed. Replay it slowly, then identify the three cues in order.",
+    "playbackSpeeds": ["natural", "slow"],
+    "naturalScript": "Está cerca. Sigue todo recto. Después, gira a la derecha en la panadería. Cruza la calle. La plaza está a la izquierda.",
+    "slowScript": "Está cerca. / Sigue todo recto. / Después, / gira a la derecha / en la panadería. / Cruza la calle. / La plaza está / a la izquierda.",
+    "items": [
+      { "spanish": "Sigue todo recto.", "options": ["Continue straight ahead.", "Turn right.", "Cross the street."], "answer": "Continue straight ahead." },
+      { "spanish": "Gira a la derecha en la panadería.", "options": ["Turn right at the bakery.", "Turn left at the pharmacy.", "Stop beside the café."], "answer": "Turn right at the bakery." },
+      { "spanish": "Cruza la calle.", "options": ["Cross the street.", "Follow the street.", "Find the corner."], "answer": "Cross the street." },
+      { "spanish": "La plaza está a la izquierda.", "options": ["The plaza is on the left.", "The plaza is on the right.", "The plaza is far away."], "answer": "The plaza is on the left." },
+      { "spanish": "Está al lado de la fuente.", "options": ["It is beside the fountain.", "It is opposite the bakery.", "It is behind the station."], "answer": "It is beside the fountain." }
+    ]
+  },
+  "pronunciation": {
+    "focus": "Direction words that must sound different",
+    "tips": [
+      "Stress quier in izquierda: ees-KYEHR-da.",
+      "Keep derecha clear and even: de-RE-cha.",
+      "The written accent in dónde marks the question sound.",
+      "Pause after Perdón before asking the question."
+    ],
+    "items": [
+      { "text": "¿Dónde está...?", "meaning": "Where is...?", "note": "Let the question rise naturally." },
+      { "text": "Todo recto.", "meaning": "Straight ahead.", "note": "Keep both o vowels short and clear." },
+      { "text": "A la derecha.", "meaning": "To the right.", "note": "Stress re in derecha." },
+      { "text": "A la izquierda.", "meaning": "To the left.", "note": "Keep the z soft in Spain or s-like elsewhere; both are correct." },
+      { "text": "Está al lado de...", "meaning": "It is beside...", "note": "Connect al lado smoothly." },
+      { "text": "Gracias por la ayuda.", "meaning": "Thank you for the help.", "note": "Finish with a warm, relaxed rhythm." }
+    ]
+  },
+  "speaking": {
+    "instructions": "Repeat the route cues, recall them without support, then locate a real place near you.",
+    "items": [
+      { "stage": "repeat", "prompt": "Repeat the direction question.", "text": "Perdón, ¿dónde está Plaza Mayor?", "meaning": "Excuse me, where is Plaza Mayor?", "focus": "Pause after Perdón." },
+      { "stage": "repeat", "prompt": "Repeat the first two route cues.", "text": "Todo recto. Después, a la derecha.", "meaning": "Straight ahead. Then, to the right.", "focus": "Keep the two directions distinct." },
+      { "stage": "recall", "prompt": "The local points left. Say where the plaza is.", "text": "La plaza está a la izquierda.", "meaning": "The plaza is on the left.", "focus": "Use está for the singular place." },
+      { "stage": "recall", "prompt": "Use the bakery as a landmark.", "text": "Está al lado de la panadería.", "meaning": "It is beside the bakery.", "focus": "Keep al lado de as one location chunk." },
+      { "stage": "personalize", "prompt": "Ask where one real place near you is, then answer with aquí, allí, cerca, or a side.", "text": "¿Dónde está la farmacia? Está allí, a la derecha.", "meaning": "Where is the pharmacy? It is there, on the right.", "focus": "Replace farmacia with a place true for you." }
+    ]
+  },
+  "flashcards": [
     {
-      "mistake": "Using es for location",
-      "correction": "El hotel est? cerca.",
-      "explanation": "Use estar for location."
-    },
-    {
-      "mistake": "Dropping disculpe",
-      "correction": "Disculpe, ?d?nde est? el ba?o?",
-      "explanation": "A polite opener helps."
-    },
-    {
-      "mistake": "Confusing salida",
-      "correction": "Salida can mean exit or departure.",
-      "explanation": "Context matters in stations and airports."
+      "selectionRule": "Only Tier 1 landmarks, location chunks, and route cues required by the mission appear.",
+      "items": [
+        "la plaza",
+        "la calle",
+        "la esquina",
+        "el semáforo",
+        "la fuente",
+        "la farmacia",
+        "la panadería",
+        "¿Dónde está...?",
+        "Está aquí.",
+        "Está allí.",
+        "Está cerca.",
+        "Todo recto.",
+        "A la derecha.",
+        "A la izquierda.",
+        "al lado de",
+        "Gracias por la ayuda."
+      ]
     }
   ],
   "quiz": [
-    {
-      "type": "multipleChoice",
-      "prompt": "What does ?viajar? mean?",
-      "options": [
-        "to travel",
-        "trip",
-        "hotel",
-        "reservation"
-      ],
-      "answer": "to travel"
-    },
-    {
-      "type": "multipleChoice",
-      "prompt": "What does ?el viaje? mean?",
-      "options": [
-        "to travel",
-        "trip",
-        "hotel",
-        "reservation"
-      ],
-      "answer": "trip"
-    },
-    {
-      "type": "multipleChoice",
-      "prompt": "What does ?el hotel? mean?",
-      "options": [
-        "to travel",
-        "trip",
-        "hotel",
-        "reservation"
-      ],
-      "answer": "hotel"
-    },
-    {
-      "type": "multipleChoice",
-      "prompt": "What does ?la reserva? mean?",
-      "options": [
-        "to travel",
-        "trip",
-        "hotel",
-        "reservation"
-      ],
-      "answer": "reservation"
-    },
-    {
-      "type": "multipleChoice",
-      "prompt": "What does ?el taxi? mean?",
-      "options": [
-        "taxi",
-        "to travel",
-        "trip",
-        "hotel"
-      ],
-      "answer": "taxi"
-    },
-    {
-      "type": "multipleChoice",
-      "prompt": "What does ?el autob?s? mean?",
-      "options": [
-        "to travel",
-        "bus",
-        "trip",
-        "hotel"
-      ],
-      "answer": "bus"
-    },
-    {
-      "type": "multipleChoice",
-      "prompt": "What does ?el tren? mean?",
-      "options": [
-        "to travel",
-        "trip",
-        "train",
-        "hotel"
-      ],
-      "answer": "train"
-    },
-    {
-      "type": "multipleChoice",
-      "prompt": "What does ?el aeropuerto? mean?",
-      "options": [
-        "to travel",
-        "trip",
-        "hotel",
-        "airport"
-      ],
-      "answer": "airport"
-    },
-    {
-      "type": "multipleChoice",
-      "prompt": "What does ?la estaci?n? mean?",
-      "options": [
-        "station",
-        "to travel",
-        "trip",
-        "hotel"
-      ],
-      "answer": "station"
-    },
-    {
-      "type": "multipleChoice",
-      "prompt": "What does ?la maleta? mean?",
-      "options": [
-        "to travel",
-        "suitcase",
-        "trip",
-        "hotel"
-      ],
-      "answer": "suitcase"
-    },
-    {
-      "type": "multipleChoice",
-      "prompt": "What does ?el pasaporte? mean?",
-      "options": [
-        "to travel",
-        "trip",
-        "passport",
-        "hotel"
-      ],
-      "answer": "passport"
-    },
-    {
-      "type": "multipleChoice",
-      "prompt": "What does ?el boleto? mean?",
-      "options": [
-        "to travel",
-        "trip",
-        "hotel",
-        "ticket"
-      ],
-      "answer": "ticket"
-    },
-    {
-      "type": "multipleChoice",
-      "prompt": "What does ?la puerta? mean?",
-      "options": [
-        "gate / door",
-        "to travel",
-        "trip",
-        "hotel"
-      ],
-      "answer": "gate / door"
-    },
-    {
-      "type": "multipleChoice",
-      "prompt": "What does ?la salida? mean?",
-      "options": [
-        "to travel",
-        "exit / departure",
-        "trip",
-        "hotel"
-      ],
-      "answer": "exit / departure"
-    },
-    {
-      "type": "multipleChoice",
-      "prompt": "What does ?la llegada? mean?",
-      "options": [
-        "to travel",
-        "trip",
-        "arrival",
-        "hotel"
-      ],
-      "answer": "arrival"
-    }
+    { "type": "multipleChoice", "difficulty": "easy", "prompt": "What does ¿Dónde está...? ask?", "options": ["Where is...?", "What time is...?", "How much is...?", "Who is...?"], "answer": "Where is...?", "explanation": "Use ¿Dónde está...? to ask for one place or thing." },
+    { "type": "multipleChoice", "difficulty": "easy", "prompt": "Which phrase means straight ahead?", "options": ["Todo recto.", "A la derecha.", "A la izquierda.", "Está lejos."], "answer": "Todo recto.", "explanation": "Todo recto is the fixed direction cue for straight ahead." },
+    { "type": "multipleChoice", "difficulty": "easy", "prompt": "Which direction is a la derecha?", "options": ["right", "left", "straight", "behind"], "answer": "right", "explanation": "Derecha means right." },
+    { "type": "multipleChoice", "difficulty": "easy", "prompt": "What is la esquina?", "options": ["corner", "square", "fountain", "traffic light"], "answer": "corner", "explanation": "La esquina means the corner of a street." },
+    { "type": "multipleChoice", "difficulty": "easy", "prompt": "Which landmark has a green cross in Spain?", "options": ["la farmacia", "la panadería", "la fuente", "la estación"], "answer": "la farmacia", "explanation": "Spanish pharmacies are commonly marked with a green cross." },
+    { "type": "fillBlank", "difficulty": "medium", "prompt": "Complete: ¿Dónde _____ Plaza Mayor?", "options": ["está", "soy", "tengo", "prefiero"], "answer": "está", "explanation": "Use está to ask where one place is located." },
+    { "type": "fillBlank", "difficulty": "medium", "prompt": "Complete: La fuente está a la _____.", "options": ["izquierda", "recto", "cerca", "calle"], "answer": "izquierda", "explanation": "A la izquierda means on or to the left." },
+    { "type": "multipleChoice", "difficulty": "medium", "prompt": "The local says Sigue todo recto. What should you do?", "options": ["Keep going straight.", "Turn around.", "Enter the café.", "Ask for the bill."], "answer": "Keep going straight.", "explanation": "Sigue todo recto tells you to continue straight ahead." },
+    { "type": "multipleChoice", "difficulty": "medium", "prompt": "Which phrase locates the plaza beside the bakery?", "options": ["La plaza está al lado de la panadería.", "La plaza soy la panadería.", "La plaza está a las diez.", "La plaza prefiere pan."], "answer": "La plaza está al lado de la panadería.", "explanation": "Está plus al lado de correctly locates one place beside a landmark." },
+    { "type": "multipleChoice", "difficulty": "medium", "prompt": "You stop a stranger for help. Which opener is most natural?", "options": ["Perdón, ¿dónde está la plaza?", "Quisiera la plaza sin azúcar.", "Soy una plaza.", "La cuenta, por favor."], "answer": "Perdón, ¿dónde está la plaza?", "explanation": "Perdón politely gets attention before the location question." },
+    { "type": "translation", "difficulty": "medium", "prompt": "Translate: Está allí, a la derecha.", "options": ["It is there, on the right.", "It is here, on the left.", "Go straight at the corner.", "The plaza is far away."], "answer": "It is there, on the right.", "explanation": "Allí means there and a la derecha means on the right." },
+    { "type": "multipleChoice", "difficulty": "medium", "prompt": "The local has finished explaining. What should you say?", "options": ["Gracias por la ayuda.", "Prefiero café.", "Estoy ocupado.", "Mi hermana vive aquí."], "answer": "Gracias por la ayuda.", "explanation": "This thanks the person specifically for helping with the route." },
+    { "type": "multipleChoice", "difficulty": "hard", "prompt": "Follow the route: todo recto → derecha at the bakery → cross the street. What comes second?", "options": ["Turn right at the bakery.", "Cross the street.", "Go straight.", "Turn left at the fountain."], "answer": "Turn right at the bakery.", "explanation": "The bakery turn is the second cue, after going straight." },
+    { "type": "multipleChoice", "difficulty": "hard", "prompt": "Choose the complete natural exchange.", "options": ["Perdón, ¿dónde está Plaza Mayor? — Todo recto y a la derecha. — Gracias por la ayuda.", "Plaza. Derecha. Café.", "Quisiera una plaza con leche.", "Estoy Plaza Mayor a las diez."], "answer": "Perdón, ¿dónde está Plaza Mayor? — Todo recto y a la derecha. — Gracias por la ayuda.", "explanation": "It includes a polite opener, a clear location question, useful directions, and thanks." },
+    { "type": "multipleChoice", "difficulty": "hard", "prompt": "Which sentence uses está correctly?", "options": ["La farmacia está enfrente de la fuente.", "La farmacia está una fuente.", "La farmacia soy aquí.", "La farmacia quisiera derecha."], "answer": "La farmacia está enfrente de la fuente.", "explanation": "Está plus enfrente de locates the singular pharmacy across from the fountain." },
+    { "type": "multipleChoice", "difficulty": "hard", "prompt": "You hear Hay una plaza cerca. What should you understand today?", "options": ["There is a plaza nearby.", "The plaza is on the right.", "I prefer the nearby plaza.", "Turn at the plaza."], "answer": "There is a plaza nearby.", "explanation": "Hay previews existence. Today you only need to recognize it; Lesson 8 will compare hay and está." },
+    { "type": "multipleChoice", "difficulty": "hard", "prompt": "Carlos asks ¿Dónde está la plaza? You can see it across from the fountain. Answer naturally.", "options": ["Está enfrente de la fuente.", "Hay fuente está plaza.", "Todo recto por favor café.", "La plaza es mi hermana."], "answer": "Está enfrente de la fuente.", "explanation": "Está plus enfrente de precisely identifies the plaza’s location." },
+    { "type": "multipleChoice", "difficulty": "practical usage", "prompt": "Carlos stops helping. Which response completes the mission independently?", "options": ["Perdón, ¿dónde está Plaza Mayor? Todo recto, derecha, cruzo la calle... Está allí, a la izquierda. Gracias por la ayuda.", "Carlos, dime todo en inglés.", "Quisiera una plaza y una tostada.", "Mi familia está libre el sábado."], "answer": "Perdón, ¿dónde está Plaza Mayor? Todo recto, derecha, cruzo la calle... Está allí, a la izquierda. Gracias por la ayuda.", "explanation": "The learner asks, tracks all three cues, identifies the destination, and closes politely." }
   ],
-  "speakingChallenge": [
-    {
-      "prompt": "Use ?viajar? in a sentence with Carlos.",
-      "exampleAnswer": "Viajar, por favor."
-    },
-    {
-      "prompt": "Use ?el viaje? in a sentence with Carlos.",
-      "exampleAnswer": "El viaje, por favor."
-    },
-    {
-      "prompt": "Use ?el hotel? in a sentence with Carlos.",
-      "exampleAnswer": "El hotel, por favor."
-    },
-    {
-      "prompt": "Use ?la reserva? in a sentence with Carlos.",
-      "exampleAnswer": "La reserva, por favor."
-    },
-    {
-      "prompt": "Use ?el taxi? in a sentence with Carlos.",
-      "exampleAnswer": "El taxi, por favor."
-    }
-  ],
-  "speakingChallenges": [
-    {
-      "prompt": "Tell Carlos one real thing using ?viajar?.",
-      "exampleAnswer": "Carlos, practico viajar."
-    },
-    {
-      "prompt": "Tell Carlos one real thing using ?el viaje?.",
-      "exampleAnswer": "Carlos, practico el viaje."
-    },
-    {
-      "prompt": "Tell Carlos one real thing using ?el hotel?.",
-      "exampleAnswer": "Carlos, practico el hotel."
-    },
-    {
-      "prompt": "Tell Carlos one real thing using ?la reserva?.",
-      "exampleAnswer": "Carlos, practico la reserva."
-    },
-    {
-      "prompt": "Tell Carlos one real thing using ?el taxi?.",
-      "exampleAnswer": "Carlos, practico el taxi."
-    }
-  ],
-  "realLifeMission": {
-    "title": "Real Life Mission",
-    "mission": "Ask Carlos for a taxi, say where your hotel is, and ask where the bathroom is.",
-    "successCriteria": [
-      "Use at least three lesson vocabulary items.",
-      "Use the main grammar pattern.",
-      "Answer one follow-up question from Carlos."
-    ],
-    "suggestedPartner": "Carlos",
-    "xpReward": 70
-  },
-  "review": {
-    "summary": "You practiced travel basics for everyday Spanish.",
-    "canDo": [
-      "Recognize key vocabulary.",
-      "Answer Carlos with simple complete sentences.",
-      "Use the Real Life Mission in a practical situation."
-    ],
-    "selfCheck": [
-      "Can I use the main lesson phrases in a complete sentence?",
-      "Can I answer Carlos with a short natural response?",
-      "Can I use one polite phrase from earlier lessons?",
-      "Can I complete the real life mission without reading every word?"
+  "miniConversation": {
+    "title": "Find the plaza without Carlos",
+    "setting": "Carlos stays silent while the learner asks a local resident for the complete route.",
+    "goal": "Ask for Plaza Mayor, confirm three direction cues, identify it, and thank the local.",
+    "turns": [
+      { "speaker": "Learner", "spanish": "Perdón, ¿dónde está Plaza Mayor?", "english": "Excuse me, where is Plaza Mayor?" },
+      { "speaker": "Vecina", "spanish": "Sigue todo recto.", "english": "Continue straight ahead." },
+      { "speaker": "Learner", "spanish": "Todo recto.", "english": "Straight ahead." },
+      { "speaker": "Vecina", "spanish": "Gira a la derecha en la panadería.", "english": "Turn right at the bakery." },
+      { "speaker": "Learner", "spanish": "A la derecha en la panadería.", "english": "Right at the bakery." },
+      { "speaker": "Vecina", "spanish": "Cruza la calle. Está a la izquierda.", "english": "Cross the street. It is on the left." },
+      { "speaker": "Learner", "spanish": "Está allí. Gracias por la ayuda.", "english": "It is there. Thank you for the help." },
+      { "speaker": "Carlos", "spanish": "¡Muy bien! Esta vez yo no te he dado las direcciones.", "english": "Very good! This time I didn’t give you the directions." }
     ]
   },
-  "imagePath": "assets/images/lessons/lesson-07-travel-basics.png",
-  "achievementsUnlocked": [],
+  "culture": {
+    "title": "Finding your way in central Madrid",
+    "text": "Madrid’s historic center has short streets, irregular corners, and many recognizable landmarks. People often give directions using a bakery, pharmacy, plaza, or traffic light rather than a street number. Begin with perdón, listen for the landmark and direction, repeat the key cue to confirm it, and finish with gracias."
+  },
+  "worldBuilding": [
+    { "moment": "leaving the café", "carlosSpanish": "Estas calles son antiguas. A veces un edificio es mejor referencia que el nombre de la calle.", "carlosEnglish": "These streets are old. Sometimes a building is a better reference than the street name." },
+    { "moment": "street musician", "carlosSpanish": "Ese músico toca aquí muchos sábados. La gente del barrio ya lo conoce.", "carlosEnglish": "That musician plays here many Saturdays. People in the neighborhood already know him." },
+    { "moment": "arrival", "carlosSpanish": "Plaza Mayor siempre está llena de historias y de gente.", "carlosEnglish": "Plaza Mayor is always full of stories and people." }
+  ],
+  "livingWorldInteractions": [
+    {
+      "id": "tiled-street-sign",
+      "title": "The tiled street sign",
+      "prompt": "A blue-and-white ceramic sign is set into the corner wall. Look closer before turning.",
+      "carlosSpanish": "Muchas calles antiguas de Madrid tienen placas de cerámica con dibujos de su historia.",
+      "carlosEnglish": "Many old Madrid streets have ceramic signs with pictures from their history.",
+      "memoryWrites": [
+        { "key": "story.madridDiscoveries.tiledStreetSign", "value": true }
+      ]
+    }
+  ],
+  "nativeSpeech": [
+    { "phrase": "Sigue por aquí.", "meaning": "Continue this way.", "note": "A local may point while saying it; the gesture carries part of the meaning." },
+    { "phrase": "Está a dos minutos.", "meaning": "It’s two minutes away.", "note": "A common way to describe a short walking distance without giving exact meters." },
+    { "phrase": "No tiene pérdida.", "meaning": "You can’t miss it.", "note": "Useful to recognize, but not required for the mission." }
+  ],
+  "commonMistakes": [
+    { "mistake": "¿Dónde es la plaza?", "better": "¿Dónde está la plaza?", "why": "Use está for the location of a place." },
+    { "mistake": "a derecha", "better": "a la derecha", "why": "Keep a la derecha as one complete direction chunk." },
+    { "mistake": "Está al lado la farmacia.", "better": "Está al lado de la farmacia.", "why": "Al lado de needs de before the landmark." },
+    { "mistake": "Mixing izquierda and derecha", "better": "Connect each word to the matching hand while practicing.", "why": "A physical cue makes these similar-looking direction words easier to retrieve." }
+  ],
+  "realLifeMission": {
+    "title": "Carlos Challenge: Find Plaza Mayor",
+    "mission": "Carlos stops giving directions. Ask a local where Plaza Mayor is, understand and confirm three route cues, identify the destination, and thank the person who helped.",
+    "successCriteria": [
+      "Open politely with perdón.",
+      "Ask ¿Dónde está Plaza Mayor?",
+      "Understand todo recto.",
+      "Distinguish right from left.",
+      "Use one landmark to confirm the route.",
+      "Identify the plaza with está.",
+      "Thank the local before leaving."
+    ],
+    "completionResponse": "¡Lo encontraste! I stayed quiet, and you used Spanish to move through Madrid independently.",
+    "correctionRule": "Celebrate reaching the plaza first. Correct only one direction or location error that would have changed the route.",
+    "suggestedPartner": "Carlos",
+    "xpReward": 14,
+    "handoff": "Empieza a llover. Estamos cerca de mi apartamento. ¿Quieres verlo?"
+  },
+  "review": {
+    "modes": ["quiz", "flashcards", "pronunciation", "conversation"],
+    "canDo": [
+      "I can ask where one place is.",
+      "I can understand right, left, and straight ahead.",
+      "I can locate a place with está.",
+      "I can follow a short route without Carlos translating it."
+    ],
+    "selfCheck": [
+      "Can I ask the location question without reading it?",
+      "Can I physically respond to each direction cue?",
+      "Can I repeat a landmark to confirm what I heard?",
+      "Can I identify the destination in Spanish?"
+    ]
+  },
+  "passportStamp": {
+    "id": "madrid-navigator",
+    "title": "Madrid Navigator",
+    "city": "Madrid",
+    "description": "You asked for directions and found Plaza Mayor without Carlos leading the way.",
+    "unlockCondition": "Complete the Carlos Challenge for Lesson 7."
+  },
+  "achievement": {
+    "id": "found_the_way",
+    "title": "Found the Way",
+    "description": "Follow three Spanish direction cues and identify the destination independently.",
+    "unlockCondition": "Complete Lesson 7."
+  },
+  "achievementsUnlocked": ["found_the_way"],
   "xpReward": 70,
   "nextLesson": "lesson-08-vacation"
 }

@@ -6,10 +6,10 @@ export function renderHome(state) {
   const mission = getTodaysMission();
   const currentLesson = getCurrentLesson();
   const courseProgress = getCourseProgress();
-  const stats = getHomeStats(state, courseProgress);
+  const stats = getHomeStats(state);
 
   return `
-    ${renderHomeHeader(state)}
+    ${renderHomeHeader()}
     <section class="home-carlos-dashboard" aria-label="Carlos practice dashboard">
       ${renderCarlosHero(state, currentLesson, mission, courseProgress)}
       ${renderPracticeCategories()}
@@ -20,7 +20,7 @@ export function renderHome(state) {
   `;
 }
 
-function renderHomeHeader(state) {
+function renderHomeHeader() {
   return `
     <section class="home-topbar h-section">
       <div class="home-header-main">
@@ -30,7 +30,6 @@ function renderHomeHeader(state) {
             <p>Speak Spanish. Live Confidently.</p>
           </div>
         </button>
-        <button class="home-level-pill" type="button">${state.user.level || "A1 Beginner"} <span aria-hidden="true">&#8964;</span></button>
       </div>
     </section>
   `;
@@ -107,8 +106,8 @@ function renderPracticeCategories() {
 function renderTopicSvg(iconClass) {
   const icons = {
     "cat-greetings": `<svg viewBox="0 0 48 48"><path d="M8 23c0-8 7-14 16-14s16 6 16 14-7 14-16 14c-2.5 0-5-.5-7-1.5L9 40l2.2-8C9.2 29.5 8 26.4 8 23Z"/><circle cx="18" cy="23" r="2.3"/><circle cx="24" cy="23" r="2.3"/><circle cx="30" cy="23" r="2.3"/></svg>`,
-    "cat-family": `<svg viewBox="0 0 48 48"><circle cx="16" cy="16" r="5.8"/><circle cx="31.5" cy="16.8" r="5.2"/><circle cx="24.2" cy="18.8" r="4.1"/><path d="M6.5 37c1.7-7.9 6.3-11.8 11.7-11.8S28.2 29 30 37M20.8 37c1.3-5.8 4.8-8.6 9.3-8.6 4.4 0 7.7 2.8 9 8.6M18.2 24.8c1.7-1.7 3.8-2.6 5.9-2.6s4.2.9 5.9 2.6"/></svg>`,
-    "cat-restaurants": `<svg viewBox="0 0 48 48"><path d="M12 7v11M17 7v11M9.5 7v10.2c0 4.3 12 4.3 12 0V7M15.5 18v22"/><path d="M35 7c-3.7 3.4-5.7 8.1-5.7 13.8h7.5V40"/><path d="M28.3 27.5h13.2"/><circle cx="28.5" cy="12" r="1.8" fill="currentColor" stroke="none"/></svg>`,
+    "cat-family": `<svg viewBox="0 0 48 48"><circle cx="18" cy="16" r="6"/><circle cx="33" cy="18" r="5"/><path d="M7 40c1-8.4 4.8-12.6 11-12.6S28 31.6 29 40M26 29c2-1.8 4.2-2.6 7-2.6 5.2 0 8.4 3.8 9.2 11.2"/></svg>`,
+    "cat-restaurants": `<svg viewBox="0 0 48 48"><path d="M10 7v11c0 4.1 2.2 6.2 6 6.2s6-2.1 6-6.2V7M14 7v11M18 7v11M16 24.2V41"/><path d="M36.5 7c-4.8 4.2-7.2 9.6-7.2 16.2h7.2V41M29.3 23.2h7.2V7"/></svg>`,
     "cat-travel": `<svg viewBox="0 0 48 48"><path d="M24 3c-2.4 0-4 2.2-4 5v11L6 29v5l14-4v9l-5 4v2l9-2 9 2v-2l-5-4v-9l14 4v-5L28 19V8c0-2.8-1.6-5-4-5Z"/></svg>`,
     "cat-shopping": `<svg viewBox="0 0 48 48"><path d="M13 17.5h22l2.7 23H10.3l2.7-23Z"/><path d="M18 17.5c0-5.3 12-5.3 12 0"/><path d="M18 24.5h12"/><path d="M16.5 20.2h15"/></svg>`,
     "cat-work": `<svg viewBox="0 0 48 48"><path d="M16 15v-5h16v5"/><rect x="8" y="15" width="32" height="25" rx="4"/><path d="M8 26h32M21 26h6"/></svg>`,
@@ -121,12 +120,12 @@ function renderTopicSvg(iconClass) {
 function renderCarlosProgress(stats) {
   return `
     <section class="carlos-progress-section">
-      <h2>Your Progress</h2>
+      <h2>Progress Highlights</h2>
       <div class="carlos-progress-strip">
-        ${renderProgressMetric("progress-chat", "Conversations Completed", stats.conversations)}
-        ${renderProgressMetric("progress-time", "Speaking Time", formatMinutes(stats.speakingMinutes))}
-        ${renderProgressMetric("progress-book", "Words Practiced", stats.words)}
-        ${renderProgressMetric("progress-star", "Pronunciation Score", `${stats.pronunciationScore}%`)}
+        ${renderProgressMetric("progress-chat", "Conversations", stats.conversations)}
+        ${renderProgressMetric("progress-book", "Words Learned", stats.wordsLearned)}
+        ${renderProgressMetric("progress-fire", "Current Streak", stats.streak)}
+        ${renderProgressMetric("progress-star", "Total XP", stats.xp)}
       </div>
     </section>
   `;
@@ -147,6 +146,7 @@ function renderProgressIcon(iconClass) {
     "progress-chat": `<svg viewBox="0 0 48 48"><path d="M8 22.5C8 14.5 15.2 8 24 8s16 6.5 16 14.5S32.8 37 24 37c-2.7 0-5.2-.6-7.4-1.6L9 40l2.2-8.2A13.7 13.7 0 0 1 8 22.5Z"/><circle cx="18" cy="23" r="1.5"/><circle cx="24" cy="23" r="1.5"/><circle cx="30" cy="23" r="1.5"/></svg>`,
     "progress-time": `<svg viewBox="0 0 48 48"><circle cx="24" cy="24" r="16"/><path d="M24 14v11l7 4"/></svg>`,
     "progress-book": `<svg viewBox="0 0 48 48"><path d="M7 11.5c6-1.5 11.7-.3 17 3.5v25c-5.3-3.8-11-5-17-3.5v-25Z"/><path d="M41 11.5c-6-1.5-11.7-.3-17 3.5v25c5.3-3.8 11-5 17-3.5v-25Z"/></svg>`,
+    "progress-fire": `<svg viewBox="0 0 48 48"><path d="M27 5c1.6 8-4.8 10-3 16.4 2-2.4 4.4-4 7.6-5 3 3.4 4.4 7.4 4.4 11.6a12 12 0 1 1-24 0c0-6.6 4-12.6 11.6-18.4-.4 5 1 7 3.4 8.6 1.6-4 1-8.4 0-13.2Z"/></svg>`,
     "progress-star": `<svg viewBox="0 0 48 48"><path d="m24 7 5.1 10.4 11.4 1.7-8.2 8 1.9 11.3L24 33l-10.2 5.4 1.9-11.3-8.2-8 11.4-1.7L24 7Z"/></svg>`
   };
   return icons[iconClass] || "";
@@ -183,7 +183,7 @@ function renderAskMicSvg() {
   return `<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="8.2" y="4.5" width="7.6" height="10.5" rx="3.8"/><path d="M5.7 11.4c0 3.5 2.8 6.3 6.3 6.3s6.3-2.8 6.3-6.3"/><path d="M12 17.7v3.1"/><path d="M8.8 20.8h6.4"/></svg>`;
 }
 
-function getHomeStats(state, courseProgress) {
+function getHomeStats(state) {
   const progress = readJson("habla_progress_v1") || {};
   const activity = readJson("habla_activity_stats_v1") || {};
   const vocab = state.vocabulary && Array.isArray(state.vocabulary.learned) ? state.vocabulary.learned.length : 0;
@@ -191,10 +191,8 @@ function getHomeStats(state, courseProgress) {
   return {
     streak: Number(progress.currentStreak || state.user?.streak || 0),
     xp: Number(progress.xp ?? state.user?.xp ?? 0),
-    conversations: Number(activity.carlosConversationsCount || courseProgress?.completedCount || 0),
-    speakingMinutes: Number(activity.speakingMinutes || 0),
-    words: Number(activity.vocabularyReviewedCount || vocab || 0),
-    pronunciationScore: Number(activity.pronunciationScore || 0)
+    conversations: Number(activity.carlosConversationsCount || 0),
+    wordsLearned: Number(vocab || activity.vocabularyReviewedCount || 0)
   };
 }
 
@@ -235,14 +233,6 @@ function getConversationPhrase(lesson) {
   if (challenge?.prompt) return challenge.prompt;
   if (lesson?.realLifeMission?.mission) return lesson.realLifeMission.mission;
   return "Un cafe, por favor.";
-}
-
-function formatMinutes(minutes) {
-  const total = Number(minutes || 0);
-  if (total < 60) return `${total}m`;
-  const hours = Math.floor(total / 60);
-  const mins = total % 60;
-  return mins ? `${hours}h ${mins}m` : `${hours}h`;
 }
 
 function getHomeHeroPeriod() {

@@ -5,6 +5,8 @@ import { renderCarlos } from "../ui/carlos.js";
 import { renderLearn } from "../ui/learn.js";
 import { renderPractice } from "../ui/practice.js";
 import { renderProfile } from "../ui/profile.js";
+import { renderJourney } from "../ui/journey.js";
+import { renderLesson } from "../ui/lesson.js";
 
 export function renderPage(page) {
 
@@ -28,12 +30,20 @@ export function renderPage(page) {
             dashboard.innerHTML = renderLearn(state);
             break;
 
+        case "lesson":
+            dashboard.innerHTML = renderLesson(state);
+            break;
+
         case "practice":
             dashboard.innerHTML = renderPractice(state);
             break;
 
         case "profile":
             dashboard.innerHTML = renderProfile(state);
+            break;
+
+        case "journey":
+            dashboard.innerHTML = renderJourney(state);
             break;
 
         default:

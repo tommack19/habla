@@ -5,6 +5,7 @@ export function renderCarlos(state) {
   const lesson = getCurrentLesson();
   const suggestedPrompts = getSuggestedPrompts(lesson);
   const heroAsset = getCarlosHeroAsset();
+  const composerPrompt = getCarlosComposerPrompt(lesson);
 
   return `
     <section class="carlos-screen" aria-label="Carlos Spanish tutor">
@@ -17,12 +18,14 @@ export function renderCarlos(state) {
               <button type="button" class="carlos-back" data-page="home" aria-label="Back to home"></button>
               <div class="carlos-title-lockup">
                 <h1>Carlos</h1>
-                <span><i></i><b id="status-label">Ready to practice</b></span>
+                <div class="carlos-profile-chips">
+                  <span class="online"><i></i><b id="status-label">Online</b></span>
+                </div>
+                <p>Your Spanish Tutor</p>
               </div>
-              <button class="carlos-level-pill" type="button">${escapeHtml(state.user.level || "A1 Beginner")} <span aria-hidden="true">&#8964;</span></button>
             </div>
           </header>
-          <button class="carlos-hero-more" type="button" data-carlos-menu aria-label="Carlos settings" aria-expanded="false" aria-controls="carlos-quick-menu"><span></span><span></span><span></span></button>
+          <button class="carlos-hero-more" type="button" data-carlos-menu aria-label="Carlos settings" aria-expanded="false" aria-controls="carlos-quick-menu">${renderCarlosMenuIcon("sliders")}</button>
           <div class="carlos-quick-menu" id="carlos-quick-menu" hidden>
             <button type="button" data-carlos-voice-toggle>${renderCarlosMenuIcon("voice")}<span>Voice replies</span><small id="carlos-voice-state">On</small></button>
             <button type="button" data-carlos-reset>${renderCarlosMenuIcon("reset")}<span>Reset conversation</span></button>
@@ -31,16 +34,17 @@ export function renderCarlos(state) {
         </section>
 
         <section class="carlos-conversation-thread" aria-label="Conversation with Carlos">
-          <div id="messages" aria-live="polite" aria-relevant="additions"></div>
+          ${renderCarlosMemoryStrip(state, lesson)}
           <div class="carlos-suggestions" id="carlos-suggestions" aria-label="Start a conversation">
             ${renderCarlosSuggestions(lesson)}
           </div>
+          <div id="messages" aria-live="polite" aria-relevant="additions"></div>
         </section>
 
         <section class="carlos-chat-action" id="input-area" aria-label="Chat with Carlos">
           <div id="input-row">
             <button class="carlos-more-btn" type="button" data-carlos-prompt="${escapeAttr(suggestedPrompts[0] || "Give me a useful Spanish phrase.")}" aria-label="More options"></button>
-            <input type="text" id="txt" placeholder="Ask Carlos anything in Spanish..." autocomplete="off" enterkeyhint="send" aria-label="Message Carlos">
+            <input type="text" id="txt" placeholder="${escapeAttr(composerPrompt)}" data-idle-placeholder="${escapeAttr(composerPrompt)}" autocomplete="off" enterkeyhint="send" aria-label="Message Carlos">
             <button class="ibtn" id="mic-btn" type="button" aria-label="Start listening">${renderCarlosControlIcon("mic")}</button>
             <button class="ibtn" id="snd-btn" type="button" aria-label="Send message">${renderCarlosControlIcon("composerAction")}</button>
           </div>
@@ -83,9 +87,10 @@ function renderCarlosControlIcon(name) {
 function renderCarlosSuggestions(lesson) {
   const lessonTitle = String(lesson?.title || "today's lesson").replace(/^[^:]+:\s*/, "");
   const suggestions = [
-    ["lesson", "Practice today’s lesson", `Let's practice ${lessonTitle}.`],
-    ["review", "Review recent lesson", "Help me review something I learned recently."],
-    ["chat", "Free conversation", "Let's have a simple A1 Spanish conversation."]
+    ["lesson", "Continue Lesson →", `Let's continue ${lessonTitle}.`],
+    ["conversation", "Let's Practice Speaking", "Let's practice greetings and introductions out loud."],
+    ["chat", "Just Chat", "Let's have a simple A1 Spanish conversation."],
+    ["grammar", "Explain This Grammar", "Please explain a useful Spanish grammar idea simply."]
   ];
   return suggestions.map(([icon, label, prompt]) => `
     <button type="button" data-carlos-send-prompt="${escapeAttr(prompt)}">
@@ -101,9 +106,51 @@ function renderCarlosMenuIcon(name) {
     settings: `<circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.9l.1.1-2.8 2.8-.1-.1a1.7 1.7 0 0 0-1.9-.3 1.7 1.7 0 0 0-1 1.6v.2h-4V21a1.7 1.7 0 0 0-1-1.6 1.7 1.7 0 0 0-1.9.3l-.1.1L4.2 17l.1-.1a1.7 1.7 0 0 0 .3-1.9A1.7 1.7 0 0 0 3 14H2.8v-4H3a1.7 1.7 0 0 0 1.6-1 1.7 1.7 0 0 0-.3-1.9L4.2 7 7 4.2l.1.1a1.7 1.7 0 0 0 1.9.3A1.7 1.7 0 0 0 10 3V2.8h4V3a1.7 1.7 0 0 0 1 1.6 1.7 1.7 0 0 0 1.9-.3l.1-.1L19.8 7l-.1.1a1.7 1.7 0 0 0-.3 1.9 1.7 1.7 0 0 0 1.6 1h.2v4H21a1.7 1.7 0 0 0-1.6 1Z"/>`,
     lesson: `<path d="M4 5.5A3.5 3.5 0 0 1 7.5 2H20v17H7.5A3.5 3.5 0 0 0 4 22V5.5Z"/><path d="M8 7h8M8 11h5"/>`,
     review: `<path d="M4 8V3m0 0h5M4.5 4.5A9 9 0 1 1 3 15"/><path d="m9 12 2 2 4-5"/>`,
-    chat: `<path d="M4 5h16v12H9l-5 4V5Z"/><path d="M8 10h.01M12 10h.01M16 10h.01"/>`
+    chat: `<path d="M4 5h16v12H9l-5 4V5Z"/><path d="M8 10h.01M12 10h.01M16 10h.01"/>`,
+    conversation: `<path d="M5 6.5h10v8H9l-4 3v-11Z"/><path d="M11 9.5h8v7l-3-2h-2"/>`,
+    grammar: `<path d="M5 3.5h14v17H5z"/><path d="M8 7h8M8 11h8M8 15h5"/>`,
+    fire: `<path d="M12.2 22c4.5 0 7.3-3.1 7.3-7.2 0-3.2-1.7-6.3-5.2-9.4.2 2.4-.7 4-2 5.2.1-3.4-1.8-6.4-5.1-8.6.3 3.8-2.7 6.5-2.7 10.9C4.5 18.1 7.8 22 12.2 22Z"/><path d="M9.2 17.4c0 2 1.3 3.4 3 3.4s3-1.3 3-3.2c0-1.5-.8-2.9-2.2-4.2 0 1.2-.4 2-1.1 2.6 0-1.5-.8-2.7-2.1-3.6.1 1.8-.6 3.1-.6 5Z"/>`,
+    location: `<path d="M12 21s6-5.2 6-11a6 6 0 1 0-12 0c0 5.8 6 11 6 11Z"/><circle cx="12" cy="10" r="2"/>`,
+    sliders: `<path d="M4 7h10M18 7h2M4 17h2M10 17h10"/><circle cx="16" cy="7" r="2"/><circle cx="8" cy="17" r="2"/>`,
+    memory: `<path d="M8 5.5A3.5 3.5 0 0 1 11.5 2H20v17h-8.5A3.5 3.5 0 0 0 8 22V5.5Z"/><path d="M8 6H4v13h4"/>`
   };
   return `<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">${paths[name] || ""}</svg>`;
+}
+
+function renderCarlosMemoryStrip(state, lesson) {
+  const progress = readJson("habla_progress_v1") || {};
+  const lessonNumber = Number(lesson?.lesson || lesson?.number || lesson?.id?.match?.(/\d+/)?.[0] || 1);
+  const lessonTitle = String(lesson?.title || "Today's lesson").replace(/^[^:]+:\s*/, "");
+  const streak = Number(progress.streak || progress.currentStreak || state.user?.streak || 0);
+  const streakCopy = streak > 1
+    ? `You&rsquo;ve studied ${streak} days in a row.`
+    : streak === 1
+      ? "You&rsquo;ve studied today&mdash;keep it going."
+      : "Today is a fresh start.";
+
+  return `
+    <aside class="carlos-memory-strip" aria-label="What Carlos remembers about your learning">
+      <strong>${renderCarlosMenuIcon("memory")}<span>Carlos remembers</span></strong>
+      <div class="carlos-memory-items">
+        <span class="carlos-memory-item">${renderCarlosMenuIcon("lesson")}<span><small>Lesson ${lessonNumber}</small><b>${escapeHtml(lessonTitle)}</b></span></span>
+        <span class="carlos-memory-item">${renderCarlosMenuIcon("fire")}<span><small>Learning rhythm</small><b>${streakCopy}</b></span></span>
+      </div>
+    </aside>
+  `;
+}
+
+function getCarlosComposerPrompt(lesson) {
+  const topic = String(lesson?.title || "today's lesson").replace(/^[^:]+:\s*/, "");
+  const prompts = [
+    `Practice ${topic} with Carlos...`,
+    "Tell Carlos about your weekend...",
+    "Ask how to order coffee...",
+    "Ask what ser means...",
+    "Practice ordering tacos...",
+    "Introduce yourself in Spanish...",
+    "Plan a trip to Madrid..."
+  ];
+  return prompts[new Date().getDate() % prompts.length];
 }
 
 function renderCarlosSvg() {

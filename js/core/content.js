@@ -249,6 +249,28 @@ export function getLessonProgress(id) {
   };
 }
 
+export function updateLessonProgress(id, patch = {}) {
+  const lesson = getLessonById(id);
+  if (!lesson) return { type: "lesson:missing", id };
+
+  const progress = readProgress();
+  const previous = progress.lessons[id] || {};
+  const updatedAt = new Date().toISOString();
+  const lessonProgress = {
+    ...previous,
+    ...patch,
+    updatedAt,
+  };
+
+  progress.lessons[id] = lessonProgress;
+  progress.updatedAt = updatedAt;
+  writeProgress(progress);
+
+  const event = { type: "lesson:progress", id, lesson, progress: lessonProgress };
+  window.dispatchEvent(new CustomEvent("habla:lesson-progress", { detail: event }));
+  return event;
+}
+
 function readProgress() {
   try {
     const saved = localStorage.getItem(PROGRESS_KEY);

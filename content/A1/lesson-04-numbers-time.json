@@ -1,834 +1,374 @@
 {
   "id": "lesson-04-numbers-time",
-  "title": "Numbers & Time: Making Plans Clearly",
-  "level": "A1",
-  "module": "Numbers & Time",
-  "estimatedMinutes": 30,
+  "contentVersion": "1.0",
+  "title": "Saturday at the Market",
   "image": "assets/images/lessons/lesson-04-numbers-time.png",
-  "metadata": {
-    "course": "Habla",
-    "unit": "A1 Beginner",
-    "lessonNumber": 4,
-    "guide": "Carlos",
-    "imagePath": "assets/images/lessons/lesson-04-numbers-time.png"
-  },
+  "level": "A1",
+  "module": "Making Plans",
+  "estimatedMinutes": 30,
   "prerequisiteLesson": "lesson-03-family",
-  "objectives": [
-    "Count confidently from 0 to 100.",
-    "Ask and answer what time it is.",
-    "Say your age using tengo ... años.",
-    "Talk about days of the week, today, tomorrow, and yesterday.",
-    "Make simple plans with a day and time."
+  "story": {
+    "chapter": 1,
+    "city": "Madrid",
+    "location": "A WhatsApp conversation the morning after the family dinner",
+    "scene": "Your phone buzzes. Carlos is checking in after dinner and wants to take you to his favorite market on Saturday.",
+    "openingMessage": [
+      "Hola, Tom.",
+      "¡Qué bien lo pasamos ayer!",
+      "¿Estás libre este sábado?",
+      "Podemos ir al mercado juntos."
+    ],
+    "mission": "Today you’ll arrange a Saturday morning trip to the market with Carlos.",
+    "continuity": "Carlos asks how your family is before inviting you out, naturally reusing greetings, family language, and the conversation from dinner."
+  },
+  "emotionalArc": {
+    "emotion": "Excitement",
+    "startsWith": "The learner sees an unexpected message from Carlos after the family dinner.",
+    "endsWith": "The learner is looking forward to a real Saturday plan in Madrid.",
+    "earnedBy": "Understanding the message and arranging the market visit in Spanish."
+  },
+  "microCliffhanger": {
+    "speaker": "Carlos",
+    "spanish": "Antes de vernos, necesito comprar algo especial en el mercado... Mañana te cuento.",
+    "english": "Before we meet, I need to buy something special at the market... I’ll tell you tomorrow.",
+    "payoffLesson": "lesson-05-shopping"
+  },
+  "carlosIntroduction": {
+    "eyebrow": "Your mission",
+    "title": "Make a plan with me",
+    "message": "¡Buenos días! Yesterday you met my family, and they really enjoyed meeting you. This Saturday there’s a wonderful market in Madrid. Let’s make some plans together. By the end, you’ll be able to ask when someone is free, choose a day and time, and agree on a plan.",
+    "prompt": "Open my message and answer: Sí, estoy libre."
+  },
+  "canDo": [
+    "Ask when someone is free.",
+    "Say what day works for me.",
+    "Choose a simple meeting time.",
+    "Accept a plan or suggest another time."
   ],
-  "objective": "Use numbers, clock time, days, and calendar phrases to make simple plans with Carlos.",
-  "homeSummary": "Learn to talk about time, dates and making plans in Spanish.",
-  "vocabulary": [
+  "recycledLanguage": [
     {
-      "spanish": "cero",
-      "english": "zero",
-      "partOfSpeech": "number",
-      "tip": "Useful for phone numbers, room numbers, and counting.",
-      "exampleSpanish": "Mi número tiene un cero.",
-      "exampleEnglish": "My number has a zero."
+      "fromLesson": "lesson-01-greetings",
+      "language": ["Hola", "¿Cómo estás?", "Muy bien"],
+      "use": "Open the message naturally."
     },
     {
-      "spanish": "uno",
-      "english": "one",
-      "partOfSpeech": "number",
-      "tip": "Uno changes to un before masculine nouns: un café.",
-      "exampleSpanish": "Quiero un café.",
-      "exampleEnglish": "I want one coffee."
+      "fromLesson": "lesson-02-introductions",
+      "language": ["Soy...", "Vivo en...", "¿Y tú?"],
+      "use": "Personalize the speaking prompts."
     },
     {
-      "spanish": "tres",
-      "english": "three",
-      "partOfSpeech": "number",
-      "tip": "Useful for simple meeting times.",
-      "exampleSpanish": "Nos vemos a las tres.",
-      "exampleEnglish": "See you at three."
-    },
-    {
-      "spanish": "veinte",
-      "english": "twenty",
-      "partOfSpeech": "number",
-      "tip": "Use veinte for 20; numbers 21-29 start with veinti-.",
-      "exampleSpanish": "Tengo veinte años.",
-      "exampleEnglish": "I am twenty years old."
-    },
-    {
-      "spanish": "treinta",
-      "english": "thirty",
-      "partOfSpeech": "number",
-      "tip": "For 31-39, use treinta y plus the smaller number.",
-      "exampleSpanish": "Tengo treinta años.",
-      "exampleEnglish": "I am thirty years old."
-    },
-    {
-      "spanish": "cuarenta",
-      "english": "forty",
-      "partOfSpeech": "number",
-      "tip": "Do not pronounce it like English quarantine; keep Spanish vowels clean.",
-      "exampleSpanish": "Mi padre tiene cuarenta años.",
-      "exampleEnglish": "My father is forty years old."
-    },
-    {
-      "spanish": "cincuenta",
-      "english": "fifty",
-      "partOfSpeech": "number",
-      "tip": "Notice the cinc- beginning, like cinco.",
-      "exampleSpanish": "Mi mamá tiene cincuenta años.",
-      "exampleEnglish": "My mom is fifty years old."
-    },
-    {
-      "spanish": "sesenta",
-      "english": "sixty",
-      "partOfSpeech": "number",
-      "tip": "Keep the stress in the middle: se-SEN-ta.",
-      "exampleSpanish": "Hay sesenta minutos en una hora.",
-      "exampleEnglish": "There are sixty minutes in an hour."
-    },
-    {
-      "spanish": "setenta",
-      "english": "seventy",
-      "partOfSpeech": "number",
-      "tip": "Setenta and sesenta look similar, so listen carefully.",
-      "exampleSpanish": "Mi abuelo tiene setenta años.",
-      "exampleEnglish": "My grandfather is seventy years old."
-    },
-    {
-      "spanish": "ochenta",
-      "english": "eighty",
-      "partOfSpeech": "number",
-      "tip": "Ocho is hiding inside ochenta.",
-      "exampleSpanish": "Mi abuela tiene ochenta años.",
-      "exampleEnglish": "My grandmother is eighty years old."
-    },
-    {
-      "spanish": "noventa",
-      "english": "ninety",
-      "partOfSpeech": "number",
-      "tip": "Nueve is related to noventa.",
-      "exampleSpanish": "Son noventa minutos.",
-      "exampleEnglish": "It is ninety minutes."
-    },
-    {
-      "spanish": "cien",
-      "english": "one hundred",
-      "partOfSpeech": "number",
-      "tip": "Use cien for exactly 100.",
-      "exampleSpanish": "Cien pesos, por favor.",
-      "exampleEnglish": "One hundred pesos, please."
-    },
-    {
-      "spanish": "la hora",
-      "english": "time / hour",
-      "partOfSpeech": "noun",
-      "tip": "Use hora for time and for an hour.",
-      "exampleSpanish": "Qué hora es?",
-      "exampleEnglish": "What time is it?"
-    },
-    {
-      "spanish": "el reloj",
-      "english": "clock / watch",
-      "partOfSpeech": "noun",
-      "tip": "Reloj can mean a clock or a watch.",
-      "exampleSpanish": "El reloj dice las tres.",
-      "exampleEnglish": "The clock says three o'clock."
-    },
-    {
-      "spanish": "Qué hora es?",
-      "english": "What time is it?",
-      "partOfSpeech": "question",
-      "tip": "Use this to ask the current time.",
-      "exampleSpanish": "Carlos, qué hora es?",
-      "exampleEnglish": "Carlos, what time is it?"
-    },
-    {
-      "spanish": "Es la una",
-      "english": "It is one o'clock",
-      "partOfSpeech": "time phrase",
-      "tip": "Use es la only for one o'clock.",
-      "exampleSpanish": "Es la una de la tarde.",
-      "exampleEnglish": "It is one in the afternoon."
-    },
-    {
-      "spanish": "Son las tres",
-      "english": "It is three o'clock",
-      "partOfSpeech": "time phrase",
-      "tip": "Use son las for every hour except one.",
-      "exampleSpanish": "Son las tres de la tarde.",
-      "exampleEnglish": "It is three in the afternoon."
-    },
-    {
-      "spanish": "y cuarto",
-      "english": "quarter past",
-      "partOfSpeech": "time phrase",
-      "tip": "Use after the hour for fifteen minutes past.",
-      "exampleSpanish": "Son las tres y cuarto.",
-      "exampleEnglish": "It is quarter past three."
-    },
-    {
-      "spanish": "y media",
-      "english": "half past",
-      "partOfSpeech": "time phrase",
-      "tip": "Use after the hour for thirty minutes past.",
-      "exampleSpanish": "Son las seis y media.",
-      "exampleEnglish": "It is half past six."
-    },
-    {
-      "spanish": "menos cuarto",
-      "english": "quarter to",
-      "partOfSpeech": "time phrase",
-      "tip": "Use before the next hour for fifteen minutes before.",
-      "exampleSpanish": "Son las cuatro menos cuarto.",
-      "exampleEnglish": "It is quarter to four."
-    },
-    {
-      "spanish": "de la mañana",
-      "english": "in the morning / AM",
-      "partOfSpeech": "time phrase",
-      "tip": "Use for morning times.",
-      "exampleSpanish": "Trabajo a las ocho de la mañana.",
-      "exampleEnglish": "I work at eight in the morning."
-    },
-    {
-      "spanish": "de la tarde",
-      "english": "in the afternoon / PM",
-      "partOfSpeech": "time phrase",
-      "tip": "Use for afternoon and early evening times.",
-      "exampleSpanish": "Tomamos café a las tres de la tarde.",
-      "exampleEnglish": "We have coffee at three in the afternoon."
-    },
-    {
-      "spanish": "de la noche",
-      "english": "at night / PM",
-      "partOfSpeech": "time phrase",
-      "tip": "Use for night times.",
-      "exampleSpanish": "Ceno a las ocho de la noche.",
-      "exampleEnglish": "I eat dinner at eight at night."
-    },
-    {
-      "spanish": "hoy",
-      "english": "today",
-      "partOfSpeech": "adverb",
-      "tip": "Use hoy for the current day.",
-      "exampleSpanish": "Hoy es lunes.",
-      "exampleEnglish": "Today is Monday."
-    },
-    {
-      "spanish": "mañana",
-      "english": "tomorrow / morning",
-      "partOfSpeech": "adverb / noun",
-      "tip": "Mañana can mean tomorrow or morning; context tells you which.",
-      "exampleSpanish": "Mañana veo a Carlos.",
-      "exampleEnglish": "Tomorrow I see Carlos."
-    },
-    {
-      "spanish": "ayer",
-      "english": "yesterday",
-      "partOfSpeech": "adverb",
-      "tip": "Use ayer for the day before today.",
-      "exampleSpanish": "Ayer practiqué español.",
-      "exampleEnglish": "Yesterday I practiced Spanish."
-    },
-    {
-      "spanish": "lunes a domingo",
-      "english": "Monday to Sunday",
-      "partOfSpeech": "days of the week",
-      "tip": "Days of the week are lowercase in Spanish.",
-      "exampleSpanish": "Trabajo de lunes a viernes.",
-      "exampleEnglish": "I work from Monday to Friday."
-    },
-    {
-      "spanish": "la semana",
-      "english": "week",
-      "partOfSpeech": "noun",
-      "tip": "Use semana for week.",
-      "exampleSpanish": "Esta semana estudio español.",
-      "exampleEnglish": "This week I study Spanish."
-    },
-    {
-      "spanish": "el mes",
-      "english": "month",
-      "partOfSpeech": "noun",
-      "tip": "Use mes for month.",
-      "exampleSpanish": "Mi cumpleaños es este mes.",
-      "exampleEnglish": "My birthday is this month."
-    },
-    {
-      "spanish": "el año",
-      "english": "year",
-      "partOfSpeech": "noun",
-      "tip": "Año has ñ. Do not confuse it with ano, which is a different word.",
-      "exampleSpanish": "Tengo treinta años.",
-      "exampleEnglish": "I am thirty years old."
-    },
-    {
-      "spanish": "tengo ... años",
-      "english": "I am ... years old",
-      "partOfSpeech": "age phrase",
-      "tip": "Spanish uses tener for age: literally, I have ... years.",
-      "exampleSpanish": "Tengo treinta años.",
-      "exampleEnglish": "I am thirty years old."
-    },
-    {
-      "spanish": "cumpleaños",
-      "english": "birthday",
-      "partOfSpeech": "noun",
-      "tip": "Cumpleaños is used for birthday and stays the same in singular.",
-      "exampleSpanish": "Mi cumpleaños es mañana.",
-      "exampleEnglish": "My birthday is tomorrow."
-    },
-    {
-      "spanish": "temprano / tarde",
-      "english": "early / late",
-      "partOfSpeech": "adverb",
-      "tip": "Tarde can mean late or afternoon depending on context.",
-      "exampleSpanish": "Me levanto temprano, pero ceno tarde.",
-      "exampleEnglish": "I wake up early, but I eat dinner late."
-    },
-    {
-      "spanish": "ahora / después / antes",
-      "english": "now / after / before",
-      "partOfSpeech": "time adverbs",
-      "tip": "Use these to order a simple schedule.",
-      "exampleSpanish": "Ahora estudio y después ceno.",
-      "exampleEnglish": "Now I study and afterward I eat dinner."
-    },
-    {
-      "spanish": "siempre / nunca",
-      "english": "always / never",
-      "partOfSpeech": "frequency adverbs",
-      "tip": "Use with simple routines.",
-      "exampleSpanish": "Siempre practico; nunca llego tarde.",
-      "exampleEnglish": "I always practice; I never arrive late."
+      "fromLesson": "lesson-03-family",
+      "language": ["mi familia", "tu familia", "¿Cómo está tu familia?"],
+      "use": "Check in after the family dinner before making plans."
     }
   ],
+  "objectives": [
+    "Understand a short message about weekend plans.",
+    "Ask and answer ¿Estás libre?",
+    "Use days and parts of the day to arrange a meeting.",
+    "Agree on Saturday at ten as one complete, useful plan."
+  ],
+  "essentialPhrases": [
+    {
+      "spanish": "¿Estás libre?",
+      "english": "Are you free?",
+      "usage": "Ask whether someone is available.",
+      "exampleSpanish": "¿Estás libre este sábado?",
+      "exampleEnglish": "Are you free this Saturday?"
+    },
+    {
+      "spanish": "Estoy libre.",
+      "english": "I’m free.",
+      "usage": "Accept by saying you are available.",
+      "exampleSpanish": "Sí, estoy libre el sábado.",
+      "exampleEnglish": "Yes, I’m free on Saturday."
+    },
+    {
+      "spanish": "Estoy ocupado / ocupada.",
+      "english": "I’m busy.",
+      "usage": "Use ocupado if you identify as masculine and ocupada if you identify as feminine.",
+      "exampleSpanish": "Estoy ocupado por la mañana.",
+      "exampleEnglish": "I’m busy in the morning."
+    },
+    {
+      "spanish": "¿Cuándo?",
+      "english": "When?",
+      "usage": "Ask for the day or time of a plan.",
+      "exampleSpanish": "¿Cuándo vamos al mercado?",
+      "exampleEnglish": "When are we going to the market?"
+    },
+    {
+      "spanish": "El sábado.",
+      "english": "On Saturday.",
+      "usage": "Use el before a day when saying when something happens.",
+      "exampleSpanish": "Nos vemos el sábado.",
+      "exampleEnglish": "See you on Saturday."
+    },
+    {
+      "spanish": "A las diez.",
+      "english": "At ten.",
+      "usage": "Learn this as one complete meeting-time phrase for now.",
+      "exampleSpanish": "Nos vemos a las diez.",
+      "exampleEnglish": "See you at ten."
+    },
+    {
+      "spanish": "Perfecto.",
+      "english": "Perfect.",
+      "usage": "A natural way to accept a suggestion.",
+      "exampleSpanish": "El sábado por la mañana. Perfecto.",
+      "exampleEnglish": "Saturday morning. Perfect."
+    },
+    {
+      "spanish": "Nos vemos entonces.",
+      "english": "See you then.",
+      "usage": "Close the conversation after the plan is settled.",
+      "exampleSpanish": "Perfecto. Nos vemos entonces.",
+      "exampleEnglish": "Perfect. See you then."
+    }
+  ],
+  "vocabulary": [
+    { "spanish": "lunes", "english": "Monday", "partOfSpeech": "day", "tier": 1, "group": "Days", "tip": "Spanish days are written with lowercase letters.", "exampleSpanish": "Hoy es lunes.", "exampleEnglish": "Today is Monday." },
+    { "spanish": "martes", "english": "Tuesday", "partOfSpeech": "day", "tier": 1, "group": "Days", "tip": "Use el martes for on Tuesday.", "exampleSpanish": "Estoy libre el martes.", "exampleEnglish": "I’m free on Tuesday." },
+    { "spanish": "miércoles", "english": "Wednesday", "partOfSpeech": "day", "tier": 1, "group": "Days", "tip": "Keep the written accent over é.", "exampleSpanish": "Nos vemos el miércoles.", "exampleEnglish": "See you on Wednesday." },
+    { "spanish": "jueves", "english": "Thursday", "partOfSpeech": "day", "tier": 1, "group": "Days", "tip": "The j has a strong breathy Spanish sound.", "exampleSpanish": "Estoy ocupado el jueves.", "exampleEnglish": "I’m busy on Thursday." },
+    { "spanish": "viernes", "english": "Friday", "partOfSpeech": "day", "tier": 1, "group": "Days", "tip": "Viernes comes before sábado.", "exampleSpanish": "El viernes por la tarde.", "exampleEnglish": "Friday afternoon." },
+    { "spanish": "sábado", "english": "Saturday", "partOfSpeech": "day", "tier": 1, "group": "Days", "tip": "The written accent marks the first syllable: SÁ-ba-do.", "exampleSpanish": "¿Estás libre este sábado?", "exampleEnglish": "Are you free this Saturday?" },
+    { "spanish": "domingo", "english": "Sunday", "partOfSpeech": "day", "tier": 1, "group": "Days", "tip": "Use el domingo for on Sunday.", "exampleSpanish": "Estoy libre el domingo.", "exampleEnglish": "I’m free on Sunday." },
+    { "spanish": "hoy", "english": "today", "partOfSpeech": "time expression", "tier": 1, "group": "When", "tip": "Use hoy for the current day.", "exampleSpanish": "Hoy estoy ocupado.", "exampleEnglish": "I’m busy today." },
+    { "spanish": "mañana", "english": "tomorrow", "partOfSpeech": "time expression", "tier": 1, "group": "When", "tip": "Context distinguishes mañana, tomorrow, from la mañana, the morning.", "exampleSpanish": "¿Estás libre mañana?", "exampleEnglish": "Are you free tomorrow?" },
+    { "spanish": "esta semana", "english": "this week", "partOfSpeech": "time expression", "tier": 2, "group": "When", "tip": "Esta agrees with the feminine word semana.", "exampleSpanish": "Estoy ocupado esta semana.", "exampleEnglish": "I’m busy this week." },
+    { "spanish": "este fin de semana", "english": "this weekend", "partOfSpeech": "time expression", "tier": 1, "group": "When", "tip": "Treat fin de semana as one useful chunk.", "exampleSpanish": "¿Estás libre este fin de semana?", "exampleEnglish": "Are you free this weekend?" },
+    { "spanish": "ahora", "english": "now", "partOfSpeech": "time expression", "tier": 1, "group": "When", "tip": "Use ahora for right now.", "exampleSpanish": "Ahora estoy ocupado.", "exampleEnglish": "I’m busy now." },
+    { "spanish": "después", "english": "after / later", "partOfSpeech": "time expression", "tier": 2, "group": "When", "tip": "Después can suggest doing something later.", "exampleSpanish": "Podemos ir después.", "exampleEnglish": "We can go later." },
+    { "spanish": "antes", "english": "before / earlier", "partOfSpeech": "time expression", "tier": 2, "group": "When", "tip": "Use antes to suggest an earlier time.", "exampleSpanish": "¿Podemos ir antes?", "exampleEnglish": "Can we go earlier?" },
+    { "spanish": "la mañana", "english": "the morning", "partOfSpeech": "noun", "tier": 1, "group": "Parts of the day", "tip": "Por la mañana means in the morning.", "exampleSpanish": "Estoy libre por la mañana.", "exampleEnglish": "I’m free in the morning." },
+    { "spanish": "la tarde", "english": "the afternoon / evening", "partOfSpeech": "noun", "tier": 1, "group": "Parts of the day", "tip": "Spanish la tarde covers the afternoon and part of the evening.", "exampleSpanish": "Nos vemos por la tarde.", "exampleEnglish": "See you in the afternoon." },
+    { "spanish": "la noche", "english": "the night", "partOfSpeech": "noun", "tier": 1, "group": "Parts of the day", "tip": "Por la noche means at night.", "exampleSpanish": "Estoy ocupado por la noche.", "exampleEnglish": "I’m busy at night." },
+    { "spanish": "libre", "english": "free / available", "partOfSpeech": "adjective", "tier": 1, "group": "Making a plan", "tip": "Libre does not change for masculine or feminine here.", "exampleSpanish": "Estoy libre el sábado.", "exampleEnglish": "I’m free on Saturday." },
+    { "spanish": "ocupado / ocupada", "english": "busy", "partOfSpeech": "adjective", "tier": 1, "group": "Making a plan", "tip": "Choose ocupado or ocupada to match the speaker.", "exampleSpanish": "Estoy ocupada hoy.", "exampleEnglish": "I’m busy today." },
+    { "spanish": "la hora", "english": "the time / hour", "partOfSpeech": "noun", "tier": 2, "group": "Making a plan", "tip": "In this lesson, use it to talk about a meeting time.", "exampleSpanish": "¿A qué hora?", "exampleEnglish": "At what time?" },
+    { "spanish": "el mercado", "english": "the market", "partOfSpeech": "noun", "tier": 1, "group": "Making a plan", "tip": "This is where you and Carlos will go in Lesson 5.", "exampleSpanish": "Vamos al mercado.", "exampleEnglish": "We’re going to the market." },
+    { "spanish": "ir", "english": "to go", "partOfSpeech": "verb", "tier": 1, "group": "Planning verbs", "tip": "You will hear it in ¿Quieres ir...?, a useful invitation chunk.", "exampleSpanish": "¿Quieres ir al mercado?", "exampleEnglish": "Do you want to go to the market?" },
+    { "spanish": "venir", "english": "to come", "partOfSpeech": "verb", "tier": 2, "group": "Planning verbs", "tip": "Use venir when someone comes with you or to you.", "exampleSpanish": "¿Puedes venir el sábado?", "exampleEnglish": "Can you come on Saturday?" },
+    { "spanish": "quedar", "english": "to arrange to meet", "partOfSpeech": "verb", "tier": 2, "group": "Planning verbs", "tip": "In Spain, quedar is common for arranging to meet.", "exampleSpanish": "Podemos quedar el sábado.", "exampleEnglish": "We can meet on Saturday." },
+    { "spanish": "poder", "english": "to be able to / can", "partOfSpeech": "verb", "tier": 1, "group": "Planning verbs", "tip": "Learn podemos as a useful chunk meaning we can.", "exampleSpanish": "Podemos ir juntos.", "exampleEnglish": "We can go together." },
+    { "spanish": "sí", "english": "yes", "partOfSpeech": "response", "tier": 1, "group": "Useful responses", "tip": "The written accent distinguishes yes from si, if.", "exampleSpanish": "Sí, estoy libre.", "exampleEnglish": "Yes, I’m free." },
+    { "spanish": "claro", "english": "of course / sure", "partOfSpeech": "response", "tier": 1, "group": "Useful responses", "tip": "A warm, natural way to agree.", "exampleSpanish": "Claro. Nos vemos el sábado.", "exampleEnglish": "Of course. See you Saturday." },
+    { "spanish": "perfecto", "english": "perfect", "partOfSpeech": "response", "tier": 1, "group": "Useful responses", "tip": "Use it when a suggested plan works for you.", "exampleSpanish": "A las diez. Perfecto.", "exampleEnglish": "At ten. Perfect." }
+  ],
   "grammar": {
-    "topic": "Numbers, time, age, and simple schedules",
-    "explanation": "Spanish uses set patterns for time and age. Use es la una for one o'clock, son las for other times, tener for age, and lowercase days of the week for schedules.",
+    "topic": "Days and simple time expressions",
+    "meaning": "Say when a plan happens without building a full clock-time system.",
+    "explanation": "Use el + day for a plan: el sábado. Use por la mañana, por la tarde, or por la noche for a broad part of the day. Ask ¿Cuándo? when you need to know when. For this mission, learn a las diez as one complete phrase meaning at ten.",
     "notes": [
-      {
-        "title": "Es la vs son las",
-        "text": "Use es la for one o'clock and son las for every other hour: Es la una. = It is one o'clock. Son las tres. = It is three o'clock. Practice: ask Carlos the time and answer with one o'clock, then three o'clock. Watch out: do not say es las tres."
-      },
-      {
-        "title": "Telling time",
-        "text": "Use the hour plus y cuarto, y media, or menos cuarto: Son las tres y cuarto. = It is quarter past three. Son las seis y media. = It is half past six. Practice: say 3:15 and 6:30. Watch out: remember las before most hours."
-      },
-      {
-        "title": "Saying your age with tener",
-        "text": "Spanish uses tener for age: Tengo veinte años. = I am twenty years old. Carlos tiene treinta años. = Carlos is thirty years old. Practice: tell Carlos your age. Watch out: do not say soy veinte años."
-      },
-      {
-        "title": "Today, tomorrow, yesterday",
-        "text": "Hoy means today, mañana can mean tomorrow, and ayer means yesterday: Hoy es lunes. = Today is Monday. Mañana veo a Carlos. = Tomorrow I see Carlos. Practice: say one sentence with each word. Watch out: mañana can also mean morning."
-      },
-      {
-        "title": "Days of the week",
-        "text": "Spanish days are lowercase: lunes, martes, miércoles, jueves, viernes, sábado, domingo. Hoy es martes. = Today is Tuesday. Practice: say today's day and tomorrow's day. Watch out: do not capitalize days unless they start a sentence."
-      },
-      {
-        "title": "Simple schedules",
-        "text": "Use a las plus the time for schedules: Trabajo a las ocho. = I work at eight. Ceno a las siete. = I eat dinner at seven. Practice: say when you wake up and when you eat dinner. Watch out: use a las, not en las."
-      },
-      {
-        "title": "AM and PM expressions",
-        "text": "Use de la mañana, de la tarde, and de la noche for AM and PM: A las ocho de la mañana. = At eight in the morning. A las ocho de la noche. = At eight at night. Practice: make one morning plan and one evening plan. Watch out: Spanish does not always say AM or PM in casual speech."
-      }
+      { "title": "Use el with a day", "text": "Say el sábado for on Saturday. Days stay lowercase in Spanish." },
+      { "title": "Use por for a part of the day", "text": "Say por la mañana, por la tarde, or por la noche when an exact hour is not important." },
+      { "title": "Ask one powerful question", "text": "¿Cuándo? can ask for either a day or a time: When?" },
+      { "title": "Keep the meeting time together", "text": "Treat a las diez as one useful chunk today. A later lesson can explain the full clock system." }
     ],
     "examples": [
-      {
-        "spanish": "Qué hora es?",
-        "english": "What time is it?"
-      },
-      {
-        "spanish": "Son las tres de la tarde.",
-        "english": "It is three in the afternoon."
-      },
-      {
-        "spanish": "Tengo treinta años.",
-        "english": "I am thirty years old."
-      },
-      {
-        "spanish": "Nos vemos el sábado a las diez.",
-        "english": "We will see each other on Saturday at ten."
-      }
+      { "spanish": "Nos vemos el sábado.", "english": "See you on Saturday." },
+      { "spanish": "Estoy libre por la mañana.", "english": "I’m free in the morning." },
+      { "spanish": "¿Cuándo? A las diez.", "english": "When? At ten." },
+      { "spanish": "El sábado por la mañana.", "english": "Saturday morning." }
     ],
-    "practicePrompt": "Tell Carlos your age, today's day, and one plan with a day and time."
+    "practicePrompt": "Ask Carlos when, then choose a day and a part of the day."
   },
   "dialogue": [
     {
-      "title": "Asking Carlos the time",
+      "title": "A message from Carlos",
+      "setting": "The morning after the family dinner, Carlos messages you to arrange Saturday’s market visit.",
+      "presentation": {
+        "type": "messageThread",
+        "channel": "mobile-message",
+        "contact": "Carlos",
+        "learnerSide": "outgoing",
+        "guideSide": "incoming"
+      },
       "lines": [
-        { "speaker": "Learner", "spanish": "Carlos, qué hora es?", "english": "Carlos, what time is it?" },
-        { "speaker": "Carlos", "spanish": "Son las dos y media.", "english": "It is half past two." }
-      ]
-    },
-    {
-      "title": "Coffee at three PM",
-      "lines": [
-        { "speaker": "Carlos", "spanish": "Tomamos café hoy?", "english": "Are we having coffee today?" },
-        { "speaker": "Learner", "spanish": "Sí, a las tres de la tarde.", "english": "Yes, at three in the afternoon." }
-      ]
-    },
-    {
-      "title": "Asking someone's age",
-      "lines": [
-        { "speaker": "Carlos", "spanish": "Cuántos años tienes?", "english": "How old are you?" },
-        { "speaker": "Learner", "spanish": "Tengo treinta años.", "english": "I am thirty years old." }
-      ]
-    },
-    {
-      "title": "Talking about a birthday",
-      "lines": [
-        { "speaker": "Learner", "spanish": "Mi cumpleaños es mañana.", "english": "My birthday is tomorrow." },
-        { "speaker": "Carlos", "spanish": "Feliz cumpleaños, amigo.", "english": "Happy birthday, my friend." }
-      ]
-    },
-    {
-      "title": "Weekend plans",
-      "lines": [
-        { "speaker": "Carlos", "spanish": "Qué haces el sábado?", "english": "What are you doing on Saturday?" },
-        { "speaker": "Learner", "spanish": "El sábado veo a mi familia.", "english": "On Saturday I see my family." }
-      ]
-    },
-    {
-      "title": "Work schedule",
-      "lines": [
-        { "speaker": "Learner", "spanish": "Trabajo de lunes a viernes.", "english": "I work from Monday to Friday." },
-        { "speaker": "Carlos", "spanish": "Muy bien. Y descansas el domingo?", "english": "Very good. And do you rest on Sunday?" }
-      ]
-    },
-    {
-      "title": "What day is it?",
-      "lines": [
-        { "speaker": "Learner", "spanish": "Qué día es hoy?", "english": "What day is it today?" },
-        { "speaker": "Carlos", "spanish": "Hoy es martes.", "english": "Today is Tuesday." }
-      ]
-    },
-    {
-      "title": "Dinner time",
-      "lines": [
-        { "speaker": "Carlos", "spanish": "A qué hora cenas con tu familia?", "english": "What time do you eat dinner with your family?" },
-        { "speaker": "Learner", "spanish": "Ceno a las siete de la noche.", "english": "I eat dinner at seven at night." }
-      ]
-    },
-    {
-      "title": "Meeting tomorrow",
-      "lines": [
-        { "speaker": "Learner", "spanish": "Nos vemos mañana a las diez?", "english": "Will we see each other tomorrow at ten?" },
-        { "speaker": "Carlos", "spanish": "Sí, mañana a las diez.", "english": "Yes, tomorrow at ten." }
-      ]
-    },
-    {
-      "title": "Simple daily routine",
-      "lines": [
-        { "speaker": "Learner", "spanish": "Me levanto temprano y estudio después.", "english": "I wake up early and study afterward." },
-        { "speaker": "Carlos", "spanish": "Excelente rutina. Nunca llegues tarde.", "english": "Excellent routine. Never arrive late." }
+        { "speaker": "Carlos", "spanish": "¡Hola, Tom! ¿Cómo está tu familia?", "english": "Hi, Tom! How is your family?" },
+        { "speaker": "Learner", "spanish": "¡Hola, Carlos! Mi familia está muy bien.", "english": "Hi, Carlos! My family is very well." },
+        { "speaker": "Carlos", "spanish": "¡Qué bien! ¿Estás libre este sábado?", "english": "That’s great! Are you free this Saturday?" },
+        { "speaker": "Learner", "spanish": "Sí, estoy libre.", "english": "Yes, I’m free." },
+        { "speaker": "Carlos", "spanish": "¡Perfecto! ¿Quieres ir al mercado?", "english": "Perfect! Do you want to go to the market?" },
+        { "speaker": "Learner", "spanish": "Sí, claro.", "english": "Yes, of course." },
+        { "speaker": "Carlos", "spanish": "¿A las diez de la mañana?", "english": "At ten in the morning?" },
+        { "speaker": "Learner", "spanish": "Sí, perfecto.", "english": "Yes, perfect." },
+        { "speaker": "Carlos", "spanish": "¡Nos vemos el sábado!", "english": "See you Saturday!" }
+      ],
+      "comprehension": [
+        { "prompt": "When will you meet Carlos?", "options": ["Saturday morning", "Friday afternoon", "Sunday night"], "answer": "Saturday morning" },
+        { "prompt": "Where does Carlos want to go?", "options": ["the market", "the café", "the train station"], "answer": "the market" },
+        { "prompt": "What time is the plan?", "options": ["ten", "three", "eight"], "answer": "ten" }
       ]
     }
   ],
-  "dialogues": [
+  "pronunciation": [
     {
-      "title": "Asking Carlos the time",
-      "lines": [
-        { "speaker": "Learner", "spanish": "Carlos, qué hora es?", "english": "Carlos, what time is it?" },
-        { "speaker": "Carlos", "spanish": "Son las dos y media.", "english": "It is half past two." }
-      ]
-    },
-    {
-      "title": "Coffee at three PM",
-      "lines": [
-        { "speaker": "Carlos", "spanish": "Tomamos café hoy?", "english": "Are we having coffee today?" },
-        { "speaker": "Learner", "spanish": "Sí, a las tres de la tarde.", "english": "Yes, at three in the afternoon." }
-      ]
-    },
-    {
-      "title": "Asking someone's age",
-      "lines": [
-        { "speaker": "Carlos", "spanish": "Cuántos años tienes?", "english": "How old are you?" },
-        { "speaker": "Learner", "spanish": "Tengo treinta años.", "english": "I am thirty years old." }
-      ]
-    },
-    {
-      "title": "Talking about a birthday",
-      "lines": [
-        { "speaker": "Learner", "spanish": "Mi cumpleaños es mañana.", "english": "My birthday is tomorrow." },
-        { "speaker": "Carlos", "spanish": "Feliz cumpleaños, amigo.", "english": "Happy birthday, my friend." }
-      ]
-    },
-    {
-      "title": "Weekend plans",
-      "lines": [
-        { "speaker": "Carlos", "spanish": "Qué haces el sábado?", "english": "What are you doing on Saturday?" },
-        { "speaker": "Learner", "spanish": "El sábado veo a mi familia.", "english": "On Saturday I see my family." }
-      ]
-    },
-    {
-      "title": "Work schedule",
-      "lines": [
-        { "speaker": "Learner", "spanish": "Trabajo de lunes a viernes.", "english": "I work from Monday to Friday." },
-        { "speaker": "Carlos", "spanish": "Muy bien. Y descansas el domingo?", "english": "Very good. And do you rest on Sunday?" }
-      ]
-    },
-    {
-      "title": "What day is it?",
-      "lines": [
-        { "speaker": "Learner", "spanish": "Qué día es hoy?", "english": "What day is it today?" },
-        { "speaker": "Carlos", "spanish": "Hoy es martes.", "english": "Today is Tuesday." }
-      ]
-    },
-    {
-      "title": "Dinner time",
-      "lines": [
-        { "speaker": "Carlos", "spanish": "A qué hora cenas con tu familia?", "english": "What time do you eat dinner with your family?" },
-        { "speaker": "Learner", "spanish": "Ceno a las siete de la noche.", "english": "I eat dinner at seven at night." }
-      ]
-    },
-    {
-      "title": "Meeting tomorrow",
-      "lines": [
-        { "speaker": "Learner", "spanish": "Nos vemos mañana a las diez?", "english": "Will we see each other tomorrow at ten?" },
-        { "speaker": "Carlos", "spanish": "Sí, mañana a las diez.", "english": "Yes, tomorrow at ten." }
-      ]
-    },
-    {
-      "title": "Simple daily routine",
-      "lines": [
-        { "speaker": "Learner", "spanish": "Me levanto temprano y estudio después.", "english": "I wake up early and study afterward." },
-        { "speaker": "Carlos", "spanish": "Excelente rutina. Nunca llegues tarde.", "english": "Excellent routine. Never arrive late." }
+      "focus": "Mission phrases, clear rhythm, and Spanish question melody",
+      "tips": [
+        "Keep ¿Estás libre? as one smooth thought group.",
+        "Stress the first syllable in sábado: SÁ-ba-do.",
+        "In las diez, connect the final s lightly into diez.",
+        "Keep every vowel short and clear in perfecto."
+      ],
+      "items": [
+        { "text": "¿Estás libre?", "meaning": "Are you free?", "note": "Let your voice rise gently for the yes-or-no question." },
+        { "text": "Este sábado.", "meaning": "This Saturday.", "note": "Stress SÁ in sábado." },
+        { "text": "A las diez.", "meaning": "At ten.", "note": "Say the three words as one time chunk." },
+        { "text": "Nos vemos.", "meaning": "See you.", "note": "Keep both words even and relaxed." },
+        { "text": "Perfecto.", "meaning": "Perfect.", "note": "Stress fec: per-FEC-to." },
+        { "text": "Por la mañana.", "meaning": "In the morning.", "note": "Keep the ñ sound in mañana clear." }
       ]
     }
   ],
-  "listening": {
-    "phrases": [
-      { "spanish": "cero, diez, veinte, treinta", "english": "zero, ten, twenty, thirty", "note": "Listen for the tens pattern." },
-      { "spanish": "Son las tres.", "english": "It is three o'clock.", "note": "Listen for son las before the hour." },
-      { "spanish": "Es la una y cuarto.", "english": "It is quarter past one.", "note": "One o'clock uses es la." },
-      { "spanish": "Son las seis y media.", "english": "It is half past six.", "note": "Y media means half past." },
-      { "spanish": "Son las cuatro menos cuarto.", "english": "It is quarter to four.", "note": "Menos cuarto means quarter to." },
-      { "spanish": "Tengo treinta años.", "english": "I am thirty years old.", "note": "Spanish uses tengo for age." },
-      { "spanish": "Hoy es lunes.", "english": "Today is Monday.", "note": "Days are lowercase in Spanish." },
-      { "spanish": "Mañana trabajo a las ocho.", "english": "Tomorrow I work at eight.", "note": "Mañana means tomorrow here." },
-      { "spanish": "Ceno a las siete de la noche.", "english": "I eat dinner at seven at night.", "note": "Listen for de la noche." },
-      { "spanish": "Nos vemos el sábado a las diez.", "english": "We will see each other on Saturday at ten.", "note": "Listen for day plus time." }
-    ]
-  },
+  "listening": [
+    {
+      "title": "Carlos’s WhatsApp message",
+      "instructions": "Listen once at natural speed. Replay slowly if needed, then answer without translating every word.",
+      "playbackSpeeds": ["natural", "slow"],
+      "naturalScript": "Hola, Tom. ¡Qué bien lo pasamos ayer! ¿Cómo está tu familia? ¿Estás libre este sábado? Podemos ir al mercado juntos. ¿A las diez de la mañana?",
+      "slowScript": "Hola, Tom. / ¡Qué bien lo pasamos ayer! / ¿Cómo está tu familia? / ¿Estás libre / este sábado? / Podemos ir / al mercado / juntos. / ¿A las diez / de la mañana?",
+      "items": [
+        { "spanish": "¿Estás libre este sábado?", "options": ["Are you free this Saturday?", "Are you at the market today?", "Is your family here Sunday?"], "answer": "Are you free this Saturday?" },
+        { "spanish": "Podemos ir al mercado juntos.", "options": ["We can go to the market together.", "The market closes early.", "I’m busy at the market."], "answer": "We can go to the market together." },
+        { "spanish": "¿A las diez de la mañana?", "options": ["At ten in the morning?", "At two in the afternoon?", "Tomorrow night?"], "answer": "At ten in the morning?" },
+        { "spanish": "Mi familia está muy bien.", "options": ["My family is very well.", "My sister is busy.", "His family lives here."], "answer": "My family is very well." },
+        { "spanish": "Nos vemos el sábado.", "options": ["See you Saturday.", "I work on Saturday.", "Are you free Saturday?"], "answer": "See you Saturday." }
+      ]
+    }
+  ],
   "listeningPhrases": [
-    { "spanish": "cero, diez, veinte, treinta", "english": "zero, ten, twenty, thirty", "note": "Listen for the tens pattern." },
-    { "spanish": "Son las tres.", "english": "It is three o'clock.", "note": "Listen for son las before the hour." },
-    { "spanish": "Es la una y cuarto.", "english": "It is quarter past one.", "note": "One o'clock uses es la." },
-    { "spanish": "Son las seis y media.", "english": "It is half past six.", "note": "Y media means half past." },
-    { "spanish": "Son las cuatro menos cuarto.", "english": "It is quarter to four.", "note": "Menos cuarto means quarter to." },
-    { "spanish": "Tengo treinta años.", "english": "I am thirty years old.", "note": "Spanish uses tengo for age." },
-    { "spanish": "Hoy es lunes.", "english": "Today is Monday.", "note": "Days are lowercase in Spanish." },
-    { "spanish": "Mañana trabajo a las ocho.", "english": "Tomorrow I work at eight.", "note": "Mañana means tomorrow here." },
-    { "spanish": "Ceno a las siete de la noche.", "english": "I eat dinner at seven at night.", "note": "Listen for de la noche." },
-    { "spanish": "Nos vemos el sábado a las diez.", "english": "We will see each other on Saturday at ten.", "note": "Listen for day plus time." }
+    { "spanish": "¿Estás libre este sábado?", "english": "Are you free this Saturday?", "note": "Listen for libre and sábado." },
+    { "spanish": "Podemos ir al mercado juntos.", "english": "We can go to the market together.", "note": "Podemos proposes something you can do together." },
+    { "spanish": "¿A las diez de la mañana?", "english": "At ten in the morning?", "note": "Hear a las diez as one meeting-time chunk." },
+    { "spanish": "Sí, perfecto.", "english": "Yes, perfect.", "note": "A short natural acceptance." },
+    { "spanish": "Nos vemos el sábado.", "english": "See you Saturday.", "note": "This closes the plan naturally." }
   ],
-  "pronunciation": {
-    "focus": "Tens, reloj, años, mañana, rolled R, ñ, and stress patterns.",
-    "tips": [
-      "The single r in treinta and cuarenta is tapped lightly, not pronounced like English r.",
-      "The rr sound is stronger, but this lesson mostly needs a light tapped r.",
-      "The ñ in años and mañana sounds like ny in canyon.",
-      "Words ending in -enta usually stress the middle syllable: cua-REN-ta, cin-CUEN-ta.",
-      "Do not add an English-style w sound to reloj; start with a light Spanish r."
-    ],
-    "items": [
-      { "text": "treinta", "note": "Stress trein gently; keep the r light." },
-      { "text": "cuarenta", "note": "Stress REN: cua-REN-ta." },
-      { "text": "cincuenta", "note": "Stress CUEN: cin-CUEN-ta." },
-      { "text": "sesenta", "note": "Stress SEN: se-SEN-ta." },
-      { "text": "setenta", "note": "Stress TEN: se-TEN-ta." },
-      { "text": "ochenta", "note": "Stress CHEN: o-CHEN-ta." },
-      { "text": "noventa", "note": "Stress VEN: no-VEN-ta." },
-      { "text": "reloj", "note": "Use a light Spanish r and finish with a clear j sound." },
-      { "text": "años", "note": "The ñ sounds like ny; do not say anos." },
-      { "text": "mañana", "note": "The ñ sounds like ny; context decides morning or tomorrow." }
-    ]
-  },
-  "pronunciationExercises": [
-    { "text": "treinta", "note": "Stress trein gently; keep the r light." },
-    { "text": "cuarenta", "note": "Stress REN: cua-REN-ta." },
-    { "text": "cincuenta", "note": "Stress CUEN: cin-CUEN-ta." },
-    { "text": "sesenta", "note": "Stress SEN: se-SEN-ta." },
-    { "text": "setenta", "note": "Stress TEN: se-TEN-ta." },
-    { "text": "ochenta", "note": "Stress CHEN: o-CHEN-ta." },
-    { "text": "noventa", "note": "Stress VEN: no-VEN-ta." },
-    { "text": "reloj", "note": "Use a light Spanish r and finish with a clear j sound." },
-    { "text": "años", "note": "The ñ sounds like ny; do not say anos." },
-    { "text": "mañana", "note": "The ñ sounds like ny; context decides morning or tomorrow." }
-  ],
-  "culture": {
-    "title": "Time, age, and schedules in real life",
-    "text": "Spanish speakers may use the 24-hour clock for transportation, appointments, school, and official times, while the 12-hour clock is common in everyday conversation. In Spain, lunch and dinner often happen later than in North America, so dinner at nine or ten can be normal. Spanish uses tengo años for age because age is expressed as something you have. Days of the week are lowercase. Birthdays often include family greetings, food, songs, and warm messages. Punctuality expectations vary by country, region, event, and relationship, so confirm the exact time when plans matter."
-  },
-  "cultureNotes": [
-    "Use the 24-hour clock for official times and the 12-hour clock in many casual conversations.",
-    "Meal times in Spain can be later than in North America.",
-    "Spanish uses tener for age: tengo treinta años.",
-    "Days of the week are lowercase in Spanish.",
-    "For plans, confirm the day and time clearly."
-  ],
-  "nativeSpeech": {
-    "title": "How Carlos would say it naturally",
-    "notes": [
-      "Qué hora es? is the standard way to ask the time.",
-      "A qué hora? means At what time?",
-      "Nos vemos el sábado a las diez is a natural plan.",
-      "For casual plans, people often skip AM or PM if the context is clear.",
-      "Tengo treinta años sounds natural; soy treinta años does not."
-    ]
-  },
-  "commonMistakes": [
+  "speaking": [
     {
-      "mistake": "Saying soy 25 años.",
-      "correction": "Say tengo 25 años.",
-      "explanation": "Spanish uses tener for age."
-    },
-    {
-      "mistake": "Saying es las tres.",
-      "correction": "Say son las tres.",
-      "explanation": "Use son las for every hour except one."
-    },
-    {
-      "mistake": "Forgetting las.",
-      "correction": "Say a las tres or son las tres.",
-      "explanation": "Most time expressions need las before the hour."
-    },
-    {
-      "mistake": "Confusing mañana with morning.",
-      "correction": "Use context: mañana can mean tomorrow, and la mañana means the morning.",
-      "explanation": "Mañana trabajo means tomorrow I work. De la mañana means in the morning."
-    },
-    {
-      "mistake": "Using PM directly in every casual sentence.",
-      "correction": "Use de la tarde or de la noche when you need clarity.",
-      "explanation": "Spanish commonly says tres de la tarde or ocho de la noche."
-    },
-    {
-      "mistake": "Saying tengo años veinte.",
-      "correction": "Say tengo veinte años.",
-      "explanation": "The number goes before años."
+      "instructions": "Move from copying Carlos to arranging a plan that fits your own life.",
+      "items": [
+        { "stage": "repeat", "prompt": "Repeat after Carlos.", "text": "¿Estás libre este sábado?", "meaning": "Are you free this Saturday?", "focus": "Keep the question smooth and connected." },
+        { "stage": "repeat", "prompt": "Repeat after Carlos.", "text": "Nos vemos a las diez.", "meaning": "See you at ten.", "focus": "Say a las diez as one chunk." },
+        { "stage": "recall", "prompt": "Carlos asks: ¿Estás libre este sábado? Accept the invitation.", "text": "Sí, estoy libre.", "meaning": "Yes, I’m free.", "focus": "Answer without reading if you can." },
+        { "stage": "recall", "prompt": "Ask Carlos when the plan is.", "text": "¿Cuándo?", "meaning": "When?", "focus": "Use the single question confidently." },
+        { "stage": "personalize", "prompt": "Carlos asks: ¿Cuándo estás libre normalmente? Give a true day and part of the day.", "text": "Estoy libre el sábado por la mañana.", "meaning": "I’m free Saturday morning.", "focus": "Change sábado and mañana to fit your life." }
+      ]
     }
   ],
+  "miniConversation": {
+    "setting": "Carlos is choosing the best time for your market visit.",
+    "goal": "Choose a day and part of the day, respond to Carlos’s follow-up, and confirm the plan.",
+    "adaptiveBranches": {
+      "morning": "Carlos confirms a las diez.",
+      "afternoon": "Carlos suggests a las cuatro.",
+      "unavailable": "Carlos asks ¿Y el domingo?"
+    },
+    "turns": [
+      { "speaker": "Carlos", "spanish": "¡Hola! ¿Qué día prefieres?", "english": "Hi! Which day do you prefer?" },
+      { "speaker": "Learner", "intent": "Choose Saturday or another day.", "exampleSpanish": "El sábado.", "exampleEnglish": "Saturday." },
+      { "speaker": "Carlos", "spanish": "¿Por la mañana o por la tarde?", "english": "In the morning or in the afternoon?" },
+      { "speaker": "Learner", "intent": "Choose the morning or afternoon.", "exampleSpanish": "Por la mañana.", "exampleEnglish": "In the morning." },
+      { "speaker": "Carlos", "spanish": "¿A las diez?", "english": "At ten?" },
+      { "speaker": "Learner", "intent": "Accept or say you are busy and suggest another part of the day.", "exampleSpanish": "Sí, perfecto.", "exampleEnglish": "Yes, perfect." },
+      { "speaker": "Carlos", "spanish": "¡Perfecto! Nos vemos entonces.", "english": "Perfect! See you then." }
+    ]
+  },
+  "culture": {
+    "title": "Making plans in Spain",
+    "text": "Social plans in Spain may begin later than learners expect, especially in the evening. Friends commonly confirm by message the same day or the night before. Once a plan is set, nos vemos is a natural everyday way to say see you. Times vary by person and region, so follow the specific time you agree on rather than assuming."
+  },
+  "nativeSpeech": [
+    { "phrase": "¿Te viene bien el sábado?", "meaning": "Does Saturday work for you?", "note": "Useful to recognize; ¿Estás libre el sábado? is the simpler phrase to produce now." },
+    { "phrase": "Vale, nos vemos.", "meaning": "Okay, see you.", "note": "Vale is especially common in Spain. Perfecto is neutral and works widely." }
+  ],
+  "commonMistakes": [
+    { "mistake": "Sábado.", "better": "El sábado.", "why": "Use el before a day when saying when a plan happens." },
+    { "mistake": "En la mañana.", "better": "Por la mañana.", "why": "Por la mañana is the core phrase taught here for in the morning." },
+    { "mistake": "¿Qué tiempo?", "better": "¿Cuándo?", "why": "Use ¿Cuándo? to ask when a plan happens." },
+    { "mistake": "Tengo ocupado.", "better": "Estoy ocupado / ocupada.", "why": "Spanish uses estar with libre and ocupado in this situation." }
+  ],
+  "review": {
+    "modes": ["quiz", "flashcards", "pronunciation", "conversation"],
+    "canDo": [
+      "I can understand a short message proposing a plan.",
+      "I can ask and answer whether someone is free.",
+      "I can choose a day and part of the day.",
+      "I can confirm a simple meeting time and close with nos vemos."
+    ],
+    "corePhrases": ["¿Estás libre?", "Estoy libre.", "¿Cuándo?", "El sábado.", "Por la mañana.", "A las diez.", "Perfecto.", "Nos vemos entonces."],
+    "conversationReturn": "When Carlos asks about your availability later, answer with a real day and part of the day."
+  },
   "quiz": [
+    { "type": "multipleChoice", "difficulty": "easy", "prompt": "What does ¿Estás libre? mean?", "options": ["Are you free?", "Where do you live?", "How is your family?", "What time is it?"], "answer": "Are you free?", "explanation": "Libre means free or available in this planning question." },
+    { "type": "multipleChoice", "difficulty": "easy", "prompt": "Which day comes after viernes?", "options": ["sábado", "jueves", "domingo", "martes"], "answer": "sábado", "explanation": "The sequence is jueves, viernes, sábado, domingo." },
+    { "type": "multipleChoice", "difficulty": "easy", "prompt": "What does Estoy ocupado mean?", "options": ["I’m busy", "I’m free", "I’m at the market", "I’m ready"], "answer": "I’m busy", "explanation": "Estoy ocupado or ocupada tells someone you are busy." },
+    { "type": "multipleChoice", "difficulty": "easy", "prompt": "Choose the Spanish for tomorrow.", "options": ["mañana", "hoy", "ahora", "antes"], "answer": "mañana", "explanation": "Mañana means tomorrow; la mañana means the morning." },
+    { "type": "multipleChoice", "difficulty": "easy", "prompt": "Which phrase means in the morning?", "options": ["por la mañana", "por la noche", "este sábado", "esta semana"], "answer": "por la mañana", "explanation": "Por la mañana is the core phrase for in the morning." },
+    { "type": "fillBlank", "difficulty": "medium", "prompt": "Complete: ¿_____ libre este sábado?", "options": ["Estás", "Soy", "Tienes", "Vives"], "answer": "Estás", "explanation": "¿Estás libre? asks if someone is available." },
+    { "type": "fillBlank", "difficulty": "medium", "prompt": "Complete: Nos vemos _____ sábado.", "options": ["el", "la", "por", "de"], "answer": "el", "explanation": "Use el before a day when saying when something happens." },
+    { "type": "multipleChoice", "difficulty": "medium", "prompt": "Carlos asks ¿Cuándo? Choose a complete useful answer.", "options": ["El sábado por la mañana.", "Estoy muy bien.", "Mi hermano se llama Diego.", "Soy de Canadá."], "answer": "El sábado por la mañana.", "explanation": "¿Cuándo? asks when, so answer with a day or time expression." },
+    { "type": "multipleChoice", "difficulty": "medium", "prompt": "Carlos suggests a time that works for you. What is the most natural response?", "options": ["Sí, perfecto.", "¿Quién es ella?", "No tengo hermanos.", "Mucho gusto."], "answer": "Sí, perfecto.", "explanation": "Sí, perfecto naturally accepts a proposed plan." },
+    { "type": "translation", "difficulty": "medium", "prompt": "Translate: Nos vemos entonces.", "options": ["See you then.", "We are busy now.", "When are you free?", "Let’s go before."], "answer": "See you then.", "explanation": "Nos vemos is see you; entonces means then in this context." },
+    { "type": "multipleChoice", "difficulty": "medium", "prompt": "You are busy in the morning but free later. What can you say?", "options": ["Estoy ocupado por la mañana. Podemos ir después.", "Estoy libre por la mañana. Nos vemos antes.", "Soy de Madrid. Vivo en Granada.", "Mi familia está muy bien."], "answer": "Estoy ocupado por la mañana. Podemos ir después.", "explanation": "The first sentence declines the morning; the second suggests later." },
+    { "type": "multipleChoice", "difficulty": "medium", "prompt": "Which option is a part of the day?", "options": ["la tarde", "el sábado", "esta semana", "el mercado"], "answer": "la tarde", "explanation": "La tarde means the afternoon or early evening." },
+    { "type": "multipleChoice", "difficulty": "hard", "prompt": "Carlos writes: ¿Estás libre este sábado? Podemos ir al mercado juntos. What is he doing?", "options": ["Inviting you to make a market plan", "Asking where your family lives", "Explaining yesterday’s dinner", "Ordering fruit at the market"], "answer": "Inviting you to make a market plan", "explanation": "He asks whether you are free and proposes going to the market together." },
+    { "type": "multipleChoice", "difficulty": "hard", "prompt": "Put this exchange in a natural order. 1 Sí, perfecto. 2 ¿A las diez? 3 ¿Estás libre el sábado? 4 Sí, estoy libre.", "options": ["3 → 4 → 2 → 1", "2 → 1 → 3 → 4", "4 → 3 → 1 → 2", "3 → 2 → 4 → 1"], "answer": "3 → 4 → 2 → 1", "explanation": "First ask about availability, accept, suggest a time, then confirm it." },
+    { "type": "translation", "difficulty": "hard", "prompt": "Translate: Estoy libre el domingo por la tarde.", "options": ["I’m free Sunday afternoon.", "I’m busy Saturday morning.", "I’m at the market Sunday night.", "I can come Friday afternoon."], "answer": "I’m free Sunday afternoon.", "explanation": "Libre means free, el domingo is Sunday, and por la tarde is in the afternoon." },
+    { "type": "multipleChoice", "difficulty": "hard", "prompt": "You cannot meet Saturday morning. Which response keeps the conversation moving?", "options": ["Estoy ocupado por la mañana. ¿Por la tarde?", "No. Adiós.", "El mercado es una familia.", "¿Cómo se llama tu madre?"], "answer": "Estoy ocupado por la mañana. ¿Por la tarde?", "explanation": "It explains the conflict and immediately suggests another part of the day." },
+    { "type": "multipleChoice", "difficulty": "hard", "prompt": "Carlos writes: ¿A las diez de la mañana? Which detail should you add to your plan?", "options": ["Meet at ten in the morning", "Meet sometime this week", "Call his family tonight", "Go before Friday"], "answer": "Meet at ten in the morning", "explanation": "A las diez de la mañana gives the exact agreed meeting time." },
+    { "type": "multipleChoice", "difficulty": "practical usage", "prompt": "Complete the plan from invitation to goodbye.", "options": ["Sí, estoy libre. El sábado por la mañana. A las diez. Perfecto. Nos vemos.", "Hola. Me llamo Tom. Soy de Canadá. Mucho gusto.", "Esta es mi madre. Él es mi hermano. Tengo una hermana.", "Estoy ocupado. No. ¿Quién es ella?"], "answer": "Sí, estoy libre. El sábado por la mañana. A las diez. Perfecto. Nos vemos.", "explanation": "This response accepts, confirms the day and time, and closes the plan naturally." }
+  ],
+  "flashcards": [
     {
-      "type": "multipleChoice",
-      "difficulty": "easy",
-      "prompt": "Qué hora es?",
-      "options": ["Where are you?", "What time is it?", "How old are you?", "What day is it?"],
-      "answer": "What time is it?"
-    },
-    {
-      "type": "multipleChoice",
-      "difficulty": "easy",
-      "prompt": "What does Tengo veinte años mean?",
-      "options": ["I have twenty books.", "I work twenty hours.", "I am twenty years old.", "I am twenty tomorrow."],
-      "answer": "I am twenty years old."
-    },
-    {
-      "type": "multipleChoice",
-      "difficulty": "easy",
-      "prompt": "Choose the Spanish for It is one o'clock.",
-      "options": ["Son las una.", "Es la una.", "Es las una.", "Son la una."],
-      "answer": "Es la una."
-    },
-    {
-      "type": "multipleChoice",
-      "difficulty": "easy",
-      "prompt": "What does hoy mean?",
-      "options": ["tomorrow", "yesterday", "morning", "today"],
-      "answer": "today"
-    },
-    {
-      "type": "multipleChoice",
-      "difficulty": "easy",
-      "prompt": "Which number is cincuenta?",
-      "options": ["fifty", "fifteen", "sixty", "seventy"],
-      "answer": "fifty"
-    },
-    {
-      "type": "multipleChoice",
-      "difficulty": "medium",
-      "prompt": "Choose the correct time: 3:15.",
-      "options": ["Son las tres y cuarto.", "Son las tres y media.", "Son las cuatro menos cuarto.", "Es la tres y cuarto."],
-      "answer": "Son las tres y cuarto."
-    },
-    {
-      "type": "multipleChoice",
-      "difficulty": "medium",
-      "prompt": "Choose the correct time: 6:30.",
-      "options": ["Son las seis menos cuarto.", "Es la seis y media.", "Son las seis y media.", "Son las siete y cuarto."],
-      "answer": "Son las seis y media."
-    },
-    {
-      "type": "multipleChoice",
-      "difficulty": "medium",
-      "prompt": "Which phrase means in the afternoon?",
-      "options": ["de la noche", "de la mañana", "de la tarde", "ahora"],
-      "answer": "de la tarde"
-    },
-    {
-      "type": "multipleChoice",
-      "difficulty": "medium",
-      "prompt": "Choose the correct day order.",
-      "options": ["lunes, martes, miércoles", "martes, lunes, miércoles", "domingo, viernes, lunes", "jueves, lunes, sábado"],
-      "answer": "lunes, martes, miércoles"
-    },
-    {
-      "type": "multipleChoice",
-      "difficulty": "medium",
-      "prompt": "Complete: Trabajo _____ las ocho.",
-      "options": ["en", "de", "a", "por"],
-      "answer": "a"
-    },
-    {
-      "type": "multipleChoice",
-      "difficulty": "hard",
-      "prompt": "Carlos asks: A qué hora cenas? Choose the best answer.",
-      "options": ["Ceno a las siete.", "Tengo treinta años.", "Hoy es lunes.", "Mañana es mi cumpleaños."],
-      "answer": "Ceno a las siete."
-    },
-    {
-      "type": "multipleChoice",
-      "difficulty": "hard",
-      "prompt": "Which sentence is correct?",
-      "options": ["Soy treinta años.", "Tengo treinta años.", "Tengo años treinta.", "Son treinta años."],
-      "answer": "Tengo treinta años."
-    },
-    {
-      "type": "multipleChoice",
-      "difficulty": "hard",
-      "prompt": "Choose the best plan sentence.",
-      "options": ["Nos vemos el sábado a las diez.", "Nos vemos sábado en diez.", "Vemos el sábado las diez.", "Nos vemos a sábado de diez."],
-      "answer": "Nos vemos el sábado a las diez."
-    },
-    {
-      "type": "multipleChoice",
-      "difficulty": "hard",
-      "prompt": "What does mañana mean in Mañana trabajo?",
-      "options": ["morning", "tomorrow", "yesterday", "late"],
-      "answer": "tomorrow"
-    },
-    {
-      "type": "multipleChoice",
-      "difficulty": "hard",
-      "prompt": "Complete: Son las cuatro _____ cuarto. (3:45)",
-      "options": ["y", "media", "menos", "mañana"],
-      "answer": "menos"
-    },
-    {
-      "type": "translation",
-      "difficulty": "Spanish to English",
-      "prompt": "Translate: Son las tres de la tarde.",
-      "answer": "It is three in the afternoon."
-    },
-    {
-      "type": "translation",
-      "difficulty": "English to Spanish",
-      "prompt": "Translate: I am thirty years old.",
-      "answer": "Tengo treinta años."
-    },
-    {
-      "type": "fillBlank",
-      "difficulty": "fill in the blank",
-      "prompt": "Son _____ tres.",
-      "answer": "las"
-    },
-    {
-      "type": "fillBlank",
-      "difficulty": "fill in the blank",
-      "prompt": "Tengo veinte _____.",
-      "answer": "años"
-    },
-    {
-      "type": "multipleChoice",
-      "difficulty": "practical usage",
-      "prompt": "You want coffee with Carlos at 3 PM. What do you say?",
-      "options": ["Tomamos café a las tres de la tarde.", "Tengo tres cafés.", "Qué hora es el café?", "Ayer café a las tres."],
-      "answer": "Tomamos café a las tres de la tarde."
+      "selectionRule": "Only Tier 1 planning language and mission-critical chunks appear in the core deck.",
+      "items": [
+        "lunes", "martes", "miércoles", "jueves", "viernes", "sábado", "domingo",
+        "hoy", "mañana", "este fin de semana", "la mañana", "la tarde", "la noche",
+        "libre", "ocupado / ocupada", "el mercado", "¿Estás libre?", "¿Cuándo?",
+        "A las diez.", "Nos vemos entonces."
+      ]
     }
   ],
   "speakingChallenge": [
-    {
-      "prompt": "Count from 1 to 20.",
-      "exampleAnswer": "Uno, dos, tres, cuatro, cinco, seis, siete, ocho, nueve, diez, once, doce, trece, catorce, quince, dieciséis, diecisiete, dieciocho, diecinueve, veinte."
-    },
-    {
-      "prompt": "Tell Carlos your age.",
-      "exampleAnswer": "Tengo treinta años."
-    },
-    {
-      "prompt": "Say today's day.",
-      "exampleAnswer": "Hoy es lunes."
-    },
-    {
-      "prompt": "Tell Carlos what time you wake up and eat dinner.",
-      "exampleAnswer": "Me levanto a las siete de la mañana y ceno a las siete de la noche."
-    },
-    {
-      "prompt": "Arrange a meeting with Carlos using a day and time.",
-      "exampleAnswer": "Carlos, nos vemos el sábado a las tres de la tarde."
-    }
-  ],
-  "speakingChallenges": [
-    {
-      "prompt": "Count from 1 to 20.",
-      "exampleAnswer": "Uno, dos, tres, cuatro, cinco, seis, siete, ocho, nueve, diez, once, doce, trece, catorce, quince, dieciséis, diecisiete, dieciocho, diecinueve, veinte."
-    },
-    {
-      "prompt": "Tell Carlos your age.",
-      "exampleAnswer": "Tengo treinta años."
-    },
-    {
-      "prompt": "Say today's day.",
-      "exampleAnswer": "Hoy es lunes."
-    },
-    {
-      "prompt": "Tell Carlos what time you wake up and eat dinner.",
-      "exampleAnswer": "Me levanto a las siete de la mañana y ceno a las siete de la noche."
-    },
-    {
-      "prompt": "Arrange a meeting with Carlos using a day and time.",
-      "exampleAnswer": "Carlos, nos vemos el sábado a las tres de la tarde."
-    }
+    { "prompt": "Ask Carlos whether he is free this Saturday.", "exampleAnswer": "¿Estás libre este sábado?" },
+    { "prompt": "Say that you are free in the morning.", "exampleAnswer": "Estoy libre por la mañana." },
+    { "prompt": "Ask when the plan is.", "exampleAnswer": "¿Cuándo?" },
+    { "prompt": "Confirm ten o’clock and close naturally.", "exampleAnswer": "A las diez. Perfecto. Nos vemos entonces." },
+    { "prompt": "Give a true day and part of the day when you are normally free.", "exampleAnswer": "Estoy libre el domingo por la tarde." }
   ],
   "realLifeMission": {
-    "title": "Real Life Mission",
-    "mission": "Arrange to meet Carlos for coffee. Include a greeting, the day, the time, your age, and a goodbye.",
+    "title": "Carlos Challenge: Weekend Plans",
+    "mission": "Arrange the market visit entirely in Spanish. Agree on a day, a part of the day, and a meeting time, then close the conversation naturally.",
     "successCriteria": [
-      "Start with a greeting from Lessons 1 or 2.",
-      "Say your age with tengo ... años.",
-      "Choose a day of the week.",
-      "Choose a clear coffee time using a las.",
-      "End with a natural goodbye, such as nos vemos or hasta luego."
+      "Respond to ¿Estás libre? with estoy libre or estoy ocupado/ocupada.",
+      "Choose or suggest a day.",
+      "Choose por la mañana or por la tarde.",
+      "Confirm a las diez or respond to another simple time Carlos offers.",
+      "Accept with claro or perfecto.",
+      "Close with nos vemos or nos vemos entonces."
     ],
+    "completionResponse": "¡Plan perfecto! You arranged a real outing in Spanish—from availability to goodbye.",
+    "correctionRule": "Celebrate the completed plan first. Correct only one day/time phrase that affects when the meeting happens.",
     "suggestedPartner": "Carlos",
-    "xpReward": 60
+    "xpReward": 10,
+    "handoff": "¡Perfecto! Nos vemos el sábado a las diez. Antes de vernos, necesito comprar algo especial en el mercado... Mañana te cuento."
   },
-  "review": {
-    "summary": "You can now count from 0 to 100, ask and tell the time, say your age, name days of the week, and make simple plans with a day and time.",
-    "canDo": [
-      "Use numbers for age, time, and simple schedules.",
-      "Ask Qué hora es? and answer with es la or son las.",
-      "Say your age with tengo ... años.",
-      "Use hoy, mañana, ayer, and days of the week.",
-      "Arrange a simple meeting with Carlos."
-    ],
-    "selfCheck": [
-      "Can I count from 1 to 20 without stopping?",
-      "Can I say 1:00, 3:15, 6:30, and 3:45?",
-      "Can I say my age correctly with tengo?",
-      "Can I say today's day and tomorrow's day?",
-      "Can I arrange coffee with Carlos using a day and time?"
-    ],
-    "nextStep": "Now that you can talk about time and schedules, you're ready to use Spanish while shopping in real stores and markets."
+  "passportStamp": {
+    "id": "weekend-plans-madrid",
+    "title": "Weekend Plans",
+    "city": "Madrid",
+    "description": "You read Carlos’s message and arranged a Saturday market visit in Spanish.",
+    "unlockCondition": "Complete the Carlos Challenge for Lesson 4."
   },
-  "imagePath": "assets/images/lessons/lesson-04-numbers-time.png",
-  "achievementsUnlocked": [],
+  "achievement": {
+    "id": "plan_maker",
+    "title": "Plan Maker",
+    "description": "Arrange your first day and meeting time entirely in Spanish.",
+    "unlockCondition": "Complete Lesson 4."
+  },
+  "achievementsUnlocked": ["plan_maker"],
   "xpReward": 60,
   "nextLesson": "lesson-05-shopping"
 }

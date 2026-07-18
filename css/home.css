@@ -746,6 +746,7 @@
 .home-page .progress-chat { color: #39c967; }
 .home-page .progress-time { color: var(--habla-gold); }
 .home-page .progress-book { color: #55a9ff; }
+.home-page .progress-fire { color: #ff7a35; }
 .home-page .progress-star { color: #7764e9; }
 
 .home-page .carlos-progress-strip p {
@@ -1648,4 +1649,13 @@
   .home-page .category-tile:active .category-icon {
     transform: none;
   }
+}
+
+/* Final Home rhythm and readability pass. */
+.home-page .home-carlos-dashboard {
+  gap: 24px;
+}
+
+.home-page .home-daily-hero .home-hero-copy p {
+  line-height: 1.4;
 }

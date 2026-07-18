@@ -1,10 +1,86 @@
 # Habla Lesson Schema
 
+Version 1.0 — Frozen production baseline
+
+This data contract is used inside the staged workflow in `content/CONTENT_PRODUCTION_PIPELINE.md`. Schema validity is necessary but does not replace content QA or the final canon check.
+
+## Canonical A1 lesson contract
+
+The A1 curriculum is situation-first. Every production lesson must contain these sections in this order:
+
+1. `carlosIntroduction`
+2. `vocabulary`
+3. `essentialPhrases`
+4. `grammar`
+5. `listening`
+6. `speaking`
+7. `miniConversation`
+8. `culture`
+9. `realLifeMission`
+10. `review`
+
+### Complete content pack
+
+The canonical teaching sections are the lesson core, but a production lesson is delivered as one complete content pack:
+
+1. Story and mission
+2. Real-life objective and `canDo` outcomes
+3. Vocabulary grouped by communication purpose
+4. Essential phrases
+5. One grammar concept
+6. Listening at natural and slow speed
+7. Pronunciation
+8. Speaking from repeat to recall to personalization
+9. Focused flashcards
+10. A 15–20 question quiz
+11. A mini conversation with Carlos
+12. One practical cultural note
+13. A Carlos Challenge
+14. Passport stamp and achievement metadata where applicable
+15. Invisible review hooks using earlier language
+
+`content/A1/lesson-03-family.json` is the gold-standard reference content pack. It demonstrates how the canonical lesson core, current UI compatibility fields, and progression rewards fit together without turning the lesson into a collection of unrelated activities.
+
+Legacy fields such as `listeningPhrases`, `speakingChallenge`, `dialogue`, and `quiz` remain supported by the current UI. While lessons are migrated, canonical sections should reference or duplicate the same learning targets rather than introduce different material.
+
+Optional `supplementalDialogueExamples` and `supplementalQuizBank` fields may preserve additional reviewed practice material, but they are not part of the primary lesson flow and must never contradict the canonical story or teach a future lesson’s central concept early.
+
+### Required quality metadata
+
+- `story.chapter`: Chapter number from 1–3.
+- `story.city`: Madrid, Granada, or Valencia.
+- `story.scene`: The concrete situation Carlos is guiding.
+- `emotionalArc`: The learner’s starting feeling, ending feeling, and the experience that creates the change.
+- `microCliffhanger`: Carlos’s short final story beat and the lesson where it pays off.
+- `canDo`: Three to five observable learner outcomes.
+- `recycledLanguage`: At least three earlier words or phrases that return naturally. Lesson 1 uses an empty array.
+- `vocabulary[].tier`: Primarily `1`; use `2` only when required by the situation.
+- `vocabulary[].group`: A short functional group such as Openers, Responses, or Repair.
+- `essentialPhrases[].usage`: When or why a learner would use the phrase.
+- `listening.items[].answer`: Must exactly match one provided option.
+- `realLifeMission.successCriteria`: Clear, observable completion requirements.
+- `review.canDo`: A short self-check based on the lesson outcomes.
+
+The complete A1 sequence is defined in `content/A1/CURRICULUM.md`. Lesson titles, story events, grammar coverage, missions, rewards, review hooks, and handoffs are planned in `content/A1/A1_CURRICULUM_MAP.md`.
+
+All content decisions follow `HABLA_TEACHING_PHILOSOPHY.md`. Before a lesson is marked production-ready, review it against `content/CONTENT_REVIEW_CHECKLIST.md`.
+
+Story details must follow `HABLA_CANON.md`, and production approval requires the complete gate in `content/LESSON_QA_CHECKLIST.md`.
+
+### Teaching behavior
+
+- Neutral Spanish is the default; regional differences are optional context.
+- Previously learned language should return naturally in later situations.
+- Carlos celebrates successful communication before correcting one important mistake.
+- Every lesson ends with an observable communication success.
+- The final experience should feel like an enjoyable conversation with Carlos, not a completed worksheet.
+
 Every Habla lesson should follow this standard format.
 
 ## Metadata
 
 - `id`: Unique lesson identifier. Use a stable lowercase pattern such as `a1-greetings-01`.
+- `contentVersion`: Released content version used for feedback and analytics comparisons.
 - `title`: Lesson name
 - `level`: A1, A2, B1, or B2
 - `module`: Course module or topic group
@@ -12,6 +88,11 @@ Every Habla lesson should follow this standard format.
 - `xpReward`: XP awarded for completion
 - `skills`: Vocabulary, grammar, listening, speaking, reading, or writing
 - `nextLesson`: The `id` of the recommended next lesson, or `null` if none exists.
+- `learnerChoices`: Optional branches that teach the same objective. Each choice includes an ID, learner-facing option, Carlos response, and canonical rejoin point.
+- `memory`: Optional declarative writes into Carlos’s durable learner profile. Use `onChoice` for a selected branch and `onComplete` only for facts the learner actually established.
+- `memoryCallbacks`: An optional, brief acknowledgment of a stored earlier lesson choice. Use `sourceLessonId` with either one `message` or restrained `byChoice` variants.
+- `livingWorldInteractions`: One optional, non-assessed discovery that makes the lesson location feel inhabited. It may write a collectible story memory but cannot block completion.
+- `eveningRecap`: An optional delayed Carlos message. It contains no XP or CTA and may vary through `byChoice` to acknowledge learner agency.
 
 ## Template Fields
 

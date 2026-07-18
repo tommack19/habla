@@ -1,23 +1,107 @@
 {
   "id": "a1-lesson-02-introductions",
-  "title": "Introductions: Names, Origins, and First Questions",
+  "contentVersion": "1.0",
+  "title": "A New Friend",
   "image": "assets/images/lessons/lesson-02-introductions.png",
   "level": "A1",
   "module": "Introductions",
   "estimatedMinutes": 25,
   "prerequisiteLesson": "a1-lesson-01-greetings",
+  "story": {
+    "chapter": 1,
+    "city": "Madrid",
+    "scene": "Outside the same Madrid café, Carlos introduces you to his longtime friend Ana.",
+    "mission": "Today you’ll learn to tell Ana where you’re from, say where you live, and ask the same questions back.",
+    "continuity": "You reuse your Lesson 1 greeting and name before learning two new place phrases. Ana and Carlos invite you to the Lesson 3 family dinner."
+  },
+  "emotionalArc": {
+    "emotion": "Confidence",
+    "startsWith": "The learner is meeting a new Spanish speaker for the first time.",
+    "endsWith": "The learner knows they can introduce themselves to someone new.",
+    "earnedBy": "Telling Ana where they are from and live, then asking her in return."
+  },
+  "microCliffhanger": {
+    "speaker": "Carlos",
+    "spanish": "Esta noche vienes a cenar. Quiero presentarte a mi familia.",
+    "english": "Tonight you’re coming for dinner. I want to introduce you to my family.",
+    "payoffLesson": "lesson-03-family"
+  },
+  "carlosIntroduction": {
+    "durationSeconds": 30,
+    "text": "¡Hola de nuevo! You already know how to greet someone and share your name. Today I’m introducing you to my longtime friend Ana. Tell her where you’re from, say where you live now, and ask her the same questions. Listen to the conversation first—then I’ll show you the two useful patterns inside it."
+  },
+  "canDo": [
+    "Introduce yourself using language from Lesson 1.",
+    "Say where you are from with soy de.",
+    "Say where you live with vivo en.",
+    "Ask another person where they are from.",
+    "Keep the exchange moving with ¿y tú?"
+  ],
+  "recycledLanguage": [
+    "hola",
+    "me llamo",
+    "mucho gusto",
+    "¿y tú?",
+    "nos vemos"
+  ],
   "objectives": [
-    "Introduce yourself naturally using me llamo, soy, and mi nombre es.",
-    "Ask someone's name formally and informally.",
-    "Say where you are from and where you live.",
-    "Choose between tu and usted in first conversations.",
-    "Continue a short introduction with y tu or y usted."
+    "Introduce yourself using language from Lesson 1.",
+    "Say where you are from with soy de.",
+    "Say where you live with vivo en.",
+    "Ask another person where they are from.",
+    "Keep the exchange moving with ¿y tú?"
+  ],
+  "essentialPhrases": [
+    {
+      "spanish": "Soy de Canadá.",
+      "english": "I’m from Canada.",
+      "usage": "Use soy de for your city, region, or country of origin.",
+      "exampleSpanish": "Me llamo Tom. Soy de Canadá.",
+      "exampleEnglish": "My name is Tom. I’m from Canada."
+    },
+    {
+      "spanish": "Vivo en Winnipeg.",
+      "english": "I live in Winnipeg.",
+      "usage": "Use vivo en for the place where you live now.",
+      "exampleSpanish": "Soy de Canadá y vivo en Winnipeg.",
+      "exampleEnglish": "I’m from Canada and I live in Winnipeg."
+    },
+    {
+      "spanish": "¿De dónde eres?",
+      "english": "Where are you from?",
+      "usage": "A natural informal question after exchanging names.",
+      "exampleSpanish": "Mucho gusto, Ana. ¿De dónde eres?",
+      "exampleEnglish": "Nice to meet you, Ana. Where are you from?"
+    },
+    {
+      "spanish": "¿Dónde vives?",
+      "english": "Where do you live?",
+      "usage": "Ask this when the conversation turns from origin to someone’s current home.",
+      "exampleSpanish": "Eres de México. ¿Dónde vives ahora?",
+      "exampleEnglish": "You’re from Mexico. Where do you live now?"
+    },
+    {
+      "spanish": "¿Y tú?",
+      "english": "And you?",
+      "usage": "Return the same question without repeating the whole sentence.",
+      "exampleSpanish": "Vivo en Madrid. ¿Y tú?",
+      "exampleEnglish": "I live in Madrid. And you?"
+    },
+    {
+      "spanish": "Yo también.",
+      "english": "Me too.",
+      "usage": "Use this when you share the same origin, home, or other detail.",
+      "exampleSpanish": "—Vivo aquí. —Yo también.",
+      "exampleEnglish": "—I live here. —Me too."
+    }
   ],
   "vocabulary": [
     {
       "spanish": "me llamo",
       "english": "my name is",
       "partOfSpeech": "introduction phrase",
+      "tier": 1,
+      "group": "Identity",
       "tip": "Literally means I call myself. It is the safest everyday way to introduce your name.",
       "exampleSpanish": "Hola, me llamo Tom.",
       "exampleEnglish": "Hello, my name is Tom."
@@ -26,6 +110,8 @@
       "spanish": "soy",
       "english": "I am",
       "partOfSpeech": "verb",
+      "tier": 1,
+      "group": "Identity",
       "tip": "Use soy for identity, name, origin, profession, and nationality.",
       "exampleSpanish": "Soy Carlos.",
       "exampleEnglish": "I am Carlos."
@@ -34,46 +120,58 @@
       "spanish": "mi nombre es",
       "english": "my name is",
       "partOfSpeech": "formal phrase",
+      "tier": 2,
+      "group": "Identity",
       "tip": "Correct and clear, but more formal or official than me llamo.",
       "exampleSpanish": "Mi nombre es Ana Ruiz.",
       "exampleEnglish": "My name is Ana Ruiz."
     },
     {
-      "spanish": "como te llamas",
+      "spanish": "¿cómo te llamas?",
       "english": "what is your name",
       "partOfSpeech": "informal question",
+      "tier": 1,
+      "group": "First Questions",
       "tip": "Use with friends, peers, children, or relaxed first meetings.",
-      "exampleSpanish": "Hola, como te llamas?",
+      "exampleSpanish": "Hola, ¿cómo te llamas?",
       "exampleEnglish": "Hi, what is your name?"
     },
     {
-      "spanish": "como se llama",
+      "spanish": "¿cómo se llama?",
       "english": "what is your name",
       "partOfSpeech": "formal question",
+      "tier": 2,
+      "group": "First Questions",
       "tip": "Use with strangers, elders, clients, or anyone you want to address respectfully.",
-      "exampleSpanish": "Buenos dias, como se llama?",
+      "exampleSpanish": "Buenos días, ¿cómo se llama?",
       "exampleEnglish": "Good morning, what is your name?"
     },
     {
-      "spanish": "de donde eres",
+      "spanish": "¿de dónde eres?",
       "english": "where are you from",
       "partOfSpeech": "informal question",
+      "tier": 1,
+      "group": "First Questions",
       "tip": "Use in casual conversation after names are exchanged.",
-      "exampleSpanish": "Carlos, de donde eres?",
+      "exampleSpanish": "Carlos, ¿de dónde eres?",
       "exampleEnglish": "Carlos, where are you from?"
     },
     {
-      "spanish": "de donde es",
+      "spanish": "¿de dónde es?",
       "english": "where are you from",
       "partOfSpeech": "formal question",
+      "tier": 2,
+      "group": "First Questions",
       "tip": "Respectful version for formal introductions.",
-      "exampleSpanish": "Disculpe, de donde es?",
+      "exampleSpanish": "Disculpe, ¿de dónde es?",
       "exampleEnglish": "Excuse me, where are you from?"
     },
     {
       "spanish": "soy de",
       "english": "I am from",
       "partOfSpeech": "origin phrase",
+      "tier": 1,
+      "group": "Origin and Home",
       "tip": "Add a city, region, or country after de.",
       "exampleSpanish": "Soy de Winnipeg.",
       "exampleEnglish": "I am from Winnipeg."
@@ -82,14 +180,18 @@
       "spanish": "vivo en",
       "english": "I live in",
       "partOfSpeech": "residence phrase",
+      "tier": 1,
+      "group": "Origin and Home",
       "tip": "Use vivo en for where you live now, not necessarily where you are from.",
-      "exampleSpanish": "Vivo en Canada.",
+      "exampleSpanish": "Vivo en Canadá.",
       "exampleEnglish": "I live in Canada."
     },
     {
       "spanish": "mucho gusto",
       "english": "nice to meet you",
       "partOfSpeech": "polite phrase",
+      "tier": 1,
+      "group": "Keeping It Going",
       "tip": "Use after names are exchanged. It is natural across the Spanish-speaking world.",
       "exampleSpanish": "Mucho gusto, Carlos.",
       "exampleEnglish": "Nice to meet you, Carlos."
@@ -98,6 +200,8 @@
       "spanish": "encantado",
       "english": "pleased to meet you",
       "partOfSpeech": "polite phrase",
+      "tier": 2,
+      "group": "Keeping It Going",
       "tip": "Use encantado if the speaker is male. Use encantada if the speaker is female.",
       "exampleSpanish": "Encantado de conocerte.",
       "exampleEnglish": "Pleased to meet you."
@@ -106,110 +210,118 @@
       "spanish": "encantada",
       "english": "pleased to meet you",
       "partOfSpeech": "polite phrase",
+      "tier": 2,
+      "group": "Keeping It Going",
       "tip": "Use encantada when the speaker is female.",
-      "exampleSpanish": "Encantada, soy Lucia.",
-      "exampleEnglish": "Pleased to meet you, I am Lucia."
+      "exampleSpanish": "Encantada, soy Lucía.",
+      "exampleEnglish": "Pleased to meet you, I am Lucía."
     },
     {
-      "spanish": "y tu",
+      "spanish": "¿y tú?",
       "english": "and you",
       "partOfSpeech": "informal follow-up question",
+      "tier": 1,
+      "group": "Keeping It Going",
       "tip": "Use after answering to invite the other person to answer too.",
-      "exampleSpanish": "Soy de Canada. Y tu?",
+      "exampleSpanish": "Soy de Canadá. ¿Y tú?",
       "exampleEnglish": "I am from Canada. And you?"
     },
     {
-      "spanish": "y usted",
+      "spanish": "¿y usted?",
       "english": "and you",
       "partOfSpeech": "formal follow-up question",
-      "tip": "Formal version of y tu.",
-      "exampleSpanish": "Vivo en Winnipeg. Y usted?",
+      "tier": 2,
+      "group": "Keeping It Going",
+      "tip": "Formal version of ¿y tú?",
+      "exampleSpanish": "Vivo en Winnipeg. ¿Y usted?",
       "exampleEnglish": "I live in Winnipeg. And you?"
     },
     {
-      "spanish": "tambien",
+      "spanish": "también",
       "english": "also / too",
       "partOfSpeech": "adverb",
+      "tier": 1,
+      "group": "Keeping It Going",
       "tip": "Use to add yourself to a statement.",
-      "exampleSpanish": "Yo tambien soy de Canada.",
+      "exampleSpanish": "Yo también soy de Canadá.",
       "exampleEnglish": "I am also from Canada."
     },
     {
-      "spanish": "aqui",
+      "spanish": "aquí",
       "english": "here",
       "partOfSpeech": "adverb",
+      "tier": 1,
+      "group": "Origin and Home",
       "tip": "Useful when saying you live here or are here with someone.",
-      "exampleSpanish": "Vivo aqui.",
+      "exampleSpanish": "Vivo aquí.",
       "exampleEnglish": "I live here."
     },
     {
       "spanish": "ciudad",
       "english": "city",
       "partOfSpeech": "noun",
+      "tier": 2,
+      "group": "Origin and Home",
       "tip": "Use with de or en when talking about places.",
       "exampleSpanish": "Winnipeg es mi ciudad.",
       "exampleEnglish": "Winnipeg is my city."
     },
     {
-      "spanish": "pais",
+      "spanish": "país",
       "english": "country",
       "partOfSpeech": "noun",
+      "tier": 2,
+      "group": "Origin and Home",
       "tip": "Useful when talking about origin or nationality.",
-      "exampleSpanish": "Canada es mi pais.",
+      "exampleSpanish": "Canadá es mi país.",
       "exampleEnglish": "Canada is my country."
-    },
-    {
-      "spanish": "trabajo",
-      "english": "I work / work",
-      "partOfSpeech": "verb / noun",
-      "tip": "At A1, use trabajo to say I work.",
-      "exampleSpanish": "Trabajo en Winnipeg.",
-      "exampleEnglish": "I work in Winnipeg."
-    },
-    {
-      "spanish": "estudio",
-      "english": "I study / study",
-      "partOfSpeech": "verb / noun",
-      "tip": "At A1, use estudio to say I study.",
-      "exampleSpanish": "Estudio espanol.",
-      "exampleEnglish": "I study Spanish."
     },
     {
       "spanish": "Canadá",
       "english": "Canada",
       "partOfSpeech": "place",
-      "tip": "Use soy de Canada for origin and vivo en Canada for residence.",
-      "exampleSpanish": "Soy de Canada.",
+      "tier": 2,
+      "group": "Origin and Home",
+      "tip": "Use soy de Canadá for origin and vivo en Canadá for residence.",
+      "exampleSpanish": "Soy de Canadá.",
       "exampleEnglish": "I am from Canada."
     },
     {
-      "spanish": "Mexico",
+      "spanish": "México",
       "english": "Mexico",
       "partOfSpeech": "place",
+      "tier": 2,
+      "group": "Origin and Home",
       "tip": "A useful country name for conversations with Carlos.",
-      "exampleSpanish": "Carlos es de Mexico.",
-      "exampleEnglish": "Carlos is from Mexico."
+      "exampleSpanish": "Mi amigo es de México.",
+      "exampleEnglish": "My friend is from Mexico."
     },
     {
       "spanish": "usted",
       "english": "you",
       "partOfSpeech": "formal pronoun",
+      "tier": 1,
+      "group": "Conversation Tools",
       "tip": "Formal you. It uses forms like es and se llama.",
-      "exampleSpanish": "Usted es de Mexico?",
+      "exampleSpanish": "¿Usted es de México?",
       "exampleEnglish": "Are you from Mexico?"
     },
     {
-      "spanish": "tu",
+      "spanish": "tú",
       "english": "you",
       "partOfSpeech": "informal pronoun",
+      "tier": 1,
+      "group": "Conversation Tools",
       "tip": "Informal you. Use with peers and relaxed situations.",
-      "exampleSpanish": "Tu eres Carlos?",
+      "exampleSpanish": "¿Tú eres Carlos?",
       "exampleEnglish": "Are you Carlos?"
     },
     {
       "spanish": "igualmente",
       "english": "likewise",
       "partOfSpeech": "response",
+      "tier": 2,
+      "group": "Keeping It Going",
       "tip": "A natural reply to mucho gusto or encantado.",
       "exampleSpanish": "Mucho gusto. Igualmente.",
       "exampleEnglish": "Nice to meet you. Likewise."
@@ -234,42 +346,42 @@
     },
     {
       "meaning": "What is your name? informal",
-      "textbookVersion": "Como te llamas?",
-      "naturalEverydayVersion": "Como te llamas?",
-      "mexicanSpanishVersion": "Como te llamas?",
-      "spainSpanishVersion": "Como te llamas?",
+      "textbookVersion": "¿Cómo te llamas?",
+      "naturalEverydayVersion": "¿Cómo te llamas?",
+      "mexicanSpanishVersion": "¿Cómo te llamas?",
+      "spainSpanishVersion": "¿Cómo te llamas?",
       "whenUsed": "Use with peers, friends, children, or relaxed first meetings."
     },
     {
       "meaning": "What is your name? formal",
-      "textbookVersion": "Como se llama usted?",
-      "naturalEverydayVersion": "Como se llama?",
-      "mexicanSpanishVersion": "Como se llama?",
-      "spainSpanishVersion": "Como se llama?",
+      "textbookVersion": "¿Cómo se llama usted?",
+      "naturalEverydayVersion": "¿Cómo se llama?",
+      "mexicanSpanishVersion": "¿Cómo se llama?",
+      "spainSpanishVersion": "¿Cómo se llama?",
       "whenUsed": "Use with strangers, elders, clients, and respectful introductions. The usted can be included for clarity or omitted when context is obvious."
     },
     {
       "meaning": "Where are you from? informal",
-      "textbookVersion": "De donde eres?",
-      "naturalEverydayVersion": "De donde eres?",
-      "mexicanSpanishVersion": "De donde eres?",
-      "spainSpanishVersion": "De donde eres?",
+      "textbookVersion": "¿De dónde eres?",
+      "naturalEverydayVersion": "¿De dónde eres?",
+      "mexicanSpanishVersion": "¿De dónde eres?",
+      "spainSpanishVersion": "¿De dónde eres?",
       "whenUsed": "Use after a greeting and name exchange in casual conversation."
     },
     {
       "meaning": "Where are you from? formal",
-      "textbookVersion": "De donde es usted?",
-      "naturalEverydayVersion": "De donde es?",
-      "mexicanSpanishVersion": "De donde es?",
-      "spainSpanishVersion": "De donde es?",
+      "textbookVersion": "¿De dónde es usted?",
+      "naturalEverydayVersion": "¿De dónde es?",
+      "mexicanSpanishVersion": "¿De dónde es?",
+      "spainSpanishVersion": "¿De dónde es?",
       "whenUsed": "Use in respectful or professional introductions."
     },
     {
       "meaning": "I am from Canada.",
-      "textbookVersion": "Soy de Canada.",
-      "naturalEverydayVersion": "Soy de Canada.",
-      "mexicanSpanishVersion": "Soy de Canada.",
-      "spainSpanishVersion": "Soy de Canada.",
+      "textbookVersion": "Soy de Canadá.",
+      "naturalEverydayVersion": "Soy de Canadá.",
+      "mexicanSpanishVersion": "Soy de Canadá.",
+      "spainSpanishVersion": "Soy de Canadá.",
       "whenUsed": "Use soy de plus a city, region, or country to talk about origin."
     },
     {
@@ -290,67 +402,56 @@
     },
     {
       "meaning": "And you?",
-      "textbookVersion": "Y tu?",
-      "naturalEverydayVersion": "Y tu?",
-      "mexicanSpanishVersion": "Y tu?",
-      "spainSpanishVersion": "Y tu?",
+      "textbookVersion": "¿Y tú?",
+      "naturalEverydayVersion": "¿Y tú?",
+      "mexicanSpanishVersion": "¿Y tú?",
+      "spainSpanishVersion": "¿Y tú?",
       "whenUsed": "Use informally after answering a name, origin, or residence question. Use y usted in formal situations."
     },
     {
       "meaning": "And you? formal",
-      "textbookVersion": "Y usted?",
-      "naturalEverydayVersion": "Y usted?",
-      "mexicanSpanishVersion": "Y usted?",
-      "spainSpanishVersion": "Y usted?",
+      "textbookVersion": "¿Y usted?",
+      "naturalEverydayVersion": "¿Y usted?",
+      "mexicanSpanishVersion": "¿Y usted?",
+      "spainSpanishVersion": "¿Y usted?",
       "whenUsed": "Use formally after answering a question from someone you address with usted."
     }
   ],
   "grammar": {
-    "topic": "Introducing yourself and keeping the first conversation going",
-    "explanation": "Spanish introductions use short, flexible phrases. Start with a greeting from Lesson 1, add your name with me llamo or soy, then continue with origin, residence, or y tu / y usted.",
+    "topic": "Soy de for origin and vivo en for residence",
+    "meaning": "Separate where you come from from where you live now.",
+    "explanation": "Use soy de + place for your origin. Use vivo en + place for your current home. Learn these as two complete patterns: soy de Canadá; vivo en Winnipeg. You do not need any other forms of the verbs yet.",
     "notes": [
       {
-        "title": "Me llamo vs mi nombre es",
-        "text": "Me llamo is the everyday introduction: Me llamo Tom. = My name is Tom. Mi nombre es Tom. is correct but more formal, like a form, presentation, or official setting. Practice: introduce yourself to Carlos with me llamo. Watch out: do not say Yo llamo Tom."
+        "title": "Origin",
+        "text": "Soy de Canadá means I’m from Canada. Keep de before the place."
       },
       {
-        "title": "Soy vs vivo",
-        "text": "Soy de says where you are from: Soy de Canada. = I am from Canada. Vivo en says where you live now: Vivo en Winnipeg. = I live in Winnipeg. Practice: say both your origin and where you live. Watch out: Soy en Winnipeg is not correct for residence."
+        "title": "Current home",
+        "text": "Vivo en Winnipeg means I live in Winnipeg. Keep en before the place."
       },
       {
-        "title": "Tu vs usted",
-        "text": "Tu is informal and usted is formal. Tu eres de Mexico? = Are you from Mexico? Usted es de Mexico? = Are you from Mexico? Practice: ask Carlos informally, then ask an older person formally. Watch out: avoid tu with someone you want to address respectfully."
-      },
-      {
-        "title": "Como te llamas vs como se llama",
-        "text": "Como te llamas? is informal: What is your name? Como se llama? is formal: What is your name? Practice: ask a friend, then ask a stranger. Watch out: como se llama can also mean What is his/her name? when you are talking about another person."
-      },
-      {
-        "title": "De donde eres vs de donde es",
-        "text": "De donde eres? is informal: Where are you from? De donde es? is formal: Where are you from? Practice: ask Carlos where he is from and answer with soy de. Watch out: do not forget de in soy de Canada."
-      },
-      {
-        "title": "Spanish often omits the subject",
-        "text": "Spanish usually does not need yo because the verb already shows I: Soy Tom. = I am Tom. Me llamo Tom. = My name is Tom. Practice: say three sentences without yo. Watch out: Yo soy Tom is correct, but overusing yo can sound heavy."
-      },
-      {
-        "title": "Simple question formation",
-        "text": "Many A1 questions use the same word order as statements, with question intonation: Eres de Canada? = Are you from Canada? You can also use question words: De donde eres? = Where are you from? Practice: turn Soy de Canada into a question. Watch out: do not translate English word order word-for-word."
+        "title": "Keep the contrast clear",
+        "text": "Soy en Winnipeg is not correct for residence, and vivo de Canadá is not correct for origin. Match soy with de and vivo with en."
       }
     ],
     "examples": [
       {
-        "spanish": "Hola, me llamo Tom. Como te llamas?",
-        "english": "Hi, my name is Tom. What is your name?"
+        "spanish": "Soy de Canadá.",
+        "english": "I’m from Canada."
       },
       {
-        "spanish": "Soy de Canada, pero vivo en Winnipeg. Y usted?",
-        "english": "I am from Canada, but I live in Winnipeg. And you?"
+        "spanish": "Vivo en Winnipeg.",
+        "english": "I live in Winnipeg."
+      },
+      {
+        "spanish": "Soy de Canadá, pero vivo en Winnipeg.",
+        "english": "I’m from Canada, but I live in Winnipeg."
       }
     ],
-    "practicePrompt": "Introduce yourself to Carlos, ask his name, say where you are from, say where you live, and return one question with y tu or y usted."
+    "practicePrompt": "Say one true sentence about where you are from and one about where you live."
   },
-  "dialogue": [
+  "supplementalDialogueExamples": [
     {
       "title": "Casual introduction with Carlos",
       "lines": [
@@ -371,12 +472,12 @@
       "lines": [
         {
           "speaker": "Learner",
-          "spanish": "Hola, como te llamas?",
+          "spanish": "Hola, ¿cómo te llamas?",
           "english": "Hi, what is your name?"
         },
         {
           "speaker": "Ana",
-          "spanish": "Me llamo Ana. Y tu?",
+          "spanish": "Me llamo Ana. ¿Y tú?",
           "english": "My name is Ana. And you?"
         }
       ]
@@ -386,12 +487,12 @@
       "lines": [
         {
           "speaker": "Learner",
-          "spanish": "Buenos dias, mi nombre es Tom.",
+          "spanish": "Buenos días, mi nombre es Tom.",
           "english": "Good morning, my name is Tom."
         },
         {
-          "speaker": "Senora Ruiz",
-          "spanish": "Mucho gusto. Como se llama?",
+          "speaker": "Señora Ruiz",
+          "spanish": "Mucho gusto. ¿Cómo se llama?",
           "english": "Nice to meet you. What is your name?"
         }
       ]
@@ -401,8 +502,8 @@
       "lines": [
         {
           "speaker": "Carlos",
-          "spanish": "Tom, esta es mi tia Ana.",
-          "english": "Tom, this is my aunt Ana."
+          "spanish": "Tom, esta es mi amiga Ana.",
+          "english": "Tom, this is my friend Ana."
         },
         {
           "speaker": "Learner",
@@ -415,14 +516,14 @@
       "title": "Meeting a coworker",
       "lines": [
         {
-          "speaker": "Lucia",
-          "spanish": "Hola, soy Lucia. Trabajo aqui.",
-          "english": "Hi, I am Lucia. I work here."
+          "speaker": "Lucía",
+          "spanish": "Hola, soy Lucía. Trabajo aquí.",
+          "english": "Hi, I am Lucía. I work here."
         },
         {
           "speaker": "Learner",
-          "spanish": "Mucho gusto, Lucia. Soy Tom.",
-          "english": "Nice to meet you, Lucia. I am Tom."
+          "spanish": "Mucho gusto, Lucía. Soy Tom.",
+          "english": "Nice to meet you, Lucía. I am Tom."
         }
       ]
     },
@@ -431,12 +532,12 @@
       "lines": [
         {
           "speaker": "Carlos",
-          "spanish": "De donde eres?",
+          "spanish": "¿De dónde eres?",
           "english": "Where are you from?"
         },
         {
           "speaker": "Learner",
-          "spanish": "Soy de Canada. Y tu?",
+          "spanish": "Soy de Canadá. ¿Y tú?",
           "english": "I am from Canada. And you?"
         }
       ]
@@ -446,13 +547,13 @@
       "lines": [
         {
           "speaker": "Learner",
-          "spanish": "Carlos, de donde eres?",
+          "spanish": "Carlos, ¿de dónde eres?",
           "english": "Carlos, where are you from?"
         },
         {
           "speaker": "Carlos",
-          "spanish": "Soy de Mexico, pero vivo aqui.",
-          "english": "I am from Mexico, but I live here."
+          "spanish": "Soy de Madrid y vivo aquí.",
+          "english": "I am from Madrid and I live here."
         }
       ]
     },
@@ -461,12 +562,12 @@
       "lines": [
         {
           "speaker": "Carlos",
-          "spanish": "Vives en Canada?",
+          "spanish": "¿Vives en Canadá?",
           "english": "Do you live in Canada?"
         },
         {
           "speaker": "Learner",
-          "spanish": "Si, vivo en Winnipeg.",
+          "spanish": "Sí, vivo en Winnipeg.",
           "english": "Yes, I live in Winnipeg."
         }
       ]
@@ -475,13 +576,13 @@
       "title": "Formal follow-up",
       "lines": [
         {
-          "speaker": "Senor Lopez",
-          "spanish": "Soy de Mexico. Y usted?",
+          "speaker": "Señor López",
+          "spanish": "Soy de México. ¿Y usted?",
           "english": "I am from Mexico. And you?"
         },
         {
           "speaker": "Learner",
-          "spanish": "Soy de Canada y vivo en Winnipeg.",
+          "spanish": "Soy de Canadá y vivo en Winnipeg.",
           "english": "I am from Canada and I live in Winnipeg."
         }
       ]
@@ -491,24 +592,94 @@
       "lines": [
         {
           "speaker": "Learner",
-          "spanish": "Hola, me llamo Tom. Soy de Canada y vivo en Winnipeg. Como te llamas?",
+          "spanish": "Hola, me llamo Tom. Soy de Canadá y vivo en Winnipeg. ¿Cómo te llamas?",
           "english": "Hi, my name is Tom. I am from Canada and I live in Winnipeg. What is your name?"
         },
         {
           "speaker": "Carlos",
-          "spanish": "Me llamo Carlos. Soy de Mexico. Mucho gusto, Tom.",
-          "english": "My name is Carlos. I am from Mexico. Nice to meet you, Tom."
+          "spanish": "Me llamo Carlos. Soy de Madrid. Mucho gusto, Tom.",
+          "english": "My name is Carlos. I am from Madrid. Nice to meet you, Tom."
         }
       ]
     }
   ],
-  "pronunciation": {
+  "dialogue": [
+    {
+      "title": "Meeting Ana outside the café",
+      "setting": "After your first conversation, Carlos introduces you to his longtime friend Ana outside the same Madrid café.",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "¡Hola! Tom, esta es mi amiga Ana.",
+          "english": "Hi! Tom, this is my friend Ana."
+        },
+        {
+          "speaker": "Ana",
+          "spanish": "Hola, me llamo Ana. Mucho gusto. ¿Cómo te llamas?",
+          "english": "Hi, my name is Ana. Nice to meet you. What’s your name?"
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "Me llamo Tom. Mucho gusto.",
+          "english": "My name is Tom. Nice to meet you."
+        },
+        {
+          "speaker": "Ana",
+          "spanish": "¿De dónde eres?",
+          "english": "Where are you from?"
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "Soy de Canadá y vivo en Winnipeg. ¿Y tú?",
+          "english": "I’m from Canada and I live in Winnipeg. And you?"
+        },
+        {
+          "speaker": "Ana",
+          "spanish": "Soy de Sevilla, pero vivo en Madrid.",
+          "english": "I’m from Seville, but I live in Madrid."
+        },
+        {
+          "speaker": "Carlos",
+          "spanish": "Yo soy de Madrid y vivo aquí también. Ana, cenamos con mi familia mañana. ¿Vienes?",
+          "english": "I’m from Madrid and I live here too. Ana, we’re having dinner with my family tomorrow. Are you coming?"
+        },
+        {
+          "speaker": "Ana",
+          "spanish": "¡Claro! Nos vemos mañana.",
+          "english": "Of course! See you tomorrow."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "Hasta mañana.",
+          "english": "See you tomorrow."
+        }
+      ],
+      "comprehension": [
+        {
+          "prompt": "Where is Ana from?",
+          "options": ["Seville", "Madrid", "Granada"],
+          "answer": "Seville"
+        },
+        {
+          "prompt": "Where does Ana live now?",
+          "options": ["Madrid", "Seville", "Valencia"],
+          "answer": "Madrid"
+        },
+        {
+          "prompt": "What are Ana and the learner invited to?",
+          "options": ["A family dinner", "A work meeting", "A train trip"],
+          "answer": "A family dinner"
+        }
+      ]
+    }
+  ],
+  "supplementalPronunciation": {
     "focus": "Names, origin phrases, formal questions, and smooth linking.",
     "tips": [
       "In many Latin American accents, ll in llamo sounds like English y.",
       "Keep nombre as two clear parts: nom-bre. Do not add an extra vowel at the end.",
       "Soy is one short syllable. Do not stretch it.",
-      "In de donde, keep de light and stress donde naturally.",
+      "In ¿de dónde?, keep de light and stress dón naturally.",
       "Usted ends with a clear d sound, but it can be soft in natural speech.",
       "In soy de, connect the words smoothly without stressing de.",
       "Encantado and encantada stress ta: en-can-TA-do, en-can-TA-da."
@@ -527,15 +698,15 @@
         "note": "One short syllable, with a clear oy sound."
       },
       {
-        "text": "soy de Canada",
+        "text": "soy de Canadá",
         "note": "Link soy de naturally; de is short and light."
       },
       {
-        "text": "de donde eres",
+        "text": "¿de dónde eres?",
         "note": "Listen for de plus donde; do not drop de."
       },
       {
-        "text": "de donde es",
+        "text": "¿de dónde es?",
         "note": "Formal question; keep es short."
       },
       {
@@ -556,6 +727,94 @@
       }
     ]
   },
+  "pronunciation": {
+    "focus": "Smooth origin and residence phrases",
+    "tips": [
+      "Soy is one short syllable.",
+      "Keep de light in soy de.",
+      "Link vivo en smoothly while keeping both vowels clear.",
+      "Stress dón in dónde."
+    ],
+    "items": [
+      {
+        "text": "soy de Madrid",
+        "meaning": "I’m from Madrid",
+        "note": "Connect soy de as one short phrase."
+      },
+      {
+        "text": "vivo en Madrid",
+        "meaning": "I live in Madrid",
+        "note": "Link vivo en without dropping either vowel."
+      },
+      {
+        "text": "¿de dónde eres?",
+        "meaning": "where are you from?",
+        "note": "Keep de light and stress dón in dónde."
+      },
+      {
+        "text": "¿dónde vives?",
+        "meaning": "where do you live?",
+        "note": "Let the question rise gently at the end."
+      },
+      {
+        "text": "Soy de Sevilla, pero vivo en Madrid.",
+        "meaning": "I’m from Seville, but I live in Madrid.",
+        "note": "Pause lightly around pero to separate origin from residence."
+      }
+    ]
+  },
+  "listening": {
+    "title": "Origin or current home?",
+    "instructions": "Listen for the complete chunks soy de and vivo en before choosing the meaning.",
+    "playbackSpeeds": ["natural", "slow"],
+    "items": [
+      {
+        "spanish": "Soy de México.",
+        "options": [
+          "I’m from Mexico.",
+          "I live in Mexico.",
+          "I’m going to Mexico."
+        ],
+        "answer": "I’m from Mexico."
+      },
+      {
+        "spanish": "Vivo en Madrid.",
+        "options": [
+          "I’m from Madrid.",
+          "I live in Madrid.",
+          "I work in Madrid."
+        ],
+        "answer": "I live in Madrid."
+      },
+      {
+        "spanish": "¿De dónde eres?",
+        "options": [
+          "Where are you from?",
+          "Where do you live?",
+          "What is your name?"
+        ],
+        "answer": "Where are you from?"
+      },
+      {
+        "spanish": "Soy de Sevilla, pero vivo aquí.",
+        "options": [
+          "I live in Seville now.",
+          "I’m from Seville, but I live here.",
+          "I’m visiting Seville today."
+        ],
+        "answer": "I’m from Seville, but I live here."
+      },
+      {
+        "spanish": "Vivo en Madrid. ¿Y tú?",
+        "options": [
+          "I live in Madrid. And you?",
+          "Are you going to Madrid?",
+          "I’m also from Madrid."
+        ],
+        "answer": "I live in Madrid. And you?"
+      }
+    ]
+  },
   "listeningPhrases": [
     {
       "spanish": "Me llamo Carlos.",
@@ -568,27 +827,27 @@
       "note": "Notice that soy can introduce a name."
     },
     {
-      "spanish": "Como te llamas?",
+      "spanish": "¿Cómo te llamas?",
       "english": "What is your name?",
       "note": "Listen for te, which makes it informal."
     },
     {
-      "spanish": "Como se llama?",
+      "spanish": "¿Cómo se llama?",
       "english": "What is your name?",
       "note": "Listen for se, which makes it formal here."
     },
     {
-      "spanish": "Soy de Canada.",
+      "spanish": "Soy de Canadá.",
       "english": "I am from Canada.",
       "note": "Listen for de before the place."
     },
     {
-      "spanish": "De donde eres?",
+      "spanish": "¿De dónde eres?",
       "english": "Where are you from?",
       "note": "Informal origin question."
     },
     {
-      "spanish": "De donde es usted?",
+      "spanish": "¿De dónde es usted?",
       "english": "Where are you from?",
       "note": "Formal origin question with usted."
     },
@@ -603,23 +862,107 @@
       "note": "Common polite exchange after introductions."
     },
     {
-      "spanish": "Hola, soy Tom. Y tu?",
+      "spanish": "Hola, soy Tom. ¿Y tú?",
       "english": "Hi, I am Tom. And you?",
       "note": "Natural connected speech with a follow-up question."
     }
   ],
+  "speaking": {
+    "instructions": "Repeat each place phrase, recall the questions, then personalize the complete exchange.",
+    "items": [
+      {
+        "stage": "repeat",
+        "prompt": "Repeat the origin phrase, then use your own place.",
+        "text": "Soy de Canadá.",
+        "meaning": "I’m from Canada.",
+        "focus": "Keep soy de connected as one short phrase."
+      },
+      {
+        "stage": "repeat",
+        "prompt": "Repeat the residence phrase, then use your own city.",
+        "text": "Vivo en Winnipeg.",
+        "meaning": "I live in Winnipeg.",
+        "focus": "Link vivo en smoothly without dropping either vowel."
+      },
+      {
+        "stage": "recall",
+        "prompt": "Ask Ana where she is from without reading the model.",
+        "text": "¿De dónde eres?",
+        "meaning": "Where are you from?",
+        "focus": "Stress dón in dónde and let the question rise naturally."
+      },
+      {
+        "stage": "personalize",
+        "prompt": "Say where you are from and where you live in one response.",
+        "text": "Soy de Canadá, pero vivo en Winnipeg.",
+        "meaning": "I’m from Canada, but I live in Winnipeg.",
+        "focus": "Pause lightly around pero to separate the two ideas."
+      },
+      {
+        "stage": "personalize",
+        "prompt": "Say where you live and return the question naturally.",
+        "text": "Vivo aquí. ¿Y tú?",
+        "meaning": "I live here. And you?",
+        "focus": "Stress quí in aquí and tú in the return question."
+      }
+    ]
+  },
+  "miniConversation": {
+    "setting": "Carlos introduces you to Ana outside the café.",
+    "goal": "Exchange names, origin, and current home without reading a full script.",
+    "turns": [
+      {
+        "speaker": "Ana",
+        "spanish": "Hola, me llamo Ana. ¿Cómo te llamas?",
+        "english": "Hi, my name is Ana. What’s your name?"
+      },
+      {
+        "speaker": "Learner",
+        "intent": "Say your name and use mucho gusto.",
+        "exampleSpanish": "Me llamo Tom. Mucho gusto.",
+        "exampleEnglish": "My name is Tom. Nice to meet you."
+      },
+      {
+        "speaker": "Ana",
+        "spanish": "Mucho gusto. ¿De dónde eres?",
+        "english": "Nice to meet you. Where are you from?"
+      },
+      {
+        "speaker": "Learner",
+        "intent": "Say where you are from, where you live, and return the question.",
+        "exampleSpanish": "Soy de Canadá y vivo en Winnipeg. ¿Y tú?",
+        "exampleEnglish": "I’m from Canada and I live in Winnipeg. And you?"
+      },
+      {
+        "speaker": "Ana",
+        "spanish": "Soy de Sevilla, pero vivo en Madrid.",
+        "english": "I’m from Seville, but I live in Madrid."
+      },
+      {
+        "speaker": "Carlos",
+        "spanish": "Ana, cenamos con mi familia mañana. ¿Vienes?",
+        "english": "Ana, we’re having dinner with my family tomorrow. Are you coming?"
+      },
+      {
+        "speaker": "Learner",
+        "intent": "Accept the invitation and close with a Lesson 1 phrase.",
+        "exampleSpanish": "Sí, gracias. Nos vemos mañana.",
+        "exampleEnglish": "Yes, thank you. See you tomorrow."
+      }
+    ]
+  },
   "culture": {
     "title": "Introductions set the tone",
-    "text": "Mucho gusto is natural right after you learn someone's name. Encantado or encantada means pleased to meet you and changes with the speaker: a male speaker says encantado, a female speaker says encantada. Use tu for informal situations and usted for respect, especially with older people, clients, or strangers. In many Spanish-speaking countries, people may use two surnames, usually one from each parent. Mi nombre es is correct, but it can sound more official than me llamo, which is warmer for everyday introductions."
+    "text": "After exchanging names, mucho gusto works naturally across the Spanish-speaking world. People often answer ¿de dónde eres? with a city or region instead of only a country. In Spain, someone may have two surnames, one from each parent, but friendly introductions normally begin with a first name."
   },
   "nativeSpeech": {
     "title": "How native speakers introduce themselves",
     "notes": [
       "After hola from Lesson 1, many speakers go straight to soy plus their name in relaxed settings.",
       "Me llamo remains completely natural and clear in first introductions.",
-      "Como se llama? often sounds more natural than always adding usted, as long as the formal context is clear.",
+      "¿Cómo se llama? often sounds more natural than always adding usted, as long as the formal context is clear.",
       "People often answer origin with a city: Soy de Guadalajara, Soy de Winnipeg.",
-      "Y tu? and y usted? are simple ways to keep a first conversation from stopping."
+      "¿Y tú? and ¿y usted? are simple ways to keep a first conversation from stopping."
     ]
   },
   "commonMistakes": [
@@ -631,49 +974,49 @@
     {
       "mistake": "Confusing soy and vivo.",
       "correction": "Use soy de for origin and vivo en for where you live.",
-      "explanation": "Soy de Canada means I am from Canada. Vivo en Canada means I live in Canada."
+      "explanation": "Soy de Canadá means I am from Canada. Vivo en Canadá means I live in Canada."
     },
     {
-      "mistake": "Using como se llama? with a friend when you mean informal you.",
-      "correction": "Use Como te llamas? with friends and peers.",
-      "explanation": "Como se llama? is formal when speaking directly to someone."
+      "mistake": "Using ¿cómo se llama? with a friend when you mean informal you.",
+      "correction": "Use ¿Cómo te llamas? with friends and peers.",
+      "explanation": "¿Cómo se llama? is formal when speaking directly to someone."
     },
     {
-      "mistake": "Forgetting de in soy de Canada.",
-      "correction": "Say Soy de Canada.",
+      "mistake": "Forgetting de in soy de Canadá.",
+      "correction": "Say Soy de Canadá.",
       "explanation": "Spanish needs de before the place of origin."
     },
     {
       "mistake": "Translating What is your name? word-for-word.",
-      "correction": "Say Como te llamas? or Como se llama?",
+      "correction": "Say ¿Cómo te llamas? or ¿Cómo se llama?",
       "explanation": "Spanish uses the idea What do you call yourself? for this question."
     },
     {
       "mistake": "Overusing yo.",
-      "correction": "Say Soy Tom or Soy de Canada.",
+      "correction": "Say Soy Tom or Soy de Canadá.",
       "explanation": "Yo is correct, but Spanish often omits it because the verb already shows who is speaking."
     }
   ],
-  "review": {
-    "summary": "You can now introduce yourself, ask someone's name, say where you are from, say where you live, and keep the conversation going with y tu or y usted.",
+  "reviewNotes": {
+    "summary": "You can now introduce yourself, ask someone's name, say where you are from, say where you live, and keep the conversation going with ¿y tú? or ¿y usted?",
     "essentials": [
       "Name: Me llamo Tom. / Soy Tom.",
-      "Informal name question: Como te llamas?",
-      "Formal name question: Como se llama?",
-      "Origin: Soy de Canada.",
+      "Informal name question: ¿Cómo te llamas?",
+      "Formal name question: ¿Cómo se llama?",
+      "Origin: Soy de Canadá.",
       "Residence: Vivo en Winnipeg.",
-      "Follow-up: Y tu? / Y usted?"
+      "Follow-up: ¿Y tú? / ¿Y usted?"
     ],
     "selfCheck": [
       "Can I introduce myself after saying hola?",
       "Can I ask a name formally and informally?",
       "Can I explain the difference between soy de and vivo en?",
-      "Can I return a question with y tu or y usted?",
+      "Can I return a question with ¿y tú? or ¿y usted?",
       "Can I speak to Carlos for 30 seconds using at least five lesson phrases?"
     ],
     "nextStep": "Now that you can introduce yourself, the next lesson will help you introduce the people closest to you."
   },
-  "quiz": [
+  "supplementalQuizBank": [
     {
       "type": "multipleChoice",
       "difficulty": "easy",
@@ -703,12 +1046,12 @@
       "difficulty": "easy",
       "prompt": "How do you ask What is your name? informally?",
       "options": [
-        "Como se llama?",
-        "Soy de Canada.",
-        "Como te llamas?",
+        "¿Cómo se llama?",
+        "Soy de Canadá.",
+        "¿Cómo te llamas?",
         "Mucho gusto."
       ],
-      "answer": "Como te llamas?"
+      "answer": "¿Cómo te llamas?"
     },
     {
       "type": "multipleChoice",
@@ -727,24 +1070,24 @@
       "difficulty": "easy",
       "prompt": "Which phrase means I am from Canada?",
       "options": [
-        "Soy de Canada.",
-        "Vivo Canada.",
-        "Me llamo Canada.",
-        "Soy en Canada."
+        "Soy de Canadá.",
+        "Vivo en Canadá.",
+        "Soy Canadá.",
+        "Voy a Canadá."
       ],
-      "answer": "Soy de Canada."
+      "answer": "Soy de Canadá."
     },
     {
       "type": "multipleChoice",
       "difficulty": "medium",
       "prompt": "Choose the formal way to ask What is your name?",
       "options": [
-        "Y tu?",
-        "Como se llama?",
-        "Como te llamas?",
-        "De donde eres?"
+        "¿Y tú?",
+        "¿Cómo se llama?",
+        "¿Cómo te llamas?",
+        "¿De dónde eres?"
       ],
-      "answer": "Como se llama?"
+      "answer": "¿Cómo se llama?"
     },
     {
       "type": "multipleChoice",
@@ -761,26 +1104,26 @@
     {
       "type": "multipleChoice",
       "difficulty": "medium",
-      "prompt": "A friend asks: De donde eres? Choose the best answer.",
+      "prompt": "A friend asks: ¿De dónde eres? Choose the best answer.",
       "options": [
         "Mucho gusto.",
-        "Como se llama?",
-        "Mi nombre de Canada.",
-        "Soy de Canada. Y tu?"
+        "¿Cómo se llama?",
+        "Vivo en Canadá.",
+        "Soy de Canadá. ¿Y tú?"
       ],
-      "answer": "Soy de Canada. Y tu?"
+      "answer": "Soy de Canadá. ¿Y tú?"
     },
     {
       "type": "multipleChoice",
       "difficulty": "medium",
       "prompt": "Which phrase is formal?",
       "options": [
-        "Como se llama?",
-        "Como te llamas?",
-        "Y tu?",
+        "¿Cómo se llama?",
+        "¿Cómo te llamas?",
+        "¿Y tú?",
         "Soy Tom."
       ],
-      "answer": "Como se llama?"
+      "answer": "¿Cómo se llama?"
     },
     {
       "type": "multipleChoice",
@@ -799,12 +1142,12 @@
       "difficulty": "hard",
       "prompt": "You meet Carlos' older neighbor. Choose the safest first question.",
       "options": [
-        "Como te llamas?",
-        "Que onda?",
-        "Como se llama?",
-        "Y tu?"
+        "¿Cómo te llamas?",
+        "¿Qué onda?",
+        "¿Cómo se llama?",
+        "¿Y tú?"
       ],
-      "answer": "Como se llama?"
+      "answer": "¿Cómo se llama?"
     },
     {
       "type": "multipleChoice",
@@ -821,12 +1164,12 @@
     {
       "type": "multipleChoice",
       "difficulty": "hard",
-      "prompt": "Carlos says: Me llamo Carlos. Soy de Mexico. Choose the best response.",
+      "prompt": "Carlos says: Me llamo Carlos. Soy de Madrid. Choose the best response.",
       "options": [
         "Mucho gusto. Soy Tom.",
-        "Como se llama Carlos?",
-        "Soy en Canada.",
-        "Y usted tu?"
+        "¿Cómo se llama Carlos?",
+        "Soy en Canadá.",
+        "¿Y usted?"
       ],
       "answer": "Mucho gusto. Soy Tom."
     },
@@ -835,35 +1178,35 @@
       "difficulty": "hard",
       "prompt": "Which sentence avoids overusing yo?",
       "options": [
-        "Yo soy Tom y yo soy de Canada.",
-        "Soy Tom y soy de Canada.",
+        "Yo soy Tom y yo soy de Canadá.",
+        "Soy Tom y soy de Canadá.",
         "Yo me soy Tom.",
-        "Me Canada llamo."
+        "Yo soy Tom y soy yo de Canadá."
       ],
-      "answer": "Soy Tom y soy de Canada."
+      "answer": "Soy Tom y soy de Canadá."
     },
     {
       "type": "multipleChoice",
       "difficulty": "hard",
-      "prompt": "Complete the conversation: Soy de Canada. _____?",
+      "prompt": "Complete the conversation: Soy de Canadá. _____?",
       "options": [
         "Me llamo",
         "Soy de",
-        "Y tu",
+        "¿Y tú?",
         "Vivo"
       ],
-      "answer": "Y tu"
+      "answer": "¿Y tú?"
     },
     {
       "type": "translation",
       "difficulty": "Spanish to English",
-      "prompt": "Translate: Como te llamas?",
+      "prompt": "Translate: ¿Cómo te llamas?",
       "answer": "What is your name?"
     },
     {
       "type": "translation",
       "difficulty": "Spanish to English",
-      "prompt": "Translate: Soy de Mexico.",
+      "prompt": "Translate: Soy de México.",
       "answer": "I am from Mexico."
     },
     {
@@ -875,7 +1218,7 @@
     {
       "type": "fillBlank",
       "difficulty": "fill in the blank",
-      "prompt": "Soy _____ Canada.",
+      "prompt": "Soy _____ Canadá.",
       "answer": "de"
     },
     {
@@ -883,12 +1226,131 @@
       "difficulty": "practical usage",
       "prompt": "You want to return a question formally. What do you say?",
       "options": [
-        "Y tu?",
-        "Como te llamas?",
-        "Soy de Canada.",
-        "Y usted?"
+        "¿Y tú?",
+        "¿Cómo te llamas?",
+        "Soy de Canadá.",
+        "¿Y usted?"
       ],
-      "answer": "Y usted?"
+      "answer": "¿Y usted?"
+    }
+  ],
+  "quiz": [
+    {
+      "type": "multipleChoice",
+      "difficulty": "easy",
+      "prompt": "What does soy de mean?",
+      "options": ["I’m from", "I live in", "My name is", "Nice to meet you"],
+      "answer": "I’m from",
+      "explanation": "Use soy de + place to state your origin."
+    },
+    {
+      "type": "multipleChoice",
+      "difficulty": "easy",
+      "prompt": "What does vivo en mean?",
+      "options": ["I live in", "I’m from", "I work in", "I’m going to"],
+      "answer": "I live in",
+      "explanation": "Use vivo en + place for your current home."
+    },
+    {
+      "type": "multipleChoice",
+      "difficulty": "easy",
+      "prompt": "Which question means Where are you from?",
+      "options": ["¿De dónde eres?", "¿Dónde vives?", "¿Cómo te llamas?", "¿Cómo estás?"],
+      "answer": "¿De dónde eres?",
+      "explanation": "¿De dónde eres? asks about origin."
+    },
+    {
+      "type": "multipleChoice",
+      "difficulty": "easy",
+      "prompt": "Which question means Where do you live?",
+      "options": ["¿Dónde vives?", "¿De dónde eres?", "¿Cómo te llamas?", "¿Y tú?"],
+      "answer": "¿Dónde vives?",
+      "explanation": "¿Dónde vives? asks about someone’s current home."
+    },
+    {
+      "type": "multipleChoice",
+      "difficulty": "easy",
+      "prompt": "Ana asks: ¿De dónde eres? Choose the best answer.",
+      "options": ["Soy de Canadá.", "Vivo en Canadá.", "Me llamo Canadá.", "Mucho gusto."],
+      "answer": "Soy de Canadá.",
+      "explanation": "Answer an origin question with soy de + place."
+    },
+    {
+      "type": "multipleChoice",
+      "difficulty": "medium",
+      "prompt": "Complete: Vivo _____ Winnipeg.",
+      "options": ["en", "de", "soy", "me"],
+      "answer": "en",
+      "explanation": "The residence pattern is vivo en + place."
+    },
+    {
+      "type": "multipleChoice",
+      "difficulty": "medium",
+      "prompt": "Complete: Soy _____ Canadá.",
+      "options": ["de", "en", "vivo", "llamo"],
+      "answer": "de",
+      "explanation": "The origin pattern is soy de + place."
+    },
+    {
+      "type": "multipleChoice",
+      "difficulty": "medium",
+      "prompt": "Which sentence correctly separates origin from residence?",
+      "options": ["Soy de Sevilla, pero vivo en Madrid.", "Vivo de Sevilla, pero soy en Madrid.", "Soy en Sevilla y vivo de Madrid.", "Me llamo Sevilla y soy Madrid."],
+      "answer": "Soy de Sevilla, pero vivo en Madrid.",
+      "explanation": "Use soy de for origin and vivo en for residence."
+    },
+    {
+      "type": "multipleChoice",
+      "difficulty": "medium",
+      "prompt": "How do you return Ana’s question informally?",
+      "options": ["¿Y tú?", "¿Y usted?", "¿Cómo se llama?", "Yo también."],
+      "answer": "¿Y tú?",
+      "explanation": "¿Y tú? naturally asks the same question back to a friend or peer."
+    },
+    {
+      "type": "multipleChoice",
+      "difficulty": "medium",
+      "prompt": "Ana says she also lives in Madrid. What can Carlos say?",
+      "options": ["Yo también.", "Hasta luego.", "Me llamo Madrid.", "¿Puede repetir?"],
+      "answer": "Yo también.",
+      "explanation": "Yo también means Me too."
+    },
+    {
+      "type": "fillBlank",
+      "difficulty": "medium",
+      "prompt": "¿De _____ eres?",
+      "answer": "dónde",
+      "explanation": "The complete origin question is ¿de dónde eres?"
+    },
+    {
+      "type": "fillBlank",
+      "difficulty": "medium",
+      "prompt": "_____ en Madrid. (I live)",
+      "answer": "Vivo",
+      "explanation": "Vivo en means I live in."
+    },
+    {
+      "type": "translation",
+      "difficulty": "medium",
+      "prompt": "Translate: Soy de Sevilla.",
+      "answer": "I’m from Seville.",
+      "explanation": "Soy de identifies someone’s place of origin."
+    },
+    {
+      "type": "multipleChoice",
+      "difficulty": "hard",
+      "prompt": "Ana says: Soy de Sevilla, pero vivo en Madrid. What does she mean?",
+      "options": ["She is from Seville and now lives in Madrid.", "She is from Madrid and now lives in Seville.", "She is visiting both cities.", "She works in Seville and studies in Madrid."],
+      "answer": "She is from Seville and now lives in Madrid.",
+      "explanation": "Soy de gives Ana’s origin; vivo en gives her current home."
+    },
+    {
+      "type": "multipleChoice",
+      "difficulty": "hard",
+      "prompt": "Choose the most complete introduction to Ana.",
+      "options": ["Hola, me llamo Tom. Soy de Canadá y vivo en Winnipeg. ¿Y tú?", "Soy Winnipeg. ¿Cómo está de?", "Vivo de Canadá. Mucho nombre.", "Hola, Madrid. Soy en Tom."],
+      "answer": "Hola, me llamo Tom. Soy de Canadá y vivo en Winnipeg. ¿Y tú?",
+      "explanation": "This reuses a greeting and name, adds origin and residence, and returns the question."
     }
   ],
   "speakingChallenge": [
@@ -898,11 +1360,11 @@
     },
     {
       "prompt": "Introduce yourself formally.",
-      "exampleAnswer": "Buenos dias, mi nombre es Tom. Mucho gusto."
+      "exampleAnswer": "Buenos días, mi nombre es Tom. Mucho gusto."
     },
     {
       "prompt": "Say where you are from and return the question informally.",
-      "exampleAnswer": "Soy de Canada. Y tu?"
+      "exampleAnswer": "Soy de Canadá. ¿Y tú?"
     },
     {
       "prompt": "Say where you live.",
@@ -910,24 +1372,80 @@
     },
     {
       "prompt": "Have a short introduction conversation with Carlos using at least five target phrases.",
-      "exampleAnswer": "Hola, me llamo Tom. Soy de Canada y vivo en Winnipeg. Como te llamas? Mucho gusto, Carlos. Y tu?"
+      "exampleAnswer": "Hola, me llamo Tom. Soy de Canadá y vivo en Winnipeg. ¿Cómo te llamas? Mucho gusto, Carlos. ¿Y tú?"
     }
   ],
   "realLifeMission": {
-    "title": "Real Life Mission",
-    "mission": "Introduce yourself to Carlos, ask his name, say where you are from and where you live, then return one question using y tu or y usted.",
+    "title": "Carlos Challenge: Meet Ana",
+    "mission": "Carlos introduces you to Ana. Greet her, exchange names, say where you are from and where you live, then ask about her origin.",
     "successCriteria": [
-      "Use me llamo, soy, or mi nombre es with your name.",
-      "Ask Carlos his name with Como te llamas? or Como se llama?",
-      "Say where you are from with soy de.",
-      "Say where you live with vivo en.",
-      "Return one question with y tu or y usted."
+      "Reuse a greeting and name phrase from Lesson 1.",
+      "Say your origin with soy de + place.",
+      "Say your current home with vivo en + place.",
+      "Ask ¿de dónde eres? or return the question with ¿y tú?",
+      "Close with mucho gusto, nos vemos, or hasta luego."
     ],
+    "completionResponse": "¡Muy bien! You met Ana, shared where you’re from and where you live, and kept the conversation moving.",
+    "correctionRule": "Celebrate the completed introduction first. Correct only one soy de or vivo en error that changes the meaning.",
     "suggestedPartner": "Carlos",
-    "xpReward": 10
+    "xpReward": 10,
+    "handoff": "Esta noche vienes a cenar. Quiero presentarte a mi familia."
+  },
+  "review": {
+    "modes": [
+      "quiz",
+      "flashcards",
+      "pronunciation",
+      "conversation"
+    ],
+    "canDo": [
+      "I can say where I am from.",
+      "I can say where I live now.",
+      "I can ask someone where they are from.",
+      "I can combine Lesson 1 greetings with a longer introduction."
+    ],
+    "corePhrases": [
+      "Soy de...",
+      "Vivo en...",
+      "¿De dónde eres?",
+      "¿Dónde vives?",
+      "¿Y tú?",
+      "Yo también."
+    ],
+    "conversationReturn": "At the family dinner, greet Ana again and naturally reuse me llamo, soy de, vivo en, mucho gusto, and ¿y tú?"
+  },
+  "flashcards": {
+    "selectionRule": "The core deck reinforces only the chunks needed to exchange identity, origin, and residence.",
+    "items": [
+      "me llamo",
+      "¿cómo te llamas?",
+      "soy de",
+      "vivo en",
+      "¿de dónde eres?",
+      "¿dónde vives?",
+      "mucho gusto",
+      "¿y tú?",
+      "yo también",
+      "aquí",
+      "ciudad",
+      "país"
+    ]
+  },
+  "passportStamp": {
+    "id": "new-friend-madrid",
+    "title": "New Friend",
+    "city": "Madrid",
+    "description": "You met Ana and exchanged where you are from and where you live.",
+    "unlockCondition": "Complete the Carlos Challenge for Lesson 2."
+  },
+  "achievement": {
+    "id": "first_conversation",
+    "title": "First Conversation",
+    "description": "Have your first extended introduction with another Spanish speaker.",
+    "unlockCondition": "Complete the Lesson 2 conversation challenge."
   },
   "achievementsUnlocked": [
-    "first_steps"
+    "first_conversation"
   ],
   "xpReward": 50,
   "nextLesson": "lesson-03-family"

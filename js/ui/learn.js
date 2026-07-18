@@ -80,7 +80,7 @@ export function renderLearn(state = {}) {
         </button>
         <label class="learn-top-tab roadmap" for="learn-tab-roadmap">
           <span class="learn-tab-icon" aria-hidden="true">${renderLearnIcon("roadmap")}</span>
-          Roadmap
+          Journey
         </label>
       </nav>
 
@@ -105,7 +105,7 @@ export function renderLearn(state = {}) {
             ${renderLearnSideRail(stats)}
           </div>
 
-          <section class="learn-support-panel learn-roadmap-panel" aria-label="A1 Roadmap">
+          <section class="learn-support-panel learn-roadmap-panel" aria-label="A1 Journey">
             ${renderRoadmapPanel(lessons, currentLesson, unlockedIds)}
           </section>
         </div>
@@ -135,8 +135,6 @@ function renderLessonListCard(lesson, index, selectedLesson, currentLesson, unlo
   const current = currentLesson?.id === lesson.id && !completed;
   const percent = getLessonCompletionPercent(progress);
   const copy = getLessonSubtitle(lesson, index);
-  const upcoming = !locked && !completed && !current;
-  const status = completed ? "Completed" : current ? "In Progress" : upcoming ? "Up Next" : "Locked";
   const visibleCompleted = completed && index >= Math.max(0, currentIndex - 3);
   const visibleUpcoming = !completed && index <= currentIndex + 2;
   const remaining = !(visibleCompleted || visibleUpcoming || selected || current);
@@ -155,7 +153,6 @@ function renderLessonListCard(lesson, index, selectedLesson, currentLesson, unlo
         <strong>${escapeHtml(shortLessonTitle(lesson.title))}</strong>
         <em>${escapeHtml(copy)}</em>
       </span>
-      <span class="learn-lesson-status">${status}</span>
       ${renderLessonStateIcon({ completed, current, locked, percent })}
     </button>
   `;
@@ -167,7 +164,7 @@ function renderLessonStateIcon({ completed, current, locked, percent }) {
   }
 
   if (current) {
-    return `<span class="learn-state-icon progress" style="--lesson-progress:${percent}" aria-label="${percent}% complete"><i>${percent}%</i></span>`;
+    return `<span class="learn-state-icon progress" style="--lesson-progress:${percent}" aria-label="Current lesson, ${percent}% complete"><i>${percent}</i></span>`;
   }
 
   if (locked) {
@@ -212,7 +209,7 @@ function renderTodayLessonCard(lesson) {
           <span><i class="meta-card"></i>${phraseCount} Phrases</span>
           <span><i class="meta-clock"></i>${minutes} Min</span>
         </div>
-        <button class="learn-continue h-btn h-btn--primary" type="button" data-page="practice" data-lesson-id="${escapeAttr(lesson.id)}">
+        <button class="learn-continue h-btn h-btn--primary" type="button" data-page="lesson" data-lesson-id="${escapeAttr(lesson.id)}">
           <span>Continue Lesson<small>Lesson ${lessonNumber} of ${A1_LESSON_TOTAL}</small></span>
           <span class="learn-arrow" aria-hidden="true"></span>
         </button>
@@ -231,9 +228,7 @@ function renderLearnSideRail(stats) {
   const milestoneProgress = Math.min(stats.completedLessons, milestoneGoal);
   const milestonePercent = Math.round((milestoneProgress / milestoneGoal) * 100);
   const lessonsRemaining = Math.max(milestoneGoal - milestoneProgress, 0);
-  const achievements = getAchievements()
-    .sort((a, b) => Number(b.unlocked) - Number(a.unlocked))
-    .slice(0, 3);
+  const achievements = getAchievements();
   return `
     <aside class="learn-side-rail">
       <section class="learn-stats-card">
@@ -249,21 +244,53 @@ function renderLearnSideRail(stats) {
         <i aria-hidden="true"><b style="width:${milestonePercent}%"></b></i>
         <span>${milestoneProgress} / ${milestoneGoal}</span>
       </section>
-      <section class="learn-achievements-card">
-        <header><h2>Achievements</h2><button type="button" data-page="me">View All</button></header>
-        <div class="learn-achievement-list">
-          ${achievements.map(renderLearnAchievement).join("")}
-        </div>
-      </section>
+      ${renderPassportPreview(achievements, stats)}
     </aside>
   `;
 }
 
-function renderLearnAchievement(achievement) {
-  return `<article class="learn-achievement ${achievement.unlocked ? "unlocked" : "locked"}">
+function renderPassportPreview(achievements, stats) {
+  const unlocked = achievements
+    .filter(achievement => achievement.unlocked)
+    .sort((a, b) => new Date(b.unlockedAt || 0) - new Date(a.unlockedAt || 0));
+  const next = achievements
+    .filter(achievement => !achievement.unlocked)
+    .sort((a, b) => getLearnAchievementProgress(b, stats) - getLearnAchievementProgress(a, stats))[0];
+  const recent = unlocked.slice(0, 3).reverse();
+  const completion = achievements.length ? Math.round((unlocked.length / achievements.length) * 100) : 0;
+
+  return `<section class="learn-passport-preview">
+    <header>
+      <div><small>Your Passport</small><h2>Journey Highlights</h2></div>
+      <span>${unlocked.length} / ${achievements.length}</span>
+    </header>
+    <div class="learn-passport-timeline" aria-label="Recent passport stamps">
+      ${recent.length ? recent.map(renderLearnStamp).join("") : `<article class="learn-stamp-empty"><span aria-hidden="true">${renderLearnIcon("passport")}</span><div><small>Your first stamp</small><strong>Complete an activity to begin</strong></div></article>`}
+      ${renderNextLearnStamp(next, stats)}
+    </div>
+    <div class="learn-passport-momentum">
+      <div><strong>${unlocked.length} ${unlocked.length === 1 ? "stamp" : "stamps"} collected</strong><small>${next ? `Next: ${escapeHtml(next.title)}` : "Passport collection complete"}</small></div>
+      <span>${completion}%</span>
+      <i aria-hidden="true"><b style="width:${completion}%"></b></i>
+    </div>
+    <button class="learn-passport-action" type="button" data-page="journey">View Passport <span aria-hidden="true">&rarr;</span></button>
+  </section>`;
+}
+
+function renderLearnStamp(achievement) {
+  return `<article class="learn-passport-stamp unlocked">
     <span aria-hidden="true">${renderLearnIcon(getAchievementIconName(achievement.id))}</span>
-    <strong>${escapeHtml(achievement.title)}</strong>
-    <small>${achievement.unlocked ? "Unlocked" : escapeHtml(achievement.description)}</small>
+    <div><small>${escapeHtml(getLearnStampDestination(achievement))}</small><strong>${escapeHtml(achievement.title)}</strong><time>${formatLearnStampDate(achievement.unlockedAt)}</time></div>
+    <i aria-label="Unlocked"></i>
+  </article>`;
+}
+
+function renderNextLearnStamp(achievement, stats) {
+  if (!achievement) return `<article class="learn-passport-stamp complete"><span aria-hidden="true">${renderLearnIcon("passport")}</span><div><small>Passport Complete</small><strong>Every stamp collected</strong></div><i aria-label="Complete"></i></article>`;
+  return `<article class="learn-passport-stamp next">
+    <span aria-hidden="true">${renderLearnIcon("lock")}</span>
+    <div><small>Next Stamp</small><strong>${escapeHtml(achievement.title)}</strong><time>${Math.round(getLearnAchievementProgress(achievement, stats) * 100)}% complete</time></div>
+    <i aria-label="Locked"></i>
   </article>`;
 }
 
@@ -287,6 +314,10 @@ function getLearnStats(state, courseProgress, streak) {
     completedLessons: Number(courseProgress.completedCount || 0),
     studyMinutes: Number(activity.studyMinutes || activity.learningMinutes || activity.speakingMinutes || 0),
     wordsLearned: Number(activity.vocabularyReviewedCount ?? state.vocabulary?.learned?.length ?? 0),
+    completedMissionsCount: Number(activity.completedMissionsCount || progress.completedMissions?.length || 0),
+    quizzesCompletedCount: Number(activity.quizzesCompletedCount || 0),
+    pronunciationAttempts: Number(activity.pronunciationAttempts || 0),
+    carlosConversationsCount: Number(activity.carlosConversationsCount || 0),
     currentLessonTitle: shortLessonTitle(courseProgress.currentLesson?.title || "your next lesson"),
   };
 }
@@ -334,11 +365,39 @@ function getCarlosCoachMessage(stats) {
 }
 
 function getAchievementIconName(id) {
-  if (id === "on_fire") return "fire";
-  if (id === "vocab_starter" || id === "pronunciation_start") return "book";
-  if (id === "quiz_rookie") return "target";
-  if (id === "family_ready") return "family";
-  return "star";
+  return ({
+    first_steps: "star", hundred_xp: "star", mission_complete: "target",
+    vocab_starter: "book", vocab_builder: "book", quiz_rookie: "target",
+    quiz_regular: "grammar", pronunciation_start: "voice",
+    first_conversation: "conversation", conversation_regular: "conversation",
+    on_fire: "fire", streak_7: "fire", first_lesson: "passport",
+    ten_lessons: "passport", a1_complete: "travel", family_ready: "family",
+  })[id] || "star";
+}
+
+function getLearnAchievementProgress(achievement, stats = {}) {
+  if (achievement?.unlocked) return 1;
+  const metricValues = {
+    xp: stats.xp,
+    streak: stats.streak,
+    completedMissionsCount: stats.completedMissionsCount,
+    vocabularyReviewedCount: stats.wordsLearned,
+    quizzesCompletedCount: stats.quizzesCompletedCount,
+    pronunciationAttempts: stats.pronunciationAttempts,
+    carlosConversationsCount: stats.carlosConversationsCount,
+    completedLessonsCount: stats.completedLessons,
+    familyMission: 0,
+  };
+  return Math.max(0, Math.min(1, Number(metricValues[achievement?.metric] || 0) / Math.max(1, Number(achievement?.target || 1))));
+}
+
+function getLearnStampDestination(achievement) {
+  return ({ conversation: "Madrid", grammar: "Seville", pronunciation: "Barcelona", vocabulary: "Mexico City", consistency: "Valencia", culture: "Granada" })[achievement?.category] || "España";
+}
+
+function formatLearnStampDate(value) {
+  if (!value) return "Recently";
+  return new Intl.DateTimeFormat([], { month: "short", day: "numeric" }).format(new Date(value));
 }
 
 function getLessonIconName(lesson, index) {
@@ -353,23 +412,47 @@ function getLessonIconName(lesson, index) {
 
 function renderRoadmapPanel(lessons, currentLesson, unlockedIds) {
   const chapters = [
-    { title: "Chapter 1", subtitle: "Build your foundation", lessons: lessons.slice(0, 10) },
-    { title: "Chapter 2", subtitle: "Spanish for everyday life", lessons: lessons.slice(10, 20) },
-    { title: "Chapter 3", subtitle: "Speak with confidence", lessons: lessons.slice(20, 30) },
+    { chapter: "Chapter 1", city: "Madrid", subtitle: "Build your foundation", image: "assets/images/lessons/lesson-01-greetings.png.png", lessons: lessons.slice(0, 10) },
+    { chapter: "Chapter 2", city: "Valencia", subtitle: "Spanish for everyday life", image: "assets/images/lessons/lesson-06-food-drinks.png.png", lessons: lessons.slice(10, 20) },
+    { chapter: "Chapter 3", city: "Barcelona", subtitle: "Speak with confidence", image: "assets/images/lessons/lesson-07-travel.png.png", lessons: lessons.slice(20, 30) },
   ];
+  const totalMinutes = lessons.reduce((total, lesson) => total + Number(lesson.estimatedMinutes || 0), 0);
 
-  return `<div class="learn-roadmap-intro"><small>A1 Course Roadmap</small><h2>Your path to everyday Spanish</h2><p>Move from greetings and family conversations to travel, emergencies, and a complete A1 speaking challenge.</p></div>
-    <div class="learn-roadmap-chapters">${chapters.map((chapter, chapterIndex) => `
-      <article class="learn-roadmap-chapter">
-        <header><span>${chapterIndex + 1}</span><div><strong>${chapter.title}</strong><small>${chapter.subtitle}</small></div></header>
+  return `<div class="learn-roadmap-intro"><small>A1 Spanish Journey</small><h2>From your first &ldquo;Hola&rdquo; to navigating Spain with confidence.</h2><p>Three cities. Thirty guided lessons. One complete A1 journey with Carlos.</p>
+      <div class="learn-roadmap-stats">
+        <span><strong>${lessons.length}</strong><small>Lessons</small></span>
+        <span><strong>${chapters.length}</strong><small>Cities</small></span>
+        <span><strong>${formatRoadmapHours(totalMinutes)}</strong><small>Hours</small></span>
+        <span><strong>1</strong><small>Final Challenge</small></span>
+      </div>
+    </div>
+    <div class="learn-roadmap-chapters">${chapters.map((chapter, chapterIndex) => {
+      const completedCount = chapter.lessons.filter(lesson => getLessonProgress(lesson.id).completed).length;
+      const chapterPercent = chapter.lessons.length ? Math.round((completedCount / chapter.lessons.length) * 100) : 0;
+      const chapterMinutes = chapter.lessons.reduce((total, lesson) => total + Number(lesson.estimatedMinutes || 0), 0);
+      return `
+      <article class="learn-roadmap-chapter" style="--chapter-accent:${["#f4be58", "#29d66e", "#8d61e8"][chapterIndex]}">
+        <header class="learn-roadmap-cover" style="--chapter-image:url('${chapter.image}')">
+          <div><small>${renderLearnIcon("pin")}${chapter.chapter}</small><h3>${chapter.city}</h3><p>${chapter.subtitle}</p><span>${chapter.lessons.length} lessons &middot; ${formatRoadmapHours(chapterMinutes)} hr</span></div>
+        </header>
+        <div class="learn-chapter-progress"><span>${completedCount} of ${chapter.lessons.length} lessons</span><strong>${chapterPercent}%</strong><i aria-hidden="true"><b style="width:${chapterPercent}%"></b></i></div>
         <ol>${chapter.lessons.map(lesson => {
           const progress = getLessonProgress(lesson.id);
           const current = currentLesson?.id === lesson.id && !progress.completed;
           const unlocked = unlockedIds.has(lesson.id) || progress.completed;
           const state = progress.completed ? "complete" : current ? "current" : unlocked ? "available" : "locked";
-          return `<li class="${state}"><i aria-hidden="true">${renderLearnIcon(getLessonIconName(lesson, getLessonNumber(lesson) - 1))}</i><span><b>Lesson ${getLessonNumber(lesson)}</b><strong>${escapeHtml(shortLessonTitle(lesson.title))}</strong></span><em>${progress.completed ? "Complete" : current ? "Current" : unlocked ? "Ready" : "Locked"}</em></li>`;
+          const finalChallenge = getLessonNumber(lesson) === 30;
+          const nodeIcon = progress.completed ? "check" : current ? "play" : finalChallenge ? "star" : unlocked ? "roadmap" : "lock";
+          return `<li class="${state} ${finalChallenge ? "final-challenge" : ""}"><i class="learn-route-node" aria-hidden="true">${renderLearnIcon(nodeIcon)}</i><span><b>${finalChallenge ? "Graduation Challenge" : `Lesson ${getLessonNumber(lesson)}`}</b><strong>${escapeHtml(shortLessonTitle(lesson.title))}</strong></span>${progress.completed ? `<em>Mastered</em>` : current ? `<em>Continue</em>` : unlocked ? `<em>Next</em>` : `<em aria-label="Locked">${renderLearnIcon("lock")}</em>`}</li>`;
         }).join("")}</ol>
-      </article>`).join("")}</div>`;
+      </article>`;
+    }).join("")}</div>`;
+}
+
+function formatRoadmapHours(minutes) {
+  if (!minutes) return "—";
+  const hours = minutes / 60;
+  return Number.isInteger(hours) ? String(hours) : hours.toFixed(1).replace(".0", "");
 }
 
 function renderLearnIcon(name) {
@@ -393,6 +476,12 @@ function renderLearnIcon(name) {
     star: `<path d="m12 2.5 2.9 5.9 6.5.9-4.7 4.6 1.1 6.5-5.8-3.1-5.8 3.1 1.1-6.5-4.7-4.6 6.5-.9L12 2.5Z"/>`,
     target: `<circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1.5"/><path d="m14.5 9.5 6-6M16 3.5h4.5V8"/>`,
     time: `<circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2"/>`,
+    voice: `<path d="M5 10v4M8.5 7v10M12 4v16M15.5 8v8M19 10v4"/>`,
+    passport: `<rect x="5" y="3" width="14" height="18" rx="2"/><circle cx="12" cy="11" r="4"/><path d="M8 11h8M12 7c1.2 1.1 1.8 2.4 1.8 4S13.2 13.9 12 15M12 7c-1.2 1.1-1.8 2.4-1.8 4s.6 2.9 1.8 4"/>`,
+    lock: `<rect x="5" y="10" width="14" height="11" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/>`,
+    pin: `<path d="M20 10c0 5-8 12-8 12S4 15 4 10a8 8 0 1 1 16 0Z"/><circle cx="12" cy="10" r="2.5"/>`,
+    check: `<path d="m5 12 4 4L19 6"/>`,
+    play: `<path d="m9 7 8 5-8 5V7Z"/>`,
   };
   return `<svg viewBox="0 0 24 24" focusable="false" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">${paths[name] || ""}</svg>`;
 }

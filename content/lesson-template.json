@@ -1,98 +1,234 @@
 {
-  "id": "level-module-lesson-number",
-  "title": "Lesson Title",
+  "id": "a1-lesson-00-situation",
+  "contentVersion": "1.0",
+  "title": "Situation: Communication Goal",
   "level": "A1",
-  "module": "Module Name",
-  "estimatedMinutes": 15,
+  "module": "Situation",
+  "estimatedMinutes": 25,
+  "story": {
+    "chapter": 1,
+    "city": "Madrid",
+    "scene": "A concrete situation shared with Carlos"
+  },
+  "emotionalArc": {
+    "emotion": "A memorable feeling appropriate to the story",
+    "startsWith": "How the learner feels when the scene begins",
+    "endsWith": "How successful communication should make the learner feel",
+    "earnedBy": "The specific communication success that creates the change"
+  },
+  "microCliffhanger": {
+    "speaker": "Carlos",
+    "spanish": "A short natural line that points toward the next story event.",
+    "english": "A clear translation.",
+    "payoffLesson": "stable-next-lesson-id"
+  },
+  "learnerChoices": {
+    "objective": "The shared communication objective for every option",
+    "prompt": "Carlos asks the learner to make one meaningful choice.",
+    "options": [
+      {
+        "id": "choice-a",
+        "learnerSpanish": "A level-appropriate response",
+        "learnerEnglish": "Its meaning",
+        "carlosSpanish": "A response that specifically acknowledges this choice",
+        "carlosEnglish": "Its meaning"
+      }
+    ],
+    "rejoin": "The canonical story beat shared by every branch"
+  },
+  "memory": {
+    "onChoice": { "key": "story.lessonChoice", "valueFrom": "choice.id" },
+    "onComplete": [
+      { "key": "story.visitedLocation", "value": true }
+    ]
+  },
+  "memoryCallbacks": [
+    {
+      "sourceLessonId": "earlier-stable-lesson-id",
+      "message": {
+        "spanish": "One brief acknowledgment of an earlier learner choice.",
+        "english": "Its meaning."
+      },
+      "byChoice": {}
+    }
+  ],
+  "eveningRecap": {
+    "delayMinutes": 120,
+    "message": "A short message from Carlos that acknowledges what happened after the lesson.",
+    "byChoice": {}
+  },
+  "carlosIntroduction": {
+    "durationSeconds": 30,
+    "text": "Carlos introduces the situation, the reason it matters, and the three things the learner will be able to do."
+  },
+  "canDo": [
+    "Complete one observable communication task.",
+    "Understand and respond to one common question.",
+    "Close the interaction naturally."
+  ],
+  "recycledLanguage": [
+    "A phrase from the previous lesson",
+    "An earlier question",
+    "A familiar natural closing"
+  ],
   "objectives": [
-    "Learner can understand the main lesson goal.",
-    "Learner can use the target vocabulary or pattern in a simple sentence."
+    "Complete one observable communication task.",
+    "Understand and respond to one common question.",
+    "Close the interaction naturally."
   ],
   "vocabulary": [
     {
       "spanish": "hola",
       "english": "hello",
       "partOfSpeech": "greeting",
-      "tip": "Use any time of day.",
-      "exampleSpanish": "Hola, ¿cómo estás?",
-      "exampleEnglish": "Hello, how are you?"
+      "tier": 1,
+      "group": "Openers",
+      "tip": "Use at any time of day.",
+      "exampleSpanish": "Hola, ¿qué tal?",
+      "exampleEnglish": "Hi, how’s it going?"
+    }
+  ],
+  "essentialPhrases": [
+    {
+      "spanish": "¿Qué tal?",
+      "english": "How’s it going?",
+      "usage": "A natural, widely useful greeting.",
+      "exampleSpanish": "Hola, ¿qué tal?",
+      "exampleEnglish": "Hi, how’s it going?"
     }
   ],
   "grammar": {
-    "topic": "Grammar Topic",
-    "explanation": "Short beginner-friendly explanation.",
+    "topic": "One useful pattern",
+    "meaning": "What the pattern lets the learner communicate.",
+    "explanation": "A short explanation without unnecessary terminology.",
     "examples": [
       {
         "spanish": "Soy Tom.",
-        "english": "I am Tom."
+        "english": "I’m Tom."
       }
     ],
-    "practicePrompt": "Write or say one sentence using the pattern."
+    "practicePrompt": "Say one true sentence with the pattern."
+  },
+  "listening": {
+    "instructions": "Listen once, then choose what Carlos means.",
+    "items": [
+      {
+        "spanish": "Hola, ¿qué tal?",
+        "options": ["Hi, how’s it going?", "See you tomorrow.", "What time is it?"],
+        "answer": "Hi, how’s it going?"
+      }
+    ]
+  },
+  "listeningPhrases": [
+    {
+      "spanish": "Hola, ¿qué tal?",
+      "english": "Hi, how’s it going?"
+    }
+  ],
+  "speaking": {
+    "instructions": "Listen, repeat, then say the phrase without reading.",
+    "items": [
+      {
+        "text": "Hola, ¿qué tal?",
+        "meaning": "Hi, how’s it going?",
+        "focus": "Keep the vowels short and clear."
+      }
+    ]
+  },
+  "speakingChallenge": [
+    {
+      "prompt": "Respond to Carlos using the target phrase.",
+      "exampleAnswer": "Hola, ¿qué tal?"
+    }
+  ],
+  "miniConversation": {
+    "setting": "The real situation for this lesson",
+    "goal": "Complete a short exchange with Carlos.",
+    "turns": [
+      {
+        "speaker": "Carlos",
+        "spanish": "Hola, ¿qué tal?",
+        "english": "Hi, how’s it going?"
+      },
+      {
+        "speaker": "Learner",
+        "intent": "Answer and return the question.",
+        "exampleSpanish": "Muy bien, gracias. ¿Y tú?",
+        "exampleEnglish": "Very well, thanks. And you?"
+      }
+    ]
   },
   "dialogue": [
     {
-      "speaker": "Carlos",
-      "spanish": "Hola, ¿cómo estás?",
-      "english": "Hello, how are you?"
-    },
-    {
-      "speaker": "Learner",
-      "spanish": "Estoy bien, gracias.",
-      "english": "I am well, thank you."
+      "title": "Guided conversation with Carlos",
+      "lines": [
+        {
+          "speaker": "Carlos",
+          "spanish": "Hola, ¿qué tal?",
+          "english": "Hi, how’s it going?"
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "Muy bien, gracias. ¿Y tú?",
+          "english": "Very well, thanks. And you?"
+        }
+      ]
     }
   ],
   "pronunciation": {
-    "focus": "Sound, stress, or phrase rhythm to practice.",
+    "focus": "One sound, stress pattern, or conversational rhythm.",
     "items": [
       {
         "text": "hola",
-        "note": "Keep the h silent."
+        "note": "The h is silent."
       }
     ]
   },
   "culture": {
-    "title": "Culture Note",
-    "text": "Short context about real-world Spanish usage."
+    "title": "One useful cultural note",
+    "text": "One short paragraph that helps the learner use this lesson naturally."
   },
-  "nativeSpeech": {
-    "title": "How Native Speakers Say It",
-    "notes": [
-      "Short note about natural phrasing, speed, or common alternatives."
-    ]
-  },
-  "commonMistakes": [
+  "livingWorldInteractions": [
     {
-      "mistake": "Common learner mistake.",
-      "correction": "Correct version.",
-      "explanation": "Why the correction is better."
+      "id": "stable-discovery-id",
+      "title": "A small detail in the scene",
+      "prompt": "An optional invitation to look closer.",
+      "carlosSpanish": "A short, natural observation from Carlos.",
+      "carlosEnglish": "Its meaning.",
+      "memoryWrites": [
+        { "key": "story.discoveries.stableDiscoveryId", "value": true }
+      ]
     }
   ],
-  "quiz": [
-    {
-      "type": "multipleChoice",
-      "prompt": "What does 'hola' mean?",
-      "options": ["hello", "goodbye", "please", "thanks"],
-      "answer": "hello"
-    }
-  ],
-  "speakingChallenge": {
-    "prompt": "Say a short sentence using today's vocabulary.",
-    "exampleAnswer": "Hola, estoy bien."
-  },
   "realLifeMission": {
-    "title": "Real Life Mission",
-    "mission": "Use today's lesson in a realistic conversation.",
+    "title": "Carlos Challenge",
+    "mission": "Complete one realistic interaction using this lesson’s language.",
     "successCriteria": [
-      "Use at least one target vocabulary item.",
-      "Use the lesson's main grammar or communication pattern.",
-      "Complete the interaction with a natural closing."
+      "Use one target opener.",
+      "Respond to one question.",
+      "Close naturally."
     ],
     "suggestedPartner": "Carlos",
     "xpReward": 10
   },
-  "achievementsUnlocked": [
-    "first_steps"
+  "review": {
+    "modes": ["quiz", "flashcards", "conversation"],
+    "canDo": [
+      "I can complete the lesson’s main situation.",
+      "I can understand and answer its most common question."
+    ]
+  },
+  "quiz": [
+    {
+      "type": "multipleChoice",
+      "difficulty": "easy recognition",
+      "prompt": "What does hola mean?",
+      "options": ["hello", "goodbye", "please", "thanks"],
+      "answer": "hello"
+    }
   ],
-  "xpReward": 25,
-  "nextLesson": "level-module-next-lesson-number"
+  "achievementsUnlocked": [],
+  "xpReward": 50,
+  "nextLesson": "a1-lesson-01-next-situation",
+  "image": "assets/images/lessons/lesson-00-situation.png"
 }

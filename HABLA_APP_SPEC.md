@@ -5,7 +5,9 @@
 Habla is a conversational Spanish-learning app designed to help English speakers become confident speaking with family, friends, and people in real-world situations.
 
 Primary differentiator:
-Carlos, an AI tutor who understands the learner's current lesson, level, goals, dialect preference, and learning history.
+Carlos, an AI tutor who understands the learner's current lesson, level, goals, relevant regional context, and learning history.
+
+All lesson content and Carlos behavior must follow `HABLA_TEACHING_PHILOSOPHY.md`. Characters, relationships, locations, and course-story continuity must follow `HABLA_CANON.md`.
 
 ---
 
@@ -35,10 +37,9 @@ Each tab has one primary purpose:
 2. Welcome screen
 3. Meet Carlos
 4. Choose learning goal
-5. Choose Spanish dialect
-6. Choose daily study target
-7. Optional placement check
-8. Open Home
+5. Choose daily study target
+6. Optional placement check
+7. Open Home
 
 First-time setup is saved and should not repeat unless the profile is reset.
 
@@ -198,6 +199,8 @@ Each grammar topic contains:
 - Common mistake
 - Mini exercise
 
+Each lesson introduces no more than one new grammar concept. The communication situation comes first; grammar explains the pattern after the learner sees it in context.
+
 ### Dialogue
 
 - Realistic conversation using current lesson content.
@@ -328,7 +331,7 @@ Provide a focused AI tutoring conversation.
 - Current lesson
 - Completed lessons
 - Learning goal
-- Preferred dialect
+- Relevant regional context when useful
 - Recent mistakes
 - Vocabulary already introduced
 
@@ -339,6 +342,7 @@ Provide a focused AI tutoring conversation.
 - Stay at the learner's level.
 - Keep replies concise.
 - Correct one important mistake at a time.
+- Celebrate successful communication before correcting accuracy.
 - Ask natural follow-up questions.
 - Avoid long grammar lectures.
 - Never invent progress.
@@ -367,7 +371,6 @@ Show progress first and settings second.
 ### Editable Preferences
 
 - Learning goal
-- Preferred dialect
 - Daily target
 - Profile name
 - Notifications
@@ -480,6 +483,11 @@ All lesson content must:
 - Stay appropriate for the learner's level.
 - Build on previous lessons.
 - Preserve continuity with Carlos and the course journey.
+- Begin with one real communication mission.
+- Teach one new grammar concept at most.
+- Recycle earlier language naturally.
+- Use neutral Spanish by default.
+- Introduce regional differences only when they are genuinely useful.
 
 ---
 
@@ -512,7 +520,7 @@ AI receives:
 - Current lesson content
 - Completed lessons
 - Current mission
-- Dialect
+- Relevant regional context when useful
 - Learning goal
 - Recent mistakes
 - Conversation history

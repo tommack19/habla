@@ -113,6 +113,18 @@
   filter: drop-shadow(0 0 7px rgba(245, 189, 69, .34));
 }
 
+/* Home's active treatment is intentionally a touch quieter than the others. */
+.bottom-nav .tab[data-page="home"].active {
+  height: 57px;
+  margin-inline: 2px;
+  border-radius: 19px;
+}
+
+.bottom-nav .tab[data-page="home"].active .nav-icon.has-svg {
+  width: 25px;
+  height: 25px;
+}
+
 /* Every scrollable page clears the fixed navigation by the same amount. */
 #dashboard.home-page,
 #dashboard.learn-page,

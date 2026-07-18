@@ -1081,7 +1081,7 @@
     "a1_complete"
   ],
   "xpReward": 125,
-  "nextLesson": "a2-lesson-01-real-conversations",
+  "nextLesson": null,
   "fullConversationalScenario": {
     "title": "A complete A1 travel day with Carlos",
     "summary": "Use all major A1 topics from Lessons 1-29 in one guided journey.",

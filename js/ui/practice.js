@@ -1,16 +1,18 @@
 import { getLessonById, getLessonProgress, getUnlockedLessons } from "../core/content.js";
 import { PRACTICE_LIBRARY_CATEGORIES, findPracticeLibraryCategory, findPracticeLibraryCollection, findPracticeLibraryItem } from "../data/practiceLibrary.js";
+import { CARLOS_FALLBACK_ONERROR, getCarlosAsset } from "../data/carlosAssets.js";
 
 const TOPIC_KEY = "habla_selected_practice_topic_v1";
 const SESSION_KEY = "habla_practice_session_v2";
 const LIBRARY_PROGRESS_KEY = "habla_practice_library_progress_v1";
+const PRACTICE_HISTORY_KEY = "habla_practice_history_v1";
 const MODES = ["quiz", "flashcards", "pronunciation", "conversation"];
 const PRIMARY_TOPIC_IDS = ["greetings", "family", "food-restaurants", "travel", "shopping", "work", "phrases", "numbers"];
 const TOPICS = {
   greetings: { title: "Greetings", icon: "greetings", lessons: ["a1-lesson-01-greetings", "a1-lesson-02-introductions"] },
-  family: { title: "Family", icon: "family", lessons: ["lesson-03-family"] },
+  family: { title: "Family", icon: "family", lessons: ["lesson-03-family", "lesson-08-vacation"] },
   "food-restaurants": { title: "Restaurants", icon: "restaurants", lessons: ["lesson-06-food-drinks"] },
-  travel: { title: "Travel", icon: "travel", lessons: ["lesson-07-travel-basics", "lesson-08-vacation"] },
+  travel: { title: "Travel", icon: "travel", lessons: ["lesson-07-travel-basics"] },
   shopping: { title: "Shopping", icon: "shopping", lessons: ["lesson-05-shopping"] },
   work: { title: "Work", icon: "work", lessons: ["lesson-14-work"] },
   phrases: { title: "Small Talk", icon: "phrases", lessons: ["a1-lesson-02-introductions"] },
@@ -59,12 +61,10 @@ export function renderPractice(appState = {}) {
 }
 
 function renderLauncher(session, topic, lesson, appState) {
-  const level = appState?.user?.level || "A1 Beginner";
   return `
     <section class="practice-shell practice-launcher" aria-label="Practice launcher">
       <header class="practice-launcher-head">
         <div><h1>Practice</h1><p>Practice speaking, listening and more.</p></div>
-        <span class="practice-level-badge">${escapeHtml(level)} <i aria-hidden="true"></i></span>
       </header>
       <div class="practice-mode-tabs" role="tablist" aria-label="Practice mode">
         ${modeTab("quiz", "Quiz Mode", session.mode)}
@@ -72,7 +72,7 @@ function renderLauncher(session, topic, lesson, appState) {
         ${modeTab("pronunciation", "Pronunciation", session.mode)}
         ${modeTab("conversation", "Conversation", session.mode)}
       </div>
-      ${renderSummary(session.mode, topic, lesson)}
+      ${renderSummary(session, topic, lesson)}
       ${renderPracticeNextStep(session, lesson)}
       <section class="practice-topic-section">
         <div class="practice-section-title"><h2>Practice by Topic</h2><button class="practice-view-all" type="button" onclick="hablaPractice.openLibrary()">View All ${iconSvg("arrow-right")}</button></div>
@@ -91,16 +91,8 @@ function renderLauncher(session, topic, lesson, appState) {
           }).join("")}
         </div>
       </section>
-      <section class="practice-weekly-card">
-        <div><span>Weekly Goal</span><strong>${Math.min(Number(appState?.user?.streak || 0), 7)} of 7</strong><small>Active study days</small></div>
-        <div class="practice-week-dots" aria-label="Current streak">
-          ${["M", "T", "W", "T", "F", "S", "S"].map((day, index) => `<span><small>${day}</small><i class="${index < Math.min(Number(appState?.user?.streak || 0), 7) ? "done" : ""}"></i></span>`).join("")}
-        </div>
-      </section>
-      <section class="practice-recent">
-        <div class="practice-section-title"><h2>Recent Activity</h2></div>
-        <div class="practice-empty-row"><span aria-hidden="true">${iconSvg("activity")}</span><div><strong>Your practice history starts here</strong><small>Complete a focused session to build your review habit.</small></div></div>
-      </section>
+      ${renderWeeklyPractice(appState)}
+      ${renderRecentPractice()}
     </section>`;
 }
 
@@ -114,9 +106,40 @@ function renderPracticeLibrary(appState) {
           <span class="library-category-icon" aria-hidden="true">${iconSvg(category.icon)}</span>
           <span class="library-category-copy"><small>Practice collection</small><strong>${escapeHtml(category.title)}</strong><em>${escapeHtml(category.description)}</em><b>${stats.available} available · ${stats.total} ${stats.total === 1 ? "item" : "items"}</b></span>
           <span class="library-card-arrow" aria-hidden="true">${iconSvg("arrow-right")}</span>
+          <span class="library-destination-copy">${libraryDestinationCopy(category, stats)}</span>
         </button>`;
       }).join("")}
     </div>
+  </section>`;
+}
+
+function libraryDestinationCopy(category, stats) {
+  if (category.id === "topics") return `${stats.total} real-life situations to master`;
+  if (category.id === "verbs") return `${stats.total} verb paths to explore`;
+  if (category.id === "grammar") return `${stats.total} foundations to build`;
+  if (category.id === "expressions") return `${stats.total} real Spanish collections`;
+  return "A review plan shaped by your progress";
+}
+
+function renderWeeklyPractice(appState) {
+  const streak = Math.max(0, Number(appState?.user?.streak || 0));
+  const todayIndex = (new Date().getDay() + 6) % 7;
+  const activeDays = Math.min(streak, todayIndex + 1);
+  const firstActiveDay = todayIndex - activeDays + 1;
+  return `<section class="practice-weekly-card">
+    <div class="practice-weekly-copy"><span>This Week</span><strong>${activeDays} day${activeDays === 1 ? "" : "s"} active</strong><small>${activeDays ? `Keep your ${streak}-day streak moving.` : "Complete one focused session to begin."}</small></div>
+    <div class="practice-week-dots" aria-label="${activeDays} active study days this week">
+      ${["M", "T", "W", "T", "F", "S", "S"].map((day, index) => { const done = activeDays > 0 && index >= firstActiveDay && index <= todayIndex; return `<span><small>${day}</small><i class="${done ? "done" : ""}">${done ? iconSvg("quiz") : ""}</i></span>`; }).join("")}
+    </div>
+    <p class="practice-weekly-nudge">${activeDays >= 7 ? "Weekly goal complete." : `${7 - activeDays} more ${7 - activeDays === 1 ? "day" : "days"} to complete your weekly goal.`}</p>
+  </section>`;
+}
+
+function renderRecentPractice() {
+  const history = readPracticeHistory().slice(0, 3);
+  return `<section class="practice-recent">
+    <div class="practice-section-title"><h2>Recent Activity</h2></div>
+    ${history.length ? `<div class="practice-timeline">${history.map(entry => `<article><span class="mode-${escapeAttr(entry.mode)}" aria-hidden="true">${iconSvg(entry.mode)}</span><div><small>${relativePracticeDate(entry.completedAt)}</small><strong>${escapeHtml(entry.title)}</strong><p>${escapeHtml(entry.detail)}</p></div></article>`).join("")}</div>` : `<div class="practice-empty-row"><span aria-hidden="true">${iconSvg("activity")}</span><div><strong>Your practice history starts here</strong><small>Complete a focused session to build your timeline.</small></div></div>`}
   </section>`;
 }
 
@@ -125,7 +148,7 @@ function renderLibraryCategory(session, appState) {
   if (!category) return renderPracticeLibrary(appState);
 
   return `<section class="practice-shell practice-library accent-${category.accent}" aria-label="${escapeAttr(category.title)}">
-    ${renderLibraryHeader(category.title, category.description, "library")}
+    ${isGrammarLibrary(category) ? renderStudyBackControl("library") : renderLibraryHeader(category.title, category.description, "library")}
     ${category.featured ? renderLibraryFeatured(category) : ""}
     ${category.collections ? `<section class="library-shelf">
       <div class="library-shelf-heading"><h2>Browse the course</h2><span>${category.collections.length} collections</span></div>
@@ -174,7 +197,7 @@ function renderLibraryCollection(session, appState) {
   const availability = entry.plannedCount > entry.items.length ? `${entry.items.length} available · ${entry.plannedCount} planned` : `${count} ${entry.unit}`;
   if (category.id === "verbs" && !entry.locked && entry.items.length) return renderVerbCollection(category, entry, stats, appState, availability);
   return `<section class="practice-shell practice-library accent-${category.accent}" aria-label="${escapeAttr(entry.title)}">
-    ${renderLibraryHeader(entry.title, `${availability} · ${stats.completion}% complete`, "library-category")}
+    ${isGrammarLibrary(category) ? renderStudyBackControl("library-category") : renderLibraryHeader(entry.title, `${availability} · ${stats.completion}% complete`, "library-category")}
     <section class="library-collection-hero">
       <small>${escapeHtml(category.shortTitle || category.title)}</small><h2>${escapeHtml(entry.title)}</h2>
       <div class="library-collection-summary"><span>${renderMasteryStars(stats.stars)}</span><b>${stats.mastered} mastered</b><em>${stats.completion}%</em></div>
@@ -195,7 +218,7 @@ function renderVerbCollection(category, entry, stats, appState, availability) {
   const itemLabel = entry.items.length === 1 ? entry.unit.replace(/s$/, "") : entry.unit;
   const chooserLabel = entry.unit === "verbs" ? "Choose a verb" : "Choose a lesson";
   return `<section class="practice-shell practice-library library-verb-collection accent-${category.accent}" aria-label="${escapeAttr(entry.title)}">
-    ${renderLibraryHeader(entry.title, `${availability} · ${stats.completion}% complete`, "library-category")}
+    ${renderStudyBackControl("library-category")}
     <section class="verb-collection-hero">
       <div class="verb-collection-ring" style="--progress:${stats.completion * 3.6}deg"><span>${iconSvg("verbs")}</span></div>
       <div class="verb-collection-copy"><small>Verbs</small><h2>${escapeHtml(entry.title)}</h2><p>${escapeHtml(getVerbCollectionDescription(entry))}</p></div>
@@ -272,7 +295,7 @@ function renderLibraryItemLauncher(session, appState) {
   const isVerb = category.id === "verbs" && entry.libraryContent?.kind === "verb";
 
   return `<section class="practice-shell practice-library library-item-launcher accent-${category.accent}" aria-label="${escapeAttr(entry.title)} practice">
-    ${renderLibraryHeader(entry.title, category.description, session.libraryCollectionId ? "library-collection" : "library-category")}
+    ${isGrammarLibrary(category) ? renderStudyBackControl(session.libraryCollectionId ? "library-collection" : "library-category") : renderLibraryHeader(entry.title, category.description, session.libraryCollectionId ? "library-collection" : "library-category")}
     ${isVerb ? renderVerbLauncherHero(category, entry) : `<section class="library-item-hero"><span class="library-item-hero-icon" aria-hidden="true">${iconSvg(entry.practiceTopic || category.icon)}</span><div><small>${escapeHtml(category.title)}</small><h2>${escapeHtml(entry.title)}</h2><p>${renderLibraryItemAvailability(status, entry)}</p></div></section>`}
     ${category.capabilities ? `<div class="library-capabilities" aria-label="Future expression features">${category.capabilities.map(capability => `<span>${escapeHtml(capability)}</span>`).join("")}</div>` : ""}
     <section class="library-mode-launcher">
@@ -339,10 +362,12 @@ function renderLibraryStudy(session, appState) {
   const guidance = content?.kind === "verb" ? getVerbGuidance(result.item, content) : null;
   const studyHero = guidance ? `${result.item.title} (${guidance.tense} Tense)` : (lesson?.grammar?.topic || result.item.title);
   const isMiniLesson = mode === "mini-lessons" || mode === "mini-lesson";
-  return `<section class="practice-shell practice-library library-study accent-${result.category.accent}" aria-label="${escapeAttr(title)}">
-    ${isMiniLesson ? renderStudyBackControl() : renderLibraryHeader(title, result.item.title, "library-item")}
-    <section class="library-item-hero"><span class="library-item-hero-icon" aria-hidden="true">${iconSvg(mode)}</span><div><small>${escapeHtml(result.category.title)}</small><h2>${escapeHtml(result.item.title)}</h2><p>${escapeHtml(content?.explanation || lesson?.grammar?.explanation || "Review this pattern in clear, practical Spanish.")}</p></div></section>
-    ${mode === "conjugation" ? `<section class="library-direction-card"><small>3 Simple Steps</small><ol><li><b>Choose the subject</b><span>Who is doing the action?</span></li><li><b>Find its form</b><span>Match that subject to the verb below.</span></li><li><b>Say a full sentence</b><span>Tap the form, repeat it, then add a detail.</span></li></ol></section>
+  const isConjugation = mode === "conjugation";
+  return `<section class="practice-shell practice-library library-study ${isConjugation ? "conjugation-study" : ""} accent-${result.category.accent}" aria-label="${escapeAttr(title)}">
+    ${isGrammarLibrary(result.category) || isMiniLesson || isConjugation ? renderStudyBackControl("library-item") : renderLibraryHeader(title, result.item.title, "library-item")}
+    ${isConjugation ? renderConjugationHero(result.item, content, guidance, examples) : `<section class="library-item-hero"><span class="library-item-hero-icon" aria-hidden="true">${iconSvg(mode)}</span><div><small>${escapeHtml(result.category.title)}</small><h2>${escapeHtml(result.item.title)}</h2><p>${escapeHtml(content?.explanation || lesson?.grammar?.explanation || "Review this pattern in clear, practical Spanish.")}</p></div></section>`}
+    ${isConjugation ? renderConjugationStudy(result.item, content, guidance, forms, examples) : ""}
+    ${false && mode === "conjugation" ? `<section class="library-direction-card"><small>3 Simple Steps</small><ol><li><b>Choose the subject</b><span>Who is doing the action?</span></li><li><b>Find its form</b><span>Match that subject to the verb below.</span></li><li><b>Say a full sentence</b><span>Tap the form, repeat it, then add a detail.</span></li></ol></section>
       <section class="library-study-card library-conjugation-card"><div class="library-study-heading"><div><small>${escapeHtml(guidance.tense)} tense</small><h2>${escapeHtml(result.item.title)}</h2></div><span>${escapeHtml(content.english)}</span></div>
         <div class="library-pattern"><small>${guidance.isRegular ? "Build the form" : "Remember the pattern"}</small><strong>${guidance.patternHtml}</strong><p>${escapeHtml(guidance.rule)}</p></div>
         <div class="library-conjugation-grid">${guidance.subjects.map((subject, index) => `<button type="button" data-phrase="${escapeAttr(forms[index] || "")}" onclick="hablaPractice.speakForm(this)" aria-label="Hear ${escapeAttr(subject.spanish)}: ${escapeAttr(forms[index] || "verb form")}"><small>${escapeHtml(subject.spanish)} <em>${escapeHtml(subject.english)}</em></small><strong>${escapeHtml(forms[index] || "—")}</strong>${iconSvg("volume")}</button>`).join("")}</div>
@@ -355,6 +380,53 @@ function renderLibraryStudy(session, appState) {
       <section class="library-try-card library-challenge-card"><div class="library-challenge-heading"><span aria-hidden="true">${iconSvg("target")}</span><div><small>Step 3</small><strong>Your Challenge</strong><h2>Build Your Own Sentence</h2></div></div><p>Create a sentence using:</p><b class="library-challenge-starter">${escapeHtml(guidance?.tryForm || result.item.title)}</b><div class="library-challenge-examples"><small>Examples</small>${examples.slice(0, 3).map(example => `<span>${iconSvg("quiz")}<b>${escapeHtml(example.spanish)}</b></span>`).join("")}</div><p class="library-carlos-note">Say it in your own words. Carlos will help you continue the conversation.</p><button class="practice-primary" type="button" onclick="hablaPractice.completeLibraryStudy('conversation')"><span class="button-label">Practice with Carlos</span>${iconSvg("arrow-right", "button-icon")}</button></section>` : ""}
     ${mode === "common-mistakes" ? `<section class="library-study-card"><h2>Common mistakes</h2><div class="library-mistake-list">${(mistakes.length ? mistakes : ["No special exception is needed at this level. Focus on the forms and examples above."]).map(text => `<p>${iconSvg("common-mistakes")}<span>${escapeHtml(text)}</span></p>`).join("")}</div></section>` : ""}
   </section>`;
+}
+
+function renderConjugationHero(entry, content, guidance, examples) {
+  const example = examples[0] || {};
+  const concept = getVerbUses(entry.id)[0] || "Everyday Spanish";
+  return `<section class="library-grammar-hero">
+    <div class="library-grammar-hero-copy"><small>Verbs &middot; ${escapeHtml(guidance.tense)}</small><h1>${escapeHtml(entry.title)}</h1><p>${escapeHtml(content.english)}</p>
+      <blockquote><b>Carlos explains</b><span>${escapeHtml(getCarlosGrammarTip(entry, content))}</span></blockquote>
+    </div>
+    <aside class="library-grammar-poster"><small>${escapeHtml(concept)}</small><strong>${escapeHtml(example.spanish || entry.title)}</strong><em>${escapeHtml(example.english || content.english)}</em><img src="${getCarlosAsset("speaking")}" alt="Carlos, your Spanish tutor" onerror="${CARLOS_FALLBACK_ONERROR}"></aside>
+  </section>`;
+}
+
+function renderConjugationStudy(entry, content, guidance, forms, examples) {
+  const showTips = entry.id === "ser";
+  return `<details class="library-direction-card" ${showTips ? "open" : ""}>
+      <summary><span><small>First time learning grammar?</small><strong>3 Simple Steps</strong></span><i aria-hidden="true"></i></summary>
+      <ol><li><b>Choose the subject</b><span>Who is doing the action?</span></li><li><b>Find its form</b><span>Match that subject to the verb below.</span></li><li><b>Say a full sentence</b><span>Tap the form, repeat it, then add a detail.</span></li></ol>
+    </details>
+    <section class="library-conjugation-card"><div class="library-study-heading"><div><small>${escapeHtml(guidance.tense)}</small><h2>${escapeHtml(entry.title)}</h2></div><span>${escapeHtml(content.english)}</span></div>
+      <div class="library-pattern"><small>${guidance.isRegular ? "Build the form" : "Remember"}</small><strong>${guidance.patternHtml}</strong><p>${escapeHtml(guidance.rule)} Think of this as your cheat sheet.</p></div>
+      <div class="library-forms-heading"><small>Forms</small><p>Tap any form to hear it.</p></div>
+      <div class="library-conjugation-grid">${guidance.subjects.map((subject, index) => {
+        const form = forms[index] || "\u2014";
+        const example = findConjugationExample(examples, form);
+        return `<button type="button" data-phrase="${escapeAttr(form)}" onclick="hablaPractice.speakForm(this)" aria-label="Hear ${escapeAttr(subject.spanish)}: ${escapeAttr(form || "verb form")}"><small>${escapeHtml(subject.spanish)} <em>${escapeHtml(subject.english)}</em></small><strong>${escapeHtml(form || "â€”")}</strong>${example ? `<span class="library-form-example"><b>${escapeHtml(example.spanish)}</b><em>${escapeHtml(example.english || "")}</em></span>` : ""}${iconSvg("volume")}</button>`;
+      }).join("")}</div>
+    </section>
+    <section class="library-try-card library-grammar-turn"><small>Your turn</small><h2>Build your sentence</h2><p>Start with <strong>${escapeHtml(guidance.tryForm)}</strong>, then make the thought your own.</p>
+      <label><span>Your sentence</span><input type="text" autocomplete="off" placeholder="Write a Spanish sentence&hellip;" aria-label="Your Spanish sentence"></label>
+      <details><summary>Need inspiration?</summary><p><strong>${escapeHtml(examples[0]?.spanish || guidance.tryForm)}</strong><span>${escapeHtml(examples[0]?.english || "")}</span></p></details>
+      <button class="practice-primary" type="button" onclick="hablaPractice.completeLibraryStudy('quiz')"><span class="button-label">Test Yourself</span>${iconSvg("arrow-right", "button-icon")}</button>
+    </section>`;
+}
+
+function findConjugationExample(examples, form) {
+  if (!form) return null;
+  const normalizedForm = normalize(form);
+  return examples.find(example => normalize(example.spanish).split(/\s+/).includes(normalizedForm)) || null;
+}
+
+function getCarlosGrammarTip(entry, content) {
+  const tips = {
+    ser: "Think of ser as identity: who someone is, where they are from, or what defines them.",
+    estar: "Use estar when you are locating someone or describing how they feel right now.",
+  };
+  return tips[entry.id] || content.explanation || `Listen for the subject, then choose the matching form of ${entry.title}.`;
 }
 
 function getVerbGuidance(entry, content) {
@@ -378,8 +450,12 @@ function getVerbGuidance(entry, content) {
   };
 }
 
-function renderStudyBackControl() {
-  return `<div class="library-study-back"><button type="button" onclick="hablaPractice.libraryBack('library-item')" aria-label="Go back">${iconSvg("arrow-left")}</button></div>`;
+function renderStudyBackControl(backView = "library-item") {
+  return `<div class="library-study-back compact-library-back"><button type="button" onclick="hablaPractice.libraryBack('${escapeAttr(backView)}')" aria-label="Go back">${iconSvg("arrow-left")}</button></div>`;
+}
+
+function isGrammarLibrary(category) {
+  return category?.id === "verbs" || category?.id === "grammar";
 }
 
 function renderVerbChangeExplanation(entry, content, guidance) {
@@ -539,14 +615,16 @@ function modeTab(mode, label, selected) {
   return `<button class="practice-mode-tab mode-${mode} ${selected === mode ? "selected" : ""}" type="button" role="tab" aria-label="${label}" aria-selected="${selected === mode}" onclick="hablaPractice.selectMode('${mode}')"><span aria-hidden="true">${iconSvg(mode)}</span><small>${label}</small></button>`;
 }
 
-function renderSummary(mode, topic, lesson) {
+function renderSummary(session, topic, lesson) {
+  const mode = session.mode;
   const definitions = {
     quiz: ["Today's Focus", "Test your knowledge with multiple choice.", "Start Quiz"],
     flashcards: ["Flashcards", "Review vocabulary from your available lesson.", "Start Flashcards"],
     pronunciation: ["Pronunciation Practice", "Listen, record, and repeat useful phrases.", "Start Speaking"],
     conversation: ["Speak with Carlos", "Use this topic as context for a focused conversation.", "Start Conversation"],
   };
-  const [, description, action] = definitions[mode];
+  const [, description] = definitions[mode];
+  const action = practiceHeroAction(session, lesson);
   const title = lesson ? "Today's Recommendation" : "Today's Practice";
   const count = lesson ? getModeCount(mode, lesson) : 0;
   const minutes = estimateMinutes(mode, count);
@@ -564,6 +642,15 @@ function renderSummary(mode, topic, lesson) {
     ${artwork ? "" : `<div class="practice-summary-mark" aria-hidden="true">${iconSvg(mode)}</div>`}
     <button class="practice-primary" type="button" onclick="hablaPractice.start()"><span class="button-label">${action}</span>${iconSvg("arrow-right", "button-icon")}</button>
   </section>`;
+}
+
+function practiceHeroAction(session, lesson) {
+  if (session.mode === "conversation") return "Start Conversation";
+  if (session.mode === "pronunciation") return session.pronunciation?.index > 0 ? "Resume Speaking" : "Start Speaking";
+  if (session.mode === "flashcards") return session.flash?.lessonId === lesson?.id && session.flash.index > 0 ? "Continue Cards" : "Start Flashcards";
+  if (session.quiz?.lessonId === lesson?.id && session.quiz.index > 0) return "Continue Quiz";
+  if (session.lastCompletedMode === "quiz" && session.lastCompletedTopic === session.topic) return "Practice Again";
+  return "Start Quiz";
 }
 
 function renderPracticeNextStep(session, lesson) {
@@ -626,19 +713,18 @@ function renderQuizActivity(session, topic, lesson) {
   const total = session.quiz.questions.length;
   const selected = session.quiz.selected;
   return `<section class="practice-shell practice-activity quiz-activity">
-    ${renderActivityHeader("Quiz")}
-    ${renderTopicSummary(topic, lesson, session.quiz.index + 1, total, "quiz")}
+    ${renderActivityHeader(topic.title)}
     <article class="practice-question-card">
       <div class="practice-question-step"><span>Question ${session.quiz.index + 1} of ${total}</span><i><b style="width:${((session.quiz.index + 1) / total) * 100}%"></b></i></div>
       <h2>${escapeHtml(question.prompt)}</h2>
       <div class="practice-answer-list">${question.options.map((option, index) => {
         const isCorrect = selected && option === question.answer;
         const isWrong = selected === option && option !== question.answer;
-        return `<button type="button" class="practice-answer ${isCorrect ? "correct" : ""} ${isWrong ? "wrong" : ""}" ${selected ? "disabled" : ""} onclick="hablaPractice.answer(${index})"><span>${String.fromCharCode(65 + index)}</span>${escapeHtml(option)}</button>`;
+        return `<button type="button" class="practice-answer ${isCorrect ? "correct" : ""} ${isWrong ? "wrong" : ""}" ${selected ? "disabled" : ""} onclick="hablaPractice.answer(${index})"><span aria-hidden="true">${isCorrect ? iconSvg("quiz") : isWrong ? "&times;" : ""}</span>${escapeHtml(option)}</button>`;
       }).join("")}</div>
     </article>
     ${selected ? `<section class="practice-feedback ${selected === question.answer ? "correct" : "wrong"}"><strong>${selected === question.answer ? "Correct!" : "Keep going"}</strong><p>${selected === question.answer ? `“${escapeHtml(question.answer)}” is the right answer.` : `The correct answer is “${escapeHtml(question.answer)}”.`}</p></section>` : ""}
-    <button class="practice-primary practice-next" type="button" ${selected ? "" : "disabled"} onclick="hablaPractice.nextQuiz()"><span class="button-label">${session.quiz.index + 1 === total ? "See Results" : "Next Question"}</span>${iconSvg("arrow-right", "button-icon")}</button>
+    ${selected ? `<p class="practice-auto-advance">${session.quiz.index + 1 === total ? "Preparing your results" : "Next question coming up"}<i></i><i></i><i></i></p>` : ""}
   </section>`;
 }
 
@@ -763,6 +849,34 @@ function ensureFlashSession(session, lesson, force = false) {
   writeSession(session);
 }
 
+function readPracticeHistory() {
+  try {
+    const history = JSON.parse(localStorage.getItem(PRACTICE_HISTORY_KEY) || "[]");
+    return Array.isArray(history) ? history : [];
+  } catch { return []; }
+}
+
+function recordPracticeActivity(mode, topicId, detail) {
+  const topic = TOPICS[topicId];
+  if (!topic) return;
+  const labels = { quiz: "Quiz", flashcards: "Flashcards", pronunciation: "Pronunciation" };
+  const history = readPracticeHistory();
+  history.unshift({ mode, title: `${topic.title} ${labels[mode] || "Practice"}`, detail, completedAt: new Date().toISOString() });
+  localStorage.setItem(PRACTICE_HISTORY_KEY, JSON.stringify(history.slice(0, 20)));
+}
+
+function relativePracticeDate(value) {
+  const date = new Date(value);
+  if (Number.isNaN(date.getTime())) return "Recently";
+  const now = new Date();
+  const today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+  const activityDay = new Date(date.getFullYear(), date.getMonth(), date.getDate());
+  const difference = Math.round((today - activityDay) / 86400000);
+  if (difference === 0) return "Today";
+  if (difference === 1) return "Yesterday";
+  return new Intl.DateTimeFormat(undefined, { month: "short", day: "numeric" }).format(date);
+}
+
 function ensurePronunciationSession(session, lesson) {
   if (session.pronunciation?.lessonId === lesson.id) return;
   session.pronunciation = { lessonId: lesson.id, index: 0, recording: false, message: "" };
@@ -853,12 +967,13 @@ window.hablaPractice = {
     saveLibraryModeProgress(session.libraryCategoryId, session.libraryItemId, session.libraryStudyMode, 100);
     window.hablaPractice.launchLibraryItem(session.libraryCategoryId, session.libraryItemId, nextMode);
   },
-  answer(index) { const session = readSession(); const question = session.quiz?.questions?.[session.quiz.index]; if (!question || session.quiz.selected) return; const answer = question.options[index]; session.quiz.selected = answer; if (answer === question.answer) session.quiz.score += 1; writeSession(session); rerender(); },
-  nextQuiz() { const session = readSession(); if (!session.quiz?.selected) return; if (session.quiz.index + 1 >= session.quiz.questions.length) { session.view = "results"; session.lastCompletedMode = "quiz"; session.lastCompletedTopic = session.topic; saveLibraryModeProgress(session.libraryCategoryId, session.libraryItemId, "quiz", 100); } else { session.quiz.index += 1; session.quiz.selected = ""; } writeSession(session); rerender(); },
+  answer(index) { const session = readSession(); const questionIndex = session.quiz?.index; const question = session.quiz?.questions?.[questionIndex]; if (!question || session.quiz.selected) return; const answer = question.options[index]; session.quiz.selected = answer; if (answer === question.answer) session.quiz.score += 1; writeSession(session); rerender(); window.setTimeout(() => window.hablaPractice.autoAdvanceQuiz(questionIndex), 1900); },
+  autoAdvanceQuiz(questionIndex) { const session = readSession(); if (session.view !== "activity" || session.mode !== "quiz" || session.quiz?.index !== questionIndex || !session.quiz.selected) return; window.hablaPractice.nextQuiz(); },
+  nextQuiz() { const session = readSession(); if (!session.quiz?.selected) return; if (session.quiz.index + 1 >= session.quiz.questions.length) { session.view = "results"; session.lastCompletedMode = "quiz"; session.lastCompletedTopic = session.topic; recordPracticeActivity("quiz", session.topic, `${session.quiz.questions.length} questions, ${session.quiz.score} correct`); saveLibraryModeProgress(session.libraryCategoryId, session.libraryItemId, "quiz", 100); } else { session.quiz.index += 1; session.quiz.selected = ""; } writeSession(session); rerender(); },
   restartQuiz() { const session = readSession(); const result = findPracticeLibraryItem(session.libraryCategoryId, session.libraryItemId, session.libraryCollectionId); const lesson = result ? buildLibraryLesson(result) : getLessonForTopic(session.topic); if (!lesson) return; ensureQuizSession(session, lesson, true); session.view = "activity"; writeSession(session); rerender(); },
   flip() { const session = readSession(); session.flash.flipped = !session.flash.flipped; writeSession(session); rerender(); },
   prevCard() { const session = readSession(); const total = session.flash.order.length; session.flash.index = (session.flash.index - 1 + total) % total; session.flash.flipped = false; writeSession(session); rerender(); },
-  nextCard() { const session = readSession(); const completedRound = session.flash.index + 1 >= session.flash.order.length; session.flash.index = (session.flash.index + 1) % session.flash.order.length; session.flash.flipped = false; if (completedRound) { session.lastCompletedMode = "flashcards"; session.lastCompletedTopic = session.topic; saveLibraryModeProgress(session.libraryCategoryId, session.libraryItemId, "flashcards", 100); } writeSession(session); rerender(); },
+  nextCard() { const session = readSession(); const completedRound = session.flash.index + 1 >= session.flash.order.length; session.flash.index = (session.flash.index + 1) % session.flash.order.length; session.flash.flipped = false; if (completedRound) { session.lastCompletedMode = "flashcards"; session.lastCompletedTopic = session.topic; recordPracticeActivity("flashcards", session.topic, `${session.flash.order.length} cards reviewed`); saveLibraryModeProgress(session.libraryCategoryId, session.libraryItemId, "flashcards", 100); } writeSession(session); rerender(); },
   shuffleCards() { const session = readSession(); session.flash.order = shuffle(session.flash.order); session.flash.index = 0; session.flash.flipped = false; writeSession(session); rerender(); },
   speak(text) { speakSpanish(text); },
   speakForm(button) {
@@ -899,7 +1014,7 @@ window.hablaPractice = {
       recorder.start(); session.pronunciation.recording = true; session.pronunciation.message = "Recording… tap again when you’re finished."; writeSession(session); rerender();
     } catch { session.pronunciation.recording = false; session.pronunciation.message = "Microphone access wasn’t available. You can still listen and continue."; writeSession(session); stopRecordingResources(); rerender(); }
   },
-  nextPronunciation() { const session = readSession(); const result = findPracticeLibraryItem(session.libraryCategoryId, session.libraryItemId, session.libraryCollectionId); const lesson = result ? buildLibraryLesson(result) : getLessonForTopic(session.topic); const total = getPronunciation(lesson).length; if (session.pronunciation.index + 1 >= total) { session.view = session.returnView || "launcher"; delete session.returnView; session.pronunciation.index = 0; session.lastCompletedMode = "pronunciation"; session.lastCompletedTopic = session.topic; } else session.pronunciation.index += 1; session.pronunciation.message = ""; writeSession(session); rerender(); },
+  nextPronunciation() { const session = readSession(); const result = findPracticeLibraryItem(session.libraryCategoryId, session.libraryItemId, session.libraryCollectionId); const lesson = result ? buildLibraryLesson(result) : getLessonForTopic(session.topic); const total = getPronunciation(lesson).length; if (session.pronunciation.index + 1 >= total) { session.view = session.returnView || "launcher"; delete session.returnView; session.pronunciation.index = 0; session.lastCompletedMode = "pronunciation"; session.lastCompletedTopic = session.topic; recordPracticeActivity("pronunciation", session.topic, `${total} exercises completed`); } else session.pronunciation.index += 1; session.pronunciation.message = ""; writeSession(session); rerender(); },
 };
 
 function clearLibraryContext(session) {
@@ -930,7 +1045,7 @@ function iconSvg(name, className = "") {
     target: `<circle cx="12" cy="12" r="8.5"/><circle cx="12" cy="12" r="4.5"/><circle cx="12" cy="12" r="1" fill="currentColor" stroke="none"/><path d="m15.5 8.5 5-5M17.5 3.5h3v3"/>`,
     greetings: `<path d="M5 5.5h14A2.5 2.5 0 0 1 21.5 8v7A2.5 2.5 0 0 1 19 17.5h-8L5.5 21v-3.6A2.5 2.5 0 0 1 3 15V7.5A2 2 0 0 1 5 5.5Z"/><path d="M7.5 11.5h9"/>`,
     family: `<circle cx="9" cy="8" r="3"/><circle cx="16.5" cy="9" r="2.5"/><path d="M3.5 20c.5-4.2 2.4-6.3 5.5-6.3s5 2.1 5.5 6.3M13 14.5c1-.9 2.1-1.3 3.5-1.3 2.6 0 4.2 1.9 4.6 5.6"/>`,
-    restaurants: `<path d="M6 3v8M9 3v8M4 3v5c0 2 1.1 3 3 3s3-1 3-3V3M7 11v10M16 3c-2 2.1-3 5-3 8h4v10"/>`,
+    restaurants: `<path d="M5 3.5V9c0 2.05 1.1 3.1 3 3.1s3-1.05 3-3.1V3.5M7 3.5V9M9 3.5V9M8 12.1v8.4"/><path d="M18.25 3.5c-2.4 2.1-3.6 4.8-3.6 8.1h3.6v8.9M14.65 11.6h3.6V3.5"/>`,
     travel: `<path d="m3 13 18-9-7.5 16-2.8-6.2L3 13Z"/><path d="m10.7 13.8 10-9.3"/>`,
     shopping: `<path d="M5 8h14l1.5 13h-17L5 8Z"/><path d="M8.5 9V6.5a3.5 3.5 0 0 1 7 0V9"/>`,
     work: `<rect x="3" y="7" width="18" height="13" rx="2.5"/><path d="M8 7V4h8v3M3 12.5h18M10 12.5v2h4v-2"/>`,

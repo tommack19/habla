@@ -1,9 +1,10 @@
 ﻿import { state } from "./core/state.js";
 import { saveState, loadState } from "./core/storage.js";
 import { renderPage } from "./core/router.js";
-import { initializeProgressEngine } from "./core/progress.js";
+import { getCurrentXP, initializeProgressEngine } from "./core/progress.js";
 import { completeMission as completeDailyMission } from "./core/missions.js";
 import { contentReady, getCurrentLesson, setActiveLesson } from "./core/content.js";
+import { consumeDueRecap, rememberLessonCompletion, scheduleLessonRecap } from "./core/lessonMemory.js";
 import { renderNavigation } from "./ui/navigation.js";
 import { CARLOS_FALLBACK_ONERROR, getCarlosAsset } from "./data/carlosAssets.js";
 
@@ -193,7 +194,7 @@ function setAvatar(state) {
   mouth.setAttribute('d', MOUTH_IDLE);
 
   const colors = {speaking:'#e8b86d', listening:'#c0392b', thinking:'#8e44ad', idle:'#27ae60'};
-  const labels = {speaking:'Speaking', listening:'Listening', thinking:'Thinking…', idle:'Ready to practice'};
+  const labels = {speaking:'Speaking', listening:'Listening', thinking:'Thinking…', idle:'Online'};
   glow.setAttribute('stroke', colors[state] || colors.idle);
   glow.setAttribute('opacity', state === 'idle' ? '0' : '0.55');
   lbl.textContent = labels[state] || 'Carlos';
@@ -260,13 +261,22 @@ let apiHistory = loadCarlosHistory(), isLoading = false, autoSpeak = true, level
 function fmtText(text) {
   return escapeCarlosText(text).replace(/\*([^*]+)\*/g,'<strong class="es">$1</strong>').replace(/\n/g,'<br>');
 }
-function addBubble(role, text) {
+function formatCarlosTimestamp(createdAt) {
+  const timestamp = Number(createdAt || Date.now());
+  const elapsed = Math.max(0, Date.now() - timestamp);
+  if (elapsed < 60_000) return 'Just now';
+  if (elapsed < 3_600_000) return `${Math.max(1, Math.floor(elapsed / 60_000))} min ago`;
+  const date = new Date(timestamp);
+  const time = new Intl.DateTimeFormat([], {hour:'numeric',minute:'2-digit'}).format(date);
+  return date.toDateString() === new Date().toDateString() ? `Today • ${time}` : time;
+}
+function addBubble(role, text, createdAt = Date.now()) {
   const msgs = document.getElementById('messages');
   if (!msgs) return;
   const isUser = role === 'user';
   const d = document.createElement('article');
   d.className = `bub ${isUser ? 'user' : 'ai'}`;
-  const time = new Intl.DateTimeFormat([], {hour:'numeric',minute:'2-digit'}).format(new Date());
+  const time = formatCarlosTimestamp(createdAt);
   d.innerHTML = isUser
     ? `<div class="bub-body"><div class="bub-copy">${fmtText(text)}</div><time>${time} <span aria-hidden="true">✓✓</span></time></div>`
     : `<img class="bub-avatar" src="${getCarlosAsset('speaking')}" alt="Carlos" onerror="${CARLOS_FALLBACK_ONERROR}"><div class="bub-body"><div class="bub-copy">${fmtText(text)}</div><time>${time}</time></div>`;
@@ -286,26 +296,37 @@ async function sendMessage(text) {
   document.getElementById('carlos-suggestions')?.setAttribute('hidden','');
   const stopBtn = document.getElementById('stop-btn');
   if (stopBtn) stopBtn.style.display='none';
+  const startsNewConversation = !apiHistory.some(entry => entry.role === 'user');
   addBubble('user',text);
-  apiHistory.push({role:'user',content:text});
+  if (startsNewConversation) recordCarlosConversationStart();
+  apiHistory.push({role:'user',content:text,createdAt:Date.now()});
   saveCarlosHistory();
   setAvatar('thinking'); showTyping();
   try {
     const data = await requestCarlosReply();
     document.getElementById('typing-bub')?.remove();
     if(data.error) throw new Error(data.error);
-    apiHistory.push({role:'assistant',content:data.reply});
+    apiHistory.push({role:'assistant',content:data.reply,createdAt:Date.now()});
     saveCarlosHistory();
     addBubble('ai',data.reply);
     if(autoSpeak) speakText(data.reply); else setAvatar('idle');
   } catch(e) {
     document.getElementById('typing-bub')?.remove();
     const fallbackReply = getOfflineCarlosReply(text);
-    apiHistory.push({role:'assistant',content:fallbackReply});
+    apiHistory.push({role:'assistant',content:fallbackReply,createdAt:Date.now()});
     saveCarlosHistory();
     addBubble('ai',fallbackReply);
     if(autoSpeak) speakText(fallbackReply); else setAvatar('idle');
   } finally { isLoading=false; }
+}
+
+function recordCarlosConversationStart() {
+  const key = 'habla_activity_stats_v1';
+  let activity = {};
+  try { activity = JSON.parse(localStorage.getItem(key) || '{}'); } catch {}
+  activity.carlosConversationsCount = Number(activity.carlosConversationsCount || 0) + 1;
+  activity.lastCarlosConversationAt = new Date().toISOString();
+  localStorage.setItem(key, JSON.stringify(activity));
 }
 
 async function requestCarlosReply() {
@@ -415,7 +436,7 @@ function stopListening(){
   isListening=false;
   document.getElementById('mic-btn')?.classList.remove('on');
   const txt = document.getElementById('txt');
-  if (txt) txt.placeholder='Ask Carlos anything in Spanish...';
+  if (txt) txt.placeholder=txt.dataset.idlePlaceholder || 'Ask Carlos anything in Spanish...';
   try{recognition?.stop();}catch(e){}
   if(!isSpeaking) setAvatar('idle');
 }
@@ -566,7 +587,7 @@ initializeProgressEngine(state, {
 
 contentReady
   .then(() => {
-    if (currentPage === "home" || currentPage === "learn" || currentPage === "carlos" || currentPage === "practice") {
+    if (currentPage === "home" || currentPage === "learn" || currentPage === "journey" || currentPage === "carlos" || currentPage === "practice") {
       renderAppPage(currentPage);
     }
   })
@@ -579,8 +600,12 @@ function renderAppPage(page) {
   currentPage = page;
   document.body.classList.toggle('carlos-mode', page === 'carlos');
   renderPage(page);
+  if (page === 'journey' || page === 'lesson') {
+    const dashboard = document.getElementById('dashboard');
+    if (dashboard) dashboard.scrollTop = 0;
+  }
   const navMount = document.getElementById('bottom-nav');
-  if (navMount) navMount.innerHTML = renderNavigation(page);
+  if (navMount) navMount.innerHTML = renderNavigation(page === 'journey' || page === 'lesson' ? 'learn' : page);
 
   if (page === 'carlos') {
     initializeCarlosUI();
@@ -589,7 +614,62 @@ function renderAppPage(page) {
 
 function updateLevelButton() {
   const levelBtn = document.getElementById('level-btn');
-  if (levelBtn) levelBtn.textContent = state.user.level;
+  const levelLabel = document.getElementById('header-level-label');
+  const levelCode = document.getElementById('header-level-code');
+  const avatar = document.getElementById('header-avatar');
+  const journey = getHeaderJourney(getCurrentXP());
+
+  if (levelLabel) levelLabel.textContent = journey.name;
+  if (levelCode) levelCode.textContent = journey.code;
+  if (levelBtn) levelBtn.setAttribute('aria-label', `View your Spanish journey. Current level: ${journey.name}, ${journey.code} ${journey.cefrLabel}.`);
+  setText('level-journey-title', journey.name);
+  setText('level-journey-cefr', `${journey.code} ${journey.cefrLabel}`);
+  setText('level-journey-xp', journey.isComplete ? `${formatNumber(journey.xp)} XP` : `${formatNumber(journey.xp)} / ${formatNumber(journey.nextXP)} XP`);
+  setText('level-journey-percent', `${journey.percent}%`);
+  setText('level-journey-next', journey.nextName);
+  setText('level-journey-remaining', journey.isComplete ? 'Journey level complete' : `${formatNumber(journey.remaining)} XP remaining`);
+  const progressBar = document.getElementById('level-journey-progress');
+  if (progressBar) progressBar.style.width = `${journey.percent}%`;
+  if (avatar) avatar.textContent = getHeaderInitials(state.user.name);
+}
+
+function getHeaderJourney(xpValue) {
+  const levels = [
+    { code: 'A1', name: 'Explorer', cefrLabel: 'Beginner', minXP: 0, nextXP: 500 },
+    { code: 'A2', name: 'Traveler', cefrLabel: 'Elementary', minXP: 500, nextXP: 1500 },
+    { code: 'B1', name: 'Local', cefrLabel: 'Intermediate', minXP: 1500, nextXP: 3500 },
+    { code: 'B2', name: 'Adventurer', cefrLabel: 'Upper Intermediate', minXP: 3500, nextXP: 7000 },
+    { code: 'C1', name: 'Insider', cefrLabel: 'Advanced', minXP: 7000, nextXP: 12000 },
+    { code: 'C2', name: 'Fluent', cefrLabel: 'Proficient', minXP: 12000, nextXP: 12000 },
+  ];
+  const xp = Math.max(0, Number(xpValue || 0));
+  const index = levels.reduce((current, level, levelIndex) => xp >= level.minXP ? levelIndex : current, 0);
+  const level = levels[index];
+  const nextLevel = levels[index + 1];
+  const range = Math.max(1, level.nextXP - level.minXP);
+  const percent = nextLevel ? Math.min(100, Math.round(((xp - level.minXP) / range) * 100)) : 100;
+
+  return {
+    ...level,
+    xp,
+    percent,
+    isComplete: !nextLevel,
+    nextName: nextLevel?.name || 'Fluent',
+    remaining: nextLevel ? Math.max(0, level.nextXP - xp) : 0,
+  };
+}
+
+function setText(id, value) {
+  const element = document.getElementById(id);
+  if (element) element.textContent = value;
+}
+
+function formatNumber(value) {
+  return new Intl.NumberFormat('en-CA').format(Number(value || 0));
+}
+
+function getHeaderInitials(name) {
+  return String(name || 'H').trim().split(/\s+/).slice(0, 2).map(part => part.charAt(0).toUpperCase()).join('') || 'H';
 }
 
 function initializeCarlosUI() {
@@ -614,12 +694,26 @@ function initializeCarlosUI() {
   }
 
   if (apiHistory.length === 0) {
-    apiHistory.push({role:'assistant',content:intro});
+    apiHistory.push({role:'assistant',content:intro,createdAt:Date.now()});
     saveCarlosHistory();
     addBubble('ai',intro);
     setTimeout(()=>{if(autoSpeak && document.getElementById('messages'))speakText(intro);},900);
   } else {
-    apiHistory.forEach(entry => addBubble(entry.role, entry.content));
+    apiHistory.forEach(entry => addBubble(entry.role, entry.content, entry.createdAt));
+  }
+
+  const dueRecap = consumeDueRecap();
+  if (dueRecap) {
+    const recapEntry = {
+      role: 'assistant',
+      content: `*A little message from Carlos*\n${dueRecap.message}`,
+      createdAt: new Date(dueRecap.deliverAt).getTime(),
+      memoryRecapId: dueRecap.id,
+    };
+    apiHistory.push(recapEntry);
+    apiHistory = apiHistory.slice(-40);
+    saveCarlosHistory();
+    addBubble('ai', recapEntry.content, recapEntry.createdAt);
   }
 
   if (apiHistory.some(entry => entry.role === 'user')) suggestions?.setAttribute('hidden','');
@@ -656,7 +750,7 @@ function initializeCarlosUI() {
   });
   document.querySelector('[data-carlos-reset]')?.addEventListener('click', () => {
     window.speechSynthesis.cancel();
-    apiHistory = [{role:'assistant',content:intro}];
+    apiHistory = [{role:'assistant',content:intro,createdAt:Date.now()}];
     saveCarlosHistory();
     messages.innerHTML = '';
     addBubble('ai', intro);
@@ -673,27 +767,14 @@ function initializeCarlosUI() {
 function getCarlosIntro() {
   const name = String(state.user?.name || 'amigo').split(' ')[0];
   const lesson = getCurrentLesson();
-  const lessonTitle = String(lesson?.title || '').replace(/^[^:]+:\s*/, '');
+  const lessonTitle = String(lesson?.title || "today's lesson").replace(/^[^:]+:\s*/, '');
+  const lessonNumber = Number(lesson?.lesson || lesson?.number || lesson?.id?.match?.(/\d+/)?.[0] || 1);
   const now = new Date();
   const hour = now.getHours();
-  const isWeekend = now.getDay() === 0 || now.getDay() === 6;
-  const variant = now.getDate() % 3;
-  let greeting;
+  const greeting = hour < 12 ? 'Buenos días' : hour < 18 ? 'Buenas tardes' : 'Buenas noches';
+  const timeOfDay = hour < 12 ? 'Good morning!' : hour < 18 ? 'Good afternoon!' : 'Good evening!';
 
-  if (isWeekend) {
-    greeting = `*¡Hola ${name}!* ☕ Want to chat over coffee today?`;
-  } else if (hour < 12) {
-    const morning = ['Ready for five minutes of Spanish?', 'Let’s build some Spanish confidence.', 'What should we practice together today?'];
-    greeting = `*¡Buenos días, ${name}!* ${morning[variant]}`;
-  } else if (hour < 18) {
-    const afternoon = ['Ready for a quick Spanish conversation?', 'Let’s keep your momentum going.', 'It’s a great time for a little Spanish.'];
-    greeting = `*¡Buenas tardes, ${name}!* ${afternoon[variant]}`;
-  } else {
-    const evening = ['Welcome back. Let’s keep your streak alive.', 'Ready for a relaxed Spanish chat?', 'A few minutes of Spanish would be perfect.'];
-    greeting = `*¡Buenas noches, ${name}!* ${evening[variant]}`;
-  }
-
-  return lessonTitle ? `${greeting}\nWant to practice *${lessonTitle}* together?` : `${greeting}\nHow can I help you today?`;
+  return `*¡${greeting}, ${name}!* 👋\n${timeOfDay}\n\nI remember you’re working on Lesson ${lessonNumber}: *${lessonTitle}*. We can practice it together, review recent words, or just chat over a coffee.\n\nWhat sounds fun?`;
 }
 
 function toggleAutoSpeak() {
@@ -746,6 +827,22 @@ window.addEventListener('habla:practice-render', () => {
   if (currentPage === 'practice') renderAppPage('practice');
 });
 
+window.addEventListener('habla:lesson-render', (event) => {
+  if (currentPage !== 'lesson') return;
+  renderAppPage('lesson');
+  if (event.detail?.scroll) {
+    document.getElementById('dashboard')?.scrollTo({ top: 0, behavior: 'smooth' });
+    document.getElementById('lesson-stage')?.focus({ preventScroll: true });
+  }
+});
+
+window.addEventListener('habla:lesson-completed', (event) => {
+  const lesson = event.detail?.lesson;
+  if (!lesson) return;
+  rememberLessonCompletion(lesson);
+  scheduleLessonRecap(lesson);
+});
+
 window.addEventListener('habla:practice-conversation', (event) => {
   renderAppPage('carlos');
   const input = document.getElementById('txt');
@@ -756,16 +853,31 @@ window.addEventListener('habla:practice-conversation', (event) => {
   }
 });
 
-document.getElementById('level-btn').addEventListener('click',()=>document.getElementById('level-overlay').classList.add('open'));
-document.getElementById('level-overlay').addEventListener('click',e=>{if(e.target===document.getElementById('level-overlay'))document.getElementById('level-overlay').classList.remove('open');});
-document.querySelectorAll('.lopt').forEach(b=>{
-  b.addEventListener('click',()=>{
-    level=b.dataset.level;
-    document.getElementById('level-btn').textContent=level;
-    document.querySelectorAll('.lopt').forEach(x=>x.classList.remove('sel'));
-    b.classList.add('sel');
+document.getElementById('level-btn').addEventListener('click',()=>{
+  const overlay = document.getElementById('level-overlay');
+  const shouldOpen = !overlay.classList.contains('open');
+  overlay.classList.toggle('open', shouldOpen);
+  overlay.setAttribute('aria-hidden', String(!shouldOpen));
+  document.getElementById('level-btn').setAttribute('aria-expanded', String(shouldOpen));
+});
+document.getElementById('level-overlay').addEventListener('click',e=>{
+  if(e.target===document.getElementById('level-overlay')){
     document.getElementById('level-overlay').classList.remove('open');
-  });
+    document.getElementById('level-overlay').setAttribute('aria-hidden','true');
+    document.getElementById('level-btn').setAttribute('aria-expanded','false');
+  }
+});
+document.getElementById('level-view-journey').addEventListener('click',()=>{
+  document.getElementById('level-overlay').classList.remove('open');
+  document.getElementById('level-overlay').setAttribute('aria-hidden','true');
+  document.getElementById('level-btn').setAttribute('aria-expanded','false');
+});
+document.addEventListener('keydown',event=>{
+  if(event.key !== 'Escape' || !document.getElementById('level-overlay').classList.contains('open')) return;
+  document.getElementById('level-overlay').classList.remove('open');
+  document.getElementById('level-overlay').setAttribute('aria-hidden','true');
+  document.getElementById('level-btn').setAttribute('aria-expanded','false');
+  document.getElementById('level-btn').focus();
 });
 
 renderAppPage('home');

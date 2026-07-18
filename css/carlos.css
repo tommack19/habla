@@ -1615,10 +1615,6 @@
 }
 
 /* Immersive Carlos conversation */
-body.carlos-mode #app > header {
-  display: none;
-}
-
 #dashboard.carlos-page,
 .carlos-screen {
   height: 100%;
@@ -2158,5 +2154,373 @@ body.carlos-mode #app > header {
 @media (prefers-reduced-motion: reduce) {
   .carlos-screen .bub {
     animation: none;
+  }
+}
+
+/* Carlos connection pass */
+.carlos-screen #stage.carlos-chat-hero {
+  height: 248px;
+  min-height: 248px;
+}
+
+.carlos-screen #stage.carlos-chat-hero::after {
+  background:
+    linear-gradient(180deg, rgba(2, 7, 11, 0.82) 0%, rgba(2, 7, 11, 0.13) 34%, rgba(3, 9, 13, 0.58) 62%, #030a0d 88%, #030a0d 100%),
+    linear-gradient(90deg, rgba(2, 7, 11, 0.4), transparent 48%, rgba(2, 7, 11, 0.08));
+}
+
+.carlos-screen #stage .carlos-hero-scene {
+  animation: carlosSceneBreathe 9s ease-in-out infinite;
+  object-position: 50% 42%;
+  transform: translateX(18px) scale(1.06);
+  transform-origin: 72% 54%;
+}
+
+.carlos-chat-header {
+  padding-top: 15px;
+}
+
+.carlos-top-row {
+  align-items: start;
+  grid-template-columns: 44px minmax(0, 1fr) 44px;
+}
+
+.carlos-title-lockup {
+  justify-self: center;
+  min-width: 0;
+  text-align: center;
+}
+
+.carlos-top-row .carlos-title-lockup h1 {
+  font-size: clamp(1.58rem, 6vw, 1.9rem);
+  line-height: 1;
+}
+
+.carlos-top-row .carlos-title-lockup p {
+  align-items: center;
+  color: rgba(248, 244, 236, 0.78);
+  display: flex;
+  font: 600 0.66rem/1.2 Inter, system-ui, sans-serif;
+  gap: 4px;
+  justify-content: center;
+  margin: 5px 0 0;
+  white-space: nowrap;
+}
+
+.carlos-title-lockup p svg {
+  fill: none;
+  height: 12px;
+  stroke: #f4be58;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 1.8;
+  width: 12px;
+}
+
+.carlos-profile-chips {
+  align-items: center;
+  display: flex;
+  gap: 5px;
+  justify-content: center;
+  margin-top: 6px;
+}
+
+.carlos-top-row .carlos-profile-chips > span {
+  backdrop-filter: blur(10px);
+  background: rgba(5, 12, 15, 0.66);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 999px;
+  color: rgba(248, 244, 236, 0.78);
+  font: 650 0.58rem/1 Inter, system-ui, sans-serif;
+  margin: 0;
+  padding: 5px 7px;
+  white-space: nowrap;
+}
+
+.carlos-top-row .carlos-profile-chips .beginner {
+  background: rgba(5, 12, 15, 0.42);
+  border-color: rgba(255, 255, 255, 0.075);
+  color: rgba(248, 244, 236, 0.58);
+  font-weight: 550;
+}
+
+.carlos-top-row .carlos-profile-chips .online {
+  align-items: center;
+  color: #77e5a2;
+  display: inline-flex;
+  gap: 4px;
+}
+
+.carlos-profile-chips .online i {
+  background: #2bd574;
+  border-radius: 50%;
+  box-shadow: 0 0 8px rgba(43, 213, 116, 0.65);
+  height: 6px;
+  width: 6px;
+}
+
+.carlos-profile-chips .online b {
+  font: inherit;
+}
+
+.carlos-hero-more {
+  display: grid;
+  place-items: center;
+  right: 16px;
+  top: 18px;
+}
+
+.carlos-hero-more svg {
+  fill: none;
+  height: 21px;
+  stroke: rgba(248, 244, 236, 0.9);
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 1.7;
+  width: 21px;
+}
+
+.carlos-quick-menu {
+  right: 16px;
+  top: 68px;
+}
+
+.carlos-conversation-thread {
+  margin-top: -12px;
+}
+
+.carlos-memory-strip {
+  backdrop-filter: blur(18px);
+  background: linear-gradient(120deg, rgba(16, 31, 30, 0.96), rgba(10, 18, 22, 0.96));
+  border: 1px solid rgba(47, 207, 112, 0.22);
+  border-radius: 16px;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.24);
+  margin: 0 16px 14px;
+  padding: 10px 12px;
+}
+
+.carlos-memory-strip strong {
+  align-items: center;
+  color: #54d98a;
+  display: flex;
+  font: 750 0.66rem/1.2 Inter, system-ui, sans-serif;
+  gap: 6px;
+  letter-spacing: 0.035em;
+  text-transform: uppercase;
+}
+
+.carlos-memory-strip strong svg {
+  fill: none;
+  height: 15px;
+  stroke: currentColor;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 1.7;
+  width: 15px;
+}
+
+.carlos-memory-strip > div {
+  display: flex;
+  gap: 0;
+  margin-top: 7px;
+  overflow: hidden;
+}
+
+.carlos-memory-strip > div span {
+  color: rgba(244, 246, 242, 0.76);
+  font: 600 0.64rem/1.2 Inter, system-ui, sans-serif;
+  min-width: 0;
+  overflow: hidden;
+  padding: 0 9px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.carlos-memory-strip > div span:first-child {
+  padding-left: 0;
+}
+
+.carlos-memory-strip > div span + span {
+  border-left: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.carlos-suggestions {
+  display: grid;
+  gap: 8px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  padding: 0 16px 16px;
+}
+
+.carlos-suggestions button {
+  border-radius: 999px;
+  justify-content: flex-start;
+  min-width: 0;
+}
+
+.carlos-screen .bub.ai .bub-body {
+  background:
+    linear-gradient(145deg, rgba(244, 190, 88, 0.055), rgba(255, 255, 255, 0.018)),
+    rgba(26, 25, 22, 0.97);
+  border-color: rgba(244, 190, 88, 0.14);
+  border-radius: 7px 24px 24px 24px;
+}
+
+.carlos-screen #mic-btn.on {
+  animation: carlosMicPulse 1.35s ease-out infinite;
+  background: linear-gradient(145deg, #2bd574, #138849);
+  border-color: rgba(111, 244, 164, 0.8);
+  color: #fff;
+}
+
+@keyframes carlosSceneBreathe {
+  0%, 100% { filter: brightness(0.96); transform: translateX(18px) scale(1.06); }
+  50% { filter: brightness(1.035); transform: translateX(20px) scale(1.072); }
+}
+
+@keyframes carlosMicPulse {
+  0% { box-shadow: 0 0 0 0 rgba(43, 213, 116, 0.5), 0 8px 20px rgba(11, 118, 61, 0.3); }
+  70% { box-shadow: 0 0 0 10px rgba(43, 213, 116, 0), 0 8px 20px rgba(11, 118, 61, 0.3); }
+  100% { box-shadow: 0 0 0 0 rgba(43, 213, 116, 0), 0 8px 20px rgba(11, 118, 61, 0.3); }
+}
+
+@media (max-width: 390px) {
+  .carlos-screen #stage.carlos-chat-hero {
+    height: 236px;
+    min-height: 236px;
+  }
+
+  .carlos-suggestions {
+    padding-inline: 12px;
+  }
+
+  .carlos-memory-strip {
+    margin-inline: 12px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .carlos-screen #stage .carlos-hero-scene,
+  .carlos-screen #mic-btn.on {
+    animation: none;
+  }
+
+  .carlos-screen #stage .carlos-hero-scene {
+    transform: translateX(18px) scale(1.06);
+  }
+}
+
+/* Final Carlos conversation polish */
+.carlos-title-lockup .carlos-profile-chips {
+  margin-top: 7px;
+}
+
+.carlos-top-row .carlos-title-lockup p {
+  color: rgba(248, 244, 236, 0.66);
+  font-size: 0.64rem;
+  font-weight: 550;
+  letter-spacing: 0.015em;
+  margin-top: 6px;
+}
+
+.carlos-top-row .carlos-profile-chips > span {
+  padding: 5px 9px;
+}
+
+.carlos-memory-strip {
+  padding: 12px;
+}
+
+.carlos-memory-strip strong {
+  color: #66dfa0;
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: 0.79rem;
+  font-weight: 700;
+  letter-spacing: 0;
+  text-transform: none;
+}
+
+.carlos-memory-strip .carlos-memory-items {
+  display: grid;
+  grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
+  gap: 8px;
+  margin-top: 10px;
+  overflow: visible;
+}
+
+.carlos-memory-strip .carlos-memory-item {
+  display: grid;
+  grid-template-columns: 25px minmax(0, 1fr);
+  align-items: center;
+  gap: 8px;
+  min-width: 0;
+  min-height: 52px;
+  padding: 8px 9px;
+  overflow: visible;
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.025);
+  color: rgba(244, 246, 242, 0.82);
+  white-space: normal;
+}
+
+.carlos-memory-strip .carlos-memory-item + .carlos-memory-item {
+  border-left: 1px solid rgba(255, 255, 255, 0.07);
+}
+
+.carlos-memory-strip .carlos-memory-item > svg {
+  width: 21px;
+  height: 21px;
+  fill: none;
+  stroke: #f4be58;
+  stroke-width: 1.65;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.carlos-memory-strip .carlos-memory-item > span {
+  display: grid;
+  gap: 3px;
+  min-width: 0;
+  padding: 0;
+  overflow: visible;
+  white-space: normal;
+}
+
+.carlos-memory-strip .carlos-memory-item small {
+  color: rgba(244, 246, 242, 0.48);
+  font: 700 0.54rem/1 Inter, system-ui, sans-serif;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+}
+
+.carlos-memory-strip .carlos-memory-item b {
+  color: rgba(247, 248, 245, 0.86);
+  font: 650 0.64rem/1.28 Inter, system-ui, sans-serif;
+  overflow-wrap: anywhere;
+}
+
+.carlos-screen .bub.ai {
+  grid-template-columns: 46px minmax(0, 1fr);
+  gap: 10px;
+}
+
+.carlos-screen .bub-avatar {
+  width: 46px;
+  height: 46px;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.28);
+}
+
+.carlos-screen .bub.ai .bub-body {
+  background:
+    linear-gradient(145deg, rgba(255, 255, 255, 0.075), rgba(244, 190, 88, 0.025)),
+    rgba(23, 29, 29, 0.98);
+  border-color: rgba(255, 255, 255, 0.13);
+  border-radius: 8px 24px 24px 24px;
+  box-shadow: 0 14px 34px rgba(0, 0, 0, 0.24), inset 0 1px 0 rgba(255, 255, 255, 0.025);
+}
+
+@media (max-width: 360px) {
+  .carlos-memory-strip .carlos-memory-items {
+    grid-template-columns: 1fr;
   }
 }

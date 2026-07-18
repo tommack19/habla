@@ -1,990 +1,364 @@
 {
   "id": "lesson-10-daily-routine",
-  "title": "Daily Routine: Your Day in Simple Spanish",
+  "contentVersion": "1.0",
+  "title": "Weekend Adventure",
+  "image": "assets/images/lessons/lesson-07-travel.png.png",
   "level": "A1",
-  "module": "Daily Routine",
-  "estimatedMinutes": 36,
-  "metadata": {
-    "course": "Habla",
-    "unit": "A1 Beginner",
-    "lessonNumber": 10,
-    "guide": "Carlos",
-    "imagePath": "assets/images/lessons/lesson-10-daily-routine.png"
-  },
+  "module": "Madrid Chapter Finale",
+  "estimatedMinutes": 32,
+  "chapterReview": true,
   "prerequisiteLesson": "lesson-09-around-the-house",
+  "story": {
+    "chapter": 1,
+    "city": "Madrid",
+    "location": "Carlos and Marta’s apartment, Plaza Mayor, a café, and Mercado de San Miguel",
+    "time": "Sunday, one complete day",
+    "scene": "The rain has cleared. Carlos invites the learner to spend one more day moving through the Madrid they now know. There is no new grammar lesson and almost no new language. Six short scenes ask the learner to greet, navigate, order, shop, describe, and talk personally with less help each time.",
+    "mission": "Complete one connected Madrid day in Spanish, from the first greeting to the final goodbye.",
+    "continuity": "The episode pays off the promise at the end of Lesson 9 and connects all three Chapter 1 landmarks into one final journey."
+  },
+  "emotionalArc": {
+    "emotion": "Achievement",
+    "startsWith": "The learner may still think of the previous nine lessons as separate small skills.",
+    "endsWith": "The learner realizes they have spent a supported day greeting, deciding, navigating, ordering, shopping, describing, and talking about themselves in Spanish.",
+    "earnedBy": "Completing several familiar situations as one continuous experience while Carlos gradually reduces his support."
+  },
+  "memoryCallbacks": [
+    {
+      "sourceLessonId": "lesson-05-shopping",
+      "byChoice": {
+        "apples": { "spanish": "Todavía recuerdo las manzanas que elegiste. Hoy tú vuelves a decidir.", "english": "I still remember the apples you chose. Today you make the decisions again." },
+        "bread": { "spanish": "Todavía recuerdo el pan que elegiste. Hoy tú vuelves a decidir.", "english": "I still remember the bread you chose. Today you make the decisions again." },
+        "cheese": { "spanish": "Todavía recuerdo el queso que elegiste. Hoy tú vuelves a decidir.", "english": "I still remember the cheese you chose. Today you make the decisions again." },
+        "coffee": { "spanish": "Todavía recuerdo el café que elegiste. Hoy tú vuelves a decidir.", "english": "I still remember the coffee you chose. Today you make the decisions again." },
+        "flowers": { "spanish": "Todavía recuerdo las flores que elegiste. Hoy tú vuelves a decidir.", "english": "I still remember the flowers you chose. Today you make the decisions again." },
+        "tomatoes": { "spanish": "Todavía recuerdo los tomates que elegiste. Hoy tú vuelves a decidir.", "english": "I still remember the tomatoes you chose. Today you make the decisions again." }
+      }
+    }
+  ],
+  "memory": {
+    "onComplete": [
+      { "key": "story.completedMadridChapter", "value": true },
+      { "key": "story.visitedMadridLandmarks.plazaMayor", "value": true },
+      { "key": "story.visitedMadridLandmarks.mercadoSanMiguel", "value": true },
+      { "key": "story.visitedMadridLandmarks.carlosHome", "value": true }
+    ]
+  },
+  "microCliffhanger": {
+    "speaker": "Elena",
+    "spanish": "Antes de volver a Granada, Javier y yo queremos invitarte. La próxima parte de tu viaje empieza allí.",
+    "english": "Before returning to Granada, Javier and I want to invite you. The next part of your journey begins there.",
+    "payoffLesson": "lesson-11-weather"
+  },
+  "carlosIntroduction": {
+    "eyebrow": "Chapter finale",
+    "title": "One more day in Madrid",
+    "message": "When we met, I guided every step. Today I’ll stay beside you, but you’ll do the communicating. We’ll revisit the places that have become familiar and connect everything you already know. Nothing needs to be perfect. Keep the day moving in Spanish.",
+    "prompt": "Carlos asks: ¿Puedes pasar un día más explorando Madrid conmigo?"
+  },
+  "missionSequenceTitle": "Your Madrid day",
+  "miniMissions": [
+    { "id": "greet", "title": "Start the day", "location": "Carlos and Marta’s apartment", "goal": "Greet Carlos, answer a check-in, and make a simple plan." },
+    { "id": "navigate", "title": "Lead through the plaza", "location": "Plaza Mayor", "goal": "Ask where the next stop is and follow three direction cues." },
+    { "id": "order", "title": "Order without a script", "location": "Neighborhood café", "goal": "Order one drink politely and close the exchange." },
+    { "id": "shop", "title": "Choose at the market", "location": "Mercado de San Miguel", "goal": "Choose an item, ask the price, and complete the purchase." },
+    { "id": "describe", "title": "Return somewhere familiar", "location": "Carlos and Marta’s apartment", "goal": "Say what exists in a room and where one object is." },
+    { "id": "reflect", "title": "Tell Carlos about your day", "location": "The apartment balcony", "goal": "Describe four parts of the day and close the chapter naturally." }
+  ],
+  "canDo": [
+    "Carry familiar Spanish across six connected situations.",
+    "Recover with a polite repair phrase instead of switching immediately to English.",
+    "Make simple decisions about a route, an order, and a purchase.",
+    "Describe a place and a personal day with less support from Carlos.",
+    "Close a complete social day naturally."
+  ],
   "objectives": [
-    "Describe a simple daily routine using common verbs, times, and sequence words.",
-    "Understand Carlos in short guided exchanges.",
-    "Use the lesson language in one realistic conversation."
+    "Reuse the communication outcomes from Lessons 1–9 without a new grammar target.",
+    "Move from one scene to the next without resetting the conversation.",
+    "Complete familiar tasks with shorter prompts from Carlos.",
+    "Recognize the learner’s growth across the complete Madrid chapter."
   ],
-  "objective": "Describe a simple daily routine using common verbs, times, and sequence words.",
+  "recycledLanguage": [
+    { "fromLesson": "a1-lesson-01-greetings", "language": ["Buenos días", "¿Cómo estás?", "muy bien", "hasta luego", "¿puede repetir?"], "use": "Open, sustain, repair, and close the day." },
+    { "fromLesson": "a1-lesson-02-introductions", "language": ["Me llamo...", "Soy de...", "Vivo en...", "mucho gusto"], "use": "Handle a brief meeting if someone new joins." },
+    { "fromLesson": "lesson-03-family", "language": ["mi familia", "tu familia", "mi esposa", "mi hijo"], "use": "Talk naturally with Carlos and Marta at home." },
+    { "fromLesson": "lesson-04-numbers-time", "language": ["hoy", "el domingo", "por la mañana", "a las diez", "nos vemos"], "use": "Confirm the day’s plan and timing." },
+    { "fromLesson": "lesson-05-shopping", "language": ["quiero este...", "¿cuánto cuesta?", "una bolsa", "gracias"], "use": "Complete one market purchase." },
+    { "fromLesson": "lesson-06-food-drinks", "language": ["quisiera", "para mí", "¿algo más?", "nada más, gracias", "la cuenta"], "use": "Order and close at the café." },
+    { "fromLesson": "lesson-07-travel-basics", "language": ["¿dónde está...?", "todo recto", "a la derecha", "a la izquierda", "al lado de"], "use": "Navigate between familiar landmarks." },
+    { "fromLesson": "lesson-08-vacation", "language": ["hay", "está", "el salón", "la mesa", "la foto"], "use": "Describe the apartment on returning home." },
+    { "fromLesson": "lesson-09-around-the-house", "language": ["por la mañana", "al mediodía", "por la tarde", "por la noche", "después", "descanso"], "use": "Tell Carlos how the complete day unfolded." }
+  ],
+  "essentialPhrases": [
+    { "spanish": "Buenos días. ¿Cómo estás?", "english": "Good morning. How are you?", "usage": "Open the day warmly.", "exampleSpanish": "Buenos días, Carlos. ¿Cómo estás?", "exampleEnglish": "Good morning, Carlos. How are you?" },
+    { "spanish": "¿Qué hacemos primero?", "english": "What do we do first?", "usage": "Take part in deciding the plan.", "exampleSpanish": "Estamos listos. ¿Qué hacemos primero?", "exampleEnglish": "We’re ready. What do we do first?" },
+    { "spanish": "Perdón, ¿dónde está...?", "english": "Excuse me, where is...?", "usage": "Ask for the next destination.", "exampleSpanish": "Perdón, ¿dónde está el mercado?", "exampleEnglish": "Excuse me, where is the market?" },
+    { "spanish": "¿Puede repetir, por favor?", "english": "Can you repeat, please?", "usage": "Repair the conversation without abandoning Spanish.", "exampleSpanish": "Más despacio, por favor. ¿Puede repetir?", "exampleEnglish": "More slowly, please. Can you repeat?" },
+    { "spanish": "Quisiera..., por favor.", "english": "I would like..., please.", "usage": "Order one drink politely.", "exampleSpanish": "Quisiera un café con leche, por favor.", "exampleEnglish": "I would like a coffee with milk, please." },
+    { "spanish": "Nada más, gracias.", "english": "Nothing else, thank you.", "usage": "Finish an order clearly.", "exampleSpanish": "No, nada más, gracias.", "exampleEnglish": "No, nothing else, thank you." },
+    { "spanish": "Quiero este..., por favor.", "english": "I want this..., please.", "usage": "Choose a market item.", "exampleSpanish": "Quiero este pan, por favor.", "exampleEnglish": "I want this bread, please." },
+    { "spanish": "¿Cuánto cuesta?", "english": "How much does it cost?", "usage": "Ask for the price of the chosen item.", "exampleSpanish": "¿Cuánto cuesta este pan?", "exampleEnglish": "How much does this bread cost?" },
+    { "spanish": "Hay un...", "english": "There is a...", "usage": "Introduce something in the apartment.", "exampleSpanish": "Hay un sofá en el salón.", "exampleEnglish": "There is a sofa in the living room." },
+    { "spanish": "Está al lado de...", "english": "It is beside...", "usage": "Locate a known object.", "exampleSpanish": "La foto está al lado de los libros.", "exampleEnglish": "The photo is beside the books." },
+    { "spanish": "Después...", "english": "Afterwards...", "usage": "Connect parts of the day.", "exampleSpanish": "Después, caminamos a la plaza.", "exampleEnglish": "Afterwards, we walk to the plaza." },
+    { "spanish": "Ha sido un buen día.", "english": "It has been a good day.", "usage": "Recognize and use a natural closing reflection as one fixed phrase.", "exampleSpanish": "Gracias, Carlos. Ha sido un buen día.", "exampleEnglish": "Thank you, Carlos. It has been a good day." }
+  ],
+  "consolidation": {
+    "newGrammar": false,
+    "purpose": "Integrate Chapter 1 communication outcomes inside one continuous day.",
+    "supportPlan": [
+      "Carlos models the opening greeting only.",
+      "At Plaza Mayor, Carlos gives a short reminder but no translation.",
+      "At the café and market, the learner chooses and speaks first.",
+      "At the apartment, Carlos asks questions without supplying the answer.",
+      "The final reflection is completed with no model visible."
+    ]
+  },
   "vocabulary": [
-    {
-      "spanish": "la rutina",
-      "english": "routine",
-      "partOfSpeech": "noun",
-      "tip": "Carlos tip: practice ?la rutina? in a short real sentence, not as an isolated word.",
-      "exampleSpanish": "Carlos usa la rutina en una frase.",
-      "exampleEnglish": "Carlos uses routine in a sentence."
-    },
-    {
-      "spanish": "me levanto",
-      "english": "I get up",
-      "partOfSpeech": "reflexive verb",
-      "tip": "Carlos tip: practice ?me levanto? in a short real sentence, not as an isolated word.",
-      "exampleSpanish": "Carlos usa me levanto en una frase.",
-      "exampleEnglish": "Carlos uses I get up in a sentence."
-    },
-    {
-      "spanish": "me ducho",
-      "english": "I shower",
-      "partOfSpeech": "reflexive verb",
-      "tip": "Carlos tip: practice ?me ducho? in a short real sentence, not as an isolated word.",
-      "exampleSpanish": "Carlos usa me ducho en una frase.",
-      "exampleEnglish": "Carlos uses I shower in a sentence."
-    },
-    {
-      "spanish": "me visto",
-      "english": "I get dressed",
-      "partOfSpeech": "reflexive verb",
-      "tip": "Carlos tip: practice ?me visto? in a short real sentence, not as an isolated word.",
-      "exampleSpanish": "Carlos usa me visto en una frase.",
-      "exampleEnglish": "Carlos uses I get dressed in a sentence."
-    },
-    {
-      "spanish": "desayuno",
-      "english": "I eat breakfast",
-      "partOfSpeech": "verb",
-      "tip": "Carlos tip: practice ?desayuno? in a short real sentence, not as an isolated word.",
-      "exampleSpanish": "Carlos usa desayuno en una frase.",
-      "exampleEnglish": "Carlos uses I eat breakfast in a sentence."
-    },
-    {
-      "spanish": "trabajo",
-      "english": "I work",
-      "partOfSpeech": "verb",
-      "tip": "Carlos tip: practice ?trabajo? in a short real sentence, not as an isolated word.",
-      "exampleSpanish": "Carlos usa trabajo en una frase.",
-      "exampleEnglish": "Carlos uses I work in a sentence."
-    },
-    {
-      "spanish": "estudio",
-      "english": "I study",
-      "partOfSpeech": "verb",
-      "tip": "Carlos tip: practice ?estudio? in a short real sentence, not as an isolated word.",
-      "exampleSpanish": "Carlos usa estudio en una frase.",
-      "exampleEnglish": "Carlos uses I study in a sentence."
-    },
-    {
-      "spanish": "practico",
-      "english": "I practice",
-      "partOfSpeech": "verb",
-      "tip": "Carlos tip: practice ?practico? in a short real sentence, not as an isolated word.",
-      "exampleSpanish": "Carlos usa practico en una frase.",
-      "exampleEnglish": "Carlos uses I practice in a sentence."
-    },
-    {
-      "spanish": "como",
-      "english": "I eat",
-      "partOfSpeech": "verb",
-      "tip": "Carlos tip: practice ?como? in a short real sentence, not as an isolated word.",
-      "exampleSpanish": "Carlos usa como en una frase.",
-      "exampleEnglish": "Carlos uses I eat in a sentence."
-    },
-    {
-      "spanish": "ceno",
-      "english": "I eat dinner",
-      "partOfSpeech": "verb",
-      "tip": "Carlos tip: practice ?ceno? in a short real sentence, not as an isolated word.",
-      "exampleSpanish": "Carlos usa ceno en una frase.",
-      "exampleEnglish": "Carlos uses I eat dinner in a sentence."
-    },
-    {
-      "spanish": "duermo",
-      "english": "I sleep",
-      "partOfSpeech": "verb",
-      "tip": "Carlos tip: practice ?duermo? in a short real sentence, not as an isolated word.",
-      "exampleSpanish": "Carlos usa duermo en una frase.",
-      "exampleEnglish": "Carlos uses I sleep in a sentence."
-    },
-    {
-      "spanish": "salgo",
-      "english": "I go out",
-      "partOfSpeech": "verb",
-      "tip": "Carlos tip: practice ?salgo? in a short real sentence, not as an isolated word.",
-      "exampleSpanish": "Carlos usa salgo en una frase.",
-      "exampleEnglish": "Carlos uses I go out in a sentence."
-    },
-    {
-      "spanish": "vuelvo",
-      "english": "I return",
-      "partOfSpeech": "verb",
-      "tip": "Carlos tip: practice ?vuelvo? in a short real sentence, not as an isolated word.",
-      "exampleSpanish": "Carlos usa vuelvo en una frase.",
-      "exampleEnglish": "Carlos uses I return in a sentence."
-    },
-    {
-      "spanish": "temprano",
-      "english": "early",
-      "partOfSpeech": "adverb",
-      "tip": "Carlos tip: practice ?temprano? in a short real sentence, not as an isolated word.",
-      "exampleSpanish": "Carlos usa temprano en una frase.",
-      "exampleEnglish": "Carlos uses early in a sentence."
-    },
-    {
-      "spanish": "tarde",
-      "english": "late",
-      "partOfSpeech": "adverb",
-      "tip": "Carlos tip: practice ?tarde? in a short real sentence, not as an isolated word.",
-      "exampleSpanish": "Carlos usa tarde en una frase.",
-      "exampleEnglish": "Carlos uses late in a sentence."
-    },
-    {
-      "spanish": "por la ma?ana",
-      "english": "in the morning",
-      "partOfSpeech": "time phrase",
-      "tip": "Carlos tip: practice ?por la ma?ana? in a short real sentence, not as an isolated word.",
-      "exampleSpanish": "Carlos usa por la ma?ana en una frase.",
-      "exampleEnglish": "Carlos uses in the morning in a sentence."
-    },
-    {
-      "spanish": "por la tarde",
-      "english": "in the afternoon",
-      "partOfSpeech": "time phrase",
-      "tip": "Carlos tip: practice ?por la tarde? in a short real sentence, not as an isolated word.",
-      "exampleSpanish": "Carlos usa por la tarde en una frase.",
-      "exampleEnglish": "Carlos uses in the afternoon in a sentence."
-    },
-    {
-      "spanish": "por la noche",
-      "english": "at night",
-      "partOfSpeech": "time phrase",
-      "tip": "Carlos tip: practice ?por la noche? in a short real sentence, not as an isolated word.",
-      "exampleSpanish": "Carlos usa por la noche en una frase.",
-      "exampleEnglish": "Carlos uses at night in a sentence."
-    },
-    {
-      "spanish": "primero",
-      "english": "first",
-      "partOfSpeech": "sequence word",
-      "tip": "Carlos tip: practice ?primero? in a short real sentence, not as an isolated word.",
-      "exampleSpanish": "Carlos usa primero en una frase.",
-      "exampleEnglish": "Carlos uses first in a sentence."
-    },
-    {
-      "spanish": "despu?s",
-      "english": "afterward",
-      "partOfSpeech": "sequence word",
-      "tip": "Carlos tip: practice ?despu?s? in a short real sentence, not as an isolated word.",
-      "exampleSpanish": "Carlos usa despu?s en una frase.",
-      "exampleEnglish": "Carlos uses afterward in a sentence."
-    },
-    {
-      "spanish": "luego",
-      "english": "then",
-      "partOfSpeech": "sequence word",
-      "tip": "Carlos tip: practice ?luego? in a short real sentence, not as an isolated word.",
-      "exampleSpanish": "Carlos usa luego en una frase.",
-      "exampleEnglish": "Carlos uses then in a sentence."
-    },
-    {
-      "spanish": "todos los d?as",
-      "english": "every day",
-      "partOfSpeech": "time phrase",
-      "tip": "Carlos tip: practice ?todos los d?as? in a short real sentence, not as an isolated word.",
-      "exampleSpanish": "Carlos usa todos los d?as en una frase.",
-      "exampleEnglish": "Carlos uses every day in a sentence."
-    },
-    {
-      "spanish": "a veces",
-      "english": "sometimes",
-      "partOfSpeech": "adverb",
-      "tip": "Carlos tip: practice ?a veces? in a short real sentence, not as an isolated word.",
-      "exampleSpanish": "Carlos usa a veces en una frase.",
-      "exampleEnglish": "Carlos uses sometimes in a sentence."
-    },
-    {
-      "spanish": "siempre",
-      "english": "always",
-      "partOfSpeech": "adverb",
-      "tip": "Carlos tip: practice ?siempre? in a short real sentence, not as an isolated word.",
-      "exampleSpanish": "Carlos usa siempre en una frase.",
-      "exampleEnglish": "Carlos uses always in a sentence."
-    },
-    {
-      "spanish": "nunca",
-      "english": "never",
-      "partOfSpeech": "adverb",
-      "tip": "Carlos tip: practice ?nunca? in a short real sentence, not as an isolated word.",
-      "exampleSpanish": "Carlos usa nunca en una frase.",
-      "exampleEnglish": "Carlos uses never in a sentence."
-    }
+    { "spanish": "Buenos días", "english": "good morning", "partOfSpeech": "greeting", "tier": 1, "group": "Start the day", "tip": "Return from Lesson 1 and say it before Carlos prompts you.", "exampleSpanish": "Buenos días, Carlos.", "exampleEnglish": "Good morning, Carlos." },
+    { "spanish": "¿Cómo estás?", "english": "How are you?", "partOfSpeech": "question", "tier": 1, "group": "Start the day", "tip": "Ask the question back instead of only answering it.", "exampleSpanish": "Muy bien. ¿Y tú? ¿Cómo estás?", "exampleEnglish": "Very well. And you? How are you?" },
+    { "spanish": "hoy", "english": "today", "partOfSpeech": "time word", "tier": 1, "group": "Start the day", "tip": "Use it to keep the whole mission in the present day.", "exampleSpanish": "Hoy exploramos Madrid.", "exampleEnglish": "Today we explore Madrid." },
+    { "spanish": "a las diez", "english": "at ten o’clock", "partOfSpeech": "time chunk", "tier": 1, "group": "Start the day", "tip": "Reuse the fixed meeting-time chunk from Lesson 4.", "exampleSpanish": "Nos vemos a las diez.", "exampleEnglish": "We’ll see each other at ten." },
+    { "spanish": "¿Dónde está...?", "english": "Where is...?", "partOfSpeech": "question chunk", "tier": 1, "group": "Find the way", "tip": "Add the next destination after está.", "exampleSpanish": "¿Dónde está el mercado?", "exampleEnglish": "Where is the market?" },
+    { "spanish": "todo recto", "english": "straight ahead", "partOfSpeech": "direction phrase", "tier": 1, "group": "Find the way", "tip": "Treat it as one complete route cue.", "exampleSpanish": "Primero, todo recto.", "exampleEnglish": "First, straight ahead." },
+    { "spanish": "a la derecha", "english": "to the right", "partOfSpeech": "direction phrase", "tier": 1, "group": "Find the way", "tip": "Connect the word with the matching hand.", "exampleSpanish": "Después, a la derecha.", "exampleEnglish": "Afterwards, to the right." },
+    { "spanish": "a la izquierda", "english": "to the left", "partOfSpeech": "direction phrase", "tier": 1, "group": "Find the way", "tip": "Keep the complete phrase a la izquierda.", "exampleSpanish": "La entrada está a la izquierda.", "exampleEnglish": "The entrance is on the left." },
+    { "spanish": "¿Puede repetir?", "english": "Can you repeat?", "partOfSpeech": "repair phrase", "tier": 1, "group": "Keep going", "tip": "A successful learner repairs instead of pretending to understand.", "exampleSpanish": "Perdón, ¿puede repetir?", "exampleEnglish": "Excuse me, can you repeat?" },
+    { "spanish": "más despacio", "english": "more slowly", "partOfSpeech": "repair phrase", "tier": 1, "group": "Keep going", "tip": "Add por favor to soften the request.", "exampleSpanish": "Más despacio, por favor.", "exampleEnglish": "More slowly, please." },
+    { "spanish": "quisiera", "english": "I would like", "partOfSpeech": "polite order chunk", "tier": 1, "group": "Order", "tip": "Use it before the drink you choose.", "exampleSpanish": "Quisiera un café, por favor.", "exampleEnglish": "I would like a coffee, please." },
+    { "spanish": "para mí", "english": "for me", "partOfSpeech": "order phrase", "tier": 1, "group": "Order", "tip": "A natural short way to identify your order.", "exampleSpanish": "Para mí, un té.", "exampleEnglish": "For me, a tea." },
+    { "spanish": "nada más", "english": "nothing else", "partOfSpeech": "closing phrase", "tier": 1, "group": "Order", "tip": "Use it when the server asks ¿Algo más?", "exampleSpanish": "Nada más, gracias.", "exampleEnglish": "Nothing else, thank you." },
+    { "spanish": "quiero este...", "english": "I want this...", "partOfSpeech": "shopping chunk", "tier": 1, "group": "Shop", "tip": "Use este with a masculine singular item.", "exampleSpanish": "Quiero este pan.", "exampleEnglish": "I want this bread." },
+    { "spanish": "¿Cuánto cuesta?", "english": "How much does it cost?", "partOfSpeech": "shopping question", "tier": 1, "group": "Shop", "tip": "Ask after making the item clear.", "exampleSpanish": "¿Cuánto cuesta este queso?", "exampleEnglish": "How much does this cheese cost?" },
+    { "spanish": "una bolsa", "english": "a bag", "partOfSpeech": "noun phrase", "tier": 1, "group": "Shop", "tip": "Ask only if you need one.", "exampleSpanish": "Una bolsa, por favor.", "exampleEnglish": "A bag, please." },
+    { "spanish": "hay", "english": "there is / there are", "partOfSpeech": "verb form", "tier": 1, "group": "Back at home", "tip": "Use it to introduce what exists.", "exampleSpanish": "Hay una foto en el salón.", "exampleEnglish": "There is a photo in the living room." },
+    { "spanish": "está", "english": "is located", "partOfSpeech": "verb form", "tier": 1, "group": "Back at home", "tip": "Use it to locate one known object.", "exampleSpanish": "La foto está en la estantería.", "exampleEnglish": "The photo is on the bookshelf." },
+    { "spanish": "al lado de", "english": "beside / next to", "partOfSpeech": "location phrase", "tier": 1, "group": "Back at home", "tip": "It works for city landmarks and household objects.", "exampleSpanish": "Está al lado de los libros.", "exampleEnglish": "It is beside the books." },
+    { "spanish": "por la mañana", "english": "in the morning", "partOfSpeech": "time phrase", "tier": 1, "group": "Remember the day", "tip": "Use it to begin the final reflection.", "exampleSpanish": "Por la mañana, saludo a Carlos.", "exampleEnglish": "In the morning, I greet Carlos." },
+    { "spanish": "al mediodía", "english": "at midday", "partOfSpeech": "time phrase", "tier": 1, "group": "Remember the day", "tip": "Use it for the middle of the day.", "exampleSpanish": "Al mediodía, como.", "exampleEnglish": "At midday, I eat." },
+    { "spanish": "por la tarde", "english": "in the afternoon", "partOfSpeech": "time phrase", "tier": 1, "group": "Remember the day", "tip": "Connect it to the market or plaza scene.", "exampleSpanish": "Por la tarde, voy al mercado.", "exampleEnglish": "In the afternoon, I go to the market." },
+    { "spanish": "por la noche", "english": "at night / in the evening", "partOfSpeech": "time phrase", "tier": 1, "group": "Remember the day", "tip": "Use it for the final apartment scene.", "exampleSpanish": "Por la noche, descanso.", "exampleEnglish": "At night, I rest." },
+    { "spanish": "después", "english": "afterwards", "partOfSpeech": "connector", "tier": 1, "group": "Remember the day", "tip": "Link one scene to the next.", "exampleSpanish": "Después, caminamos a la plaza.", "exampleEnglish": "Afterwards, we walk to the plaza." }
   ],
-  "grammar": {
-    "topic": "Routine verbs and sequence words",
-    "explanation": "Use simple present verbs for routine. Add primero, despu?s, and luego to make your day sound organized.",
-    "examples": [
-      {
-        "spanish": "Primero, me levanto a las siete.",
-        "english": "First, I get up at seven."
-      },
-      {
-        "spanish": "Despu?s, desayuno con caf?.",
-        "english": "Afterward, I eat breakfast with coffee."
-      },
-      {
-        "spanish": "Por la noche, practico espa?ol.",
-        "english": "At night, I practice Spanish."
-      }
+  "dialogue": {
+    "title": "One complete day",
+    "setting": "Six short scenes connect the Chapter 1 landmarks. Carlos gives less help as the day continues.",
+    "lines": [
+      { "scene": "1 · Start the day", "speaker": "Carlos", "spanish": "Buenos días. ¿Puedes pasar un día más explorando Madrid conmigo?", "english": "Good morning. Can you spend one more day exploring Madrid with me?" },
+      { "scene": "1 · Start the day", "speaker": "Learner", "spanish": "Buenos días, Carlos. Sí, claro. ¿Cómo estás?", "english": "Good morning, Carlos. Yes, of course. How are you?" },
+      { "scene": "1 · Start the day", "speaker": "Carlos", "spanish": "Muy bien. Hoy tú decides y tú hablas primero.", "english": "Very well. Today you decide and you speak first." },
+
+      { "scene": "2 · Plaza Mayor", "speaker": "Carlos", "spanish": "Estamos en la plaza. Necesitamos encontrar el mercado.", "english": "We are in the plaza. We need to find the market." },
+      { "scene": "2 · Plaza Mayor", "speaker": "Learner", "spanish": "Perdón, ¿dónde está el mercado?", "english": "Excuse me, where is the market?" },
+      { "scene": "2 · Plaza Mayor", "speaker": "Vecino", "spanish": "Todo recto y después a la derecha. Está al lado de una cafetería.", "english": "Straight ahead and then to the right. It is beside a café." },
+      { "scene": "2 · Plaza Mayor", "speaker": "Learner", "spanish": "Todo recto y a la derecha. Gracias por la ayuda.", "english": "Straight ahead and to the right. Thank you for the help." },
+
+      { "scene": "3 · Coffee stop", "speaker": "Camarera", "spanish": "Buenos días. ¿Qué quieres?", "english": "Good morning. What would you like?" },
+      { "scene": "3 · Coffee stop", "speaker": "Learner", "spanish": "Quisiera un café con leche, por favor.", "english": "I would like a coffee with milk, please." },
+      { "scene": "3 · Coffee stop", "speaker": "Camarera", "spanish": "Claro. ¿Algo más?", "english": "Of course. Anything else?" },
+      { "scene": "3 · Coffee stop", "speaker": "Learner", "spanish": "Nada más, gracias.", "english": "Nothing else, thank you." },
+
+      { "scene": "4 · Mercado de San Miguel", "speaker": "Vendedor", "spanish": "Hola. ¿Qué necesitas?", "english": "Hello. What do you need?" },
+      { "scene": "4 · Mercado de San Miguel", "speaker": "Learner", "spanish": "Quiero este pan, por favor. ¿Cuánto cuesta?", "english": "I want this bread, please. How much does it cost?" },
+      { "scene": "4 · Mercado de San Miguel", "speaker": "Vendedor", "spanish": "Cuesta tres euros.", "english": "It costs three euros." },
+      { "scene": "4 · Mercado de San Miguel", "speaker": "Learner", "spanish": "Perfecto. Una bolsa, por favor. Gracias.", "english": "Perfect. A bag, please. Thank you." },
+
+      { "scene": "5 · Back at the apartment", "speaker": "Marta", "spanish": "Ya estáis aquí. ¿Qué hay en el salón?", "english": "You’re back. What is in the living room?" },
+      { "scene": "5 · Back at the apartment", "speaker": "Learner", "spanish": "Hay un sofá, una guitarra y una foto.", "english": "There is a sofa, a guitar, and a photo." },
+      { "scene": "5 · Back at the apartment", "speaker": "Carlos", "spanish": "¿Dónde está la foto?", "english": "Where is the photo?" },
+      { "scene": "5 · Back at the apartment", "speaker": "Learner", "spanish": "Está en la estantería, al lado de los libros.", "english": "It is on the bookshelf, beside the books." },
+
+      { "scene": "6 · The day in your words", "speaker": "Carlos", "spanish": "Cuéntame el día. ¿Qué haces por la mañana?", "english": "Tell me about the day. What do you do in the morning?" },
+      { "scene": "6 · The day in your words", "speaker": "Learner", "spanish": "Por la mañana, desayuno con Carlos. Después, camino por la plaza. Al mediodía, como en un café. Por la tarde, practico español en el mercado. Ahora descanso en casa.", "english": "In the morning, I have breakfast with Carlos. Afterwards, I walk through the plaza. At midday, I eat in a café. In the afternoon, I practice Spanish at the market. Now I rest at home." },
+      { "scene": "6 · The day in your words", "speaker": "Carlos", "spanish": "Cuando nos conocimos, sabías unas palabras. Hoy pasamos todo el día hablando español juntos.", "english": "When we met, you knew a few words. Today we spent the whole day speaking Spanish together." },
+      { "scene": "6 · The day in your words", "speaker": "Learner", "spanish": "Gracias, Carlos. Ha sido un buen día. Hasta mañana.", "english": "Thank you, Carlos. It has been a good day. See you tomorrow." }
     ],
-    "practicePrompt": "Say one original sentence using today?s pattern with Carlos."
+    "comprehension": [
+      { "prompt": "What changes about Carlos’s role today?", "options": ["He lets the learner speak and decide first", "He translates every line", "He leaves the learner alone"], "answer": "He lets the learner speak and decide first" },
+      { "prompt": "Which three recurring landmarks return?", "options": ["Plaza Mayor, Mercado de San Miguel, and the apartment", "The airport, hotel, and bank", "Granada, Valencia, and Seville"], "answer": "Plaza Mayor, Mercado de San Miguel, and the apartment" },
+      { "prompt": "What is the emotional payoff?", "options": ["The learner completes a connected day in Spanish", "The learner memorizes a new tense", "Carlos completes every task"], "answer": "The learner completes a connected day in Spanish" }
+    ]
   },
-  "dialogue": [
-    {
-      "title": "Morning routine",
-      "lines": [
-        {
-          "speaker": "Carlos",
-          "spanish": "Que haces por la manana?",
-          "english": "What do you do in the morning?"
-        },
-        {
-          "speaker": "Learner",
-          "spanish": "Me levanto y tomo cafe.",
-          "english": "I get up and drink coffee."
-        }
-      ]
-    },
-    {
-      "title": "Breakfast",
-      "lines": [
-        {
-          "speaker": "Learner",
-          "spanish": "Desayuno a las siete.",
-          "english": "I eat breakfast at seven."
-        },
-        {
-          "speaker": "Carlos",
-          "spanish": "Muy bien. A las siete.",
-          "english": "Very good. At seven."
-        }
-      ]
-    },
-    {
-      "title": "Going to work",
-      "lines": [
-        {
-          "speaker": "Carlos",
-          "spanish": "Vas al trabajo?",
-          "english": "Are you going to work?"
-        },
-        {
-          "speaker": "Learner",
-          "spanish": "Si, voy al trabajo.",
-          "english": "Yes, I am going to work."
-        }
-      ]
-    },
-    {
-      "title": "Studying Spanish",
-      "lines": [
-        {
-          "speaker": "Learner",
-          "spanish": "Estudio espanol por la noche.",
-          "english": "I study Spanish at night."
-        },
-        {
-          "speaker": "Carlos",
-          "spanish": "Excelente rutina.",
-          "english": "Excellent routine."
-        }
-      ]
-    },
-    {
-      "title": "Family dinner",
-      "lines": [
-        {
-          "speaker": "Carlos",
-          "spanish": "Cenas con tu familia?",
-          "english": "Do you have dinner with your family?"
-        },
-        {
-          "speaker": "Learner",
-          "spanish": "Si, ceno con mi familia.",
-          "english": "Yes, I have dinner with my family."
-        }
-      ]
-    },
-    {
-      "title": "Weekend routine",
-      "lines": [
-        {
-          "speaker": "Learner",
-          "spanish": "El sabado descanso.",
-          "english": "On Saturday I rest."
-        },
-        {
-          "speaker": "Carlos",
-          "spanish": "Muy bien. Descansar es importante.",
-          "english": "Very good. Resting is important."
-        }
-      ]
-    },
-    {
-      "title": "Asking Carlos",
-      "lines": [
-        {
-          "speaker": "Learner",
-          "spanish": "Carlos, que haces hoy?",
-          "english": "Carlos, what are you doing today?"
-        },
-        {
-          "speaker": "Carlos",
-          "spanish": "Hoy trabajo y practico contigo.",
-          "english": "Today I work and practice with you."
-        }
-      ]
-    },
-    {
-      "title": "Before bed",
-      "lines": [
-        {
-          "speaker": "Learner",
-          "spanish": "Por la noche leo y duermo.",
-          "english": "At night I read and sleep."
-        },
-        {
-          "speaker": "Carlos",
-          "spanish": "Suena tranquilo.",
-          "english": "That sounds calm."
-        }
-      ]
-    },
-    {
-      "title": "Time and routine",
-      "lines": [
-        {
-          "speaker": "Carlos",
-          "spanish": "A que hora estudias?",
-          "english": "What time do you study?"
-        },
-        {
-          "speaker": "Learner",
-          "spanish": "Estudio a las ocho.",
-          "english": "I study at eight."
-        }
-      ]
-    },
-    {
-      "title": "Full routine",
-      "lines": [
-        {
-          "speaker": "Learner",
-          "spanish": "Me levanto, trabajo, estudio espanol y ceno con mi familia.",
-          "english": "I get up, work, study Spanish, and have dinner with my family."
-        },
-        {
-          "speaker": "Carlos",
-          "spanish": "Perfecto. Es una rutina clara.",
-          "english": "Perfect. It is a clear routine."
-        }
-      ]
-    }
-  ],
-  "dialogues": [
-    {
-      "title": "Morning routine",
-      "lines": [
-        {
-          "speaker": "Carlos",
-          "spanish": "Que haces por la manana?",
-          "english": "What do you do in the morning?"
-        },
-        {
-          "speaker": "Learner",
-          "spanish": "Me levanto y tomo cafe.",
-          "english": "I get up and drink coffee."
-        }
-      ]
-    },
-    {
-      "title": "Breakfast",
-      "lines": [
-        {
-          "speaker": "Learner",
-          "spanish": "Desayuno a las siete.",
-          "english": "I eat breakfast at seven."
-        },
-        {
-          "speaker": "Carlos",
-          "spanish": "Muy bien. A las siete.",
-          "english": "Very good. At seven."
-        }
-      ]
-    },
-    {
-      "title": "Going to work",
-      "lines": [
-        {
-          "speaker": "Carlos",
-          "spanish": "Vas al trabajo?",
-          "english": "Are you going to work?"
-        },
-        {
-          "speaker": "Learner",
-          "spanish": "Si, voy al trabajo.",
-          "english": "Yes, I am going to work."
-        }
-      ]
-    },
-    {
-      "title": "Studying Spanish",
-      "lines": [
-        {
-          "speaker": "Learner",
-          "spanish": "Estudio espanol por la noche.",
-          "english": "I study Spanish at night."
-        },
-        {
-          "speaker": "Carlos",
-          "spanish": "Excelente rutina.",
-          "english": "Excellent routine."
-        }
-      ]
-    },
-    {
-      "title": "Family dinner",
-      "lines": [
-        {
-          "speaker": "Carlos",
-          "spanish": "Cenas con tu familia?",
-          "english": "Do you have dinner with your family?"
-        },
-        {
-          "speaker": "Learner",
-          "spanish": "Si, ceno con mi familia.",
-          "english": "Yes, I have dinner with my family."
-        }
-      ]
-    },
-    {
-      "title": "Weekend routine",
-      "lines": [
-        {
-          "speaker": "Learner",
-          "spanish": "El sabado descanso.",
-          "english": "On Saturday I rest."
-        },
-        {
-          "speaker": "Carlos",
-          "spanish": "Muy bien. Descansar es importante.",
-          "english": "Very good. Resting is important."
-        }
-      ]
-    },
-    {
-      "title": "Asking Carlos",
-      "lines": [
-        {
-          "speaker": "Learner",
-          "spanish": "Carlos, que haces hoy?",
-          "english": "Carlos, what are you doing today?"
-        },
-        {
-          "speaker": "Carlos",
-          "spanish": "Hoy trabajo y practico contigo.",
-          "english": "Today I work and practice with you."
-        }
-      ]
-    },
-    {
-      "title": "Before bed",
-      "lines": [
-        {
-          "speaker": "Learner",
-          "spanish": "Por la noche leo y duermo.",
-          "english": "At night I read and sleep."
-        },
-        {
-          "speaker": "Carlos",
-          "spanish": "Suena tranquilo.",
-          "english": "That sounds calm."
-        }
-      ]
-    },
-    {
-      "title": "Time and routine",
-      "lines": [
-        {
-          "speaker": "Carlos",
-          "spanish": "A que hora estudias?",
-          "english": "What time do you study?"
-        },
-        {
-          "speaker": "Learner",
-          "spanish": "Estudio a las ocho.",
-          "english": "I study at eight."
-        }
-      ]
-    },
-    {
-      "title": "Full routine",
-      "lines": [
-        {
-          "speaker": "Learner",
-          "spanish": "Me levanto, trabajo, estudio espanol y ceno con mi familia.",
-          "english": "I get up, work, study Spanish, and have dinner with my family."
-        },
-        {
-          "speaker": "Carlos",
-          "spanish": "Perfecto. Es una rutina clara.",
-          "english": "Perfect. It is a clear routine."
-        }
-      ]
-    }
-  ],
   "listening": {
-    "phrases": [
-      {
-        "spanish": "la rutina",
-        "english": "routine"
-      },
-      {
-        "spanish": "me levanto",
-        "english": "I get up"
-      },
-      {
-        "spanish": "me ducho",
-        "english": "I shower"
-      },
-      {
-        "spanish": "me visto",
-        "english": "I get dressed"
-      },
-      {
-        "spanish": "desayuno",
-        "english": "I eat breakfast"
-      },
-      {
-        "spanish": "trabajo",
-        "english": "I work"
-      },
-      {
-        "spanish": "estudio",
-        "english": "I study"
-      },
-      {
-        "spanish": "practico",
-        "english": "I practice"
-      },
-      {
-        "spanish": "como",
-        "english": "I eat"
-      },
-      {
-        "spanish": "ceno",
-        "english": "I eat dinner"
-      }
-    ]
-  },
-  "listeningPhrases": [
-    {
-      "spanish": "la rutina",
-      "english": "routine"
-    },
-    {
-      "spanish": "me levanto",
-      "english": "I get up"
-    },
-    {
-      "spanish": "me ducho",
-      "english": "I shower"
-    },
-    {
-      "spanish": "me visto",
-      "english": "I get dressed"
-    },
-    {
-      "spanish": "desayuno",
-      "english": "I eat breakfast"
-    },
-    {
-      "spanish": "trabajo",
-      "english": "I work"
-    },
-    {
-      "spanish": "estudio",
-      "english": "I study"
-    },
-    {
-      "spanish": "practico",
-      "english": "I practice"
-    },
-    {
-      "spanish": "como",
-      "english": "I eat"
-    },
-    {
-      "spanish": "ceno",
-      "english": "I eat dinner"
-    }
-  ],
-  "pronunciation": {
-    "focus": "Clear vowels, word stress, and confident phrase rhythm.",
+    "title": "Madrid from morning to evening",
+    "instructions": "Listen for where the day moves and what the learner accomplishes. The slow version preserves the same connected story.",
+    "playbackSpeeds": ["natural", "slow"],
+    "soundscapeLabel": "Madrid day",
+    "soundscape": ["Apartment door closes", "Plaza footsteps", "Coffee cups", "Market voices", "Rainwater on the balcony"],
+    "naturalScript": "Buenos días. Hoy pasamos un día por Madrid. Primero caminamos por Plaza Mayor y preguntamos dónde está el mercado. Después pedimos café. En el Mercado de San Miguel compramos pan. Por la tarde volvemos al apartamento. Allí hablamos de la casa y recordamos nuestro día. Ha sido un buen día.",
+    "slowScript": "Buenos días. / Hoy pasamos un día por Madrid. / Primero, / caminamos por Plaza Mayor / y preguntamos / dónde está el mercado. / Después, / pedimos café. / En el Mercado de San Miguel / compramos pan. / Por la tarde, / volvemos al apartamento. / Allí, / hablamos de la casa / y recordamos nuestro día. / Ha sido un buen día.",
     "items": [
-      {
-        "text": "la rutina",
-        "note": "Say each vowel clearly and keep the rhythm natural."
-      },
-      {
-        "text": "me levanto",
-        "note": "Say each vowel clearly and keep the rhythm natural."
-      },
-      {
-        "text": "me ducho",
-        "note": "Say each vowel clearly and keep the rhythm natural."
-      },
-      {
-        "text": "me visto",
-        "note": "Say each vowel clearly and keep the rhythm natural."
-      },
-      {
-        "text": "desayuno",
-        "note": "Say each vowel clearly and keep the rhythm natural."
-      },
-      {
-        "text": "trabajo",
-        "note": "Say each vowel clearly and keep the rhythm natural."
-      },
-      {
-        "text": "estudio",
-        "note": "Say each vowel clearly and keep the rhythm natural."
-      },
-      {
-        "text": "practico",
-        "note": "Say each vowel clearly and keep the rhythm natural."
-      },
-      {
-        "text": "como",
-        "note": "Say each vowel clearly and keep the rhythm natural."
-      },
-      {
-        "text": "ceno",
-        "note": "Say each vowel clearly and keep the rhythm natural."
-      }
+      { "spanish": "Primero caminamos por Plaza Mayor.", "options": ["First we walk through Plaza Mayor.", "First we return to the apartment.", "First we buy bread."], "answer": "First we walk through Plaza Mayor." },
+      { "spanish": "Después pedimos café.", "options": ["Afterwards we order coffee.", "Afterwards we ask for directions.", "Afterwards we meet the family."], "answer": "Afterwards we order coffee." },
+      { "spanish": "En el mercado compramos pan.", "options": ["At the market we buy bread.", "At the market we drink tea.", "At the market we find the apartment."], "answer": "At the market we buy bread." },
+      { "spanish": "Por la tarde volvemos al apartamento.", "options": ["In the afternoon we return to the apartment.", "In the morning we leave Madrid.", "At night we go to the airport."], "answer": "In the afternoon we return to the apartment." },
+      { "spanish": "Ha sido un buen día.", "options": ["It has been a good day.", "Tomorrow is a busy day.", "The market is open today."], "answer": "It has been a good day." }
     ]
   },
-  "pronunciationExercises": [
-    {
-      "text": "la rutina",
-      "note": "Repeat after Carlos, then say it in a short phrase."
-    },
-    {
-      "text": "me levanto",
-      "note": "Repeat after Carlos, then say it in a short phrase."
-    },
-    {
-      "text": "me ducho",
-      "note": "Repeat after Carlos, then say it in a short phrase."
-    },
-    {
-      "text": "me visto",
-      "note": "Repeat after Carlos, then say it in a short phrase."
-    },
-    {
-      "text": "desayuno",
-      "note": "Repeat after Carlos, then say it in a short phrase."
-    },
-    {
-      "text": "trabajo",
-      "note": "Repeat after Carlos, then say it in a short phrase."
-    },
-    {
-      "text": "estudio",
-      "note": "Repeat after Carlos, then say it in a short phrase."
-    },
-    {
-      "text": "practico",
-      "note": "Repeat after Carlos, then say it in a short phrase."
-    },
-    {
-      "text": "como",
-      "note": "Repeat after Carlos, then say it in a short phrase."
-    },
-    {
-      "text": "ceno",
-      "note": "Repeat after Carlos, then say it in a short phrase."
-    }
-  ],
-  "culture": {
-    "title": "Daily Routine in Real Life",
-    "text": "Daily routines vary by country and family. In some places lunch is longer, dinner is later, and family time is built into the day."
-  },
-  "cultureNotes": [
-    "Daily routines vary by country and family. In some places lunch is longer, dinner is later, and family time is built into the day."
-  ],
-  "nativeSpeech": {
-    "title": "How Carlos would say it naturally",
-    "notes": [
-      "??Qu? haces en la ma?ana?? is a natural routine question.",
-      "?Normalmente? is a useful word for describing what you usually do."
+  "pronunciation": {
+    "focus": "Clear mission phrases under light pressure",
+    "tips": [
+      "Pause after Perdón before asking a stranger for help.",
+      "Keep derecha and izquierda distinct; clarity matters more than speed.",
+      "Use a calm polite rhythm in quisiera and por favor.",
+      "When you need repair, say ¿Puede repetir? confidently rather than apologetically."
+    ],
+    "items": [
+      { "text": "Buenos días. ¿Cómo estás?", "meaning": "Good morning. How are you?", "note": "Sound genuinely interested, not rehearsed." },
+      { "text": "Perdón, ¿dónde está el mercado?", "meaning": "Excuse me, where is the market?", "note": "Pause after Perdón." },
+      { "text": "¿Puede repetir, por favor?", "meaning": "Can you repeat, please?", "note": "Let the question rise gently." },
+      { "text": "Quisiera un café con leche.", "meaning": "I would like a coffee with milk.", "note": "Keep quisiera flowing as one word." },
+      { "text": "¿Cuánto cuesta?", "meaning": "How much does it cost?", "note": "Stress cuánto and keep the question short." },
+      { "text": "Ha sido un buen día.", "meaning": "It has been a good day.", "note": "Treat this as one closing phrase; the h is silent." }
     ]
   },
-  "commonMistakes": [
+  "speaking": {
+    "instructions": "Warm up with two essential phrases, recall three complete exchanges, then narrate the day without a model.",
+    "items": [
+      { "stage": "repeat", "prompt": "Open the day warmly.", "text": "Buenos días, Carlos. ¿Cómo estás?", "meaning": "Good morning, Carlos. How are you?", "focus": "Ask the question back naturally." },
+      { "stage": "repeat", "prompt": "Use the repair phrase once before the mission.", "text": "Perdón, ¿puede repetir más despacio, por favor?", "meaning": "Excuse me, can you repeat more slowly, please?", "focus": "Say it confidently enough to use in a real exchange." },
+      { "stage": "recall", "prompt": "Ask where the market is and confirm one direction.", "text": "¿Dónde está el mercado? Todo recto. Gracias.", "meaning": "Where is the market? Straight ahead. Thank you.", "focus": "Keep the exchange moving with short phrases." },
+      { "stage": "recall", "prompt": "Order a drink, respond to ¿Algo más?, and close.", "text": "Quisiera un café, por favor. Nada más, gracias.", "meaning": "I would like a coffee, please. Nothing else, thank you.", "focus": "Choose your own drink when you perform it." },
+      { "stage": "personalize", "prompt": "Tell the complete day in your own words. Mention the morning, plaza, café, market, apartment, and goodbye.", "text": "Por la mañana... Después... Al mediodía... Por la tarde... Al final...", "meaning": "In the morning... Afterwards... At midday... In the afternoon... Finally...", "focus": "Use the prompts only as anchors; supply the actions yourself." }
+    ]
+  },
+  "flashcards": [
     {
-      "mistake": "Translating I shower as ducho only",
-      "correction": "Me ducho.",
-      "explanation": "Many routine actions use me."
-    },
-    {
-      "mistake": "Using en la ma?ana everywhere",
-      "correction": "Por la ma?ana is widely understood.",
-      "explanation": "Both exist, but por la ma?ana is very common."
-    },
-    {
-      "mistake": "Listing verbs without sequence",
-      "correction": "Use primero, despu?s, luego.",
-      "explanation": "Sequence words make your Spanish clearer."
+      "selectionRule": "Only high-value Chapter 1 survival chunks appear. No new vocabulary is introduced in the review deck.",
+      "items": ["Buenos días. ¿Cómo estás?", "Me llamo...", "Soy de...", "mi familia", "hoy", "a las diez", "¿Dónde está...?", "todo recto", "a la derecha", "a la izquierda", "¿Puede repetir?", "más despacio", "Quisiera..., por favor.", "Nada más, gracias.", "Quiero este...", "¿Cuánto cuesta?", "Hay un...", "Está al lado de...", "Después...", "Ha sido un buen día."]
     }
   ],
+  "quizIntroduction": "Follow the connected Madrid day. Choose the response that keeps each real situation moving.",
   "quiz": [
+    { "type": "multipleChoice", "difficulty": "easy", "prompt": "Carlos says Buenos días. What keeps the greeting going?", "options": ["Buenos días. ¿Cómo estás?", "¿Cuánto cuesta?", "Todo recto.", "La cuenta."], "answer": "Buenos días. ¿Cómo estás?", "explanation": "Return the greeting and ask the check-in back." },
+    { "type": "multipleChoice", "difficulty": "easy", "prompt": "You need the market. Which question should you ask?", "options": ["¿Dónde está el mercado?", "¿Quién es el mercado?", "¿Cómo te llamas mercado?", "¿Cuándo cuesta?"], "answer": "¿Dónde está el mercado?", "explanation": "Use ¿Dónde está...? for the location of one place." },
+    { "type": "multipleChoice", "difficulty": "easy", "prompt": "Which cue means straight ahead?", "options": ["todo recto", "a la derecha", "al mediodía", "nada más"], "answer": "todo recto", "explanation": "Todo recto is the fixed direction cue for straight ahead." },
+    { "type": "multipleChoice", "difficulty": "easy", "prompt": "Which phrase politely begins a drink order?", "options": ["Quisiera..., por favor.", "Hay un café.", "Estoy a la derecha.", "Me llamo café."], "answer": "Quisiera..., por favor.", "explanation": "Quisiera plus the item makes a polite café order." },
+    { "type": "multipleChoice", "difficulty": "easy", "prompt": "The server asks ¿Algo más? You are finished. Say...", "options": ["Nada más, gracias.", "Todo recto.", "Soy de Canadá.", "Está en casa."], "answer": "Nada más, gracias.", "explanation": "Nada más clearly closes the order." },
+    { "type": "multipleChoice", "difficulty": "medium", "prompt": "At the market, which exchange is complete?", "options": ["Quiero este pan. ¿Cuánto cuesta?", "Este pan está Plaza Mayor.", "Quisiera derecha por favor.", "Soy una bolsa."], "answer": "Quiero este pan. ¿Cuánto cuesta?", "explanation": "It identifies the item and asks its price." },
+    { "type": "multipleChoice", "difficulty": "medium", "prompt": "You missed a direction. What is the strongest response?", "options": ["Perdón, ¿puede repetir más despacio?", "Pretend to understand.", "Switch immediately to English.", "Walk away silently."], "answer": "Perdón, ¿puede repetir más despacio?", "explanation": "Repairing the exchange is a communication success, not a failure." },
+    { "type": "multipleChoice", "difficulty": "medium", "prompt": "Marta asks ¿Qué hay en el salón? Answer naturally.", "options": ["Hay un sofá y una guitarra.", "El sofá está una guitarra.", "Soy el salón.", "Quiero un salón a las diez."], "answer": "Hay un sofá y una guitarra.", "explanation": "Hay introduces what exists in the room." },
+    { "type": "multipleChoice", "difficulty": "medium", "prompt": "Carlos asks where the photo is. Answer naturally.", "options": ["Está en la estantería.", "Hay la foto.", "La foto soy Madrid.", "Cuesta tres euros."], "answer": "Está en la estantería.", "explanation": "Use está to locate the known photo." },
+    { "type": "multipleChoice", "difficulty": "medium", "prompt": "Which line puts the day in order?", "options": ["Primero la plaza. Después el café. Al final, casa.", "Al final primero después.", "Café derecha familia.", "Hay sábado cuesta."], "answer": "Primero la plaza. Después el café. Al final, casa.", "explanation": "The connectors establish a clear beginning, middle, and end." },
+    { "type": "translation", "difficulty": "medium", "prompt": "Translate: Por la tarde volvemos a casa.", "options": ["In the afternoon we return home.", "In the morning we go to the market.", "At night we order coffee.", "At midday we ask for directions."], "answer": "In the afternoon we return home.", "explanation": "Por la tarde means in the afternoon and volvemos a casa means we return home." },
+    { "type": "translation", "difficulty": "medium", "prompt": "Translate: Ha sido un buen día.", "options": ["It has been a good day.", "It is a busy market.", "Tomorrow is Saturday.", "The apartment is nearby."], "answer": "It has been a good day.", "explanation": "Learn this as a natural closing reflection for the chapter." },
+    { "type": "multipleChoice", "difficulty": "hard", "prompt": "Which response connects three earlier lessons correctly?", "options": ["¿Dónde está el café? Quisiera un café, por favor. Nada más, gracias.", "Soy café a la derecha.", "Hay un café me llamo.", "Cuánto recto por la noche."], "answer": "¿Dónde está el café? Quisiera un café, por favor. Nada más, gracias.", "explanation": "It combines directions, ordering, and a natural closing without mixing the patterns." },
+    { "type": "multipleChoice", "difficulty": "hard", "prompt": "A vendor says Cuesta tres euros. What should you demonstrate?", "options": ["Understand the price and complete or decline the purchase.", "Ask the vendor’s family name.", "Give directions to the apartment.", "Describe your morning routine."], "answer": "Understand the price and complete or decline the purchase.", "explanation": "The capstone measures whether the learner can act on familiar language in context." },
+    { "type": "multipleChoice", "difficulty": "hard", "prompt": "What shows growing independence most clearly?", "options": ["Using a repair phrase and continuing in Spanish", "Waiting for Carlos to translate every line", "Memorizing one long answer", "Avoiding all unfamiliar speakers"], "answer": "Using a repair phrase and continuing in Spanish", "explanation": "Independent communication includes recovering when understanding is incomplete." },
+    { "type": "multipleChoice", "difficulty": "hard", "prompt": "Choose the natural final sequence.", "options": ["Gracias por el día. Ha sido un buen día. Hasta mañana.", "Buenos días. ¿Cuánto familia?", "Todo recto. Me llamo pan.", "Hay un adiós a la derecha."], "answer": "Gracias por el día. Ha sido un buen día. Hasta mañana.", "explanation": "It reflects on the day, thanks Carlos, and closes naturally." },
+    { "type": "multipleChoice", "difficulty": "hard", "prompt": "The learner forgets one word at the market. What should Carlos correct first?", "options": ["Only the error that blocks the purchase", "Every accent from the whole conversation", "Nothing, even if meaning is lost", "The learner’s personality"], "answer": "Only the error that blocks the purchase", "explanation": "Habla prioritizes successful communication, then one useful correction." },
+    { "type": "multipleChoice", "difficulty": "practical usage", "prompt": "Which performance completes the chapter mission?", "options": ["Greet, navigate, order, shop, describe the apartment, recount the day, and say goodbye in connected Spanish.", "Answer one isolated vocabulary question.", "Read Carlos’s lines without responding.", "Complete only the coffee order."], "answer": "Greet, navigate, order, shop, describe the apartment, recount the day, and say goodbye in connected Spanish.", "explanation": "The finale proves the learner can connect Chapter 1 skills across a complete social day." }
+  ],
+  "miniConversation": {
+    "title": "The day without a script",
+    "setting": "Carlos gives only short scene prompts. The learner chooses the details and keeps the journey moving.",
+    "goal": "Complete the six mini-missions with no full model answer visible.",
+    "turns": [
+      { "speaker": "Carlos", "spanish": "Buenos días. ¿Listo para Madrid?", "english": "Good morning. Ready for Madrid?" },
+      { "speaker": "Learner", "spanish": "Buenos días. Sí, estoy listo. ¿Qué hacemos primero?", "english": "Good morning. Yes, I’m ready. What do we do first?" },
+      { "speaker": "Carlos", "spanish": "Primero, la plaza. Después, tú eliges.", "english": "First, the plaza. Afterwards, you choose." },
+      { "speaker": "Learner", "spanish": "Perfecto. ¿Dónde está Plaza Mayor?", "english": "Perfect. Where is Plaza Mayor?" },
+      { "speaker": "Carlos", "spanish": "Ya estamos aquí. ¿Qué quieres tomar?", "english": "We’re already here. What would you like to drink?" },
+      { "speaker": "Learner", "spanish": "Quisiera un café, por favor. Nada más, gracias.", "english": "I would like a coffee, please. Nothing else, thank you." },
+      { "speaker": "Carlos", "spanish": "Ahora vamos al mercado. ¿Qué compras?", "english": "Now we’re going to the market. What do you buy?" },
+      { "speaker": "Learner", "spanish": "Quiero este pan. ¿Cuánto cuesta?", "english": "I want this bread. How much does it cost?" },
+      { "speaker": "Carlos", "spanish": "Volvemos a casa. ¿Qué hay en el salón?", "english": "We return home. What is in the living room?" },
+      { "speaker": "Learner", "spanish": "Hay un sofá y una foto. La foto está al lado de los libros.", "english": "There is a sofa and a photo. The photo is beside the books." },
+      { "speaker": "Carlos", "spanish": "Cuéntame el día.", "english": "Tell me about the day." },
+      { "speaker": "Learner", "spanish": "Por la mañana, caminamos. Después, tomamos café. Por la tarde, compramos pan. Al final, descansamos en casa.", "english": "In the morning, we walk. Afterwards, we have coffee. In the afternoon, we buy bread. Finally, we rest at home." },
+      { "speaker": "Carlos", "spanish": "Excelente. Hoy has vivido Madrid en español.", "english": "Excellent. Today you lived Madrid in Spanish." }
+    ]
+  },
+  "culture": {
+    "title": "A day together is flexible",
+    "text": "A social day in Madrid may move between walking, coffee, shopping, and time at home without a rigid schedule. Plans still vary by person and family. Confirm the important meeting time, stay flexible about smaller details, and use messages if the plan changes. The goal is not to imitate one ‘Spanish lifestyle’ but to communicate comfortably while the day unfolds."
+  },
+  "worldBuilding": [
+    { "moment": "Plaza Mayor in the morning", "carlosSpanish": "A esta hora la plaza está más tranquila. Dentro de poco habrá mucha más gente.", "carlosEnglish": "At this hour the plaza is quieter. Before long there will be many more people." },
+    { "moment": "returning to Mercado de San Miguel", "carlosSpanish": "La primera vez vine para ayudarte. Hoy ya sabes qué preguntar tú solo.", "carlosEnglish": "The first time I came to help you. Today you already know what to ask on your own." },
+    { "moment": "the apartment balcony", "carlosSpanish": "Desde aquí hemos visto lluvia, sol y muchas conversaciones. Madrid ya no parece tan desconocido.", "carlosEnglish": "From here we have seen rain, sun, and many conversations. Madrid no longer feels so unfamiliar." }
+  ],
+  "livingWorldInteractions": [
     {
-      "type": "multipleChoice",
-      "prompt": "What does ?la rutina? mean?",
-      "options": [
-        "routine",
-        "I get up",
-        "I shower",
-        "I get dressed"
-      ],
-      "answer": "routine"
-    },
-    {
-      "type": "multipleChoice",
-      "prompt": "What does ?me levanto? mean?",
-      "options": [
-        "routine",
-        "I get up",
-        "I shower",
-        "I get dressed"
-      ],
-      "answer": "I get up"
-    },
-    {
-      "type": "multipleChoice",
-      "prompt": "What does ?me ducho? mean?",
-      "options": [
-        "routine",
-        "I get up",
-        "I shower",
-        "I get dressed"
-      ],
-      "answer": "I shower"
-    },
-    {
-      "type": "multipleChoice",
-      "prompt": "What does ?me visto? mean?",
-      "options": [
-        "routine",
-        "I get up",
-        "I shower",
-        "I get dressed"
-      ],
-      "answer": "I get dressed"
-    },
-    {
-      "type": "multipleChoice",
-      "prompt": "What does ?desayuno? mean?",
-      "options": [
-        "I eat breakfast",
-        "routine",
-        "I get up",
-        "I shower"
-      ],
-      "answer": "I eat breakfast"
-    },
-    {
-      "type": "multipleChoice",
-      "prompt": "What does ?trabajo? mean?",
-      "options": [
-        "routine",
-        "I work",
-        "I get up",
-        "I shower"
-      ],
-      "answer": "I work"
-    },
-    {
-      "type": "multipleChoice",
-      "prompt": "What does ?estudio? mean?",
-      "options": [
-        "routine",
-        "I get up",
-        "I study",
-        "I shower"
-      ],
-      "answer": "I study"
-    },
-    {
-      "type": "multipleChoice",
-      "prompt": "What does ?practico? mean?",
-      "options": [
-        "routine",
-        "I get up",
-        "I shower",
-        "I practice"
-      ],
-      "answer": "I practice"
-    },
-    {
-      "type": "multipleChoice",
-      "prompt": "What does ?como? mean?",
-      "options": [
-        "I eat",
-        "routine",
-        "I get up",
-        "I shower"
-      ],
-      "answer": "I eat"
-    },
-    {
-      "type": "multipleChoice",
-      "prompt": "What does ?ceno? mean?",
-      "options": [
-        "routine",
-        "I eat dinner",
-        "I get up",
-        "I shower"
-      ],
-      "answer": "I eat dinner"
-    },
-    {
-      "type": "multipleChoice",
-      "prompt": "What does ?duermo? mean?",
-      "options": [
-        "routine",
-        "I get up",
-        "I sleep",
-        "I shower"
-      ],
-      "answer": "I sleep"
-    },
-    {
-      "type": "multipleChoice",
-      "prompt": "What does ?salgo? mean?",
-      "options": [
-        "routine",
-        "I get up",
-        "I shower",
-        "I go out"
-      ],
-      "answer": "I go out"
-    },
-    {
-      "type": "multipleChoice",
-      "prompt": "What does ?vuelvo? mean?",
-      "options": [
-        "I return",
-        "routine",
-        "I get up",
-        "I shower"
-      ],
-      "answer": "I return"
-    },
-    {
-      "type": "multipleChoice",
-      "prompt": "What does ?temprano? mean?",
-      "options": [
-        "routine",
-        "early",
-        "I get up",
-        "I shower"
-      ],
-      "answer": "early"
-    },
-    {
-      "type": "multipleChoice",
-      "prompt": "What does ?tarde? mean?",
-      "options": [
-        "routine",
-        "I get up",
-        "late",
-        "I shower"
-      ],
-      "answer": "late"
+      "id": "granada-postcard",
+      "title": "A postcard from Granada",
+      "prompt": "A postcard at a Plaza Mayor stand shows the Alhambra glowing at sunset. Look closer.",
+      "carlosSpanish": "Granada es la ciudad de mi familia. Mi madre siempre dice que tengo que enseñártela algún día.",
+      "carlosEnglish": "Granada is my family’s city. My mother always says I have to show it to you one day.",
+      "memoryWrites": [
+        { "key": "story.madridDiscoveries.granadaPostcard", "value": true }
+      ]
     }
   ],
-  "speakingChallenge": [
-    {
-      "prompt": "Use ?la rutina? in a sentence with Carlos.",
-      "exampleAnswer": "La rutina, por favor."
-    },
-    {
-      "prompt": "Use ?me levanto? in a sentence with Carlos.",
-      "exampleAnswer": "Me levanto, por favor."
-    },
-    {
-      "prompt": "Use ?me ducho? in a sentence with Carlos.",
-      "exampleAnswer": "Me ducho, por favor."
-    },
-    {
-      "prompt": "Use ?me visto? in a sentence with Carlos.",
-      "exampleAnswer": "Me visto, por favor."
-    },
-    {
-      "prompt": "Use ?desayuno? in a sentence with Carlos.",
-      "exampleAnswer": "Desayuno, por favor."
-    }
+  "nativeSpeech": [
+    { "phrase": "Vamos allá.", "meaning": "Let’s go / Here we go.", "note": "A natural way to begin the next part of an outing." },
+    { "phrase": "¿Te apetece un café?", "meaning": "Do you feel like having a coffee?", "note": "Recognize this common Spain invitation; the formal grammar is not required yet." },
+    { "phrase": "Ha sido un buen día.", "meaning": "It has been a good day.", "note": "Use the whole expression as a closing chunk without analyzing the tense." }
   ],
-  "speakingChallenges": [
-    {
-      "prompt": "Tell Carlos one real thing using ?la rutina?.",
-      "exampleAnswer": "Carlos, practico la rutina."
-    },
-    {
-      "prompt": "Tell Carlos one real thing using ?me levanto?.",
-      "exampleAnswer": "Carlos, practico me levanto."
-    },
-    {
-      "prompt": "Tell Carlos one real thing using ?me ducho?.",
-      "exampleAnswer": "Carlos, practico me ducho."
-    },
-    {
-      "prompt": "Tell Carlos one real thing using ?me visto?.",
-      "exampleAnswer": "Carlos, practico me visto."
-    },
-    {
-      "prompt": "Tell Carlos one real thing using ?desayuno?.",
-      "exampleAnswer": "Carlos, practico desayuno."
-    }
+  "commonMistakes": [
+    { "mistake": "Trying to make every sentence complex", "better": "Use short complete phrases and connect them.", "why": "A connected A1 conversation is stronger than one advanced sentence the learner cannot control." },
+    { "mistake": "Switching to English after one missed word", "better": "Use ¿Puede repetir? or Más despacio, por favor.", "why": "Repair phrases keep the interaction alive." },
+    { "mistake": "Mixing hay and está", "better": "Introduce with hay; locate the known object with está.", "why": "The two questions are different: what exists versus where it is." },
+    { "mistake": "Waiting for Carlos to answer first", "better": "Use the familiar opener before Carlos supplies a model.", "why": "The finale measures growing independence, not perfect recall." }
   ],
   "realLifeMission": {
-    "title": "Real Life Mission",
-    "mission": "Tell Carlos your daily routine with at least five actions and two time phrases.",
+    "title": "Chapter Finale: One Day in Madrid",
+    "mission": "Complete all six mini-missions as one connected day. Carlos may repeat or slow down, but he does not translate or supply the learner’s decisions.",
     "successCriteria": [
-      "Use at least three lesson vocabulary items.",
-      "Use the main grammar pattern.",
-      "Answer one follow-up question from Carlos."
+      "Greet Carlos and ask a question back.",
+      "Ask for one destination and follow the route.",
+      "Order one chosen drink and close the exchange.",
+      "Choose a market item, ask the price, and complete the purchase.",
+      "Say what exists in the apartment and locate one object.",
+      "Describe the day in order using time phrases and connectors.",
+      "Use one repair phrase if communication breaks down.",
+      "Close naturally with thanks and a goodbye."
     ],
-    "suggestedPartner": "Carlos",
-    "xpReward": 75
+    "completionResponse": "When we met, you knew a few words. Today we spent the whole day speaking Spanish together. You did not need perfect Spanish—you kept communicating. That is real progress.",
+    "correctionRule": "Never interrupt a successful mini-mission for a minor error. At each scene transition, correct at most one issue that blocked meaning or would cause a real-world problem.",
+    "suggestedPartner": "Carlos, Marta, and familiar Madrid speakers",
+    "xpReward": 25,
+    "handoff": "Elena and Javier invite the learner to continue the journey with the family in Granada."
   },
   "review": {
-    "summary": "You practiced daily routine for everyday Spanish.",
+    "modes": ["quiz", "flashcards", "pronunciation", "conversation"],
     "canDo": [
-      "Recognize key vocabulary.",
-      "Answer Carlos with simple complete sentences.",
-      "Use the Real Life Mission in a practical situation."
+      "I can begin and end a social day naturally.",
+      "I can navigate, order, and shop with familiar A1 Spanish.",
+      "I can describe a place and talk about my day.",
+      "I can repair a conversation instead of giving up.",
+      "I can connect several simple situations into one experience."
     ],
     "selfCheck": [
-      "Can I use the main lesson phrases in a complete sentence?",
-      "Can I answer Carlos with a short natural response?",
-      "Can I use one polite phrase from earlier lessons?",
-      "Can I complete the real life mission without reading every word?"
+      "Did I speak first in at least three scenes?",
+      "Did I make choices rather than repeat only Carlos’s words?",
+      "Did I recover when I missed something?",
+      "Could another Spanish speaker understand the goal in every scene?",
+      "Do the three Madrid landmarks now feel familiar?"
     ]
   },
-  "imagePath": "assets/images/lessons/lesson-10-daily-routine.png",
-  "achievementsUnlocked": [],
-  "xpReward": 75,
+  "chapterCeremony": {
+    "title": "Your first chapter is complete",
+    "subtitle": "Nine lessons became one complete day. Your Madrid journey now has a beginning, a middle, and a memory.",
+    "carlosSpanish": "Cuando nos conocimos, sabías unas palabras. Hoy pasamos todo el día hablando español juntos. Estoy muy orgulloso de ti.",
+    "carlosEnglish": "When we met, you knew a few words. Today we spent the whole day speaking Spanish together. I’m very proud of you.",
+    "journey": ["First Coffee", "Family Dinner", "Mercado de San Miguel", "Plaza Mayor", "Mi Casa", "Weekend Adventure"],
+    "nextDestination": "Granada"
+  },
+  "passportStamp": {
+    "id": "madrid-weekend",
+    "title": "Madrid Weekend",
+    "city": "Madrid",
+    "description": "You completed a connected day across the familiar places and conversations of Chapter 1.",
+    "unlockCondition": "Complete all six mini-missions in Lesson 10."
+  },
+  "achievement": {
+    "id": "madrid_ready",
+    "title": "Madrid Ready",
+    "description": "Complete the Madrid chapter as one connected Spanish experience.",
+    "unlockCondition": "Complete Lesson 10."
+  },
+  "achievementsUnlocked": ["madrid_ready"],
+  "xpReward": 100,
   "nextLesson": "lesson-11-weather"
 }
