@@ -1,6 +1,6 @@
 {
   "id": "lesson-09-around-the-house",
-  "contentVersion": "1.0",
+  "contentVersion": "1.1",
   "title": "A Typical Day",
   "image": "assets/images/lessons/lesson-08-vacation.png.png",
   "level": "A1",
@@ -176,10 +176,25 @@
   },
   "listening": {
     "title": "Carlos’s weekday",
-    "instructions": "Listen once for the shape of the day. Replay slowly, then match each part of the day to the action Carlos mentions.",
+    "instructions": "Listen, follow along, then check what you understood.",
     "playbackSpeeds": ["natural", "slow"],
     "naturalScript": "Normalmente desayuno con mi familia. Después, trabajo y preparo mis clases. Al mediodía, como en casa. Por la tarde, camino por el barrio. Por la noche, ceno con Marta y Nico y descanso.",
     "slowScript": "Normalmente / desayuno con mi familia. / Después, / trabajo / y preparo mis clases. / Al mediodía, / como en casa. / Por la tarde, / camino por el barrio. / Por la noche, / ceno con Marta y Nico / y descanso.",
+    "transcript": [
+      { "speaker": "Carlos", "spanish": "Normalmente desayuno con mi familia.", "english": "I normally have breakfast with my family." },
+      { "speaker": "Carlos", "spanish": "Después, trabajo y preparo mis clases.", "english": "Afterwards, I work and prepare my classes." },
+      { "speaker": "Carlos", "spanish": "Al mediodía, como en casa.", "english": "At midday, I eat at home." },
+      { "speaker": "Carlos", "spanish": "Por la tarde, camino por el barrio.", "english": "In the afternoon, I walk through the neighborhood." },
+      { "speaker": "Carlos", "spanish": "Por la noche, ceno con Marta y Nico y descanso.", "english": "At night, I have dinner with Marta and Nico and rest." },
+      { "speaker": "Carlos", "spanish": "¿Cuándo practicas español normalmente?", "english": "When do you normally practice Spanish?" },
+      { "speaker": "Learner", "spanish": "Practico español por la mañana.", "english": "I practice Spanish in the morning." }
+    ],
+    "comprehension": [
+      { "prompt": "Who has breakfast with Carlos?", "options": ["His family", "The market vendor", "Ana’s classmates"], "answer": "His family", "explanation": "Desayuno con mi familia means I have breakfast with my family." },
+      { "prompt": "What does Carlos do after breakfast?", "options": ["He works and prepares classes", "He walks to the market", "He returns to Granada"], "answer": "He works and prepares classes", "explanation": "Después, trabajo y preparo mis clases describes the next part of his day." },
+      { "prompt": "When does Carlos walk through the neighborhood?", "options": ["In the afternoon", "At midday", "At night"], "answer": "In the afternoon", "explanation": "Por la tarde means in the afternoon." },
+      { "prompt": "What does Carlos ask the learner about?", "options": ["When they practice Spanish", "Where their family lives", "How much coffee costs"], "answer": "When they practice Spanish", "explanation": "¿Cuándo practicas español normalmente? asks when the learner normally practices Spanish." }
+    ],
     "items": [
       { "spanish": "Por la mañana, desayuno con mi familia.", "options": ["In the morning, I have breakfast with my family.", "In the afternoon, I walk alone.", "At night, I prepare classes."], "answer": "In the morning, I have breakfast with my family." },
       { "spanish": "Después, trabajo y preparo mis clases.", "options": ["Afterwards, I work and prepare my classes.", "First, I eat and rest.", "Sometimes, I study at the café."], "answer": "Afterwards, I work and prepare my classes." },
@@ -206,13 +221,13 @@
     ]
   },
   "speaking": {
-    "instructions": "Repeat Carlos’s routine chunks, recall them from time prompts, then replace every action with one true for your life.",
+    "instructions": "Carlos shares his routine, then helps you describe your own day one part at a time.",
     "items": [
-      { "stage": "repeat", "prompt": "Repeat the morning action.", "text": "Por la mañana, desayuno.", "meaning": "In the morning, I have breakfast.", "focus": "Use a short pause after the time phrase." },
-      { "stage": "repeat", "prompt": "Connect the next action.", "text": "Después, trabajo.", "meaning": "Afterwards, I work.", "focus": "Make después sound like a connector, not a separate answer." },
-      { "stage": "recall", "prompt": "It is midday. Say that you eat at home.", "text": "Al mediodía, como en casa.", "meaning": "At midday, I eat at home.", "focus": "Use the first-person form como." },
-      { "stage": "recall", "prompt": "It is evening. Say that you have dinner and rest.", "text": "Por la noche, ceno y descanso.", "meaning": "At night, I have dinner and rest.", "focus": "Connect two yo forms with y." },
-      { "stage": "personalize", "prompt": "Describe your real day in four parts. Use one action for morning, midday, afternoon, and night.", "text": "Por la mañana, estudio. Al mediodía, como. Por la tarde, trabajo. Por la noche, descanso.", "meaning": "In the morning, I study. At midday, I eat. In the afternoon, I work. At night, I rest.", "focus": "Change every action that is not true for you." }
+      { "stage": "repeat", "label": "Listen", "carlosPrompt": "Por la mañana, desayuno.", "cue": "Hear the time phrase and action as one thought, then repeat it.", "prompt": "Repeat the morning action.", "text": "Por la mañana, desayuno.", "meaning": "In the morning, I have breakfast.", "focus": "Use a short pause after the time phrase." },
+      { "stage": "repeat", "label": "Your turn", "carlosPrompt": "Después, trabajo.", "cue": "Use después to move naturally to the next action.", "prompt": "Connect the next action.", "text": "Después, trabajo.", "meaning": "Afterwards, I work.", "focus": "Make después sound like a connector, not a separate answer." },
+      { "stage": "recall", "label": "Keep talking", "carlosPrompt": "¿Qué haces al mediodía?", "cue": "Say that you eat at home before opening the model.", "prompt": "Describe midday.", "text": "Al mediodía, como en casa.", "meaning": "At midday, I eat at home.", "focus": "Use the first-person form como." },
+      { "stage": "recall", "label": "One more challenge", "carlosPrompt": "¿Qué haces por la noche?", "cue": "Join two evening actions with y.", "prompt": "Say that you have dinner and rest.", "text": "Por la noche, ceno y descanso.", "meaning": "At night, I have dinner and rest.", "focus": "Connect two yo forms with y." },
+      { "stage": "personalize", "label": "Finish the conversation", "carlosPrompt": "Ahora cuéntame tu día.", "cue": "Describe four true parts of your day in order.", "prompt": "Describe your real day.", "text": "Por la mañana, estudio. Al mediodía, como. Por la tarde, trabajo. Por la noche, descanso.", "meaning": "In the morning, I study. At midday, I eat. In the afternoon, I work. At night, I rest.", "focus": "Change every action that is not true for you." }
     ]
   },
   "flashcards": [
@@ -340,6 +355,7 @@
     "unlockCondition": "Complete Lesson 9."
   },
   "achievementsUnlocked": ["daily_speaker"],
+  "carlosClosing": "You just described an ordinary day in your own life, in order, using Spanish that belongs to you. The rain has stopped—tomorrow I want you to lead one complete day through Madrid.",
   "xpReward": 70,
   "nextLesson": "lesson-10-daily-routine"
 }

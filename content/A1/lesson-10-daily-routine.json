@@ -1,6 +1,6 @@
 {
   "id": "lesson-10-daily-routine",
-  "contentVersion": "1.0",
+  "contentVersion": "1.1",
   "title": "Weekend Adventure",
   "image": "assets/images/lessons/lesson-07-travel.png.png",
   "level": "A1",
@@ -181,12 +181,27 @@
   },
   "listening": {
     "title": "Madrid from morning to evening",
-    "instructions": "Listen for where the day moves and what the learner accomplishes. The slow version preserves the same connected story.",
+    "instructions": "Listen, follow along, then check what you understood.",
     "playbackSpeeds": ["natural", "slow"],
     "soundscapeLabel": "Madrid day",
     "soundscape": ["Apartment door closes", "Plaza footsteps", "Coffee cups", "Market voices", "Rainwater on the balcony"],
     "naturalScript": "Buenos días. Hoy pasamos un día por Madrid. Primero caminamos por Plaza Mayor y preguntamos dónde está el mercado. Después pedimos café. En el Mercado de San Miguel compramos pan. Por la tarde volvemos al apartamento. Allí hablamos de la casa y recordamos nuestro día. Ha sido un buen día.",
     "slowScript": "Buenos días. / Hoy pasamos un día por Madrid. / Primero, / caminamos por Plaza Mayor / y preguntamos / dónde está el mercado. / Después, / pedimos café. / En el Mercado de San Miguel / compramos pan. / Por la tarde, / volvemos al apartamento. / Allí, / hablamos de la casa / y recordamos nuestro día. / Ha sido un buen día.",
+    "transcript": [
+      { "speaker": "Carlos", "spanish": "Buenos días. Hoy pasamos un día por Madrid.", "english": "Good morning. Today we are spending a day around Madrid." },
+      { "speaker": "Carlos", "spanish": "Primero caminamos por Plaza Mayor y preguntamos dónde está el mercado.", "english": "First we walk through Plaza Mayor and ask where the market is." },
+      { "speaker": "Carlos", "spanish": "Después pedimos café.", "english": "Afterwards we order coffee." },
+      { "speaker": "Carlos", "spanish": "En el Mercado de San Miguel compramos pan.", "english": "At Mercado de San Miguel we buy bread." },
+      { "speaker": "Carlos", "spanish": "Por la tarde volvemos al apartamento.", "english": "In the afternoon we return to the apartment." },
+      { "speaker": "Carlos", "spanish": "Allí hablamos de la casa y recordamos nuestro día.", "english": "There we talk about the home and remember our day." },
+      { "speaker": "Learner", "spanish": "Ha sido un buen día.", "english": "It has been a good day." }
+    ],
+    "comprehension": [
+      { "prompt": "Where does the connected day begin?", "options": ["Plaza Mayor", "Granada", "The airport"], "answer": "Plaza Mayor", "explanation": "The first destination named is Plaza Mayor." },
+      { "prompt": "What happens after asking for directions?", "options": ["They order coffee", "They call a hotel", "They choose clothing"], "answer": "They order coffee", "explanation": "Después pedimos café means afterwards we order coffee." },
+      { "prompt": "What do they buy at Mercado de San Miguel?", "options": ["Bread", "A train ticket", "A jacket"], "answer": "Bread", "explanation": "Compramos pan means we buy bread." },
+      { "prompt": "Where does the day finish?", "options": ["At Carlos and Marta’s apartment", "At the airport", "At Ana’s school"], "answer": "At Carlos and Marta’s apartment", "explanation": "In the afternoon they return to the familiar apartment and reflect on the day." }
+    ],
     "items": [
       { "spanish": "Primero caminamos por Plaza Mayor.", "options": ["First we walk through Plaza Mayor.", "First we return to the apartment.", "First we buy bread."], "answer": "First we walk through Plaza Mayor." },
       { "spanish": "Después pedimos café.", "options": ["Afterwards we order coffee.", "Afterwards we ask for directions.", "Afterwards we meet the family."], "answer": "Afterwards we order coffee." },
@@ -213,13 +228,13 @@
     ]
   },
   "speaking": {
-    "instructions": "Warm up with two essential phrases, recall three complete exchanges, then narrate the day without a model.",
+    "instructions": "Carlos gives you less help as you connect the whole Madrid day one scene at a time.",
     "items": [
-      { "stage": "repeat", "prompt": "Open the day warmly.", "text": "Buenos días, Carlos. ¿Cómo estás?", "meaning": "Good morning, Carlos. How are you?", "focus": "Ask the question back naturally." },
-      { "stage": "repeat", "prompt": "Use the repair phrase once before the mission.", "text": "Perdón, ¿puede repetir más despacio, por favor?", "meaning": "Excuse me, can you repeat more slowly, please?", "focus": "Say it confidently enough to use in a real exchange." },
-      { "stage": "recall", "prompt": "Ask where the market is and confirm one direction.", "text": "¿Dónde está el mercado? Todo recto. Gracias.", "meaning": "Where is the market? Straight ahead. Thank you.", "focus": "Keep the exchange moving with short phrases." },
-      { "stage": "recall", "prompt": "Order a drink, respond to ¿Algo más?, and close.", "text": "Quisiera un café, por favor. Nada más, gracias.", "meaning": "I would like a coffee, please. Nothing else, thank you.", "focus": "Choose your own drink when you perform it." },
-      { "stage": "personalize", "prompt": "Tell the complete day in your own words. Mention the morning, plaza, café, market, apartment, and goodbye.", "text": "Por la mañana... Después... Al mediodía... Por la tarde... Al final...", "meaning": "In the morning... Afterwards... At midday... In the afternoon... Finally...", "focus": "Use the prompts only as anchors; supply the actions yourself." }
+      { "stage": "repeat", "label": "Listen", "carlosPrompt": "Buenos días. ¿Cómo estás?", "cue": "Open the day warmly and ask the question back.", "prompt": "Greet Carlos.", "text": "Buenos días, Carlos. ¿Cómo estás?", "meaning": "Good morning, Carlos. How are you?", "focus": "Ask the question back naturally." },
+      { "stage": "repeat", "label": "Your turn", "carlosPrompt": "Hoy tú decides y tú hablas primero.", "cue": "Use the repair phrase you can rely on if anything becomes unclear.", "prompt": "Ask Carlos to repeat more slowly.", "text": "Perdón, ¿puede repetir más despacio, por favor?", "meaning": "Excuse me, can you repeat more slowly, please?", "focus": "Say it confidently enough to use in a real exchange." },
+      { "stage": "recall", "label": "Keep talking", "carlosPrompt": "Necesitamos encontrar el mercado.", "cue": "Ask where it is, confirm one route cue, and thank the speaker.", "prompt": "Navigate to the market.", "text": "¿Dónde está el mercado? Todo recto. Gracias.", "meaning": "Where is the market? Straight ahead. Thank you.", "focus": "Keep the exchange moving with short phrases." },
+      { "stage": "recall", "label": "One more challenge", "carlosPrompt": "Estamos en la cafetería. Tú eliges.", "cue": "Order your chosen drink, answer ¿Algo más?, and close.", "prompt": "Complete the café exchange.", "text": "Quisiera un café, por favor. Nada más, gracias.", "meaning": "I would like a coffee, please. Nothing else, thank you.", "focus": "Choose your own drink when you perform it." },
+      { "stage": "personalize", "label": "Finish the conversation", "carlosPrompt": "Cuéntame nuestro día en Madrid.", "cue": "Connect the plaza, café, market, apartment, and goodbye in your own words.", "prompt": "Tell the complete day without a full model.", "text": "Por la mañana... Después... Al mediodía... Por la tarde... Al final...", "meaning": "In the morning... Afterwards... At midday... In the afternoon... Finally...", "focus": "Use the prompts only as anchors; supply the actions yourself." }
     ]
   },
   "flashcards": [
@@ -359,6 +374,7 @@
     "unlockCondition": "Complete Lesson 10."
   },
   "achievementsUnlocked": ["madrid_ready"],
+  "carlosClosing": "When we met, you knew only a few words. Today you greeted people, found your way, ordered, shopped, described my home, and told the story of our day in Spanish. I’m proud of you—your Madrid chapter is complete, and my family is waiting for us in Granada.",
   "xpReward": 100,
   "nextLesson": "lesson-11-weather"
 }

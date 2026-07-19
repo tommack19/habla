@@ -1,6 +1,6 @@
 {
   "id": "a1-lesson-01-greetings",
-  "contentVersion": "1.1",
+  "contentVersion": "1.2",
   "title": "First Coffee",
   "level": "A1",
   "module": "Greetings",
@@ -799,7 +799,7 @@
   },
   "listening": {
     "title": "Can you follow our conversation?",
-    "instructions": "Hear the same café conversation again. Listen first, follow along second, then check what you understood.",
+    "instructions": "Listen, follow along, then check what you understood.",
     "playbackSpeeds": ["natural", "slow"],
     "naturalScript": "¡Hola! ¿Qué tal? Me llamo Carlos. Mucho gusto. ¿Cómo te llamas? Mucho gusto, Tom. ¿Cómo estás? Muy bien, gracias. ¿Y tú? Muy bien, gracias. Nos vemos luego.",
     "slowScript": "¡Hola! / ¿Qué tal? / Me llamo Carlos. / Mucho gusto. / ¿Cómo te llamas? / Mucho gusto, Tom. / ¿Cómo estás? / Muy bien, gracias. / ¿Y tú? / Muy bien, gracias. / Nos vemos luego.",
@@ -920,7 +920,7 @@
       {
         "stage": "repeat",
         "label": "Your turn",
-        "carlosPrompt": "Great. Now tell me your name.",
+        "carlosPrompt": "¿Cómo te llamas?",
         "prompt": "Introduce yourself.",
         "cue": "Replace Tom with your own name and say it aloud.",
         "text": "Me llamo Tom. Mucho gusto.",
@@ -940,7 +940,7 @@
       {
         "stage": "recall",
         "label": "One more challenge",
-        "carlosPrompt": "I spoke too quickly. What can you ask me?",
+        "carlosPrompt": "Perdón, hablo muy rápido.",
         "prompt": "Ask Carlos to slow down.",
         "cue": "Try it from memory before playing the model.",
         "text": "Más despacio, por favor.",
@@ -950,7 +950,7 @@
       {
         "stage": "personalize",
         "label": "Finish the conversation",
-        "carlosPrompt": "Perfect. Now say goodbye.",
+        "carlosPrompt": "Perfecto. Nos vemos luego.",
         "prompt": "Close your first meeting.",
         "cue": "Use a relaxed, friendly closing.",
         "text": "Nos vemos luego.",

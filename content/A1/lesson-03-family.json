@@ -1,6 +1,6 @@
 {
   "id": "lesson-03-family",
-  "contentVersion": "1.0",
+  "contentVersion": "1.1",
   "title": "Family Dinner",
   "image": "assets/images/lessons/lesson-03-family.png.png",
   "level": "A1",
@@ -545,40 +545,28 @@
       }
     ]
   },
-  "listening": [
-    {
-      "title": "Carlos introduces everyone",
-      "instructions": "Listen at natural speed. Replay slowly if needed, then choose the meaning.",
-      "playbackSpeeds": ["natural", "slow"],
-      "items": [
-        {
-          "spanish": "Esta es mi madre, Elena.",
-          "options": ["This is my mother, Elena.", "This is my sister, Elena.", "Her mother is Elena."],
-          "answer": "This is my mother, Elena."
-        },
-        {
-          "spanish": "Él es mi hermano, Diego.",
-          "options": ["He is my brother, Diego.", "She is my sister, Diego.", "Diego has a brother."],
-          "answer": "He is my brother, Diego."
-        },
-        {
-          "spanish": "Marta es su esposa.",
-          "options": ["Marta is his wife.", "Marta is your sister.", "Marta is our daughter."],
-          "answer": "Marta is his wife."
-        },
-        {
-          "spanish": "Este es nuestro hijo, Nico.",
-          "options": ["This is our son, Nico.", "This is his brother, Nico.", "Nico is your father."],
-          "answer": "This is our son, Nico."
-        },
-        {
-          "spanish": "¿Tienes hermanos? Sí, tengo una hermana.",
-          "options": ["Do you have siblings? Yes, I have a sister.", "Do you have children? Yes, I have a son.", "Who is she? She is my cousin."],
-          "answer": "Do you have siblings? Yes, I have a sister."
-        }
-      ]
-    }
-  ],
+  "listening": {
+    "title": "Can you follow the family dinner?",
+    "instructions": "Listen, follow along, then check what you understood.",
+    "playbackSpeeds": ["natural", "slow"],
+    "naturalScript": "Hola, Carlos. ¿Cómo estás? Muy bien. ¡Bienvenido! Esta es mi madre, Elena. Hola, Elena. Me llamo Tom. Mucho gusto. Mucho gusto, Tom. Soy de Granada. Este es mi padre, Javier. Ella es mi hermana, Lucía, y él es mi hermano, Diego. Carlos, ¿quién es ella? Ella es mi esposa, Marta. Y este es nuestro hijo, Nico. ¿Y tú? ¿Tienes hermanos? Sí, tengo una hermana. Se llama Ana. ¡Qué bien! Vamos a cenar.",
+    "slowScript": "Hola, Carlos. / ¿Cómo estás? / Muy bien. / ¡Bienvenido! / Esta es mi madre, Elena. / Hola, Elena. / Me llamo Tom. / Mucho gusto. / Mucho gusto, Tom. / Soy de Granada. / Este es mi padre, Javier. / Ella es mi hermana, Lucía, / y él es mi hermano, Diego. / Carlos, ¿quién es ella? / Ella es mi esposa, Marta. / Y este es nuestro hijo, Nico. / ¿Y tú? / ¿Tienes hermanos? / Sí, tengo una hermana. / Se llama Ana. / ¡Qué bien! / Vamos a cenar.",
+    "transcript": [
+      {"speaker": "Learner", "spanish": "Hola, Carlos. ¿Cómo estás?", "english": "Hi, Carlos. How are you?"},
+      {"speaker": "Carlos", "spanish": "Muy bien. ¡Bienvenido! Esta es mi madre, Elena.", "english": "Very well. Welcome! This is my mother, Elena."},
+      {"speaker": "Learner y Elena", "spanish": "Hola, Elena. Me llamo Tom. Mucho gusto. Mucho gusto, Tom. Soy de Granada.", "english": "Hi, Elena. My name is Tom. Nice to meet you. Nice to meet you, Tom. I’m from Granada."},
+      {"speaker": "Carlos", "spanish": "Este es mi padre, Javier. Ella es mi hermana, Lucía, y él es mi hermano, Diego.", "english": "This is my father, Javier. She is my sister, Lucía, and he is my brother, Diego."},
+      {"speaker": "Learner y Carlos", "spanish": "Carlos, ¿quién es ella? Ella es mi esposa, Marta. Y este es nuestro hijo, Nico.", "english": "Carlos, who is she? She is my wife, Marta. And this is our son, Nico."},
+      {"speaker": "Carlos y Learner", "spanish": "¿Y tú? ¿Tienes hermanos? Sí, tengo una hermana. Se llama Ana.", "english": "And you? Do you have siblings? Yes, I have a sister. Her name is Ana."},
+      {"speaker": "Carlos", "spanish": "¡Qué bien! Vamos a cenar.", "english": "That’s great! Let’s have dinner."}
+    ],
+    "comprehension": [
+      {"prompt": "Who does Carlos introduce first?", "options": ["His mother, Elena", "His brother, Diego", "His wife, Marta"], "answer": "His mother, Elena", "explanation": "Carlos first says “Esta es mi madre, Elena.”"},
+      {"prompt": "Where is Elena from?", "options": ["Granada", "Madrid", "Valencia"], "answer": "Granada", "explanation": "Elena says “Soy de Granada.”"},
+      {"prompt": "Who is Nico?", "options": ["Carlos and Marta’s son", "Carlos’s brother", "Javier’s brother"], "answer": "Carlos and Marta’s son", "explanation": "Carlos says “este es nuestro hijo, Nico.”"},
+      {"prompt": "What does Carlos ask the learner?", "options": ["Whether they have siblings", "Where they live", "What they want to drink"], "answer": "Whether they have siblings", "explanation": "¿Tienes hermanos? asks whether someone has siblings."}
+    ]
+  },
   "listeningPhrases": [
     {
       "spanish": "Esta es mi madre, Elena.",
@@ -608,39 +596,54 @@
   ],
   "speaking": [
     {
-      "instructions": "Move from repeating Carlos to answering from memory and then speaking about your own family.",
+      "instructions": "Carlos guides you through the family dinner one response at a time.",
       "items": [
         {
           "stage": "repeat",
+          "label": "Listen",
+          "carlosPrompt": "Esta es mi madre, Elena.",
           "prompt": "Repeat after Carlos.",
+          "cue": "Listen once, then introduce the same person.",
           "text": "Esta es mi madre.",
           "meaning": "This is my mother.",
           "focus": "Connect mi madre smoothly."
         },
         {
           "stage": "repeat",
+          "label": "Your turn",
+          "carlosPrompt": "Este es mi hermano, Diego.",
           "prompt": "Repeat after Carlos.",
+          "cue": "Say the introduction back in one smooth phrase.",
           "text": "Este es mi hermano.",
           "meaning": "This is my brother.",
           "focus": "Keep the h in hermano silent."
         },
         {
           "stage": "recall",
+          "label": "Keep talking",
+          "carlosPrompt": "¿Quién es ella?",
           "prompt": "Carlos points to Lucía and asks: ¿Quién es ella?",
+          "cue": "Identify Lucía using tu because you are speaking to Carlos.",
           "text": "Ella es tu hermana.",
           "meaning": "She is your sister.",
           "focus": "Use tu because you are speaking to Carlos."
         },
         {
           "stage": "recall",
+          "label": "One more challenge",
+          "carlosPrompt": "Mi familia es grande.",
           "prompt": "Ask Carlos whether he has siblings.",
+          "cue": "Try the question from memory before opening the model.",
           "text": "¿Tienes hermanos?",
           "meaning": "Do you have siblings?",
           "focus": "Let your voice rise naturally at the end."
         },
         {
           "stage": "personalize",
+          "label": "Finish the conversation",
+          "carlosPrompt": "¿Y tú? ¿Tienes hermanos?",
           "prompt": "Give a true answer, or use the model if you prefer not to share personal details.",
+          "cue": "Share one true detail or use the imagined-family model.",
           "text": "Sí, tengo una hermana. Se llama Ana.",
           "meaning": "Yes, I have a sister. Her name is Ana.",
           "focus": "Say the two short sentences confidently without rushing."
@@ -836,6 +839,7 @@
       "type": "fillBlank",
       "difficulty": "medium",
       "prompt": "Esta es _____ madre. (my)",
+      "options": ["mi", "tu", "su", "nuestro"],
       "answer": "mi",
       "explanation": "Mi means my and comes before madre."
     },
@@ -843,6 +847,7 @@
       "type": "fillBlank",
       "difficulty": "medium",
       "prompt": "¿Cómo se llama _____ hermano? (your)",
+      "options": ["tu", "mi", "su", "nuestra"],
       "answer": "tu",
       "explanation": "Tu means your when speaking directly to someone."
     },
@@ -874,6 +879,7 @@
       "type": "translation",
       "difficulty": "hard",
       "prompt": "Translate: Ella es mi hermana.",
+      "options": ["She is my sister.", "He is my brother.", "She is your mother.", "This is our daughter."],
       "answer": "She is my sister.",
       "explanation": "Ella means she, and mi hermana means my sister."
     },
@@ -881,6 +887,7 @@
       "type": "translation",
       "difficulty": "hard",
       "prompt": "Translate: ¿Quién es él?",
+      "options": ["Who is he?", "Who is she?", "What is his name?", "Is he your brother?"],
       "answer": "Who is he?",
       "explanation": "Quién means who, and él means he."
     },
@@ -952,6 +959,7 @@
     "xpReward": 10,
     "handoff": "Mañana te escribo. Quiero enseñarte otro lugar especial de Madrid."
   },
+  "carlosClosing": "You met my family and told me about yours entirely in Spanish. Everyone was happy you joined us. Tomorrow I’ll send you a message so we can make our next plan.",
   "passportStamp": {
     "id": "family-dinner-granada",
     "title": "Family Dinner",

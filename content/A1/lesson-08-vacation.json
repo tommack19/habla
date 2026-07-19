@@ -1,6 +1,6 @@
 {
   "id": "lesson-08-vacation",
-  "contentVersion": "1.0",
+  "contentVersion": "1.1",
   "title": "An Afternoon at Home",
   "image": "assets/images/lessons/lesson-08-vacation.png.png",
   "level": "A1",
@@ -176,10 +176,25 @@
   },
   "listening": {
     "title": "A room you can picture",
-    "instructions": "Listen at natural speed. Replay slowly, then decide what exists and where each known object is.",
+    "instructions": "Listen, follow along, then check what you understood.",
     "playbackSpeeds": ["natural", "slow"],
     "naturalScript": "En el salón hay un sofá, una guitarra y una estantería. El sofá está junto a la ventana. La guitarra está al lado del sofá. En la estantería hay libros y una foto de mi familia. La foto está al lado de los libros.",
     "slowScript": "En el salón / hay un sofá, / una guitarra / y una estantería. / El sofá está / junto a la ventana. / La guitarra está / al lado del sofá. / En la estantería / hay libros / y una foto. / La foto está / al lado de los libros.",
+    "transcript": [
+      { "speaker": "Carlos", "spanish": "En el salón hay un sofá, una guitarra y una estantería.", "english": "In the living room there is a sofa, a guitar, and a bookshelf." },
+      { "speaker": "Carlos", "spanish": "El sofá está junto a la ventana.", "english": "The sofa is beside the window." },
+      { "speaker": "Carlos", "spanish": "La guitarra está al lado del sofá.", "english": "The guitar is beside the sofa." },
+      { "speaker": "Marta", "spanish": "¿Qué hay en la estantería?", "english": "What is on the bookshelf?" },
+      { "speaker": "Carlos", "spanish": "Hay libros y una foto de mi familia.", "english": "There are books and a photo of my family." },
+      { "speaker": "Marta", "spanish": "¿Dónde está la foto?", "english": "Where is the photo?" },
+      { "speaker": "Learner", "spanish": "La foto está al lado de los libros.", "english": "The photo is beside the books." }
+    ],
+    "comprehension": [
+      { "prompt": "Which room is Carlos describing?", "options": ["The living room", "The kitchen", "The bedroom"], "answer": "The living room", "explanation": "En el salón means in the living room." },
+      { "prompt": "What is beside the window?", "options": ["The sofa", "The guitar", "The bookshelf"], "answer": "The sofa", "explanation": "El sofá está junto a la ventana locates the sofa beside the window." },
+      { "prompt": "What exists on the bookshelf?", "options": ["Books and a family photo", "A mug and a lamp", "Bread and coffee"], "answer": "Books and a family photo", "explanation": "Carlos says hay libros y una foto de mi familia." },
+      { "prompt": "Where is the family photo?", "options": ["Beside the books", "Under the sofa", "On the kitchen table"], "answer": "Beside the books", "explanation": "La foto está al lado de los libros means the photo is beside the books." }
+    ],
     "items": [
       { "spanish": "En el salón hay un sofá.", "options": ["There is a sofa in the living room.", "The sofa is in the kitchen.", "There is a table in the bedroom."], "answer": "There is a sofa in the living room." },
       { "spanish": "El sofá está junto a la ventana.", "options": ["The sofa is by the window.", "The window is under the sofa.", "There is a sofa by the door."], "answer": "The sofa is by the window." },
@@ -206,13 +221,13 @@
     ]
   },
   "speaking": {
-    "instructions": "Repeat the two patterns, recall them from a room prompt, then describe one real room around you.",
+    "instructions": "Carlos and Marta guide you through describing the familiar apartment one response at a time.",
     "items": [
-      { "stage": "repeat", "prompt": "Introduce an object in the living room.", "text": "En el salón hay un sofá.", "meaning": "In the living room there is a sofa.", "focus": "Use hay because the sofa is new information." },
-      { "stage": "repeat", "prompt": "Locate that same sofa.", "text": "El sofá está junto a la ventana.", "meaning": "The sofa is by the window.", "focus": "Use está because both people now know which sofa." },
-      { "stage": "recall", "prompt": "Marta asks what is in the kitchen. Name one thing.", "text": "En la cocina hay una mesa.", "meaning": "In the kitchen there is a table.", "focus": "Start with the room, then hay una." },
-      { "stage": "recall", "prompt": "Carlos asks where the mug is. Locate it on the table.", "text": "La taza está sobre la mesa.", "meaning": "The mug is on the table.", "focus": "Switch from hay to está for the known mug." },
-      { "stage": "personalize", "prompt": "Look at one room near you. Say one thing that exists, then say where it is.", "text": "En mi habitación hay una lámpara. La lámpara está al lado de la cama.", "meaning": "There is a lamp in my room. The lamp is beside the bed.", "focus": "Replace the details with ones that are true for you." }
+      { "stage": "repeat", "label": "Listen", "carlosPrompt": "En el salón hay un sofá.", "cue": "Hear how hay introduces something in the room, then repeat it.", "prompt": "Introduce an object in the living room.", "text": "En el salón hay un sofá.", "meaning": "In the living room there is a sofa.", "focus": "Use hay because the sofa is new information." },
+      { "stage": "repeat", "label": "Your turn", "carlosPrompt": "¿Dónde está el sofá?", "cue": "Locate the same sofa now that both people know it.", "prompt": "Locate the sofa.", "text": "El sofá está junto a la ventana.", "meaning": "The sofa is by the window.", "focus": "Use está because both people now know which sofa." },
+      { "stage": "recall", "label": "Keep talking", "carlosPrompt": "Marta pregunta: ¿Qué hay en la cocina?", "cue": "Name one thing using hay before opening the model.", "prompt": "Say what exists in the kitchen.", "text": "En la cocina hay una mesa.", "meaning": "In the kitchen there is a table.", "focus": "Start with the room, then hay una." },
+      { "stage": "recall", "label": "One more challenge", "carlosPrompt": "Siempre pierdo mi taza. ¿Dónde está?", "cue": "Locate Carlos’s known mug on the table.", "prompt": "Tell Carlos where the mug is.", "text": "La taza está sobre la mesa.", "meaning": "The mug is on the table.", "focus": "Switch from hay to está for the known mug." },
+      { "stage": "personalize", "label": "Finish the conversation", "carlosPrompt": "¿Qué hay en una habitación cerca de ti? ¿Dónde está?", "cue": "Describe one real object and its location.", "prompt": "Describe one room around you.", "text": "En mi habitación hay una lámpara. La lámpara está al lado de la cama.", "meaning": "There is a lamp in my room. The lamp is beside the bed.", "focus": "Replace the details with ones that are true for you." }
     ]
   },
   "flashcards": [
@@ -338,6 +353,7 @@
     "unlockCondition": "Complete Lesson 8."
   },
   "achievementsUnlocked": ["at_home_in_spanish"],
+  "carlosClosing": "You remembered my home, chose where to explore, and described what was there and where it belonged. Make yourself comfortable—the rain is still falling, so I’ll tell you what an ordinary day here looks like.",
   "xpReward": 70,
   "nextLesson": "lesson-09-around-the-house"
 }

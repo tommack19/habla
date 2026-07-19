@@ -1,6 +1,6 @@
 {
   "id": "lesson-05-shopping",
-  "contentVersion": "1.0",
+  "contentVersion": "1.1",
   "title": "Fresh Fruit and Fresh Spanish",
   "image": "assets/images/lessons/lesson-05-shopping.png.png",
   "level": "A1",
@@ -168,11 +168,26 @@
   "listening": [
     {
       "title": "Spanish all around you",
-      "instructions": "Listen to the market soundscape at natural speed. Replay the foreground voices slowly when needed.",
+      "instructions": "Listen, follow along, then check what you understood.",
       "playbackSpeeds": ["natural", "slow"],
       "soundscape": ["vendors greeting customers", "a family choosing fruit", "a child asking for juice", "a short stall announcement", "bags and café cups in the background"],
       "naturalScript": "Buenos días. Tenemos pan fresco. — Mamá, quiero este zumo. — ¿Cuánto cuestan estas manzanas? — Tres euros. — Gracias.",
       "slowScript": "Buenos días. / Tenemos pan fresco. / Mamá, / quiero este zumo. / ¿Cuánto cuestan / estas manzanas? / Tres euros. / Gracias.",
+      "transcript": [
+        { "speaker": "Vendor", "spanish": "Buenos días. Tenemos pan fresco.", "english": "Good morning. We have fresh bread." },
+        { "speaker": "Child", "spanish": "Mamá, quiero este zumo.", "english": "Mom, I want this juice." },
+        { "speaker": "Customer", "spanish": "¿Cuánto cuestan estas manzanas?", "english": "How much do these apples cost?" },
+        { "speaker": "Vendor", "spanish": "Tres euros.", "english": "Three euros." },
+        { "speaker": "Customer", "spanish": "Perfecto. Una bolsa, por favor.", "english": "Perfect. One bag, please." },
+        { "speaker": "Vendor", "spanish": "Claro.", "english": "Of course." },
+        { "speaker": "Customer", "spanish": "Gracias.", "english": "Thank you." }
+      ],
+      "comprehension": [
+        { "prompt": "What is the vendor advertising?", "options": ["Fresh bread", "Sweet oranges", "Large tomatoes"], "answer": "Fresh bread", "explanation": "Tenemos pan fresco means we have fresh bread." },
+        { "prompt": "What does the child want?", "options": ["This juice", "These apples", "That bread"], "answer": "This juice", "explanation": "Quiero este zumo means I want this juice." },
+        { "prompt": "How much do the apples cost?", "options": ["Three euros", "One euro", "Ten euros"], "answer": "Three euros", "explanation": "The vendor answers tres euros." },
+        { "prompt": "What does the customer request after accepting the price?", "options": ["A bag", "A coffee", "A different stall"], "answer": "A bag", "explanation": "Una bolsa, por favor asks for one bag, please." }
+      ],
       "items": [
         { "spanish": "Tenemos pan fresco.", "options": ["We have fresh bread.", "We need a large bag.", "This cheese is expensive."], "answer": "We have fresh bread." },
         { "spanish": "Mamá, quiero este zumo.", "options": ["Mom, I want this juice.", "Mom sells orange juice.", "I need these tomatoes."], "answer": "Mom, I want this juice." },
@@ -204,13 +219,13 @@
   ],
   "speaking": [
     {
-      "instructions": "Repeat one market request, recall it without support, then talk about what you normally buy.",
+      "instructions": "Carlos guides you through the market purchase one response at a time.",
       "items": [
-        { "stage": "repeat", "prompt": "Repeat after Carlos.", "text": "Quiero este pan, por favor.", "meaning": "I want this bread, please.", "focus": "Connect quiero este smoothly." },
-        { "stage": "repeat", "prompt": "Repeat after Carlos.", "text": "¿Cuánto cuesta?", "meaning": "How much does it cost?", "focus": "Keep the question lively and clear." },
-        { "stage": "recall", "prompt": "Point to several apples and ask for them.", "text": "Quiero estas manzanas, por favor.", "meaning": "I want these apples, please.", "focus": "Use estas because manzanas is feminine plural." },
-        { "stage": "recall", "prompt": "The vendor gives you the item. Thank them and finish.", "text": "Perfecto. Nada más, gracias.", "meaning": "Perfect. Nothing else, thank you.", "focus": "Close naturally without adding English." },
-        { "stage": "personalize", "prompt": "Carlos asks: ¿Qué compras normalmente? Name one real product you usually buy.", "text": "Normalmente compro pan y café.", "meaning": "I normally buy bread and coffee.", "focus": "Replace pan and café with products true for you." }
+        { "stage": "repeat", "label": "Listen", "carlosPrompt": "Quiero este pan, por favor.", "cue": "Hear the complete request once, then order the same item.", "prompt": "Repeat after Carlos.", "text": "Quiero este pan, por favor.", "meaning": "I want this bread, please.", "focus": "Connect quiero este smoothly." },
+        { "stage": "repeat", "label": "Your turn", "carlosPrompt": "El vendedor espera tu pregunta.", "cue": "Ask the price as one familiar chunk.", "prompt": "Ask how much the item costs.", "text": "¿Cuánto cuesta?", "meaning": "How much does it cost?", "focus": "Keep the question lively and clear." },
+        { "stage": "recall", "label": "Keep talking", "carlosPrompt": "Mira estas manzanas. ¿Qué quieres?", "cue": "Point to several apples and order them politely.", "prompt": "Ask for the apples.", "text": "Quiero estas manzanas, por favor.", "meaning": "I want these apples, please.", "focus": "Use estas because manzanas is feminine plural." },
+        { "stage": "recall", "label": "One more challenge", "carlosPrompt": "¿Algo más?", "cue": "Tell the vendor you are finished and thank them.", "prompt": "Close the purchase naturally.", "text": "Nada más, gracias.", "meaning": "Nothing else, thank you.", "focus": "Close naturally without adding English." },
+        { "stage": "personalize", "label": "Finish the conversation", "carlosPrompt": "¿Qué compras normalmente?", "cue": "Name one or two products you really buy.", "prompt": "Tell Carlos what you normally buy.", "text": "Normalmente compro pan y café.", "meaning": "I normally buy bread and coffee.", "focus": "Replace pan and café with products true for you." }
       ]
     }
   ],
@@ -323,6 +338,7 @@
     "unlockCondition": "Complete Lesson 5."
   },
   "achievementsUnlocked": ["helpful_shopper"],
+  "carlosClosing": "You chose what to buy and completed a real market purchase in Spanish. Thanks for helping with lunch—next, I’ll take you to my favorite café and show you how to order like a local.",
   "xpReward": 65,
   "nextLesson": "lesson-06-food-drinks"
 }

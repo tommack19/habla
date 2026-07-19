@@ -20,6 +20,7 @@ const ICONS = {
   back: `<path d="m15 18-6-6 6-6"/>`,
   book: `<path d="M4 5.5A2.5 2.5 0 0 1 6.5 3H11a3 3 0 0 1 3 3v15a3 3 0 0 0-3-3H4V5.5Z"/><path d="M20 5.5A2.5 2.5 0 0 0 17.5 3H14v18a3 3 0 0 1 3-3h3V5.5Z"/>`,
   sound: `<path d="M5 10v4h3l4 3V7l-4 3H5Z"/><path d="M15 9.5a4 4 0 0 1 0 5M17.5 7a7 7 0 0 1 0 10"/>`,
+  mic: `<rect x="9" y="3" width="6" height="11" rx="3"/><path d="M6 10a6 6 0 0 0 12 0M12 16v5M9 21h6"/>`,
   check: `<path d="m5 12 4 4L19 6"/>`,
   arrow: `<path d="m8 5 7 7-7 7"/>`,
   message: `<path d="M4 5h16v11H8l-4 4V5Z"/>`,
@@ -55,17 +56,13 @@ export function renderLesson() {
   const steps = buildLessonSteps(lesson);
   const stepIndex = clamp(Number(progress.rendererStep || 0), 0, Math.max(steps.length - 1, 0));
   const step = steps[stepIndex];
-  const completedSections = new Set(progress.completedSections || []);
   const percent = progress.completed
     ? 100
-    : Math.round((completedSections.size / Math.max(steps.length, 1)) * 100);
+    : Math.round(((stepIndex + 1) / Math.max(steps.length, 1)) * 100);
 
   return `
     <section class="lesson-v2 emotion-${slugify(lesson.emotionalArc?.emotion || "journey")}" aria-label="${escapeAttr(lesson.title)} lesson">
       ${renderLessonHeader(lesson, step, stepIndex, steps, percent, progress)}
-      <nav class="lesson-step-rail" aria-label="Lesson sections">
-        ${steps.map((item, index) => renderStepDot(item, index, stepIndex, completedSections, progress.completed)).join("")}
-      </nav>
       <main class="lesson-stage" id="lesson-stage" tabindex="-1">
         ${renderStep(step, lesson, progress)}
       </main>
@@ -104,16 +101,10 @@ function renderLessonHeader(lesson, step, stepIndex, steps, percent, progress) {
         <span>Lesson ${getLessonNumber(lesson)} · ${escapeHtml(step?.label || "Lesson")}</span>
         <strong>${escapeHtml(lesson.title)}</strong>
       </div>
-      <span class="lesson-header-count">${progress.completed ? "Done" : `${stepIndex + 1}/${steps.length}`}</span>
+      <span class="lesson-header-count"><strong>${progress.completed ? "Done" : `${stepIndex + 1}/${steps.length}`}</strong><small>${percent}%</small></span>
       <div class="lesson-header-progress" aria-label="${percent}% complete"><i style="width:${percent}%"></i></div>
     </header>
   `;
-}
-
-function renderStepDot(step, index, activeIndex, completedSections, lessonCompleted) {
-  const done = lessonCompleted || completedSections.has(step.id);
-  const available = index <= activeIndex || done;
-  return `<button type="button" class="lesson-step-dot ${index === activeIndex ? "active" : ""} ${done ? "done" : ""}" onclick="hablaLesson.goTo(${index})" ${available ? "" : "disabled"} aria-label="${escapeAttr(step.label)}${done ? ", complete" : ""}"><i>${done ? icon("check") : index + 1}</i><span>${escapeHtml(step.label)}</span></button>`;
 }
 
 function renderStep(step, lesson, progress) {
@@ -268,7 +259,7 @@ function renderListening(lesson, progress) {
     ${pass === 0 ? `
       <article class="lesson-listening-coach">
         <img src="${escapeAttr(getCarlosAsset("speaking"))}" alt="Carlos guiding your listening practice" onerror="${CARLOS_FALLBACK_ONERROR}">
-        <div><small>Pass 1 · Listen only</small><h2>Listen to Carlos one more time</h2><p>Put the transcript away. You do not need to catch every word—just follow the conversation.</p></div>
+        <div><small>Pass 1 · Listen only</small><h2>Listen once.</h2><p>Don’t worry if you miss words. Just follow the conversation.</p></div>
         <button type="button" data-speech="${escapeAttr(script)}" data-rate="0.92" onclick="hablaLesson.speak(this.dataset.speech, this.dataset.rate)">${icon("sound")} Play conversation</button>
       </article>
       <button class="lesson-listening-next" type="button" onclick="hablaLesson.setListeningPass(1)">Follow with the transcript${icon("arrow")}</button>
@@ -305,7 +296,7 @@ function renderSpeaking(lesson) {
   return `
     <section class="lesson-section-heading"><span>Speaking with Carlos</span><h1>Now let’s try it together</h1><p>${escapeHtml(speaking.instructions || "Carlos will guide you through the same café conversation, one natural response at a time.")}</p></section>
     <article class="lesson-speaking-coach"><img src="${escapeAttr(getCarlosAsset("speaking"))}" alt="Carlos coaching your Spanish conversation" onerror="${CARLOS_FALLBACK_ONERROR}"><div><small>Carlos says</small><strong>We’ve heard the conversation. Now talk with me—I’ll help you all the way through.</strong></div></article>
-    <div class="lesson-speaking-path">${items.map((item, index) => `<article class="stage-${escapeAttr(item.stage || (index < 2 ? "repeat" : "personalize"))}"><header><i>${index + 1}</i><span>${escapeHtml(item.label || stageLabels[index] || "Keep talking")}</span></header><div class="lesson-speaking-prompt"><small>Carlos</small><h2>${escapeHtml(item.carlosPrompt || item.prompt)}</h2></div><p class="lesson-speaking-cue">${escapeHtml(item.cue || "Say your answer aloud.")}</p><button type="button" data-speech="${escapeAttr(item.text || item.exampleAnswer || "")}" onclick="hablaLesson.speak(this.dataset.speech)"><strong>${escapeHtml(item.text || item.exampleAnswer || "Create your own answer")}</strong>${icon("sound")}</button>${item.meaning ? `<p class="lesson-speaking-meaning">${escapeHtml(item.meaning)}</p>` : ""}</article>`).join("")}</div>
+    <div class="lesson-speaking-path">${items.map((item, index) => `<article class="stage-${escapeAttr(item.stage || (index < 2 ? "repeat" : "personalize"))}"><header><i>${index + 1}</i><span>${escapeHtml(item.label || stageLabels[index] || "Keep talking")}</span></header><div class="lesson-speaking-prompt"><div><small>Carlos</small><h2>${escapeHtml(item.carlosPrompt || item.prompt)}</h2></div><button type="button" data-speech="${escapeAttr(item.carlosPrompt || item.text || "")}" onclick="hablaLesson.speak(this.dataset.speech)" aria-label="Hear Carlos">${icon("sound")}</button></div><div class="lesson-speaking-turn"><span>${icon("mic")}</span><div><small>Your turn</small><strong>${escapeHtml(item.prompt)}</strong><p>${escapeHtml(item.cue || "Say your answer aloud.")}</p></div></div><details class="lesson-speaking-model"><summary>Need a model?</summary><button type="button" data-speech="${escapeAttr(item.text || item.exampleAnswer || "")}" onclick="hablaLesson.speak(this.dataset.speech)"><strong>${escapeHtml(item.text || item.exampleAnswer || "Create your own answer")}</strong>${icon("sound")}</button>${item.meaning ? `<p>${escapeHtml(item.meaning)}</p>` : ""}</details></article>`).join("")}</div>
   `;
 }
 
@@ -378,8 +369,10 @@ function renderCulture(lesson) {
 
 function renderReward(lesson) {
   const ceremony = lesson.chapterCeremony;
+  const closing = lesson.carlosClosing || lesson.realLifeMission?.completionResponse;
   return `
     <section class="lesson-section-heading"><span>${ceremony ? "Chapter complete" : "Mission accomplished"}</span><h1>${escapeHtml(ceremony?.title || "You made this part of Madrid yours")}</h1><p>${escapeHtml(ceremony?.subtitle || "Your conversation becomes part of your Spanish passport.")}</p></section>
+    ${closing ? `<article class="lesson-carlos-closing"><img src="${escapeAttr(getCarlosAsset("celebrating"))}" alt="Carlos celebrating your lesson progress" onerror="${CARLOS_FALLBACK_ONERROR}"><div><small>Carlos</small><blockquote>${escapeHtml(closing)}</blockquote>${lesson.microCliffhanger?.english ? `<p>${escapeHtml(lesson.microCliffhanger.english)}</p>` : ""}</div></article>` : ""}
     ${ceremony ? `<article class="lesson-chapter-ceremony"><small>Carlos says</small><blockquote>${escapeHtml(ceremony.carlosSpanish)}</blockquote><p>${escapeHtml(ceremony.carlosEnglish)}</p>${ceremony.journey?.length ? `<div>${ceremony.journey.map(place => `<span>${escapeHtml(place)}</span>`).join("")}</div>` : ""}${ceremony.nextDestination ? `<b>Next destination · ${escapeHtml(ceremony.nextDestination)}</b>` : ""}</article>` : ""}
     <div class="lesson-reward-grid">
       ${lesson.passportStamp ? `<article class="lesson-passport-reward"><span>${icon("passport")}</span><small>Passport stamp</small><h2>${escapeHtml(lesson.passportStamp.title)}</h2><p>${escapeHtml(lesson.passportStamp.description)}</p><b>${escapeHtml(lesson.passportStamp.city || "España")}</b></article>` : ""}
@@ -408,10 +401,15 @@ function renderLessonControls(step, stepIndex, steps, lesson, progress) {
   const choiceBlocked = step?.type === "choice" && !progress.selectedChoiceId && !getLessonMemory(lesson.id)?.choiceId;
   const quizBlocked = step?.type === "quiz" && !progress.rendererQuiz?.complete;
   const blocked = choiceBlocked || quizBlocked;
+  const nextLabel = progress.completed && isLast
+    ? "Back to Learn"
+    : isLast
+      ? "Complete episode"
+      : `Next · ${steps[stepIndex + 1]?.label || "Lesson"}`;
   return `
     <footer class="lesson-controls">
       <button type="button" class="lesson-control-secondary" onclick="hablaLesson.previous()" ${stepIndex === 0 ? "disabled" : ""}>${icon("back")} Back</button>
-      <button type="button" class="lesson-control-primary" onclick="hablaLesson.next()" ${blocked ? "disabled" : ""}><span>${progress.completed && isLast ? "Back to Learn" : isLast ? "Complete Episode" : "Continue"}</span>${icon(progress.completed && isLast ? "check" : "arrow")}</button>
+      <button type="button" class="lesson-control-primary" onclick="hablaLesson.next()" ${blocked ? "disabled" : ""}><span>${escapeHtml(nextLabel)}</span>${icon(progress.completed && isLast ? "check" : "arrow")}</button>
     </footer>
   `;
 }

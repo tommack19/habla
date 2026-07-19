@@ -1,6 +1,6 @@
 {
   "id": "lesson-04-numbers-time",
-  "contentVersion": "1.0",
+  "contentVersion": "1.1",
   "title": "Saturday at the Market",
   "image": "assets/images/lessons/lesson-04-numbers-time.png.png",
   "level": "A1",
@@ -225,10 +225,26 @@
   "listening": [
     {
       "title": "Carlos’s WhatsApp message",
-      "instructions": "Listen once at natural speed. Replay slowly if needed, then answer without translating every word.",
+      "instructions": "Listen, follow along, then check what you understood.",
       "playbackSpeeds": ["natural", "slow"],
       "naturalScript": "Hola, Tom. ¡Qué bien lo pasamos ayer! ¿Cómo está tu familia? ¿Estás libre este sábado? Podemos ir al mercado juntos. ¿A las diez de la mañana?",
       "slowScript": "Hola, Tom. / ¡Qué bien lo pasamos ayer! / ¿Cómo está tu familia? / ¿Estás libre / este sábado? / Podemos ir / al mercado / juntos. / ¿A las diez / de la mañana?",
+      "transcript": [
+        { "speaker": "Carlos", "spanish": "Hola, Tom. ¡Qué bien lo pasamos ayer!", "english": "Hi, Tom. We had such a good time yesterday!" },
+        { "speaker": "Carlos", "spanish": "¿Cómo está tu familia?", "english": "How is your family?" },
+        { "speaker": "Learner", "spanish": "Mi familia está muy bien.", "english": "My family is very well." },
+        { "speaker": "Carlos", "spanish": "¿Estás libre este sábado?", "english": "Are you free this Saturday?" },
+        { "speaker": "Carlos", "spanish": "Podemos ir al mercado juntos.", "english": "We can go to the market together." },
+        { "speaker": "Learner", "spanish": "Sí, claro.", "english": "Yes, of course." },
+        { "speaker": "Carlos", "spanish": "¿A las diez de la mañana?", "english": "At ten in the morning?" },
+        { "speaker": "Learner", "spanish": "Sí, perfecto. Nos vemos el sábado.", "english": "Yes, perfect. See you Saturday." }
+      ],
+      "comprehension": [
+        { "prompt": "Why does Carlos message you?", "options": ["To arrange a market visit", "To cancel the family dinner", "To ask where Ana lives"], "answer": "To arrange a market visit", "explanation": "Carlos asks whether you are free and proposes going to the market together." },
+        { "prompt": "Which day does Carlos suggest?", "options": ["Saturday", "Friday", "Sunday"], "answer": "Saturday", "explanation": "Este sábado means this Saturday." },
+        { "prompt": "What time will you meet?", "options": ["Ten in the morning", "Four in the afternoon", "Eight at night"], "answer": "Ten in the morning", "explanation": "A las diez de la mañana gives the exact meeting time." },
+        { "prompt": "How does the learner respond to the plan?", "options": ["The learner accepts it", "The learner says they are busy", "The learner suggests another day"], "answer": "The learner accepts it", "explanation": "Sí, claro and sí, perfecto both accept Carlos’s plan." }
+      ],
       "items": [
         { "spanish": "¿Estás libre este sábado?", "options": ["Are you free this Saturday?", "Are you at the market today?", "Is your family here Sunday?"], "answer": "Are you free this Saturday?" },
         { "spanish": "Podemos ir al mercado juntos.", "options": ["We can go to the market together.", "The market closes early.", "I’m busy at the market."], "answer": "We can go to the market together." },
@@ -247,13 +263,13 @@
   ],
   "speaking": [
     {
-      "instructions": "Move from copying Carlos to arranging a plan that fits your own life.",
+      "instructions": "Carlos guides you through making the plan one response at a time.",
       "items": [
-        { "stage": "repeat", "prompt": "Repeat after Carlos.", "text": "¿Estás libre este sábado?", "meaning": "Are you free this Saturday?", "focus": "Keep the question smooth and connected." },
-        { "stage": "repeat", "prompt": "Repeat after Carlos.", "text": "Nos vemos a las diez.", "meaning": "See you at ten.", "focus": "Say a las diez as one chunk." },
-        { "stage": "recall", "prompt": "Carlos asks: ¿Estás libre este sábado? Accept the invitation.", "text": "Sí, estoy libre.", "meaning": "Yes, I’m free.", "focus": "Answer without reading if you can." },
-        { "stage": "recall", "prompt": "Ask Carlos when the plan is.", "text": "¿Cuándo?", "meaning": "When?", "focus": "Use the single question confidently." },
-        { "stage": "personalize", "prompt": "Carlos asks: ¿Cuándo estás libre normalmente? Give a true day and part of the day.", "text": "Estoy libre el sábado por la mañana.", "meaning": "I’m free Saturday morning.", "focus": "Change sábado and mañana to fit your life." }
+        { "stage": "repeat", "label": "Listen", "carlosPrompt": "¿Estás libre este sábado?", "cue": "Hear the question once, then ask Carlos the same thing.", "prompt": "Repeat after Carlos.", "text": "¿Estás libre este sábado?", "meaning": "Are you free this Saturday?", "focus": "Keep the question smooth and connected." },
+        { "stage": "repeat", "label": "Your turn", "carlosPrompt": "Sí, estoy libre. ¿Y tú?", "cue": "Tell Carlos you are free and keep the exchange moving.", "prompt": "Accept the invitation.", "text": "Sí, estoy libre.", "meaning": "Yes, I’m free.", "focus": "Say the answer as one confident chunk." },
+        { "stage": "recall", "label": "Keep talking", "carlosPrompt": "Podemos ir al mercado juntos.", "cue": "Ask when before opening the model.", "prompt": "Ask Carlos when the plan is.", "text": "¿Cuándo?", "meaning": "When?", "focus": "Use the single question confidently." },
+        { "stage": "recall", "label": "One more challenge", "carlosPrompt": "El sábado. ¿A las diez de la mañana?", "cue": "Confirm the time and close the plan naturally.", "prompt": "Accept ten o’clock and say you will see him then.", "text": "Sí, perfecto. Nos vemos entonces.", "meaning": "Yes, perfect. See you then.", "focus": "Say a las diez and nos vemos as familiar planning chunks." },
+        { "stage": "personalize", "label": "Finish the conversation", "carlosPrompt": "¿Cuándo estás libre normalmente?", "cue": "Give a true day and part of the day from your own life.", "prompt": "Tell Carlos when you are normally free.", "text": "Estoy libre el sábado por la mañana.", "meaning": "I’m free Saturday morning.", "focus": "Change sábado and mañana to fit your life." }
       ]
     }
   ],
@@ -369,6 +385,7 @@
     "unlockCondition": "Complete Lesson 4."
   },
   "achievementsUnlocked": ["plan_maker"],
+  "carlosClosing": "You arranged our Saturday market visit entirely in Spanish—from choosing the day to confirming the time. Tomorrow we’ll meet at the market, and this time you’ll help me shop.",
   "xpReward": 60,
   "nextLesson": "lesson-05-shopping"
 }

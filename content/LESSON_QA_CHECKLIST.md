@@ -79,3 +79,38 @@ This checklist is the approval gate in `content/CONTENT_PRODUCTION_PIPELINE.md`.
 - Technical validation: [ ] Passed
 - End-to-end app check: [ ] Passed
 - Production status: [ ] Approved
+
+## Lesson Definition of Done
+
+A lesson is not complete until every item below passes. This is the final release gate; a partial pass remains production-incomplete.
+
+### Narrative
+
+- [ ] Continues the previous story naturally.
+- [ ] Ends with anticipation for the next lesson.
+- [ ] Carlos speaks in his established warm, concise, encouraging voice.
+
+### Learning
+
+- [ ] Has one clear grammar objective, or explicitly introduces no new grammar when it is a chapter capstone.
+- [ ] Vocabulary is tied directly to the mission.
+- [ ] Every tested phrase appears in context before assessment.
+- [ ] Earlier language returns through invisible spiral review.
+
+### Experience
+
+- [ ] Listening uses the three-pass flow: listen, follow along, understand.
+- [ ] Speaking uses five coached stages ending in personalization.
+- [ ] Flashcards prioritize the learner’s relevant choices or progress when adaptive context exists.
+- [ ] Every quiz answer includes a useful explanation.
+- [ ] A passport reward marks the real communication success.
+- [ ] Carlos gives a personal closing that celebrates the learner and hands off to the next episode.
+
+### Technical
+
+- [ ] JSON parses and passes structural validation.
+- [ ] Branch choices are valid, equivalent in learning value, and rejoin the canonical story.
+- [ ] Memory writes use only the frozen A1 memory architecture and record explicit facts or choices.
+- [ ] Every spoken Spanish item resolves to an audio reference or the app’s supported speech-synthesis path.
+- [ ] The lesson renderer remains usable at supported mobile and desktop widths without covered content or horizontal scrolling.
+- [ ] Controls, labels, focus order, contrast, transcripts, and non-audio alternatives pass accessibility review.

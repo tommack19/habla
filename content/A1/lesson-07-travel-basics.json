@@ -1,6 +1,6 @@
 {
   "id": "lesson-07-travel-basics",
-  "contentVersion": "1.0",
+  "contentVersion": "1.1",
   "title": "Walking Through Madrid",
   "image": "assets/images/lessons/lesson-07-travel.png.png",
   "level": "A1",
@@ -148,10 +148,26 @@
   },
   "listening": {
     "title": "Three cues through the city",
-    "instructions": "Listen to the complete route at natural speed. Replay it slowly, then identify the three cues in order.",
+    "instructions": "Listen, follow along, then check what you understood.",
     "playbackSpeeds": ["natural", "slow"],
     "naturalScript": "Está cerca. Sigue todo recto. Después, gira a la derecha en la panadería. Cruza la calle. La plaza está a la izquierda.",
     "slowScript": "Está cerca. / Sigue todo recto. / Después, / gira a la derecha / en la panadería. / Cruza la calle. / La plaza está / a la izquierda.",
+    "transcript": [
+      { "speaker": "Learner", "spanish": "Perdón, ¿dónde está Plaza Mayor?", "english": "Excuse me, where is Plaza Mayor?" },
+      { "speaker": "Vecina", "spanish": "Está cerca. Sigue todo recto.", "english": "It is nearby. Continue straight ahead." },
+      { "speaker": "Learner", "spanish": "Todo recto. Perfecto.", "english": "Straight ahead. Perfect." },
+      { "speaker": "Vecina", "spanish": "Después, gira a la derecha en la panadería.", "english": "Then turn right at the bakery." },
+      { "speaker": "Vecina", "spanish": "Cruza la calle. La plaza está a la izquierda.", "english": "Cross the street. The plaza is on the left." },
+      { "speaker": "Learner", "spanish": "Gracias por la ayuda.", "english": "Thank you for the help." },
+      { "speaker": "Carlos", "spanish": "¿Y ahora? ¿Dónde está la plaza?", "english": "And now? Where is the plaza?" },
+      { "speaker": "Learner", "spanish": "Está allí, a la izquierda.", "english": "It is there, on the left." }
+    ],
+    "comprehension": [
+      { "prompt": "What should the learner do first?", "options": ["Continue straight", "Turn left", "Cross the street"], "answer": "Continue straight", "explanation": "Sigue todo recto is the first route cue." },
+      { "prompt": "Where should the learner turn right?", "options": ["At the bakery", "At the fountain", "At the café"], "answer": "At the bakery", "explanation": "The neighbor says gira a la derecha en la panadería." },
+      { "prompt": "What happens immediately before reaching the plaza?", "options": ["The learner crosses the street", "The learner orders coffee", "The learner returns home"], "answer": "The learner crosses the street", "explanation": "Cruza la calle comes just before the final location cue." },
+      { "prompt": "Where is the plaza at the end?", "options": ["On the left", "On the right", "Behind the market"], "answer": "On the left", "explanation": "La plaza está a la izquierda means the plaza is on the left." }
+    ],
     "items": [
       { "spanish": "Sigue todo recto.", "options": ["Continue straight ahead.", "Turn right.", "Cross the street."], "answer": "Continue straight ahead." },
       { "spanish": "Gira a la derecha en la panadería.", "options": ["Turn right at the bakery.", "Turn left at the pharmacy.", "Stop beside the café."], "answer": "Turn right at the bakery." },
@@ -178,13 +194,13 @@
     ]
   },
   "speaking": {
-    "instructions": "Repeat the route cues, recall them without support, then locate a real place near you.",
+    "instructions": "Carlos steps back while you ask for and follow the route one response at a time.",
     "items": [
-      { "stage": "repeat", "prompt": "Repeat the direction question.", "text": "Perdón, ¿dónde está Plaza Mayor?", "meaning": "Excuse me, where is Plaza Mayor?", "focus": "Pause after Perdón." },
-      { "stage": "repeat", "prompt": "Repeat the first two route cues.", "text": "Todo recto. Después, a la derecha.", "meaning": "Straight ahead. Then, to the right.", "focus": "Keep the two directions distinct." },
-      { "stage": "recall", "prompt": "The local points left. Say where the plaza is.", "text": "La plaza está a la izquierda.", "meaning": "The plaza is on the left.", "focus": "Use está for the singular place." },
-      { "stage": "recall", "prompt": "Use the bakery as a landmark.", "text": "Está al lado de la panadería.", "meaning": "It is beside the bakery.", "focus": "Keep al lado de as one location chunk." },
-      { "stage": "personalize", "prompt": "Ask where one real place near you is, then answer with aquí, allí, cerca, or a side.", "text": "¿Dónde está la farmacia? Está allí, a la derecha.", "meaning": "Where is the pharmacy? It is there, on the right.", "focus": "Replace farmacia with a place true for you." }
+      { "stage": "repeat", "label": "Listen", "carlosPrompt": "Perdón, ¿dónde está Plaza Mayor?", "cue": "Hear the complete question once, then ask it yourself.", "prompt": "Repeat the direction question.", "text": "Perdón, ¿dónde está Plaza Mayor?", "meaning": "Excuse me, where is Plaza Mayor?", "focus": "Pause after Perdón." },
+      { "stage": "repeat", "label": "Your turn", "carlosPrompt": "Sigue todo recto. Después, gira a la derecha.", "cue": "Repeat the route in two clear chunks.", "prompt": "Repeat the first two route cues.", "text": "Todo recto. Después, a la derecha.", "meaning": "Straight ahead. Then, to the right.", "focus": "Keep the two directions distinct." },
+      { "stage": "recall", "label": "Keep talking", "carlosPrompt": "La plaza está allí. ¿Dónde está?", "cue": "Use está and the side the neighbor gave you.", "prompt": "Say where the plaza is.", "text": "La plaza está a la izquierda.", "meaning": "The plaza is on the left.", "focus": "Use está for the singular place." },
+      { "stage": "recall", "label": "One more challenge", "carlosPrompt": "¿Dónde está la plaza desde la panadería?", "cue": "Use the bakery as a landmark before opening the model.", "prompt": "Locate it beside the bakery.", "text": "Está al lado de la panadería.", "meaning": "It is beside the bakery.", "focus": "Keep al lado de as one location chunk." },
+      { "stage": "personalize", "label": "Finish the conversation", "carlosPrompt": "¿Dónde está un lugar cerca de ti?", "cue": "Ask about one real place, then locate it with aquí, allí, cerca, or a side.", "prompt": "Locate a real place near you.", "text": "¿Dónde está la farmacia? Está allí, a la derecha.", "meaning": "Where is the pharmacy? It is there, on the right.", "focus": "Replace farmacia with a place true for you." }
     ]
   },
   "flashcards": [
@@ -324,6 +340,7 @@
     "unlockCondition": "Complete Lesson 7."
   },
   "achievementsUnlocked": ["found_the_way"],
+  "carlosClosing": "You asked for the route, followed every cue, and found Plaza Mayor without waiting for me to answer. That independence matters—now the rain is starting, and my apartment is close.",
   "xpReward": 70,
   "nextLesson": "lesson-08-vacation"
 }

@@ -1,6 +1,6 @@
 {
   "id": "lesson-06-food-drinks",
-  "contentVersion": "1.0",
+  "contentVersion": "1.1",
   "title": "Coffee Break",
   "image": "assets/images/lessons/lesson-06-food-drinks.png.png",
   "level": "A1",
@@ -193,10 +193,25 @@
   },
   "listening": {
     "title": "A real café exchange",
-    "instructions": "Listen once at a natural café pace. Then replay the same order slowly without changing the wording.",
+    "instructions": "Listen, follow along, then check what you understood.",
     "playbackSpeeds": ["natural", "slow"],
     "naturalScript": "Buenos días. ¿Qué vais a tomar? — Quisiera un café con leche, por favor. — Muy bien. ¿Algo para comer? — Para mí, una tostada. — ¿Algo más? — Nada más, gracias.",
     "slowScript": "Buenos días. / ¿Qué vais a tomar? / Quisiera un café con leche, / por favor. / Muy bien. / ¿Algo para comer? / Para mí, / una tostada. / ¿Algo más? / Nada más, / gracias.",
+    "transcript": [
+      { "speaker": "Camarera", "spanish": "Buenos días. ¿Qué vais a tomar?", "english": "Good morning. What are you going to have?" },
+      { "speaker": "Learner", "spanish": "Quisiera un café con leche, por favor.", "english": "I would like a coffee with milk, please." },
+      { "speaker": "Camarera", "spanish": "Muy bien. ¿Algo para comer?", "english": "Very good. Anything to eat?" },
+      { "speaker": "Learner", "spanish": "Para mí, una tostada.", "english": "For me, toast." },
+      { "speaker": "Camarera", "spanish": "¿Algo más?", "english": "Anything else?" },
+      { "speaker": "Learner", "spanish": "Nada más, gracias.", "english": "Nothing else, thank you." },
+      { "speaker": "Learner", "spanish": "La cuenta, por favor.", "english": "The bill, please." }
+    ],
+    "comprehension": [
+      { "prompt": "What drink does the learner order?", "options": ["Coffee with milk", "Tea without sugar", "Orange juice"], "answer": "Coffee with milk", "explanation": "Un café con leche is a coffee with milk." },
+      { "prompt": "What food does the learner request?", "options": ["Toast", "Cheese", "Tomatoes"], "answer": "Toast", "explanation": "Para mí, una tostada means toast for me." },
+      { "prompt": "How does the learner say the order is complete?", "options": ["Nada más, gracias.", "Estoy ocupado.", "Nos vemos mañana."], "answer": "Nada más, gracias.", "explanation": "Nada más, gracias politely says nothing else, thank you." },
+      { "prompt": "What does the learner ask for at the end?", "options": ["The bill", "Another coffee", "A market bag"], "answer": "The bill", "explanation": "La cuenta, por favor asks for the bill." }
+    ],
     "items": [
       { "spanish": "¿Qué vais a tomar?", "options": ["What are you going to have?", "Where is the market?", "What time is it?"], "answer": "What are you going to have?" },
       { "spanish": "Quisiera un café con leche.", "options": ["I would like a coffee with milk.", "I prefer tea without sugar.", "The coffee costs three euros."], "answer": "I would like a coffee with milk." },
@@ -223,13 +238,13 @@
     ]
   },
   "speaking": {
-    "instructions": "Repeat a polite order, recall it with less support, then state your real café preference.",
+    "instructions": "Carlos guides you through the café order one response at a time.",
     "items": [
-      { "stage": "repeat", "prompt": "Repeat after Carlos.", "text": "Quisiera un café, por favor.", "meaning": "I would like a coffee, please.", "focus": "Keep quisiera smooth." },
-      { "stage": "repeat", "prompt": "Repeat one simple change.", "text": "Con leche, por favor.", "meaning": "With milk, please.", "focus": "Connect con leche naturally." },
-      { "stage": "recall", "prompt": "Order tea without sugar.", "text": "Quisiera un té sin azúcar, por favor.", "meaning": "I would like a tea without sugar, please.", "focus": "Keep the order in one polite sentence." },
-      { "stage": "recall", "prompt": "The server asks ¿Algo más? Close the order.", "text": "Nada más, gracias.", "meaning": "Nothing else, thank you.", "focus": "Finish warmly and confidently." },
-      { "stage": "personalize", "prompt": "Carlos asks what you genuinely prefer. Choose your own drink and one change.", "text": "Prefiero café. Quisiera un café con leche, por favor.", "meaning": "I prefer coffee. I would like a coffee with milk, please.", "focus": "Replace the model with your stored preference." }
+      { "stage": "repeat", "label": "Listen", "carlosPrompt": "Quisiera un café, por favor.", "cue": "Hear the polite order once, then say it back.", "prompt": "Repeat after Carlos.", "text": "Quisiera un café, por favor.", "meaning": "I would like a coffee, please.", "focus": "Keep quisiera smooth." },
+      { "stage": "repeat", "label": "Your turn", "carlosPrompt": "¿Con leche o sin leche?", "cue": "Make one simple change to the drink.", "prompt": "Ask for it with milk.", "text": "Con leche, por favor.", "meaning": "With milk, please.", "focus": "Connect con leche naturally." },
+      { "stage": "recall", "label": "Keep talking", "carlosPrompt": "¿Qué prefieres, café, té o zumo?", "cue": "Choose your drink and order it politely before opening the model.", "prompt": "Order tea without sugar.", "text": "Quisiera un té sin azúcar, por favor.", "meaning": "I would like a tea without sugar, please.", "focus": "Keep the order in one polite sentence." },
+      { "stage": "recall", "label": "One more challenge", "carlosPrompt": "¿Algo más?", "cue": "Close the order warmly and confidently.", "prompt": "Tell the server you need nothing else.", "text": "Nada más, gracias.", "meaning": "Nothing else, thank you.", "focus": "Finish warmly and confidently." },
+      { "stage": "personalize", "label": "Finish the conversation", "carlosPrompt": "¿Qué prefieres normalmente?", "cue": "State your real preference, then order that drink with one change.", "prompt": "Choose your own drink and one change.", "text": "Prefiero café. Quisiera un café con leche, por favor.", "meaning": "I prefer coffee. I would like a coffee with milk, please.", "focus": "Replace the model with your stored preference." }
     ]
   },
   "flashcards": [
@@ -375,6 +390,7 @@
     "unlockCondition": "Complete Lesson 6."
   },
   "achievementsUnlocked": ["first_order"],
+  "carlosClosing": "You chose what you really wanted and ordered it without me speaking for you. Enjoy your drink—when we finish, you’ll guide us toward one of my favorite plazas.",
   "xpReward": 65,
   "nextLesson": "lesson-07-travel-basics"
 }

@@ -1,6 +1,6 @@
 {
   "id": "a1-lesson-02-introductions",
-  "contentVersion": "1.0",
+  "contentVersion": "1.1",
   "title": "A New Friend",
   "image": "assets/images/lessons/lesson-02-introductions.png.png",
   "level": "A1",
@@ -764,54 +764,72 @@
     ]
   },
   "listening": {
-    "title": "Origin or current home?",
-    "instructions": "Listen for the complete chunks soy de and vivo en before choosing the meaning.",
+    "title": "Can you follow your meeting with Ana?",
+    "instructions": "Listen, follow along, then check what you understood.",
     "playbackSpeeds": ["natural", "slow"],
-    "items": [
+    "naturalScript": "¡Hola! Tom, esta es mi amiga Ana. Hola, me llamo Ana. Mucho gusto. ¿Cómo te llamas? Me llamo Tom. Mucho gusto. ¿De dónde eres? Soy de Canadá y vivo en Winnipeg. ¿Y tú? Soy de Sevilla, pero vivo en Madrid. Nos vemos mañana. Hasta mañana.",
+    "slowScript": "¡Hola! / Tom, esta es mi amiga Ana. / Hola, me llamo Ana. / Mucho gusto. / ¿Cómo te llamas? / Me llamo Tom. / Mucho gusto. / ¿De dónde eres? / Soy de Canadá / y vivo en Winnipeg. / ¿Y tú? / Soy de Sevilla, / pero vivo en Madrid. / Nos vemos mañana. / Hasta mañana.",
+    "transcript": [
       {
-        "spanish": "Soy de México.",
-        "options": [
-          "I’m from Mexico.",
-          "I live in Mexico.",
-          "I’m going to Mexico."
-        ],
-        "answer": "I’m from Mexico."
+        "speaker": "Carlos",
+        "spanish": "¡Hola! Tom, esta es mi amiga Ana.",
+        "english": "Hi! Tom, this is my friend Ana."
       },
       {
-        "spanish": "Vivo en Madrid.",
-        "options": [
-          "I’m from Madrid.",
-          "I live in Madrid.",
-          "I work in Madrid."
-        ],
-        "answer": "I live in Madrid."
+        "speaker": "Ana",
+        "spanish": "Hola, me llamo Ana. Mucho gusto. ¿Cómo te llamas?",
+        "english": "Hi, my name is Ana. Nice to meet you. What’s your name?"
       },
       {
+        "speaker": "Learner",
+        "spanish": "Me llamo Tom. Mucho gusto.",
+        "english": "My name is Tom. Nice to meet you."
+      },
+      {
+        "speaker": "Ana",
         "spanish": "¿De dónde eres?",
-        "options": [
-          "Where are you from?",
-          "Where do you live?",
-          "What is your name?"
-        ],
-        "answer": "Where are you from?"
+        "english": "Where are you from?"
       },
       {
-        "spanish": "Soy de Sevilla, pero vivo aquí.",
-        "options": [
-          "I live in Seville now.",
-          "I’m from Seville, but I live here.",
-          "I’m visiting Seville today."
-        ],
-        "answer": "I’m from Seville, but I live here."
+        "speaker": "Learner",
+        "spanish": "Soy de Canadá y vivo en Winnipeg. ¿Y tú?",
+        "english": "I’m from Canada and I live in Winnipeg. And you?"
       },
       {
-        "spanish": "Vivo en Madrid. ¿Y tú?",
-        "options": [
-          "I live in Madrid. And you?",
-          "Are you going to Madrid?",
-          "I’m also from Madrid."
-        ],
-        "answer": "I live in Madrid. And you?"
+        "speaker": "Ana",
+        "spanish": "Soy de Sevilla, pero vivo en Madrid.",
+        "english": "I’m from Seville, but I live in Madrid."
+      },
+      {
+        "speaker": "Ana y Learner",
+        "spanish": "Nos vemos mañana. Hasta mañana.",
+        "english": "See you tomorrow. See you tomorrow."
+      }
+    ],
+    "comprehension": [
+      {
+        "prompt": "Who does Carlos introduce?",
+        "options": ["Ana", "Elena", "Diego"],
+        "answer": "Ana",
+        "explanation": "Carlos says “esta es mi amiga Ana.”"
+      },
+      {
+        "prompt": "What does Ana ask the learner?",
+        "options": ["Where are you from?", "What would you like?", "Are you free tomorrow?"],
+        "answer": "Where are you from?",
+        "explanation": "¿De dónde eres? asks someone’s place of origin."
+      },
+      {
+        "prompt": "Where is Ana from?",
+        "options": ["Seville", "Madrid", "Granada"],
+        "answer": "Seville",
+        "explanation": "Ana says “Soy de Sevilla.”"
+      },
+      {
+        "prompt": "Where does Ana live now?",
+        "options": ["Madrid", "Seville", "Winnipeg"],
+        "answer": "Madrid",
+        "explanation": "Ana says “vivo en Madrid.”"
       }
     ]
   },
@@ -868,39 +886,54 @@
     }
   ],
   "speaking": {
-    "instructions": "Repeat each place phrase, recall the questions, then personalize the complete exchange.",
+    "instructions": "Carlos and Ana guide you through the same introduction one response at a time.",
     "items": [
       {
         "stage": "repeat",
+        "label": "Listen",
+        "carlosPrompt": "¿De dónde eres?",
         "prompt": "Repeat the origin phrase, then use your own place.",
+        "cue": "Answer with your real country or use the model.",
         "text": "Soy de Canadá.",
         "meaning": "I’m from Canada.",
         "focus": "Keep soy de connected as one short phrase."
       },
       {
         "stage": "repeat",
+        "label": "Your turn",
+        "carlosPrompt": "¿Dónde vives?",
         "prompt": "Repeat the residence phrase, then use your own city.",
+        "cue": "Say where you live now.",
         "text": "Vivo en Winnipeg.",
         "meaning": "I live in Winnipeg.",
         "focus": "Link vivo en smoothly without dropping either vowel."
       },
       {
         "stage": "recall",
+        "label": "Keep talking",
+        "carlosPrompt": "Ana told you where she lives. Ask where she is from.",
         "prompt": "Ask Ana where she is from without reading the model.",
+        "cue": "Try the question from memory before opening the model.",
         "text": "¿De dónde eres?",
         "meaning": "Where are you from?",
         "focus": "Stress dón in dónde and let the question rise naturally."
       },
       {
         "stage": "personalize",
+        "label": "One more challenge",
+        "carlosPrompt": "Soy de Madrid y vivo aquí. ¿Y tú?",
         "prompt": "Say where you are from and where you live in one response.",
+        "cue": "Join both ideas in one natural answer.",
         "text": "Soy de Canadá, pero vivo en Winnipeg.",
         "meaning": "I’m from Canada, but I live in Winnipeg.",
         "focus": "Pause lightly around pero to separate the two ideas."
       },
       {
         "stage": "personalize",
+        "label": "Finish the conversation",
+        "carlosPrompt": "Vivo en Madrid. ¿Y tú?",
         "prompt": "Say where you live and return the question naturally.",
+        "cue": "Answer, return the question, and keep the exchange moving.",
         "text": "Vivo aquí. ¿Y tú?",
         "meaning": "I live here. And you?",
         "focus": "Stress quí in aquí and tú in the return question."
@@ -1319,6 +1352,7 @@
       "type": "fillBlank",
       "difficulty": "medium",
       "prompt": "¿De _____ eres?",
+      "options": ["dónde", "vivo", "llamo", "aquí"],
       "answer": "dónde",
       "explanation": "The complete origin question is ¿de dónde eres?"
     },
@@ -1326,6 +1360,7 @@
       "type": "fillBlank",
       "difficulty": "medium",
       "prompt": "_____ en Madrid. (I live)",
+      "options": ["Vivo", "Soy", "Tengo", "Llamo"],
       "answer": "Vivo",
       "explanation": "Vivo en means I live in."
     },
@@ -1333,6 +1368,7 @@
       "type": "translation",
       "difficulty": "medium",
       "prompt": "Translate: Soy de Sevilla.",
+      "options": ["I’m from Seville.", "I live in Seville.", "I’m going to Seville.", "Seville is here."],
       "answer": "I’m from Seville.",
       "explanation": "Soy de identifies someone’s place of origin."
     },
@@ -1431,6 +1467,7 @@
       "país"
     ]
   },
+  "carlosClosing": "Great job today. You introduced yourself to Ana and told her where you’re from and where you live. Tonight you’ll meet my family—get ready for dinner.",
   "passportStamp": {
     "id": "new-friend-madrid",
     "title": "New Friend",
