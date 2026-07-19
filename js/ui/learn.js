@@ -57,7 +57,11 @@ export function renderLearn(state = {}) {
   const courseProgress = getCourseProgress();
   const lessons = courseProgress.loadedLessons || [];
   const currentLesson = getCurrentLesson();
-  const selectedLesson = getActiveLesson() || currentLesson || lessons[0];
+  const activeLesson = getActiveLesson();
+  const activeProgress = activeLesson ? getLessonProgress(activeLesson.id) : null;
+  const selectedLesson = activeLesson && !activeProgress?.completed
+    ? activeLesson
+    : currentLesson || activeLesson || lessons[0];
   const unlockedIds = new Set(getUnlockedLessons().map(lesson => lesson.id));
   const streak = getCurrentStreak();
   const stats = getLearnStats(state, courseProgress, streak);

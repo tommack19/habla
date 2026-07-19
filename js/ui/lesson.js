@@ -4,6 +4,7 @@ import {
   getCourseProgress,
   getLessonById,
   getLessonProgress,
+  setActiveLesson,
   updateLessonProgress,
 } from "../core/content.js";
 import { evaluateAchievements } from "../core/achievements.js";
@@ -43,8 +44,10 @@ if (typeof window !== "undefined") {
     setListeningPass,
     answerListening: answerListeningQuestion,
     nextListening: nextListeningQuestion,
+    playListening: playListeningConversation,
     discover: discoverLivingWorldMoment,
     speak: speakSpanish,
+    finishCompletion: exitLessonCompletion,
   };
 }
 
@@ -53,6 +56,7 @@ export function renderLesson() {
   if (!lesson) return renderMissingLesson();
 
   const progress = getLessonProgress(lesson.id);
+  if (progress.completed && progress.showCompletion) return renderLessonCompletion(lesson, progress);
   const steps = buildLessonSteps(lesson);
   const stepIndex = clamp(Number(progress.rendererStep || 0), 0, Math.max(steps.length - 1, 0));
   const step = steps[stepIndex];
@@ -178,7 +182,7 @@ function renderMessages(lesson, progress, scene) {
     <section class="lesson-section-heading"><span>Incoming message</span><h1>${escapeHtml(scene.title || "Carlos texted you")}</h1><p>${escapeHtml(scene.setting || "Read the conversation as a real message exchange.")}</p></section>
     <article class="lesson-phone-thread" aria-label="Message conversation with Carlos">
       <header><span class="lesson-phone-avatar">C</span><div><strong>${escapeHtml(scene.presentation?.contact || "Carlos")}</strong><small>Online</small></div></header>
-      <div class="lesson-message-list">${(scene.lines || []).map(line => `<div class="lesson-message ${String(line.speaker).toLowerCase() === "learner" ? "outgoing" : "incoming"}"><small>${escapeHtml(line.speaker)}</small><p>${escapeHtml(line.spanish || line.exampleSpanish || line.intent)}</p>${line.english || line.exampleEnglish ? `<span>${escapeHtml(line.english || line.exampleEnglish)}</span>` : ""}<button type="button" data-speech="${escapeAttr(line.spanish || line.exampleSpanish || "")}" onclick="hablaLesson.speak(this.dataset.speech)">${icon("sound")}<span class="sr-only">Hear phrase</span></button></div>`).join("")}</div>
+      <div class="lesson-message-list">${(scene.lines || []).map(line => `<div class="lesson-message ${isLearnerSpeaker(line.speaker) ? "outgoing" : "incoming"}"><small>${escapeHtml(line.speaker)}</small><p>${escapeHtml(line.spanish || line.exampleSpanish || line.intent)}</p>${line.english || line.exampleEnglish ? `<span>${escapeHtml(line.english || line.exampleEnglish)}</span>` : ""}${renderSpeechButton(line.spanish || line.exampleSpanish, line.speaker, "Hear phrase")}</div>`).join("")}</div>
     </article>
   `;
 }
@@ -235,7 +239,7 @@ function renderDialogueLines(lines, selected) {
         : "";
       if (sceneName) currentScene = sceneName;
       const resolved = resolveDialogueLine(line, selected);
-      return `${divider}<article class="lesson-dialogue-line ${String(line.speaker).toLowerCase() === "learner" ? "learner" : ""}"><span>${escapeHtml(line.speaker)}</span><div><strong>${escapeHtml(resolved.spanish)}</strong>${resolved.english ? `<p>${escapeHtml(resolved.english)}</p>` : ""}</div><button type="button" data-speech="${escapeAttr(resolved.spanish)}" onclick="hablaLesson.speak(this.dataset.speech)">${icon("sound")}</button></article>`;
+      return `${divider}<article class="lesson-dialogue-line ${isLearnerSpeaker(line.speaker) ? "learner" : ""}"><span>${escapeHtml(line.speaker)}</span><div><strong>${escapeHtml(resolved.spanish)}</strong>${resolved.english ? `<p>${escapeHtml(resolved.english)}</p>` : ""}</div>${renderSpeechButton(resolved.spanish, line.speaker, `Hear ${line.speaker || "speaker"}`)}</article>`;
     }).join("");
 }
 
@@ -260,14 +264,14 @@ function renderListening(lesson, progress) {
       <article class="lesson-listening-coach">
         <img src="${escapeAttr(getCarlosAsset("speaking"))}" alt="Carlos guiding your listening practice" onerror="${CARLOS_FALLBACK_ONERROR}">
         <div><small>Pass 1 · Listen only</small><h2>Listen once.</h2><p>Don’t worry if you miss words. Just follow the conversation.</p></div>
-        <button type="button" data-speech="${escapeAttr(script)}" data-rate="0.92" onclick="hablaLesson.speak(this.dataset.speech, this.dataset.rate)">${icon("sound")} Play conversation</button>
+        <button type="button" onclick="hablaLesson.playListening(0.92)">${icon("sound")} Play conversation</button>
       </article>
       <button class="lesson-listening-next" type="button" onclick="hablaLesson.setListeningPass(1)">Follow with the transcript${icon("arrow")}</button>
     ` : ""}
     ${pass === 1 ? `
       <article class="lesson-listening-transcript">
-        <header><div><small>Pass 2 · Follow along</small><h2>Read while Carlos speaks</h2></div><div class="lesson-playback-buttons"><button type="button" data-speech="${escapeAttr(script)}" data-rate="0.92" onclick="hablaLesson.speak(this.dataset.speech, this.dataset.rate)">${icon("sound")} Natural</button><button type="button" data-speech="${escapeAttr(slowScript)}" data-rate="0.68" onclick="hablaLesson.speak(this.dataset.speech, this.dataset.rate)">${icon("sound")} Slow</button></div></header>
-        <div class="lesson-listen-list">${transcript.map(line => `<article><button type="button" data-speech="${escapeAttr(line.spanish)}" onclick="hablaLesson.speak(this.dataset.speech)">${icon("sound")}</button><div><small>${escapeHtml(line.speaker || "Carlos")}</small><strong>${escapeHtml(line.spanish)}</strong><span>${escapeHtml(line.english || "")}</span></div></article>`).join("")}</div>
+        <header><div><small>Pass 2 · Follow along</small><h2>Read while each person speaks</h2></div><div class="lesson-playback-buttons"><button type="button" onclick="hablaLesson.playListening(0.92)">${icon("sound")} Natural</button><button type="button" onclick="hablaLesson.playListening(0.68)">${icon("sound")} Slow</button></div></header>
+        <div class="lesson-listen-list">${transcript.map(line => `<article>${renderSpeechButton(line.spanish, line.speaker, `Hear ${line.speaker || "speaker"}`)}<div><small>${escapeHtml(line.speaker || "Carlos")}</small><strong>${escapeHtml(line.spanish)}</strong><span>${escapeHtml(line.english || "")}</span></div></article>`).join("")}</div>
       </article>
       <button class="lesson-listening-next" type="button" onclick="hablaLesson.setListeningPass(2)">Check what you understood${icon("arrow")}</button>
     ` : ""}
@@ -296,7 +300,7 @@ function renderSpeaking(lesson) {
   return `
     <section class="lesson-section-heading"><span>Speaking with Carlos</span><h1>Now let’s try it together</h1><p>${escapeHtml(speaking.instructions || "Carlos will guide you through the same café conversation, one natural response at a time.")}</p></section>
     <article class="lesson-speaking-coach"><img src="${escapeAttr(getCarlosAsset("speaking"))}" alt="Carlos coaching your Spanish conversation" onerror="${CARLOS_FALLBACK_ONERROR}"><div><small>Carlos says</small><strong>We’ve heard the conversation. Now talk with me—I’ll help you all the way through.</strong></div></article>
-    <div class="lesson-speaking-path">${items.map((item, index) => `<article class="stage-${escapeAttr(item.stage || (index < 2 ? "repeat" : "personalize"))}"><header><i>${index + 1}</i><span>${escapeHtml(item.label || stageLabels[index] || "Keep talking")}</span></header><div class="lesson-speaking-prompt"><div><small>Carlos</small><h2>${escapeHtml(item.carlosPrompt || item.prompt)}</h2></div><button type="button" data-speech="${escapeAttr(item.carlosPrompt || item.text || "")}" onclick="hablaLesson.speak(this.dataset.speech)" aria-label="Hear Carlos">${icon("sound")}</button></div><div class="lesson-speaking-turn"><span>${icon("mic")}</span><div><small>Your turn</small><strong>${escapeHtml(item.prompt)}</strong><p>${escapeHtml(item.cue || "Say your answer aloud.")}</p></div></div><details class="lesson-speaking-model"><summary>Need a model?</summary><button type="button" data-speech="${escapeAttr(item.text || item.exampleAnswer || "")}" onclick="hablaLesson.speak(this.dataset.speech)"><strong>${escapeHtml(item.text || item.exampleAnswer || "Create your own answer")}</strong>${icon("sound")}</button>${item.meaning ? `<p>${escapeHtml(item.meaning)}</p>` : ""}</details></article>`).join("")}</div>
+    <div class="lesson-speaking-path">${items.map((item, index) => `<article class="stage-${escapeAttr(item.stage || (index < 2 ? "repeat" : "personalize"))}"><header><i>${index + 1}</i><span>${escapeHtml(item.label || stageLabels[index] || "Keep talking")}</span></header><div class="lesson-speaking-prompt"><div><small>Carlos</small><h2>${escapeHtml(item.carlosPrompt || item.prompt)}</h2></div><button type="button" data-speech="${escapeAttr(item.carlosPrompt || item.text || "")}" onclick="hablaLesson.speak(this.dataset.speech, .84, 'Carlos')" aria-label="Hear Carlos">${icon("sound")}</button></div><div class="lesson-speaking-turn"><span>${icon("mic")}</span><div><small>Your turn</small><strong>${escapeHtml(item.prompt)}</strong><p>${escapeHtml(item.cue || "Say your answer aloud.")}</p></div></div><details class="lesson-speaking-model"><summary>Need a model?</summary><button type="button" data-speech="${escapeAttr(item.text || item.exampleAnswer || "")}" onclick="hablaLesson.speak(this.dataset.speech, .82, 'Model')"><strong>${escapeHtml(item.text || item.exampleAnswer || "Create your own answer")}</strong>${icon("sound")}</button>${item.meaning ? `<p>${escapeHtml(item.meaning)}</p>` : ""}</details></article>`).join("")}</div>
   `;
 }
 
@@ -343,13 +347,19 @@ function renderConversation(lesson, progress) {
   const selected = lesson.learnerChoices?.options?.find(choice => choice.id === progress.selectedChoiceId);
   const turns = conversation.turns || [];
   return `
-    <section class="lesson-section-heading"><span>Carlos challenge</span><h1>${escapeHtml(conversation.title || "Complete the mission")}</h1><p>${escapeHtml(conversation.goal || conversation.mission || "Use what you learned in one complete exchange.")}</p></section>
+    <section class="lesson-section-heading"><span>Example conversation</span><h1>Carlos Challenge</h1><p>See how today’s conversation works before trying it yourself.</p></section>
+    <article class="lesson-challenge-brief"><span>${icon("target")}</span><div><small>Your mission</small><h2>${escapeHtml(conversation.title || lesson.realLifeMission?.title || "Complete the mission")}</h2><p>${escapeHtml(conversation.goal || conversation.mission || lesson.realLifeMission?.mission || "Use what you learned in one complete exchange.")}</p></div></article>
     ${selected ? `<article class="lesson-memory-chip"><span>${icon("star")}</span><div><small>Carlos remembers</small><strong>You chose ${escapeHtml(selected.label)}.</strong></div></article>` : ""}
     ${turns.length ? `<div class="lesson-conversation">${turns.map(turn => {
       const resolved = resolveDialogueLine(turn, selected);
-      return `<article class="${String(turn.speaker).toLowerCase() === "learner" ? "learner" : "carlos"}"><small>${escapeHtml(turn.speaker)}</small><strong>${escapeHtml(resolved.spanish)}</strong>${resolved.english ? `<p>${escapeHtml(resolved.english)}</p>` : ""}</article>`;
+      return `<article class="${isLearnerSpeaker(turn.speaker) ? "learner" : "carlos"}"><small>${escapeHtml(turn.speaker)}</small><strong>${escapeHtml(resolved.spanish)}</strong>${resolved.english ? `<p>${escapeHtml(resolved.english)}</p>` : ""}${renderSpeechButton(resolved.spanish, turn.speaker, `Hear ${turn.speaker || "speaker"}`)}</article>`;
     }).join("")}</div>` : ""}
     <article class="lesson-success-criteria"><h2>Mission success</h2><ul>${(lesson.realLifeMission?.successCriteria || []).map(item => `<li>${icon("check")}${escapeHtml(item)}</li>`).join("")}</ul><p>${escapeHtml(lesson.realLifeMission?.completionResponse || "Carlos celebrates the conversation you completed.")}</p></article>
+    <article class="lesson-live-challenge">
+      <img src="${escapeAttr(getCarlosAsset("speaking"))}" alt="Carlos ready to practice this lesson with you" onerror="${CARLOS_FALLBACK_ONERROR}">
+      <div><small>Carlos</small><h2>Now it’s your turn.</h2><p>Don’t worry if you make mistakes—I can help. Practice this mission in Carlos chat now; the fully adaptive AI lesson conversation is coming soon.</p></div>
+      <button type="button" data-page="carlos">${icon("message")} Try it with Carlos</button>
+    </article>
   `;
 }
 
@@ -378,6 +388,32 @@ function renderReward(lesson) {
       ${lesson.passportStamp ? `<article class="lesson-passport-reward"><span>${icon("passport")}</span><small>Passport stamp</small><h2>${escapeHtml(lesson.passportStamp.title)}</h2><p>${escapeHtml(lesson.passportStamp.description)}</p><b>${escapeHtml(lesson.passportStamp.city || "España")}</b></article>` : ""}
       ${lesson.achievement ? `<article class="lesson-achievement-reward"><span>${icon("star")}</span><small>Achievement</small><h2>${escapeHtml(lesson.achievement.title)}</h2><p>${escapeHtml(lesson.achievement.description)}</p><b>+${Number(lesson.xpReward || 0)} XP</b></article>` : ""}
     </div>
+  `;
+}
+
+function renderLessonCompletion(lesson) {
+  const next = getLessonById(lesson.nextLesson);
+  const ceremony = lesson.chapterCeremony;
+  return `
+    <section class="lesson-v2 lesson-completion-screen" aria-label="${escapeAttr(lesson.title)} complete">
+      <article class="lesson-completion-card">
+        <div class="lesson-completion-glow" aria-hidden="true"></div>
+        <span class="lesson-completion-check">${icon("check")}</span>
+        <small>${ceremony ? "Madrid chapter complete" : "Lesson complete"}</small>
+        <h1>${escapeHtml(lesson.title)}</h1>
+        <p>${escapeHtml(lesson.carlosClosing || lesson.realLifeMission?.completionResponse || "You used Spanish successfully in a real situation.")}</p>
+        <div class="lesson-completion-rewards">
+          <span><b>+${Number(lesson.xpReward || 0)}</b> XP</span>
+          ${lesson.passportStamp ? `<span>${icon("passport")}<b>${escapeHtml(lesson.passportStamp.title)}</b> stamp</span>` : ""}
+          ${lesson.achievement ? `<span>${icon("star")}<b>${escapeHtml(lesson.achievement.title)}</b> unlocked</span>` : ""}
+        </div>
+        ${next ? `<div class="lesson-completion-next"><small>Next up</small><strong>Lesson ${getLessonNumber(next)} · ${escapeHtml(next.title)}</strong><p>${escapeHtml(next.objective || next.objectives?.[0] || "Your Spanish journey continues.")}</p></div>` : ""}
+        <div class="lesson-completion-actions">
+          ${next ? `<button class="lesson-completion-primary" type="button" onclick="hablaLesson.finishCompletion('next')">Start next lesson${icon("arrow")}</button>` : ""}
+          <button class="lesson-completion-secondary" type="button" onclick="hablaLesson.finishCompletion('learn')">Back to Learn</button>
+        </div>
+      </article>
+    </section>
   `;
 }
 
@@ -427,7 +463,7 @@ function advanceLesson() {
   const completedSections = Array.from(new Set([...(progress.completedSections || []), step.id]));
   if (index >= steps.length - 1) {
     if (!progress.completed) {
-      updateLessonProgress(lesson.id, { completedSections, rendererStep: index });
+      updateLessonProgress(lesson.id, { completedSections, rendererStep: index, showCompletion: true });
       completeLesson(lesson.id);
       evaluateAchievements({ completedLessonsCount: getCourseProgress().completedCount });
       rerenderLesson();
@@ -438,6 +474,19 @@ function advanceLesson() {
   }
   updateLessonProgress(lesson.id, { completedSections, rendererStep: index + 1, flashcardFlipped: false });
   rerenderLesson(true);
+}
+
+function exitLessonCompletion(destination = "learn") {
+  const lesson = getActiveLesson();
+  if (!lesson) return;
+  const next = getLessonById(lesson.nextLesson);
+  updateLessonProgress(lesson.id, { showCompletion: false });
+  if (next) setActiveLesson(next.id);
+  if (destination === "next" && next) {
+    rerenderLesson(true);
+    return;
+  }
+  document.querySelector('[data-page="learn"]')?.click();
 }
 
 function previousLessonStep() {
@@ -521,10 +570,13 @@ function nextListeningQuestion() {
   if (current.selected === null || current.selected === undefined) return;
   const questionIndex = clamp(Number(current.questionIndex || 0), 0, Math.max(questions.length - 1, 0));
   const last = questionIndex + 1 >= questions.length;
-  updateLessonProgress(lesson.id, { rendererListening: last
-    ? { ...current, pass: 2, questionIndex, complete: true }
-    : { ...current, pass: 2, questionIndex: questionIndex + 1, selected: null }
-  });
+  if (last) {
+    completeCurrentStepAndAdvance(lesson, "listening", {
+      rendererListening: { ...current, pass: 2, questionIndex, complete: true },
+    });
+    return;
+  }
+  updateLessonProgress(lesson.id, { rendererListening: { ...current, pass: 2, questionIndex: questionIndex + 1, selected: null } });
   rerenderLesson(false);
 }
 
@@ -567,8 +619,25 @@ function nextQuizQuestion() {
   const quiz = getRendererQuiz(lesson, progress);
   if (quiz.selected === null || quiz.selected === undefined) return;
   const last = Number(quiz.index || 0) + 1 >= (lesson.quiz?.length || 0);
-  updateLessonProgress(lesson.id, { rendererQuiz: last ? { ...quiz, complete: true } : { ...quiz, index: Number(quiz.index || 0) + 1, selected: null } });
+  if (last) {
+    completeCurrentStepAndAdvance(lesson, "quiz", { rendererQuiz: { ...quiz, complete: true } });
+    return;
+  }
+  updateLessonProgress(lesson.id, { rendererQuiz: { ...quiz, index: Number(quiz.index || 0) + 1, selected: null } });
   rerenderLesson(false);
+}
+
+function completeCurrentStepAndAdvance(lesson, stepId, patch = {}) {
+  const progress = getLessonProgress(lesson.id);
+  const steps = buildLessonSteps(lesson);
+  const index = clamp(Number(progress.rendererStep || 0), 0, Math.max(steps.length - 1, 0));
+  const completedSections = Array.from(new Set([...(progress.completedSections || []), stepId]));
+  updateLessonProgress(lesson.id, {
+    ...patch,
+    completedSections,
+    rendererStep: Math.min(index + 1, Math.max(steps.length - 1, 0)),
+  });
+  rerenderLesson(true);
 }
 
 function discoverLivingWorldMoment(discoveryId) {
@@ -579,13 +648,68 @@ function discoverLivingWorldMoment(discoveryId) {
   rerenderLesson(false);
 }
 
-function speakSpanish(text, rate = 0.84) {
+function playListeningConversation(rate = 0.92) {
+  const lesson = getActiveLesson();
+  const listening = normalizeFirst(lesson?.listening) || {};
+  const transcript = listening.transcript || normalizeDialogue(lesson?.dialogue || lesson?.dialogues)[0]?.lines || [];
+  const lines = transcript
+    .map(line => ({ text: line.spanish || line.exampleSpanish || "", speaker: isLearnerSpeaker(line.speaker) ? "Model" : line.speaker || "Carlos" }))
+    .filter(line => line.text);
+  if (lines.length) speakSequence(lines, Number(rate || 0.92));
+  else speakSpanish(listening.naturalScript || "", rate, "Carlos");
+}
+
+function speakSequence(lines, rate, index = 0) {
+  if (!window.speechSynthesis || index >= lines.length) return;
+  if (index === 0) window.speechSynthesis.cancel();
+  const utterance = createSpanishUtterance(lines[index].text, rate, lines[index].speaker);
+  utterance.onend = () => speakSequence(lines, rate, index + 1);
+  window.speechSynthesis.speak(utterance);
+}
+
+function speakSpanish(text, rate = 0.84, speaker = "Carlos") {
   if (!text || !window.speechSynthesis) return;
   window.speechSynthesis.cancel();
-  const utterance = new SpeechSynthesisUtterance(String(text).replaceAll("/", ""));
-  utterance.lang = "es-ES";
-  utterance.rate = Number(rate || 0.84);
+  const utterance = createSpanishUtterance(text, rate, speaker);
   window.speechSynthesis.speak(utterance);
+}
+
+function createSpanishUtterance(text, rate = 0.84, speaker = "Carlos") {
+  const utterance = new SpeechSynthesisUtterance(String(text).replaceAll("/", ""));
+  const profile = getVoiceProfile(speaker);
+  const voices = window.speechSynthesis?.getVoices?.() || [];
+  const spanishVoices = voices.filter(voice => /^es(?:-|_)/i.test(voice.lang || ""));
+  const regionalVoices = spanishVoices.filter(voice => /^es(?:-|_)ES/i.test(voice.lang || ""));
+  const pool = regionalVoices.length ? regionalVoices : spanishVoices;
+  const hinted = pool.find(voice => profile.hints.some(hint => normalize(voice.name).includes(normalize(hint))));
+  const fallback = pool.length ? pool[profile.voiceIndex % pool.length] : null;
+  if (hinted || fallback) utterance.voice = hinted || fallback;
+  utterance.lang = utterance.voice?.lang || "es-ES";
+  utterance.rate = Number(rate || 0.84) * profile.rate;
+  utterance.pitch = profile.pitch;
+  return utterance;
+}
+
+function getVoiceProfile(speaker) {
+  const name = normalize(speaker);
+  if (name.includes("elena")) return { hints: ["elvira", "monica", "mónica", "helena"], voiceIndex: 2, rate: 0.92, pitch: 0.88 };
+  if (name.includes("ana") || name.includes("marta") || name.includes("lucia") || name.includes("lucía") || name.includes("camarera") || name.includes("vecina")) {
+    return { hints: ["helena", "monica", "mónica", "laura", "paulina", "marisol"], voiceIndex: 1, rate: 1, pitch: 1.08 };
+  }
+  if (name.includes("diego") || name.includes("nico") || name.includes("child")) return { hints: ["diego", "pablo"], voiceIndex: 3, rate: 1.04, pitch: 1.16 };
+  if (name.includes("javier") || name.includes("vendor") || name.includes("vendedor") || name.includes("vecino")) return { hints: ["jorge", "alvaro", "álvaro", "enrique"], voiceIndex: 0, rate: 0.96, pitch: 0.92 };
+  if (name.includes("model")) return { hints: ["helena", "monica", "mónica"], voiceIndex: 1, rate: 0.98, pitch: 1.02 };
+  return { hints: ["jorge", "alvaro", "álvaro", "diego", "pablo"], voiceIndex: 0, rate: 1, pitch: 0.96 };
+}
+
+function isLearnerSpeaker(speaker) {
+  const name = normalize(speaker);
+  return name === "learner" || name === "you" || name === "student";
+}
+
+function renderSpeechButton(text, speaker = "Carlos", label = "Hear phrase") {
+  if (!text || isLearnerSpeaker(speaker)) return "";
+  return `<button type="button" data-speech="${escapeAttr(text)}" data-speaker="${escapeAttr(speaker || "Carlos")}" onclick="hablaLesson.speak(this.dataset.speech, .84, this.dataset.speaker)" aria-label="${escapeAttr(label)}">${icon("sound")}<span class="sr-only">${escapeHtml(label)}</span></button>`;
 }
 
 function getAdaptiveFlashcards(lesson, choiceId) {

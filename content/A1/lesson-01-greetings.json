@@ -1,6 +1,6 @@
 {
   "id": "a1-lesson-01-greetings",
-  "contentVersion": "1.2",
+  "contentVersion": "1.3",
   "title": "First Coffee",
   "level": "A1",
   "module": "Greetings",
@@ -62,8 +62,8 @@
       "spanish": "Mucho gusto.",
       "english": "Nice to meet you.",
       "usage": "Say this after you exchange names.",
-      "exampleSpanish": "Me llamo Ana. Mucho gusto.",
-      "exampleEnglish": "My name is Ana. Nice to meet you."
+      "exampleSpanish": "Me llamo Laura. Mucho gusto.",
+      "exampleEnglish": "My name is Laura. Nice to meet you."
     },
     {
       "spanish": "Muy bien, gracias. ¿Y tú?",
@@ -481,7 +481,7 @@
       },
       {
         "title": "A natural shorter option",
-        "text": "Soy Ana means I’m Ana. Soy also appears in the next lesson when you say where you are from."
+        "text": "Soy Laura means I’m Laura. Soy also appears in the next lesson when you say where you are from."
       }
     ],
     "examples": [
@@ -490,8 +490,8 @@
         "english": "Hi, my name is Tom."
       },
       {
-        "spanish": "Hola, soy Ana. Mucho gusto.",
-        "english": "Hi, I’m Ana. Nice to meet you."
+        "spanish": "Hola, soy Laura. Mucho gusto.",
+        "english": "Hi, I’m Laura. Nice to meet you."
       }
     ],
     "practicePrompt": "Greet Carlos and say your real name with me llamo."
@@ -516,7 +516,7 @@
       "title": "Casual greeting with a friend",
       "lines": [
         {
-          "speaker": "Ana",
+          "speaker": "Laura",
           "spanish": "Hola, ¿qué tal?",
           "english": "Hi, how's it going?"
         },
@@ -561,9 +561,9 @@
       "title": "Giving a simple introduction",
       "lines": [
         {
-          "speaker": "Ana",
-          "spanish": "Hola, soy Ana.",
-          "english": "Hi, I'm Ana."
+          "speaker": "Laura",
+          "spanish": "Hola, soy Laura.",
+          "english": "Hi, I'm Laura."
         },
         {
           "speaker": "Learner",
@@ -626,7 +626,7 @@
           "english": "Excuse me."
         },
         {
-          "speaker": "Ana",
+          "speaker": "Laura",
           "spanish": "Claro, adelante.",
           "english": "Of course, come in."
         }
@@ -838,7 +838,7 @@
     "comprehension": [
       {
         "prompt": "Who introduces himself first?",
-        "options": ["Carlos", "Tom", "Ana"],
+        "options": ["Carlos", "Tom", "Laura"],
         "answer": "Carlos",
         "explanation": "Carlos says “Me llamo Carlos” before asking the learner’s name."
       },
@@ -1288,7 +1288,7 @@
       "type": "multipleChoice",
       "difficulty": "medium",
       "prompt": "Which phrase is a natural friendly closing?",
-      "options": ["Nos vemos luego.", "Me llamo Ana.", "Muy bien, gracias.", "Buenos días."],
+      "options": ["Nos vemos luego.", "Me llamo Laura.", "Muy bien, gracias.", "Buenos días."],
       "answer": "Nos vemos luego.",
       "explanation": "Nos vemos luego means See you later."
     },
