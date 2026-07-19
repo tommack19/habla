@@ -37,7 +37,11 @@ if (typeof window !== "undefined") {
     flipCard: flipFlashcard,
     nextCard: nextFlashcard,
     answerQuiz: answerQuizQuestion,
+    submitQuiz: submitQuizAnswer,
     nextQuiz: nextQuizQuestion,
+    setListeningPass,
+    answerListening: answerListeningQuestion,
+    nextListening: nextListeningQuestion,
     discover: discoverLivingWorldMoment,
     speak: speakSpanish,
   };
@@ -244,14 +248,44 @@ function renderDialogueLines(lines, selected) {
     }).join("");
 }
 
-function renderListening(lesson) {
+function renderListening(lesson, progress) {
   const listening = normalizeFirst(lesson.listening) || {};
-  const items = listening.items || lesson.listeningPhrases || [];
+  const transcript = listening.transcript || normalizeDialogue(lesson.dialogue || lesson.dialogues)[0]?.lines || [];
+  const script = listening.naturalScript || transcript.map(line => line.spanish).join(" ");
+  const slowScript = String(listening.slowScript || script).replaceAll("/", "");
+  const questions = getListeningQuestions(lesson);
+  const state = progress.rendererListening || { pass: 0, questionIndex: 0, selected: null, complete: false };
+  const pass = clamp(Number(state.pass || 0), 0, 2);
+  const questionIndex = clamp(Number(state.questionIndex || 0), 0, Math.max(questions.length - 1, 0));
+  const question = questions[questionIndex];
+  const options = question ? stableShuffle(question.options || [], `${lesson.id}:listening:${questionIndex}`) : [];
+  const answered = state.selected !== null && state.selected !== undefined;
   return `
-    <section class="lesson-section-heading"><span>Listening</span><h1>${escapeHtml(listening.title || "Hear Spanish around you")}</h1><p>${escapeHtml(listening.instructions || "Listen naturally, then slow it down if needed.")}</p></section>
-    ${listening.soundscape?.length ? `<article class="lesson-soundscape"><span>${icon("sound")}</span><div><small>${escapeHtml(listening.soundscapeLabel || "Scene soundscape")}</small><p>${listening.soundscape.map(escapeHtml).join(" · ")}</p></div></article>` : ""}
-    <div class="lesson-playback-buttons"><button type="button" data-speech="${escapeAttr(listening.naturalScript || items.map(item => item.spanish).join(" "))}" data-rate="0.92" onclick="hablaLesson.speak(this.dataset.speech, this.dataset.rate)">${icon("sound")} Natural speed</button><button type="button" data-speech="${escapeAttr(String(listening.slowScript || items.map(item => item.spanish).join(" ")).replaceAll("/", ""))}" data-rate="0.68" onclick="hablaLesson.speak(this.dataset.speech, this.dataset.rate)">${icon("sound")} Slow speed</button></div>
-    <div class="lesson-listen-list">${items.map(item => `<article><button type="button" data-speech="${escapeAttr(item.spanish)}" onclick="hablaLesson.speak(this.dataset.speech)">${icon("sound")}</button><div><strong>${escapeHtml(item.spanish)}</strong><span>${escapeHtml(item.english || item.answer || "Listen for the meaning")}</span></div></article>`).join("")}</div>
+    <section class="lesson-section-heading"><span>Listening with Carlos</span><h1>${escapeHtml(listening.title || "Can you follow our conversation?")}</h1><p>${escapeHtml(listening.instructions || "Hear the same conversation again, then check what you understood.")}</p></section>
+    <nav class="lesson-listening-progress" aria-label="Listening steps">
+      ${["Listen", "Follow along", "Understand"].map((label, index) => `<button type="button" class="${pass === index ? "active" : ""} ${pass > index || state.complete ? "done" : ""}" onclick="hablaLesson.setListeningPass(${index})"><i>${pass > index || state.complete ? icon("check") : index + 1}</i><span>${label}</span></button>`).join("")}
+    </nav>
+    ${pass === 0 ? `
+      <article class="lesson-listening-coach">
+        <img src="${escapeAttr(getCarlosAsset("speaking"))}" alt="Carlos guiding your listening practice" onerror="${CARLOS_FALLBACK_ONERROR}">
+        <div><small>Pass 1 · Listen only</small><h2>Listen to Carlos one more time</h2><p>Put the transcript away. You do not need to catch every word—just follow the conversation.</p></div>
+        <button type="button" data-speech="${escapeAttr(script)}" data-rate="0.92" onclick="hablaLesson.speak(this.dataset.speech, this.dataset.rate)">${icon("sound")} Play conversation</button>
+      </article>
+      <button class="lesson-listening-next" type="button" onclick="hablaLesson.setListeningPass(1)">Follow with the transcript${icon("arrow")}</button>
+    ` : ""}
+    ${pass === 1 ? `
+      <article class="lesson-listening-transcript">
+        <header><div><small>Pass 2 · Follow along</small><h2>Read while Carlos speaks</h2></div><div class="lesson-playback-buttons"><button type="button" data-speech="${escapeAttr(script)}" data-rate="0.92" onclick="hablaLesson.speak(this.dataset.speech, this.dataset.rate)">${icon("sound")} Natural</button><button type="button" data-speech="${escapeAttr(slowScript)}" data-rate="0.68" onclick="hablaLesson.speak(this.dataset.speech, this.dataset.rate)">${icon("sound")} Slow</button></div></header>
+        <div class="lesson-listen-list">${transcript.map(line => `<article><button type="button" data-speech="${escapeAttr(line.spanish)}" onclick="hablaLesson.speak(this.dataset.speech)">${icon("sound")}</button><div><small>${escapeHtml(line.speaker || "Carlos")}</small><strong>${escapeHtml(line.spanish)}</strong><span>${escapeHtml(line.english || "")}</span></div></article>`).join("")}</div>
+      </article>
+      <button class="lesson-listening-next" type="button" onclick="hablaLesson.setListeningPass(2)">Check what you understood${icon("arrow")}</button>
+    ` : ""}
+    ${pass === 2 ? `
+      <article class="lesson-listening-check">
+        <header><small>Pass 3 · Understand</small><span>${questions.length ? `${questionIndex + 1} of ${questions.length}` : "Complete"}</span></header>
+        ${question ? `<h2>${escapeHtml(question.prompt)}</h2><div class="lesson-listening-options">${options.map((option, optionIndex) => `<button type="button" class="${answered && option === question.answer ? "correct" : ""} ${answered && option === state.selected && option !== question.answer ? "wrong" : ""}" onclick="hablaLesson.answerListening(${optionIndex})" ${answered ? "disabled" : ""}><span>${String.fromCharCode(65 + optionIndex)}</span>${escapeHtml(option)}${answered && option === question.answer ? icon("check") : ""}</button>`).join("")}</div>${answered ? `<div class="lesson-listening-feedback"><strong>${state.selected === question.answer ? "You followed it." : `Answer: ${escapeHtml(question.answer)}`}</strong><p>${escapeHtml(question.explanation || "Listen once more and keep following the conversation.")}</p><button type="button" onclick="hablaLesson.nextListening()">${questionIndex + 1 >= questions.length ? "Finish listening" : "Next question"}${icon("arrow")}</button></div>` : ""}` : `<p>No listening questions are available.</p>`}
+      </article>
+    ` : ""}
   `;
 }
 
@@ -267,9 +301,11 @@ function renderPronunciation(lesson) {
 function renderSpeaking(lesson) {
   const speaking = normalizeFirst(lesson.speaking) || {};
   const items = speaking.items || lesson.speakingChallenge || [];
+  const stageLabels = ["Listen", "Your turn", "Keep talking", "One more challenge", "Finish the conversation"];
   return `
-    <section class="lesson-section-heading"><span>Speaking</span><h1>From imitation to your life</h1><p>${escapeHtml(speaking.instructions || "Repeat, recall, then make the Spanish your own.")}</p></section>
-    <div class="lesson-speaking-path">${items.map((item, index) => `<article class="stage-${escapeAttr(item.stage || (index < 2 ? "repeat" : "personalize"))}"><span>${escapeHtml(item.stage || (index < 2 ? "repeat" : "personalize"))}</span><h2>${escapeHtml(item.prompt)}</h2><button type="button" data-speech="${escapeAttr(item.text || item.exampleAnswer || "")}" onclick="hablaLesson.speak(this.dataset.speech)"><strong>${escapeHtml(item.text || item.exampleAnswer || "Create your own answer")}</strong>${icon("sound")}</button>${item.meaning ? `<p>${escapeHtml(item.meaning)}</p>` : ""}</article>`).join("")}</div>
+    <section class="lesson-section-heading"><span>Speaking with Carlos</span><h1>Now let’s try it together</h1><p>${escapeHtml(speaking.instructions || "Carlos will guide you through the same café conversation, one natural response at a time.")}</p></section>
+    <article class="lesson-speaking-coach"><img src="${escapeAttr(getCarlosAsset("speaking"))}" alt="Carlos coaching your Spanish conversation" onerror="${CARLOS_FALLBACK_ONERROR}"><div><small>Carlos says</small><strong>We’ve heard the conversation. Now talk with me—I’ll help you all the way through.</strong></div></article>
+    <div class="lesson-speaking-path">${items.map((item, index) => `<article class="stage-${escapeAttr(item.stage || (index < 2 ? "repeat" : "personalize"))}"><header><i>${index + 1}</i><span>${escapeHtml(item.label || stageLabels[index] || "Keep talking")}</span></header><div class="lesson-speaking-prompt"><small>Carlos</small><h2>${escapeHtml(item.carlosPrompt || item.prompt)}</h2></div><p class="lesson-speaking-cue">${escapeHtml(item.cue || "Say your answer aloud.")}</p><button type="button" data-speech="${escapeAttr(item.text || item.exampleAnswer || "")}" onclick="hablaLesson.speak(this.dataset.speech)"><strong>${escapeHtml(item.text || item.exampleAnswer || "Create your own answer")}</strong>${icon("sound")}</button>${item.meaning ? `<p class="lesson-speaking-meaning">${escapeHtml(item.meaning)}</p>` : ""}</article>`).join("")}</div>
   `;
 }
 
@@ -287,25 +323,26 @@ function renderFlashcards(lesson, progress) {
 
 function renderQuiz(lesson, progress) {
   const questions = lesson.quiz || [];
-  const quiz = progress.rendererQuiz || { index: 0, score: 0, selected: null };
+  const quiz = getRendererQuiz(lesson, progress);
   const index = clamp(Number(quiz.index || 0), 0, Math.max(questions.length - 1, 0));
   const question = questions[index];
   if (!question) return `<p>No quiz questions are available.</p>`;
   const options = stableShuffle(question.options || [], `${lesson.id}:${index}`);
   const answered = quiz.selected !== null && quiz.selected !== undefined;
+  const correctAnswer = answered && isQuizAnswerCorrect(quiz.selected, question.answer);
   return `
     <section class="lesson-section-heading"><span>Check your understanding</span><h1>Question ${index + 1} of ${questions.length}</h1><p>${escapeHtml(lesson.quizIntroduction || "Use the lesson context—not isolated memorization.")}</p></section>
     <article class="lesson-quiz-card">
       <div class="lesson-quiz-score"><span>${quiz.score || 0} correct</span><i><b style="width:${Math.round((index / questions.length) * 100)}%"></b></i></div>
       <h2>${escapeHtml(question.prompt)}</h2>
       <div class="lesson-quiz-options">
-        ${options.map((option, optionIndex) => {
-          const correct = answered && option === question.answer;
-          const wrong = answered && option === quiz.selected && option !== question.answer;
+        ${options.length ? options.map((option, optionIndex) => {
+          const correct = answered && isQuizAnswerCorrect(option, question.answer);
+          const wrong = answered && option === quiz.selected && !isQuizAnswerCorrect(option, question.answer);
           return `<button type="button" class="${correct ? "correct" : ""} ${wrong ? "wrong" : ""}" onclick="hablaLesson.answerQuiz(${optionIndex})" ${answered ? "disabled" : ""}><span>${String.fromCharCode(65 + optionIndex)}</span>${escapeHtml(option)}${correct ? icon("check") : ""}</button>`;
-        }).join("")}
+        }).join("") : `<form class="lesson-quiz-input" onsubmit="event.preventDefault();hablaLesson.submitQuiz(this.elements.answer.value)"><label for="lesson-quiz-answer">Type your answer</label><div><input id="lesson-quiz-answer" name="answer" type="text" autocomplete="off" autocapitalize="sentences" ${answered ? "disabled" : ""} value="${answered ? escapeAttr(quiz.selected) : ""}" placeholder="Your answer"><button type="submit" ${answered ? "disabled" : ""}>Check answer${icon("arrow")}</button></div></form>`}
       </div>
-      ${answered ? `<div class="lesson-quiz-feedback ${quiz.selected === question.answer ? "correct" : "incorrect"}"><strong>${quiz.selected === question.answer ? "¡Correcto!" : `Answer: ${escapeHtml(question.answer)}`}</strong><p>${escapeHtml(question.explanation)}</p><button type="button" onclick="hablaLesson.nextQuiz()">${index + 1 >= questions.length ? "Finish quiz" : "Next question"}${icon("arrow")}</button></div>` : ""}
+      ${answered ? `<div class="lesson-quiz-feedback ${correctAnswer ? "correct" : "incorrect"}"><strong>${correctAnswer ? "¡Correcto!" : `Answer: ${escapeHtml(question.answer)}`}</strong><p>${escapeHtml(question.explanation)}</p><button type="button" onclick="hablaLesson.nextQuiz()">${index + 1 >= questions.length ? "Finish quiz" : "Next question"}${icon("arrow")}</button></div>` : ""}
     </article>
   `;
 }
@@ -452,18 +489,76 @@ function nextFlashcard() {
   rerenderLesson(false);
 }
 
+function setListeningPass(pass) {
+  const lesson = getActiveLesson();
+  if (!lesson) return;
+  const progress = getLessonProgress(lesson.id);
+  const current = progress.rendererListening || { pass: 0, questionIndex: 0, selected: null, complete: false };
+  updateLessonProgress(lesson.id, { rendererListening: { ...current, pass: clamp(Number(pass), 0, 2) } });
+  rerenderLesson(false);
+}
+
+function answerListeningQuestion(optionIndex) {
+  const lesson = getActiveLesson();
+  if (!lesson) return;
+  const progress = getLessonProgress(lesson.id);
+  const questions = getListeningQuestions(lesson);
+  const current = progress.rendererListening || { pass: 2, questionIndex: 0, selected: null, complete: false };
+  if (current.selected !== null && current.selected !== undefined) return;
+  const questionIndex = clamp(Number(current.questionIndex || 0), 0, Math.max(questions.length - 1, 0));
+  const question = questions[questionIndex];
+  const options = stableShuffle(question?.options || [], `${lesson.id}:listening:${questionIndex}`);
+  const answer = options[Number(optionIndex)];
+  if (!question || typeof answer !== "string") return;
+  updateLessonProgress(lesson.id, { rendererListening: { ...current, pass: 2, questionIndex, selected: answer } });
+  rerenderLesson(false);
+}
+
+function nextListeningQuestion() {
+  const lesson = getActiveLesson();
+  if (!lesson) return;
+  const progress = getLessonProgress(lesson.id);
+  const questions = getListeningQuestions(lesson);
+  const current = progress.rendererListening || { pass: 2, questionIndex: 0, selected: null, complete: false };
+  if (current.selected === null || current.selected === undefined) return;
+  const questionIndex = clamp(Number(current.questionIndex || 0), 0, Math.max(questions.length - 1, 0));
+  const last = questionIndex + 1 >= questions.length;
+  updateLessonProgress(lesson.id, { rendererListening: last
+    ? { ...current, pass: 2, questionIndex, complete: true }
+    : { ...current, pass: 2, questionIndex: questionIndex + 1, selected: null }
+  });
+  rerenderLesson(false);
+}
+
 function answerQuizQuestion(optionIndex) {
   const lesson = getActiveLesson();
   if (!lesson) return;
   const progress = getLessonProgress(lesson.id);
-  const quiz = progress.rendererQuiz || { index: 0, score: 0, selected: null, complete: false };
+  const quiz = getRendererQuiz(lesson, progress);
   if (quiz.selected !== null && quiz.selected !== undefined) return;
-  const question = lesson.quiz?.[quiz.index];
+  const questionIndex = clamp(Number(quiz.index || 0), 0, Math.max((lesson.quiz?.length || 1) - 1, 0));
+  const question = lesson.quiz?.[questionIndex];
   if (!question) return;
-  const options = stableShuffle(question.options || [], `${lesson.id}:${quiz.index}`);
+  const options = stableShuffle(question.options || [], `${lesson.id}:${questionIndex}`);
   const answer = options[Number(optionIndex)];
   if (typeof answer !== "string") return;
-  updateLessonProgress(lesson.id, { rendererQuiz: { ...quiz, selected: answer, score: Number(quiz.score || 0) + (answer === question.answer ? 1 : 0) } });
+  saveQuizAnswer(lesson, quiz, questionIndex, question, answer);
+}
+
+function submitQuizAnswer(answer) {
+  const lesson = getActiveLesson();
+  if (!lesson || !String(answer || "").trim()) return;
+  const progress = getLessonProgress(lesson.id);
+  const quiz = getRendererQuiz(lesson, progress);
+  if (quiz.selected !== null && quiz.selected !== undefined) return;
+  const questionIndex = clamp(Number(quiz.index || 0), 0, Math.max((lesson.quiz?.length || 1) - 1, 0));
+  const question = lesson.quiz?.[questionIndex];
+  if (!question) return;
+  saveQuizAnswer(lesson, quiz, questionIndex, question, String(answer).trim());
+}
+
+function saveQuizAnswer(lesson, quiz, questionIndex, question, answer) {
+  updateLessonProgress(lesson.id, { rendererQuiz: { ...quiz, index: questionIndex, selected: answer, score: Number(quiz.score || 0) + (isQuizAnswerCorrect(answer, question.answer) ? 1 : 0) } });
   rerenderLesson(false);
 }
 
@@ -471,7 +566,7 @@ function nextQuizQuestion() {
   const lesson = getActiveLesson();
   if (!lesson) return;
   const progress = getLessonProgress(lesson.id);
-  const quiz = progress.rendererQuiz || { index: 0, score: 0, selected: null, complete: false };
+  const quiz = getRendererQuiz(lesson, progress);
   if (quiz.selected === null || quiz.selected === undefined) return;
   const last = Number(quiz.index || 0) + 1 >= (lesson.quiz?.length || 0);
   updateLessonProgress(lesson.id, { rendererQuiz: last ? { ...quiz, complete: true } : { ...quiz, index: Number(quiz.index || 0) + 1, selected: null } });
@@ -577,6 +672,37 @@ function stableShuffle(values, seed) {
     [output[index], output[target]] = [output[target], output[index]];
   }
   return output;
+}
+
+function getListeningQuestions(lesson) {
+  const listening = normalizeFirst(lesson.listening) || {};
+  return listening.comprehension || (listening.items || []).map(item => ({
+    prompt: `What does “${item.spanish}” mean?`,
+    options: item.options,
+    answer: item.answer,
+    explanation: `“${item.spanish}” means “${item.answer}”`,
+  }));
+}
+
+function getRendererQuiz(lesson, progress) {
+  const saved = progress.rendererQuiz;
+  const contentVersion = lesson.contentVersion || `quiz-${lesson.quiz?.length || 0}-${(lesson.quiz || []).map(item => item.answer).join("|")}`;
+  if (!saved || saved.contentVersion !== contentVersion) {
+    return { index: 0, score: 0, selected: null, complete: false, contentVersion };
+  }
+  return {
+    ...saved,
+    index: clamp(Number(saved.index || 0), 0, Math.max((lesson.quiz?.length || 1) - 1, 0)),
+  };
+}
+
+function isQuizAnswerCorrect(given, expected) {
+  const normalizedGiven = normalize(given);
+  const expectedText = String(expected || "");
+  return [expectedText, ...expectedText.split("/")]
+    .map(normalize)
+    .filter(Boolean)
+    .some(answer => normalizedGiven === answer);
 }
 
 function rerenderLesson(scroll = false) {

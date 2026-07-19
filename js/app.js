@@ -829,10 +829,14 @@ window.addEventListener('habla:practice-render', () => {
 
 window.addEventListener('habla:lesson-render', (event) => {
   if (currentPage !== 'lesson') return;
+  const previousScrollTop = document.getElementById('dashboard')?.scrollTop || 0;
   renderAppPage('lesson');
   if (event.detail?.scroll) {
     document.getElementById('dashboard')?.scrollTo({ top: 0, behavior: 'smooth' });
     document.getElementById('lesson-stage')?.focus({ preventScroll: true });
+  } else {
+    const dashboard = document.getElementById('dashboard');
+    if (dashboard) dashboard.scrollTop = previousScrollTop;
   }
 });
 

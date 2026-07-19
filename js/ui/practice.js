@@ -644,7 +644,7 @@ function renderSummary(session, topic, lesson) {
     ${artwork ? `<img class="practice-summary-scene" src="${escapeAttr(artwork)}" alt="${escapeAttr(topic.title)} practice scene" loading="eager" fetchpriority="high" decoding="async" onerror="${LESSON_ARTWORK_ONERROR}">` : ""}
     <div class="practice-summary-copy"><span class="practice-summary-label">${title}</span><h2>${escapeHtml(topic.title)}</h2>${lesson ? `<em class="practice-summary-context">Based on your current lesson</em>` : ""}<p>${lesson || mode === "conversation" ? escapeHtml(objective) : "This topic is not available in your unlocked lessons yet."}</p><small>${meta}</small></div>
     ${artwork ? "" : `<div class="practice-summary-mark" aria-hidden="true">${iconSvg(mode)}</div>`}
-    <button class="practice-primary" type="button" onclick="hablaPractice.start()"><span class="button-label">${action}</span>${iconSvg("arrow-right", "button-icon")}</button>
+    <button class="practice-primary practice-hero-action" type="button" onclick="hablaPractice.start()"><span class="button-label">${action}</span>${iconSvg("arrow-right", "button-icon")}</button>
   </section>`;
 }
 

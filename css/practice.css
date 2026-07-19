@@ -1155,3 +1155,25 @@
   border-radius:var(--habla-radius-button,18px);
   min-height:56px;
 }
+
+/* Match the compact primary action used by the Learn lesson hero. */
+.practice-launcher .practice-summary .practice-hero-action {
+  background:linear-gradient(135deg,#f8d16e,#d89829);
+  font-family:Inter,system-ui,sans-serif;
+  font-size:.78rem;
+  font-weight:700;
+  gap:10px;
+  margin-top:16px;
+  padding-inline:20px;
+  width:min(100%,190px);
+}
+
+.practice-launcher .practice-summary .practice-hero-action .button-label,
+.practice-launcher .practice-summary .practice-hero-action .button-icon {
+  margin-left:0;
+}
+
+.practice-launcher .practice-summary .practice-hero-action .button-icon {
+  height:14px;
+  width:14px;
+}

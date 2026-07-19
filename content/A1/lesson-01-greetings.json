@@ -1,6 +1,6 @@
 {
   "id": "a1-lesson-01-greetings",
-  "contentVersion": "1.0",
+  "contentVersion": "1.1",
   "title": "First Coffee",
   "level": "A1",
   "module": "Greetings",
@@ -798,54 +798,67 @@
     ]
   },
   "listening": {
-    "title": "Hear your first conversation",
-    "instructions": "Listen once without reading. Choose what Carlos means, then listen again with the Spanish visible.",
+    "title": "Can you follow our conversation?",
+    "instructions": "Hear the same café conversation again. Listen first, follow along second, then check what you understood.",
     "playbackSpeeds": ["natural", "slow"],
-    "items": [
+    "naturalScript": "¡Hola! ¿Qué tal? Me llamo Carlos. Mucho gusto. ¿Cómo te llamas? Mucho gusto, Tom. ¿Cómo estás? Muy bien, gracias. ¿Y tú? Muy bien, gracias. Nos vemos luego.",
+    "slowScript": "¡Hola! / ¿Qué tal? / Me llamo Carlos. / Mucho gusto. / ¿Cómo te llamas? / Mucho gusto, Tom. / ¿Cómo estás? / Muy bien, gracias. / ¿Y tú? / Muy bien, gracias. / Nos vemos luego.",
+    "transcript": [
       {
-        "spanish": "Hola, ¿qué tal?",
-        "options": [
-          "Hi, how’s it going?",
-          "Goodbye, see you later.",
-          "What is your name?"
-        ],
-        "answer": "Hi, how’s it going?"
+        "speaker": "Carlos",
+        "spanish": "¡Hola! ¿Qué tal? Me llamo Carlos. Mucho gusto.",
+        "english": "Hi! How’s it going? My name is Carlos. Nice to meet you."
       },
       {
-        "spanish": "Me llamo Carlos. Mucho gusto.",
-        "options": [
-          "I’m from Madrid. How are you?",
-          "My name is Carlos. Nice to meet you.",
-          "Good morning. Can you repeat?"
-        ],
-        "answer": "My name is Carlos. Nice to meet you."
+        "speaker": "Carlos",
+        "spanish": "¿Cómo te llamas?",
+        "english": "What’s your name?"
       },
       {
+        "speaker": "Learner",
+        "spanish": "Me llamo Tom. Mucho gusto.",
+        "english": "My name is Tom. Nice to meet you."
+      },
+      {
+        "speaker": "Carlos",
+        "spanish": "Mucho gusto, Tom. ¿Cómo estás?",
+        "english": "Nice to meet you, Tom. How are you?"
+      },
+      {
+        "speaker": "Learner",
         "spanish": "Muy bien, gracias. ¿Y tú?",
-        "options": [
-          "Very well, thanks. And you?",
-          "Not very well today.",
-          "Please speak more slowly."
-        ],
-        "answer": "Very well, thanks. And you?"
+        "english": "Very well, thanks. And you?"
       },
       {
-        "spanish": "Perdón, ¿puede repetir?",
-        "options": [
-          "Excuse me, can you repeat?",
-          "Can you tell me your name?",
-          "Are you free tomorrow?"
-        ],
-        "answer": "Excuse me, can you repeat?"
+        "speaker": "Carlos",
+        "spanish": "Muy bien, gracias. Nos vemos luego.",
+        "english": "Very well, thanks. See you later."
+      }
+    ],
+    "comprehension": [
+      {
+        "prompt": "Who introduces himself first?",
+        "options": ["Carlos", "Tom", "Ana"],
+        "answer": "Carlos",
+        "explanation": "Carlos says “Me llamo Carlos” before asking the learner’s name."
       },
       {
-        "spanish": "Nos vemos luego.",
-        "options": [
-          "See you later.",
-          "You’re welcome.",
-          "Come in, please."
-        ],
-        "answer": "See you later."
+        "prompt": "What does Carlos ask after introducing himself?",
+        "options": ["The learner’s name", "What the learner wants to drink", "Where the learner lives"],
+        "answer": "The learner’s name",
+        "explanation": "¿Cómo te llamas? asks someone’s name."
+      },
+      {
+        "prompt": "How does the learner respond to ¿Cómo estás?",
+        "options": ["Muy bien, gracias. ¿Y tú?", "Me llamo Tom.", "Nos vemos luego."],
+        "answer": "Muy bien, gracias. ¿Y tú?",
+        "explanation": "The learner answers the check-in and naturally returns the question."
+      },
+      {
+        "prompt": "Which phrase ends the conversation?",
+        "options": ["Nos vemos luego.", "¿Cómo te llamas?", "Mucho gusto."],
+        "answer": "Nos vemos luego.",
+        "explanation": "Nos vemos luego is a natural friendly way to say “See you later.”"
       }
     ]
   },
@@ -892,39 +905,54 @@
     }
   ],
   "speaking": {
-    "instructions": "Listen and repeat, recall the phrase without reading, then personalize your introduction.",
+    "instructions": "Carlos guides you through the café conversation one response at a time. Listen, answer, and keep the exchange moving.",
     "items": [
       {
         "stage": "repeat",
-        "prompt": "Repeat Carlos’s greeting.",
+        "label": "Listen",
+        "carlosPrompt": "¡Hola! ¿Qué tal?",
+        "prompt": "Carlos says hello.",
+        "cue": "Hear it once, then greet Carlos back.",
         "text": "Hola, ¿qué tal?",
         "meaning": "Hi, how’s it going?",
         "focus": "Keep both vowels in hola short and do not pronounce the h."
       },
       {
         "stage": "repeat",
-        "prompt": "Repeat the model, then replace Tom with your name.",
+        "label": "Your turn",
+        "carlosPrompt": "Great. Now tell me your name.",
+        "prompt": "Introduce yourself.",
+        "cue": "Replace Tom with your own name and say it aloud.",
         "text": "Me llamo Tom. Mucho gusto.",
         "meaning": "My name is Tom. Nice to meet you.",
         "focus": "Link me llamo smoothly and pause before mucho gusto."
       },
       {
         "stage": "recall",
-        "prompt": "Carlos asks ¿Cómo estás? Respond and return the question.",
+        "label": "Keep talking",
+        "carlosPrompt": "¿Cómo estás?",
+        "prompt": "Respond and return the question.",
+        "cue": "Answer naturally, then ask Carlos the same thing.",
         "text": "Muy bien, gracias. ¿Y tú?",
         "meaning": "Very well, thanks. And you?",
         "focus": "Let your voice rise slightly on ¿Y tú?"
       },
       {
         "stage": "recall",
-        "prompt": "Ask Carlos to slow down without reading the model.",
+        "label": "One more challenge",
+        "carlosPrompt": "I spoke too quickly. What can you ask me?",
+        "prompt": "Ask Carlos to slow down.",
+        "cue": "Try it from memory before playing the model.",
         "text": "Más despacio, por favor.",
         "meaning": "More slowly, please.",
         "focus": "Stress más and pa in despacio."
       },
       {
         "stage": "personalize",
-        "prompt": "Close your first meeting in your own voice.",
+        "label": "Finish the conversation",
+        "carlosPrompt": "Perfect. Now say goodbye.",
+        "prompt": "Close your first meeting.",
+        "cue": "Use a relaxed, friendly closing.",
         "text": "Nos vemos luego.",
         "meaning": "See you later.",
         "focus": "Say the phrase as one relaxed closing."
@@ -1268,6 +1296,7 @@
       "type": "fillBlank",
       "difficulty": "medium",
       "prompt": "Me _____ Tom.",
+      "options": ["llamo", "gusto", "estás", "vemos"],
       "answer": "llamo",
       "explanation": "The complete introduction pattern is me llamo + name."
     },
@@ -1275,6 +1304,7 @@
       "type": "fillBlank",
       "difficulty": "medium",
       "prompt": "Muy bien, gracias. ¿Y _____?",
+      "options": ["tú", "llamo", "gusto", "luego"],
       "answer": "tú",
       "explanation": "¿Y tú? returns the same question informally."
     },
@@ -1282,6 +1312,7 @@
       "type": "translation",
       "difficulty": "medium",
       "prompt": "Translate: Buenas noches.",
+      "options": ["Good evening / good night.", "Good morning.", "See you later.", "Nice to meet you."],
       "answer": "Good evening / good night.",
       "explanation": "Buenas noches works as both an evening greeting and a nighttime farewell."
     },
