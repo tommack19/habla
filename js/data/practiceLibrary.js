@@ -159,15 +159,6 @@ export const PRACTICE_LIBRARY_CATEGORIES = [
       collection("modern-spanish", "Modern Spanish", 8, "collections", expressionItems(["Text Messages", "Social Media", "Phone Calls", "Email", "Slang", "Mexico", "Spain", "Latin America"])),
     ],
   },
-  {
-    id: "smart-review", title: "Smart Review", description: "Automatically generated from your Habla progress.", accent: "blue", icon: "smart-review", dynamic: true, contentSchema: "smartReview",
-    sections: [section("Your Review", [
-      item("due-today", "Due Today", { smartKey: "dueToday" }), item("weak-words", "Weak Words", { smartKey: "weakWords" }),
-      item("recently-missed", "Recently Missed", { smartKey: "recentlyMissed" }), item("favorites", "Favorites", { smartKey: "favorites" }),
-      item("recently-practiced", "Recently Practiced", { smartKey: "recentlyPracticed" }), item("daily-review", "Daily Review", { smartKey: "dailyReview" }),
-      item("difficult-verbs", "Most Difficult Verbs", { smartKey: "difficultVerbs" }), item("difficult-expressions", "Most Difficult Expressions", { smartKey: "difficultExpressions" }),
-    ])],
-  },
 ];
 
 export function findPracticeLibraryCategory(id) {

@@ -21,7 +21,7 @@
   "microCliffhanger": {
     "speaker": "Carlos",
     "spanish": "Mañana quiero presentarte a mi amiga Ana.",
-    "english": "Tomorrow I want to introduce you to my friend Ana.",
+    "english": "Tomorrow you’ll meet my friend Ana outside the café. She speaks a little faster than I do, so get ready!",
     "payoffLesson": "a1-lesson-02-introductions"
   },
   "carlosIntroduction": {
@@ -326,14 +326,14 @@
       "exampleEnglish": "Excuse me, do you speak English?"
     },
     {
-      "spanish": "hasta luego",
+      "spanish": "nos vemos luego",
       "english": "see you later",
       "partOfSpeech": "farewell",
       "tier": 1,
       "group": "Closings",
-      "tip": "Common, friendly goodbye.",
-      "exampleSpanish": "Hasta luego, mucho gusto.",
-      "exampleEnglish": "See you later, nice to meet you."
+      "tip": "Use this as the lesson’s main friendly closing. Hasta luego is an equally natural alternative you may hear.",
+      "exampleSpanish": "Mucho gusto. Nos vemos luego.",
+      "exampleEnglish": "Nice to meet you. See you later."
     }
   ],
   "greetings": [
@@ -900,7 +900,7 @@
       "english": "More slowly, please."
     },
     {
-      "spanish": "Hasta luego.",
+      "spanish": "Nos vemos luego.",
       "english": "See you later."
     }
   ],
@@ -915,6 +915,7 @@
         "cue": "Hear it once, then greet Carlos back.",
         "text": "Hola, ¿qué tal?",
         "meaning": "Hi, how’s it going?",
+        "alternatives": ["Hola.", "Hola, Carlos.", "Buenas tardes."],
         "focus": "Keep both vowels in hola short and do not pronounce the h."
       },
       {
@@ -955,6 +956,7 @@
         "cue": "Use a relaxed, friendly closing.",
         "text": "Nos vemos luego.",
         "meaning": "See you later.",
+        "alternatives": ["Nos vemos.", "Hasta luego."],
         "focus": "Say the phrase as one relaxed closing."
       }
     ]
@@ -1183,7 +1185,7 @@
     {
       "type": "translation",
       "difficulty": "Spanish to English",
-      "prompt": "Translate: Hasta luego.",
+      "prompt": "Translate: Nos vemos luego.",
       "answer": "See you later"
     },
     {
@@ -1365,7 +1367,7 @@
       "Answer ¿cómo estás? and return the question with ¿y tú?",
       "Close with nos vemos or hasta luego."
     ],
-    "completionResponse": "¡Excelente! You greeted me, introduced yourself, and completed your first Spanish conversation.",
+    "completionResponse": "Fantastic work today. You greeted me, introduced yourself, and completed your first Spanish conversation. I’m proud of you.",
     "correctionRule": "Celebrate the completed exchange first. Correct only one greeting or introduction error that affects meaning.",
     "suggestedPartner": "Carlos",
     "xpReward": 10,
@@ -1411,7 +1413,7 @@
       "por favor",
       "¿puede repetir?",
       "más despacio",
-      "hasta luego"
+      "nos vemos luego"
     ]
   },
   "passportStamp": {

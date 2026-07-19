@@ -25,10 +25,7 @@ function renderHomeHeader() {
     <section class="home-topbar h-section">
       <div class="home-header-main">
         <button class="home-brand" type="button" data-page="home" aria-label="Go to home">
-          <div>
-            <div class="home-brand-name">Habla<span>.</span></div>
-            <p>Speak Spanish. Live Confidently.</p>
-          </div>
+          <div class="home-brand-name">Habla<span>.</span></div>
         </button>
       </div>
     </section>
@@ -49,8 +46,8 @@ function renderCarlosHero(state, lesson, mission, courseProgress) {
       <img class="home-hero-background" src="${escapeAttr(period.image)}" alt="Carlos in a ${period.id} Spanish city scene" loading="eager" onerror="${CARLOS_FALLBACK_ONERROR}">
       <div class="home-hero-copy">
         <h1>&iexcl;${period.greeting}, ${name}! <span aria-hidden="true">${period.symbol}</span></h1>
-        <h2>Let&rsquo;s continue your<br>Spanish journey.</h2>
-        <p>${escapeHtml(objective)}</p>
+        <h2>Continue your Spanish journey</h2>
+        <p><small>Today&rsquo;s mission</small><strong>${escapeHtml(objective)}</strong></p>
       </div>
       <div class="home-hero-lesson-bar">
         <div class="home-hero-lesson-metrics">
@@ -58,7 +55,7 @@ function renderCarlosHero(state, lesson, mission, courseProgress) {
           <span><i aria-hidden="true">${renderHeroMetaIcon("time")}</i><b>${minutes} min</b></span>
           ${xpReward ? `<span><i aria-hidden="true">${renderHeroMetaIcon("xp")}</i><b>+${xpReward} XP</b></span>` : ""}
         </div>
-        <button class="home-hero-start" type="button" data-page="learn" ${lesson?.id ? `data-lesson-id="${escapeAttr(lesson.id)}"` : ""}>Start Lesson <span aria-hidden="true">&rsaquo;</span></button>
+        <button class="home-hero-start" type="button" data-page="learn" ${lesson?.id ? `data-lesson-id="${escapeAttr(lesson.id)}"` : ""}>Continue Lesson <span aria-hidden="true">&rsaquo;</span></button>
       </div>
     </section>
   `;

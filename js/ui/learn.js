@@ -28,11 +28,20 @@ if (typeof window !== "undefined") {
     selectLesson(id) {
       const card = [...document.querySelectorAll(".learn-path-card")]
         .find(pathCard => pathCard.dataset.lessonId === id);
-      if (card?.classList.contains("locked")) return;
 
       const lesson = getLessonById(id);
       const target = document.getElementById("learn-lesson-detail");
       if (!lesson || !target) return;
+
+      if (card?.classList.contains("locked")) {
+        document.querySelectorAll(".learn-path-card").forEach(pathCard => {
+          pathCard.classList.toggle("selected", pathCard.dataset.lessonId === id);
+        });
+        target.innerHTML = renderLockedLessonCard(lesson);
+        target.scrollIntoView({ behavior: "smooth", block: "start" });
+        return;
+      }
+
       setActiveLesson(id);
 
       document.querySelectorAll(".learn-path-card").forEach(card => {
@@ -150,7 +159,7 @@ function renderLessonListCard(lesson, index, selectedLesson, currentLesson, unlo
       type="button"
       data-lesson-id="${escapeAttr(lesson.id)}"
       onclick="hablaLearn.selectLesson('${escapeAttr(lesson.id)}')"
-      ${locked ? "aria-disabled=\"true\"" : ""}
+      aria-label="${escapeAttr(locked ? `${shortLessonTitle(lesson.title)} is locked. View unlock requirement.` : shortLessonTitle(lesson.title))}"
     >
       <span class="learn-lesson-number">${index + 1}</span>
       <span class="learn-path-category-icon" aria-hidden="true">${renderLearnIcon(getLessonIconName(lesson, index))}</span>
@@ -224,6 +233,27 @@ function renderTodayLessonCard(lesson) {
         <i><b style="width:${percent}%"></b></i>
         <strong>${completed ? "Complete" : `${percent}%`}</strong>
       </div>
+    </article>
+  `;
+}
+
+function renderLockedLessonCard(lesson) {
+  const lessons = getCourseProgress().loadedLessons || [];
+  const lessonIndex = lessons.findIndex(item => item.id === lesson.id);
+  const prerequisite = lessons[Math.max(lessonIndex - 1, 0)];
+  const current = getCurrentLesson() || prerequisite;
+  const prerequisiteNumber = getLessonNumber(prerequisite);
+  const prerequisiteTitle = shortLessonTitle(prerequisite?.title || "Current Lesson");
+
+  return `
+    <article class="learn-locked-preview">
+      <span class="learn-locked-icon" aria-hidden="true">${renderLearnIcon("lock")}</span>
+      <small>Chapter locked</small>
+      <h2>${escapeHtml(shortLessonTitle(lesson.title))}</h2>
+      <p>Complete <strong>Lesson ${prerequisiteNumber} &middot; ${escapeHtml(prerequisiteTitle)}</strong> before continuing.</p>
+      <button class="learn-locked-return h-btn h-btn--primary" type="button" data-page="lesson" ${current?.id ? `data-lesson-id="${escapeAttr(current.id)}"` : ""}>
+        Return to Current Lesson <span class="learn-arrow" aria-hidden="true"></span>
+      </button>
     </article>
   `;
 }

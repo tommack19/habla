@@ -57,8 +57,8 @@
 }
 
 .primary-brand img {
-  width: 35px;
-  height: 35px;
+  width: 32px;
+  height: 32px;
   flex: 0 0 auto;
   filter: drop-shadow(0 0 7px rgba(245, 189, 69, 0.24));
 }
@@ -207,7 +207,7 @@
   #app > .primary-header { padding-inline: 6px; }
   .primary-header-dock { gap: 7px; padding-left: 9px; padding-right: 7px; }
   .primary-brand { gap: 7px; }
-  .primary-brand img { width: 32px; height: 32px; }
+  .primary-brand img { width: 29px; height: 29px; }
   .primary-brand > span { font-size: 1.24rem; }
   #app > .primary-header #level-btn { padding-inline: 8px; font-size: 0.58rem; }
   .header-notifications,

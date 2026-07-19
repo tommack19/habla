@@ -1664,3 +1664,51 @@
   border-radius:var(--habla-radius-button,18px);
   min-height:56px;
 }
+
+/* Final hero hierarchy: greeting, mission, metadata, then one clear action. */
+.home-page .home-daily-hero { height: 248px; }
+.home-page .home-daily-hero .home-hero-copy {
+  max-width: min(272px, 60%);
+  padding: 24px 0 0 20px;
+}
+.home-page .home-daily-hero .home-hero-copy h1 {
+  font-size: 0.76rem;
+  margin-bottom: 13px;
+}
+.home-page .home-daily-hero .home-hero-copy h2 {
+  font-size: 1.46rem;
+  line-height: 1.16;
+  margin-bottom: 14px;
+  max-width: 12ch;
+}
+.home-page .home-daily-hero .home-hero-copy p {
+  color: rgba(240, 242, 238, 0.88);
+  font-size: 0.65rem;
+  line-height: 1.4;
+  max-width: 220px;
+}
+.home-page .home-daily-hero .home-hero-copy p small,
+.home-page .home-daily-hero .home-hero-copy p strong { display: block; }
+.home-page .home-daily-hero .home-hero-copy p small {
+  color: var(--habla-gold);
+  font-size: 0.55rem;
+  font-weight: 850;
+  letter-spacing: 0.08em;
+  margin-bottom: 4px;
+  text-transform: uppercase;
+}
+.home-page .home-daily-hero .home-hero-copy p strong { font-weight: 600; }
+
+@media (max-width: 390px) {
+  .home-page .home-daily-hero { height: 252px; }
+  .home-page .home-daily-hero .home-hero-copy {
+    max-width: 61%;
+    padding: 21px 0 0 14px;
+  }
+  .home-page .home-daily-hero .home-hero-copy h1 { margin-bottom: 11px; }
+  .home-page .home-daily-hero .home-hero-copy h2 {
+    font-size: 1.28rem;
+    margin-bottom: 11px;
+  }
+  .home-page .home-daily-hero .home-hero-copy p { font-size: 0.6rem; }
+}

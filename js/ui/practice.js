@@ -1041,7 +1041,6 @@ function iconSvg(name, className = "") {
     verbs: `<path d="M5 5h14M5 12h9M5 19h11"/><path d="m16 9 3 3-3 3"/>`,
     grammar: `<path d="M5 20V7a3 3 0 0 1 3-3h11v16H8a3 3 0 0 0-3 3"/><path d="M9 8h6M9 12h7"/>`,
     expressions: `<path d="M5 5.5h14A2.5 2.5 0 0 1 21.5 8v7A2.5 2.5 0 0 1 19 17.5h-8L5.5 21v-3.6A2.5 2.5 0 0 1 3 15V7.5A2 2 0 0 1 5 5.5Z"/><path d="M8 11.5h8M8 14.5h5"/>`,
-    "smart-review": `<path d="m12 3 1.5 4.5L18 9l-4.5 1.5L12 15l-1.5-4.5L6 9l4.5-1.5L12 3Z"/><path d="m18.5 14 .8 2.2 2.2.8-2.2.8-.8 2.2-.8-2.2-2.2-.8 2.2-.8.8-2.2Z"/><path d="m5 13 .6 1.7 1.7.6-1.7.6L5 17.6l-.6-1.7-1.7-.6 1.7-.6L5 13Z"/>`,
     time: `<circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/>`,
     weather: `<path d="M7 17h10a4 4 0 1 0-.8-7.9A6 6 0 0 0 5 12a3 3 0 0 0 2 5Z"/><path d="M8 4V2M3.8 6.2 2.4 4.8M12.2 6.2l1.4-1.4"/>`,
     directions: `<path d="M4 20 9 5l6 14 5-15-7 4-4-3-5 15Z"/>`,
