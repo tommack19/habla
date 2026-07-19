@@ -211,7 +211,7 @@ function renderProfileAchievements(achievements) {
     if (a.unlocked !== b.unlocked) return a.unlocked ? -1 : 1;
     return new Date(b.unlockedAt || 0) - new Date(a.unlockedAt || 0);
   });
-  return ordered.slice(0, 5).map((achievement, index) => renderAchievement(achievement, index)).join("");
+  return ordered.slice(0, 3).map((achievement, index) => renderAchievement(achievement, index)).join("");
 }
 
 function renderAchievement(achievement, index) {

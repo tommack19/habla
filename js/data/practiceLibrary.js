@@ -126,7 +126,7 @@ export const PRACTICE_LIBRARY_CATEGORIES = [
   {
     id: "grammar", title: "Grammar", description: "Build your Spanish foundation.", accent: "purple", icon: "grammar", contentSchema: "grammar",
     featured: { eyebrow: "Featured", title: "Master Ser vs Estar", description: "Learn when Spanish uses each form of ‘to be.’", collectionId: "present-tense", itemId: "ser-vs-estar" },
-    launcherActions: ["quiz", "flashcards", "examples", "conversation", "mini-lesson"],
+    launcherActions: ["mini-lesson", "examples", "flashcards", "conversation", "quiz"],
     collections: [
       collection("sentence-basics", "Sentence Basics", 5, "lessons", [
         lessonItem("articles-basics", "Articles", ["lesson-18-body-parts"]), lessonItem("gender-basics", "Gender", ["lesson-12-clothing"]), lessonItem("plural-basics", "Plural", ["lesson-03-family"]), lessonItem("word-order", "Word Order", ["a1-lesson-02-introductions"]), lessonItem("sentence-structure", "Sentence Structure", ["lesson-20-everyday-life-review"]),

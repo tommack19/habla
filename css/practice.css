@@ -60,7 +60,7 @@
 .practice-summary.mode-flashcards { color: var(--practice-purple); }
 .practice-summary.mode-pronunciation { color: var(--practice-pink); }
 .practice-summary.mode-conversation { color: var(--practice-blue); }
-.practice-primary { display: flex; align-items: center; justify-content: center; gap: 8px; min-height: 48px; border: 0; border-radius: 10px; background: linear-gradient(180deg, #ffcc65 0%, #e9aa2e 100%); color: #171208; font-weight: 800; cursor: pointer; box-shadow: 0 7px 18px rgba(231,169,45,.16), inset 0 1px 0 rgba(255,255,255,.35); transition: filter .16s ease, transform .16s ease; }
+.practice-primary { display: flex; align-items: center; justify-content: center; gap: 8px; min-height: 56px; border: 0; border-radius: var(--habla-radius-button,18px); background: linear-gradient(180deg, #ffcc65 0%, #e9aa2e 100%); color: #171208; font-weight: 800; cursor: pointer; box-shadow: 0 7px 18px rgba(231,169,45,.16), inset 0 1px 0 rgba(255,255,255,.35); transition: filter .16s ease, transform .16s ease; }
 .practice-primary:hover { filter: brightness(1.04); }
 .practice-primary:active { transform: translateY(1px); }
 .practice-primary:disabled { cursor: not-allowed; filter: grayscale(.7); opacity: .45; }
@@ -69,6 +69,8 @@
 .practice-primary .button-icon { margin-left: auto; }
 
 .practice-topic-section { margin-bottom: 16px; }
+.practice-mode-section { margin-bottom:18px; }
+.practice-mode-section .practice-mode-tabs { margin-bottom:0; }
 .practice-section-title { display: flex; align-items: baseline; justify-content: space-between; margin-bottom: 10px; }
 .practice-section-title h2 { margin: 0; font-size: 11px; letter-spacing: .08em; text-transform: uppercase; }
 .practice-section-title span { color: #6e736f; font-size: 10px; }
@@ -1122,9 +1124,9 @@
   .practice-launcher-head p { font-size: 12px; }
   .practice-level-badge { font-size: 9px; padding-inline: 13px; }
   .practice-launcher .practice-mode-tab small { font-size: 9px; }
-  .practice-launcher .practice-summary { min-height: 268px; padding-inline: 18px; }
+  .practice-launcher .practice-summary { min-height: 224px; padding:18px; }
   .practice-launcher .practice-summary h2 { font-size: 27px; }
-  .practice-launcher .practice-summary p { font-size: 12px; }
+  .practice-launcher .practice-summary p { display:-webkit-box; font-size:12px; overflow:hidden; -webkit-box-orient:vertical; -webkit-line-clamp:2; }
   .practice-launcher .practice-topic-grid { gap: 6px; }
   .practice-launcher .practice-topic { min-height: 106px; padding-inline: 4px; }
   .practice-launcher .practice-topic strong { font-size: 10px; }
@@ -1144,4 +1146,12 @@
   .practice-launcher .practice-topic-icon .practice-svg-icon { height: 28px; width: 28px; }
   .practice-launcher .practice-weekly-card { align-items: flex-start; flex-direction: column; }
   .practice-launcher .practice-week-dots { justify-content: space-between; width: 100%; }
+}
+
+/* One primary action shape across Practice and its study screens. */
+.practice-primary,
+.practice-launcher .practice-summary .practice-primary,
+.conjugation-study .library-grammar-turn > .practice-primary {
+  border-radius:var(--habla-radius-button,18px);
+  min-height:56px;
 }

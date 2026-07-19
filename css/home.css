@@ -1659,3 +1659,8 @@
 .home-page .home-daily-hero .home-hero-copy p {
   line-height: 1.4;
 }
+
+.home-page .home-hero-start {
+  border-radius:var(--habla-radius-button,18px);
+  min-height:56px;
+}

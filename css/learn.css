@@ -1184,9 +1184,10 @@
   .learn-level-badge { font-size: 0.62rem; height: 44px; padding-inline: 13px; }
   .learn-top-tab { font-size: 0.7rem; gap: 5px; }
   .learn-tab-icon { height: 19px; width: 19px; }
-  .learn-today-card { min-height: 300px; }
+  .learn-today-card { min-height: 252px; }
   .learn-current-copy { padding-inline: 16px; width: 68%; }
   .learn-today-card h2 { font-size: 1.52rem; }
+  .learn-today-card p { display:-webkit-box; overflow:hidden; -webkit-box-orient:vertical; -webkit-line-clamp:2; }
   .learn-path-card { grid-template-columns: 42px minmax(0, 1fr) 48px 20px; padding-inline: 11px; }
   .learn-side-rail { grid-template-columns: minmax(0, 1fr); }
   .learn-stats-card { grid-column: auto; }
@@ -1725,4 +1726,14 @@
   .learn-coach-card { grid-template-columns: 46px minmax(0, 1fr) auto; padding: 14px; }
   .learn-coach-card > img { height: 46px; width: 46px; }
   .learn-roadmap-chapter { padding: 12px; }
+}
+
+@media (max-width: 430px) {
+  .learn-today-card { min-height:252px; }
+  .learn-today-card p { display:-webkit-box; overflow:hidden; -webkit-box-orient:vertical; -webkit-line-clamp:2; }
+}
+
+.learn-continue {
+  border-radius:var(--habla-radius-button,18px);
+  min-height:56px;
 }

@@ -83,14 +83,16 @@
 
 function getLessonImage(lessonId) {
   const imageMap = {
-    "lesson-01-greetings": "assets/images/lessons/lesson-01-greetings.png",
-    "lesson-02-introductions": "assets/images/lessons/lesson-02-introductions.png",
-    "lesson-03-family": "assets/images/lessons/lesson-03-family.png",
-    "lesson-04-numbers-time": "assets/images/lessons/lesson-04-numbers-time.png",
-    "lesson-05-market": "assets/images/lessons/lesson-05-market.png",
-    "lesson-06-cafe": "assets/images/lessons/lesson-06-cafe.png",
-    "lesson-07-airport": "assets/images/lessons/lesson-07-airport.png",
-    "lesson-08-beach": "assets/images/lessons/lesson-08-beach.png",
+    "a1-lesson-01-greetings": "assets/images/lessons/lesson-01-greetings.png.png",
+    "a1-lesson-02-introductions": "assets/images/lessons/lesson-02-introductions.png.png",
+    "lesson-03-family": "assets/images/lessons/lesson-03-family.png.png",
+    "lesson-04-numbers-time": "assets/images/lessons/lesson-04-numbers-time.png.png",
+    "lesson-05-shopping": "assets/images/lessons/lesson-05-shopping.png.png",
+    "lesson-06-food-drinks": "assets/images/lessons/lesson-06-food-drinks.png.png",
+    "lesson-07-travel-basics": "assets/images/lessons/lesson-07-travel.png.png",
+    "lesson-08-vacation": "assets/images/lessons/lesson-08-vacation.png.png",
+    "lesson-09-around-the-house": "assets/images/lessons/lesson-08-vacation.png.png",
+    "lesson-10-daily-routine": "assets/images/lessons/lesson-07-travel.png.png",
   };
 
   return imageMap[lessonId] || "";

@@ -14,6 +14,7 @@ import {
   rememberLessonChoice,
 } from "../core/lessonMemory.js";
 import { CARLOS_FALLBACK_ONERROR, getCarlosAsset } from "../data/carlosAssets.js";
+import { LESSON_ARTWORK_ONERROR, preloadLessonArtwork } from "../data/lessonAssets.js";
 
 const ICONS = {
   back: `<path d="m15 18-6-6 6-6"/>`,
@@ -136,11 +137,11 @@ function renderStep(step, lesson, progress) {
 function renderStory(lesson) {
   const story = lesson.story || {};
   const intro = lesson.carlosIntroduction || {};
-  const artwork = getLessonArtwork(lesson);
+  const artwork = preloadLessonArtwork(lesson);
   const mission = story.mission || lesson.realLifeMission?.mission || lesson.objectives?.[0];
   return `
     <article class="lesson-story-hero">
-      <img src="${escapeAttr(artwork)}" alt="${escapeAttr(story.location || lesson.title)}" onerror="${CARLOS_FALLBACK_ONERROR}">
+      ${artwork ? `<img src="${escapeAttr(artwork)}" alt="${escapeAttr(story.location || lesson.title)}" loading="eager" fetchpriority="high" decoding="async" onerror="${LESSON_ARTWORK_ONERROR}">` : ""}
       <div class="lesson-story-shade"></div>
       <div class="lesson-story-copy">
         <span>${escapeHtml(story.time || story.location || story.city || "Your Spanish journey")}</span>
@@ -542,19 +543,6 @@ function prioritizeVocabulary(items, choice) {
 
 function getFlashcardItems(lesson) {
   return normalizeFirst(lesson.flashcards)?.items || [];
-}
-
-function getLessonArtwork(lesson) {
-  if (lesson.id === "lesson-09-around-the-house") return "assets/images/lessons/lesson-08-vacation.png.png";
-  if (lesson.id === "lesson-10-daily-routine") return "assets/images/lessons/lesson-07-travel.png.png";
-  const match = String(lesson.id || "").match(/lesson-(\d+)/);
-  if (match) return `assets/images/lessons/lesson-${match[1].padStart(2, "0")}-${artworkSlug(lesson.id)}.png.png`;
-  return lesson.image || getCarlosAsset("home");
-}
-
-function artworkSlug(id) {
-  const map = { "a1-lesson-01-greetings": "greetings", "a1-lesson-02-introductions": "introductions", "lesson-03-family": "family", "lesson-04-numbers-time": "numbers-time", "lesson-05-shopping": "shopping", "lesson-06-food-drinks": "food-drinks", "lesson-07-travel-basics": "travel", "lesson-08-vacation": "vacation" };
-  return map[id] || String(id).replace(/^.*lesson-\d+-/, "");
 }
 
 function getLessonNumber(lesson) {

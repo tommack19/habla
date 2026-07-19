@@ -1399,3 +1399,83 @@
   .preferences-card .profile-list-row em { grid-column:2; margin-top:-8px; max-width:none; text-align:left; }
   .preferences-card .profile-list-row > i { grid-column:3; grid-row:1 / span 2; }
 }
+
+/* Latest passport stamps: a contained preview, not a clipped carousel. */
+.profile-achievements-section {
+  overflow: hidden;
+  width: 100%;
+}
+
+.profile-achievements-section .profile-section-head {
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.profile-achievements-section .profile-section-head button {
+  align-items: center;
+  display: inline-flex;
+  flex: 0 0 auto;
+  gap: 4px;
+  min-height: 44px;
+  padding: 0;
+}
+
+.profile-achievements-section .achievement-grid {
+  display: grid;
+  gap: 10px;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  margin: 0;
+  overflow: visible;
+  padding: 0;
+  width: 100%;
+}
+
+.profile-achievements-section .achievement {
+  box-sizing: border-box;
+  display: grid;
+  flex: none;
+  grid-template-rows: auto auto minmax(2.8em, 1fr) auto;
+  min-height: 190px;
+  min-width: 0;
+  padding: 15px 9px 13px;
+  width: 100%;
+}
+
+.profile-achievements-section .achievement-icon {
+  height: 50px;
+  width: 50px;
+}
+
+.profile-achievements-section .achievement h3 {
+  font-size: clamp(.72rem, 2.7vw, .84rem);
+  hyphens: auto;
+  line-height: 1.2;
+  margin: 12px 0 7px;
+  overflow-wrap: anywhere;
+}
+
+.profile-achievements-section .achievement p {
+  display: -webkit-box;
+  font-size: clamp(.58rem, 2.15vw, .67rem);
+  line-height: 1.4;
+  margin: 0;
+  overflow: hidden;
+  overflow-wrap: anywhere;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+}
+
+.profile-achievements-section .achievement small {
+  align-items: center;
+  display: inline-flex;
+  font-size: clamp(.56rem, 2vw, .63rem);
+  gap: 4px;
+  margin-top: 12px;
+  white-space: nowrap;
+}
+
+@media (max-width: 390px) {
+  .profile-achievements-section .achievement-grid { gap: 8px; }
+  .profile-achievements-section .achievement { min-height: 184px; padding-inline: 7px; }
+  .profile-achievements-section .achievement-icon { height: 46px; width: 46px; }
+}

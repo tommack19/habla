@@ -10,6 +10,7 @@ import {
 import { getCurrentStreak } from "../core/progress.js";
 import { getAchievements } from "../core/achievements.js";
 import { CARLOS_FALLBACK_ONERROR, getCarlosAsset } from "../data/carlosAssets.js";
+import { LESSON_ARTWORK_ONERROR, preloadLessonArtwork } from "../data/lessonAssets.js";
 
 const LEARN_STEPS = [
   "Vocabulary",
@@ -194,11 +195,11 @@ function renderTodayLessonCard(lesson) {
   const wordCount = lesson.vocabulary?.length || 25;
   const phraseCount = countLessonItems(lesson.dialogue || lesson.dialogues) || 15;
   const minutes = lesson.estimatedMinutes || 10;
-  const artwork = getLessonArtwork(lesson);
+  const artwork = preloadLessonArtwork(lesson);
 
   return `
     <article class="learn-today-card">
-      <img class="learn-current-scene" src="${escapeAttr(artwork)}" alt="Artwork for ${escapeAttr(title)}" onerror="${CARLOS_FALLBACK_ONERROR}">
+      ${artwork ? `<img class="learn-current-scene" src="${escapeAttr(artwork)}" alt="Artwork for ${escapeAttr(title)}" loading="eager" fetchpriority="high" decoding="async" onerror="${LESSON_ARTWORK_ONERROR}">` : ""}
       <div class="learn-current-copy">
         <span class="learn-current-badge">Current Lesson</span>
         <em>Lesson ${lessonNumber}</em>
@@ -326,22 +327,6 @@ function getLessonCompletionPercent(progress = {}) {
   if (progress.completed) return 100;
   const explicit = Number(progress.percent ?? progress.completionPercent ?? progress.progress ?? 0);
   return Math.max(0, Math.min(100, Number.isFinite(explicit) ? Math.round(explicit) : 0));
-}
-
-function getLessonArtwork(lesson) {
-  const curatedArtwork = {
-    1: "lesson-01-greetings.png.png",
-    2: "lesson-02-introductions.png.png",
-    3: "lesson-03-family.png.png",
-    4: "lesson-04-numbers-time.png.png",
-    5: "lesson-05-shopping.png.png",
-    6: "lesson-06-food-drinks.png.png",
-    7: "lesson-07-travel.png.png",
-    8: "lesson-08-vacation.png.png",
-  };
-  const curatedFile = curatedArtwork[getLessonNumber(lesson)];
-  if (curatedFile) return `assets/images/lessons/${curatedFile}`;
-  return lesson?.image || lesson?.imagePath || getCarlosAsset("home");
 }
 
 function getDailyLearnTip() {

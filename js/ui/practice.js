@@ -1,12 +1,13 @@
 import { getLessonById, getLessonProgress, getUnlockedLessons } from "../core/content.js";
 import { PRACTICE_LIBRARY_CATEGORIES, findPracticeLibraryCategory, findPracticeLibraryCollection, findPracticeLibraryItem } from "../data/practiceLibrary.js";
 import { CARLOS_FALLBACK_ONERROR, getCarlosAsset } from "../data/carlosAssets.js";
+import { LESSON_ARTWORK_ONERROR, preloadLessonArtwork } from "../data/lessonAssets.js";
 
 const TOPIC_KEY = "habla_selected_practice_topic_v1";
 const SESSION_KEY = "habla_practice_session_v2";
 const LIBRARY_PROGRESS_KEY = "habla_practice_library_progress_v1";
 const PRACTICE_HISTORY_KEY = "habla_practice_history_v1";
-const MODES = ["quiz", "flashcards", "pronunciation", "conversation"];
+const MODES = ["flashcards", "conversation", "pronunciation", "quiz"];
 const PRIMARY_TOPIC_IDS = ["greetings", "family", "food-restaurants", "travel", "shopping", "work", "phrases", "numbers"];
 const TOPICS = {
   greetings: { title: "Greetings", icon: "greetings", lessons: ["a1-lesson-01-greetings", "a1-lesson-02-introductions"] },
@@ -66,12 +67,6 @@ function renderLauncher(session, topic, lesson, appState) {
       <header class="practice-launcher-head">
         <div><h1>Practice</h1><p>Practice speaking, listening and more.</p></div>
       </header>
-      <div class="practice-mode-tabs" role="tablist" aria-label="Practice mode">
-        ${modeTab("quiz", "Quiz Mode", session.mode)}
-        ${modeTab("flashcards", "Flashcards", session.mode)}
-        ${modeTab("pronunciation", "Pronunciation", session.mode)}
-        ${modeTab("conversation", "Conversation", session.mode)}
-      </div>
       ${renderSummary(session, topic, lesson)}
       ${renderPracticeNextStep(session, lesson)}
       <section class="practice-topic-section">
@@ -89,6 +84,15 @@ function renderLauncher(session, topic, lesson, appState) {
               <i class="practice-topic-progress" aria-hidden="true"><b style="width:${progress}%"></b></i>
             </button>`;
           }).join("")}
+        </div>
+      </section>
+      <section class="practice-mode-section" aria-label="Choose how to practice">
+        <div class="practice-section-title"><h2>Practice Modes</h2><span>Learn first, test last</span></div>
+        <div class="practice-mode-tabs" role="tablist" aria-label="Practice mode">
+          ${modeTab("flashcards", "Flashcards", session.mode)}
+          ${modeTab("conversation", "Conversation", session.mode)}
+          ${modeTab("pronunciation", "Pronunciation", session.mode)}
+          ${modeTab("quiz", "Quiz", session.mode)}
         </div>
       </section>
       ${renderWeeklyPractice(appState)}
@@ -628,7 +632,7 @@ function renderSummary(session, topic, lesson) {
   const title = lesson ? "Today's Recommendation" : "Today's Practice";
   const count = lesson ? getModeCount(mode, lesson) : 0;
   const minutes = estimateMinutes(mode, count);
-  const artwork = getPracticeLessonArtwork(lesson);
+  const artwork = preloadLessonArtwork(lesson);
   const objective = lesson?.objectives?.[0] || lesson?.objective || description;
   const meta = mode === "conversation"
     ? `<span>${iconSvg("conversation")} Topic ready</span>`
@@ -637,7 +641,7 @@ function renderSummary(session, topic, lesson) {
       : `<span>${iconSvg("lock")} Complete earlier lessons to unlock</span>`;
 
   return `<section class="practice-summary mode-${mode} ${artwork ? "has-scene" : ""}">
-    ${artwork ? `<img class="practice-summary-scene" src="${escapeAttr(artwork)}" alt="${escapeAttr(topic.title)} practice scene" onerror="this.hidden=true">` : ""}
+    ${artwork ? `<img class="practice-summary-scene" src="${escapeAttr(artwork)}" alt="${escapeAttr(topic.title)} practice scene" loading="eager" fetchpriority="high" decoding="async" onerror="${LESSON_ARTWORK_ONERROR}">` : ""}
     <div class="practice-summary-copy"><span class="practice-summary-label">${title}</span><h2>${escapeHtml(topic.title)}</h2>${lesson ? `<em class="practice-summary-context">Based on your current lesson</em>` : ""}<p>${lesson || mode === "conversation" ? escapeHtml(objective) : "This topic is not available in your unlocked lessons yet."}</p><small>${meta}</small></div>
     ${artwork ? "" : `<div class="practice-summary-mark" aria-hidden="true">${iconSvg(mode)}</div>`}
     <button class="practice-primary" type="button" onclick="hablaPractice.start()"><span class="button-label">${action}</span>${iconSvg("arrow-right", "button-icon")}</button>
@@ -656,9 +660,8 @@ function practiceHeroAction(session, lesson) {
 function renderPracticeNextStep(session, lesson) {
   if (!lesson || session.lastCompletedTopic !== session.topic || !session.lastCompletedMode) return "";
   const nextModes = {
-    quiz: ["flashcards", "Review with Flashcards", "Reinforce the words you just tested."],
     flashcards: ["pronunciation", "Practice Pronunciation", "Say the phrases aloud while they are fresh."],
-    pronunciation: ["conversation", "Use It with Carlos", "Turn today’s practice into a short conversation."],
+    pronunciation: ["quiz", "Check What You Know", "Finish by testing the language you have reviewed."],
   };
   const next = nextModes[session.lastCompletedMode];
   if (!next) return "";
@@ -675,23 +678,6 @@ function getPracticeLessonPercent(lesson) {
   if (progress?.completed) return 100;
   const value = Number(progress?.percent ?? progress?.completionPercent ?? progress?.progress ?? 0);
   return Number.isFinite(value) ? Math.max(0, Math.min(100, Math.round(value))) : 0;
-}
-
-function getPracticeLessonArtwork(lesson) {
-  if (!lesson) return "";
-  const artwork = {
-    1: "lesson-01-greetings.png.png",
-    2: "lesson-02-introductions.png.png",
-    3: "lesson-03-family.png.png",
-    4: "lesson-04-numbers-time.png.png",
-    5: "lesson-05-shopping.png.png",
-    6: "lesson-06-food-drinks.png.png",
-    7: "lesson-07-travel.png.png",
-    8: "lesson-08-vacation.png.png",
-  };
-  const match = String(lesson.id || "").match(/lesson-(\d+)/);
-  const file = match ? artwork[Number(match[1])] : "";
-  return file ? `assets/images/lessons/${file}` : (lesson.image || lesson.imagePath || lesson.meta?.imagePath || "");
 }
 
 function renderActivityHeader(title) {
@@ -915,7 +901,7 @@ function readSession() {
   let suppliedTopic = "";
   try { suppliedTopic = localStorage.getItem(TOPIC_KEY) || ""; } catch {}
   const topic = TOPICS[suppliedTopic] ? suppliedTopic : (TOPICS[saved.topic] ? saved.topic : "greetings");
-  return { ...saved, mode: MODES.includes(saved.mode) ? saved.mode : "quiz", topic, view: ["launcher", "activity", "results", "library", "library-category", "library-collection", "library-item", "library-study"].includes(saved.view) ? saved.view : "launcher" };
+  return { ...saved, mode: MODES.includes(saved.mode) ? saved.mode : "flashcards", topic, view: ["launcher", "activity", "results", "library", "library-category", "library-collection", "library-item", "library-study"].includes(saved.view) ? saved.view : "launcher" };
 }
 
 function writeSession(session) { sessionStorage.setItem(SESSION_KEY, JSON.stringify(session)); }
@@ -928,7 +914,7 @@ function stopRecordingResources() {
 }
 
 window.hablaPractice = {
-  selectMode(mode) { const session = readSession(); session.mode = MODES.includes(mode) ? mode : "quiz"; session.view = "launcher"; clearLibraryContext(session); writeSession(session); rerender(); },
+  selectMode(mode) { const session = readSession(); session.mode = MODES.includes(mode) ? mode : "flashcards"; session.view = "launcher"; clearLibraryContext(session); writeSession(session); rerender(); },
   selectTopic(topic) { const session = readSession(); session.topic = TOPICS[topic] ? topic : "greetings"; localStorage.setItem(TOPIC_KEY, session.topic); session.view = "launcher"; clearLibraryContext(session); writeSession(session); rerender(); },
   start() { const session = readSession(); delete session.returnView; if (session.mode === "conversation") { window.dispatchEvent(new CustomEvent("habla:practice-conversation", { detail: { topic: session.topic, title: TOPICS[session.topic].title } })); return; } session.view = "activity"; writeSession(session); rerender(); },
   back() { stopRecordingResources(); const session = readSession(); session.view = session.returnView || "launcher"; delete session.returnView; if (session.pronunciation) session.pronunciation.recording = false; writeSession(session); rerender(); },
