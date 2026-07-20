@@ -10,7 +10,7 @@ import {
 import { getCurrentStreak } from "../core/progress.js";
 import { getAchievements } from "../core/achievements.js";
 import { CARLOS_FALLBACK_ONERROR, getCarlosAsset } from "../data/carlosAssets.js";
-import { LESSON_ARTWORK_ONERROR, preloadLessonArtwork } from "../data/lessonAssets.js";
+import { renderLessonCover } from "../components/lessonCover.js";
 
 const LEARN_STEPS = [
   "Vocabulary",
@@ -208,33 +208,26 @@ function renderTodayLessonCard(lesson) {
   const wordCount = lesson.vocabulary?.length || 25;
   const phraseCount = countLessonItems(lesson.dialogue || lesson.dialogues) || 15;
   const minutes = lesson.estimatedMinutes || 10;
-  const artwork = preloadLessonArtwork(lesson);
-
-  return `
-    <article class="learn-today-card">
-      ${artwork ? `<img class="learn-current-scene" src="${escapeAttr(artwork)}" alt="Artwork for ${escapeAttr(title)}" loading="eager" fetchpriority="high" decoding="async" onerror="${LESSON_ARTWORK_ONERROR}">` : ""}
-      <div class="learn-current-copy">
-        <span class="learn-current-badge">Current Lesson</span>
-        <em>Lesson ${lessonNumber}</em>
-        <h2>${escapeHtml(title)}</h2>
-        <p>${escapeHtml(objective)}</p>
-        <div class="learn-lesson-meta">
-          <span><i class="meta-book"></i>${wordCount} Words</span>
-          <span><i class="meta-card"></i>${phraseCount} Phrases</span>
-          <span><i class="meta-clock"></i>${minutes} Min</span>
-        </div>
-        <button class="learn-continue h-btn h-btn--primary" type="button" data-page="lesson" data-lesson-id="${escapeAttr(lesson.id)}">
-          <span>Continue Lesson<small>Lesson ${lessonNumber} of ${A1_LESSON_TOTAL}</small></span>
-          <span class="learn-arrow" aria-hidden="true"></span>
-        </button>
-      </div>
-      <div class="learn-current-progress">
-        <span>Lesson Progress</span>
-        <i><b style="width:${percent}%"></b></i>
-        <strong>${completed ? "Complete" : `${percent}%`}</strong>
-      </div>
-    </article>
-  `;
+  return renderLessonCover({
+    variant: "learn",
+    lesson,
+    artworkAlt: `Artwork for ${title}`,
+    eyebrow: "Current Lesson",
+    overline: `Lesson ${lessonNumber}`,
+    title,
+    description: objective,
+    meta: [
+      { text: `${wordCount} Words` },
+      { text: `${phraseCount} Phrases` },
+      { text: `${minutes} Min` },
+    ],
+    action: {
+      label: "Continue Lesson",
+      subLabel: `Lesson ${lessonNumber} of ${A1_LESSON_TOTAL}`,
+      attributes: `data-page="lesson" data-lesson-id="${escapeAttr(lesson.id)}"`,
+    },
+    footerHtml: `<span>Lesson Progress</span><i><b style="width:${percent}%"></b></i><strong>${completed ? "Complete" : `${percent}%`}</strong>`,
+  });
 }
 
 function renderLockedLessonCard(lesson) {

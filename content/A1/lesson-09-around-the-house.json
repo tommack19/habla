@@ -279,7 +279,7 @@
   },
   "culture": {
     "title": "A day has local rhythms",
-    "text": "Daily schedules vary by family, job, and region. In Spain, lunch and dinner are often later than in Canada or the United States, and a long midday meal may be more important than a quick lunch. Do not treat one schedule as the only ‘Spanish’ routine. Ask what someone normally does, listen for their time phrases, and describe your own day honestly."
+    "text": "Daily schedules vary by family, job, and region. In Spain, lunch and dinner are often later than in {{learnerCountryEnglish}} or the United States, and a long midday meal may be more important than a quick lunch. Do not treat one schedule as the only ‘Spanish’ routine. Ask what someone normally does, listen for their time phrases, and describe your own day honestly."
   },
   "worldBuilding": [
     { "moment": "tea in the kitchen", "carlosSpanish": "Cuando llueve, Marta siempre pone la tetera aquí. Nico prefiere chocolate caliente.", "carlosEnglish": "When it rains, Marta always puts the kettle here. Nico prefers hot chocolate." },

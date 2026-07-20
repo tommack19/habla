@@ -32,16 +32,16 @@
       "english": "my name is",
       "partOfSpeech": "phrase",
       "tip": "Review introductions.",
-      "exampleSpanish": "Me llamo Tom.",
-      "exampleEnglish": "My name is Tom."
+      "exampleSpanish": "Me llamo {{learnerName}}.",
+      "exampleEnglish": "My name is {{learnerName}}."
     },
     {
       "spanish": "soy de",
       "english": "I am from",
       "partOfSpeech": "phrase",
       "tip": "Origin.",
-      "exampleSpanish": "Soy de Canada.",
-      "exampleEnglish": "I am from Canada."
+      "exampleSpanish": "Soy de {{learnerCountry}}.",
+      "exampleEnglish": "I am from {{learnerCountryEnglish}}."
     },
     {
       "spanish": "mi familia",
@@ -363,8 +363,8 @@
     "explanation": "Combine greetings, introductions, time, family, weather, clothing, food, travel, work, health, and feelings. Carlos helps you connect short sentences into a real conversation.",
     "examples": [
       {
-        "spanish": "Hola, soy Tom y hoy estoy feliz.",
-        "english": "Hello, I am Tom and today I am happy."
+        "spanish": "Hola, soy {{learnerName}} y hoy estoy feliz.",
+        "english": "Hello, I am {{learnerName}} and today I am happy."
       },
       {
         "spanish": "Hace frio, entonces llevo una chaqueta.",
@@ -687,12 +687,12 @@
       "english": "Hello, Carlos."
     },
     {
-      "spanish": "Me llamo Tom.",
-      "english": "My name is Tom."
+      "spanish": "Me llamo {{learnerName}}.",
+      "english": "My name is {{learnerName}}."
     },
     {
-      "spanish": "Soy de Canada.",
-      "english": "I am from Canada."
+      "spanish": "Soy de {{learnerCountry}}.",
+      "english": "I am from {{learnerCountryEnglish}}."
     },
     {
       "spanish": "Mi familia es amable.",
@@ -729,12 +729,12 @@
       "english": "Hello, Carlos."
     },
     {
-      "spanish": "Me llamo Tom.",
-      "english": "My name is Tom."
+      "spanish": "Me llamo {{learnerName}}.",
+      "english": "My name is {{learnerName}}."
     },
     {
-      "spanish": "Soy de Canada.",
-      "english": "I am from Canada."
+      "spanish": "Soy de {{learnerCountry}}.",
+      "english": "I am from {{learnerCountryEnglish}}."
     },
     {
       "spanish": "Mi familia es amable.",
@@ -774,11 +774,11 @@
       },
       {
         "text": "me llamo",
-        "note": "Say me llamo slowly first, then repeat it in the sentence: Me llamo Tom."
+        "note": "Say me llamo slowly first, then repeat it in the sentence: Me llamo {{learnerName}}."
       },
       {
         "text": "soy de",
-        "note": "Say soy de slowly first, then repeat it in the sentence: Soy de Canada."
+        "note": "Say soy de slowly first, then repeat it in the sentence: Soy de {{learnerCountry}}."
       },
       {
         "text": "mi familia",
@@ -984,8 +984,8 @@
     },
     {
       "type": "translation",
-      "prompt": "Translate: Me llamo Tom.",
-      "answer": "My name is Tom."
+      "prompt": "Translate: Me llamo {{learnerName}}.",
+      "answer": "My name is {{learnerName}}."
     },
     {
       "type": "multipleChoice",
@@ -1006,11 +1006,11 @@
     },
     {
       "prompt": "Carlos asks you to use me llamo in a real sentence.",
-      "exampleAnswer": "Me llamo Tom."
+      "exampleAnswer": "Me llamo {{learnerName}}."
     },
     {
       "prompt": "Carlos asks you to use soy de in a real sentence.",
-      "exampleAnswer": "Soy de Canada."
+      "exampleAnswer": "Soy de {{learnerCountryEnglish}}."
     },
     {
       "prompt": "Carlos asks you to use mi familia in a real sentence.",

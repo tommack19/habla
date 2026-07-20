@@ -128,14 +128,15 @@
   },
   "learnerChoices": {
     "objective": "Choose a product, point it out, ask the price, and complete the purchase.",
-    "prompt": "Carlos asks: ¿Qué compramos primero?",
+    "prompt": "¿Qué compramos primero?",
+    "promptEnglish": "What should we buy first?",
     "options": [
-      { "id": "apples", "label": "Apples", "learnerSpanish": "Estas manzanas.", "learnerEnglish": "These apples.", "carlosSpanish": "Buena elección. Mi madre hace una ensalada de fruta muy rica.", "carlosEnglish": "Good choice. My mother makes a very tasty fruit salad.", "vendorPrompt": "¿Cuántas?", "modelOrder": "Quiero estas manzanas, por favor." },
-      { "id": "bread", "label": "Bread", "learnerSpanish": "Este pan.", "learnerEnglish": "This bread.", "carlosSpanish": "Buena elección. Esta panadería siempre huele increíble.", "carlosEnglish": "Good choice. This bakery always smells incredible.", "vendorPrompt": "¿Este pan?", "modelOrder": "Quiero este pan, por favor." },
-      { "id": "cheese", "label": "Cheese", "learnerSpanish": "Este queso.", "learnerEnglish": "This cheese.", "carlosSpanish": "Perfecto. Este queso es de La Mancha y está muy rico.", "carlosEnglish": "Perfect. This cheese is from La Mancha and is very tasty.", "vendorPrompt": "¿Grande o pequeño?", "modelOrder": "Quiero este queso pequeño, por favor." },
-      { "id": "coffee", "label": "Coffee", "learnerSpanish": "Este café.", "learnerEnglish": "This coffee.", "carlosSpanish": "Buena idea. El café huele fantástico hoy.", "carlosEnglish": "Good idea. The coffee smells fantastic today.", "vendorPrompt": "¿Uno?", "modelOrder": "Quiero este café, por favor." },
-      { "id": "flowers", "label": "Flowers", "learnerSpanish": "Estas flores.", "learnerEnglish": "These flowers.", "carlosSpanish": "A mi madre le encantan las flores frescas. Siempre pone flores en la mesa cuando tenemos invitados.", "carlosEnglish": "My mother loves fresh flowers. She always puts flowers on the table when we have guests.", "vendorPrompt": "¿Estas flores?", "modelOrder": "Quiero estas flores, por favor." },
-      { "id": "tomatoes", "label": "Tomatoes", "learnerSpanish": "Estos tomates.", "learnerEnglish": "These tomatoes.", "carlosSpanish": "Perfecto. Necesitamos tomates para el almuerzo.", "carlosEnglish": "Perfect. We need tomatoes for lunch.", "vendorPrompt": "¿Cuántos?", "modelOrder": "Quiero estos tomates, por favor." }
+      { "id": "apples", "label": "Apples", "learnerSpanish": "Estas manzanas.", "learnerEnglish": "These apples.", "carlosSpanish": "Buena elección. Mi madre hace una ensalada de fruta muy rica.", "carlosEnglish": "Good choice. My mother makes a very tasty fruit salad.", "memoryCallback": "You picked apples first. I’ll remember that.", "vendorPrompt": "¿Cuántas?", "modelOrder": "Quiero estas manzanas, por favor." },
+      { "id": "bread", "label": "Bread", "learnerSpanish": "Este pan.", "learnerEnglish": "This bread.", "carlosSpanish": "Buena elección. Esta panadería siempre huele increíble.", "carlosEnglish": "Good choice. This bakery always smells incredible.", "memoryCallback": "You went straight for the fresh bread. I’ll remember that.", "vendorPrompt": "¿Este pan?", "modelOrder": "Quiero este pan, por favor." },
+      { "id": "cheese", "label": "Cheese", "learnerSpanish": "Este queso.", "learnerEnglish": "This cheese.", "carlosSpanish": "Buena elección. Este queso es de La Mancha y está muy rico.", "carlosEnglish": "Good choice. This cheese is from La Mancha and is very tasty.", "memoryCallback": "You picked the La Mancha cheese first. I’ll remember that.", "vendorPrompt": "¿Grande o pequeño?", "modelOrder": "Quiero este queso pequeño, por favor." },
+      { "id": "coffee", "label": "Coffee", "learnerSpanish": "Este café.", "learnerEnglish": "This coffee.", "carlosSpanish": "Buena elección. El café huele fantástico hoy.", "carlosEnglish": "Good choice. The coffee smells fantastic today.", "memoryCallback": "Coffee first—I like your style. I’ll remember that.", "vendorPrompt": "¿Uno?", "modelOrder": "Quiero este café, por favor." },
+      { "id": "flowers", "label": "Flowers", "learnerSpanish": "Estas flores.", "learnerEnglish": "These flowers.", "carlosSpanish": "Buena elección. A mi madre le encantan las flores frescas. Siempre pone flores en la mesa cuando tenemos invitados.", "carlosEnglish": "Good choice. My mother loves fresh flowers. She always puts flowers on the table when we have guests.", "memoryCallback": "You chose flowers for the family table. I’ll remember that.", "vendorPrompt": "¿Estas flores?", "modelOrder": "Quiero estas flores, por favor." },
+      { "id": "tomatoes", "label": "Tomatoes", "learnerSpanish": "Estos tomates.", "learnerEnglish": "These tomatoes.", "carlosSpanish": "Buena elección. Necesitamos tomates para el almuerzo.", "carlosEnglish": "Good choice. We need tomatoes for lunch.", "memoryCallback": "You picked the tomatoes for lunch. I’ll remember that.", "vendorPrompt": "¿Cuántos?", "modelOrder": "Quiero estos tomates, por favor." }
     ],
     "rejoin": "The vendor gives a simple price. The learner confirms the purchase, asks for a bag if needed, and says gracias. Carlos then reveals the nearby café."
   },
@@ -233,11 +234,14 @@
     "setting": "You are speaking directly with a market vendor while Carlos stands beside you.",
     "goal": "Say what you need, choose one or more, ask the price, and close politely.",
     "turns": [
+      { "speaker": "Carlos", "spanish": "Buenos días. Vamos a comprar el almuerzo juntos.", "english": "Good morning. Let’s buy lunch together." },
       { "speaker": "Vendor", "spanish": "Buenos días. ¿Qué necesitas?", "english": "Good morning. What do you need?" },
-      { "speaker": "Learner", "intent": "Choose any encountered product.", "exampleSpanish": "Necesito pan.", "exampleEnglish": "I need bread." },
+      { "speaker": "Learner", "intent": "Order the selected product.", "exampleSpanish": "Quiero este pan, por favor.", "exampleEnglish": "I want this bread, please." },
+      { "speaker": "Carlos", "spanish": "Buena elección. Vamos a comprarlo.", "english": "Good choice. Let’s buy it." },
       { "speaker": "Vendor", "spanish": "¿Cuánto?", "english": "How much?" },
       { "speaker": "Learner", "intent": "Choose a simple amount.", "exampleSpanish": "Uno, por favor.", "exampleEnglish": "One, please." },
       { "speaker": "Vendor", "spanish": "Muy bien. Son tres euros.", "english": "Very good. It’s three euros." },
+      { "speaker": "Carlos", "spanish": "Perfecto. Ya casi terminamos.", "english": "Perfect. We’re almost finished." },
       { "speaker": "Learner", "intent": "Accept and thank the vendor.", "exampleSpanish": "Perfecto. Gracias.", "exampleEnglish": "Perfect. Thank you." },
       { "speaker": "Carlos", "spanish": "¡Excelente! Tú elegiste y compraste todo en español.", "english": "Excellent! You chose and bought everything in Spanish." }
     ]
@@ -288,7 +292,7 @@
     { "type": "multipleChoice", "difficulty": "easy", "prompt": "What does fresco mean when describing food?", "options": ["fresh", "sweet", "small", "expensive"], "answer": "fresh", "explanation": "Fresco or fresca describes food that is fresh." },
     { "type": "fillBlank", "difficulty": "medium", "prompt": "Complete: Quiero _____ flores, por favor.", "options": ["estas", "estos", "esta", "este"], "answer": "estas", "explanation": "Flores is feminine plural, so use estas." },
     { "type": "fillBlank", "difficulty": "medium", "prompt": "Complete: Necesito _____ tomates.", "options": ["estos", "estas", "este", "esta"], "answer": "estos", "explanation": "Tomates is masculine plural, so use estos." },
-    { "type": "multipleChoice", "difficulty": "medium", "prompt": "Carlos asks ¿Qué compramos primero? Choose a natural answer.", "options": ["Este queso.", "A las diez.", "Mi familia está bien.", "Soy de Canadá."], "answer": "Este queso.", "explanation": "Carlos asks what to buy, so point out a product." },
+    { "type": "multipleChoice", "difficulty": "medium", "prompt": "Carlos asks ¿Qué compramos primero? Choose a natural answer.", "options": ["Este queso.", "A las diez.", "Mi familia está bien.", "Soy de {{learnerCountry}}."], "answer": "Este queso.", "explanation": "Carlos asks what to buy, so point out a product." },
     { "type": "multipleChoice", "difficulty": "medium", "prompt": "The vendor asks ¿Qué necesitas? What is the best response?", "options": ["Necesito pan.", "Estoy libre.", "Nos vemos el sábado.", "Ella es mi hermana."], "answer": "Necesito pan.", "explanation": "Necesito + product directly answers what you need." },
     { "type": "multipleChoice", "difficulty": "medium", "prompt": "The vendor asks ¿Algo más? You are finished. What do you say?", "options": ["Nada más, gracias.", "¿Cuándo?", "Estoy ocupado.", "Mucho gusto."], "answer": "Nada más, gracias.", "explanation": "This politely says you need nothing else and closes the order." },
     { "type": "translation", "difficulty": "medium", "prompt": "Translate: Estas uvas están muy ricas.", "options": ["These grapes are very tasty.", "This orange is very sweet.", "These tomatoes are very large.", "The apples cost three euros."], "answer": "These grapes are very tasty.", "explanation": "Estas points to feminine plural uvas, and muy ricas means very tasty." },

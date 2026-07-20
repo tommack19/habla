@@ -52,11 +52,11 @@
       "exampleEnglish": "Hi, Carlos. How’s it going?"
     },
     {
-      "spanish": "Me llamo Tom.",
-      "english": "My name is Tom.",
+      "spanish": "Me llamo {{learnerName}}.",
+      "english": "My name is {{learnerName}}.",
       "usage": "A clear introduction that works in formal and informal situations.",
-      "exampleSpanish": "Hola, me llamo Tom.",
-      "exampleEnglish": "Hi, my name is Tom."
+      "exampleSpanish": "Hola, me llamo {{learnerName}}.",
+      "exampleEnglish": "Hi, my name is {{learnerName}}."
     },
     {
       "spanish": "Mucho gusto.",
@@ -142,8 +142,8 @@
       "tier": 1,
       "group": "Introductions",
       "tip": "Use after learning someone's name.",
-      "exampleSpanish": "Mucho gusto, me llamo Tom.",
-      "exampleEnglish": "Nice to meet you, my name is Tom."
+      "exampleSpanish": "Mucho gusto, me llamo {{learnerName}}.",
+      "exampleEnglish": "Nice to meet you, my name is {{learnerName}}."
     },
     {
       "spanish": "encantado",
@@ -232,8 +232,8 @@
       "tier": 1,
       "group": "Introductions",
       "tip": "Literally means I call myself.",
-      "exampleSpanish": "Me llamo Tom.",
-      "exampleEnglish": "My name is Tom."
+      "exampleSpanish": "Me llamo {{learnerName}}.",
+      "exampleEnglish": "My name is {{learnerName}}."
     },
     {
       "spanish": "soy",
@@ -242,8 +242,8 @@
       "tier": 1,
       "group": "Introductions",
       "tip": "Use soy plus your name as a short, natural introduction.",
-      "exampleSpanish": "Hola, soy Tom.",
-      "exampleEnglish": "Hi, I’m Tom."
+      "exampleSpanish": "Hola, soy {{learnerName}}.",
+      "exampleEnglish": "Hi, I’m {{learnerName}}."
     },
     {
       "spanish": "gracias",
@@ -496,11 +496,11 @@
   "grammar": {
     "topic": "Introducing yourself with me llamo",
     "meaning": "Say your name in one clear, reusable phrase.",
-    "explanation": "Use me llamo + your name when you meet someone. Learn it as one complete phrase: Me llamo Tom. You may also hear soy + a name in relaxed introductions, but me llamo is the only new pattern you need today.",
+    "explanation": "Use me llamo + your name when you meet someone. Learn it as one complete phrase: Me llamo {{learnerName}}. You may also hear soy + a name in relaxed introductions, but me llamo is the only new pattern you need today.",
     "notes": [
       {
         "title": "The safest first phrase",
-        "text": "Me llamo Tom means My name is Tom and works in almost any introduction."
+        "text": "Me llamo {{learnerName}} means My name is {{learnerName}} and works in almost any introduction."
       },
       {
         "title": "A natural shorter option",
@@ -509,8 +509,8 @@
     ],
     "examples": [
       {
-        "spanish": "Hola, me llamo Tom.",
-        "english": "Hi, my name is Tom."
+        "spanish": "Hola, me llamo {{learnerName}}.",
+        "english": "Hi, my name is {{learnerName}}."
       },
       {
         "spanish": "Hola, soy Laura. Mucho gusto.",
@@ -530,8 +530,8 @@
         },
         {
           "speaker": "Learner",
-          "spanish": "Mucho gusto, me llamo Tom.",
-          "english": "Nice to meet you, my name is Tom."
+          "spanish": "Mucho gusto, me llamo {{learnerName}}.",
+          "english": "Nice to meet you, my name is {{learnerName}}."
         }
       ]
     },
@@ -575,8 +575,8 @@
         },
         {
           "speaker": "Learner",
-          "spanish": "Me llamo Tom. Mucho gusto.",
-          "english": "My name is Tom. Nice to meet you."
+          "spanish": "Me llamo {{learnerName}}. Mucho gusto.",
+          "english": "My name is {{learnerName}}. Nice to meet you."
         }
       ]
     },
@@ -590,8 +590,8 @@
         },
         {
           "speaker": "Learner",
-          "spanish": "Hola, soy Tom. Mucho gusto.",
-          "english": "Hi, I’m Tom. Nice to meet you."
+          "spanish": "Hola, soy {{learnerName}}. Mucho gusto.",
+          "english": "Hi, I’m {{learnerName}}. Nice to meet you."
         }
       ]
     },
@@ -630,8 +630,8 @@
       "lines": [
         {
           "speaker": "Carlos",
-          "spanish": "Hasta luego, Tom.",
-          "english": "See you later, Tom."
+          "spanish": "Hasta luego, {{learnerName}}.",
+          "english": "See you later, {{learnerName}}."
         },
         {
           "speaker": "Learner",
@@ -683,13 +683,13 @@
         },
         {
           "speaker": "Learner",
-          "spanish": "Hola, me llamo Tom. Mucho gusto.",
-          "english": "Hi, my name is Tom. Nice to meet you."
+          "spanish": "Hola, me llamo {{learnerName}}. Mucho gusto.",
+          "english": "Hi, my name is {{learnerName}}. Nice to meet you."
         },
         {
           "speaker": "Carlos",
-          "spanish": "Mucho gusto, Tom. ¿Cómo estás?",
-          "english": "Nice to meet you, Tom. How are you?"
+          "spanish": "Mucho gusto, {{learnerName}}. ¿Cómo estás?",
+          "english": "Nice to meet you, {{learnerName}}. How are you?"
         },
         {
           "speaker": "Learner",
@@ -824,8 +824,8 @@
     "title": "Can you follow our conversation?",
     "instructions": "Listen, follow along, then check what you understood.",
     "playbackSpeeds": ["natural", "slow"],
-    "naturalScript": "¡Hola! ¿Qué tal? Me llamo Carlos. Mucho gusto. ¿Cómo te llamas? Mucho gusto, Tom. ¿Cómo estás? Muy bien, gracias. ¿Y tú? Muy bien, gracias. Nos vemos luego.",
-    "slowScript": "¡Hola! / ¿Qué tal? / Me llamo Carlos. / Mucho gusto. / ¿Cómo te llamas? / Mucho gusto, Tom. / ¿Cómo estás? / Muy bien, gracias. / ¿Y tú? / Muy bien, gracias. / Nos vemos luego.",
+    "naturalScript": "¡Hola! ¿Qué tal? Me llamo Carlos. Mucho gusto. ¿Cómo te llamas? Mucho gusto, {{learnerName}}. ¿Cómo estás? Muy bien, gracias. ¿Y tú? Muy bien, gracias. Nos vemos luego.",
+    "slowScript": "¡Hola! / ¿Qué tal? / Me llamo Carlos. / Mucho gusto. / ¿Cómo te llamas? / Mucho gusto, {{learnerName}}. / ¿Cómo estás? / Muy bien, gracias. / ¿Y tú? / Muy bien, gracias. / Nos vemos luego.",
     "transcript": [
       {
         "speaker": "Carlos",
@@ -839,13 +839,13 @@
       },
       {
         "speaker": "Learner",
-        "spanish": "Me llamo Tom. Mucho gusto.",
-        "english": "My name is Tom. Nice to meet you."
+        "spanish": "Me llamo {{learnerName}}. Mucho gusto.",
+        "english": "My name is {{learnerName}}. Nice to meet you."
       },
       {
         "speaker": "Carlos",
-        "spanish": "Mucho gusto, Tom. ¿Cómo estás?",
-        "english": "Nice to meet you, Tom. How are you?"
+        "spanish": "Mucho gusto, {{learnerName}}. ¿Cómo estás?",
+        "english": "Nice to meet you, {{learnerName}}. How are you?"
       },
       {
         "speaker": "Learner",
@@ -861,7 +861,7 @@
     "comprehension": [
       {
         "prompt": "Who introduces himself first?",
-        "options": ["Carlos", "Tom", "Laura"],
+        "options": ["Carlos", "{{learnerName}}", "Laura"],
         "answer": "Carlos",
         "explanation": "Carlos says “Me llamo Carlos” before asking the learner’s name."
       },
@@ -873,7 +873,7 @@
       },
       {
         "prompt": "How does the learner respond to ¿Cómo estás?",
-        "options": ["Muy bien, gracias. ¿Y tú?", "Me llamo Tom.", "Nos vemos luego."],
+        "options": ["Muy bien, gracias. ¿Y tú?", "Me llamo {{learnerName}}.", "Nos vemos luego."],
         "answer": "Muy bien, gracias. ¿Y tú?",
         "explanation": "The learner answers the check-in and naturally returns the question."
       },
@@ -946,9 +946,9 @@
         "label": "Your turn",
         "carlosPrompt": "¿Cómo te llamas?",
         "prompt": "Introduce yourself.",
-        "cue": "Replace Tom with your own name and say it aloud.",
-        "text": "Me llamo Tom. Mucho gusto.",
-        "meaning": "My name is Tom. Nice to meet you.",
+        "cue": "Say your own name and introduce yourself aloud.",
+        "text": "Me llamo {{learnerName}}. Mucho gusto.",
+        "meaning": "My name is {{learnerName}}. Nice to meet you.",
         "focus": "Link me llamo smoothly and pause before mucho gusto."
       },
       {
@@ -996,13 +996,13 @@
       {
         "speaker": "Learner",
         "intent": "Greet Carlos and introduce yourself.",
-        "exampleSpanish": "¡Hola! Mucho gusto. Me llamo Tom.",
-        "exampleEnglish": "Hi! Nice to meet you. My name is Tom."
+        "exampleSpanish": "¡Hola! Mucho gusto. Me llamo {{learnerName}}.",
+        "exampleEnglish": "Hi! Nice to meet you. My name is {{learnerName}}."
       },
       {
         "speaker": "Carlos",
-        "spanish": "Mucho gusto, Tom. ¿Cómo estás?",
-        "english": "Nice to meet you, Tom. How are you?"
+        "spanish": "Mucho gusto, {{learnerName}}. ¿Cómo estás?",
+        "english": "Nice to meet you, {{learnerName}}. How are you?"
       },
       {
         "speaker": "Learner",
@@ -1098,7 +1098,7 @@
         "thank you very much",
         "see you later",
         "nice to meet you",
-        "I am from Canada"
+        "I am from {{learnerCountryEnglish}}"
       ],
       "answer": "nice to meet you"
     },
@@ -1189,14 +1189,14 @@
     {
       "type": "multipleChoice",
       "difficulty": "English to Spanish",
-      "prompt": "Choose the Spanish for “My name is Tom.”",
+      "prompt": "Choose the Spanish for “My name is {{learnerName}}.”",
       "options": [
-        "Soy de Tom.",
-        "Mucho gusto Tom.",
-        "Me llamo Tom.",
-        "¿Y usted, Tom?"
+        "Soy de {{learnerName}}.",
+        "Mucho gusto {{learnerName}}.",
+        "Me llamo {{learnerName}}.",
+        "¿Y usted, {{learnerName}}?"
       ],
-      "answer": "Me llamo Tom."
+      "answer": "Me llamo {{learnerName}}."
     },
     {
       "type": "multipleChoice",
@@ -1231,7 +1231,7 @@
     {
       "type": "fillBlank",
       "difficulty": "fill in the blank",
-      "prompt": "Me _____ Tom.",
+      "prompt": "Me _____ {{learnerName}}.",
       "answer": "llamo"
     },
     {
@@ -1275,9 +1275,9 @@
     {
       "type": "multipleChoice",
       "difficulty": "easy",
-      "prompt": "Choose the Spanish for My name is Tom.",
-      "options": ["Me llamo Tom.", "Mucho gusto, Tom.", "¿Cómo estás, Tom?", "Hasta luego, Tom."],
-      "answer": "Me llamo Tom.",
+      "prompt": "Choose the Spanish for My name is {{learnerName}}.",
+      "options": ["Me llamo {{learnerName}}.", "Mucho gusto, {{learnerName}}.", "¿Cómo estás, {{learnerName}}?", "Hasta luego, {{learnerName}}."],
+      "answer": "Me llamo {{learnerName}}.",
       "explanation": "Use me llamo followed by your name."
     },
     {
@@ -1308,7 +1308,7 @@
       "type": "multipleChoice",
       "difficulty": "medium",
       "prompt": "Someone is speaking too quickly. What should you say?",
-      "options": ["Más despacio, por favor.", "Me llamo Tom.", "Muy bien, gracias.", "Nos vemos luego."],
+      "options": ["Más despacio, por favor.", "Me llamo {{learnerName}}.", "Muy bien, gracias.", "Nos vemos luego."],
       "answer": "Más despacio, por favor.",
       "explanation": "This politely asks the speaker to slow down."
     },
@@ -1331,7 +1331,7 @@
     {
       "type": "fillBlank",
       "difficulty": "medium",
-      "prompt": "Me _____ Tom.",
+      "prompt": "Me _____ {{learnerName}}.",
       "options": ["llamo", "gusto", "estás", "vemos"],
       "answer": "llamo",
       "explanation": "The complete introduction pattern is me llamo + name."
@@ -1364,7 +1364,7 @@
       "type": "multipleChoice",
       "difficulty": "hard",
       "prompt": "Carlos asks ¿Cómo estás? Choose the most complete response.",
-      "options": ["Muy bien, gracias. ¿Y tú?", "Me llamo Tom.", "Mucho gusto.", "Hasta mañana."],
+      "options": ["Muy bien, gracias. ¿Y tú?", "Me llamo {{learnerName}}.", "Mucho gusto.", "Hasta mañana."],
       "answer": "Muy bien, gracias. ¿Y tú?",
       "explanation": "This answers Carlos and keeps the conversation moving."
     }
@@ -1372,7 +1372,7 @@
   "speakingChallenge": [
     {
       "prompt": "Carlos has just introduced himself. Greet him, say your name, and say nice to meet you.",
-      "exampleAnswer": "Hola, Carlos. Me llamo Tom. Mucho gusto."
+      "exampleAnswer": "Hola, Carlos. Me llamo {{learnerName}}. Mucho gusto."
     },
     {
       "prompt": "You are meeting an older family member for the first time. Use a formal greeting and return the question politely.",
@@ -1388,7 +1388,7 @@
     },
     {
       "prompt": "Introduce yourself to your spouse’s family using one time-of-day greeting, your name, and one polite expression.",
-      "exampleAnswer": "Buenas tardes, me llamo Tom. Mucho gusto."
+      "exampleAnswer": "Buenas tardes, me llamo {{learnerName}}. Mucho gusto."
     }
   ],
   "realLifeMission": {

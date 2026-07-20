@@ -1,6 +1,6 @@
 {
   "id": "lesson-03-family",
-  "contentVersion": "1.2",
+  "contentVersion": "1.3",
   "title": "Family Dinner",
   "image": "assets/images/lessons/lesson-03-family.png.png",
   "level": "A1",
@@ -427,6 +427,10 @@
         "english": "Our daughter’s name is Sofía."
       }
     ],
+    "comparison": [
+      {"label": "Speaking to someone", "word": "tu", "meaning": "your", "exampleSpanish": "Tu hermano es simpático.", "exampleEnglish": "Your brother is friendly."},
+      {"label": "Speaking about someone", "word": "su", "meaning": "his / her / your formal / their", "exampleSpanish": "Su hermana vive aquí.", "exampleEnglish": "His or her sister lives here."}
+    ],
     "practicePrompt": "Introduce two real or imagined family members using mi, then ask Carlos one question using tu."
   },
   "dialogue": [
@@ -451,13 +455,13 @@
         },
         {
           "speaker": "Learner",
-          "spanish": "Hola, Elena. Me llamo Tom. Mucho gusto.",
-          "english": "Hi, Elena. My name is Tom. Nice to meet you."
+          "spanish": "Hola, Elena. Me llamo {{learnerName}}. Mucho gusto.",
+          "english": "Hi, Elena. My name is {{learnerName}}. Nice to meet you."
         },
         {
           "speaker": "Elena",
-          "spanish": "Mucho gusto, Tom. Soy de Granada.",
-          "english": "Nice to meet you, Tom. I’m from Granada."
+          "spanish": "Mucho gusto, {{learnerName}}. Soy de Granada.",
+          "english": "Nice to meet you, {{learnerName}}. I’m from Granada."
         },
         {
           "speaker": "Carlos",
@@ -466,8 +470,8 @@
         },
         {
           "speaker": "Learner",
-          "spanish": "Mucho gusto. Carlos, ¿quién es ella?",
-          "english": "Nice to meet you. Carlos, who is she?"
+          "spanish": "Mucho gusto a todos. Carlos, ¿y ella?",
+          "english": "Nice to meet everyone. Carlos, and who is she?"
         },
         {
           "speaker": "Carlos",
@@ -519,29 +523,29 @@
     ],
     "items": [
       {
-        "text": "mi madre",
-        "meaning": "my mother",
-        "note": "Connect mi and madre smoothly."
+        "text": "Mi madre vive en Granada.",
+        "meaning": "My mother lives in Granada.",
+        "note": "Connect mi madre, then keep every vowel clear."
       },
       {
-        "text": "tu padre",
-        "meaning": "your father",
-        "note": "Keep both words short and even."
+        "text": "Tu hermano es muy simpático.",
+        "meaning": "Your brother is very friendly.",
+        "note": "The h in hermano is silent."
       },
       {
-        "text": "mi hermano",
-        "meaning": "my brother",
-        "note": "The h is silent; begin hermano with the vowel sound."
-      },
-      {
-        "text": "su hermana",
-        "meaning": "his or her sister",
+        "text": "Su hermana trabaja aquí.",
+        "meaning": "His or her sister works here.",
         "note": "Link su hermana without adding an h sound."
       },
       {
-        "text": "nuestro hijo",
-        "meaning": "our son",
+        "text": "Nuestro hijo se llama Nico.",
+        "meaning": "Our son’s name is Nico.",
         "note": "The h in hijo is silent."
+      },
+      {
+        "text": "¿Tienes hermanos?",
+        "meaning": "Do you have siblings?",
+        "note": "Let the question rise gently at the end."
       }
     ]
   },
@@ -549,15 +553,18 @@
     "title": "Can you follow the family dinner?",
     "instructions": "Listen, follow along, then check what you understood.",
     "playbackSpeeds": ["natural", "slow"],
-    "naturalScript": "Hola, Carlos. ¿Cómo estás? Muy bien. ¡Bienvenido! Esta es mi madre, Elena. Hola, Elena. Me llamo Tom. Mucho gusto. Mucho gusto, Tom. Soy de Granada. Este es mi padre, Javier. Ella es mi hermana, Lucía, y él es mi hermano, Diego. Carlos, ¿quién es ella? Ella es mi esposa, Marta. Y este es nuestro hijo, Nico. ¿Y tú? ¿Tienes hermanos? Sí, tengo una hermana. Se llama Sofía. ¡Qué bien! Vamos a cenar.",
-    "slowScript": "Hola, Carlos. / ¿Cómo estás? / Muy bien. / ¡Bienvenido! / Esta es mi madre, Elena. / Hola, Elena. / Me llamo Tom. / Mucho gusto. / Mucho gusto, Tom. / Soy de Granada. / Este es mi padre, Javier. / Ella es mi hermana, Lucía, / y él es mi hermano, Diego. / Carlos, ¿quién es ella? / Ella es mi esposa, Marta. / Y este es nuestro hijo, Nico. / ¿Y tú? / ¿Tienes hermanos? / Sí, tengo una hermana. / Se llama Sofía. / ¡Qué bien! / Vamos a cenar.",
+    "naturalScript": "Hola, Carlos. ¿Cómo estás? Muy bien. ¡Bienvenido! Esta es mi madre, Elena. Hola, Elena. Me llamo {{learnerName}}. Mucho gusto. Mucho gusto, {{learnerName}}. Soy de Granada. Este es mi padre, Javier. Ella es mi hermana, Lucía, y él es mi hermano, Diego. Mucho gusto a todos. Carlos, ¿y ella? Ella es mi esposa, Marta. Y este es nuestro hijo, Nico. ¿Y tú? ¿Tienes hermanos? Sí, tengo una hermana. Se llama Sofía. ¡Qué bien! Vamos a cenar.",
+    "slowScript": "Hola, Carlos. / ¿Cómo estás? / Muy bien. / ¡Bienvenido! / Esta es mi madre, Elena. / Hola, Elena. / Me llamo {{learnerName}}. / Mucho gusto. / Mucho gusto, {{learnerName}}. / Soy de Granada. / Este es mi padre, Javier. / Ella es mi hermana, Lucía, / y él es mi hermano, Diego. / Mucho gusto a todos. / Carlos, ¿y ella? / Ella es mi esposa, Marta. / Y este es nuestro hijo, Nico. / ¿Y tú? / ¿Tienes hermanos? / Sí, tengo una hermana. / Se llama Sofía. / ¡Qué bien! / Vamos a cenar.",
     "transcript": [
       {"speaker": "Learner", "spanish": "Hola, Carlos. ¿Cómo estás?", "english": "Hi, Carlos. How are you?"},
       {"speaker": "Carlos", "spanish": "Muy bien. ¡Bienvenido! Esta es mi madre, Elena.", "english": "Very well. Welcome! This is my mother, Elena."},
-      {"speaker": "Learner y Elena", "spanish": "Hola, Elena. Me llamo Tom. Mucho gusto. Mucho gusto, Tom. Soy de Granada.", "english": "Hi, Elena. My name is Tom. Nice to meet you. Nice to meet you, Tom. I’m from Granada."},
+      {"speaker": "Learner", "spanish": "Hola, Elena. Me llamo {{learnerName}}. Mucho gusto.", "english": "Hi, Elena. My name is {{learnerName}}. Nice to meet you."},
+      {"speaker": "Elena", "spanish": "Mucho gusto, {{learnerName}}. Soy de Granada.", "english": "Nice to meet you, {{learnerName}}. I’m from Granada."},
       {"speaker": "Carlos", "spanish": "Este es mi padre, Javier. Ella es mi hermana, Lucía, y él es mi hermano, Diego.", "english": "This is my father, Javier. She is my sister, Lucía, and he is my brother, Diego."},
-      {"speaker": "Learner y Carlos", "spanish": "Carlos, ¿quién es ella? Ella es mi esposa, Marta. Y este es nuestro hijo, Nico.", "english": "Carlos, who is she? She is my wife, Marta. And this is our son, Nico."},
-      {"speaker": "Carlos y Learner", "spanish": "¿Y tú? ¿Tienes hermanos? Sí, tengo una hermana. Se llama Sofía.", "english": "And you? Do you have siblings? Yes, I have a sister. Her name is Sofía."},
+      {"speaker": "Learner", "spanish": "Mucho gusto a todos. Carlos, ¿y ella?", "english": "Nice to meet everyone. Carlos, and who is she?"},
+      {"speaker": "Carlos", "spanish": "Ella es mi esposa, Marta. Y este es nuestro hijo, Nico.", "english": "She is my wife, Marta. And this is our son, Nico."},
+      {"speaker": "Carlos", "spanish": "¿Y tú? ¿Tienes hermanos?", "english": "And you? Do you have siblings?"},
+      {"speaker": "Learner", "spanish": "Sí, tengo una hermana. Se llama Sofía.", "english": "Yes, I have a sister. Her name is Sofía."},
       {"speaker": "Carlos", "spanish": "¡Qué bien! Vamos a cenar.", "english": "That’s great! Let’s have dinner."}
     ],
     "comprehension": [
@@ -663,8 +670,8 @@
       {
         "speaker": "Learner",
         "intent": "Greet Elena, say your name, and say mucho gusto.",
-        "exampleSpanish": "Hola, Elena. Me llamo Tom. Mucho gusto.",
-        "exampleEnglish": "Hi, Elena. My name is Tom. Nice to meet you."
+        "exampleSpanish": "Hola, Elena. Me llamo {{learnerName}}. Mucho gusto.",
+        "exampleEnglish": "Hi, Elena. My name is {{learnerName}}. Nice to meet you."
       },
       {
         "speaker": "Carlos",
@@ -822,8 +829,8 @@
     {
       "type": "multipleChoice",
       "difficulty": "medium",
-      "prompt": "What is the best answer to ¿Tienes hermanos?",
-      "options": ["Sí, tengo una hermana.", "Soy de Canadá.", "Mucho gusto.", "Me llamo Ana."],
+      "prompt": "Which reply says: Yes, I have one sister?",
+      "options": ["Sí, tengo una hermana.", "Sí, tengo dos hermanos.", "No, soy hijo único.", "Vivo con mi familia."],
       "answer": "Sí, tengo una hermana.",
       "explanation": "The question asks whether you have siblings."
     },
@@ -894,8 +901,8 @@
     {
       "type": "multipleChoice",
       "difficulty": "practical usage",
-      "prompt": "In the model conversation, Carlos asks: ¿Tienes hermanos? Which response directly answers and adds one detail?",
-      "options": ["Sí, tengo una hermana. Se llama Sofía.", "Mi amiga Ana vive en Madrid.", "Carlos tiene una hermana.", "Soy de Canadá y vivo en Winnipeg."],
+      "prompt": "Which reply says: Yes, I have one sister. Her name is Sofía?",
+      "options": ["Sí, tengo una hermana. Se llama Sofía.", "Sí, tengo dos hermanos. Se llaman Diego y Javier.", "No, soy hijo único.", "Vivo con mi familia en Madrid."],
       "answer": "Sí, tengo una hermana. Se llama Sofía.",
       "explanation": "Sí, tengo una hermana directly answers the sibling question, and Se llama Sofía adds one clear detail. Ana remains Carlos’s friend."
     }

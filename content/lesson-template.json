@@ -103,8 +103,8 @@
     "explanation": "A short explanation without unnecessary terminology.",
     "examples": [
       {
-        "spanish": "Soy Tom.",
-        "english": "I’m Tom."
+        "spanish": "Soy {{learnerName}}.",
+        "english": "I’m {{learnerName}}."
       }
     ],
     "practicePrompt": "Say one true sentence with the pattern."

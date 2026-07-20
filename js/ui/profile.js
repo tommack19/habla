@@ -57,6 +57,9 @@ if (typeof window !== "undefined") {
       if (panel === "edit") {
         state.user.name = document.getElementById("profile-setting-name")?.value.trim() || state.user.name;
         state.user.goal = document.getElementById("profile-setting-edit-goal")?.value.trim() || state.user.goal;
+        state.user.city = document.getElementById("profile-setting-city")?.value.trim() || state.user.city;
+        state.user.country = document.getElementById("profile-setting-country")?.value.trim() || state.user.country;
+        state.user.nativeLanguage = document.getElementById("profile-setting-native-language")?.value.trim() || state.user.nativeLanguage;
       }
       if (panel === "account") state.user.name = document.getElementById("profile-setting-account-name")?.value.trim() || state.user.name;
       if (panel === "notifications") {
@@ -96,7 +99,7 @@ export function renderProfile(appState) {
           <button type="button" aria-label="Edit profile" onclick="hablaProfile.openSettings('edit')">${profileIcon("edit")}</button>
         </div>
         <div class="profile-user-copy">
-          <h2>${escapeHTML(user.name || "Tom")}</h2>
+          <h2>${escapeHTML(user.name || "Habla Learner")}</h2>
           <p>${escapeHTML(journeyLevel)}</p>
           <span class="profile-streak-chip">${profileIcon("fire")} ${streak} day streak</span>
           <span class="profile-calendar">${profileIcon("daily")}${escapeHTML(`${user.dailyTargetMinutes || 15}-minute daily goal`)}</span>
@@ -259,8 +262,11 @@ function renderProfileSettingsDialog(user, journeyLevel) {
       <section data-profile-panel="daily" hidden><small>Learning preference</small><h2>Daily Goal</h2><p>Set a target that feels realistic enough to maintain.</p>
         ${field("Daily study target", `<select id="profile-setting-daily">${[5, 10, 15, 20, 30, 45].map(minutes => `<option value="${minutes}" ${Number(user.dailyTargetMinutes || 15) === minutes ? "selected" : ""}>${minutes} minutes</option>`).join("")}</select>`)}${saveButton("daily")}
       </section>
-      <section data-profile-panel="edit" hidden><small>Your profile</small><h2>Edit Profile</h2><p>Update how your name and learning purpose appear throughout Habla.</p>
+      <section data-profile-panel="edit" hidden><small>Your profile</small><h2>Edit Profile</h2><p>These details personalize lesson conversations and examples.</p>
         ${field("Display name", `<input id="profile-setting-name" type="text" maxlength="50" value="${escapeHTML(user.name || "")}">`)}
+        ${field("Home city", `<input id="profile-setting-city" type="text" maxlength="60" value="${escapeHTML(user.city || "Winnipeg")}">`)}
+        ${field("Home country", `<input id="profile-setting-country" type="text" maxlength="60" value="${escapeHTML(user.country || "Canada")}">`)}
+        ${field("Native language", `<input id="profile-setting-native-language" type="text" maxlength="60" value="${escapeHTML(user.nativeLanguage || "English")}">`)}
         ${field("Learning goal", `<textarea id="profile-setting-edit-goal" rows="3" maxlength="180">${escapeHTML(user.goal || "")}</textarea>`)}${saveButton("edit")}
       </section>
       <section data-profile-panel="account" hidden><small>Account</small><h2>Account Settings</h2><p>Your Habla progress is currently saved on this device.</p>

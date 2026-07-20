@@ -3,6 +3,9 @@ import { awardXP } from "./progress.js";
 export const state = {
 user: {
   name: "Tom",
+  city: "Winnipeg",
+  country: "Canada",
+  nativeLanguage: "English",
   level: "A1",
   goal: "Become conversational with my wife's family",
   dialect: "Mexican Spanish",

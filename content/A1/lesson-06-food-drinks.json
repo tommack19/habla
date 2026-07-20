@@ -29,7 +29,7 @@
         "apples": { "spanish": "Mi madre está muy contenta con las manzanas.", "english": "My mother is very happy with the apples." },
         "bread": { "spanish": "El pan fue perfecto para el almuerzo.", "english": "The bread was perfect for lunch." },
         "cheese": { "spanish": "A mi familia le encanta el queso que elegiste.", "english": "My family loves the cheese you chose." },
-        "coffee": { "spanish": "Elegiste café en el mercado, así que este lugar te va a gustar.", "english": "You chose coffee at the market, so you’re going to like this place." },
+        "coffee": { "spanish": "Elegiste café en el mercado. Sabía que te gustaría este lugar.", "english": "You picked coffee at the market. I knew you’d like this place." },
         "flowers": { "spanish": "Mi madre está muy contenta con las flores.", "english": "My mother is very happy with the flowers." },
         "tomatoes": { "spanish": "Los tomates fueron perfectos para el almuerzo.", "english": "The tomatoes were perfect for lunch." }
       }
@@ -76,7 +76,8 @@
   ],
   "learnerChoices": {
     "objective": "State a genuine drink preference and use it in a polite order.",
-    "prompt": "Carlos asks: ¿Qué prefieres, café, té o zumo?",
+    "prompt": "¿Qué prefieres, café, té o zumo?",
+    "promptEnglish": "What do you prefer: coffee, tea, or juice?",
     "options": [
       {
         "id": "coffee",
@@ -85,6 +86,7 @@
         "learnerEnglish": "I prefer coffee.",
         "carlosSpanish": "Buena elección. Yo también prefiero el café, especialmente con leche.",
         "carlosEnglish": "Good choice. I prefer coffee too, especially with milk.",
+        "memoryCallback": "Coffee again—I had a feeling. I’ll remember that.",
         "vendorPrompt": "¿Solo o con leche?",
         "modelOrder": "Quisiera un café con leche, por favor.",
         "modelOrderEnglish": "I would like a coffee with milk, please."
@@ -96,6 +98,7 @@
         "learnerEnglish": "I prefer tea.",
         "carlosSpanish": "Perfecto. Aquí tienen un té muy bueno. Puedes pedirlo sin azúcar.",
         "carlosEnglish": "Perfect. They have very good tea here. You can order it without sugar.",
+        "memoryCallback": "Tea is your café choice. I’ll remember that.",
         "vendorPrompt": "¿Con leche o sin leche?",
         "modelOrder": "Quisiera un té sin azúcar, por favor.",
         "modelOrderEnglish": "I would like a tea without sugar, please."
@@ -107,6 +110,7 @@
         "learnerEnglish": "I prefer orange juice.",
         "carlosSpanish": "Muy buena idea. El zumo de naranja es fresco y perfecto después del mercado.",
         "carlosEnglish": "Very good idea. Orange juice is fresh and perfect after the market.",
+        "memoryCallback": "Orange juice after the market—good choice. I’ll remember that.",
         "vendorPrompt": "¿Grande o pequeño?",
         "modelOrder": "Quisiera un zumo de naranja pequeño, por favor.",
         "modelOrderEnglish": "I would like a small orange juice, please."
@@ -169,7 +173,7 @@
   },
   "dialogue": {
     "title": "A quiet table after the market",
-    "setting": "Carlos and the learner sit on the terrace. The café server comes to take the order.",
+    "setting": "Carlos and {{learnerName}} sit on the terrace. The café server comes to take the order.",
     "lines": [
       { "speaker": "Carlos", "spanish": "Qué tranquilo está aquí después del mercado.", "english": "It’s so peaceful here after the market." },
       { "speaker": "Carlos", "spanish": "¿Qué prefieres, café, té o zumo?", "english": "What do you prefer, coffee, tea, or juice?" },
@@ -186,9 +190,9 @@
       { "speaker": "Camarera", "spanish": "Claro. Un momento.", "english": "Of course. One moment." }
     ],
     "comprehension": [
-      { "prompt": "Who chooses the learner’s drink?", "options": ["The learner", "Carlos", "The server"], "answer": "The learner" },
+      { "prompt": "Who chooses your drink?", "options": ["You", "Carlos", "The server"], "answer": "You" },
       { "prompt": "What snack does the model conversation include?", "options": ["toast", "cheese", "tomatoes"], "answer": "toast" },
-      { "prompt": "How does the learner end the order?", "options": ["Nada más, gracias.", "Estoy ocupado.", "Nos vemos el sábado."], "answer": "Nada más, gracias." }
+      { "prompt": "How do you end the order?", "options": ["Nada más, gracias.", "Estoy ocupado.", "Nos vemos el sábado."], "answer": "Nada más, gracias." }
     ]
   },
   "listening": {
@@ -207,10 +211,10 @@
       { "speaker": "Learner", "spanish": "La cuenta, por favor.", "english": "The bill, please." }
     ],
     "comprehension": [
-      { "prompt": "What drink does the learner order?", "options": ["Coffee with milk", "Tea without sugar", "Orange juice"], "answer": "Coffee with milk", "explanation": "Un café con leche is a coffee with milk." },
-      { "prompt": "What food does the learner request?", "options": ["Toast", "Cheese", "Tomatoes"], "answer": "Toast", "explanation": "Para mí, una tostada means toast for me." },
-      { "prompt": "How does the learner say the order is complete?", "options": ["Nada más, gracias.", "Estoy ocupado.", "Nos vemos mañana."], "answer": "Nada más, gracias.", "explanation": "Nada más, gracias politely says nothing else, thank you." },
-      { "prompt": "What does the learner ask for at the end?", "options": ["The bill", "Another coffee", "A market bag"], "answer": "The bill", "explanation": "La cuenta, por favor asks for the bill." }
+      { "prompt": "What drink do you order in the model conversation?", "options": ["Coffee with milk", "Tea without sugar", "Orange juice"], "answer": "Coffee with milk", "explanation": "Un café con leche is a coffee with milk." },
+      { "prompt": "What food do you request in the model conversation?", "options": ["Toast", "Cheese", "Tomatoes"], "answer": "Toast", "explanation": "Para mí, una tostada means toast for me." },
+      { "prompt": "How do you say the order is complete?", "options": ["Nada más, gracias.", "Estoy ocupado.", "Nos vemos mañana."], "answer": "Nada más, gracias.", "explanation": "Nada más, gracias politely says nothing else, thank you." },
+      { "prompt": "What do you ask for at the end?", "options": ["The bill", "Another coffee", "A market bag"], "answer": "The bill", "explanation": "La cuenta, por favor asks for the bill." }
     ],
     "items": [
       { "spanish": "¿Qué vais a tomar?", "options": ["What are you going to have?", "Where is the market?", "What time is it?"], "answer": "What are you going to have?" },
@@ -283,7 +287,7 @@
     { "type": "multipleChoice", "difficulty": "easy", "prompt": "Which item is something to eat?", "options": ["la tostada", "el agua", "el café", "el té"], "answer": "la tostada", "explanation": "La tostada means toast and is a common café snack." },
     { "type": "fillBlank", "difficulty": "medium", "prompt": "Complete: _____ un café, por favor.", "options": ["Quisiera", "Estoy", "Vivo", "Tengo"], "answer": "Quisiera", "explanation": "Quisiera directly introduces the item you would like to order." },
     { "type": "fillBlank", "difficulty": "medium", "prompt": "Complete: Un té _____ azúcar, por favor.", "options": ["sin", "con", "para", "de"], "answer": "sin", "explanation": "Sin azúcar means without sugar." },
-    { "type": "multipleChoice", "difficulty": "medium", "prompt": "The server asks ¿Algo más? You are finished. What should you say?", "options": ["Nada más, gracias.", "Estoy ocupado.", "A las diez.", "Me llamo Tom."], "answer": "Nada más, gracias.", "explanation": "This says you need nothing else and closes the order politely." },
+    { "type": "multipleChoice", "difficulty": "medium", "prompt": "The server asks ¿Algo más? You are finished. What should you say?", "options": ["Nada más, gracias.", "Estoy ocupado.", "A las diez.", "Me llamo {{learnerName}}."], "answer": "Nada más, gracias.", "explanation": "This says you need nothing else and closes the order politely." },
     { "type": "multipleChoice", "difficulty": "medium", "prompt": "You genuinely prefer orange juice. Which answer fits?", "options": ["Prefiero zumo de naranja.", "Soy zumo de naranja.", "Estoy zumo de naranja.", "Vivo en zumo de naranja."], "answer": "Prefiero zumo de naranja.", "explanation": "Prefiero directly states your real preference." },
     { "type": "multipleChoice", "difficulty": "medium", "prompt": "Carlos and you are both ordering. How can you introduce your own snack?", "options": ["Para mí, una tostada.", "Mi tostada está libre.", "Soy de una tostada.", "A las tostada."], "answer": "Para mí, una tostada.", "explanation": "Para mí is a natural way to introduce your part of a shared order." },
     { "type": "translation", "difficulty": "medium", "prompt": "Translate: Quisiera un té sin azúcar, por favor.", "options": ["I would like a tea without sugar, please.", "I prefer coffee with milk.", "I need the bill, please.", "I want toast with sugar."], "answer": "I would like a tea without sugar, please.", "explanation": "Quisiera is I would like, and sin azúcar is without sugar." },
@@ -293,7 +297,7 @@
     { "type": "multipleChoice", "difficulty": "hard", "prompt": "Which sequence completes the café mission naturally?", "options": ["Greet → order → make one change → answer ¿Algo más? → ask for the bill", "Ask for bill → introduce yourself → choose a market item", "Order → leave → greet → ask the time", "Describe family → order → arrange Saturday"], "answer": "Greet → order → make one change → answer ¿Algo más? → ask for the bill", "explanation": "That sequence follows the real café exchange from arrival to departure." },
     { "type": "multipleChoice", "difficulty": "hard", "prompt": "You want coffee but no sugar. Which order communicates both ideas?", "options": ["Quisiera un café sin azúcar, por favor.", "Quisiera azúcar sin café.", "Prefiero una tostada con café.", "La cuenta con azúcar."], "answer": "Quisiera un café sin azúcar, por favor.", "explanation": "Place the fixed change sin azúcar after the drink." },
     { "type": "multipleChoice", "difficulty": "hard", "prompt": "Carlos asks your preference before the server arrives. Why does that matter?", "options": ["Your order reflects a choice you deliberately made.", "Carlos needs to choose the correct grammar answer.", "The café only serves one drink.", "The lesson requires coffee for everyone."], "answer": "Your order reflects a choice you deliberately made.", "explanation": "The preference is meaningful because Carlos asked and you explicitly answered." },
-    { "type": "multipleChoice", "difficulty": "practical usage", "prompt": "The server asks ¿Qué vais a tomar? Complete the full mission.", "options": ["Quisiera un zumo de naranja pequeño y una tostada, por favor. Nada más, gracias.", "Zumo. No. Mercado.", "Estoy libre el sábado a las diez.", "Mi madre vive en Granada."], "answer": "Quisiera un zumo de naranja pequeño y una tostada, por favor. Nada más, gracias.", "explanation": "The learner orders a chosen drink and snack, makes a simple size choice, and closes politely." }
+    { "type": "multipleChoice", "difficulty": "practical usage", "prompt": "The server asks ¿Qué vais a tomar? Complete the full mission.", "options": ["Quisiera un zumo de naranja pequeño y una tostada, por favor. Nada más, gracias.", "Zumo. No. Mercado.", "Estoy libre el sábado a las diez.", "Mi madre vive en Granada."], "answer": "Quisiera un zumo de naranja pequeño y una tostada, por favor. Nada más, gracias.", "explanation": "You order a chosen drink and snack, make a simple size choice, and close politely." }
   ],
   "miniConversation": {
     "title": "Your café order",
@@ -313,7 +317,11 @@
   },
   "culture": {
     "title": "A Madrid coffee break",
-    "text": "At many cafés in Madrid, you can order at the bar or sit at a table. Terrace service may cost a little more. A small espresso is often simply un café, while café con leche contains much more milk. Begin with buenos días, order clearly, and finish with gracias."
+    "text": "At many cafés in Madrid, you can order at the bar or sit at a table. Terrace service may cost a little more. A small espresso is often simply un café, while café con leche contains much more milk. Begin with buenos días, order clearly, and finish with gracias.",
+    "regionalNotes": [
+      { "label": "Spain", "phrase": "zumo de naranja", "text": "In Madrid and across Spain, zumo is the usual word for juice." },
+      { "label": "Much of Latin America", "phrase": "jugo de naranja", "text": "Across much of Latin America, you’ll usually hear jugo instead. Both are correct regional choices." }
+    ]
   },
   "worldBuilding": [
     { "moment": "terrace", "carlosSpanish": "Me gusta esta terraza porque se oye la ciudad, pero aquí estamos tranquilos.", "carlosEnglish": "I like this terrace because you can hear the city, but we’re peaceful here." },

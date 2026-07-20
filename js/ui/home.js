@@ -1,6 +1,7 @@
 import { getTodaysMission } from "../core/missions.js";
 import { getCourseProgress, getCurrentLesson } from "../core/content.js";
 import { CARLOS_FALLBACK_ONERROR, getCarlosAsset } from "../data/carlosAssets.js";
+import { renderLessonCover } from "../components/lessonCover.js";
 
 export function renderHome(state) {
   const mission = getTodaysMission();
@@ -33,32 +34,32 @@ function renderHomeHeader() {
 }
 
 function renderCarlosHero(state, lesson, mission, courseProgress) {
-  const name = escapeHtml(((state.user && state.user.name) || "Tom").split(" ")[0]);
+  const name = ((state.user && state.user.name) || "Tom").split(" ")[0];
   const period = getHomeHeroPeriod();
-  const objective = lesson?.homeSummary || lesson?.objective || lesson?.objectives?.[0] || "Build confidence with practical Spanish.";
+  const objective = formatHomeMission(lesson?.homeSummary || lesson?.story?.mission || lesson?.objective || lesson?.objectives?.[0] || "Build confidence with practical Spanish.");
   const lessonNumber = Number(courseProgress?.currentLessonNumber || getLessonNumber(lesson) || 0);
   const minutes = Number(lesson?.estimatedMinutes || lesson?.durationMinutes || 10);
   const xpReward = Number(lesson?.xpReward || mission?.xpReward || 0);
-  const lessonPosition = lessonNumber ? `Lesson ${lessonNumber}` : "Today&rsquo;s lesson";
+  const lessonPosition = lessonNumber ? `Lesson ${lessonNumber}` : "Today's lesson";
 
-  return `
-    <section class="home-carlos-hero home-daily-hero time-${period.id}">
-      <img class="home-hero-background" src="${escapeAttr(period.image)}" alt="Carlos in a ${period.id} Spanish city scene" loading="eager" onerror="${CARLOS_FALLBACK_ONERROR}">
-      <div class="home-hero-copy">
-        <h1>&iexcl;${period.greeting}, ${name}! <span aria-hidden="true">${period.symbol}</span></h1>
-        <h2>Continue your Spanish journey</h2>
-        <p><small>Today&rsquo;s mission</small><strong>${escapeHtml(objective)}</strong></p>
-      </div>
-      <div class="home-hero-lesson-bar">
-        <div class="home-hero-lesson-metrics">
-          <span><i aria-hidden="true">${renderHeroMetaIcon("lesson")}</i><b>${lessonPosition}</b></span>
-          <span><i aria-hidden="true">${renderHeroMetaIcon("time")}</i><b>${minutes} min</b></span>
-          ${xpReward ? `<span><i aria-hidden="true">${renderHeroMetaIcon("xp")}</i><b>+${xpReward} XP</b></span>` : ""}
-        </div>
-        <button class="home-hero-start" type="button" data-page="learn" ${lesson?.id ? `data-lesson-id="${escapeAttr(lesson.id)}"` : ""}>Continue Lesson <span aria-hidden="true">&rsaquo;</span></button>
-      </div>
-    </section>
-  `;
+  return renderLessonCover({
+    variant: "home",
+    lesson,
+    artworkAlt: `${lesson?.title || "Current lesson"} story scene`,
+    eyebrow: `¡${period.greeting}, ${name}! ${period.symbol}`,
+    title: "Continue your Spanish journey",
+    context: "Today's mission",
+    description: objective,
+    meta: [
+      { icon: `<i aria-hidden="true">${renderHeroMetaIcon("lesson")}</i>`, text: lessonPosition },
+      { icon: `<i aria-hidden="true">${renderHeroMetaIcon("time")}</i>`, text: `${minutes} min` },
+      ...(xpReward ? [{ icon: `<i aria-hidden="true">${renderHeroMetaIcon("xp")}</i>`, text: `+${xpReward} XP` }] : []),
+    ],
+    action: {
+      label: "Continue Lesson",
+      attributes: `data-page="learn" ${lesson?.id ? `data-lesson-id="${escapeAttr(lesson.id)}"` : ""}`,
+    },
+  });
 }
 
 function renderHeroMetaIcon(type) {
@@ -200,6 +201,13 @@ function getLessonNumber(lesson) {
   return match ? Number(match[1]) : 0;
 }
 
+function formatHomeMission(value) {
+  const mission = String(value || "")
+    .replace(/^Today\s+(?:you(?:'|’)?ll|you will)\s+/i, "")
+    .trim();
+  return mission ? mission.charAt(0).toUpperCase() + mission.slice(1) : "Build confidence with practical Spanish.";
+}
+
 function getDailyCarlosTip() {
   const tips = [
     "Spanish speakers often greet each other warmly. Don't be afraid to smile!",
@@ -234,9 +242,9 @@ function getConversationPhrase(lesson) {
 
 function getHomeHeroPeriod() {
   const hour = new Date().getHours();
-  if (hour < 12) return { id: "morning", greeting: "Buenos d&iacute;as", symbol: "&#9728;", image: getCarlosAsset("morning") };
-  if (hour < 18) return { id: "afternoon", greeting: "Buenas tardes", symbol: "&#9728;", image: getCarlosAsset("afternoon") };
-  return { id: "evening", greeting: "Buenas noches", symbol: "&#9790;", image: getCarlosAsset("evening") };
+  if (hour < 12) return { id: "morning", greeting: "Buenos días", symbol: "☀" };
+  if (hour < 18) return { id: "afternoon", greeting: "Buenas tardes", symbol: "☀" };
+  return { id: "evening", greeting: "Buenas noches", symbol: "☾" };
 }
 
 function readJson(key) {

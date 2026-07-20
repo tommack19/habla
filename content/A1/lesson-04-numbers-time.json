@@ -1,6 +1,6 @@
 {
   "id": "lesson-04-numbers-time",
-  "contentVersion": "1.1",
+  "contentVersion": "1.2",
   "title": "Saturday at the Market",
   "image": "assets/images/lessons/lesson-04-numbers-time.png.png",
   "level": "A1",
@@ -13,7 +13,7 @@
     "location": "A WhatsApp conversation the morning after the family dinner",
     "scene": "Your phone buzzes. Carlos is checking in after dinner and wants to take you to his favorite market on Saturday.",
     "openingMessage": [
-      "Hola, Tom.",
+      "Hola, {{learnerName}}.",
       "¡Qué bien lo pasamos ayer!",
       "¿Estás libre este sábado?",
       "Podemos ir al mercado juntos."
@@ -172,6 +172,10 @@
       { "spanish": "¿Cuándo? A las diez.", "english": "When? At ten." },
       { "spanish": "El sábado por la mañana.", "english": "Saturday morning." }
     ],
+    "comparison": [
+      {"label": "A day from now", "word": "mañana", "meaning": "tomorrow", "exampleSpanish": "Nos vemos mañana.", "exampleEnglish": "See you tomorrow."},
+      {"label": "A part of the day", "word": "por la mañana", "meaning": "in the morning", "exampleSpanish": "Estoy libre por la mañana.", "exampleEnglish": "I’m free in the morning."}
+    ],
     "practicePrompt": "Ask Carlos when, then choose a day and a part of the day."
   },
   "dialogue": [
@@ -186,7 +190,7 @@
         "guideSide": "incoming"
       },
       "lines": [
-        { "speaker": "Carlos", "spanish": "¡Hola, Tom! ¿Cómo está tu familia?", "english": "Hi, Tom! How is your family?" },
+        { "speaker": "Carlos", "spanish": "¡Hola, {{learnerName}}! ¿Cómo está tu familia?", "english": "Hi, {{learnerName}}! How is your family?" },
         { "speaker": "Learner", "spanish": "¡Hola, Carlos! Mi familia está muy bien.", "english": "Hi, Carlos! My family is very well." },
         { "speaker": "Carlos", "spanish": "¡Qué bien! ¿Estás libre este sábado?", "english": "That’s great! Are you free this Saturday?" },
         { "speaker": "Learner", "spanish": "Sí, estoy libre.", "english": "Yes, I’m free." },
@@ -227,10 +231,10 @@
       "title": "Carlos’s WhatsApp message",
       "instructions": "Listen, follow along, then check what you understood.",
       "playbackSpeeds": ["natural", "slow"],
-      "naturalScript": "Hola, Tom. ¡Qué bien lo pasamos ayer! ¿Cómo está tu familia? ¿Estás libre este sábado? Podemos ir al mercado juntos. ¿A las diez de la mañana?",
-      "slowScript": "Hola, Tom. / ¡Qué bien lo pasamos ayer! / ¿Cómo está tu familia? / ¿Estás libre / este sábado? / Podemos ir / al mercado / juntos. / ¿A las diez / de la mañana?",
+      "naturalScript": "Hola, {{learnerName}}. ¡Qué bien lo pasamos ayer! ¿Cómo está tu familia? ¿Estás libre este sábado? Podemos ir al mercado juntos. ¿A las diez de la mañana?",
+      "slowScript": "Hola, {{learnerName}}. / ¡Qué bien lo pasamos ayer! / ¿Cómo está tu familia? / ¿Estás libre / este sábado? / Podemos ir / al mercado / juntos. / ¿A las diez / de la mañana?",
       "transcript": [
-        { "speaker": "Carlos", "spanish": "Hola, Tom. ¡Qué bien lo pasamos ayer!", "english": "Hi, Tom. We had such a good time yesterday!" },
+        { "speaker": "Carlos", "spanish": "Hola, {{learnerName}}. ¡Qué bien lo pasamos ayer!", "english": "Hi, {{learnerName}}. We had such a good time yesterday!" },
         { "speaker": "Carlos", "spanish": "¿Cómo está tu familia?", "english": "How is your family?" },
         { "speaker": "Learner", "spanish": "Mi familia está muy bien.", "english": "My family is very well." },
         { "speaker": "Carlos", "spanish": "¿Estás libre este sábado?", "english": "Are you free this Saturday?" },
@@ -324,20 +328,21 @@
     { "type": "multipleChoice", "difficulty": "easy", "prompt": "Which phrase means in the morning?", "options": ["por la mañana", "por la noche", "este sábado", "esta semana"], "answer": "por la mañana", "explanation": "Por la mañana is the core phrase for in the morning." },
     { "type": "fillBlank", "difficulty": "medium", "prompt": "Complete: ¿_____ libre este sábado?", "options": ["Estás", "Soy", "Tienes", "Vives"], "answer": "Estás", "explanation": "¿Estás libre? asks if someone is available." },
     { "type": "fillBlank", "difficulty": "medium", "prompt": "Complete: Nos vemos _____ sábado.", "options": ["el", "la", "por", "de"], "answer": "el", "explanation": "Use el before a day when saying when something happens." },
-    { "type": "multipleChoice", "difficulty": "medium", "prompt": "Carlos asks ¿Cuándo? Choose a complete useful answer.", "options": ["El sábado por la mañana.", "Estoy muy bien.", "Mi hermano se llama Diego.", "Soy de Canadá."], "answer": "El sábado por la mañana.", "explanation": "¿Cuándo? asks when, so answer with a day or time expression." },
-    { "type": "multipleChoice", "difficulty": "medium", "prompt": "Carlos suggests a time that works for you. What is the most natural response?", "options": ["Sí, perfecto.", "¿Quién es ella?", "No tengo hermanos.", "Mucho gusto."], "answer": "Sí, perfecto.", "explanation": "Sí, perfecto naturally accepts a proposed plan." },
+    { "type": "multipleChoice", "difficulty": "medium", "prompt": "Which answer gives both a day and a part of the day?", "options": ["El sábado por la mañana.", "El sábado.", "Por la mañana.", "Estoy libre."], "answer": "El sábado por la mañana.", "explanation": "El sábado gives the day, and por la mañana gives the part of the day." },
+    { "type": "multipleChoice", "difficulty": "medium", "prompt": "Carlos suggests a time that works for you. Which reply accepts and closes the plan?", "options": ["Sí, perfecto. Nos vemos entonces.", "Estoy ocupado. ¿A las once?", "¿Cuándo estás libre?", "El mercado está cerrado."], "answer": "Sí, perfecto. Nos vemos entonces.", "explanation": "Sí, perfecto accepts the time, and nos vemos entonces closes the plan naturally." },
     { "type": "translation", "difficulty": "medium", "prompt": "Translate: Nos vemos entonces.", "options": ["See you then.", "We are busy now.", "When are you free?", "Let’s go before."], "answer": "See you then.", "explanation": "Nos vemos is see you; entonces means then in this context." },
-    { "type": "multipleChoice", "difficulty": "medium", "prompt": "You are busy in the morning but free later. What can you say?", "options": ["Estoy ocupado por la mañana. Podemos ir después.", "Estoy libre por la mañana. Nos vemos antes.", "Soy de Madrid. Vivo en Granada.", "Mi familia está muy bien."], "answer": "Estoy ocupado por la mañana. Podemos ir después.", "explanation": "The first sentence declines the morning; the second suggests later." },
+    { "type": "multipleChoice", "difficulty": "medium", "prompt": "You are busy in the morning but free later. What can you say?", "options": ["Estoy ocupado por la mañana. Podemos ir después.", "Estoy libre por la mañana. Podemos ir ahora.", "Estoy ocupado por la noche. Podemos ir antes.", "Estoy ocupado esta semana. Nos vemos hoy."], "answer": "Estoy ocupado por la mañana. Podemos ir después.", "explanation": "The first sentence declines the morning; the second suggests later." },
     { "type": "multipleChoice", "difficulty": "medium", "prompt": "Which option is a part of the day?", "options": ["la tarde", "el sábado", "esta semana", "el mercado"], "answer": "la tarde", "explanation": "La tarde means the afternoon or early evening." },
-    { "type": "multipleChoice", "difficulty": "hard", "prompt": "Carlos writes: ¿Estás libre este sábado? Podemos ir al mercado juntos. What is he doing?", "options": ["Inviting you to make a market plan", "Asking where your family lives", "Explaining yesterday’s dinner", "Ordering fruit at the market"], "answer": "Inviting you to make a market plan", "explanation": "He asks whether you are free and proposes going to the market together." },
-    { "type": "multipleChoice", "difficulty": "hard", "prompt": "Put this exchange in a natural order. 1 Sí, perfecto. 2 ¿A las diez? 3 ¿Estás libre el sábado? 4 Sí, estoy libre.", "options": ["3 → 4 → 2 → 1", "2 → 1 → 3 → 4", "4 → 3 → 1 → 2", "3 → 2 → 4 → 1"], "answer": "3 → 4 → 2 → 1", "explanation": "First ask about availability, accept, suggest a time, then confirm it." },
+    { "type": "multipleChoice", "difficulty": "hard", "prompt": "Carlos writes: ¿Estás libre este sábado? Podemos ir al mercado juntos. What is he doing?", "options": ["Inviting you to make a market plan", "Cancelling the market plan", "Asking what time the market closes", "Saying he is busy on Saturday"], "answer": "Inviting you to make a market plan", "explanation": "He asks whether you are free and proposes going to the market together." },
+    { "type": "multipleChoice", "difficulty": "hard", "prompt": "Carlos: ¿Estás libre el sábado? Learner: Sí, estoy libre. Carlos: ¿A las diez? Choose the natural final reply.", "options": ["Sí, perfecto. Nos vemos entonces.", "Estoy libre el domingo.", "¿Cuándo estás libre?", "Por la noche estoy ocupado."], "answer": "Sí, perfecto. Nos vemos entonces.", "explanation": "The learner accepts the proposed time and closes the plan." },
     { "type": "translation", "difficulty": "hard", "prompt": "Translate: Estoy libre el domingo por la tarde.", "options": ["I’m free Sunday afternoon.", "I’m busy Saturday morning.", "I’m at the market Sunday night.", "I can come Friday afternoon."], "answer": "I’m free Sunday afternoon.", "explanation": "Libre means free, el domingo is Sunday, and por la tarde is in the afternoon." },
-    { "type": "multipleChoice", "difficulty": "hard", "prompt": "You cannot meet Saturday morning. Which response keeps the conversation moving?", "options": ["Estoy ocupado por la mañana. ¿Por la tarde?", "No. Adiós.", "El mercado es una familia.", "¿Cómo se llama tu madre?"], "answer": "Estoy ocupado por la mañana. ¿Por la tarde?", "explanation": "It explains the conflict and immediately suggests another part of the day." },
-    { "type": "multipleChoice", "difficulty": "hard", "prompt": "Carlos writes: ¿A las diez de la mañana? Which detail should you add to your plan?", "options": ["Meet at ten in the morning", "Meet sometime this week", "Call his family tonight", "Go before Friday"], "answer": "Meet at ten in the morning", "explanation": "A las diez de la mañana gives the exact agreed meeting time." },
-    { "type": "multipleChoice", "difficulty": "practical usage", "prompt": "Complete the plan from invitation to goodbye.", "options": ["Sí, estoy libre. El sábado por la mañana. A las diez. Perfecto. Nos vemos.", "Hola. Me llamo Tom. Soy de Canadá. Mucho gusto.", "Esta es mi madre. Él es mi hermano. Tengo una hermana.", "Estoy ocupado. No. ¿Quién es ella?"], "answer": "Sí, estoy libre. El sábado por la mañana. A las diez. Perfecto. Nos vemos.", "explanation": "This response accepts, confirms the day and time, and closes the plan naturally." }
+    { "type": "multipleChoice", "difficulty": "hard", "prompt": "You cannot meet Saturday morning. Which response keeps the conversation moving?", "options": ["Estoy ocupado por la mañana. ¿Por la tarde?", "Estoy libre por la mañana. A las diez.", "Nos vemos el sábado por la mañana.", "¿Estás libre el sábado?"], "answer": "Estoy ocupado por la mañana. ¿Por la tarde?", "explanation": "It explains the conflict and immediately suggests another part of the day." },
+    { "type": "multipleChoice", "difficulty": "hard", "prompt": "Carlos writes: ¿A las diez de la mañana? Which detail should you add to your plan?", "options": ["Meet at ten in the morning", "Meet at ten at night", "Meet Saturday without a time", "Meet sometime after ten"], "answer": "Meet at ten in the morning", "explanation": "A las diez de la mañana gives the exact agreed meeting time." },
+    { "type": "multipleChoice", "difficulty": "practical usage", "prompt": "Complete the plan from invitation to goodbye.", "options": ["Sí, estoy libre. El sábado por la mañana. A las diez. Perfecto. Nos vemos.", "Estoy ocupado. Nos vemos el sábado por la mañana.", "El sábado. ¿Cuándo estás libre? A las diez.", "A las diez. Estoy ocupado. Nos vemos."], "answer": "Sí, estoy libre. El sábado por la mañana. A las diez. Perfecto. Nos vemos.", "explanation": "This response accepts, confirms the day and time, and closes the plan naturally." }
   ],
   "flashcards": [
     {
+      "shuffle": true,
       "selectionRule": "Only Tier 1 planning language and mission-critical chunks appear in the core deck.",
       "items": [
         "lunes", "martes", "miércoles", "jueves", "viernes", "sábado", "domingo",

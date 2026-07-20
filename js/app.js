@@ -1,4 +1,4 @@
-﻿import { state } from "./core/state.js";
+import { state } from "./core/state.js";
 import { saveState, loadState } from "./core/storage.js";
 import { renderPage } from "./core/router.js";
 import { getCurrentXP, initializeProgressEngine } from "./core/progress.js";
@@ -15,9 +15,11 @@ const CARLOS_HISTORY_KEY = 'habla_carlos_history_v1';
 console.log("Habla state loaded:", state);
 
 const savedState = loadState();
+const defaultUserProfile = { ...state.user };
 
 if (savedState) {
   Object.assign(state, savedState);
+  state.user = { ...defaultUserProfile, ...(savedState.user || {}) };
   console.log("Saved Habla state restored:", state);
 } else {
   console.log("No saved Habla state found. Starting fresh.");
@@ -81,8 +83,8 @@ const VOCAB = [
   {es:'el mÃ©dico / la mÃ©dica',en:'doctor (m/f)',pos:'noun',cat:'nouns',tip:'Also "el doctor / la doctora".',ex:'Necesito ver al mÃ©dico.',exEn:'I need to see the doctor.'},
 
   // PHRASES
-  {es:'Â¿cÃ³mo te llamas?',en:'What\'s your name?',pos:'phrase',cat:'phrases',tip:'Literally "what do you call yourself?" â€” very natural in Spanish.',ex:'Â¿CÃ³mo te llamas? Me llamo Tom.',exEn:'What\'s your name? My name is Tom.'},
-  {es:'me llamoâ€¦',en:'My name isâ€¦',pos:'phrase',cat:'phrases',tip:'Literally "I call myselfâ€¦" â€” used more than "mi nombre es".',ex:'Me llamo Tom y soy de CanadÃ¡.',exEn:'My name is Tom and I\'m from Canada.'},
+  {es:'Â¿cÃ³mo te llamas?',en:'What\'s your name?',pos:'phrase',cat:'phrases',tip:'Literally "what do you call yourself?" â€” very natural in Spanish.',ex:'Â¿CÃ³mo te llamas? Me llamo Ana.',exEn:'What\'s your name? My name is Ana.'},
+  {es:'me llamoâ€¦',en:'My name isâ€¦',pos:'phrase',cat:'phrases',tip:'Literally "I call myselfâ€¦" â€” used more than "mi nombre es".',ex:'Me llamo Ana y soy de CanadÃ¡.',exEn:'My name is Ana and I\'m from Canada.'},
   {es:'Â¿de dÃ³nde eres?',en:'Where are you from?',pos:'phrase',cat:'phrases',tip:'"Â¿De dÃ³nde es usted?" is the formal version.',ex:'Â¿De dÃ³nde eres? Soy de CanadÃ¡.',exEn:'Where are you from? I\'m from Canada.'},
   {es:'no entiendo',en:'I don\'t understand',pos:'phrase',cat:'phrases',tip:'Essential phrase â€” never be afraid to say it!',ex:'Lo siento, no entiendo. Â¿Puedes repetir?',exEn:'Sorry, I don\'t understand. Can you repeat?'},
   {es:'Â¿puedes repetir?',en:'Can you repeat?',pos:'phrase',cat:'phrases',tip:'Pair with "mÃ¡s despacio" (more slowly) for full effect.',ex:'Â¿Puedes repetir mÃ¡s despacio, por favor?',exEn:'Can you repeat more slowly, please?'},
@@ -832,8 +834,16 @@ window.addEventListener('habla:lesson-render', (event) => {
   const previousScrollTop = document.getElementById('dashboard')?.scrollTop || 0;
   renderAppPage('lesson');
   if (event.detail?.scroll) {
-    document.getElementById('dashboard')?.scrollTo({ top: 0, behavior: 'smooth' });
-    document.getElementById('lesson-stage')?.focus({ preventScroll: true });
+    const dashboard = document.getElementById('dashboard');
+    if (dashboard) {
+      dashboard.scrollTop = 0;
+      dashboard.scrollTo({ top: 0, behavior: 'auto' });
+    }
+    window.scrollTo({ top: 0, behavior: 'auto' });
+    requestAnimationFrame(() => {
+      if (dashboard) dashboard.scrollTop = 0;
+      document.getElementById('lesson-stage')?.focus({ preventScroll: true });
+    });
   } else {
     const dashboard = document.getElementById('dashboard');
     if (dashboard) dashboard.scrollTop = previousScrollTop;

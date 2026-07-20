@@ -1,7 +1,8 @@
 import { getLessonById, getLessonProgress, getUnlockedLessons } from "../core/content.js";
 import { PRACTICE_LIBRARY_CATEGORIES, findPracticeLibraryCategory, findPracticeLibraryCollection, findPracticeLibraryItem } from "../data/practiceLibrary.js";
 import { CARLOS_FALLBACK_ONERROR, getCarlosAsset } from "../data/carlosAssets.js";
-import { LESSON_ARTWORK_ONERROR, preloadLessonArtwork } from "../data/lessonAssets.js";
+import { personalizeText } from "../core/personalization.js";
+import { renderLessonCover } from "../components/lessonCover.js";
 
 const TOPIC_KEY = "habla_selected_practice_topic_v1";
 const SESSION_KEY = "habla_practice_session_v2";
@@ -632,20 +633,31 @@ function renderSummary(session, topic, lesson) {
   const title = lesson ? "Today's Recommendation" : "Today's Practice";
   const count = lesson ? getModeCount(mode, lesson) : 0;
   const minutes = estimateMinutes(mode, count);
-  const artwork = preloadLessonArtwork(lesson);
   const objective = lesson?.objectives?.[0] || lesson?.objective || description;
   const meta = mode === "conversation"
-    ? `<span>${iconSvg("conversation")} Topic ready</span>`
+    ? [{ icon: iconSvg("conversation"), text: "Topic ready" }]
     : lesson
-      ? `<span>${iconSvg(mode)} ${count} ${unitForMode(mode, count)}</span><span>${iconSvg("time")} ${minutes} Min</span>`
-      : `<span>${iconSvg("lock")} Complete earlier lessons to unlock</span>`;
+      ? [
+          { icon: iconSvg(mode), text: `${count} ${unitForMode(mode, count)}` },
+          { icon: iconSvg("time"), text: `${minutes} Min` },
+        ]
+      : [{ icon: iconSvg("lock"), text: "Complete earlier lessons to unlock" }];
 
-  return `<section class="practice-summary mode-${mode} ${artwork ? "has-scene" : ""}">
-    ${artwork ? `<img class="practice-summary-scene" src="${escapeAttr(artwork)}" alt="${escapeAttr(topic.title)} practice scene" loading="eager" fetchpriority="high" decoding="async" onerror="${LESSON_ARTWORK_ONERROR}">` : ""}
-    <div class="practice-summary-copy"><span class="practice-summary-label">${title}</span><h2>${escapeHtml(topic.title)}</h2>${lesson ? `<em class="practice-summary-context">Based on your current lesson</em>` : ""}<p>${lesson || mode === "conversation" ? escapeHtml(objective) : "This topic is not available in your unlocked lessons yet."}</p><small>${meta}</small></div>
-    ${artwork ? "" : `<div class="practice-summary-mark" aria-hidden="true">${iconSvg(mode)}</div>`}
-    <button class="practice-primary practice-hero-action" type="button" onclick="hablaPractice.start()"><span class="button-label">${action}</span>${iconSvg("arrow-right", "button-icon")}</button>
-  </section>`;
+  return renderLessonCover({
+    variant: "practice",
+    className: `mode-${mode}`,
+    lesson,
+    artworkAlt: `${topic.title} practice scene`,
+    eyebrow: title,
+    title: topic.title,
+    context: lesson ? "Continue your story" : "",
+    description: lesson || mode === "conversation" ? objective : "This topic is not available in your unlocked lessons yet.",
+    meta,
+    action: {
+      label: action,
+      attributes: `onclick="hablaPractice.start()"`,
+    },
+  });
 }
 
 function practiceHeroAction(session, lesson) {
@@ -830,8 +842,11 @@ function ensureQuizSession(session, lesson, force = false) {
 
 function ensureFlashSession(session, lesson, force = false) {
   const cards = getCards(lesson);
-  if (!force && session.flash?.lessonId === lesson.id && session.flash.order?.length === cards.length) return;
-  session.flash = { lessonId: lesson.id, order: cards.map((_, index) => index), index: 0, flipped: false };
+  const lessonVersion = `${lesson.id}:${lesson.contentVersion || "1"}`;
+  if (!force && session.flash?.lessonId === lesson.id && session.flash.lessonVersion === lessonVersion && session.flash.order?.length === cards.length) return;
+  const flashcardConfig = Array.isArray(lesson.flashcards) ? lesson.flashcards[0] : lesson.flashcards;
+  const order = cards.map((_, index) => index);
+  session.flash = { lessonId: lesson.id, lessonVersion, order: flashcardConfig?.shuffle ? shuffle(order) : order, index: 0, flipped: false };
   writeSession(session);
 }
 
@@ -1016,7 +1031,7 @@ function shuffle(values) {
   return result;
 }
 
-function speakSpanish(text) { if (!text || !window.speechSynthesis) return; speechSynthesis.cancel(); const utterance = new SpeechSynthesisUtterance(text); utterance.lang = "es-ES"; utterance.rate = .85; speechSynthesis.speak(utterance); }
+function speakSpanish(text) { if (!text || !window.speechSynthesis) return; speechSynthesis.cancel(); const utterance = new SpeechSynthesisUtterance(personalizeText(text)); utterance.lang = "es-ES"; utterance.rate = .85; speechSynthesis.speak(utterance); }
 function iconSvg(name, className = "") {
   const icons = {
     quiz: `<circle cx="12" cy="12" r="8.5"/><path d="m8.5 12 2.2 2.2 4.8-5"/>`,
@@ -1067,4 +1082,4 @@ function normalize(value) { return String(value || "").toLowerCase().normalize("
 function shortLessonTitle(title) { return String(title || "Lesson").replace(/^.*?:\s*/, ""); }
 function modeTitle(mode) { return mode === "flashcards" ? "Flashcards" : mode === "pronunciation" ? "Pronunciation" : "Quiz"; }
 function escapeAttr(value) { return escapeHtml(value).replace(/`/g, "&#96;"); }
-function escapeHtml(value) { return String(value ?? "").replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;").replace(/'/g, "&#39;"); }
+function escapeHtml(value) { return personalizeText(value).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;").replace(/'/g, "&#39;"); }
