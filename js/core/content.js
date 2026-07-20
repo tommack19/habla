@@ -1,4 +1,5 @@
 import { awardXP } from "./progress.js";
+import { isDeveloperMode } from "./developer.js";
 
 const FIRST_LESSON_ID = "a1-lesson-01-greetings";
 const PROGRESS_KEY = "habla_lesson_progress_v1";
@@ -171,6 +172,12 @@ export function unlockNextLesson() {
 }
 
 export function getUnlockedLessons() {
+  if (isDeveloperMode()) {
+    return LESSON_ORDER
+      .map(id => getLessonById(id))
+      .filter(Boolean);
+  }
+
   const progress = readProgress();
   return progress.unlockedLessonIds
     .map(id => getLessonById(id))
