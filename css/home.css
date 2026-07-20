@@ -1711,4 +1711,16 @@
     margin-bottom: 11px;
   }
   .home-page .home-daily-hero .home-hero-copy p { font-size: 0.6rem; }
+  .home-page .home-hero-lesson-metrics > span {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    justify-content: center;
+    padding: 6px 4px;
+    text-align: center;
+  }
+  .home-page .home-hero-lesson-metrics b {
+    font-size: 0.59rem;
+    line-height: 1.1;
+  }
 }

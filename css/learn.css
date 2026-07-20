@@ -1071,17 +1071,18 @@
   position: relative;
 }
 .learn-current-scene {
+  filter: brightness(1.2) saturate(1.07);
   height: 100%;
   inset: 0;
   object-fit: cover;
-  object-position: 62% center;
+  object-position: 72% center;
   position: absolute;
   width: 100%;
 }
 .learn-today-card::after {
   background:
-    linear-gradient(90deg, rgba(2, 12, 10, 0.98) 0%, rgba(2, 12, 10, 0.91) 35%, rgba(2, 12, 10, 0.42) 67%, rgba(2, 12, 10, 0.06) 100%),
-    linear-gradient(0deg, rgba(2, 8, 10, 0.94) 0%, transparent 38%);
+    linear-gradient(90deg, rgba(2, 12, 10, 0.94) 0%, rgba(2, 12, 10, 0.79) 35%, rgba(2, 12, 10, 0.25) 67%, rgba(2, 12, 10, 0.02) 100%),
+    linear-gradient(0deg, rgba(2, 8, 10, 0.82) 0%, transparent 38%);
   content: "";
   inset: 0;
   pointer-events: none;
@@ -1093,7 +1094,7 @@
 .learn-current-copy em { font-size: 0.76rem; margin-top: 14px; }
 .learn-today-card h2 { font-size: 1.72rem; line-height: 1.06; margin: 5px 0 10px; max-width: 13ch; }
 .learn-today-card p { font-size: 0.76rem; line-height: 1.5; text-wrap: pretty; }
-.learn-lesson-meta { font-size: 0.63rem; gap: 12px; margin-top: 14px; }
+.learn-lesson-meta { column-gap: 16px; font-size: 0.64rem; margin-top: 14px; row-gap: 8px; }
 .learn-continue {
   font-size: 0.78rem;
   margin-top: 16px;
@@ -1214,8 +1215,10 @@
   .learn-tab-icon { height: 19px; width: 19px; }
   .learn-today-card { min-height: 252px; }
   .learn-current-copy { padding-inline: 16px; width: 68%; }
+  .learn-current-scene { object-position: 74% center; }
   .learn-today-card h2 { font-size: 1.52rem; }
   .learn-today-card p { display:-webkit-box; overflow:hidden; -webkit-box-orient:vertical; -webkit-line-clamp:2; }
+  .learn-lesson-meta { column-gap: 14px; font-size: .62rem; }
   .learn-path-card { grid-template-columns: 42px minmax(0, 1fr) 48px 20px; padding-inline: 11px; }
   .learn-side-rail { grid-template-columns: minmax(0, 1fr); }
   .learn-stats-card { grid-column: auto; }

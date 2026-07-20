@@ -739,10 +739,11 @@
 }
 
 .practice-summary-scene {
+  filter: brightness(1.2) saturate(1.07);
   height: 100%;
   inset: 0;
   object-fit: cover;
-  object-position: 62% center;
+  object-position: 72% center;
   position: absolute;
   width: 100%;
   z-index: 0;
@@ -750,8 +751,8 @@
 
 .practice-launcher .practice-summary.has-scene::after {
   background:
-    linear-gradient(90deg, rgba(3, 11, 10, 0.98) 0%, rgba(3, 11, 10, 0.92) 38%, rgba(3, 11, 10, 0.48) 66%, rgba(3, 11, 10, 0.08) 100%),
-    linear-gradient(0deg, rgba(3, 9, 9, 0.7), transparent 50%);
+    linear-gradient(90deg, rgba(3, 11, 10, 0.94) 0%, rgba(3, 11, 10, 0.78) 38%, rgba(3, 11, 10, 0.25) 66%, rgba(3, 11, 10, 0.02) 100%),
+    linear-gradient(0deg, rgba(3, 9, 9, 0.48), transparent 50%);
   content: "";
   inset: 0;
   pointer-events: none;
@@ -1125,6 +1126,7 @@
   .practice-level-badge { font-size: 9px; padding-inline: 13px; }
   .practice-launcher .practice-mode-tab small { font-size: 9px; }
   .practice-launcher .practice-summary { min-height: 224px; padding:18px; }
+  .practice-summary-scene { object-position: 75% center; }
   .practice-launcher .practice-summary h2 { font-size: 27px; }
   .practice-launcher .practice-summary p { display:-webkit-box; font-size:12px; overflow:hidden; -webkit-box-orient:vertical; -webkit-line-clamp:2; }
   .practice-launcher .practice-topic-grid { gap: 6px; }

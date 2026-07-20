@@ -331,9 +331,32 @@
       "partOfSpeech": "farewell",
       "tier": 1,
       "group": "Closings",
+      "learningPriority": "Required",
       "tip": "Use this as the lesson’s main friendly closing. Hasta luego is an equally natural alternative you may hear.",
       "exampleSpanish": "Mucho gusto. Nos vemos luego.",
       "exampleEnglish": "Nice to meet you. See you later."
+    },
+    {
+      "spanish": "hasta luego",
+      "english": "see you later",
+      "partOfSpeech": "farewell",
+      "tier": 2,
+      "group": "Closings",
+      "learningPriority": "Good to know",
+      "tip": "A very common alternative to nos vemos luego.",
+      "exampleSpanish": "Hasta luego, Carlos.",
+      "exampleEnglish": "See you later, Carlos."
+    },
+    {
+      "spanish": "adiós",
+      "english": "goodbye",
+      "partOfSpeech": "farewell",
+      "tier": 2,
+      "group": "Closings",
+      "learningPriority": "Good to know",
+      "tip": "Useful, but it can sound more final than nos vemos luego.",
+      "exampleSpanish": "Adiós. Que tengas un buen día.",
+      "exampleEnglish": "Goodbye. Have a good day."
     }
   ],
   "greetings": [
@@ -972,20 +995,31 @@
       },
       {
         "speaker": "Learner",
-        "intent": "Say you are well, return the question, and introduce yourself.",
-        "exampleSpanish": "Muy bien, gracias. ¿Y tú? Me llamo Tom.",
-        "exampleEnglish": "Very well, thanks. And you? My name is Tom."
+        "intent": "Greet Carlos and introduce yourself.",
+        "exampleSpanish": "¡Hola! Mucho gusto. Me llamo Tom.",
+        "exampleEnglish": "Hi! Nice to meet you. My name is Tom."
       },
       {
         "speaker": "Carlos",
-        "spanish": "Muy bien. Mucho gusto, Tom.",
-        "english": "Very well. Nice to meet you, Tom."
+        "spanish": "Mucho gusto, Tom. ¿Cómo estás?",
+        "english": "Nice to meet you, Tom. How are you?"
       },
       {
         "speaker": "Learner",
-        "intent": "Say nice to meet you and close naturally.",
-        "exampleSpanish": "Mucho gusto. Nos vemos luego.",
-        "exampleEnglish": "Nice to meet you. See you later."
+        "intent": "Say how you are and return the question.",
+        "exampleSpanish": "Muy bien, gracias. ¿Y tú?",
+        "exampleEnglish": "Very well, thanks. And you?"
+      },
+      {
+        "speaker": "Carlos",
+        "spanish": "Muy bien, gracias. Bienvenido a Madrid.",
+        "english": "Very well, thanks. Welcome to Madrid."
+      },
+      {
+        "speaker": "Learner",
+        "intent": "Thank Carlos and close naturally.",
+        "exampleSpanish": "Gracias. Nos vemos luego, Carlos.",
+        "exampleEnglish": "Thanks. See you later, Carlos."
       }
     ]
   },
