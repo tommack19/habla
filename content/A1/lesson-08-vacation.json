@@ -12,6 +12,7 @@
     "city": "Madrid",
     "location": "Carlos and Marta’s apartment",
     "time": "Saturday, early afternoon",
+    "heroText": "Rain brings you back to Carlos and Marta’s apartment for a quiet afternoon at home.",
     "scene": "Rain interrupts the walk after Plaza Mayor, so Carlos and the learner return to the apartment from the family dinner. This time the home is quiet and ordinary: a damp jacket by the door, a mug on the table, books on the shelf, a guitar in the corner, and family photos among the everyday clutter.",
     "mission": "Name the main rooms, say what exists in one room, and explain where one object is.",
     "continuity": "The learner already knows Carlos’s family and has visited this home. The new perspective is the comfortable, lived-in rhythm of an ordinary afternoon there."
@@ -70,7 +71,8 @@
   ],
   "learnerChoices": {
     "objective": "Choose one room to explore and describe without changing the lesson objective.",
-    "prompt": "Carlos asks: ¿Qué habitación quieres ver primero?",
+    "prompt": "¿Qué habitación quieres ver primero?",
+    "promptEnglish": "Which room would you like to see first?",
     "options": [
       {
         "id": "living-room",

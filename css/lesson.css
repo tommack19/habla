@@ -150,12 +150,14 @@
 .lesson-rule-list strong { display: block; font-size: .9rem; }
 .lesson-rule-list p { color: #99a5ab; font-size: .8rem; line-height: 1.5; margin: 4px 0 0; }
 
-.lesson-branch-banner { border-color: rgba(244,190,88,.32); }
-.lesson-branch-banner small, .lesson-branch-banner strong, .lesson-branch-banner span { display: block; }
-.lesson-branch-banner small { color: var(--lesson-accent); font-size: .65rem; font-weight: 900; text-transform: uppercase; }
-.lesson-branch-banner strong { font-family: "Playfair Display", Georgia, serif; font-size: 1.25rem; margin: 6px 0; }
-.lesson-branch-banner span { color: #9da8ad; font-size: .78rem; }
-.lesson-branch-banner p { color: #77858b; font-size: .72rem; line-height: 1.45; margin: 3px 0 14px; }
+.lesson-branch-banner { border-color: rgba(244,190,88,.32); display: grid; gap: 12px; }
+.lesson-branch-banner header { border-bottom: 1px solid rgba(180,199,186,.12); padding-bottom: 14px; }
+.lesson-branch-banner header small, .lesson-branch-turn small { color: var(--lesson-accent); display: block; font-size: .65rem; font-weight: 900; letter-spacing: .07em; text-transform: uppercase; }
+.lesson-branch-banner header h2 { font-family: "Playfair Display", Georgia, serif; font-size: 1.2rem; line-height: 1.15; margin: 5px 0; }
+.lesson-branch-banner header p, .lesson-branch-turn p { color: #87949a; font-size: .75rem; line-height: 1.45; margin: 0; }
+.lesson-branch-turn { background: rgba(2,8,9,.38); border: 1px solid rgba(180,199,186,.1); border-radius: 15px; padding: 14px; }
+.lesson-branch-turn.learner { border-color: rgba(44,214,111,.25); }
+.lesson-branch-turn strong { display: block; font-family: "Playfair Display", Georgia, serif; font-size: 1.12rem; line-height: 1.25; margin: 6px 0 4px; }
 .lesson-dialogue-list { display: grid; gap: 4px; }
 .lesson-scene-divider { align-items: center; color: var(--lesson-accent); display: flex; font-size: .68rem; font-weight: 900; gap: 10px; letter-spacing: .1em; margin: 14px 0 3px; text-transform: uppercase; }
 .lesson-scene-divider::after { background: linear-gradient(90deg,rgba(244,190,88,.45),transparent); content: ""; flex: 1; height: 1px; }

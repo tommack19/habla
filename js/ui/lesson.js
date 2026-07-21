@@ -146,7 +146,7 @@ function renderStory(lesson) {
       <div class="lesson-story-copy">
         <span>${escapeHtml(story.time || story.location || story.city || "Your Spanish journey")}</span>
         <h1>${escapeHtml(lesson.title)}</h1>
-        <p>${escapeHtml(story.scene || mission || "A new conversation with Carlos begins.")}</p>
+        <p>${escapeHtml(story.heroText || mission || "A new conversation with Carlos begins.")}</p>
       </div>
     </article>
     ${renderMemoryCallback(lesson)}
@@ -227,7 +227,7 @@ function renderDialogue(lesson, progress, scene) {
   const selected = lesson.learnerChoices?.options?.find(choice => choice.id === selectedId);
   return `
     <section class="lesson-section-heading"><span>Conversation</span><h1>${escapeHtml(scene.title || "Use it in context")}</h1><p>${escapeHtml(scene.setting || "Follow the conversation from beginning to end.")}</p></section>
-    ${selected ? `<article class="lesson-branch-banner"><small>Your version</small><strong>${escapeHtml(selected.modelOrder)}</strong>${selected.modelOrderEnglish ? `<p>${escapeHtml(selected.modelOrderEnglish)}</p>` : ""}<small>Carlos responds</small><span>${escapeHtml(selected.carlosSpanish)}</span>${selected.carlosEnglish ? `<p>${escapeHtml(selected.carlosEnglish)}</p>` : ""}</article>` : ""}
+    ${selected ? `<article class="lesson-branch-banner"><header><small>Your choice in this conversation</small><h2>See how your earlier choice changes the scene</h2><p>The full conversation continues below with your version included.</p></header><div class="lesson-branch-turn learner"><small>You can say</small><strong>${escapeHtml(selected.modelOrder)}</strong>${selected.modelOrderEnglish ? `<p>${escapeHtml(selected.modelOrderEnglish)}</p>` : ""}</div><div class="lesson-branch-turn carlos"><small>Carlos answers</small><strong>${escapeHtml(selected.carlosSpanish)}</strong>${selected.carlosEnglish ? `<p>${escapeHtml(selected.carlosEnglish)}</p>` : ""}</div></article>` : ""}
     <div class="lesson-dialogue-list">${renderDialogueLines(scene.lines || [], selected)}</div>
   `;
 }

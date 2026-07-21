@@ -70,7 +70,8 @@
   ],
   "learnerChoices": {
     "objective": "State one genuine study-time preference that can help Carlos personalize future practice.",
-    "prompt": "Carlos asks: ¿Cuándo practicas español normalmente?",
+    "prompt": "¿Cuándo practicas español normalmente?",
+    "promptEnglish": "When do you normally practice Spanish?",
     "options": [
       {
         "id": "morning",
