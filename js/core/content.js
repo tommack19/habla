@@ -205,6 +205,10 @@ export function getLessonById(id) {
   return lessonCache.get(canonicalLessonId(id)) || null;
 }
 
+export function getLessonCompletionXP(lesson) {
+  return Number(lesson?.rewards?.lessonCompletionXp ?? lesson?.xpReward ?? 0);
+}
+
 export function completeLesson(id) {
   const lesson = getLessonById(id);
   if (!lesson) {
@@ -219,11 +223,12 @@ export function completeLesson(id) {
   }
 
   const completedAt = new Date().toISOString();
+  const completionXP = getLessonCompletionXP(lesson);
   const lessonProgress = {
     ...previous,
     completed: true,
     completedAt,
-    xpAwarded: lesson.xpReward || 0,
+    xpAwarded: completionXP,
   };
 
   progress.lessons[id] = lessonProgress;
@@ -234,7 +239,7 @@ export function completeLesson(id) {
   const unlockEvent = unlockLessonInProgress(progress, lesson.nextLesson, id);
   writeProgress(progress);
 
-  const xpEvent = lesson.xpReward ? awardXP(lesson.xpReward, `Completed lesson: ${lesson.title}`) : null;
+  const xpEvent = completionXP ? awardXP(completionXP, `Completed lesson: ${lesson.title}`) : null;
   const event = { type: "lesson:completed", id, lesson, progress: lessonProgress, xpEvent, unlockEvent };
   window.dispatchEvent(new CustomEvent("habla:lesson-completed", { detail: event }));
   return event;

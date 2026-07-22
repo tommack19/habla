@@ -1,11 +1,30 @@
 {
   "id": "lesson-04-numbers-time",
-  "contentVersion": "1.2",
-  "title": "Saturday at the Market",
-  "image": "assets/images/lessons/lesson-04-numbers-time.png.png",
+  "contentVersion": "1.4",
+  "title": "See You at Ten",
+  "image": "assets/images/lessons/lesson-04-numbers-time.png",
   "level": "A1",
   "module": "Making Plans",
   "estimatedMinutes": 30,
+  "sectionIntros": {
+    "story": { "eyebrow": "A message from Carlos", "title": "See You at Ten", "body": "Read Carlos’s message and arrange your next Madrid outing." },
+    "vocabulary": { "eyebrow": "Planning words", "title": "What you need to make the plan", "body": "Start with Saturday, availability, and three simple time chunks." },
+    "grammar": { "eyebrow": "One useful pattern", "title": "Say when you’re free", "body": "Build the plan with a day, a part of the day, and one meeting time." },
+    "dialogue": { "eyebrow": "Incoming message", "title": "Carlos texted you", "body": "Answer naturally and settle the plan together." },
+    "listening": { "eyebrow": "Listen to the messages", "title": "Can you follow the plan?", "body": "Listen first. Follow the chat only when you’re ready." },
+    "pronunciation": { "eyebrow": "Pronunciation", "title": "Make the plan sound natural", "body": "Practice only the phrases you’ll need in the conversation." },
+    "speaking": { "eyebrow": "Guided conversation", "title": "Make the plan with Carlos", "body": "Answer one message at a time, then personalize the final plan." },
+    "quiz": { "eyebrow": "Check your understanding", "title": "Can you arrange the outing?", "body": "Question {{questionNumber}} of {{questionCount}}" },
+    "culture": { "eyebrow": "Life in Spain", "title": "Making plans by message", "body": "One useful habit to notice." },
+    "reward": { "eyebrow": "Plan confirmed", "title": "Saturday is set.", "body": "You turned a real message into your next Madrid experience." }
+  },
+  "sectionTransitions": {
+    "grammar": "Perfect. Now let’s use those chunks in our messages.",
+    "dialogue": "Nice! Could you follow the same plan by listening?",
+    "listening": "Now answer me without reading the whole exchange.",
+    "speaking": "I think you’re ready to make the plan."
+  },
+  "vocabularyPresentation": { "showPriorityLabels": true, "collapseOptional": true },
   "prerequisiteLesson": "lesson-03-family",
   "story": {
     "chapter": 1,
@@ -14,6 +33,7 @@
     "scene": "Your phone buzzes. Carlos is checking in after dinner and wants to take you to his favorite market on Saturday.",
     "openingMessage": [
       "Hola, {{learnerName}}.",
+      "Mi madre dijo que fue un placer conocerte ayer.",
       "¡Qué bien lo pasamos ayer!",
       "¿Estás libre este sábado?",
       "Podemos ir al mercado juntos."
@@ -29,6 +49,8 @@
   },
   "microCliffhanger": {
     "speaker": "Carlos",
+    "confirmationSpanish": "Perfecto. Nos vemos el sábado a las diez.",
+    "confirmationEnglish": "Perfect. See you Saturday at ten.",
     "spanish": "Antes de vernos, necesito comprar algo especial en el mercado... Mañana te cuento.",
     "english": "Before we meet, I need to buy something special at the market... I’ll tell you tomorrow.",
     "payoffLesson": "lesson-05-shopping"
@@ -36,7 +58,7 @@
   "carlosIntroduction": {
     "eyebrow": "Your mission",
     "title": "Make a plan with me",
-    "message": "¡Buenos días! Yesterday you met my family, and they really enjoyed meeting you. This Saturday there’s a wonderful market in Madrid. Let’s make some plans together. By the end, you’ll be able to ask when someone is free, choose a day and time, and agree on a plan.",
+    "message": "¡Buenos días, {{learnerName}}! My family really enjoyed meeting you yesterday. I was thinking... are you free this Saturday? There’s a market I think you’ll love.",
     "prompt": "Open my message and answer: Sí, estoy libre."
   },
   "canDo": [
@@ -127,39 +149,39 @@
     }
   ],
   "vocabulary": [
-    { "spanish": "lunes", "english": "Monday", "partOfSpeech": "day", "tier": 1, "group": "Days", "tip": "Spanish days are written with lowercase letters.", "exampleSpanish": "Hoy es lunes.", "exampleEnglish": "Today is Monday." },
-    { "spanish": "martes", "english": "Tuesday", "partOfSpeech": "day", "tier": 1, "group": "Days", "tip": "Use el martes for on Tuesday.", "exampleSpanish": "Estoy libre el martes.", "exampleEnglish": "I’m free on Tuesday." },
-    { "spanish": "miércoles", "english": "Wednesday", "partOfSpeech": "day", "tier": 1, "group": "Days", "tip": "Keep the written accent over é.", "exampleSpanish": "Nos vemos el miércoles.", "exampleEnglish": "See you on Wednesday." },
-    { "spanish": "jueves", "english": "Thursday", "partOfSpeech": "day", "tier": 1, "group": "Days", "tip": "The j has a strong breathy Spanish sound.", "exampleSpanish": "Estoy ocupado el jueves.", "exampleEnglish": "I’m busy on Thursday." },
-    { "spanish": "viernes", "english": "Friday", "partOfSpeech": "day", "tier": 1, "group": "Days", "tip": "Viernes comes before sábado.", "exampleSpanish": "El viernes por la tarde.", "exampleEnglish": "Friday afternoon." },
+    { "spanish": "lunes", "english": "Monday", "partOfSpeech": "day", "tier": 2, "group": "Days", "tip": "Spanish days are written with lowercase letters.", "exampleSpanish": "Hoy es lunes.", "exampleEnglish": "Today is Monday." },
+    { "spanish": "martes", "english": "Tuesday", "partOfSpeech": "day", "tier": 2, "group": "Days", "tip": "Use el martes for on Tuesday.", "exampleSpanish": "Estoy libre el martes.", "exampleEnglish": "I’m free on Tuesday." },
+    { "spanish": "miércoles", "english": "Wednesday", "partOfSpeech": "day", "tier": 2, "group": "Days", "tip": "Keep the written accent over é.", "exampleSpanish": "Nos vemos el miércoles.", "exampleEnglish": "See you on Wednesday." },
+    { "spanish": "jueves", "english": "Thursday", "partOfSpeech": "day", "tier": 2, "group": "Days", "tip": "The j has a strong breathy Spanish sound.", "exampleSpanish": "Estoy ocupado el jueves.", "exampleEnglish": "I’m busy on Thursday." },
+    { "spanish": "viernes", "english": "Friday", "partOfSpeech": "day", "tier": 2, "group": "Days", "tip": "Viernes comes before sábado.", "exampleSpanish": "El viernes por la tarde.", "exampleEnglish": "Friday afternoon." },
     { "spanish": "sábado", "english": "Saturday", "partOfSpeech": "day", "tier": 1, "group": "Days", "tip": "The written accent marks the first syllable: SÁ-ba-do.", "exampleSpanish": "¿Estás libre este sábado?", "exampleEnglish": "Are you free this Saturday?" },
-    { "spanish": "domingo", "english": "Sunday", "partOfSpeech": "day", "tier": 1, "group": "Days", "tip": "Use el domingo for on Sunday.", "exampleSpanish": "Estoy libre el domingo.", "exampleEnglish": "I’m free on Sunday." },
-    { "spanish": "hoy", "english": "today", "partOfSpeech": "time expression", "tier": 1, "group": "When", "tip": "Use hoy for the current day.", "exampleSpanish": "Hoy estoy ocupado.", "exampleEnglish": "I’m busy today." },
+    { "spanish": "domingo", "english": "Sunday", "partOfSpeech": "day", "tier": 2, "group": "Days", "tip": "Use el domingo for on Sunday.", "exampleSpanish": "Estoy libre el domingo.", "exampleEnglish": "I’m free on Sunday." },
+    { "spanish": "hoy", "english": "today", "partOfSpeech": "time expression", "tier": 2, "group": "When", "tip": "Use hoy for the current day.", "exampleSpanish": "Hoy estoy ocupado.", "exampleEnglish": "I’m busy today." },
     { "spanish": "mañana", "english": "tomorrow", "partOfSpeech": "time expression", "tier": 1, "group": "When", "tip": "Context distinguishes mañana, tomorrow, from la mañana, the morning.", "exampleSpanish": "¿Estás libre mañana?", "exampleEnglish": "Are you free tomorrow?" },
     { "spanish": "esta semana", "english": "this week", "partOfSpeech": "time expression", "tier": 2, "group": "When", "tip": "Esta agrees with the feminine word semana.", "exampleSpanish": "Estoy ocupado esta semana.", "exampleEnglish": "I’m busy this week." },
-    { "spanish": "este fin de semana", "english": "this weekend", "partOfSpeech": "time expression", "tier": 1, "group": "When", "tip": "Treat fin de semana as one useful chunk.", "exampleSpanish": "¿Estás libre este fin de semana?", "exampleEnglish": "Are you free this weekend?" },
-    { "spanish": "ahora", "english": "now", "partOfSpeech": "time expression", "tier": 1, "group": "When", "tip": "Use ahora for right now.", "exampleSpanish": "Ahora estoy ocupado.", "exampleEnglish": "I’m busy now." },
+    { "spanish": "este fin de semana", "english": "this weekend", "partOfSpeech": "time expression", "tier": 2, "group": "When", "tip": "Treat fin de semana as one useful chunk.", "exampleSpanish": "¿Estás libre este fin de semana?", "exampleEnglish": "Are you free this weekend?" },
+    { "spanish": "ahora", "english": "now", "partOfSpeech": "time expression", "tier": 2, "group": "When", "tip": "Use ahora for right now.", "exampleSpanish": "Ahora estoy ocupado.", "exampleEnglish": "I’m busy now." },
     { "spanish": "después", "english": "after / later", "partOfSpeech": "time expression", "tier": 2, "group": "When", "tip": "Después can suggest doing something later.", "exampleSpanish": "Podemos ir después.", "exampleEnglish": "We can go later." },
     { "spanish": "antes", "english": "before / earlier", "partOfSpeech": "time expression", "tier": 2, "group": "When", "tip": "Use antes to suggest an earlier time.", "exampleSpanish": "¿Podemos ir antes?", "exampleEnglish": "Can we go earlier?" },
     { "spanish": "la mañana", "english": "the morning", "partOfSpeech": "noun", "tier": 1, "group": "Parts of the day", "tip": "Por la mañana means in the morning.", "exampleSpanish": "Estoy libre por la mañana.", "exampleEnglish": "I’m free in the morning." },
     { "spanish": "la tarde", "english": "the afternoon / evening", "partOfSpeech": "noun", "tier": 1, "group": "Parts of the day", "tip": "Spanish la tarde covers the afternoon and part of the evening.", "exampleSpanish": "Nos vemos por la tarde.", "exampleEnglish": "See you in the afternoon." },
-    { "spanish": "la noche", "english": "the night", "partOfSpeech": "noun", "tier": 1, "group": "Parts of the day", "tip": "Por la noche means at night.", "exampleSpanish": "Estoy ocupado por la noche.", "exampleEnglish": "I’m busy at night." },
+    { "spanish": "la noche", "english": "the night", "partOfSpeech": "noun", "tier": 2, "group": "Parts of the day", "tip": "Por la noche means at night.", "exampleSpanish": "Estoy ocupado por la noche.", "exampleEnglish": "I’m busy at night." },
     { "spanish": "libre", "english": "free / available", "partOfSpeech": "adjective", "tier": 1, "group": "Making a plan", "tip": "Libre does not change for masculine or feminine here.", "exampleSpanish": "Estoy libre el sábado.", "exampleEnglish": "I’m free on Saturday." },
     { "spanish": "ocupado / ocupada", "english": "busy", "partOfSpeech": "adjective", "tier": 1, "group": "Making a plan", "tip": "Choose ocupado or ocupada to match the speaker.", "exampleSpanish": "Estoy ocupada hoy.", "exampleEnglish": "I’m busy today." },
     { "spanish": "la hora", "english": "the time / hour", "partOfSpeech": "noun", "tier": 2, "group": "Making a plan", "tip": "In this lesson, use it to talk about a meeting time.", "exampleSpanish": "¿A qué hora?", "exampleEnglish": "At what time?" },
     { "spanish": "el mercado", "english": "the market", "partOfSpeech": "noun", "tier": 1, "group": "Making a plan", "tip": "This is where you and Carlos will go in Lesson 5.", "exampleSpanish": "Vamos al mercado.", "exampleEnglish": "We’re going to the market." },
-    { "spanish": "ir", "english": "to go", "partOfSpeech": "verb", "tier": 1, "group": "Planning verbs", "tip": "You will hear it in ¿Quieres ir...?, a useful invitation chunk.", "exampleSpanish": "¿Quieres ir al mercado?", "exampleEnglish": "Do you want to go to the market?" },
+    { "spanish": "ir", "english": "to go", "partOfSpeech": "verb", "tier": 2, "group": "Planning verbs", "tip": "You will hear it in ¿Quieres ir...?, a useful invitation chunk.", "exampleSpanish": "¿Quieres ir al mercado?", "exampleEnglish": "Do you want to go to the market?" },
     { "spanish": "venir", "english": "to come", "partOfSpeech": "verb", "tier": 2, "group": "Planning verbs", "tip": "Use venir when someone comes with you or to you.", "exampleSpanish": "¿Puedes venir el sábado?", "exampleEnglish": "Can you come on Saturday?" },
     { "spanish": "quedar", "english": "to arrange to meet", "partOfSpeech": "verb", "tier": 2, "group": "Planning verbs", "tip": "In Spain, quedar is common for arranging to meet.", "exampleSpanish": "Podemos quedar el sábado.", "exampleEnglish": "We can meet on Saturday." },
-    { "spanish": "poder", "english": "to be able to / can", "partOfSpeech": "verb", "tier": 1, "group": "Planning verbs", "tip": "Learn podemos as a useful chunk meaning we can.", "exampleSpanish": "Podemos ir juntos.", "exampleEnglish": "We can go together." },
+    { "spanish": "poder", "english": "to be able to / can", "partOfSpeech": "verb", "tier": 2, "group": "Planning verbs", "tip": "Learn podemos as a useful chunk meaning we can.", "exampleSpanish": "Podemos ir juntos.", "exampleEnglish": "We can go together." },
     { "spanish": "sí", "english": "yes", "partOfSpeech": "response", "tier": 1, "group": "Useful responses", "tip": "The written accent distinguishes yes from si, if.", "exampleSpanish": "Sí, estoy libre.", "exampleEnglish": "Yes, I’m free." },
     { "spanish": "claro", "english": "of course / sure", "partOfSpeech": "response", "tier": 1, "group": "Useful responses", "tip": "A warm, natural way to agree.", "exampleSpanish": "Claro. Nos vemos el sábado.", "exampleEnglish": "Of course. See you Saturday." },
     { "spanish": "perfecto", "english": "perfect", "partOfSpeech": "response", "tier": 1, "group": "Useful responses", "tip": "Use it when a suggested plan works for you.", "exampleSpanish": "A las diez. Perfecto.", "exampleEnglish": "At ten. Perfect." }
   ],
   "grammar": {
-    "topic": "Days and simple time expressions",
+    "topic": "Say when you’re free",
     "meaning": "Say when a plan happens without building a full clock-time system.",
-    "explanation": "Use el + day for a plan: el sábado. Use por la mañana, por la tarde, or por la noche for a broad part of the day. Ask ¿Cuándo? when you need to know when. For this mission, learn a las diez as one complete phrase meaning at ten.",
+    "explanation": "Build the plan with three useful chunks: el sábado, por la mañana, and a las diez. Ask ¿Cuándo? when you need the day or time.",
     "notes": [
       { "title": "Use el with a day", "text": "Say el sábado for on Saturday. Days stay lowercase in Spanish." },
       { "title": "Use por for a part of the day", "text": "Say por la mañana, por la tarde, or por la noche when an exact hour is not important." },
@@ -186,12 +208,14 @@
         "type": "messageThread",
         "channel": "mobile-message",
         "contact": "Carlos",
+        "status": "Last seen today at 9:18",
         "learnerSide": "outgoing",
         "guideSide": "incoming"
       },
       "lines": [
         { "speaker": "Carlos", "spanish": "¡Hola, {{learnerName}}! ¿Cómo está tu familia?", "english": "Hi, {{learnerName}}! How is your family?" },
         { "speaker": "Learner", "spanish": "¡Hola, Carlos! Mi familia está muy bien.", "english": "Hi, Carlos! My family is very well." },
+        { "speaker": "Carlos", "spanish": "Mi madre dijo que fue un placer conocerte ayer.", "english": "My mother said it was a pleasure meeting you yesterday." },
         { "speaker": "Carlos", "spanish": "¡Qué bien! ¿Estás libre este sábado?", "english": "That’s great! Are you free this Saturday?" },
         { "speaker": "Learner", "spanish": "Sí, estoy libre.", "english": "Yes, I’m free." },
         { "speaker": "Carlos", "spanish": "¡Perfecto! ¿Quieres ir al mercado?", "english": "Perfect! Do you want to go to the market?" },
@@ -207,8 +231,7 @@
       ]
     }
   ],
-  "pronunciation": [
-    {
+  "pronunciation": {
       "focus": "Mission phrases, clear rhythm, and Spanish question melody",
       "tips": [
         "Keep ¿Estás libre? as one smooth thought group.",
@@ -224,24 +247,25 @@
         { "text": "Perfecto.", "meaning": "Perfect.", "note": "Stress fec: per-FEC-to." },
         { "text": "Por la mañana.", "meaning": "In the morning.", "note": "Keep the ñ sound in mañana clear." }
       ]
-    }
-  ],
-  "listening": [
-    {
+  },
+  "listening": {
       "title": "Carlos’s WhatsApp message",
       "instructions": "Listen, follow along, then check what you understood.",
+      "stageLabels": ["Listen", "Follow Along", "Understand"],
       "playbackSpeeds": ["natural", "slow"],
-      "naturalScript": "Hola, {{learnerName}}. ¡Qué bien lo pasamos ayer! ¿Cómo está tu familia? ¿Estás libre este sábado? Podemos ir al mercado juntos. ¿A las diez de la mañana?",
-      "slowScript": "Hola, {{learnerName}}. / ¡Qué bien lo pasamos ayer! / ¿Cómo está tu familia? / ¿Estás libre / este sábado? / Podemos ir / al mercado / juntos. / ¿A las diez / de la mañana?",
+      "naturalScript": "¡Hola, {{learnerName}}! ¿Cómo está tu familia? ¡Hola, Carlos! Mi familia está muy bien. Mi madre dijo que fue un placer conocerte ayer. ¡Qué bien! ¿Estás libre este sábado? Sí, estoy libre. ¡Perfecto! ¿Quieres ir al mercado? Sí, claro. ¿A las diez de la mañana? Sí, perfecto. ¡Nos vemos el sábado!",
+      "slowScript": "¡Hola, {{learnerName}}! / ¿Cómo está tu familia? / ¡Hola, Carlos! / Mi familia está muy bien. / Mi madre dijo / que fue un placer conocerte ayer. / ¡Qué bien! / ¿Estás libre este sábado? / Sí, estoy libre. / ¡Perfecto! / ¿Quieres ir al mercado? / Sí, claro. / ¿A las diez de la mañana? / Sí, perfecto. / ¡Nos vemos el sábado!",
       "transcript": [
-        { "speaker": "Carlos", "spanish": "Hola, {{learnerName}}. ¡Qué bien lo pasamos ayer!", "english": "Hi, {{learnerName}}. We had such a good time yesterday!" },
-        { "speaker": "Carlos", "spanish": "¿Cómo está tu familia?", "english": "How is your family?" },
-        { "speaker": "Learner", "spanish": "Mi familia está muy bien.", "english": "My family is very well." },
-        { "speaker": "Carlos", "spanish": "¿Estás libre este sábado?", "english": "Are you free this Saturday?" },
-        { "speaker": "Carlos", "spanish": "Podemos ir al mercado juntos.", "english": "We can go to the market together." },
+        { "speaker": "Carlos", "spanish": "¡Hola, {{learnerName}}! ¿Cómo está tu familia?", "english": "Hi, {{learnerName}}! How is your family?" },
+        { "speaker": "Learner", "spanish": "¡Hola, Carlos! Mi familia está muy bien.", "english": "Hi, Carlos! My family is very well." },
+        { "speaker": "Carlos", "spanish": "Mi madre dijo que fue un placer conocerte ayer.", "english": "My mother said it was a pleasure meeting you yesterday." },
+        { "speaker": "Carlos", "spanish": "¡Qué bien! ¿Estás libre este sábado?", "english": "That’s great! Are you free this Saturday?" },
+        { "speaker": "Learner", "spanish": "Sí, estoy libre.", "english": "Yes, I’m free." },
+        { "speaker": "Carlos", "spanish": "¡Perfecto! ¿Quieres ir al mercado?", "english": "Perfect! Do you want to go to the market?" },
         { "speaker": "Learner", "spanish": "Sí, claro.", "english": "Yes, of course." },
         { "speaker": "Carlos", "spanish": "¿A las diez de la mañana?", "english": "At ten in the morning?" },
-        { "speaker": "Learner", "spanish": "Sí, perfecto. Nos vemos el sábado.", "english": "Yes, perfect. See you Saturday." }
+        { "speaker": "Learner", "spanish": "Sí, perfecto.", "english": "Yes, perfect." },
+        { "speaker": "Carlos", "spanish": "¡Nos vemos el sábado!", "english": "See you Saturday!" }
       ],
       "comprehension": [
         { "prompt": "Why does Carlos message you?", "options": ["To arrange a market visit", "To cancel the family dinner", "To ask where Ana lives"], "answer": "To arrange a market visit", "explanation": "Carlos asks whether you are free and proposes going to the market together." },
@@ -256,8 +280,7 @@
         { "spanish": "Mi familia está muy bien.", "options": ["My family is very well.", "My sister is busy.", "His family lives here."], "answer": "My family is very well." },
         { "spanish": "Nos vemos el sábado.", "options": ["See you Saturday.", "I work on Saturday.", "Are you free Saturday?"], "answer": "See you Saturday." }
       ]
-    }
-  ],
+  },
   "listeningPhrases": [
     { "spanish": "¿Estás libre este sábado?", "english": "Are you free this Saturday?", "note": "Listen for libre and sábado." },
     { "spanish": "Podemos ir al mercado juntos.", "english": "We can go to the market together.", "note": "Podemos proposes something you can do together." },
@@ -265,18 +288,16 @@
     { "spanish": "Sí, perfecto.", "english": "Yes, perfect.", "note": "A short natural acceptance." },
     { "spanish": "Nos vemos el sábado.", "english": "See you Saturday.", "note": "This closes the plan naturally." }
   ],
-  "speaking": [
-    {
+  "speaking": {
       "instructions": "Carlos guides you through making the plan one response at a time.",
       "items": [
-        { "stage": "repeat", "label": "Listen", "carlosPrompt": "¿Estás libre este sábado?", "cue": "Hear the question once, then ask Carlos the same thing.", "prompt": "Repeat after Carlos.", "text": "¿Estás libre este sábado?", "meaning": "Are you free this Saturday?", "focus": "Keep the question smooth and connected." },
-        { "stage": "repeat", "label": "Your turn", "carlosPrompt": "Sí, estoy libre. ¿Y tú?", "cue": "Tell Carlos you are free and keep the exchange moving.", "prompt": "Accept the invitation.", "text": "Sí, estoy libre.", "meaning": "Yes, I’m free.", "focus": "Say the answer as one confident chunk." },
-        { "stage": "recall", "label": "Keep talking", "carlosPrompt": "Podemos ir al mercado juntos.", "cue": "Ask when before opening the model.", "prompt": "Ask Carlos when the plan is.", "text": "¿Cuándo?", "meaning": "When?", "focus": "Use the single question confidently." },
-        { "stage": "recall", "label": "One more challenge", "carlosPrompt": "El sábado. ¿A las diez de la mañana?", "cue": "Confirm the time and close the plan naturally.", "prompt": "Accept ten o’clock and say you will see him then.", "text": "Sí, perfecto. Nos vemos entonces.", "meaning": "Yes, perfect. See you then.", "focus": "Say a las diez and nos vemos as familiar planning chunks." },
-        { "stage": "personalize", "label": "Finish the conversation", "carlosPrompt": "¿Cuándo estás libre normalmente?", "cue": "Give a true day and part of the day from your own life.", "prompt": "Tell Carlos when you are normally free.", "text": "Estoy libre el sábado por la mañana.", "meaning": "I’m free Saturday morning.", "focus": "Change sábado and mañana to fit your life." }
+        { "stage": "repeat", "label": "Answer Carlos", "carlosPrompt": "¿Estás libre este sábado?", "carlosPromptEnglish": "Are you free this Saturday?", "cue": "Give Carlos one clear answer.", "prompt": "Tell Carlos you’re free.", "text": "Sí, estoy libre.", "meaning": "Yes, I’m free.", "focus": "Say the answer as one confident chunk." },
+        { "stage": "repeat", "label": "Choose a time", "carlosPrompt": "¿Por la mañana o por la tarde?", "carlosPromptEnglish": "In the morning or in the afternoon?", "cue": "Choose the morning for this plan.", "prompt": "Tell Carlos: in the morning.", "text": "Por la mañana.", "meaning": "In the morning.", "focus": "Keep por la mañana together as one planning chunk." },
+        { "stage": "recall", "label": "Keep talking", "carlosPrompt": "Podemos ir al mercado juntos.", "carlosPromptEnglish": "We can go to the market together.", "cue": "Ask when before opening the model.", "prompt": "Ask Carlos when the plan is.", "text": "¿Cuándo?", "meaning": "When?", "focus": "Use the single question confidently." },
+        { "stage": "recall", "label": "One more challenge", "carlosPrompt": "El sábado. ¿A las diez de la mañana?", "carlosPromptEnglish": "Saturday. At ten in the morning?", "cue": "Confirm the time and close the plan naturally.", "prompt": "Accept ten o’clock and say you will see him then.", "text": "Sí, perfecto. Nos vemos entonces.", "meaning": "Yes, perfect. See you then.", "focus": "Say a las diez and nos vemos as familiar planning chunks." },
+        { "stage": "personalize", "label": "Finish the conversation", "carlosPrompt": "¿Cuándo estás libre normalmente?", "carlosPromptEnglish": "When are you normally free?", "cue": "Give a true day and part of the day from your own life.", "prompt": "Tell Carlos when you are normally free.", "text": "Estoy libre el sábado por la mañana.", "meaning": "I’m free Saturday morning.", "focus": "Change sábado and mañana to fit your life." }
       ]
-    }
-  ],
+  },
   "miniConversation": {
     "setting": "Carlos is choosing the best time for your market visit.",
     "goal": "Choose a day and part of the day, respond to Carlos’s follow-up, and confirm the plan.",
@@ -322,7 +343,7 @@
   },
   "quiz": [
     { "type": "multipleChoice", "difficulty": "easy", "prompt": "What does ¿Estás libre? mean?", "options": ["Are you free?", "Where do you live?", "How is your family?", "What time is it?"], "answer": "Are you free?", "explanation": "Libre means free or available in this planning question." },
-    { "type": "multipleChoice", "difficulty": "easy", "prompt": "Which day comes after viernes?", "options": ["sábado", "jueves", "domingo", "martes"], "answer": "sábado", "explanation": "The sequence is jueves, viernes, sábado, domingo." },
+    { "type": "multipleChoice", "difficulty": "easy", "prompt": "Which phrase means on Saturday?", "options": ["el sábado", "por la mañana", "a las diez", "el mercado"], "answer": "el sábado", "explanation": "Use el sábado when a plan happens on Saturday." },
     { "type": "multipleChoice", "difficulty": "easy", "prompt": "What does Estoy ocupado mean?", "options": ["I’m busy", "I’m free", "I’m at the market", "I’m ready"], "answer": "I’m busy", "explanation": "Estoy ocupado or ocupada tells someone you are busy." },
     { "type": "multipleChoice", "difficulty": "easy", "prompt": "Choose the Spanish for tomorrow.", "options": ["mañana", "hoy", "ahora", "antes"], "answer": "mañana", "explanation": "Mañana means tomorrow; la mañana means the morning." },
     { "type": "multipleChoice", "difficulty": "easy", "prompt": "Which phrase means in the morning?", "options": ["por la mañana", "por la noche", "este sábado", "esta semana"], "answer": "por la mañana", "explanation": "Por la mañana is the core phrase for in the morning." },
@@ -331,27 +352,24 @@
     { "type": "multipleChoice", "difficulty": "medium", "prompt": "Which answer gives both a day and a part of the day?", "options": ["El sábado por la mañana.", "El sábado.", "Por la mañana.", "Estoy libre."], "answer": "El sábado por la mañana.", "explanation": "El sábado gives the day, and por la mañana gives the part of the day." },
     { "type": "multipleChoice", "difficulty": "medium", "prompt": "Carlos suggests a time that works for you. Which reply accepts and closes the plan?", "options": ["Sí, perfecto. Nos vemos entonces.", "Estoy ocupado. ¿A las once?", "¿Cuándo estás libre?", "El mercado está cerrado."], "answer": "Sí, perfecto. Nos vemos entonces.", "explanation": "Sí, perfecto accepts the time, and nos vemos entonces closes the plan naturally." },
     { "type": "translation", "difficulty": "medium", "prompt": "Translate: Nos vemos entonces.", "options": ["See you then.", "We are busy now.", "When are you free?", "Let’s go before."], "answer": "See you then.", "explanation": "Nos vemos is see you; entonces means then in this context." },
-    { "type": "multipleChoice", "difficulty": "medium", "prompt": "You are busy in the morning but free later. What can you say?", "options": ["Estoy ocupado por la mañana. Podemos ir después.", "Estoy libre por la mañana. Podemos ir ahora.", "Estoy ocupado por la noche. Podemos ir antes.", "Estoy ocupado esta semana. Nos vemos hoy."], "answer": "Estoy ocupado por la mañana. Podemos ir después.", "explanation": "The first sentence declines the morning; the second suggests later." },
+    { "type": "multipleChoice", "difficulty": "medium", "prompt": "You are busy in the morning but free in the afternoon. What can you say?", "options": ["Estoy ocupado por la mañana. ¿Por la tarde?", "Estoy libre por la mañana. A las diez.", "Nos vemos por la mañana.", "¿Estás libre el sábado?"], "answer": "Estoy ocupado por la mañana. ¿Por la tarde?", "explanation": "The first chunk explains the conflict; ¿Por la tarde? suggests a simple alternative." },
     { "type": "multipleChoice", "difficulty": "medium", "prompt": "Which option is a part of the day?", "options": ["la tarde", "el sábado", "esta semana", "el mercado"], "answer": "la tarde", "explanation": "La tarde means the afternoon or early evening." },
     { "type": "multipleChoice", "difficulty": "hard", "prompt": "Carlos writes: ¿Estás libre este sábado? Podemos ir al mercado juntos. What is he doing?", "options": ["Inviting you to make a market plan", "Cancelling the market plan", "Asking what time the market closes", "Saying he is busy on Saturday"], "answer": "Inviting you to make a market plan", "explanation": "He asks whether you are free and proposes going to the market together." },
     { "type": "multipleChoice", "difficulty": "hard", "prompt": "Carlos: ¿Estás libre el sábado? Learner: Sí, estoy libre. Carlos: ¿A las diez? Choose the natural final reply.", "options": ["Sí, perfecto. Nos vemos entonces.", "Estoy libre el domingo.", "¿Cuándo estás libre?", "Por la noche estoy ocupado."], "answer": "Sí, perfecto. Nos vemos entonces.", "explanation": "The learner accepts the proposed time and closes the plan." },
-    { "type": "translation", "difficulty": "hard", "prompt": "Translate: Estoy libre el domingo por la tarde.", "options": ["I’m free Sunday afternoon.", "I’m busy Saturday morning.", "I’m at the market Sunday night.", "I can come Friday afternoon."], "answer": "I’m free Sunday afternoon.", "explanation": "Libre means free, el domingo is Sunday, and por la tarde is in the afternoon." },
+    { "type": "translation", "difficulty": "hard", "prompt": "Translate: Estoy libre el sábado por la tarde.", "options": ["I’m free Saturday afternoon.", "I’m busy Saturday morning.", "I’m at the market Saturday night.", "I’m free tomorrow morning."], "answer": "I’m free Saturday afternoon.", "explanation": "Libre means free, el sábado is Saturday, and por la tarde is in the afternoon." },
     { "type": "multipleChoice", "difficulty": "hard", "prompt": "You cannot meet Saturday morning. Which response keeps the conversation moving?", "options": ["Estoy ocupado por la mañana. ¿Por la tarde?", "Estoy libre por la mañana. A las diez.", "Nos vemos el sábado por la mañana.", "¿Estás libre el sábado?"], "answer": "Estoy ocupado por la mañana. ¿Por la tarde?", "explanation": "It explains the conflict and immediately suggests another part of the day." },
     { "type": "multipleChoice", "difficulty": "hard", "prompt": "Carlos writes: ¿A las diez de la mañana? Which detail should you add to your plan?", "options": ["Meet at ten in the morning", "Meet at ten at night", "Meet Saturday without a time", "Meet sometime after ten"], "answer": "Meet at ten in the morning", "explanation": "A las diez de la mañana gives the exact agreed meeting time." },
     { "type": "multipleChoice", "difficulty": "practical usage", "prompt": "Complete the plan from invitation to goodbye.", "options": ["Sí, estoy libre. El sábado por la mañana. A las diez. Perfecto. Nos vemos.", "Estoy ocupado. Nos vemos el sábado por la mañana.", "El sábado. ¿Cuándo estás libre? A las diez.", "A las diez. Estoy ocupado. Nos vemos."], "answer": "Sí, estoy libre. El sábado por la mañana. A las diez. Perfecto. Nos vemos.", "explanation": "This response accepts, confirms the day and time, and closes the plan naturally." }
   ],
-  "flashcards": [
-    {
+  "flashcards": {
       "shuffle": true,
       "selectionRule": "Only Tier 1 planning language and mission-critical chunks appear in the core deck.",
       "items": [
-        "lunes", "martes", "miércoles", "jueves", "viernes", "sábado", "domingo",
-        "hoy", "mañana", "este fin de semana", "la mañana", "la tarde", "la noche",
-        "libre", "ocupado / ocupada", "el mercado", "¿Estás libre?", "¿Cuándo?",
-        "A las diez.", "Nos vemos entonces."
+        "sábado", "mañana", "la mañana", "la tarde", "libre", "ocupado / ocupada",
+        "el mercado", "¿Estás libre?", "¿Cuándo?", "A las diez.", "perfecto",
+        "Nos vemos entonces."
       ]
-    }
-  ],
+  },
   "speakingChallenge": [
     { "prompt": "Ask Carlos whether he is free this Saturday.", "exampleAnswer": "¿Estás libre este sábado?" },
     { "prompt": "Say that you are free in the morning.", "exampleAnswer": "Estoy libre por la mañana." },
@@ -360,7 +378,11 @@
     { "prompt": "Give a true day and part of the day when you are normally free.", "exampleAnswer": "Estoy libre el domingo por la tarde." }
   ],
   "realLifeMission": {
-    "title": "Carlos Challenge: Weekend Plans",
+    "title": "Make the Plan",
+    "presentationEyebrow": "Message Mission",
+    "presentationTitle": "Your Conversation",
+    "presentationBody": "Watch the plan once, then try it with Carlos.",
+    "successTitle": "Weekend Planned!",
     "mission": "Arrange the market visit entirely in Spanish. Agree on a day, a part of the day, and a meeting time, then close the conversation naturally.",
     "successCriteria": [
       "Respond to ¿Estás libre? with estoy libre or estoy ocupado/ocupada.",
@@ -370,7 +392,8 @@
       "Accept with claro or perfecto.",
       "Close with nos vemos or nos vemos entonces."
     ],
-    "completionResponse": "¡Plan perfecto! You arranged a real outing in Spanish—from availability to goodbye.",
+    "completionResponse": "You made plans with Carlos—from checking availability to saying goodbye.",
+    "livePracticeCopy": "Great job. Now try making your own plans with me. I’ll help if you get stuck.",
     "correctionRule": "Celebrate the completed plan first. Correct only one day/time phrase that affects when the meeting happens.",
     "suggestedPartner": "Carlos",
     "xpReward": 10,
@@ -381,7 +404,7 @@
     "title": "Weekend Plans",
     "city": "Madrid",
     "description": "You read Carlos’s message and arranged a Saturday market visit in Spanish.",
-    "unlockCondition": "Complete the Carlos Challenge for Lesson 4."
+    "unlockCondition": "Complete the Message Mission for Lesson 4."
   },
   "achievement": {
     "id": "plan_maker",
@@ -391,6 +414,11 @@
   },
   "achievementsUnlocked": ["plan_maker"],
   "carlosClosing": "You arranged our Saturday market visit entirely in Spanish—from choosing the day to confirming the time. Tomorrow we’ll meet at the market, and this time you’ll help me shop.",
+  "rewards": {
+    "challengeXp": 10,
+    "lessonCompletionXp": 60
+  },
+  "completionLabel": "Episode complete",
   "xpReward": 60,
   "nextLesson": "lesson-05-shopping"
 }

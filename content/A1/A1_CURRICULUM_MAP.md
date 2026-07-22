@@ -22,8 +22,8 @@ The learner meets Carlos, becomes comfortable with his circle, and completes one
 |---|---|---|---|---|---|---|---|
 | 1 | `a1-lesson-01-greetings` | **First Coffee** | Meet Carlos at his neighborhood café. | `me llamo` for names | Greet Carlos, exchange names, answer a check-in, and close naturally. | **First Conversation** | First Steps |
 | 2 | `a1-lesson-02-introductions` | **A New Friend** | Carlos introduces Ana outside the café. | `soy de` vs `vivo en` | Tell Ana where you are from and where you live, then ask her. | **New Friend** | First Conversation |
-| 3 | `lesson-03-family` | **Family Dinner** | Ana and the learner meet Carlos’s family at his home. | Possessives: `mi`, `tu`, `su`, `nuestro/a` | Identify family members, ask about family, and share two details. | **Family Dinner** | Family Friend |
-| 4 | `lesson-04-numbers-time` | **Saturday at the Market** | Carlos texts the morning after dinner to arrange another meeting. | Days and simple time expressions; `a las diez` as a fixed chunk | Read the text exchange and arrange a market visit using a day and a simple meeting time. | **Weekend Plans** | Plan Maker |
+| 3 | `lesson-03-family` | **Family Dinner** | Ana and the learner meet Carlos’s family at his home. | Possessives: `mi`, `tu`, `su`, `nuestro/a` | Identify family members, ask about family, and share two details. | **Family Dinner — Madrid** | Family Friend |
+| 4 | `lesson-04-numbers-time` | **See You at Ten** | Carlos texts the morning after dinner to arrange another meeting. | Days and simple time expressions; `a las diez` as a fixed chunk | Read the text exchange and arrange a market visit using a day and a simple meeting time. | **Weekend Plans** | Plan Maker |
 | 5 | `lesson-05-shopping` | **Fresh Fruit and Fresh Spanish** | Meet Carlos at Mercado de San Miguel and help him shop for family lunch. | Demonstratives: `este`, `esta`, `estos`, `estas` | Choose what to buy, point it out, ask the price, and complete the purchase. | **Market Explorer** | Helpful Shopper |
 | 6 | `lesson-06-food-drinks` | **Coffee Break** | Stop at a nearby café after shopping. | Polite ordering with `quisiera` | Order a drink and snack and make one polite change. | **Café Regular** | First Order |
 | 7 | `lesson-07-travel-basics` | **Walking Through Madrid** | Carlos suggests walking to a neighborhood plaza after coffee. | Location with `está` | Ask where three places are and follow a short route. | **Madrid Navigator** | Found the Way |
@@ -55,7 +55,7 @@ Chapter 1 repeatedly returns to three anchors: Mercado de San Miguel, Plaza Mayo
 | 1 — First Coffee | Curiosity | Carlos turns a first greeting into the beginning of a friendship. |
 | 2 — A New Friend | Confidence | The learner successfully introduces themselves to Ana. |
 | 3 — Family Dinner | Belonging | The learner is welcomed into Carlos’s family circle. |
-| 4 — Saturday at the Market | Excitement | A real message becomes a plan for the next Madrid experience. |
+| 4 — See You at Ten | Excitement | A real message becomes a plan for the next Madrid experience. |
 | 5 — Fresh Fruit and Fresh Spanish | Discovery | The learner chooses what to buy and discovers Carlos’s special market item. |
 | 6 — Coffee Break | Relaxation | The learner slows down and orders comfortably after shopping. |
 | 7 — Walking Through Madrid | Independence | The learner helps navigate without relying on English. |

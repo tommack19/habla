@@ -1,8 +1,8 @@
 {
   "id": "lesson-06-food-drinks",
-  "contentVersion": "1.1",
+  "contentVersion": "1.2",
   "title": "Coffee Break",
-  "image": "assets/images/lessons/lesson-06-food-drinks.png.png",
+  "image": "assets/images/lessons/lesson-06-food-drinks.png",
   "level": "A1",
   "module": "Food and Drinks",
   "estimatedMinutes": 30,
@@ -44,8 +44,8 @@
   "carlosIntroduction": {
     "eyebrow": "Your mission",
     "title": "Order like you belong here",
-    "message": "After the busy market, we deserve a quiet coffee break. I’ll help you understand the server, but you’ll choose your own drink, order it politely, add one simple change, and close the conversation yourself.",
-    "prompt": "Start by telling me what you prefer: café, té, or zumo."
+    "message": "After that busy market, we deserve a break. This café makes my favorite café con leche. What do you prefer—coffee, tea, or orange juice? Today, you’re ordering for yourself.",
+    "prompt": "¿Qué prefieres: café, té o zumo?"
   },
   "canDo": [
     "State a real drink preference.",
@@ -76,44 +76,50 @@
   ],
   "learnerChoices": {
     "objective": "State a genuine drink preference and use it in a polite order.",
-    "prompt": "¿Qué prefieres, café, té o zumo?",
+    "prompt": "¿Qué prefieres: café, té o zumo?",
     "promptEnglish": "What do you prefer: coffee, tea, or juice?",
     "options": [
       {
         "id": "coffee",
+        "icon": "coffee-cup",
         "label": "Coffee",
         "learnerSpanish": "Prefiero café.",
         "learnerEnglish": "I prefer coffee.",
-        "carlosSpanish": "Buena elección. Yo también prefiero el café, especialmente con leche.",
-        "carlosEnglish": "Good choice. I prefer coffee too, especially with milk.",
-        "memoryCallback": "Coffee again—I had a feeling. I’ll remember that.",
+        "carlosSpanish": "Buena elección. Yo también prefiero el café con leche.",
+        "carlosEnglish": "Good choice. I prefer coffee with milk too.",
+        "memoryCallback": "Coffee—good choice. I’ll remember that.",
         "vendorPrompt": "¿Solo o con leche?",
         "modelOrder": "Quisiera un café con leche, por favor.",
-        "modelOrderEnglish": "I would like a coffee with milk, please."
+        "modelOrderEnglish": "I would like a coffee with milk, please.",
+        "vocabularyFocus": ["el café", "el café con leche"]
       },
       {
         "id": "tea",
+        "icon": "tea-cup",
         "label": "Tea",
         "learnerSpanish": "Prefiero té.",
         "learnerEnglish": "I prefer tea.",
-        "carlosSpanish": "Perfecto. Aquí tienen un té muy bueno. Puedes pedirlo sin azúcar.",
-        "carlosEnglish": "Perfect. They have very good tea here. You can order it without sugar.",
+        "carlosSpanish": "Perfecto. Aquí preparan un té muy bueno.",
+        "carlosEnglish": "Perfect. They make very good tea here.",
         "memoryCallback": "Tea is your café choice. I’ll remember that.",
         "vendorPrompt": "¿Con leche o sin leche?",
         "modelOrder": "Quisiera un té sin azúcar, por favor.",
-        "modelOrderEnglish": "I would like a tea without sugar, please."
+        "modelOrderEnglish": "I would like a tea without sugar, please.",
+        "vocabularyFocus": ["el té"]
       },
       {
         "id": "juice",
+        "icon": "orange-juice",
         "label": "Orange Juice",
         "learnerSpanish": "Prefiero zumo de naranja.",
         "learnerEnglish": "I prefer orange juice.",
-        "carlosSpanish": "Muy buena idea. El zumo de naranja es fresco y perfecto después del mercado.",
-        "carlosEnglish": "Very good idea. Orange juice is fresh and perfect after the market.",
+        "carlosSpanish": "Buena idea. Un zumo fresco viene perfecto después del mercado.",
+        "carlosEnglish": "Good idea. Fresh juice is perfect after the market.",
         "memoryCallback": "Orange juice after the market—good choice. I’ll remember that.",
         "vendorPrompt": "¿Grande o pequeño?",
         "modelOrder": "Quisiera un zumo de naranja pequeño, por favor.",
-        "modelOrderEnglish": "I would like a small orange juice, please."
+        "modelOrderEnglish": "I would like a small orange juice, please.",
+        "vocabularyFocus": ["el zumo de naranja"]
       }
     ],
     "rejoin": "The learner orders the selected drink, adds one snack, responds to ¿Algo más?, and asks for the bill."
@@ -124,27 +130,33 @@
       { "key": "story.visitedCafe", "value": true }
     ]
   },
+  "vocabularyPresentation": {
+    "showPriorityLabels": true,
+    "collapseOptional": true,
+    "collapseGroups": true,
+    "openFirstGroup": true
+  },
   "vocabulary": [
-    { "spanish": "la cafetería", "english": "café", "partOfSpeech": "noun", "tier": 1, "group": "At the café", "tip": "A cafetería serves coffee, drinks, and simple food.", "exampleSpanish": "La cafetería está al lado del mercado.", "exampleEnglish": "The café is beside the market." },
+    { "spanish": "la cafetería", "english": "café", "partOfSpeech": "noun", "tier": 2, "group": "At the café", "tip": "A cafetería serves coffee, drinks, and simple food.", "exampleSpanish": "La cafetería está al lado del mercado.", "exampleEnglish": "The café is beside the market." },
     { "spanish": "la terraza", "english": "terrace / outdoor seating", "partOfSpeech": "noun", "tier": 2, "group": "At the café", "tip": "In Spain, many cafés have outdoor terrace tables.", "exampleSpanish": "Nos sentamos en la terraza.", "exampleEnglish": "We sit on the terrace." },
-    { "spanish": "la mesa", "english": "table", "partOfSpeech": "noun", "tier": 1, "group": "At the café", "tip": "Use una mesa para dos for a table for two.", "exampleSpanish": "Una mesa para dos, por favor.", "exampleEnglish": "A table for two, please." },
-    { "spanish": "la carta", "english": "menu", "partOfSpeech": "noun", "tier": 1, "group": "At the café", "tip": "In Spain, la carta is the list of food and drinks.", "exampleSpanish": "Aquí está la carta.", "exampleEnglish": "Here is the menu." },
-    { "spanish": "el camarero", "english": "server / waiter", "partOfSpeech": "noun", "tier": 1, "group": "At the café", "tip": "Use camarera for a woman.", "exampleSpanish": "El camarero trae el café.", "exampleEnglish": "The server brings the coffee." },
-    { "spanish": "la camarera", "english": "server / waitress", "partOfSpeech": "noun", "tier": 1, "group": "At the café", "tip": "Camarera is common and neutral in Spain.", "exampleSpanish": "La camarera pregunta: ¿Algo más?", "exampleEnglish": "The server asks: Anything else?" },
+    { "spanish": "la mesa", "english": "table", "partOfSpeech": "noun", "tier": 2, "group": "At the café", "tip": "Use una mesa para dos for a table for two.", "exampleSpanish": "Una mesa para dos, por favor.", "exampleEnglish": "A table for two, please." },
+    { "spanish": "la carta", "english": "menu", "partOfSpeech": "noun", "tier": 2, "group": "At the café", "tip": "In Spain, la carta is the list of food and drinks.", "exampleSpanish": "Aquí está la carta.", "exampleEnglish": "Here is the menu." },
+    { "spanish": "el camarero", "english": "server / waiter", "partOfSpeech": "noun", "tier": 2, "group": "At the café", "tip": "Use camarera for a woman.", "exampleSpanish": "El camarero trae el café.", "exampleEnglish": "The server brings the coffee." },
+    { "spanish": "la camarera", "english": "server / waitress", "partOfSpeech": "noun", "tier": 2, "group": "At the café", "tip": "Camarera is common and neutral in Spain.", "exampleSpanish": "La camarera pregunta: ¿Algo más?", "exampleEnglish": "The server asks: Anything else?" },
     { "spanish": "el café", "english": "coffee", "partOfSpeech": "noun", "tier": 1, "group": "Drinks", "tip": "Un café in Spain often means a small espresso.", "exampleSpanish": "Quisiera un café.", "exampleEnglish": "I would like a coffee." },
     { "spanish": "el café con leche", "english": "coffee with milk", "partOfSpeech": "noun phrase", "tier": 1, "group": "Drinks", "tip": "A very common breakfast or mid-morning order.", "exampleSpanish": "Para mí, un café con leche.", "exampleEnglish": "For me, a coffee with milk." },
     { "spanish": "el té", "english": "tea", "partOfSpeech": "noun", "tier": 1, "group": "Drinks", "tip": "The accent distinguishes té from te.", "exampleSpanish": "Prefiero té.", "exampleEnglish": "I prefer tea." },
     { "spanish": "el zumo de naranja", "english": "orange juice", "partOfSpeech": "noun phrase", "tier": 1, "group": "Drinks", "tip": "In much of Latin America you may hear jugo; this Madrid scene uses zumo.", "exampleSpanish": "Quisiera un zumo de naranja.", "exampleEnglish": "I would like an orange juice." },
-    { "spanish": "el agua", "english": "water", "partOfSpeech": "noun", "tier": 1, "group": "Drinks", "tip": "Agua is feminine but uses el in the singular.", "exampleSpanish": "Agua, por favor.", "exampleEnglish": "Water, please." },
+    { "spanish": "el agua", "english": "water", "partOfSpeech": "noun", "tier": 2, "group": "Drinks", "tip": "Agua is feminine but uses el in the singular.", "exampleSpanish": "Agua, por favor.", "exampleEnglish": "Water, please." },
     { "spanish": "la tostada", "english": "toast", "partOfSpeech": "noun", "tier": 1, "group": "Something to eat", "tip": "A common simple Spanish breakfast.", "exampleSpanish": "Quisiera una tostada.", "exampleEnglish": "I would like toast." },
-    { "spanish": "el croissant", "english": "croissant", "partOfSpeech": "noun", "tier": 1, "group": "Something to eat", "tip": "The word is familiar; focus on using it in the order.", "exampleSpanish": "Un croissant, por favor.", "exampleEnglish": "A croissant, please." },
+    { "spanish": "el croissant", "english": "croissant", "partOfSpeech": "noun", "tier": 2, "group": "Something to eat", "tip": "The word is familiar; focus on using it in the order.", "exampleSpanish": "Un croissant, por favor.", "exampleEnglish": "A croissant, please." },
     { "spanish": "el bocadillo", "english": "sandwich on a baguette", "partOfSpeech": "noun", "tier": 2, "group": "Something to eat", "tip": "A bocadillo is a common Spanish sandwich.", "exampleSpanish": "Carlos pide un bocadillo.", "exampleEnglish": "Carlos orders a sandwich." },
     { "spanish": "la tortilla", "english": "Spanish omelet", "partOfSpeech": "noun", "tier": 2, "group": "Something to eat", "tip": "In this Madrid café, tortilla means tortilla española.", "exampleSpanish": "Una tortilla para compartir.", "exampleEnglish": "A Spanish omelet to share." },
-    { "spanish": "los churros", "english": "churros", "partOfSpeech": "noun", "tier": 1, "group": "Something to eat", "tip": "Often enjoyed with coffee or thick hot chocolate.", "exampleSpanish": "Quisiera churros, por favor.", "exampleEnglish": "I would like churros, please." },
+    { "spanish": "los churros", "english": "churros", "partOfSpeech": "noun", "tier": 2, "group": "Something to eat", "tip": "Often enjoyed with coffee or thick hot chocolate.", "exampleSpanish": "Quisiera churros, por favor.", "exampleEnglish": "I would like churros, please." },
     { "spanish": "quisiera", "english": "I would like", "partOfSpeech": "verb chunk", "tier": 1, "group": "Ordering", "tip": "Learn quisiera as one polite ordering chunk.", "exampleSpanish": "Quisiera un té, por favor.", "exampleEnglish": "I would like a tea, please." },
     { "spanish": "prefiero", "english": "I prefer", "partOfSpeech": "verb", "tier": 1, "group": "Ordering", "tip": "Use it when deliberately choosing between options.", "exampleSpanish": "Prefiero café.", "exampleEnglish": "I prefer coffee." },
     { "spanish": "para mí", "english": "for me", "partOfSpeech": "phrase", "tier": 1, "group": "Ordering", "tip": "Useful when several people are ordering.", "exampleSpanish": "Para mí, una tostada.", "exampleEnglish": "For me, toast." },
-    { "spanish": "tomar", "english": "to have / drink", "partOfSpeech": "verb", "tier": 1, "group": "Ordering", "tip": "In Spain, tomar is very common for having food or drink.", "exampleSpanish": "¿Qué quieres tomar?", "exampleEnglish": "What would you like to have?" },
+    { "spanish": "tomar", "english": "to have / drink", "partOfSpeech": "verb", "tier": 2, "group": "Ordering", "tip": "In Spain, tomar is very common for having food or drink.", "exampleSpanish": "¿Qué quieres tomar?", "exampleEnglish": "What would you like to have?" },
     { "spanish": "con", "english": "with", "partOfSpeech": "preposition", "tier": 1, "group": "Simple changes", "tip": "Use familiar chunks such as con leche.", "exampleSpanish": "Café con leche.", "exampleEnglish": "Coffee with milk." },
     { "spanish": "sin", "english": "without", "partOfSpeech": "preposition", "tier": 1, "group": "Simple changes", "tip": "Use familiar chunks such as sin azúcar.", "exampleSpanish": "Té sin azúcar.", "exampleEnglish": "Tea without sugar." },
     { "spanish": "el azúcar", "english": "sugar", "partOfSpeech": "noun", "tier": 1, "group": "Simple changes", "tip": "Keep sin azúcar together as one useful café chunk.", "exampleSpanish": "Sin azúcar, por favor.", "exampleEnglish": "Without sugar, please." },
@@ -156,7 +168,7 @@
   "grammar": {
     "topic": "Polite ordering with quisiera",
     "meaning": "Use one reliable phrase to order politely without learning a full verb system.",
-    "explanation": "Use quisiera directly before the drink or food you want. Add por favor to keep the request warm: Quisiera + item + por favor. Treat quisiera as one complete café tool for now.",
+    "explanation": "Use quisiera + item + por favor for a polite café order. Learn it as one complete phrase for now.",
     "notes": [
       { "title": "One drink", "text": "Quisiera un café, por favor." },
       { "title": "One snack", "text": "Quisiera una tostada, por favor." },
@@ -174,19 +186,23 @@
   "dialogue": {
     "title": "A quiet table after the market",
     "setting": "Carlos and {{learnerName}} sit on the terrace. The café server comes to take the order.",
+    "languageNote": {
+      "title": "One server, two listeners",
+      "text": "The server says ¿Qué vais a tomar? because she is speaking to Carlos and you together. Use ¿Qué quieres tomar? when speaking to one person."
+    },
     "lines": [
       { "speaker": "Carlos", "spanish": "Qué tranquilo está aquí después del mercado.", "english": "It’s so peaceful here after the market." },
       { "speaker": "Carlos", "spanish": "¿Qué prefieres, café, té o zumo?", "english": "What do you prefer, coffee, tea, or juice?" },
       { "speaker": "Learner", "intent": "Choose coffee, tea, or orange juice.", "exampleSpanish": "Prefiero café.", "exampleEnglish": "I prefer coffee." },
       { "speaker": "Carlos", "spanish": "Perfecto. Hoy eliges tú.", "english": "Perfect. Today you choose." },
-      { "speaker": "Camarera", "spanish": "Buenos días. ¿Qué vais a tomar?", "english": "Good morning. What are you going to have?" },
+      { "speaker": "Camarera", "spanish": "Buenos días. ¿Qué vais a tomar?", "english": "Good morning. What would you like?" },
       { "speaker": "Learner", "intent": "Order the selected drink.", "exampleSpanish": "Quisiera un café con leche, por favor.", "exampleEnglish": "I would like a coffee with milk, please." },
       { "speaker": "Camarera", "spanish": "Muy bien. ¿Algo para comer?", "english": "Very good. Anything to eat?" },
       { "speaker": "Learner", "spanish": "Para mí, una tostada, por favor.", "english": "For me, toast, please." },
       { "speaker": "Camarera", "spanish": "¿Algo más?", "english": "Anything else?" },
       { "speaker": "Learner", "spanish": "Nada más, gracias.", "english": "Nothing else, thank you." },
       { "speaker": "Carlos", "spanish": "¡Perfecto! Has pedido todo tú.", "english": "Perfect! You ordered everything yourself." },
-      { "speaker": "Learner", "spanish": "La cuenta, por favor.", "english": "The bill, please." },
+      { "speaker": "Learner", "scene": "A little later, after you finish...", "spanish": "La cuenta, por favor.", "english": "The bill, please." },
       { "speaker": "Camarera", "spanish": "Claro. Un momento.", "english": "Of course. One moment." }
     ],
     "comprehension": [
@@ -195,14 +211,17 @@
       { "prompt": "How do you end the order?", "options": ["Nada más, gracias.", "Estoy ocupado.", "Nos vemos el sábado."], "answer": "Nada más, gracias." }
     ]
   },
+  "dialoguePresentation": {
+    "compactChoicePreview": true
+  },
   "listening": {
     "title": "A real café exchange",
     "instructions": "Listen, follow along, then check what you understood.",
     "playbackSpeeds": ["natural", "slow"],
-    "naturalScript": "Buenos días. ¿Qué vais a tomar? — Quisiera un café con leche, por favor. — Muy bien. ¿Algo para comer? — Para mí, una tostada. — ¿Algo más? — Nada más, gracias.",
-    "slowScript": "Buenos días. / ¿Qué vais a tomar? / Quisiera un café con leche, / por favor. / Muy bien. / ¿Algo para comer? / Para mí, / una tostada. / ¿Algo más? / Nada más, / gracias.",
+    "naturalScript": "Buenos días. ¿Qué vais a tomar? — Quisiera un café con leche, por favor. — Muy bien. ¿Algo para comer? — Para mí, una tostada. — ¿Algo más? — Nada más, gracias. — La cuenta, por favor.",
+    "slowScript": "Buenos días. / ¿Qué vais a tomar? / Quisiera un café con leche, / por favor. / Muy bien. / ¿Algo para comer? / Para mí, / una tostada. / ¿Algo más? / Nada más, / gracias. / La cuenta, / por favor.",
     "transcript": [
-      { "speaker": "Camarera", "spanish": "Buenos días. ¿Qué vais a tomar?", "english": "Good morning. What are you going to have?" },
+      { "speaker": "Camarera", "spanish": "Buenos días. ¿Qué vais a tomar?", "english": "Good morning. What would you like?" },
       { "speaker": "Learner", "spanish": "Quisiera un café con leche, por favor.", "english": "I would like a coffee with milk, please." },
       { "speaker": "Camarera", "spanish": "Muy bien. ¿Algo para comer?", "english": "Very good. Anything to eat?" },
       { "speaker": "Learner", "spanish": "Para mí, una tostada.", "english": "For me, toast." },
@@ -217,7 +236,7 @@
       { "prompt": "What do you ask for at the end?", "options": ["The bill", "Another coffee", "A market bag"], "answer": "The bill", "explanation": "La cuenta, por favor asks for the bill." }
     ],
     "items": [
-      { "spanish": "¿Qué vais a tomar?", "options": ["What are you going to have?", "Where is the market?", "What time is it?"], "answer": "What are you going to have?" },
+      { "spanish": "¿Qué vais a tomar?", "options": ["What would you like?", "Where is the market?", "What time is it?"], "answer": "What would you like?" },
       { "spanish": "Quisiera un café con leche.", "options": ["I would like a coffee with milk.", "I prefer tea without sugar.", "The coffee costs three euros."], "answer": "I would like a coffee with milk." },
       { "spanish": "¿Algo para comer?", "options": ["Anything to eat?", "Anything else to drink?", "Do you want the bill?"], "answer": "Anything to eat?" },
       { "spanish": "Para mí, una tostada.", "options": ["For me, toast.", "For Carlos, churros.", "One table for two."], "answer": "For me, toast." },
@@ -248,7 +267,7 @@
       { "stage": "repeat", "label": "Your turn", "carlosPrompt": "¿Con leche o sin leche?", "cue": "Make one simple change to the drink.", "prompt": "Ask for it with milk.", "text": "Con leche, por favor.", "meaning": "With milk, please.", "focus": "Connect con leche naturally." },
       { "stage": "recall", "label": "Keep talking", "carlosPrompt": "¿Qué prefieres, café, té o zumo?", "cue": "Choose your drink and order it politely before opening the model.", "prompt": "Order tea without sugar.", "text": "Quisiera un té sin azúcar, por favor.", "meaning": "I would like a tea without sugar, please.", "focus": "Keep the order in one polite sentence." },
       { "stage": "recall", "label": "One more challenge", "carlosPrompt": "¿Algo más?", "cue": "Close the order warmly and confidently.", "prompt": "Tell the server you need nothing else.", "text": "Nada más, gracias.", "meaning": "Nothing else, thank you.", "focus": "Finish warmly and confidently." },
-      { "stage": "personalize", "label": "Finish the conversation", "carlosPrompt": "¿Qué prefieres normalmente?", "cue": "State your real preference, then order that drink with one change.", "prompt": "Choose your own drink and one change.", "text": "Prefiero café. Quisiera un café con leche, por favor.", "meaning": "I prefer coffee. I would like a coffee with milk, please.", "focus": "Replace the model with your stored preference." }
+      { "stage": "personalize", "label": "Finish the conversation", "carlosPrompt": "¿Qué tomas normalmente?", "carlosPromptEnglish": "What do you normally drink?", "cue": "State your real preference, then order that drink with one change.", "prompt": "Answer with the drink you chose.", "text": "Prefiero café. Quisiera un café con leche, por favor.", "meaning": "I prefer coffee. I would like a coffee with milk, please.", "focus": "Use your stored preference.", "responseFromChoice": true }
     ]
   },
   "flashcards": [
@@ -332,6 +351,7 @@
     {
       "id": "espresso-machine",
       "title": "The old espresso machine",
+      "savedLabel": "Madrid Memory Added",
       "prompt": "The machine behind the bar hisses as the server prepares another order. Listen for a moment.",
       "carlosSpanish": "Esta máquina lleva muchos años aquí. La camarera dice que conoce el café perfecto para cada cliente.",
       "carlosEnglish": "This machine has been here for many years. The server says she knows the perfect coffee for every customer.",
@@ -351,8 +371,14 @@
     { "mistake": "Quiero sin azúcar un té.", "better": "Quisiera un té sin azúcar.", "why": "Name the drink first, then add the simple change." },
     { "mistake": "La carta, por favor when you want to pay.", "better": "La cuenta, por favor.", "why": "La carta is the menu; la cuenta is the bill." }
   ],
+  "culturePresentation": {
+    "collapseCommonMistakes": true
+  },
   "realLifeMission": {
-    "title": "Carlos Challenge: Your Café Order",
+    "title": "Your Café Order",
+    "presentationEyebrow": "Today's mission",
+    "presentationTitle": "Order for yourself",
+    "presentationBody": "Watch the café exchange once, then complete it with the drink you chose.",
     "mission": "Complete one café visit while Carlos lets you speak for yourself. Order the drink you genuinely chose, add a snack and one simple change, respond to the server, and ask for the bill.",
     "successCriteria": [
       "State a real drink preference.",
@@ -364,10 +390,16 @@
       "Ask for the bill."
     ],
     "completionResponse": "¡Lo hiciste! You chose what you actually wanted and completed a relaxed Madrid café order without me speaking for you.",
+    "successPresentation": "emotional",
+    "successTitle": "Mission Complete",
+    "successHeadline": "You ordered your own drink in Madrid.",
+    "successCarlos": "See? I didn’t need to order for you this time.",
+    "successMoments": ["Café visited", "New phrase mastered", "Travel Journal updated"],
     "correctionRule": "Celebrate the successful order first. Correct only one error that changes the requested item or makes the server misunderstand the change.",
     "suggestedPartner": "Carlos",
     "xpReward": 12,
-    "handoff": "Después del café, quiero enseñarte una plaza muy bonita. Podemos ir caminando."
+    "handoff": "Después del café, quiero enseñarte una plaza muy bonita. Podemos ir caminando.",
+    "livePracticeCopy": "Ready to order again? I’ll be right beside you if you get stuck."
   },
   "review": {
     "modes": ["quiz", "flashcards", "pronunciation", "conversation"],
@@ -389,7 +421,7 @@
     "title": "Café Regular",
     "city": "Madrid",
     "description": "You stated your preference and completed a relaxed café order in Spanish.",
-    "unlockCondition": "Complete the Carlos Challenge for Lesson 6."
+    "unlockCondition": "Complete the café mission for Lesson 6."
   },
   "achievement": {
     "id": "first_order",
@@ -399,6 +431,16 @@
   },
   "achievementsUnlocked": ["first_order"],
   "carlosClosing": "You chose what you really wanted and ordered it without me speaking for you. Enjoy your drink—when we finish, you’ll guide us toward one of my favorite plazas.",
+  "carlosClosingByChoice": {
+    "coffee": "You chose coffee and completed your first Madrid café visit without me speaking for you. Enjoy it—after this, you’ll guide us toward one of my favorite plazas.",
+    "tea": "You chose tea and completed your first Madrid café visit without me speaking for you. Enjoy it—after this, you’ll guide us toward one of my favorite plazas.",
+    "juice": "You chose orange juice and completed your first Madrid café visit without me speaking for you. Enjoy it—after this, you’ll guide us toward one of my favorite plazas."
+  },
+  "completionLabel": "Episode complete",
+  "rewards": {
+    "challengeXp": 12,
+    "lessonCompletionXp": 65
+  },
   "xpReward": 65,
   "nextLesson": "lesson-07-travel-basics"
 }

@@ -424,9 +424,9 @@ function getLessonIconName(lesson, index) {
 
 function renderRoadmapPanel(lessons, currentLesson, unlockedIds) {
   const chapters = [
-    { chapter: "Chapter 1", city: "Madrid", subtitle: "Build your foundation", image: "assets/images/lessons/lesson-01-greetings.png.png", lessons: lessons.slice(0, 10) },
-    { chapter: "Chapter 2", city: "Valencia", subtitle: "Spanish for everyday life", image: "assets/images/lessons/lesson-06-food-drinks.png.png", lessons: lessons.slice(10, 20) },
-    { chapter: "Chapter 3", city: "Barcelona", subtitle: "Speak with confidence", image: "assets/images/lessons/lesson-07-travel.png.png", lessons: lessons.slice(20, 30) },
+    { chapter: "Chapter 1", city: "Madrid", subtitle: "Build your foundation", image: "assets/images/lessons/lesson-01-greetings.png", lessons: lessons.slice(0, 10) },
+    { chapter: "Chapter 2", city: "Valencia", subtitle: "Spanish for everyday life", image: "assets/images/lessons/lesson-06-food-drinks.png", lessons: lessons.slice(10, 20) },
+    { chapter: "Chapter 3", city: "Barcelona", subtitle: "Speak with confidence", image: "assets/images/lessons/lesson-07-travel.png", lessons: lessons.slice(20, 30) },
   ];
   const totalMinutes = lessons.reduce((total, lesson) => total + Number(lesson.estimatedMinutes || 0), 0);
 

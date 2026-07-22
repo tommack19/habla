@@ -637,12 +637,12 @@ function updateLevelButton() {
 
 function getHeaderJourney(xpValue) {
   const levels = [
-    { code: 'A1', name: 'Explorer', cefrLabel: 'Beginner', minXP: 0, nextXP: 500 },
-    { code: 'A2', name: 'Traveler', cefrLabel: 'Elementary', minXP: 500, nextXP: 1500 },
-    { code: 'B1', name: 'Local', cefrLabel: 'Intermediate', minXP: 1500, nextXP: 3500 },
-    { code: 'B2', name: 'Adventurer', cefrLabel: 'Upper Intermediate', minXP: 3500, nextXP: 7000 },
-    { code: 'C1', name: 'Insider', cefrLabel: 'Advanced', minXP: 7000, nextXP: 12000 },
-    { code: 'C2', name: 'Fluent', cefrLabel: 'Proficient', minXP: 12000, nextXP: 12000 },
+    { code: 'A1', name: 'Explorer', cefrLabel: 'Beginner', minXP: 0, nextXP: 3000 },
+    { code: 'A2', name: 'Traveler', cefrLabel: 'Elementary', minXP: 3000, nextXP: 6000 },
+    { code: 'B1', name: 'Local', cefrLabel: 'Intermediate', minXP: 6000, nextXP: 9000 },
+    { code: 'B2', name: 'Adventurer', cefrLabel: 'Upper Intermediate', minXP: 9000, nextXP: 12000 },
+    { code: 'C1', name: 'Insider', cefrLabel: 'Advanced', minXP: 12000, nextXP: 15000 },
+    { code: 'C2', name: 'Fluent', cefrLabel: 'Proficient', minXP: 15000, nextXP: 15000 },
   ];
   const xp = Math.max(0, Number(xpValue || 0));
   const index = levels.reduce((current, level, levelIndex) => xp >= level.minXP ? levelIndex : current, 0);
@@ -843,6 +843,10 @@ window.addEventListener('habla:lesson-render', (event) => {
     requestAnimationFrame(() => {
       if (dashboard) dashboard.scrollTop = 0;
       document.getElementById('lesson-stage')?.focus({ preventScroll: true });
+      requestAnimationFrame(() => {
+        if (dashboard) dashboard.scrollTop = 0;
+        window.scrollTo({ top: 0, behavior: 'auto' });
+      });
     });
   } else {
     const dashboard = document.getElementById('dashboard');

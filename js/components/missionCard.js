@@ -1,8 +1,10 @@
 ﻿export function renderMissionCard(state, mission, currentLesson = null, lessonProgress = null, nextLessonStatus = null, courseProgress = null) {
   const lessonCompleted = Boolean(lessonProgress?.completed);
   const lessonDescription = currentLesson?.objectives?.[0] || currentLesson?.realLifeMission?.mission || "Practice today's Spanish lesson.";
-  const lessonReward = Number(currentLesson?.xpReward || 0);
-  const xpLabel = lessonCompleted
+  const lessonReward = Number(currentLesson?.rewards?.lessonCompletionXp ?? currentLesson?.xpReward ?? 0);
+  const xpLabel = currentLesson?.chapterCeremony?.hideXp
+    ? "Madrid chapter finale"
+    : lessonCompleted
     ? `${lessonProgress?.xpAwarded || lessonReward} XP earned`
     : `${lessonReward} XP reward`;
   const nextLessonMissing = nextLessonStatus?.type === "next-lesson-missing";
@@ -83,16 +85,16 @@
 
 function getLessonImage(lessonId) {
   const imageMap = {
-    "a1-lesson-01-greetings": "assets/images/lessons/lesson-01-greetings.png.png",
-    "a1-lesson-02-introductions": "assets/images/lessons/lesson-02-introductions.png.png",
-    "lesson-03-family": "assets/images/lessons/lesson-03-family.png.png",
-    "lesson-04-numbers-time": "assets/images/lessons/lesson-04-numbers-time.png.png",
-    "lesson-05-shopping": "assets/images/lessons/lesson-05-shopping.png.png",
-    "lesson-06-food-drinks": "assets/images/lessons/lesson-06-food-drinks.png.png",
-    "lesson-07-travel-basics": "assets/images/lessons/lesson-07-travel.png.png",
-    "lesson-08-vacation": "assets/images/lessons/lesson-08-vacation.png.png",
-    "lesson-09-around-the-house": "assets/images/lessons/lesson-08-vacation.png.png",
-    "lesson-10-daily-routine": "assets/images/lessons/lesson-07-travel.png.png",
+    "a1-lesson-01-greetings": "assets/images/lessons/lesson-01-greetings.png",
+    "a1-lesson-02-introductions": "assets/images/lessons/lesson-02-introductions.png",
+    "lesson-03-family": "assets/images/lessons/lesson-03-family.png",
+    "lesson-04-numbers-time": "assets/images/lessons/lesson-04-numbers-time.png",
+    "lesson-05-shopping": "assets/images/lessons/lesson-05-shopping.png",
+    "lesson-06-food-drinks": "assets/images/lessons/lesson-06-food-drinks.png",
+    "lesson-07-travel-basics": "assets/images/lessons/lesson-07-travel.png",
+    "lesson-08-vacation": "assets/images/lessons/lesson-08-home.png",
+    "lesson-09-around-the-house": "assets/images/lessons/lesson-09-routine.png",
+    "lesson-10-daily-routine": "assets/images/lessons/lesson-10-finale.png",
   };
 
   return imageMap[lessonId] || "";

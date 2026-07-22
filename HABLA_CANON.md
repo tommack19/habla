@@ -1,6 +1,6 @@
 # Habla Course Canon
 
-Version 1.2 — Lesson 8 home details established July 18, 2026
+Version 1.3 — Lesson 3 experience stamp location clarified July 20, 2026
 
 Included in the frozen Habla A1 Production Standard Version 1.0. Established facts change only through an explicit canon revision tied to a new content version or a factual correction.
 
@@ -109,13 +109,13 @@ Lesson 3 establishes the family canon.
 - Location: Carlos and Marta’s home in Madrid.
 - Story event: Ana and the learner join a family dinner. Elena, Javier, Lucía, and Diego are visiting from Granada.
 - Communication mission: identify family members, ask about someone else’s family, and share simple family details.
-- Reward: the `Family Dinner` passport stamp associated with Granada and the `Family Friend` achievement.
+- Reward: the `Family Dinner` passport stamp associated with Madrid, where the dinner occurs, and the `Family Friend` achievement. Its description notes that Carlos’s relatives are visiting from Granada.
 - Story handoff: Carlos wants to meet again and suggests arranging a time.
 
 ### Lesson 4 — Arrange the Next Meeting
 
 - Location: a text conversation after the family dinner.
-- Opening from Carlos: “¡Lo pasamos muy bien! ¿Estás libre este fin de semana?”
+- Opening from Carlos: “Mi madre dijo que fue un placer conocerte ayer. ¿Estás libre este fin de semana?”
 - Communication mission: use a day, a part of the day, and one simple meeting-time chunk to arrange the next meeting.
 - Invisible review: greetings, Ana and Carlos’s family, names, origin, and residence.
 - Emotional destination: excitement.

@@ -1,5 +1,5 @@
 import { getTodaysMission } from "../core/missions.js";
-import { getCourseProgress, getCurrentLesson } from "../core/content.js";
+import { getCourseProgress, getCurrentLesson, getLessonCompletionXP } from "../core/content.js";
 import { CARLOS_FALLBACK_ONERROR, getCarlosAsset } from "../data/carlosAssets.js";
 import { renderLessonCover } from "../components/lessonCover.js";
 
@@ -39,7 +39,8 @@ function renderCarlosHero(state, lesson, mission, courseProgress) {
   const objective = formatHomeMission(lesson?.homeSummary || lesson?.story?.mission || lesson?.objective || lesson?.objectives?.[0] || "Build confidence with practical Spanish.");
   const lessonNumber = Number(courseProgress?.currentLessonNumber || getLessonNumber(lesson) || 0);
   const minutes = Number(lesson?.estimatedMinutes || lesson?.durationMinutes || 10);
-  const xpReward = Number(lesson?.xpReward || mission?.xpReward || 0);
+  const xpReward = getLessonCompletionXP(lesson) || Number(mission?.xpReward || 0);
+  const showXpReward = xpReward && !lesson?.chapterCeremony?.hideXp;
   const lessonPosition = lessonNumber ? `Lesson ${lessonNumber}` : "Today's lesson";
 
   return renderLessonCover({
@@ -53,7 +54,7 @@ function renderCarlosHero(state, lesson, mission, courseProgress) {
     meta: [
       { icon: `<i aria-hidden="true">${renderHeroMetaIcon("lesson")}</i>`, text: lessonPosition },
       { icon: `<i aria-hidden="true">${renderHeroMetaIcon("time")}</i>`, text: `${minutes} min` },
-      ...(xpReward ? [{ icon: `<i aria-hidden="true">${renderHeroMetaIcon("xp")}</i>`, text: `+${xpReward} XP` }] : []),
+      ...(showXpReward ? [{ icon: `<i aria-hidden="true">${renderHeroMetaIcon("xp")}</i>`, text: `+${xpReward} XP` }] : []),
     ],
     action: {
       label: "Continue Lesson",

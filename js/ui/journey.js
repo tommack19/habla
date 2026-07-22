@@ -526,12 +526,12 @@ function renderStampDetail() {
 
 function getJourneyLevel(xp) {
   const levels = [
-    { name: "A1 Explorer", nextName: "A2 Traveler", min: 0, next: 500 },
-    { name: "A2 Traveler", nextName: "B1 Local", min: 500, next: 1500 },
-    { name: "B1 Local", nextName: "B2 Adventurer", min: 1500, next: 3500 },
-    { name: "B2 Adventurer", nextName: "C1 Insider", min: 3500, next: 7000 },
-    { name: "C1 Insider", nextName: "C2 Fluent", min: 7000, next: 12000 },
-    { name: "C2 Fluent", nextName: "Journey Complete", min: 12000, next: 12000 },
+    { name: "A1 Explorer", nextName: "A2 Traveler", min: 0, next: 3000 },
+    { name: "A2 Traveler", nextName: "B1 Local", min: 3000, next: 6000 },
+    { name: "B1 Local", nextName: "B2 Adventurer", min: 6000, next: 9000 },
+    { name: "B2 Adventurer", nextName: "C1 Insider", min: 9000, next: 12000 },
+    { name: "C1 Insider", nextName: "C2 Fluent", min: 12000, next: 15000 },
+    { name: "C2 Fluent", nextName: "Journey Complete", min: 15000, next: 15000 },
   ];
   const index = levels.reduce((current, candidate, candidateIndex) => xp >= candidate.min ? candidateIndex : current, 0);
   const current = levels[index];

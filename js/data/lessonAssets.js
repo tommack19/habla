@@ -1,14 +1,14 @@
 const LESSON_ARTWORK = Object.freeze({
-  1: "assets/images/lessons/lesson-01-greetings.png.png",
-  2: "assets/images/lessons/lesson-02-introductions.png.png",
-  3: "assets/images/lessons/lesson-03-family.png.png",
-  4: "assets/images/lessons/lesson-04-numbers-time.png.png",
-  5: "assets/images/lessons/lesson-05-shopping.png.png",
-  6: "assets/images/lessons/lesson-06-food-drinks.png.png",
-  7: "assets/images/lessons/lesson-07-travel.png.png",
-  8: "assets/images/lessons/lesson-08-vacation.png.png",
-  9: "assets/images/lessons/lesson-08-vacation.png.png",
-  10: "assets/images/lessons/lesson-07-travel.png.png",
+  1: "assets/images/lessons/lesson-01-greetings.png",
+  2: "assets/images/lessons/lesson-02-introductions.png",
+  3: "assets/images/lessons/lesson-03-family.png",
+  4: "assets/images/lessons/lesson-04-numbers-time.png",
+  5: "assets/images/lessons/lesson-05-shopping.png",
+  6: "assets/images/lessons/lesson-06-food-drinks.png",
+  7: "assets/images/lessons/lesson-07-travel.png",
+  8: "assets/images/lessons/lesson-08-home.png",
+  9: "assets/images/lessons/lesson-09-routine.png",
+  10: "assets/images/lessons/lesson-10-finale.png",
 });
 
 const preloadedArtwork = new Set();

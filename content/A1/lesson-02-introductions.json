@@ -2,10 +2,28 @@
   "id": "a1-lesson-02-introductions",
   "contentVersion": "1.2",
   "title": "A New Friend",
-  "image": "assets/images/lessons/lesson-02-introductions.png.png",
+  "image": "assets/images/lessons/lesson-02-introductions.png",
   "level": "A1",
   "module": "Introductions",
   "estimatedMinutes": 25,
+  "sectionIntros": {
+    "story": { "eyebrow": "Story", "title": "Meet Ana", "body": "Meet Carlos’ friend Ana and introduce yourself." },
+    "vocabulary": { "eyebrow": "Vocabulary", "title": "Words for a new friendship", "body": "Eight new phrases help you share where you’re from and where you live." },
+    "grammar": { "eyebrow": "Two useful patterns", "title": "Origin and home", "body": "Use one phrase for where you’re from and one for where you live." },
+    "dialogue": { "eyebrow": "Conversation", "title": "Meet Ana", "body": "Follow your first introduction with a new friend." },
+    "listening": { "eyebrow": "Listening with Ana", "title": "Can you follow the introduction?", "body": "Listen first. Read only when you’re ready." },
+    "pronunciation": { "eyebrow": "Pronunciation", "title": "Connect the phrases", "body": "Say soy de and vivo en as smooth, complete thoughts." },
+    "speaking": { "eyebrow": "Guided conversation", "title": "Introduce yourself to Ana", "body": "Answer one question at a time." },
+    "quiz": { "eyebrow": "Check your understanding", "title": "What do you remember?", "body": "Question {{questionNumber}} of {{questionCount}}" },
+    "culture": { "eyebrow": "Carlos says", "title": "Introductions set the tone", "body": "A small detail that makes meeting someone feel natural." },
+    "reward": { "eyebrow": "Mission accomplished", "title": "You made a new friend.", "body": "Ana is now part of your Spanish story." }
+  },
+  "sectionTransitions": {
+    "grammar": "Great! Now let’s try that with Ana.",
+    "dialogue": "Nice! Could you follow that conversation?",
+    "listening": "Now it’s your turn.",
+    "speaking": "I think you’re ready."
+  },
   "prerequisiteLesson": "a1-lesson-01-greetings",
   "story": {
     "chapter": 1,
@@ -28,7 +46,7 @@
   },
   "carlosIntroduction": {
     "durationSeconds": 30,
-    "text": "¡Hola de nuevo! You already know how to greet someone and share your name. Today I’m introducing you to my longtime friend Ana. Tell her where you’re from, say where you live now, and ask her the same questions. Listen to the conversation first—then I’ll show you the two useful patterns inside it."
+    "text": "¡Hola de nuevo!\n\nToday I’m introducing you to my longtime friend Ana.\n\nTell her where you’re from, say where you live, and ask her the same questions."
   },
   "canDo": [
     "Introduce yourself using language from Lesson 1.",
@@ -101,6 +119,7 @@
       "english": "my name is",
       "partOfSpeech": "introduction phrase",
       "tier": 1,
+      "learningPriority": "Review from Lesson 1",
       "group": "Identity",
       "tip": "Literally means I call myself. It is the safest everyday way to introduce your name.",
       "exampleSpanish": "Hola, me llamo {{learnerName}}.",
@@ -111,6 +130,7 @@
       "english": "I am",
       "partOfSpeech": "verb",
       "tier": 1,
+      "learningPriority": "Core",
       "group": "Identity",
       "tip": "Use soy for identity, name, origin, profession, and nationality.",
       "exampleSpanish": "Soy Carlos.",
@@ -121,6 +141,7 @@
       "english": "my name is",
       "partOfSpeech": "formal phrase",
       "tier": 2,
+      "learningPriority": "Good to know",
       "group": "Identity",
       "tip": "Correct and clear, but more formal or official than me llamo.",
       "exampleSpanish": "Mi nombre es Ana Ruiz.",
@@ -131,6 +152,7 @@
       "english": "what is your name",
       "partOfSpeech": "informal question",
       "tier": 1,
+      "learningPriority": "Review from Lesson 1",
       "group": "First Questions",
       "tip": "Use with friends, peers, children, or relaxed first meetings.",
       "exampleSpanish": "Hola, ¿cómo te llamas?",
@@ -141,6 +163,7 @@
       "english": "what is your name",
       "partOfSpeech": "formal question",
       "tier": 2,
+      "learningPriority": "Good to know",
       "group": "First Questions",
       "tip": "Use with strangers, elders, clients, or anyone you want to address respectfully.",
       "exampleSpanish": "Buenos días, ¿cómo se llama?",
@@ -151,16 +174,29 @@
       "english": "where are you from",
       "partOfSpeech": "informal question",
       "tier": 1,
+      "learningPriority": "Core",
       "group": "First Questions",
       "tip": "Use in casual conversation after names are exchanged.",
       "exampleSpanish": "Carlos, ¿de dónde eres?",
       "exampleEnglish": "Carlos, where are you from?"
     },
     {
+      "spanish": "¿dónde vives?",
+      "english": "where do you live",
+      "partOfSpeech": "informal question",
+      "tier": 1,
+      "learningPriority": "Core",
+      "group": "First Questions",
+      "tip": "Ask where someone lives now after talking about where they are from.",
+      "exampleSpanish": "Ana, ¿dónde vives?",
+      "exampleEnglish": "Ana, where do you live?"
+    },
+    {
       "spanish": "¿de dónde es?",
       "english": "where are you from",
       "partOfSpeech": "formal question",
       "tier": 2,
+      "learningPriority": "Good to know",
       "group": "First Questions",
       "tip": "Respectful version for formal introductions.",
       "exampleSpanish": "Disculpe, ¿de dónde es?",
@@ -171,6 +207,7 @@
       "english": "I am from",
       "partOfSpeech": "origin phrase",
       "tier": 1,
+      "learningPriority": "Core",
       "group": "Origin and Home",
       "tip": "Add a city, region, or country after de.",
       "exampleSpanish": "Soy de {{learnerCity}}.",
@@ -181,6 +218,7 @@
       "english": "I live in",
       "partOfSpeech": "residence phrase",
       "tier": 1,
+      "learningPriority": "Core",
       "group": "Origin and Home",
       "tip": "Use vivo en for where you live now, not necessarily where you are from.",
       "exampleSpanish": "Vivo en {{learnerCountry}}.",
@@ -191,6 +229,7 @@
       "english": "nice to meet you",
       "partOfSpeech": "polite phrase",
       "tier": 1,
+      "learningPriority": "Review from Lesson 1",
       "group": "Keeping It Going",
       "tip": "Use after names are exchanged. It is natural across the Spanish-speaking world.",
       "exampleSpanish": "Mucho gusto, Carlos.",
@@ -221,6 +260,7 @@
       "english": "and you",
       "partOfSpeech": "informal follow-up question",
       "tier": 1,
+      "learningPriority": "Review from Lesson 1",
       "group": "Keeping It Going",
       "tip": "Use after answering to invite the other person to answer too.",
       "exampleSpanish": "Soy de {{learnerCountry}}. ¿Y tú?",
@@ -231,6 +271,7 @@
       "english": "and you",
       "partOfSpeech": "formal follow-up question",
       "tier": 2,
+      "learningPriority": "Good to know",
       "group": "Keeping It Going",
       "tip": "Formal version of ¿y tú?",
       "exampleSpanish": "Vivo en {{learnerCity}}. ¿Y usted?",
@@ -241,6 +282,7 @@
       "english": "also / too",
       "partOfSpeech": "adverb",
       "tier": 1,
+      "learningPriority": "Core",
       "group": "Keeping It Going",
       "tip": "Use to add yourself to a statement.",
       "exampleSpanish": "Yo también soy de {{learnerCountry}}.",
@@ -251,6 +293,7 @@
       "english": "here",
       "partOfSpeech": "adverb",
       "tier": 1,
+      "learningPriority": "Core",
       "group": "Origin and Home",
       "tip": "Useful when saying you live here or are here with someone.",
       "exampleSpanish": "Vivo aquí.",
@@ -300,7 +343,8 @@
       "spanish": "usted",
       "english": "you",
       "partOfSpeech": "formal pronoun",
-      "tier": 1,
+      "tier": 2,
+      "learningPriority": "Good to know",
       "group": "Conversation Tools",
       "tip": "Formal you. It uses forms like es and se llama.",
       "exampleSpanish": "¿Usted es de México?",
@@ -310,7 +354,8 @@
       "spanish": "tú",
       "english": "you",
       "partOfSpeech": "informal pronoun",
-      "tier": 1,
+      "tier": 2,
+      "learningPriority": "Good to know",
       "group": "Conversation Tools",
       "tip": "Informal you. Use with peers and relaxed situations.",
       "exampleSpanish": "¿Tú eres Carlos?",
@@ -320,7 +365,8 @@
       "spanish": "igualmente",
       "english": "likewise",
       "partOfSpeech": "response",
-      "tier": 2,
+      "tier": 1,
+      "learningPriority": "Core",
       "group": "Keeping It Going",
       "tip": "A natural reply to mucho gusto or encantado.",
       "exampleSpanish": "Mucho gusto. Igualmente.",
@@ -420,7 +466,7 @@
   "grammar": {
     "topic": "Soy de for origin and vivo en for residence",
     "meaning": "Separate where you come from from where you live now.",
-    "explanation": "Use soy de + place for your origin. Use vivo en + place for your current home. Learn these as two complete patterns: soy de {{learnerCountry}}; vivo en {{learnerCity}}. You do not need any other forms of the verbs yet.",
+    "explanation": "Origin: soy de + place. Home: vivo en + place. Learn each as one complete phrase.",
     "notes": [
       {
         "title": "Origin",
@@ -635,12 +681,17 @@
         },
         {
           "speaker": "Ana",
+          "spanish": "¡Hablas muy bien! ¿Solo es tu segunda lección?",
+          "english": "You speak really well! Is this only your second lesson?"
+        },
+        {
+          "speaker": "Ana",
           "spanish": "Soy de Sevilla, pero vivo en Madrid.",
           "english": "I’m from Seville, but I live in Madrid."
         },
         {
           "speaker": "Carlos",
-          "spanish": "Yo soy de Madrid y vivo aquí también. Ana, cenamos con mi familia mañana. ¿Vienes?",
+          "spanish": "Soy de Madrid y vivo aquí también. Ana, cenamos con mi familia mañana. ¿Vienes?",
           "english": "I’m from Madrid and I live here too. Ana, we’re having dinner with my family tomorrow. Are you coming?"
         },
         {
@@ -766,9 +817,10 @@
   "listening": {
     "title": "Can you follow your meeting with Ana?",
     "instructions": "Listen, follow along, then check what you understood.",
+    "stageLabels": ["Listen", "Read Together", "Check Yourself"],
     "playbackSpeeds": ["natural", "slow"],
-    "naturalScript": "¡Hola! {{learnerName}}, esta es mi amiga Ana. Hola, me llamo Ana. Mucho gusto. ¿Cómo te llamas? Me llamo {{learnerName}}. Mucho gusto. ¿De dónde eres? Soy de {{learnerCountry}} y vivo en {{learnerCity}}. ¿Y tú? Soy de Sevilla, pero vivo en Madrid. Nos vemos mañana. Hasta mañana.",
-    "slowScript": "¡Hola! / {{learnerName}}, esta es mi amiga Ana. / Hola, me llamo Ana. / Mucho gusto. / ¿Cómo te llamas? / Me llamo {{learnerName}}. / Mucho gusto. / ¿De dónde eres? / Soy de {{learnerCountry}} / y vivo en {{learnerCity}}. / ¿Y tú? / Soy de Sevilla, / pero vivo en Madrid. / Nos vemos mañana. / Hasta mañana.",
+    "naturalScript": "¡Hola! {{learnerName}}, esta es mi amiga Ana. Hola, me llamo Ana. Mucho gusto. ¿Cómo te llamas? Me llamo {{learnerName}}. Mucho gusto. ¿De dónde eres? Soy de {{learnerCountry}} y vivo en {{learnerCity}}. ¿Y tú? ¡Hablas muy bien! ¿Solo es tu segunda lección? Soy de Sevilla, pero vivo en Madrid. Nos vemos mañana. Hasta mañana.",
+    "slowScript": "¡Hola! / {{learnerName}}, esta es mi amiga Ana. / Hola, me llamo Ana. / Mucho gusto. / ¿Cómo te llamas? / Me llamo {{learnerName}}. / Mucho gusto. / ¿De dónde eres? / Soy de {{learnerCountry}} / y vivo en {{learnerCity}}. / ¿Y tú? / ¡Hablas muy bien! / ¿Solo es tu segunda lección? / Soy de Sevilla, / pero vivo en Madrid. / Nos vemos mañana. / Hasta mañana.",
     "transcript": [
       {
         "speaker": "Carlos",
@@ -794,6 +846,11 @@
         "speaker": "Learner",
         "spanish": "Soy de {{learnerCountry}} y vivo en {{learnerCity}}. ¿Y tú?",
         "english": "I’m from {{learnerCountryEnglish}} and I live in {{learnerCity}}. And you?"
+      },
+      {
+        "speaker": "Ana",
+        "spanish": "¡Hablas muy bien! ¿Solo es tu segunda lección?",
+        "english": "You speak really well! Is this only your second lesson?"
       },
       {
         "speaker": "Ana",
@@ -897,6 +954,7 @@
         "stage": "repeat",
         "label": "Listen",
         "carlosPrompt": "¿De dónde eres?",
+        "carlosPromptEnglish": "Where are you from?",
         "prompt": "Answer Carlos with your country.",
         "cue": "Answer with your real country or use the model.",
         "text": "Soy de {{learnerCountry}}.",
@@ -907,6 +965,7 @@
         "stage": "repeat",
         "label": "Your turn",
         "carlosPrompt": "¿Dónde vives?",
+        "carlosPromptEnglish": "Where do you live?",
         "prompt": "Tell Carlos where you live.",
         "cue": "Say where you live now.",
         "text": "Vivo en {{learnerCity}}.",
@@ -918,6 +977,7 @@
         "label": "Keep talking",
         "speaker": "Ana",
         "carlosPrompt": "Vivo en Madrid.",
+        "carlosPromptEnglish": "I live in Madrid.",
         "prompt": "Ask Ana where she is from without reading the model.",
         "cue": "Try the question from memory before opening the model.",
         "text": "¿De dónde eres?",
@@ -928,6 +988,7 @@
         "stage": "personalize",
         "label": "One more challenge",
         "carlosPrompt": "Soy de Madrid y vivo aquí. ¿Y tú?",
+        "carlosPromptEnglish": "I’m from Madrid and I live here. And you?",
         "prompt": "Say where you are from and where you live in one response.",
         "cue": "Join both ideas in one natural answer.",
         "text": "Soy de {{learnerCountry}}, pero vivo en {{learnerCity}}.",
@@ -938,6 +999,7 @@
         "stage": "personalize",
         "label": "Finish the conversation",
         "carlosPrompt": "Vivo en Madrid. ¿Y tú?",
+        "carlosPromptEnglish": "I live in Madrid. And you?",
         "prompt": "Say where you live and return the question naturally.",
         "cue": "Answer, return the question, and keep the exchange moving.",
         "text": "Vivo aquí. ¿Y tú?",
@@ -991,8 +1053,9 @@
     ]
   },
   "culture": {
+    "speaker": "Carlos",
     "title": "Introductions set the tone",
-    "text": "After exchanging names, mucho gusto works naturally across the Spanish-speaking world. People often answer ¿de dónde eres? with a city or region instead of only a country. In Spain, someone may have two surnames, one from each parent, but friendly introductions normally begin with a first name."
+    "text": "People often answer ¿De dónde eres? with their city or region. In Spain, many people have two surnames, but friendly introductions usually begin with first names."
   },
   "nativeSpeech": {
     "title": "How native speakers introduce themselves",
@@ -1418,7 +1481,10 @@
     }
   ],
   "realLifeMission": {
-    "title": "Carlos Challenge: Meet Ana",
+    "title": "Meet Ana",
+    "presentationEyebrow": "Today’s Mission",
+    "presentationTitle": "Your Conversation",
+    "successTitle": "You Did It!",
     "mission": "Carlos introduces you to Ana. Greet her, exchange names, say where you are from and where you live, then ask about her origin.",
     "successCriteria": [
       "Reuse a greeting and name phrase from Lesson 1.",
@@ -1460,17 +1526,16 @@
     "selectionRule": "The core deck reinforces only the chunks needed to exchange identity, origin, and residence.",
     "items": [
       "me llamo",
-      "¿cómo te llamas?",
+      "mucho gusto",
+      "soy",
       "soy de",
       "vivo en",
       "¿de dónde eres?",
       "¿dónde vives?",
-      "mucho gusto",
       "¿y tú?",
-      "yo también",
+      "también",
       "aquí",
-      "ciudad",
-      "país"
+      "igualmente"
     ]
   },
   "carlosClosing": "Great job today. You introduced yourself to Ana and told her where you’re from and where you live. Tonight you’ll meet my family—get ready for dinner.",
@@ -1479,7 +1544,7 @@
     "title": "New Friend",
     "city": "Madrid",
     "description": "You met Ana and exchanged where you are from and where you live.",
-    "unlockCondition": "Complete the Carlos Challenge for Lesson 2."
+    "unlockCondition": "Complete Today’s Mission in Lesson 2."
   },
   "achievement": {
     "id": "first_conversation",
@@ -1490,6 +1555,7 @@
   "achievementsUnlocked": [
     "first_conversation"
   ],
+  "completionLabel": "Episode complete",
   "xpReward": 50,
   "nextLesson": "lesson-03-family"
 }

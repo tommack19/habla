@@ -5,6 +5,68 @@
   "level": "A1",
   "module": "Greetings",
   "estimatedMinutes": 25,
+  "contentRoles": {
+    "coreLesson": ["story", "essentialPhrases", "vocabulary", "grammar", "dialogue", "listening", "pronunciation", "speaking", "quiz", "miniConversation", "realLifeMission"],
+    "practiceSupport": ["listeningPhrases", "speakingChallenge", "nativeSpeech", "commonMistakes"],
+    "reviewedReference": ["greetings", "politeExpressions", "supplementalDialogueExamples", "supplementalPronunciation", "supplementalQuizBank"],
+    "compatibility": {
+      "canDoAndObjectives": "Both fields are retained because the frozen schema and current UI support them.",
+      "achievementAndAchievementsUnlocked": "The achievement object provides display metadata; achievementsUnlocked preserves stable global achievement IDs.",
+      "legacyXpFields": "Use rewards as the explicit source of truth; legacy xpReward fields remain as renderer fallbacks."
+    }
+  },
+  "sectionIntros": {
+    "story": {
+      "eyebrow": "Story",
+      "title": "Meet Carlos",
+      "body": "Your first conversation begins."
+    },
+    "vocabulary": {
+      "eyebrow": "Vocabulary",
+      "title": "Words you’ll use today",
+      "body": "Everything you need for your first meeting."
+    },
+    "grammar": {
+      "eyebrow": "One useful pattern",
+      "title": "Say your name naturally",
+      "body": "Learn one phrase you can use in almost every introduction."
+    },
+    "dialogue": {
+      "eyebrow": "Conversation",
+      "title": "Your first café conversation",
+      "body": "Meet Carlos one simple line at a time."
+    },
+    "listening": {
+      "eyebrow": "Listening with Carlos",
+      "title": "Can you follow along?",
+      "body": "Listen once. You don’t need to catch every word."
+    },
+    "pronunciation": {
+      "eyebrow": "Pronunciation",
+      "title": "Speak like Carlos",
+      "body": "Hear each phrase, then say it naturally."
+    },
+    "speaking": {
+      "eyebrow": "Guided conversation",
+      "title": "Talk with Carlos",
+      "body": "Listen, reply, and keep the conversation moving."
+    },
+    "quiz": {
+      "eyebrow": "Check your understanding",
+      "title": "Let’s see what you remember",
+      "body": "Question {{questionNumber}} of {{questionCount}}"
+    },
+    "culture": {
+      "eyebrow": "Carlos says",
+      "title": "A warmer hello",
+      "body": "One small habit that makes greetings feel natural in Madrid."
+    },
+    "reward": {
+      "eyebrow": "Mission accomplished",
+      "title": "You did it.",
+      "body": "Your first conversation is now part of your Spanish story."
+    }
+  },
   "story": {
     "chapter": 1,
     "city": "Madrid",
@@ -26,7 +88,7 @@
   },
   "carlosIntroduction": {
     "durationSeconds": 30,
-    "text": "¡Hola! I’m Carlos. We’re meeting for the first time at my favorite neighborhood café in Madrid. Today you’ll greet me, tell me your name, answer one simple question, and say goodbye naturally. That’s your first real Spanish conversation—and I’ll help you through it."
+    "text": "¡Hola! I’m Carlos. We’re meeting for coffee in Madrid today. By the end, you’ll introduce yourself, answer one simple question, and say goodbye naturally. Let’s go."
   },
   "canDo": [
     "Greet someone naturally at different times of day.",
@@ -496,7 +558,7 @@
   "grammar": {
     "topic": "Introducing yourself with me llamo",
     "meaning": "Say your name in one clear, reusable phrase.",
-    "explanation": "Use me llamo + your name when you meet someone. Learn it as one complete phrase: Me llamo {{learnerName}}. You may also hear soy + a name in relaxed introductions, but me llamo is the only new pattern you need today.",
+    "explanation": "Learn “Me llamo…” as one complete phrase. You’ll use it almost every time you introduce yourself.",
     "notes": [
       {
         "title": "The safest first phrase",
@@ -786,7 +848,7 @@
     ]
   },
   "pronunciation": {
-    "focus": "Silent h and the rhythm of a friendly first meeting",
+    "focus": "Say it naturally",
     "tips": [
       "The h is silent in hola and hasta.",
       "Keep Spanish vowels short and clear.",
@@ -934,8 +996,9 @@
         "stage": "repeat",
         "label": "Listen",
         "carlosPrompt": "¡Hola! ¿Qué tal?",
-        "prompt": "Carlos says hello.",
-        "cue": "Hear it once, then greet Carlos back.",
+        "carlosPromptEnglish": "Hi! How’s it going?",
+        "prompt": "Reply however you’d naturally greet him.",
+        "cue": "Hear Carlos once, then greet him back.",
         "text": "Hola, ¿qué tal?",
         "meaning": "Hi, how’s it going?",
         "alternatives": ["Hola.", "Hola, Carlos.", "Buenas tardes."],
@@ -945,6 +1008,7 @@
         "stage": "repeat",
         "label": "Your turn",
         "carlosPrompt": "¿Cómo te llamas?",
+        "carlosPromptEnglish": "What’s your name?",
         "prompt": "Introduce yourself.",
         "cue": "Say your own name and introduce yourself aloud.",
         "text": "Me llamo {{learnerName}}. Mucho gusto.",
@@ -955,6 +1019,7 @@
         "stage": "recall",
         "label": "Keep talking",
         "carlosPrompt": "¿Cómo estás?",
+        "carlosPromptEnglish": "How are you?",
         "prompt": "Respond and return the question.",
         "cue": "Answer naturally, then ask Carlos the same thing.",
         "text": "Muy bien, gracias. ¿Y tú?",
@@ -965,6 +1030,7 @@
         "stage": "recall",
         "label": "One more challenge",
         "carlosPrompt": "Perdón, hablo muy rápido.",
+        "carlosPromptEnglish": "Sorry, I speak very quickly.",
         "prompt": "Ask Carlos to slow down.",
         "cue": "Try it from memory before playing the model.",
         "text": "Más despacio, por favor.",
@@ -975,6 +1041,7 @@
         "stage": "personalize",
         "label": "Finish the conversation",
         "carlosPrompt": "Perfecto. Nos vemos luego.",
+        "carlosPromptEnglish": "Perfect. See you later.",
         "prompt": "Close your first meeting.",
         "cue": "Use a relaxed, friendly closing.",
         "text": "Nos vemos luego.",
@@ -1024,8 +1091,9 @@
     ]
   },
   "culture": {
+    "speaker": "Carlos",
     "title": "Greeting with warmth and respect",
-    "text": "A Spanish greeting often includes a quick check-in instead of only hola. With Carlos or another friendly peer, Hola, ¿qué tal? sounds natural. In a first meeting, add mucho gusto after exchanging names. If you are unsure how formal to be, begin politely and follow the other person’s tone."
+    "text": "When I meet someone here in Madrid, I usually say “Hola, ¿qué tal?” instead of only hola. After we exchange names, mucho gusto makes the greeting feel warm and natural."
   },
   "nativeSpeech": {
     "title": "How native speakers really greet",
@@ -1466,7 +1534,12 @@
   "achievementsUnlocked": [
     "first_steps"
   ],
+  "rewards": {
+    "challengeXp": 10,
+    "lessonCompletionXp": 50
+  },
+  "completionLabel": "Episode complete",
   "xpReward": 50,
   "nextLesson": "a1-lesson-02-introductions",
-  "image": "assets/images/lessons/lesson-01-greetings.png.png"
+  "image": "assets/images/lessons/lesson-01-greetings.png"
 }

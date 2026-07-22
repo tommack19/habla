@@ -1,8 +1,8 @@
 {
   "id": "lesson-07-travel-basics",
-  "contentVersion": "1.1",
+  "contentVersion": "1.2",
   "title": "Walking Through Madrid",
-  "image": "assets/images/lessons/lesson-07-travel.png.png",
+  "image": "assets/images/lessons/lesson-07-travel.png",
   "level": "A1",
   "module": "Places and Directions",
   "estimatedMinutes": 30,
@@ -77,11 +77,17 @@
     { "spanish": "Está al lado de...", "english": "It is beside...", "usage": "Locate a place using a familiar landmark.", "exampleSpanish": "La plaza está al lado de la cafetería.", "exampleEnglish": "The plaza is beside the café." },
     { "spanish": "Gracias por la ayuda.", "english": "Thank you for the help.", "usage": "Close a direction exchange warmly.", "exampleSpanish": "Perfecto. Gracias por la ayuda.", "exampleEnglish": "Perfect. Thank you for the help." }
   ],
+  "vocabularyPresentation": {
+    "showPriorityLabels": true,
+    "collapseOptional": true,
+    "collapseGroups": true,
+    "openFirstGroup": true
+  },
   "vocabulary": [
     { "spanish": "la plaza", "english": "square / plaza", "partOfSpeech": "noun", "tier": 1, "group": "Places", "tip": "A plaza is a public square and common meeting place.", "exampleSpanish": "La plaza está cerca.", "exampleEnglish": "The plaza is nearby." },
     { "spanish": "la calle", "english": "street", "partOfSpeech": "noun", "tier": 1, "group": "Places", "tip": "Street names often appear on tiled signs in Madrid.", "exampleSpanish": "Sigue por esta calle.", "exampleEnglish": "Continue along this street." },
     { "spanish": "la esquina", "english": "corner", "partOfSpeech": "noun", "tier": 1, "group": "Places", "tip": "En la esquina means on the corner.", "exampleSpanish": "Gira en la esquina.", "exampleEnglish": "Turn at the corner." },
-    { "spanish": "el semáforo", "english": "traffic light", "partOfSpeech": "noun", "tier": 1, "group": "Places", "tip": "A useful landmark when following directions.", "exampleSpanish": "Cruza en el semáforo.", "exampleEnglish": "Cross at the traffic light." },
+    { "spanish": "el semáforo", "english": "traffic light", "partOfSpeech": "noun", "tier": 2, "group": "Places", "tip": "A useful landmark when following directions.", "exampleSpanish": "Cruza en el semáforo.", "exampleEnglish": "Cross at the traffic light." },
     { "spanish": "la fuente", "english": "fountain", "partOfSpeech": "noun", "tier": 1, "group": "Places", "tip": "Fountains are common visual landmarks in plazas.", "exampleSpanish": "La fuente está allí.", "exampleEnglish": "The fountain is there." },
     { "spanish": "la farmacia", "english": "pharmacy", "partOfSpeech": "noun", "tier": 1, "group": "Places", "tip": "Look for the green pharmacy cross in Spain.", "exampleSpanish": "La farmacia está a la derecha.", "exampleEnglish": "The pharmacy is on the right." },
     { "spanish": "la panadería", "english": "bakery", "partOfSpeech": "noun", "tier": 1, "group": "Places", "tip": "This returns from the market as a street landmark.", "exampleSpanish": "La panadería está en la esquina.", "exampleEnglish": "The bakery is on the corner." },
@@ -89,19 +95,19 @@
     { "spanish": "la estación", "english": "station", "partOfSpeech": "noun", "tier": 2, "group": "Places", "tip": "Useful for future travel; recognize it on signs.", "exampleSpanish": "¿Dónde está la estación?", "exampleEnglish": "Where is the station?" },
     { "spanish": "¿dónde?", "english": "where?", "partOfSpeech": "question word", "tier": 1, "group": "Finding the way", "tip": "The written accent marks the question word.", "exampleSpanish": "¿Dónde está la plaza?", "exampleEnglish": "Where is the plaza?" },
     { "spanish": "está", "english": "is / is located", "partOfSpeech": "verb", "tier": 1, "group": "Finding the way", "tip": "Use está for one place or thing.", "exampleSpanish": "La plaza está cerca.", "exampleEnglish": "The plaza is nearby." },
-    { "spanish": "busco", "english": "I’m looking for", "partOfSpeech": "verb", "tier": 1, "group": "Finding the way", "tip": "A useful backup if the full question feels difficult.", "exampleSpanish": "Busco Plaza Mayor.", "exampleEnglish": "I’m looking for Plaza Mayor." },
+    { "spanish": "busco", "english": "I’m looking for", "partOfSpeech": "verb", "tier": 2, "group": "Finding the way", "tip": "A useful backup if the full question feels difficult.", "exampleSpanish": "Busco Plaza Mayor.", "exampleEnglish": "I’m looking for Plaza Mayor." },
     { "spanish": "aquí", "english": "here", "partOfSpeech": "adverb", "tier": 1, "group": "Location", "tip": "Aquí refers to the current place.", "exampleSpanish": "La entrada está aquí.", "exampleEnglish": "The entrance is here." },
     { "spanish": "allí", "english": "there", "partOfSpeech": "adverb", "tier": 1, "group": "Location", "tip": "Allí points to a place farther away.", "exampleSpanish": "La fuente está allí.", "exampleEnglish": "The fountain is there." },
     { "spanish": "cerca", "english": "near / nearby", "partOfSpeech": "adverb", "tier": 1, "group": "Location", "tip": "Está cerca is a complete useful response.", "exampleSpanish": "Plaza Mayor está cerca.", "exampleEnglish": "Plaza Mayor is nearby." },
-    { "spanish": "lejos", "english": "far", "partOfSpeech": "adverb", "tier": 1, "group": "Location", "tip": "¿Está lejos? asks whether a place is far.", "exampleSpanish": "No, no está lejos.", "exampleEnglish": "No, it isn’t far." },
+    { "spanish": "lejos", "english": "far", "partOfSpeech": "adverb", "tier": 2, "group": "Location", "tip": "¿Está lejos? asks whether a place is far.", "exampleSpanish": "No, no está lejos.", "exampleEnglish": "No, it isn’t far." },
     { "spanish": "al lado de", "english": "beside / next to", "partOfSpeech": "location phrase", "tier": 1, "group": "Location", "tip": "Follow it with a landmark.", "exampleSpanish": "Está al lado de la farmacia.", "exampleEnglish": "It is beside the pharmacy." },
-    { "spanish": "enfrente de", "english": "opposite / across from", "partOfSpeech": "location phrase", "tier": 1, "group": "Location", "tip": "Use it when two places face each other.", "exampleSpanish": "Está enfrente de la fuente.", "exampleEnglish": "It is across from the fountain." },
+    { "spanish": "enfrente de", "english": "opposite / across from", "partOfSpeech": "location phrase", "tier": 2, "group": "Location", "tip": "Use it when two places face each other.", "exampleSpanish": "Está enfrente de la fuente.", "exampleEnglish": "It is across from the fountain." },
     { "spanish": "todo recto", "english": "straight ahead", "partOfSpeech": "direction phrase", "tier": 1, "group": "Direction cues", "tip": "Treat this as one fixed street cue.", "exampleSpanish": "Sigue todo recto.", "exampleEnglish": "Continue straight ahead." },
     { "spanish": "a la derecha", "english": "to the right", "partOfSpeech": "direction phrase", "tier": 1, "group": "Direction cues", "tip": "Connect derecha with your right hand.", "exampleSpanish": "Gira a la derecha.", "exampleEnglish": "Turn right." },
     { "spanish": "a la izquierda", "english": "to the left", "partOfSpeech": "direction phrase", "tier": 1, "group": "Direction cues", "tip": "Connect izquierda with your left hand.", "exampleSpanish": "Gira a la izquierda.", "exampleEnglish": "Turn left." },
-    { "spanish": "sigue", "english": "continue / keep going", "partOfSpeech": "direction cue", "tier": 1, "group": "Direction cues", "tip": "Recognize it as a direction; command grammar comes later.", "exampleSpanish": "Sigue todo recto.", "exampleEnglish": "Continue straight ahead." },
-    { "spanish": "gira", "english": "turn", "partOfSpeech": "direction cue", "tier": 1, "group": "Direction cues", "tip": "Listen for the side that follows.", "exampleSpanish": "Gira a la derecha.", "exampleEnglish": "Turn right." },
-    { "spanish": "cruza", "english": "cross", "partOfSpeech": "direction cue", "tier": 1, "group": "Direction cues", "tip": "Recognize it before a street or traffic light.", "exampleSpanish": "Cruza la calle.", "exampleEnglish": "Cross the street." },
+    { "spanish": "sigue", "english": "continue / keep going", "partOfSpeech": "direction cue", "tier": 2, "group": "Direction cues", "tip": "Recognize it as a direction; command grammar comes later.", "exampleSpanish": "Sigue todo recto.", "exampleEnglish": "Continue straight ahead." },
+    { "spanish": "gira", "english": "turn", "partOfSpeech": "direction cue", "tier": 2, "group": "Direction cues", "tip": "Listen for the side that follows.", "exampleSpanish": "Gira a la derecha.", "exampleEnglish": "Turn right." },
+    { "spanish": "cruza", "english": "cross", "partOfSpeech": "direction cue", "tier": 2, "group": "Direction cues", "tip": "Recognize it before a street or traffic light.", "exampleSpanish": "Cruza la calle.", "exampleEnglish": "Cross the street." },
     { "spanish": "Perdón", "english": "Excuse me", "partOfSpeech": "polite opener", "tier": 1, "group": "Asking politely", "tip": "Use it before stopping someone for help.", "exampleSpanish": "Perdón, ¿dónde está la plaza?", "exampleEnglish": "Excuse me, where is the plaza?" },
     { "spanish": "Gracias por la ayuda", "english": "Thank you for the help", "partOfSpeech": "closing phrase", "tier": 1, "group": "Asking politely", "tip": "A warm closing after receiving directions.", "exampleSpanish": "Perfecto. Gracias por la ayuda.", "exampleEnglish": "Perfect. Thank you for the help." }
   ],
@@ -117,9 +123,9 @@
     ],
     "examples": [
       { "spanish": "¿Dónde está Plaza Mayor?", "english": "Where is Plaza Mayor?" },
-      { "spanish": "Está todo recto.", "english": "It is straight ahead." },
+      { "spanish": "Plaza Mayor está todo recto.", "english": "Plaza Mayor is straight ahead." },
       { "spanish": "La fuente está a la izquierda.", "english": "The fountain is on the left." },
-      { "spanish": "La plaza está al lado de la panadería.", "english": "The plaza is beside the bakery." }
+      { "spanish": "La farmacia está al lado de la panadería.", "english": "The pharmacy is beside the bakery." }
     ],
     "practicePrompt": "Choose one nearby place and ask where it is, then answer with está."
   },
@@ -179,7 +185,7 @@
   "pronunciation": {
     "focus": "Direction words that must sound different",
     "tips": [
-      "Stress quier in izquierda: ees-KYEHR-da.",
+      "Keep the middle sound clear: iz-KYER-da.",
       "Keep derecha clear and even: de-RE-cha.",
       "The written accent in dónde marks the question sound.",
       "Pause after Perdón before asking the question."
@@ -188,7 +194,7 @@
       { "text": "¿Dónde está...?", "meaning": "Where is...?", "note": "Let the question rise naturally." },
       { "text": "Todo recto.", "meaning": "Straight ahead.", "note": "Keep both o vowels short and clear." },
       { "text": "A la derecha.", "meaning": "To the right.", "note": "Stress re in derecha." },
-      { "text": "A la izquierda.", "meaning": "To the left.", "note": "Keep the z soft in Spain or s-like elsewhere; both are correct." },
+      { "text": "A la izquierda.", "meaning": "To the left.", "note": "Stress quier and keep the opening iz short. In much of Spain, z sounds like th in think; in most of Latin America, it sounds like s." },
       { "text": "Está al lado de...", "meaning": "It is beside...", "note": "Connect al lado smoothly." },
       { "text": "Gracias por la ayuda.", "meaning": "Thank you for the help.", "note": "Finish with a warm, relaxed rhythm." }
     ]
@@ -196,11 +202,11 @@
   "speaking": {
     "instructions": "Carlos steps back while you ask for and follow the route one response at a time.",
     "items": [
-      { "stage": "repeat", "label": "Listen", "carlosPrompt": "Perdón, ¿dónde está Plaza Mayor?", "cue": "Hear the complete question once, then ask it yourself.", "prompt": "Repeat the direction question.", "text": "Perdón, ¿dónde está Plaza Mayor?", "meaning": "Excuse me, where is Plaza Mayor?", "focus": "Pause after Perdón." },
-      { "stage": "repeat", "label": "Your turn", "carlosPrompt": "Sigue todo recto. Después, gira a la derecha.", "cue": "Repeat the route in two clear chunks.", "prompt": "Repeat the first two route cues.", "text": "Todo recto. Después, a la derecha.", "meaning": "Straight ahead. Then, to the right.", "focus": "Keep the two directions distinct." },
-      { "stage": "recall", "label": "Keep talking", "carlosPrompt": "La plaza está allí. ¿Dónde está?", "cue": "Use está and the side the neighbor gave you.", "prompt": "Say where the plaza is.", "text": "La plaza está a la izquierda.", "meaning": "The plaza is on the left.", "focus": "Use está for the singular place." },
-      { "stage": "recall", "label": "One more challenge", "carlosPrompt": "¿Dónde está la plaza desde la panadería?", "cue": "Use the bakery as a landmark before opening the model.", "prompt": "Locate it beside the bakery.", "text": "Está al lado de la panadería.", "meaning": "It is beside the bakery.", "focus": "Keep al lado de as one location chunk." },
-      { "stage": "personalize", "label": "Finish the conversation", "carlosPrompt": "¿Dónde está un lugar cerca de ti?", "cue": "Ask about one real place, then locate it with aquí, allí, cerca, or a side.", "prompt": "Locate a real place near you.", "text": "¿Dónde está la farmacia? Está allí, a la derecha.", "meaning": "Where is the pharmacy? It is there, on the right.", "focus": "Replace farmacia with a place true for you." }
+      { "stage": "repeat", "label": "Listen", "carlosPrompt": "Perdón, ¿dónde está Plaza Mayor?", "carlosPromptEnglish": "Excuse me, where is Plaza Mayor?", "cue": "Hear the complete question once, then ask it yourself.", "prompt": "Repeat the direction question.", "text": "Perdón, ¿dónde está Plaza Mayor?", "meaning": "Excuse me, where is Plaza Mayor?", "focus": "Pause after Perdón." },
+      { "stage": "repeat", "label": "Your turn", "carlosPrompt": "Sigue todo recto. Después, gira a la derecha.", "carlosPromptEnglish": "Continue straight. Then turn right.", "cue": "Repeat the route in two clear chunks.", "prompt": "Repeat the first two route cues.", "text": "Todo recto. Después, a la derecha.", "meaning": "Straight ahead. Then, to the right.", "focus": "Keep the two directions distinct." },
+      { "stage": "recall", "label": "Keep talking", "carlosPrompt": "La plaza está allí. ¿Dónde está?", "carlosPromptEnglish": "The plaza is there. Where is it?", "cue": "Use está and the side the neighbor gave you.", "prompt": "Say where the plaza is.", "text": "La plaza está a la izquierda.", "meaning": "The plaza is on the left.", "focus": "Use está for the singular place." },
+      { "stage": "recall", "label": "One more challenge", "carlosPrompt": "Después de la panadería, ¿dónde está la plaza?", "carlosPromptEnglish": "After the bakery, where is the plaza?", "cue": "Use the final direction the neighbor gave you.", "prompt": "Locate it on the left.", "text": "Está a la izquierda.", "meaning": "It is on the left.", "focus": "Keep a la izquierda as one direction chunk." },
+      { "stage": "personalize", "label": "Finish the conversation", "carlosPrompt": "¿Dónde está un lugar cerca de ti?", "carlosPromptEnglish": "Where is a place near you?", "cue": "Ask about one real place, then locate it with aquí, allí, cerca, or a side.", "prompt": "Locate a real place near you.", "text": "¿Dónde está la farmacia? Está allí, a la derecha.", "meaning": "Where is the pharmacy? It is there, on the right.", "focus": "Replace farmacia with a place true for you." }
     ]
   },
   "flashcards": [
@@ -210,7 +216,6 @@
         "la plaza",
         "la calle",
         "la esquina",
-        "el semáforo",
         "la fuente",
         "la farmacia",
         "la panadería",
@@ -222,6 +227,7 @@
         "A la derecha.",
         "A la izquierda.",
         "al lado de",
+        "Perdón",
         "Gracias por la ayuda."
       ]
     }
@@ -235,7 +241,7 @@
     { "type": "fillBlank", "difficulty": "medium", "prompt": "Complete: ¿Dónde _____ Plaza Mayor?", "options": ["está", "soy", "tengo", "prefiero"], "answer": "está", "explanation": "Use está to ask where one place is located." },
     { "type": "fillBlank", "difficulty": "medium", "prompt": "Complete: La fuente está a la _____.", "options": ["izquierda", "recto", "cerca", "calle"], "answer": "izquierda", "explanation": "A la izquierda means on or to the left." },
     { "type": "multipleChoice", "difficulty": "medium", "prompt": "The local says Sigue todo recto. What should you do?", "options": ["Keep going straight.", "Turn around.", "Enter the café.", "Ask for the bill."], "answer": "Keep going straight.", "explanation": "Sigue todo recto tells you to continue straight ahead." },
-    { "type": "multipleChoice", "difficulty": "medium", "prompt": "Which phrase locates the plaza beside the bakery?", "options": ["La plaza está al lado de la panadería.", "La plaza soy la panadería.", "La plaza está a las diez.", "La plaza prefiere pan."], "answer": "La plaza está al lado de la panadería.", "explanation": "Está plus al lado de correctly locates one place beside a landmark." },
+    { "type": "multipleChoice", "difficulty": "medium", "prompt": "Which phrase locates the pharmacy beside the bakery?", "options": ["La farmacia está al lado de la panadería.", "La farmacia soy la panadería.", "La farmacia está a las diez.", "La farmacia prefiere pan."], "answer": "La farmacia está al lado de la panadería.", "explanation": "Está plus al lado de correctly locates the pharmacy beside a landmark." },
     { "type": "multipleChoice", "difficulty": "medium", "prompt": "You stop a stranger for help. Which opener is most natural?", "options": ["Perdón, ¿dónde está la plaza?", "Quisiera la plaza sin azúcar.", "Soy una plaza.", "La cuenta, por favor."], "answer": "Perdón, ¿dónde está la plaza?", "explanation": "Perdón politely gets attention before the location question." },
     { "type": "translation", "difficulty": "medium", "prompt": "Translate: Está allí, a la derecha.", "options": ["It is there, on the right.", "It is here, on the left.", "Go straight at the corner.", "The plaza is far away."], "answer": "It is there, on the right.", "explanation": "Allí means there and a la derecha means on the right." },
     { "type": "multipleChoice", "difficulty": "medium", "prompt": "The local has finished explaining. What should you say?", "options": ["Gracias por la ayuda.", "Prefiero café.", "Estoy ocupado.", "Mi hermana vive aquí."], "answer": "Gracias por la ayuda.", "explanation": "This thanks the person specifically for helping with the route." },
@@ -244,7 +250,7 @@
     { "type": "multipleChoice", "difficulty": "hard", "prompt": "Which sentence uses está correctly?", "options": ["La farmacia está enfrente de la fuente.", "La farmacia está una fuente.", "La farmacia soy aquí.", "La farmacia quisiera derecha."], "answer": "La farmacia está enfrente de la fuente.", "explanation": "Está plus enfrente de locates the singular pharmacy across from the fountain." },
     { "type": "multipleChoice", "difficulty": "hard", "prompt": "You hear Hay una plaza cerca. What should you understand today?", "options": ["There is a plaza nearby.", "The plaza is on the right.", "I prefer the nearby plaza.", "Turn at the plaza."], "answer": "There is a plaza nearby.", "explanation": "Hay previews existence. Today you only need to recognize it; Lesson 8 will compare hay and está." },
     { "type": "multipleChoice", "difficulty": "hard", "prompt": "Carlos asks ¿Dónde está la plaza? You can see it across from the fountain. Answer naturally.", "options": ["Está enfrente de la fuente.", "Hay fuente está plaza.", "Todo recto por favor café.", "La plaza es mi hermana."], "answer": "Está enfrente de la fuente.", "explanation": "Está plus enfrente de precisely identifies the plaza’s location." },
-    { "type": "multipleChoice", "difficulty": "practical usage", "prompt": "Carlos stops helping. Which response completes the mission independently?", "options": ["Perdón, ¿dónde está Plaza Mayor? Todo recto, derecha, cruzo la calle... Está allí, a la izquierda. Gracias por la ayuda.", "Carlos, dime todo en inglés.", "Quisiera una plaza y una tostada.", "Mi familia está libre el sábado."], "answer": "Perdón, ¿dónde está Plaza Mayor? Todo recto, derecha, cruzo la calle... Está allí, a la izquierda. Gracias por la ayuda.", "explanation": "The learner asks, tracks all three cues, identifies the destination, and closes politely." }
+    { "type": "multipleChoice", "difficulty": "practical usage", "prompt": "Carlos stops helping. Which response completes the mission independently?", "options": ["Perdón, ¿dónde está Plaza Mayor? Todo recto, después a la derecha en la panadería, y luego cruzo la calle. Perfecto. Gracias por la ayuda.", "Carlos, dime todo en inglés.", "Quisiera una plaza y una tostada.", "Mi familia está libre el sábado."], "answer": "Perdón, ¿dónde está Plaza Mayor? Todo recto, después a la derecha en la panadería, y luego cruzo la calle. Perfecto. Gracias por la ayuda.", "explanation": "The learner asks, confirms all three route cues, and closes politely." }
   ],
   "miniConversation": {
     "title": "Find the plaza without Carlos",
@@ -274,6 +280,7 @@
     {
       "id": "tiled-street-sign",
       "title": "The tiled street sign",
+      "savedLabel": "New Madrid Memory",
       "prompt": "A blue-and-white ceramic sign is set into the corner wall. Look closer before turning.",
       "carlosSpanish": "Muchas calles antiguas de Madrid tienen placas de cerámica con dibujos de su historia.",
       "carlosEnglish": "Many old Madrid streets have ceramic signs with pictures from their history.",
@@ -287,6 +294,10 @@
     { "phrase": "Está a dos minutos.", "meaning": "It’s two minutes away.", "note": "A common way to describe a short walking distance without giving exact meters." },
     { "phrase": "No tiene pérdida.", "meaning": "You can’t miss it.", "note": "Useful to recognize, but not required for the mission." }
   ],
+  "culturePresentation": {
+    "nativeSpeechLabel": "What locals really say",
+    "collapseCommonMistakes": true
+  },
   "commonMistakes": [
     { "mistake": "¿Dónde es la plaza?", "better": "¿Dónde está la plaza?", "why": "Use está for the location of a place." },
     { "mistake": "a derecha", "better": "a la derecha", "why": "Keep a la derecha as one complete direction chunk." },
@@ -340,7 +351,7 @@
     "unlockCondition": "Complete Lesson 7."
   },
   "achievementsUnlocked": ["found_the_way"],
-  "carlosClosing": "You asked for the route, followed every cue, and found Plaza Mayor without waiting for me to answer. That independence matters—now the rain is starting, and my apartment is close.",
+  "carlosClosing": "I almost answered for you—but I’m glad I didn’t. You asked for the route, followed every cue, and found Plaza Mayor yourself. Now the rain is starting, and my apartment is close.",
   "xpReward": 70,
   "nextLesson": "lesson-08-vacation"
 }

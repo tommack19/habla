@@ -1,8 +1,8 @@
 {
   "id": "lesson-10-daily-routine",
-  "contentVersion": "1.1",
+  "contentVersion": "1.2",
   "title": "Weekend Adventure",
-  "image": "assets/images/lessons/lesson-07-travel.png.png",
+  "image": "assets/images/lessons/lesson-10-finale.png",
   "level": "A1",
   "module": "Madrid Chapter Finale",
   "estimatedMinutes": 32,
@@ -46,8 +46,8 @@
   },
   "microCliffhanger": {
     "speaker": "Elena",
-    "spanish": "Antes de volver a Granada, Javier y yo queremos invitarte. La próxima parte de tu viaje empieza allí.",
-    "english": "Before returning to Granada, Javier and I want to invite you. The next part of your journey begins there.",
+    "spanish": "Hola. Carlos nos ha hablado mucho de ti. Javier y yo te esperamos en Granada.",
+    "english": "Hello. Carlos has told us so much about you. Javier and I are waiting for you in Granada.",
     "payoffLesson": "lesson-11-weather"
   },
   "carlosIntroduction": {
@@ -353,12 +353,28 @@
     ]
   },
   "chapterCeremony": {
-    "title": "Your first chapter is complete",
-    "subtitle": "Nine lessons became one complete day. Your Madrid journey now has a beginning, a middle, and a memory.",
+    "eyebrow": "Chapter 1 complete",
+    "title": "Madrid Complete",
+    "subtitle": "Nine lessons became one complete day. Madrid is now part of your Spanish story.",
     "carlosSpanish": "Cuando nos conocimos, sabías unas palabras. Hoy pasamos todo el día hablando español juntos. Estoy muy orgulloso de ti.",
     "carlosEnglish": "When we met, you knew a few words. Today we spent the whole day speaking Spanish together. I’m very proud of you.",
     "journey": ["First Coffee", "Family Dinner", "Mercado de San Miguel", "Plaza Mayor", "Mi Casa", "Weekend Adventure"],
-    "nextDestination": "Granada"
+    "nextDestination": "Granada",
+    "hideXp": true,
+    "hideAchievement": true,
+    "postcard": {
+      "image": "assets/images/lessons/chapter-02-granada-postcard.png",
+      "alt": "A vintage postcard showing the Alhambra and Granada at golden dusk",
+      "eyebrow": "Carlos reaches into his pocket",
+      "carlosSpanish": "Hay alguien que quiero que conozcas.",
+      "carlosEnglish": "There’s someone I’d like you to meet.",
+      "voiceSpeaker": "Elena",
+      "voiceSpanish": "Hola. Carlos nos ha hablado mucho de ti. Javier y yo te esperamos en Granada.",
+      "voiceEnglish": "Hello. Carlos has told us so much about you. Javier and I are waiting for you in Granada.",
+      "destination": "Granada",
+      "chapterLabel": "Chapter 2",
+      "comingNext": "Coming next"
+    }
   },
   "passportStamp": {
     "id": "madrid-weekend",

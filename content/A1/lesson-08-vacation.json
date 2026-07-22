@@ -1,8 +1,8 @@
 {
   "id": "lesson-08-vacation",
-  "contentVersion": "1.1",
+  "contentVersion": "1.2",
   "title": "An Afternoon at Home",
-  "image": "assets/images/lessons/lesson-08-vacation.png.png",
+  "image": "assets/images/lessons/lesson-08-home.png",
   "level": "A1",
   "module": "Home and Rooms",
   "estimatedMinutes": 30,
@@ -13,7 +13,7 @@
     "location": "Carlos and Marta’s apartment",
     "time": "Saturday, early afternoon",
     "heroText": "Rain brings you back to Carlos and Marta’s apartment for a quiet afternoon at home.",
-    "scene": "Rain interrupts the walk after Plaza Mayor, so Carlos and the learner return to the apartment from the family dinner. This time the home is quiet and ordinary: a damp jacket by the door, a mug on the table, books on the shelf, a guitar in the corner, and family photos among the everyday clutter.",
+    "scene": "Rain interrupts the walk after Plaza Mayor, so Carlos and {{learnerName}} return to the apartment from the family dinner. This time the home is quiet and ordinary: a damp jacket by the door, a mug on the table, books on the shelf, a guitar in the corner, and family photos among the everyday clutter.",
     "mission": "Name the main rooms, say what exists in one room, and explain where one object is.",
     "continuity": "The learner already knows Carlos’s family and has visited this home. The new perspective is the comfortable, lived-in rhythm of an ordinary afternoon there."
   },
@@ -38,8 +38,8 @@
   "carlosIntroduction": {
     "eyebrow": "Your mission",
     "title": "Make yourself at home",
-    "message": "You remember the apartment from dinner. Today it feels different—quiet, rainy, and lived in. Choose one room to explore. Then tell Marta what is in it and where one object is. You already know está from the street; now we’ll compare it with hay.",
-    "prompt": "Begin with: ¿Qué hay en el salón?"
+    "message": "You remember the apartment from dinner. Today it feels quieter—rainy and lived in. Choose a room to explore, tell Marta what is there, and locate one object. You already know está; now you’ll compare it with hay.",
+    "prompt": "Begin by choosing: el salón, la cocina, or el rincón de estudio."
   },
   "canDo": [
     "Name the main rooms in a home.",
@@ -73,43 +73,60 @@
     "objective": "Choose one room to explore and describe without changing the lesson objective.",
     "prompt": "¿Qué habitación quieres ver primero?",
     "promptEnglish": "Which room would you like to see first?",
+    "responseLabel": "Carlos smiles",
+    "memoryLabel": "Memory added",
     "options": [
       {
         "id": "living-room",
+        "icon": "living-room",
         "label": "Living Room",
         "learnerSpanish": "El salón, por favor.",
         "learnerEnglish": "The living room, please.",
         "carlosSpanish": "Buena elección. Aquí leemos, hablamos y escuchamos música cuando llueve.",
         "carlosEnglish": "Good choice. We read, talk, and listen to music here when it rains.",
         "modelOrder": "En el salón hay un sofá y una guitarra.",
-        "modelOrderEnglish": "In the living room there is a sofa and a guitar."
+        "modelOrderEnglish": "In the living room there is a sofa and a guitar.",
+        "memoryCallback": "Living room first? I’ll remember that.",
+        "vocabularyFocus": ["el salón", "el sofá", "la guitarra"]
       },
       {
         "id": "kitchen",
+        "icon": "kitchen",
         "label": "Kitchen",
         "learnerSpanish": "La cocina, por favor.",
         "learnerEnglish": "The kitchen, please.",
         "carlosSpanish": "Buena elección. Marta cocina aquí y yo preparo el café por la mañana.",
         "carlosEnglish": "Good choice. Marta cooks here and I make the coffee in the morning.",
         "modelOrder": "En la cocina hay una mesa y una taza.",
-        "modelOrderEnglish": "In the kitchen there is a table and a mug."
+        "modelOrderEnglish": "In the kitchen there is a table and a mug.",
+        "memoryCallback": "Kitchen first? I’ll remember that.",
+        "vocabularyFocus": ["la cocina", "la mesa", "la taza"]
       },
       {
         "id": "study-corner",
+        "icon": "study-corner",
         "label": "Study Corner",
         "learnerSpanish": "El rincón de estudio, por favor.",
         "learnerEnglish": "The study corner, please.",
         "carlosSpanish": "Buena elección. Aquí preparo las clases y guardo mis libros favoritos.",
         "carlosEnglish": "Good choice. I prepare lessons here and keep my favorite books.",
         "modelOrder": "En el rincón de estudio hay una estantería y una lámpara.",
-        "modelOrderEnglish": "In the study corner there is a bookshelf and a lamp."
+        "modelOrderEnglish": "In the study corner there is a bookshelf and a lamp.",
+        "memoryCallback": "The study corner first? I’ll remember that.",
+        "vocabularyFocus": ["la estantería", "la lámpara", "el libro"]
       }
     ],
     "rejoin": "After exploring the selected room, Marta asks what is there and Carlos asks where one object is. Every path rejoins at the family-photo discovery."
   },
+  "vocabularyPresentation": {
+    "showPriorityLabels": true,
+    "collapseOptional": true,
+    "collapseGroups": true,
+    "openFirstGroup": true
+  },
   "vocabulary": [
-    { "spanish": "la casa", "english": "home / house", "partOfSpeech": "noun", "tier": 1, "group": "At home", "tip": "Casa can mean the physical house or the feeling of home.", "exampleSpanish": "Estamos en casa.", "exampleEnglish": "We are at home." },
-    { "spanish": "el apartamento", "english": "apartment", "partOfSpeech": "noun", "tier": 1, "group": "At home", "tip": "Apartamento and piso are both heard in Spain.", "exampleSpanish": "El apartamento de Carlos está cerca.", "exampleEnglish": "Carlos’s apartment is nearby." },
+    { "spanish": "la casa", "english": "home / house", "partOfSpeech": "noun", "tier": 2, "group": "At home", "tip": "Casa can mean the physical house or the feeling of home.", "exampleSpanish": "Estamos en casa.", "exampleEnglish": "We are at home." },
+    { "spanish": "el apartamento", "english": "apartment", "partOfSpeech": "noun", "tier": 2, "group": "At home", "tip": "Apartamento and piso are both heard in Spain.", "exampleSpanish": "El apartamento de Carlos está cerca.", "exampleEnglish": "Carlos’s apartment is nearby." },
     { "spanish": "el salón", "english": "living room", "partOfSpeech": "noun", "tier": 1, "group": "Rooms", "tip": "In Spain, salón is common for the main living room.", "exampleSpanish": "Hay un sofá en el salón.", "exampleEnglish": "There is a sofa in the living room." },
     { "spanish": "la cocina", "english": "kitchen", "partOfSpeech": "noun", "tier": 1, "group": "Rooms", "tip": "Use en la cocina for in the kitchen.", "exampleSpanish": "La taza está en la cocina.", "exampleEnglish": "The mug is in the kitchen." },
     { "spanish": "el dormitorio", "english": "bedroom", "partOfSpeech": "noun", "tier": 1, "group": "Rooms", "tip": "Habitación is also common for room or bedroom.", "exampleSpanish": "El dormitorio está al final del pasillo.", "exampleEnglish": "The bedroom is at the end of the hall." },
@@ -118,16 +135,16 @@
     { "spanish": "el balcón", "english": "balcony", "partOfSpeech": "noun", "tier": 2, "group": "Rooms", "tip": "Notice the final stress shown by the accent.", "exampleSpanish": "Hay plantas en el balcón.", "exampleEnglish": "There are plants on the balcony." },
     { "spanish": "el sofá", "english": "sofa", "partOfSpeech": "noun", "tier": 1, "group": "Everyday objects", "tip": "A familiar-looking word with stress on the final á.", "exampleSpanish": "El sofá está en el salón.", "exampleEnglish": "The sofa is in the living room." },
     { "spanish": "la mesa", "english": "table", "partOfSpeech": "noun", "tier": 1, "group": "Everyday objects", "tip": "Return to this familiar café word inside the home.", "exampleSpanish": "Hay una taza sobre la mesa.", "exampleEnglish": "There is a mug on the table." },
-    { "spanish": "la silla", "english": "chair", "partOfSpeech": "noun", "tier": 1, "group": "Everyday objects", "tip": "Silla usually has a y-like ll sound.", "exampleSpanish": "La silla está al lado de la mesa.", "exampleEnglish": "The chair is beside the table." },
+    { "spanish": "la silla", "english": "chair", "partOfSpeech": "noun", "tier": 2, "group": "Everyday objects", "tip": "Silla usually has a y-like ll sound.", "exampleSpanish": "La silla está al lado de la mesa.", "exampleEnglish": "The chair is beside the table." },
     { "spanish": "la estantería", "english": "bookshelf", "partOfSpeech": "noun", "tier": 1, "group": "Everyday objects", "tip": "Break it into es-tan-te-RÍ-a.", "exampleSpanish": "Los libros están en la estantería.", "exampleEnglish": "The books are on the bookshelf." },
-    { "spanish": "el libro", "english": "book", "partOfSpeech": "noun", "tier": 1, "group": "Everyday objects", "tip": "Use hay libros when the exact number does not matter.", "exampleSpanish": "Hay libros en el salón.", "exampleEnglish": "There are books in the living room." },
+    { "spanish": "el libro", "english": "book", "partOfSpeech": "noun", "tier": 2, "group": "Everyday objects", "tip": "Use hay libros when the exact number does not matter.", "exampleSpanish": "Hay libros en el salón.", "exampleEnglish": "There are books in the living room." },
     { "spanish": "la foto", "english": "photo", "partOfSpeech": "noun", "tier": 1, "group": "Personal objects", "tip": "Foto is feminine because it is short for fotografía.", "exampleSpanish": "La foto está en la estantería.", "exampleEnglish": "The photo is on the bookshelf." },
     { "spanish": "la guitarra", "english": "guitar", "partOfSpeech": "noun", "tier": 1, "group": "Personal objects", "tip": "The written gu keeps a hard g sound before i.", "exampleSpanish": "Hay una guitarra al lado del sofá.", "exampleEnglish": "There is a guitar beside the sofa." },
     { "spanish": "la bufanda", "english": "scarf", "partOfSpeech": "noun", "tier": 2, "group": "Personal objects", "tip": "Here it is an old football scarf, not a winter lesson word.", "exampleSpanish": "La bufanda está en la pared.", "exampleEnglish": "The scarf is on the wall." },
     { "spanish": "la taza", "english": "mug / cup", "partOfSpeech": "noun", "tier": 1, "group": "Personal objects", "tip": "A familiar café object now appears at home.", "exampleSpanish": "La taza está sobre la mesa.", "exampleEnglish": "The mug is on the table." },
     { "spanish": "la lámpara", "english": "lamp", "partOfSpeech": "noun", "tier": 1, "group": "Everyday objects", "tip": "Stress the first syllable: LÁM-pa-ra.", "exampleSpanish": "Hay una lámpara en el rincón.", "exampleEnglish": "There is a lamp in the corner." },
-    { "spanish": "la ventana", "english": "window", "partOfSpeech": "noun", "tier": 1, "group": "Everyday objects", "tip": "Use junto a la ventana for by the window.", "exampleSpanish": "El sofá está junto a la ventana.", "exampleEnglish": "The sofa is by the window." },
-    { "spanish": "la puerta", "english": "door", "partOfSpeech": "noun", "tier": 1, "group": "Everyday objects", "tip": "Puerta contains the common ue sound.", "exampleSpanish": "La chaqueta está junto a la puerta.", "exampleEnglish": "The jacket is by the door." },
+    { "spanish": "la ventana", "english": "window", "partOfSpeech": "noun", "tier": 2, "group": "Everyday objects", "tip": "Use junto a la ventana for by the window.", "exampleSpanish": "El sofá está junto a la ventana.", "exampleEnglish": "The sofa is by the window." },
+    { "spanish": "la puerta", "english": "door", "partOfSpeech": "noun", "tier": 2, "group": "Everyday objects", "tip": "Puerta contains the common ue sound.", "exampleSpanish": "La chaqueta está junto a la puerta.", "exampleEnglish": "The jacket is by the door." },
     { "spanish": "hay", "english": "there is / there are", "partOfSpeech": "verb form", "tier": 1, "group": "Describing a room", "tip": "Hay does not change for one or many things.", "exampleSpanish": "Hay una mesa.", "exampleEnglish": "There is a table." },
     { "spanish": "está", "english": "is located", "partOfSpeech": "verb form", "tier": 1, "group": "Describing a room", "tip": "Use está for one known object.", "exampleSpanish": "La mesa está en la cocina.", "exampleEnglish": "The table is in the kitchen." },
     { "spanish": "en", "english": "in / on", "partOfSpeech": "preposition", "tier": 1, "group": "Location", "tip": "En is the simplest flexible location word.", "exampleSpanish": "Está en el salón.", "exampleEnglish": "It is in the living room." },
@@ -157,28 +174,53 @@
   },
   "dialogue": {
     "title": "Waiting out the rain",
-    "setting": "Carlos and the learner enter the familiar apartment, leave their wet jackets by the door, and choose one room to explore.",
+    "setting": "Carlos and {{learnerName}} enter the familiar apartment, leave their wet jackets by the door, and choose one room to explore.",
     "lines": [
       { "speaker": "Carlos", "spanish": "¡Pasa! Mi casa es tu casa. ¿Recuerdas el apartamento?", "english": "Come in! Make yourself at home. Do you remember the apartment?" },
       { "speaker": "Learner", "spanish": "Sí. Es tu casa.", "english": "Yes. It is your home." },
       { "speaker": "Carlos", "spanish": "Exacto. Hoy está más tranquilo. ¿Qué habitación quieres ver primero?", "english": "Exactly. Today it is quieter. Which room do you want to see first?" },
       { "speaker": "Learner", "intent": "Choose one room", "spanish": "El salón, por favor.", "english": "The living room, please." },
       { "speaker": "Carlos", "spanish": "Buena elección.", "english": "Good choice." },
+      { "speaker": "Marta", "spanish": "Voy a preparar algo caliente mientras esperamos.", "english": "I’m going to make something warm while we wait." },
       { "speaker": "Marta", "spanish": "¿Qué hay allí?", "english": "What is there?" },
       { "speaker": "Learner", "intent": "Describe the selected room", "spanish": "En el salón hay un sofá y una guitarra.", "english": "In the living room there is a sofa and a guitar." },
-      { "speaker": "Carlos", "spanish": "Muy bien. También hay una foto especial. ¿Dónde está?", "english": "Very good. There is also a special photo. Where is it?" },
-      { "speaker": "Learner", "spanish": "La foto está en la estantería, al lado de los libros.", "english": "The photo is on the bookshelf, beside the books." },
+      {
+        "speaker": "Carlos",
+        "intent": "Ask where the selected object is",
+        "spanish": "¿Dónde está la guitarra?",
+        "english": "Where is the guitar?",
+        "byChoice": {
+          "living-room": { "spanish": "¿Dónde está la guitarra?", "english": "Where is the guitar?" },
+          "kitchen": { "spanish": "¿Dónde está la taza?", "english": "Where is the mug?" },
+          "study-corner": { "spanish": "¿Dónde está la lámpara?", "english": "Where is the lamp?" }
+        }
+      },
+      {
+        "speaker": "Learner",
+        "intent": "Locate the selected object",
+        "spanish": "Está al lado del sofá.",
+        "english": "It is beside the sofa.",
+        "byChoice": {
+          "living-room": { "spanish": "Está al lado del sofá.", "english": "It is beside the sofa." },
+          "kitchen": { "spanish": "Está sobre la mesa.", "english": "It is on the table." },
+          "study-corner": { "spanish": "Está al lado de la estantería.", "english": "It is beside the bookshelf." }
+        }
+      },
+      { "speaker": "Carlos", "spanish": "Hay algo especial entre los libros. ¿Lo ves?", "english": "There is something special among the books. Do you see it?" },
+      { "speaker": "Learner", "spanish": "Hay una foto.", "english": "There is a photo." },
+      { "speaker": "Carlos", "spanish": "Exacto. ¿Dónde está?", "english": "Exactly. Where is it?" },
+      { "speaker": "Learner", "spanish": "Está en la estantería, al lado de los libros.", "english": "It is on the bookshelf, beside the books." },
       { "speaker": "Carlos", "spanish": "Es una foto de Marta, Nico y yo. Ya conoces un poco más nuestra casa.", "english": "It is a photo of Marta, Nico, and me. Now you know a little more about our home." }
     ],
     "comprehension": [
-      { "prompt": "Why do Carlos and the learner return home?", "options": ["Because it starts raining", "Because the market closes", "Because Carlos is sick"], "answer": "Because it starts raining" },
+      { "prompt": "Why do you and Carlos return home?", "options": ["Because it starts raining", "Because the market closes", "Because Carlos is sick"], "answer": "Because it starts raining" },
       { "prompt": "What does Marta ask?", "options": ["What is in the room?", "How much is the sofa?", "Where is Plaza Mayor?"], "answer": "What is in the room?" },
       { "prompt": "Where is the family photo?", "options": ["On the bookshelf beside the books", "Under the kitchen table", "Outside on the balcony"], "answer": "On the bookshelf beside the books" }
     ]
   },
   "listening": {
     "title": "A room you can picture",
-    "instructions": "Listen, follow along, then check what you understood.",
+    "instructions": "Later, Carlos brings everyone into the living room. Listen, follow along, then check what you understood.",
     "playbackSpeeds": ["natural", "slow"],
     "naturalScript": "En el salón hay un sofá, una guitarra y una estantería. El sofá está junto a la ventana. La guitarra está al lado del sofá. En la estantería hay libros y una foto de mi familia. La foto está al lado de los libros.",
     "slowScript": "En el salón / hay un sofá, / una guitarra / y una estantería. / El sofá está / junto a la ventana. / La guitarra está / al lado del sofá. / En la estantería / hay libros / y una foto. / La foto está / al lado de los libros.",
@@ -223,12 +265,26 @@
     ]
   },
   "speaking": {
-    "instructions": "Carlos and Marta guide you through describing the familiar apartment one response at a time.",
+    "instructions": "Start in the room you chose, then join Carlos and Marta in the living room.",
     "items": [
-      { "stage": "repeat", "label": "Listen", "carlosPrompt": "En el salón hay un sofá.", "cue": "Hear how hay introduces something in the room, then repeat it.", "prompt": "Introduce an object in the living room.", "text": "En el salón hay un sofá.", "meaning": "In the living room there is a sofa.", "focus": "Use hay because the sofa is new information." },
-      { "stage": "repeat", "label": "Your turn", "carlosPrompt": "¿Dónde está el sofá?", "cue": "Locate the same sofa now that both people know it.", "prompt": "Locate the sofa.", "text": "El sofá está junto a la ventana.", "meaning": "The sofa is by the window.", "focus": "Use está because both people now know which sofa." },
-      { "stage": "recall", "label": "Keep talking", "carlosPrompt": "Marta pregunta: ¿Qué hay en la cocina?", "cue": "Name one thing using hay before opening the model.", "prompt": "Say what exists in the kitchen.", "text": "En la cocina hay una mesa.", "meaning": "In the kitchen there is a table.", "focus": "Start with the room, then hay una." },
-      { "stage": "recall", "label": "One more challenge", "carlosPrompt": "Siempre pierdo mi taza. ¿Dónde está?", "cue": "Locate Carlos’s known mug on the table.", "prompt": "Tell Carlos where the mug is.", "text": "La taza está sobre la mesa.", "meaning": "The mug is on the table.", "focus": "Switch from hay to está for the known mug." },
+      {
+        "stage": "repeat", "label": "Listen", "carlosPrompt": "En el salón hay un sofá.", "cue": "Hear how hay introduces something in your chosen room, then repeat it.", "prompt": "Introduce something in the room.", "text": "En el salón hay un sofá.", "meaning": "In the living room there is a sofa.", "focus": "Use hay because the object is new information.",
+        "byChoice": {
+          "living-room": { "carlosPrompt": "En el salón hay un sofá.", "prompt": "Introduce something in the living room.", "text": "En el salón hay un sofá.", "meaning": "In the living room there is a sofa." },
+          "kitchen": { "carlosPrompt": "En la cocina hay una mesa.", "prompt": "Introduce something in the kitchen.", "text": "En la cocina hay una mesa.", "meaning": "In the kitchen there is a table." },
+          "study-corner": { "carlosPrompt": "En el rincón de estudio hay una lámpara.", "prompt": "Introduce something in the study corner.", "text": "En el rincón de estudio hay una lámpara.", "meaning": "In the study corner there is a lamp." }
+        }
+      },
+      {
+        "stage": "repeat", "label": "Your turn", "carlosPrompt": "¿Dónde está el sofá?", "cue": "Locate the known object now that both people know it.", "prompt": "Locate the object.", "text": "El sofá está junto a la ventana.", "meaning": "The sofa is by the window.", "focus": "Use está because both people now know which object.",
+        "byChoice": {
+          "living-room": { "carlosPrompt": "¿Dónde está el sofá?", "prompt": "Locate the sofa.", "text": "El sofá está junto a la ventana.", "meaning": "The sofa is by the window." },
+          "kitchen": { "carlosPrompt": "¿Dónde está la taza?", "prompt": "Locate the mug.", "text": "La taza está sobre la mesa.", "meaning": "The mug is on the table." },
+          "study-corner": { "carlosPrompt": "¿Dónde está la lámpara?", "prompt": "Locate the lamp.", "text": "La lámpara está al lado de la estantería.", "meaning": "The lamp is beside the bookshelf." }
+        }
+      },
+      { "stage": "recall", "label": "Join everyone", "carlosPrompt": "Ahora estamos en el salón. ¿Qué hay aquí?", "cue": "The paths rejoin in the living room. Introduce one object with hay.", "prompt": "Say what exists in the living room.", "text": "En el salón hay una guitarra.", "meaning": "In the living room there is a guitar.", "focus": "Use hay to introduce the guitar." },
+      { "stage": "recall", "label": "One more detail", "carlosPrompt": "¿Dónde está la guitarra?", "cue": "Locate the guitar beside the sofa.", "prompt": "Tell Carlos where the guitar is.", "text": "La guitarra está al lado del sofá.", "meaning": "The guitar is beside the sofa.", "focus": "Switch from hay to está for the known guitar." },
       { "stage": "personalize", "label": "Finish the conversation", "carlosPrompt": "¿Qué hay en una habitación cerca de ti? ¿Dónde está?", "cue": "Describe one real object and its location.", "prompt": "Describe one room around you.", "text": "En mi habitación hay una lámpara. La lámpara está al lado de la cama.", "meaning": "There is a lamp in my room. The lamp is beside the bed.", "focus": "Replace the details with ones that are true for you." }
     ]
   },
@@ -265,7 +321,7 @@
   ],
   "miniConversation": {
     "title": "Show Marta what you noticed",
-    "setting": "Marta joins Carlos and the learner after putting on the kettle.",
+    "setting": "Marta joins Carlos and {{learnerName}} after putting on the kettle.",
     "goal": "Name the selected room, say what is there, and locate the family photo.",
     "turns": [
       { "speaker": "Marta", "spanish": "¿El salón, la cocina o el rincón de estudio?", "english": "The living room, the kitchen, or the study corner?" },
@@ -279,7 +335,10 @@
   },
   "culture": {
     "title": "Mi casa es tu casa",
-    "text": "Mi casa es tu casa literally means ‘my home is your home.’ It warmly helps a guest relax. In Spanish homes, greetings depend on the relationship and region. Close friends may use cheek kisses, while a handshake or verbal greeting is always safe. Follow your host’s lead, and recognize pasa or adelante as invitations to enter."
+    "text": "Mi casa es tu casa literally means ‘my home is your home.’ It warmly helps a guest relax, while Ponte cómodo/a and Como en tu casa are everyday ways to express the same welcome. In Spanish homes, greetings depend on the relationship and region. Close friends may use cheek kisses, while a handshake or verbal greeting is always safe. Follow your host’s lead, and recognize pasa or adelante as invitations to enter."
+  },
+  "culturePresentation": {
+    "nativeSpeechLabel": "You might hear"
   },
   "worldBuilding": [
     { "moment": "at the door", "carlosSpanish": "Deja la chaqueta aquí. Siempre olvidamos poner otro gancho junto a la puerta.", "carlosEnglish": "Leave your jacket here. We always forget to add another hook beside the door." },
@@ -291,6 +350,9 @@
       "id": "family-photo-bookshelf",
       "title": "The family photo",
       "prompt": "A slightly crooked photo sits between two well-used books. Look closer.",
+      "eyebrow": "Hidden memory",
+      "savedEyebrow": "Travel journal moment",
+      "savedLabel": "Family Memory Collected",
       "carlosSpanish": "Es una foto de Marta, Nico y yo en Granada. Nico insistió en llevar esa gorra todo el día.",
       "carlosEnglish": "It is a photo of Marta, Nico, and me in Granada. Nico insisted on wearing that cap all day.",
       "memoryWrites": [
@@ -355,7 +417,7 @@
     "unlockCondition": "Complete Lesson 8."
   },
   "achievementsUnlocked": ["at_home_in_spanish"],
-  "carlosClosing": "You remembered my home, chose where to explore, and described what was there and where it belonged. Make yourself comfortable—the rain is still falling, so I’ll tell you what an ordinary day here looks like.",
+  "carlosClosing": "Thanks for spending the afternoon with us. You explored my home, noticed the little details, and talked about them in Spanish. The rain is still falling, so while we wait I’ll show you what an ordinary day looks like for me...",
   "xpReward": 70,
   "nextLesson": "lesson-09-around-the-house"
 }

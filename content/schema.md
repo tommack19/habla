@@ -86,8 +86,45 @@ Every Habla lesson should follow this standard format.
 - `module`: Course module or topic group
 - `estimatedMinutes`: Expected completion time in minutes
 - `xpReward`: XP awarded for completion
+- `rewards`: Optional explicit reward roles. `lessonCompletionXp` is the canonical completion award and `challengeXp` is the applied mission award; legacy `xpReward` fields remain supported during migration.
 - `skills`: Vocabulary, grammar, listening, speaking, reading, or writing
 - `nextLesson`: The `id` of the recommended next lesson, or `null` if none exists.
+- `contentRoles`: Optional maintenance metadata that classifies core, support, reviewed-reference, and compatibility fields without changing the rendered lesson order.
+- `sectionIntros`: Optional presentation copy for short section eyebrows, titles, and supporting lines. It may refine tone but must not replace teaching content or introduce unlearned Spanish.
+- `sectionTransitions`: Optional brief Carlos lines that bridge completed sections. They should maintain story momentum without adding new teaching content.
+- `dialogue[].presentation.status`: Optional presence copy for message-thread headers, such as `Active now` or a story-specific last-seen time.
+- `realLifeMission.presentationBody`: Optional short setup copy for the example conversation.
+- `realLifeMission.livePracticeCopy`: Optional timeless Carlos invitation shown before opening Carlos chat. Do not reference unreleased implementation details.
+- `microCliffhanger.confirmationSpanish` / `confirmationEnglish`: Optional final message shown before the next-episode tease.
+- `vocabularyPresentation.showPriorityLabels`: Optional presentation flag that labels Tier 1 vocabulary as required and Tier 2 vocabulary as good to know without changing assessment or progression.
+- `vocabularyPresentation.collapseOptional`: Optional presentation flag that keeps Tier 2 vocabulary available in a collapsed shelf so the core mission remains concise.
+- `vocabularyPresentation.collapseGroups`: Optional presentation flag that turns vocabulary groups into compact disclosures without changing vocabulary priority or assessment.
+- `vocabularyPresentation.openFirstGroup`: When grouped vocabulary is collapsed, optionally open the first adaptive group so the learner’s selected item remains prominent.
+- `vocabularyPresentation.groupIcons`: Optional mapping from vocabulary group labels to existing semantic renderer icons.
+- `culturePresentation.collapseWorldBuilding`: Keeps optional environmental observations behind a lightweight discovery disclosure.
+- `culturePresentation.collapseNativeSpeech`: Keeps recognition-only native phrasing available without interrupting the core path.
+- `culturePresentation.collapseCommonMistakes`: Keeps corrective reference material available on demand; it must not introduce assessed content.
+- `culturePresentation.nativeSpeechLabel`: Optional warmer label for recognition-only local phrasing, such as `What locals really say`.
+- `culturePresentation.worldBuildingLabel`: Optional story-specific label for collapsed environmental moments, such as `Apartment moments`.
+- `dialoguePresentation.compactChoicePreview`: A compact reminder that the learner's earlier choice is used in the scene; it avoids repeating the full branch before the dialogue.
+- `dialogue.languageNote`: Optional short, visible explanation for a useful form heard in the scene but not required for production.
+- `speaking.items[].responseFromChoice`: Replaces the model response with the learner's stored choice and canonical order during personalized speaking.
+- `speaking.items[].byChoice`: Optional per-choice prompt, cue, model, or translation overrides. Use it to carry a selected story path through guided speaking before all paths deliberately rejoin.
+- `listening.soundscape`: Optional non-interactive scene-atmosphere copy with a short `label` and `description`. It must not claim playable ambient audio exists unless a real audio asset is supplied.
+- `chapterCeremony`: Optional chapter-finale presentation. `title`, `subtitle`, and Carlos’s bilingual reflection replace a standard lesson-summary tone without changing completion logic.
+- `chapterCeremony.hideXp` / `hideAchievement`: Presentation-only flags for a finale where the emotional chapter reward should take priority. XP and achievement evaluation may still occur in the progress engine; these flags only remove them from the ceremony UI.
+- `chapterCeremony.postcard`: Optional cinematic next-chapter reveal with a project-local `image`, descriptive `alt`, Carlos’s bilingual setup, the next speaker’s bilingual voice line, destination, chapter label, and `comingNext` copy.
+- `pronunciation.presentation`: Optional presentation mode. Use `dayTimeline` only when pronunciation phrases intentionally trace a day from morning to night; items may provide semantic `moment` and `icon` fields.
+- `realLifeMission.successPresentation`: Use `emotional` to replace a repeated success checklist with one outcome, a short Carlos response, and optional `successMoments`.
+- `livingWorldInteractions[].savedLabel`: Optional completion wording for a collected discovery, such as `Madrid Memory Added`.
+- `livingWorldInteractions[].eyebrow` / `savedEyebrow`: Optional emotional labels before and after discovery, such as `Hidden memory` and `Travel journal moment`.
+- `worldBuilding[].icon`: Optional semantic renderer icon for a story observation.
+- `carlosClosingByChoice`: Optional closing lines keyed by learner choice ID. Always provide `carlosClosing` as the safe fallback.
+- `learnerChoices.options[].vocabularyFocus`: Optional vocabulary terms that should be promoted after a choice, especially when the choice uses a different singular or plural form.
+- `learnerChoices.options[].icon`: Required for production choice cards. Use a semantic key from `js/components/choiceIcons.js`; never embed emoji, letters, dots, or lesson-specific SVG markup in content.
+- Choice renderers must call `renderChoiceIcon(choice.icon || choice.id)`. The ID fallback preserves older content, while `scripts/validate-season1.ps1` requires every production choice to declare its icon explicitly.
+- `learnerChoices.responseLabel` / `memoryLabel`: Optional warmer Carlos-response and stored-memory labels without changing choice persistence.
+- `completionLabel`: Optional learner-facing completion wording, such as `Episode complete`, without changing completion behavior or progression.
 - `learnerChoices`: Optional branches that teach the same objective. Each choice includes an ID, learner-facing option, Carlos response, and canonical rejoin point.
 - `memory`: Optional declarative writes into Carlos’s durable learner profile. Use `onChoice` for a selected branch and `onComplete` only for facts the learner actually established.
 - `memoryCallbacks`: An optional, brief acknowledgment of a stored earlier lesson choice. Use `sourceLessonId` with either one `message` or restrained `byChoice` variants.

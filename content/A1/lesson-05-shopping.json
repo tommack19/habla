@@ -1,8 +1,8 @@
 {
   "id": "lesson-05-shopping",
-  "contentVersion": "1.1",
+  "contentVersion": "1.2",
   "title": "Fresh Fruit and Fresh Spanish",
-  "image": "assets/images/lessons/lesson-05-shopping.png.png",
+  "image": "assets/images/lessons/lesson-05-shopping.png",
   "level": "A1",
   "module": "Shopping",
   "estimatedMinutes": 32,
@@ -12,7 +12,7 @@
     "city": "Madrid",
     "location": "Mercado de San Miguel",
     "time": "Saturday at 10:00 AM",
-    "scene": "Carlos is already waiting at the market. He promised his mother he would bring a few ingredients for lunch and asks you to help choose them.",
+    "scene": "Carlos is already waiting at the market. His mother sent him to buy a few things for lunch because she says he always forgets something.",
     "mission": "Today you’ll help Carlos buy ingredients for lunch.",
     "continuity": "The lesson opens at the exact day, time, and place arranged in Lesson 4. Carlos now reveals the special thing he needed: your help choosing something for the family table."
   },
@@ -48,7 +48,7 @@
   "carlosIntroduction": {
     "eyebrow": "Your mission",
     "title": "Help me shop for lunch",
-    "message": "¡Hola! Me alegra verte. Before we explore, I promised my mother I’d buy a few things for lunch. Will you help me? You’ll choose what we buy first, point it out in Spanish, ask the price, and thank the vendor.",
+    "message": "¡Hola, {{learnerName}}! My mother is making lunch today. She sent me here because she says I always forget something. Can you help me?",
     "prompt": "Start by telling me: Sí, claro."
   },
   "canDo": [
@@ -57,6 +57,17 @@
     "Ask what something costs and understand a simple price.",
     "Ask for an item, choose an amount, and thank the vendor."
   ],
+  "vocabularyPresentation": {
+    "showPriorityLabels": true,
+    "collapseOptional": true,
+    "collapseGroups": true,
+    "openFirstGroup": true
+  },
+  "culturePresentation": {
+    "collapseWorldBuilding": true,
+    "collapseNativeSpeech": true,
+    "collapseCommonMistakes": true
+  },
   "recycledLanguage": [
     { "fromLesson": "lesson-01-greetings", "language": ["¡Hola!", "Me alegra verte.", "Gracias."], "use": "Greet Carlos and the vendor naturally." },
     { "fromLesson": "lesson-03-family", "language": ["mi madre", "mi familia"], "use": "Understand who the shopping is for." },
@@ -131,12 +142,12 @@
     "prompt": "¿Qué compramos primero?",
     "promptEnglish": "What should we buy first?",
     "options": [
-      { "id": "apples", "label": "Apples", "learnerSpanish": "Estas manzanas.", "learnerEnglish": "These apples.", "carlosSpanish": "Buena elección. Mi madre hace una ensalada de fruta muy rica.", "carlosEnglish": "Good choice. My mother makes a very tasty fruit salad.", "memoryCallback": "You picked apples first. I’ll remember that.", "vendorPrompt": "¿Cuántas?", "modelOrder": "Quiero estas manzanas, por favor." },
-      { "id": "bread", "label": "Bread", "learnerSpanish": "Este pan.", "learnerEnglish": "This bread.", "carlosSpanish": "Buena elección. Esta panadería siempre huele increíble.", "carlosEnglish": "Good choice. This bakery always smells incredible.", "memoryCallback": "You went straight for the fresh bread. I’ll remember that.", "vendorPrompt": "¿Este pan?", "modelOrder": "Quiero este pan, por favor." },
-      { "id": "cheese", "label": "Cheese", "learnerSpanish": "Este queso.", "learnerEnglish": "This cheese.", "carlosSpanish": "Buena elección. Este queso es de La Mancha y está muy rico.", "carlosEnglish": "Good choice. This cheese is from La Mancha and is very tasty.", "memoryCallback": "You picked the La Mancha cheese first. I’ll remember that.", "vendorPrompt": "¿Grande o pequeño?", "modelOrder": "Quiero este queso pequeño, por favor." },
-      { "id": "coffee", "label": "Coffee", "learnerSpanish": "Este café.", "learnerEnglish": "This coffee.", "carlosSpanish": "Buena elección. El café huele fantástico hoy.", "carlosEnglish": "Good choice. The coffee smells fantastic today.", "memoryCallback": "Coffee first—I like your style. I’ll remember that.", "vendorPrompt": "¿Uno?", "modelOrder": "Quiero este café, por favor." },
-      { "id": "flowers", "label": "Flowers", "learnerSpanish": "Estas flores.", "learnerEnglish": "These flowers.", "carlosSpanish": "Buena elección. A mi madre le encantan las flores frescas. Siempre pone flores en la mesa cuando tenemos invitados.", "carlosEnglish": "Good choice. My mother loves fresh flowers. She always puts flowers on the table when we have guests.", "memoryCallback": "You chose flowers for the family table. I’ll remember that.", "vendorPrompt": "¿Estas flores?", "modelOrder": "Quiero estas flores, por favor." },
-      { "id": "tomatoes", "label": "Tomatoes", "learnerSpanish": "Estos tomates.", "learnerEnglish": "These tomatoes.", "carlosSpanish": "Buena elección. Necesitamos tomates para el almuerzo.", "carlosEnglish": "Good choice. We need tomatoes for lunch.", "memoryCallback": "You picked the tomatoes for lunch. I’ll remember that.", "vendorPrompt": "¿Cuántos?", "modelOrder": "Quiero estos tomates, por favor." }
+      { "id": "apples", "icon": "apple", "label": "Apples", "vocabularyFocus": ["la manzana"], "learnerSpanish": "Estas manzanas.", "learnerEnglish": "These apples.", "carlosSpanish": "Buena elección. Mi madre hace una ensalada de fruta muy rica.", "carlosEnglish": "Good choice. My mother makes a very tasty fruit salad.", "memoryCallback": "You picked apples first. I’ll remember that.", "vendorPrompt": "¿Cuántas?", "modelOrder": "Quiero estas manzanas, por favor." },
+      { "id": "bread", "icon": "bread-loaf", "label": "Bread", "vocabularyFocus": ["el pan"], "learnerSpanish": "Este pan.", "learnerEnglish": "This bread.", "carlosSpanish": "Buena elección. Esta panadería siempre huele increíble.", "carlosEnglish": "Good choice. This bakery always smells incredible.", "memoryCallback": "You went straight for the fresh bread. I’ll remember that.", "vendorPrompt": "¿Este pan?", "modelOrder": "Quiero este pan, por favor." },
+      { "id": "cheese", "icon": "cheese", "label": "Cheese", "vocabularyFocus": ["el queso"], "learnerSpanish": "Este queso.", "learnerEnglish": "This cheese.", "carlosSpanish": "Buena elección. Este queso es de La Mancha y está muy rico.", "carlosEnglish": "Good choice. This cheese is from La Mancha and is very tasty.", "memoryCallback": "You picked the La Mancha cheese first. I’ll remember that.", "vendorPrompt": "¿Grande o pequeño?", "modelOrder": "Quiero este queso pequeño, por favor." },
+      { "id": "coffee", "icon": "coffee-cup", "label": "Coffee", "vocabularyFocus": ["el café"], "learnerSpanish": "Este café.", "learnerEnglish": "This coffee.", "carlosSpanish": "Buena elección. El café huele fantástico hoy.", "carlosEnglish": "Good choice. The coffee smells fantastic today.", "memoryCallback": "Coffee first—I like your style. I’ll remember that.", "vendorPrompt": "¿Uno?", "modelOrder": "Quiero este café, por favor." },
+      { "id": "flowers", "icon": "flowers", "label": "Flowers", "vocabularyFocus": ["las flores"], "learnerSpanish": "Estas flores.", "learnerEnglish": "These flowers.", "carlosSpanish": "Buena elección. A mi madre le encantan las flores frescas. Siempre pone flores en la mesa cuando tenemos invitados.", "carlosEnglish": "Good choice. My mother loves fresh flowers. She always puts flowers on the table when we have guests.", "memoryCallback": "You chose flowers for the family table. I’ll remember that.", "vendorPrompt": "¿Estas flores?", "modelOrder": "Quiero estas flores, por favor." },
+      { "id": "tomatoes", "icon": "tomato", "label": "Tomatoes", "vocabularyFocus": ["el tomate"], "learnerSpanish": "Estos tomates.", "learnerEnglish": "These tomatoes.", "carlosSpanish": "Buena elección. Necesitamos tomates para el almuerzo.", "carlosEnglish": "Good choice. We need tomatoes for lunch.", "memoryCallback": "You picked the tomatoes for lunch. I’ll remember that.", "vendorPrompt": "¿Cuántos?", "modelOrder": "Quiero estos tomates, por favor." }
     ],
     "rejoin": "The vendor gives a simple price. The learner confirms the purchase, asks for a bag if needed, and says gracias. Carlos then reveals the nearby café."
   },

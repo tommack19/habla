@@ -7,10 +7,10 @@ import { getCourseProgress } from "../core/content.js";
 
 const LEVELS = [
   { name: "A1 Beginner", minXP: 0 },
-  { name: "A2 Elementary", minXP: 500 },
-  { name: "B1 Intermediate", minXP: 1500 },
-  { name: "B2 Upper Intermediate", minXP: 3500 },
-  { name: "C1 Advanced", minXP: 7000 },
+  { name: "A2 Elementary", minXP: 3000 },
+  { name: "B1 Intermediate", minXP: 6000 },
+  { name: "B2 Upper Intermediate", minXP: 9000 },
+  { name: "C1 Advanced", minXP: 12000 },
 ];
 
 if (typeof window !== "undefined") {

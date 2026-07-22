@@ -2,10 +2,10 @@ const PROGRESS_KEY = "habla_progress_v1";
 
 const LEVELS = [
   { id: "a1", name: "A1 Beginner", minXP: 0 },
-  { id: "a2", name: "A2 Elementary", minXP: 500 },
-  { id: "b1", name: "B1 Intermediate", minXP: 1500 },
-  { id: "b2", name: "B2 Upper Intermediate", minXP: 3500 },
-  { id: "c1", name: "C1 Advanced", minXP: 7000 },
+  { id: "a2", name: "A2 Elementary", minXP: 3000 },
+  { id: "b1", name: "B1 Intermediate", minXP: 6000 },
+  { id: "b2", name: "B2 Upper Intermediate", minXP: 9000 },
+  { id: "c1", name: "C1 Advanced", minXP: 12000 },
 ];
 
 let appState = null;

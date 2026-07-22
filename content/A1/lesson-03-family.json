@@ -2,10 +2,29 @@
   "id": "lesson-03-family",
   "contentVersion": "1.3",
   "title": "Family Dinner",
-  "image": "assets/images/lessons/lesson-03-family.png.png",
+  "image": "assets/images/lessons/lesson-03-family.png",
   "level": "A1",
   "module": "Family",
   "estimatedMinutes": 30,
+  "sectionIntros": {
+    "story": { "eyebrow": "Story", "title": "Family Dinner", "body": "Meet Carlos’s family and share who matters to you." },
+    "vocabulary": { "eyebrow": "Vocabulary", "title": "The people around the table", "body": "Start with the family words you need tonight. The rest are there when you’re curious." },
+    "grammar": { "eyebrow": "One useful pattern", "title": "Talking about your family", "body": "Use mi, tu, and su to show whose family member you mean." },
+    "dialogue": { "eyebrow": "Dinner begins", "title": "Meet everyone", "body": "Follow one conversation as Carlos welcomes you into the family." },
+    "listening": { "eyebrow": "Listening at dinner", "title": "Can you follow the introductions?", "body": "Listen first. Read only when you’re ready." },
+    "pronunciation": { "eyebrow": "Pronunciation", "title": "Make family phrases flow", "body": "Keep the h silent and connect each relationship naturally." },
+    "speaking": { "eyebrow": "Guided conversation", "title": "Talk with Carlos about family", "body": "Listen, answer, and make the final response your own." },
+    "quiz": { "eyebrow": "Check your understanding", "title": "What do you remember?", "body": "Question {{questionNumber}} of {{questionCount}}" },
+    "culture": { "eyebrow": "Living Madrid", "title": "Meeting family in Spain", "body": "A little context before everyone sits down to eat." },
+    "reward": { "eyebrow": "Mission accomplished", "title": "You belong at the table.", "body": "Your first family dinner becomes part of your Spanish story." }
+  },
+  "sectionTransitions": {
+    "grammar": "Great. Now let me introduce everyone properly.",
+    "dialogue": "Nice! Could you follow the whole dinner introduction?",
+    "listening": "Now it’s your turn to talk about family.",
+    "speaking": "I think you’re ready for dinner."
+  },
+  "vocabularyPresentation": { "showPriorityLabels": true, "collapseOptional": true },
   "prerequisiteLesson": "a1-lesson-02-introductions",
   "story": {
     "chapter": 1,
@@ -30,7 +49,7 @@
   "carlosIntroduction": {
     "eyebrow": "Your mission",
     "title": "Meet my family",
-    "message": "¡Hola! Ana is here, and my family is visiting from Granada. I’d love you to meet everyone. Listen as I introduce them, then tell me about the people in your family. No long list—just a real family dinner.",
+    "message": "¡Hola! Come on in—Ana is here, and everyone’s excited to meet you. My family is visiting from Granada. I’ll introduce them first, then I’d love to hear about yours. No long list—just a real family dinner.",
     "prompt": "Start by saying: Hola, Carlos. ¿Cómo estás?"
   },
   "canDo": [
@@ -220,7 +239,7 @@
       "spanish": "la esposa",
       "english": "wife",
       "partOfSpeech": "noun",
-      "tier": 1,
+      "tier": 2,
       "group": "Immediate family",
       "tip": "Use mi esposa for my wife.",
       "exampleSpanish": "Esta es mi esposa, Lucía.",
@@ -230,7 +249,7 @@
       "spanish": "el esposo",
       "english": "husband",
       "partOfSpeech": "noun",
-      "tier": 1,
+      "tier": 2,
       "group": "Immediate family",
       "tip": "Use mi esposo for my husband.",
       "exampleSpanish": "Este es mi esposo, Luis.",
@@ -240,7 +259,7 @@
       "spanish": "la pareja",
       "english": "partner",
       "partOfSpeech": "noun",
-      "tier": 1,
+      "tier": 2,
       "group": "Immediate family",
       "tip": "Pareja is a broadly useful and inclusive word for partner.",
       "exampleSpanish": "Mi pareja se llama Alex.",
@@ -250,7 +269,7 @@
       "spanish": "el hijo",
       "english": "son",
       "partOfSpeech": "noun",
-      "tier": 1,
+      "tier": 2,
       "group": "Immediate family",
       "tip": "The h is silent.",
       "exampleSpanish": "Mi hijo se llama Leo.",
@@ -260,7 +279,7 @@
       "spanish": "la hija",
       "english": "daughter",
       "partOfSpeech": "noun",
-      "tier": 1,
+      "tier": 2,
       "group": "Immediate family",
       "tip": "The h is silent.",
       "exampleSpanish": "Mi hija se llama Sofía.",
@@ -270,7 +289,7 @@
       "spanish": "los hijos",
       "english": "children",
       "partOfSpeech": "noun",
-      "tier": 1,
+      "tier": 2,
       "group": "Immediate family",
       "tip": "Hijos often means children, not only sons.",
       "exampleSpanish": "Tengo dos hijos.",
@@ -280,7 +299,7 @@
       "spanish": "los padres",
       "english": "parents",
       "partOfSpeech": "noun",
-      "tier": 1,
+      "tier": 2,
       "group": "Immediate family",
       "tip": "Padres means parents; parientes means relatives.",
       "exampleSpanish": "Mis padres viven en Granada.",
@@ -388,9 +407,9 @@
     }
   ],
   "grammar": {
-    "topic": "Possessive adjectives: mi, tu, su, and nuestro/nuestra",
+    "topic": "Talking about your family",
     "meaning": "Show whose family member you are talking about.",
-    "explanation": "Put a possessive word directly before the family noun: mi madre, tu padre, su hermana. Use nuestro or nuestra for our, matching the family word: nuestro hijo, nuestra hija. The possessive tells whose relationship it is; it does not change for the person’s gender except nuestro/nuestra.",
+    "explanation": "Say mi madre for my mother, tu hermano for your brother, and su esposa for his or her wife. Put the small relationship word directly before the family member.",
     "notes": [
       {
         "title": "My and your",
@@ -552,6 +571,7 @@
   "listening": {
     "title": "Can you follow the family dinner?",
     "instructions": "Listen, follow along, then check what you understood.",
+    "stageLabels": ["Listen", "Follow Along", "Understand"],
     "playbackSpeeds": ["natural", "slow"],
     "naturalScript": "Hola, Carlos. ¿Cómo estás? Muy bien. ¡Bienvenido! Esta es mi madre, Elena. Hola, Elena. Me llamo {{learnerName}}. Mucho gusto. Mucho gusto, {{learnerName}}. Soy de Granada. Este es mi padre, Javier. Ella es mi hermana, Lucía, y él es mi hermano, Diego. Mucho gusto a todos. Carlos, ¿y ella? Ella es mi esposa, Marta. Y este es nuestro hijo, Nico. ¿Y tú? ¿Tienes hermanos? Sí, tengo una hermana. Se llama Sofía. ¡Qué bien! Vamos a cenar.",
     "slowScript": "Hola, Carlos. / ¿Cómo estás? / Muy bien. / ¡Bienvenido! / Esta es mi madre, Elena. / Hola, Elena. / Me llamo {{learnerName}}. / Mucho gusto. / Mucho gusto, {{learnerName}}. / Soy de Granada. / Este es mi padre, Javier. / Ella es mi hermana, Lucía, / y él es mi hermano, Diego. / Mucho gusto a todos. / Carlos, ¿y ella? / Ella es mi esposa, Marta. / Y este es nuestro hijo, Nico. / ¿Y tú? / ¿Tienes hermanos? / Sí, tengo una hermana. / Se llama Sofía. / ¡Qué bien! / Vamos a cenar.",
@@ -609,8 +629,9 @@
           "stage": "repeat",
           "label": "Listen",
           "carlosPrompt": "Esta es mi madre, Elena.",
-          "prompt": "Repeat after Carlos.",
-          "cue": "Listen once, then introduce the same person.",
+          "carlosPromptEnglish": "This is my mother, Elena.",
+          "prompt": "Can you introduce your mother—or use the model?",
+          "cue": "Listen once, then make the introduction yourself.",
           "text": "Esta es mi madre.",
           "meaning": "This is my mother.",
           "focus": "Connect mi madre smoothly."
@@ -619,8 +640,9 @@
           "stage": "repeat",
           "label": "Your turn",
           "carlosPrompt": "Este es mi hermano, Diego.",
-          "prompt": "Repeat after Carlos.",
-          "cue": "Say the introduction back in one smooth phrase.",
+          "carlosPromptEnglish": "This is my brother, Diego.",
+          "prompt": "Can you introduce your brother—or use the model?",
+          "cue": "Make the introduction in one smooth phrase.",
           "text": "Este es mi hermano.",
           "meaning": "This is my brother.",
           "focus": "Keep the h in hermano silent."
@@ -629,6 +651,7 @@
           "stage": "recall",
           "label": "Keep talking",
           "carlosPrompt": "¿Quién es ella?",
+          "carlosPromptEnglish": "Who is she?",
           "prompt": "Carlos points to Lucía and asks: ¿Quién es ella?",
           "cue": "Identify Lucía using tu because you are speaking to Carlos.",
           "text": "Ella es tu hermana.",
@@ -639,6 +662,7 @@
           "stage": "recall",
           "label": "One more challenge",
           "carlosPrompt": "Mi familia es grande.",
+          "carlosPromptEnglish": "My family is big.",
           "prompt": "Ask Carlos whether he has siblings.",
           "cue": "Try the question from memory before opening the model.",
           "text": "¿Tienes hermanos?",
@@ -649,6 +673,7 @@
           "stage": "personalize",
           "label": "Finish the conversation",
           "carlosPrompt": "¿Y tú? ¿Tienes hermanos?",
+          "carlosPromptEnglish": "And you? Do you have siblings?",
           "prompt": "Give a true answer, or use the model if you prefer not to share personal details.",
           "cue": "Share one true detail or use the imagined-family model.",
           "text": "Sí, tengo una hermana. Se llama Sofía.",
@@ -911,20 +936,18 @@
     "selectionRule": "Only Tier 1 vocabulary and the most useful relationship chunks appear in the core deck.",
     "items": [
       "la familia",
+      "esta es",
+      "este es",
       "la madre / mamá",
       "el padre / papá",
       "la hermana",
       "el hermano",
-      "la esposa",
-      "el esposo",
-      "la pareja",
-      "el hijo",
-      "la hija",
-      "los padres",
+      "los hermanos",
       "mi",
       "tu",
       "su",
-      "¿quién?"
+      "¿quién?",
+      "tengo"
     ]
   },
   "speakingChallenge": [
@@ -950,7 +973,10 @@
     }
   ],
   "realLifeMission": {
-    "title": "Carlos Challenge: Family Dinner",
+    "title": "Family Dinner",
+    "presentationEyebrow": "Dinner Conversation",
+    "presentationTitle": "Your Turn",
+    "successTitle": "Dinner Complete",
     "mission": "At dinner, greet Carlos’s family, identify two people, ask Carlos about one family member, and share two simple details about your own or an imagined family.",
     "successCriteria": [
       "Reuse hola, me llamo, ¿cómo estás?, soy de, or mucho gusto naturally.",
@@ -970,9 +996,9 @@
   "passportStamp": {
     "id": "family-dinner-granada",
     "title": "Family Dinner",
-    "city": "Granada",
-    "description": "You met Carlos’s family and shared who matters to you.",
-    "unlockCondition": "Complete the Carlos Challenge for Lesson 3."
+    "city": "Madrid",
+    "description": "You joined Carlos’s family in Madrid, met relatives visiting from Granada, and shared who matters to you.",
+    "unlockCondition": "Complete the Dinner Conversation in Lesson 3."
   },
   "achievement": {
     "id": "family_ready",
@@ -983,6 +1009,7 @@
   "achievementsUnlocked": [
     "family_ready"
   ],
+  "completionLabel": "Episode complete",
   "xpReward": 60,
   "nextLesson": "lesson-04-numbers-time"
 }

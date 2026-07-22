@@ -51,7 +51,7 @@ The learner meets Carlos and spends a connected first day in Madrid.
 | 1 | Meet Carlos | Greet someone, exchange names, and close naturally | `me llamo` and `soy` for identity |
 | 2 | Meet Ana | Say where you are from, where you live, and ask the same | `soy de` vs `vivo en` |
 | 3 | Meet Carlos’s Family | Identify close family and describe relationships | `mi`, `tu`, and `su` |
-| 4 | Saturday at the Market | Arrange a market visit using a day and a simple meeting time | days and simple time expressions |
+| 4 | See You at Ten | Arrange a market visit using a day and a simple meeting time | days and simple time expressions |
 | 5 | Fresh Fruit and Fresh Spanish | Help Carlos choose and buy ingredients for lunch | `este`, `esta`, `estos`, `estas` |
 | 6 | Coffee Break | Order a drink and snack and make one polite change | `quisiera` |
 | 7 | Walking Through Madrid | Ask where places are and follow a short route | `está` for location |
