@@ -297,6 +297,7 @@
     {
       "id": "granada-postcard",
       "title": "A postcard from Granada",
+      "image": "assets/images/memories/chapter-01/granada-postcard.png",
       "prompt": "A postcard at a Plaza Mayor stand shows the Alhambra glowing at sunset. Look closer.",
       "carlosSpanish": "Granada es la ciudad de mi familia. Mi madre siempre dice que tengo que enseñártela algún día.",
       "carlosEnglish": "Granada is my family’s city. My mother always says I have to show it to you one day.",

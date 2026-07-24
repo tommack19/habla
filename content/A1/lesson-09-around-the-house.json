@@ -323,6 +323,7 @@
     {
       "id": "nico-fridge-calendar",
       "title": "Nico’s calendar drawing",
+      "image": "assets/images/memories/chapter-01/nico-calendar-drawing.png",
       "prompt": "A hand-drawn calendar is held to the refrigerator with a small magnet. Look closer.",
       "eyebrow": "Hidden memory",
       "savedEyebrow": "Travel journal moment",

@@ -3,8 +3,15 @@ import { saveState, loadState } from "./core/storage.js";
 import { renderPage } from "./core/router.js";
 import { getCurrentXP, initializeProgressEngine } from "./core/progress.js";
 import { completeMission as completeDailyMission } from "./core/missions.js";
-import { contentReady, getCurrentLesson, setActiveLesson } from "./core/content.js";
+import {
+  contentReady,
+  getCurrentLesson,
+  prepareCompletedLessonReplay,
+  setActiveLesson,
+} from "./core/content.js";
+import { getHomeJourneyLevel } from "./core/homeViewModel.js";
 import { consumeDueRecap, rememberLessonCompletion, scheduleLessonRecap } from "./core/lessonMemory.js";
+import { isSpeechPlaying, playSpeech, stopSpeech } from "./core/audio.js";
 import { renderNavigation } from "./ui/navigation.js";
 import { CARLOS_FALLBACK_ONERROR, getCarlosAsset } from "./data/carlosAssets.js";
 
@@ -245,6 +252,21 @@ function getBestVoice() {
 }
 let isSpeaking = false;
 function speakText(text, onDone) {
+  const voiceText = String(text || "").replace(/\*/g, "").trim();
+  void playSpeech(voiceText, {
+    speaker: "Carlos",
+    mode: "fast",
+    rate: 0.96,
+    onStart: () => {
+      isSpeaking = true;
+      setAvatar("speaking");
+      const stopBtn = document.getElementById("stop-btn");
+      if (stopBtn) stopBtn.style.display = "block";
+    },
+    onEnd: () => finishCarlosSpeech(onDone),
+    onError: () => finishCarlosSpeech(onDone),
+  });
+  return;
   window.speechSynthesis.cancel();
   const clean = text.replace(/\*/g,'').replace(/[¡¿]/g,'').trim();
   const utter = new SpeechSynthesisUtterance(clean);
@@ -253,6 +275,14 @@ function speakText(text, onDone) {
   utter.onstart = () => { isSpeaking=true; setAvatar('speaking'); const stopBtn = document.getElementById('stop-btn'); if (stopBtn) stopBtn.style.display='block'; };
   utter.onend = utter.onerror = () => { isSpeaking=false; setAvatar('idle'); const stopBtn = document.getElementById('stop-btn'); if (stopBtn) stopBtn.style.display='none'; if(onDone) onDone(); };
   window.speechSynthesis.speak(utter);
+}
+
+function finishCarlosSpeech(onDone) {
+  isSpeaking = false;
+  setAvatar("idle");
+  const stopBtn = document.getElementById("stop-btn");
+  if (stopBtn) stopBtn.style.display = "none";
+  onDone?.();
 }
 
 // â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
@@ -294,6 +324,7 @@ function showTyping() {
 }
 async function sendMessage(text) {
   if(!text || isLoading) return;
+  stopSpeech();
   isLoading=true; window.speechSynthesis.cancel();
   document.getElementById('carlos-suggestions')?.setAttribute('hidden','');
   const stopBtn = document.getElementById('stop-btn');
@@ -409,6 +440,7 @@ function startListening() {
   errEl.style.display='none';
   const SR = window.SpeechRecognition || window.webkitSpeechRecognition;
   if(!SR){errEl.textContent='Speech recognition is not supported here. You can still type to Carlos.';errEl.style.display='block';return;}
+  stopSpeech();
   window.speechSynthesis.cancel();
   recognition = new SR();
   recognition.lang='es-ES'; recognition.continuous=false; recognition.interimResults=true;
@@ -478,6 +510,22 @@ function pronounceEx(text, idx, type) {
   const btnId = `${type==='ex'?'ex-':'w-'}pbtn-${idx}`;
   const btn = document.getElementById(btnId);
   if(!btn) return;
+  if (isSpeechPlaying()) {
+    stopSpeech();
+    document.querySelectorAll(".pbtn.speaking").forEach(button => button.classList.remove("speaking"));
+    if (pronouncing === btnId) {
+      pronouncing = null;
+      return;
+    }
+  }
+  btn.classList.add("speaking");
+  pronouncing = btnId;
+  const finish = () => {
+    btn.classList.remove("speaking");
+    pronouncing = null;
+  };
+  void playSpeech(text, { speaker: "Model", rate: 0.82, onEnd: finish, onError: finish });
+  return;
   if(window.speechSynthesis.speaking){window.speechSynthesis.cancel();document.querySelectorAll('.pbtn.speaking').forEach(b=>b.classList.remove('speaking'));if(pronouncing===btnId){pronouncing=null;return;}}
   btn.classList.add('speaking'); pronouncing=btnId;
   const utter=new SpeechSynthesisUtterance(text.replace(/[Â¡Â¿]/g,''));
@@ -547,6 +595,8 @@ function checkAnswer(btn,chosen,correct){
 }
 function pronounceQuizWord(){
   if(!currentQuizWord)return;
+  void playSpeech(currentQuizWord.es, { speaker: "Model", rate: 0.8 });
+  return;
   const utter=new SpeechSynthesisUtterance(currentQuizWord.es.replace(/[Â¡Â¿]/g,''));
   const v=getBestVoice();if(v){utter.voice=v;utter.lang=v.lang;}else{utter.lang='es-ES';}
   utter.rate=0.8;window.speechSynthesis.speak(utter);
@@ -589,6 +639,7 @@ initializeProgressEngine(state, {
 
 contentReady
   .then(() => {
+    updateLevelButton();
     if (currentPage === "home" || currentPage === "learn" || currentPage === "journey" || currentPage === "carlos" || currentPage === "practice") {
       renderAppPage(currentPage);
     }
@@ -599,6 +650,7 @@ updateLevelButton();
 saveState(state);
 
 function renderAppPage(page) {
+  if (page !== currentPage) stopSpeech();
   currentPage = page;
   document.body.classList.toggle('carlos-mode', page === 'carlos');
   renderPage(page);
@@ -636,29 +688,11 @@ function updateLevelButton() {
 }
 
 function getHeaderJourney(xpValue) {
-  const levels = [
-    { code: 'A1', name: 'Explorer', cefrLabel: 'Beginner', minXP: 0, nextXP: 3000 },
-    { code: 'A2', name: 'Traveler', cefrLabel: 'Elementary', minXP: 3000, nextXP: 6000 },
-    { code: 'B1', name: 'Local', cefrLabel: 'Intermediate', minXP: 6000, nextXP: 9000 },
-    { code: 'B2', name: 'Adventurer', cefrLabel: 'Upper Intermediate', minXP: 9000, nextXP: 12000 },
-    { code: 'C1', name: 'Insider', cefrLabel: 'Advanced', minXP: 12000, nextXP: 15000 },
-    { code: 'C2', name: 'Fluent', cefrLabel: 'Proficient', minXP: 15000, nextXP: 15000 },
-  ];
-  const xp = Math.max(0, Number(xpValue || 0));
-  const index = levels.reduce((current, level, levelIndex) => xp >= level.minXP ? levelIndex : current, 0);
-  const level = levels[index];
-  const nextLevel = levels[index + 1];
-  const range = Math.max(1, level.nextXP - level.minXP);
-  const percent = nextLevel ? Math.min(100, Math.round(((xp - level.minXP) / range) * 100)) : 100;
-
-  return {
-    ...level,
-    xp,
-    percent,
-    isComplete: !nextLevel,
-    nextName: nextLevel?.name || 'Fluent',
-    remaining: nextLevel ? Math.max(0, level.nextXP - xp) : 0,
-  };
+  const currentLessonNumber = Number(getCurrentLesson()?.id?.match?.(/lesson-(\d+)/)?.[1] || 0);
+  return getHomeJourneyLevel({
+    xp: xpValue,
+    chapterTwoUnlocked: currentLessonNumber >= 11,
+  });
 }
 
 function setText(id, value) {
@@ -727,7 +761,7 @@ function initializeCarlosUI() {
   txt.addEventListener('keydown',e=>{if(e.key==='Enter'){const t=e.target.value.trim();if(t){e.target.value='';updateSendBtn();sendMessage(t);}}});
   sendBtn.addEventListener('click',()=>{const t=txt.value.trim();if(t){txt.value='';updateSendBtn();sendMessage(t);}});
   micBtn.addEventListener('click',()=>{if(isListening)stopListening();else startListening();});
-  stopBtn.addEventListener('click',()=>{window.speechSynthesis.cancel();isSpeaking=false;setAvatar('idle');stopBtn.style.display='none';});
+  stopBtn.addEventListener('click',()=>{stopSpeech();window.speechSynthesis.cancel();isSpeaking=false;setAvatar('idle');stopBtn.style.display='none';});
   autoToggle.addEventListener('click',toggleAutoSpeak);
   autoToggle.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();toggleAutoSpeak();}});
   document.querySelectorAll('[data-carlos-prompt]').forEach(button => {
@@ -751,6 +785,7 @@ function initializeCarlosUI() {
     if (voiceState) voiceState.textContent = autoSpeak ? 'On' : 'Off';
   });
   document.querySelector('[data-carlos-reset]')?.addEventListener('click', () => {
+    stopSpeech();
     window.speechSynthesis.cancel();
     apiHistory = [{role:'assistant',content:intro,createdAt:Date.now()}];
     saveCarlosHistory();
@@ -785,7 +820,7 @@ function toggleAutoSpeak() {
   const knob = document.getElementById('tog-k');
   if (track) track.style.background=autoSpeak?'var(--green)':'var(--border)';
   if (knob) knob.style.left=autoSpeak?'14px':'2px';
-  if(!autoSpeak){window.speechSynthesis.cancel();setAvatar('idle');}
+  if(!autoSpeak){stopSpeech();window.speechSynthesis.cancel();setAvatar('idle');}
 }
 
 document.addEventListener('click', (event) => {
@@ -800,6 +835,9 @@ document.addEventListener('click', (event) => {
   if (!pageTarget) return;
   if (pageTarget.dataset.lessonId) {
     setActiveLesson(pageTarget.dataset.lessonId);
+    if (pageTarget.dataset.page === 'lesson') {
+      prepareCompletedLessonReplay(pageTarget.dataset.lessonId);
+    }
   }
   if (pageTarget.dataset.practiceLibrary) {
     localStorage.removeItem(PRACTICE_TOPIC_KEY);
@@ -823,6 +861,10 @@ document.addEventListener('click', (event) => {
     sessionStorage.removeItem(PRACTICE_SESSION_KEY);
   }
   renderAppPage(pageTarget.dataset.page);
+  if (pageTarget.dataset.homeLearnView === 'roadmap') {
+    const roadmapTab = document.getElementById('learn-tab-roadmap');
+    if (roadmapTab) roadmapTab.checked = true;
+  }
 });
 
 window.addEventListener('habla:practice-render', () => {

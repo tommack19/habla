@@ -125,7 +125,7 @@
 .lesson-vocab-groups > section > h2 { color: var(--lesson-accent); font-size: .72rem; letter-spacing: .08em; margin: 0 0 10px 4px; text-transform: uppercase; }
 .lesson-vocab-grid { display: grid; gap: 10px; grid-template-columns: repeat(2,minmax(0,1fr)); }
 .lesson-vocab-item { background: #0d1517; border: 1px solid #263236; border-radius: 18px; display: grid; gap: 10px; grid-template-columns: 1fr 36px; min-width: 0; padding: 15px; }
-.lesson-vocab-item strong, .lesson-vocab-item span { display: block; overflow-wrap: anywhere; }
+.lesson-vocab-item strong, .lesson-vocab-item span { display: block; hyphens: none; overflow-wrap: normal; word-break: normal; }
 .lesson-vocab-item.optional { background: #0c1315; border-color: #222e31; }
 .lesson-vocab-priority { color: var(--lesson-accent); display: block; font-size: .55rem; font-weight: 900; letter-spacing: .08em; margin-bottom: 5px; text-transform: uppercase; }
 .lesson-vocab-item.optional .lesson-vocab-priority { color: #87959b; }
@@ -145,7 +145,7 @@
 .lesson-vocab-item > button svg { height: 16px; width: 16px; }
 .lesson-vocab-item p { border-top: 1px solid #253034; grid-column: 1/-1; margin: 0; padding-top: 10px; }
 .lesson-vocab-item p b, .lesson-vocab-item p small { display: block; }
-.lesson-vocab-item p b { font-size: .78rem; }
+.lesson-vocab-item p b { font-size: .78rem; hyphens: none; overflow-wrap: normal; word-break: normal; }
 .lesson-vocab-group { background: rgba(9,17,18,.68); border: 1px solid rgba(129,148,141,.18); border-radius: 19px; overflow: hidden; }
 .lesson-vocab-group > summary, .lesson-culture-disclosure > summary { align-items: center; cursor: pointer; display: flex; gap: 12px; list-style: none; min-height: 62px; padding: 12px 16px; }
 .lesson-vocab-group > summary::-webkit-details-marker, .lesson-culture-disclosure > summary::-webkit-details-marker { display: none; }
@@ -309,7 +309,7 @@
 
 .lesson-flashcard { background: radial-gradient(circle at 25% 15%, rgba(244,190,88,.12), transparent 38%), linear-gradient(145deg,#141b19,#080e10); border: 1px solid rgba(244,190,88,.45); border-radius: 28px; box-shadow: 0 30px 80px rgba(0,0,0,.42); cursor: pointer; display: flex; flex-direction: column; justify-content: center; min-height: 390px; padding: 36px; text-align: center; width: 100%; }
 .lesson-flashcard small { color: var(--lesson-accent); font-size: .68rem; font-weight: 900; letter-spacing: .1em; text-transform: uppercase; }
-.lesson-flashcard strong { font-family: "Playfair Display", Georgia, serif; font-size: clamp(3rem, 12vw, 5.5rem); line-height: .98; margin: 22px 0; overflow-wrap: anywhere; }
+.lesson-flashcard strong { font-family: "Playfair Display", Georgia, serif; font-size: clamp(2.35rem, 10vw, 5rem); hyphens: none; line-height: 1.02; margin: 22px 0; overflow-wrap: normal; text-wrap: balance; word-break: normal; }
 .lesson-flashcard span { color: #859299; font-size: .76rem; }
 .lesson-flashcard.flipped { border-color: #39d87e; }
 .lesson-flash-actions { display: grid; gap: 10px; grid-template-columns: 1fr 1fr; }
@@ -393,7 +393,8 @@
 .lesson-regional-notes strong { color: #f2eee5; display: block; font-family: "Playfair Display",Georgia,serif; font-size: 1.1rem; margin-top: 6px; }
 .lesson-regional-notes p { color: #8f9ca1; font-size: .72rem; line-height: 1.5; margin: 6px 0 0; }
 .lesson-discoveries { display: grid; gap: 12px; }
-.lesson-discoveries article { align-items: center; background: linear-gradient(135deg,rgba(244,190,88,.08),rgba(11,20,18,.96)); border: 1px dashed rgba(244,190,88,.42); border-radius: 22px; display: grid; gap: 16px; grid-template-columns: 1fr auto; padding: 20px; }
+.lesson-discoveries article { align-items: center; background: linear-gradient(135deg,rgba(244,190,88,.08),rgba(11,20,18,.96)); border: 1px dashed rgba(244,190,88,.42); border-radius: 22px; display: grid; gap: 16px; grid-template-columns: minmax(138px, .62fr) minmax(0, 1fr) auto; overflow: hidden; padding: 14px; }
+.lesson-discovery-image { aspect-ratio: 3 / 2; border: 1px solid rgba(244,190,88,.25); border-radius: 15px; height: 100%; max-height: 150px; object-fit: cover; width: 100%; }
 .lesson-discoveries article.discovered { border-style: solid; }
 .lesson-discoveries small { color: var(--lesson-accent); font-size: .65rem; font-weight: 900; letter-spacing: .1em; text-transform: uppercase; }
 .lesson-discoveries h2 { font-family: "Playfair Display",Georgia,serif; font-size: 1.45rem; margin: 5px 0; }
@@ -553,7 +554,7 @@
 @media (min-width: 700px) {
   #dashboard.lesson-page { padding-inline: 28px; }
   .lesson-choice-grid { grid-template-columns: repeat(3,minmax(0,1fr)); }
-  .lesson-vocab-grid { grid-template-columns: repeat(3,minmax(0,1fr)); }
+  .lesson-vocab-grid { grid-template-columns: repeat(2,minmax(0,1fr)); }
   .lesson-carlos-intro, .lesson-mission-card { padding: 26px; }
 }
 
@@ -596,6 +597,7 @@
   .lesson-live-challenge button { grid-column: 1 / -1; width: 100%; }
   .lesson-quiz-input > div { grid-template-columns: 1fr; }
   .lesson-discoveries article { align-items: stretch; grid-template-columns: 1fr; }
+  .lesson-discovery-image { max-height: none; }
   .lesson-discoveries button { justify-content: center; width: 100%; }
   .lesson-regional-notes { grid-template-columns: 1fr; }
   .lesson-flashcard { min-height: 360px; padding: 24px 18px; }

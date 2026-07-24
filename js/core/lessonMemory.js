@@ -61,6 +61,7 @@ export function rememberDiscovery(lesson, discovery) {
     lessonId: lesson.id,
     lessonTitle: lesson.title,
     title: discovery.title || discovery.label || discovery.id,
+    image: discovery.image || "",
     carlosSpanish: discovery.carlosSpanish || "",
     carlosEnglish: discovery.carlosEnglish || "",
     discoveredAt: new Date().toISOString(),

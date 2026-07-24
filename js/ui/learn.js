@@ -9,8 +9,14 @@ import {
 } from "../core/content.js";
 import { getCurrentStreak } from "../core/progress.js";
 import { getAchievements } from "../core/achievements.js";
+import { buildHomeViewModel } from "../core/homeViewModel.js";
 import { CARLOS_FALLBACK_ONERROR, getCarlosAsset } from "../data/carlosAssets.js";
-import { renderLessonCover } from "../components/lessonCover.js";
+import {
+  LESSON_ARTWORK_ONERROR,
+  getEpisodeArtworkAlt,
+  getLandmarkArtwork,
+  preloadEpisodeArtwork,
+} from "../data/lessonAssets.js";
 
 const LEARN_STEPS = [
   "Vocabulary",
@@ -26,7 +32,7 @@ const A1_LESSON_TOTAL = 30;
 if (typeof window !== "undefined") {
   window.hablaLearn = {
     selectLesson(id) {
-      const card = [...document.querySelectorAll(".learn-path-card")]
+      const card = [...document.querySelectorAll(".learn-path-card, .learn-episode-row")]
         .find(pathCard => pathCard.dataset.lessonId === id);
 
       const lesson = getLessonById(id);
@@ -34,7 +40,7 @@ if (typeof window !== "undefined") {
       if (!lesson || !target) return;
 
       if (card?.classList.contains("locked")) {
-        document.querySelectorAll(".learn-path-card").forEach(pathCard => {
+        document.querySelectorAll(".learn-path-card, .learn-episode-row").forEach(pathCard => {
           pathCard.classList.toggle("selected", pathCard.dataset.lessonId === id);
         });
         target.innerHTML = renderLockedLessonCard(lesson);
@@ -44,7 +50,7 @@ if (typeof window !== "undefined") {
 
       setActiveLesson(id);
 
-      document.querySelectorAll(".learn-path-card").forEach(card => {
+      document.querySelectorAll(".learn-path-card, .learn-episode-row").forEach(card => {
         card.classList.toggle("selected", card.dataset.lessonId === id);
       });
 
@@ -75,9 +81,10 @@ export function renderLearn(state = {}) {
   const streak = getCurrentStreak();
   const stats = getLearnStats(state, courseProgress, streak);
   const currentIndex = Math.max(lessons.findIndex(lesson => lesson.id === currentLesson?.id), 0);
+  const homeModel = buildHomeViewModel(state);
 
   return `
-    <section class="learn-screen" aria-label="Learn">
+    <section class="learn-screen learn-v2" aria-label="Learn">
       <input class="learn-tab-input" type="radio" name="learn-view" id="learn-tab-lessons" checked>
       <input class="learn-tab-input" type="radio" name="learn-view" id="learn-tab-roadmap">
 
@@ -86,44 +93,37 @@ export function renderLearn(state = {}) {
       <nav class="learn-top-tabs" aria-label="Learn sections">
         <label class="learn-top-tab lessons" for="learn-tab-lessons">
           <span class="learn-tab-icon" aria-hidden="true">${renderLearnIcon("book")}</span>
-          Lessons
+          Episodes
         </label>
-        <button class="learn-top-tab grammar" type="button" data-page="practice" data-practice-library="true">
-          <span class="learn-tab-icon" aria-hidden="true">${renderLearnIcon("grammar")}</span>
-          Grammar
-        </button>
         <label class="learn-top-tab roadmap" for="learn-tab-roadmap">
           <span class="learn-tab-icon" aria-hidden="true">${renderLearnIcon("roadmap")}</span>
           Journey
         </label>
       </nav>
 
-      <section class="learn-current-shell" id="learn-lesson-detail" aria-label="Current lesson">
-        ${renderTodayLessonCard(selectedLesson)}
-      </section>
-
-      <section class="learn-course-shell">
-        <div class="learn-tab-panels">
-          <div class="learn-lessons-panel">
-            <section class="learn-path-panel">
-              <div class="learn-section-title"><h2>Your Lesson Path</h2></div>
-              <div class="learn-path-list" aria-label="A1 lesson list">
-                ${lessons.map((lesson, index) => renderLessonListCard(lesson, index, selectedLesson, currentLesson, unlockedIds, currentIndex)).join("")}
-              </div>
-              <button class="learn-view-all" type="button" aria-expanded="false" onclick="hablaLearn.toggleAllLessons(this)">
-                <span>${renderLearnIcon("roadmap")}<b data-learn-view-label>View Full Curriculum</b></span>
-                <span class="learn-arrow" aria-hidden="true"></span>
-              </button>
-            </section>
-
-            ${renderLearnSideRail(stats)}
-          </div>
-
-          <section class="learn-support-panel learn-roadmap-panel" aria-label="A1 Journey">
-            ${renderRoadmapPanel(lessons, currentLesson, unlockedIds)}
+      <div class="learn-v2-panels">
+        <div class="learn-v2-episodes">
+          <section class="learn-current-shell" id="learn-lesson-detail" aria-label="Current episode">
+            ${renderTodayLessonCard(selectedLesson)}
           </section>
+          ${renderCoachTip(stats)}
+          ${renderLearnJourney(homeModel)}
+          <section class="learn-episodes-card" aria-labelledby="learn-all-episodes-title">
+            <header class="learn-v2-section-header">
+              <p id="learn-all-episodes-title">All Episodes</p>
+            </header>
+            <div class="learn-episode-list">
+              ${homeModel.entries.map((entry) => renderEpisodeRow(entry, selectedLesson, currentLesson, unlockedIds)).join("")}
+            </div>
+          </section>
+          ${renderCompactStats(stats)}
+          ${renderPassportJourney(homeModel)}
         </div>
-      </section>
+
+        <section class="learn-support-panel learn-roadmap-panel" aria-label="A1 Journey">
+          ${renderRoadmapPanel(lessons, currentLesson, unlockedIds)}
+        </section>
+      </div>
     </section>
   `;
 }
@@ -132,10 +132,10 @@ function renderLearnHeader() {
   return `
     <header class="learn-hero">
       <div class="learn-title-row">
-        <div class="learn-hero-copy">
-          <h1>Learn</h1>
-          <p>Build your Spanish skills step by step.</p>
-        </div>
+      <div class="learn-hero-copy">
+        <h1>Learn</h1>
+          <p>Continue your Spanish journey one episode at a time.</p>
+      </div>
       </div>
     </header>
   `;
@@ -200,34 +200,34 @@ function renderTodayLessonCard(lesson) {
   }
 
   const progress = getLessonProgress(lesson.id);
-  const completed = Boolean(progress.completed);
-  const percent = getLessonCompletionPercent(progress);
   const lessonNumber = getLessonNumber(lesson);
   const title = shortLessonTitle(lesson.title);
   const objective = lesson.objective || lesson.objectives?.[0] || "Learn real Spanish for everyday conversations.";
   const wordCount = lesson.vocabulary?.length || 25;
   const phraseCount = countLessonItems(lesson.dialogue || lesson.dialogues) || 15;
   const minutes = lesson.estimatedMinutes || 10;
-  return renderLessonCover({
-    variant: "learn",
-    lesson,
-    artworkAlt: `Artwork for ${title}`,
-    eyebrow: "Current Lesson",
-    overline: `Lesson ${lessonNumber}`,
-    title,
-    description: objective,
-    meta: [
-      { text: `${wordCount} Words` },
-      { text: `${phraseCount} Phrases` },
-      { text: `${minutes} Min` },
-    ],
-    action: {
-      label: "Continue Lesson",
-      subLabel: `Lesson ${lessonNumber} of ${A1_LESSON_TOTAL}`,
-      attributes: `data-page="lesson" data-lesson-id="${escapeAttr(lesson.id)}"`,
-    },
-    footerHtml: `<span>Lesson Progress</span><i><b style="width:${percent}%"></b></i><strong>${completed ? "Complete" : `${percent}%`}</strong>`,
-  });
+  const artwork = preloadEpisodeArtwork(lesson, "hero");
+  const artworkAlt = getEpisodeArtworkAlt(lesson);
+  return `
+    <article class="learn-episode-hero">
+      <img src="${escapeAttr(artwork)}" alt="${escapeAttr(artworkAlt)}" loading="eager" fetchpriority="high" decoding="async" onerror="${LESSON_ARTWORK_ONERROR}">
+      <span class="learn-episode-hero__overlay" aria-hidden="true"></span>
+      <div class="learn-episode-hero__copy">
+        <p class="learn-v2-eyebrow">Current Episode</p>
+        <small>Episode ${lessonNumber}</small>
+        <h2>${escapeHtml(title)}</h2>
+        <p>${escapeHtml(objective)}</p>
+        <div class="learn-episode-hero__meta">
+          <span>${renderLearnIcon("book")}<b>${wordCount} Words</b></span>
+          <span>${renderLearnIcon("conversation")}<b>${phraseCount} Phrases</b></span>
+          <span>${renderLearnIcon("time")}<b>${minutes} Min</b></span>
+        </div>
+        <button class="learn-episode-hero__cta" type="button" data-page="lesson" data-lesson-id="${escapeAttr(lesson.id)}">
+          <span>Continue Episode</span>${renderLearnIcon("play")}
+        </button>
+      </div>
+    </article>
+  `;
 }
 
 function renderLockedLessonCard(lesson) {
@@ -248,6 +248,137 @@ function renderLockedLessonCard(lesson) {
         Return to Current Lesson <span class="learn-arrow" aria-hidden="true"></span>
       </button>
     </article>
+  `;
+}
+
+function renderCoachTip(stats) {
+  const milestoneGoal = 10;
+  const lessonsRemaining = Math.max(milestoneGoal - stats.completedLessons, 0);
+  return `
+    <section class="learn-coach-v2" aria-labelledby="learn-coach-title">
+      <img src="${getCarlosAsset("thinking")}" alt="Carlos, your Spanish coach" loading="lazy" onerror="${CARLOS_FALLBACK_ONERROR}">
+      <div>
+        <p class="learn-v2-eyebrow">Carlos&rsquo; Coach Tip</p>
+        <h2 id="learn-coach-title">${escapeHtml(getCarlosCoachMessage(stats))}</h2>
+        <strong>${lessonsRemaining ? `${lessonsRemaining} ${lessonsRemaining === 1 ? "episode" : "episodes"} until Level 2` : "Level 2 is ready"}</strong>
+      </div>
+      <span aria-hidden="true">${renderLearnIcon("target")}</span>
+    </section>
+  `;
+}
+
+function renderLearnJourney(model) {
+  return `
+    <section class="learn-journey-v2" aria-labelledby="learn-journey-title">
+      <header class="learn-v2-section-header">
+        <p id="learn-journey-title">Your Journey</p>
+        <button type="button" class="learn-v2-outline-action" data-home-learn-view="roadmap" data-page="learn">
+          View full journey ${renderLearnIcon("play")}
+        </button>
+      </header>
+      <div class="learn-journey-scroll" tabindex="0" role="region" aria-label="Madrid Chapter 1 episode journey">
+        <div class="learn-journey-track progress-${Math.min(model.completedCount, 10)}">
+          ${model.entries.map((entry) => renderJourneyEpisode(entry, model.activeEntry)).join("")}
+        </div>
+      </div>
+    </section>
+  `;
+}
+
+function renderJourneyEpisode(entry, activeEntry) {
+  const completed = Boolean(entry.progress.completed);
+  const current = !completed && activeEntry?.lesson?.id === entry.lesson.id;
+  const status = completed ? "completed" : current ? "current" : "locked";
+  const artwork = preloadEpisodeArtwork(entry.lesson, "thumbnail");
+  return `
+    <button class="learn-journey-episode is-${status}" type="button" data-lesson-id="${escapeAttr(entry.lesson.id)}" onclick="hablaLearn.selectLesson('${escapeAttr(entry.lesson.id)}')" aria-label="Episode ${entry.number}: ${escapeAttr(shortLessonTitle(entry.lesson.title))}, ${status}">
+      <span>
+        <img src="${escapeAttr(artwork)}" alt="" width="1024" height="1024" loading="lazy" decoding="async" onerror="${LESSON_ARTWORK_ONERROR}">
+        <i aria-hidden="true">${completed ? renderLearnIcon("check") : current ? renderLearnIcon("play") : renderLearnIcon("lock")}</i>
+      </span>
+      <small>${entry.number}</small>
+      <strong>${escapeHtml(shortLessonTitle(entry.lesson.title))}</strong>
+    </button>
+  `;
+}
+
+function renderEpisodeRow(entry, selectedLesson, currentLesson, unlockedIds) {
+  const { lesson, number, progress } = entry;
+  const completed = Boolean(progress.completed);
+  const current = currentLesson?.id === lesson.id && !completed;
+  const selected = selectedLesson?.id === lesson.id;
+  const locked = !unlockedIds.has(lesson.id) && !completed;
+  const artwork = preloadEpisodeArtwork(lesson, "cover");
+  const artworkAlt = getEpisodeArtworkAlt(lesson);
+  const words = lesson.vocabulary?.length || 0;
+  const minutes = lesson.estimatedMinutes || 10;
+  const classes = [
+    "learn-episode-row",
+    completed ? "completed" : "",
+    current ? "current" : "",
+    locked ? "locked" : "",
+    selected ? "selected" : "",
+  ].filter(Boolean).join(" ");
+
+  return `
+    <article class="${classes}" data-lesson-id="${escapeAttr(lesson.id)}">
+      <span class="learn-episode-row__art">
+        <img src="${escapeAttr(artwork)}" alt="${escapeAttr(artworkAlt)}" width="1024" height="1280" loading="lazy" decoding="async" onerror="${LESSON_ARTWORK_ONERROR}">
+        <i aria-hidden="true">${completed ? renderLearnIcon("check") : number}</i>
+      </span>
+      <button class="learn-episode-row__copy" type="button" onclick="hablaLearn.selectLesson('${escapeAttr(lesson.id)}')" aria-label="Preview Episode ${number}: ${escapeAttr(shortLessonTitle(lesson.title))}">
+        <small>Episode ${number}</small>
+        <strong>${escapeHtml(shortLessonTitle(lesson.title))}</strong>
+        <span>${renderLearnIcon("conversation")}${words} Words <b>&middot;</b> ${renderLearnIcon("time")}${minutes} Min</span>
+      </button>
+      ${current
+        ? `<button class="learn-episode-row__continue" type="button" data-page="lesson" data-lesson-id="${escapeAttr(lesson.id)}">Continue ${renderLearnIcon("play")}</button>`
+        : `<button class="learn-episode-row__chevron" type="button" onclick="hablaLearn.selectLesson('${escapeAttr(lesson.id)}')" aria-label="${locked ? "View unlock requirement" : "Preview episode"}">${renderLearnIcon(locked ? "lock" : "play")}</button>`}
+    </article>
+  `;
+}
+
+function renderCompactStats(stats) {
+  const items = [
+    ["fire", stats.streak, "Day Streak"],
+    ["star", formatNumber(stats.xp), "Total XP"],
+    ["target", stats.completedLessons, "Episodes Completed"],
+    ["book", formatNumber(stats.wordsLearned), "Words Learned"],
+  ];
+  return `
+    <section class="learn-progress-strip" aria-labelledby="learn-progress-title">
+      <p class="learn-v2-eyebrow" id="learn-progress-title">Your Progress</p>
+      <div>
+        ${items.map(([iconName, value, label]) => `
+          <span class="is-${iconName}">${renderLearnIcon(iconName)}<b>${escapeHtml(value)}</b><small>${escapeHtml(label)}</small></span>
+        `).join("")}
+      </div>
+    </section>
+  `;
+}
+
+function renderPassportJourney(model) {
+  const stamps = model.earnedStamps.slice(-3);
+  const nextLesson = model.activeEntry?.lesson;
+  const nextStamp = nextLesson?.passportStamp;
+  return `
+    <section class="learn-passport-v2" aria-labelledby="learn-passport-title">
+      <div class="learn-passport-book" aria-hidden="true">
+        <span>Madrid</span>${renderLearnIcon("passport")}<small>España</small>
+      </div>
+      <div class="learn-passport-v2__body">
+        <header class="learn-v2-section-header">
+          <div><p class="learn-v2-eyebrow">Your Passport</p><h2 id="learn-passport-title">Journey Highlights</h2></div>
+          <button type="button" class="learn-v2-outline-action" data-page="journey">View Passport ${renderLearnIcon("play")}</button>
+        </header>
+        <div class="learn-passport-v2__stamps">
+          ${stamps.map((stamp) => `
+            <span class="is-earned">${renderLearnIcon("passport")}<small>${escapeHtml(stamp.destination || "Madrid")}</small><strong>${escapeHtml(stamp.title)}</strong><i>${renderLearnIcon("check")}</i></span>
+          `).join("")}
+          ${nextStamp ? `<span class="is-next">${renderLearnIcon("lock")}<small>Next Stamp</small><strong>${escapeHtml(nextStamp.title)}</strong><i>${getLessonCompletionPercent(nextLesson ? getLessonProgress(nextLesson.id) : {})}% complete</i></span>` : ""}
+        </div>
+      </div>
+    </section>
   `;
 }
 
@@ -373,7 +504,7 @@ function getCarlosCoachMessage(stats) {
   if (!stats.completedLessons) {
     return `Let’s begin with ${stats.currentLessonTitle}. A few focused minutes is enough to make progress today.`;
   }
-  return `Great work—you’ve completed ${stats.completedLessons} ${stats.completedLessons === 1 ? "lesson" : "lessons"}. Next, keep building with ${stats.currentLessonTitle}.`;
+  return `Great work—you’ve completed ${stats.completedLessons} ${stats.completedLessons === 1 ? "episode" : "episodes"}. Next, keep building with ${stats.currentLessonTitle}.`;
 }
 
 function getAchievementIconName(id) {
@@ -424,7 +555,7 @@ function getLessonIconName(lesson, index) {
 
 function renderRoadmapPanel(lessons, currentLesson, unlockedIds) {
   const chapters = [
-    { chapter: "Chapter 1", city: "Madrid", subtitle: "Build your foundation", image: "assets/images/lessons/lesson-01-greetings.png", lessons: lessons.slice(0, 10) },
+    { chapter: "Chapter 1", city: "Madrid", subtitle: "Build your foundation", image: getLandmarkArtwork("madrid"), lessons: lessons.slice(0, 10) },
     { chapter: "Chapter 2", city: "Valencia", subtitle: "Spanish for everyday life", image: "assets/images/lessons/lesson-06-food-drinks.png", lessons: lessons.slice(10, 20) },
     { chapter: "Chapter 3", city: "Barcelona", subtitle: "Speak with confidence", image: "assets/images/lessons/lesson-07-travel.png", lessons: lessons.slice(20, 30) },
   ];

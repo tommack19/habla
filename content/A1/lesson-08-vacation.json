@@ -349,6 +349,7 @@
     {
       "id": "family-photo-bookshelf",
       "title": "The family photo",
+      "image": "assets/images/memories/chapter-01/family-photo.png",
       "prompt": "A slightly crooked photo sits between two well-used books. Look closer.",
       "eyebrow": "Hidden memory",
       "savedEyebrow": "Travel journal moment",

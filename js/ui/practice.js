@@ -2,6 +2,7 @@ import { getLessonById, getLessonProgress, getUnlockedLessons } from "../core/co
 import { PRACTICE_LIBRARY_CATEGORIES, findPracticeLibraryCategory, findPracticeLibraryCollection, findPracticeLibraryItem } from "../data/practiceLibrary.js";
 import { CARLOS_FALLBACK_ONERROR, getCarlosAsset } from "../data/carlosAssets.js";
 import { personalizeText } from "../core/personalization.js";
+import { playSpeech } from "../core/audio.js";
 import { renderLessonCover } from "../components/lessonCover.js";
 
 const TOPIC_KEY = "habla_selected_practice_topic_v1";
@@ -1031,7 +1032,9 @@ function shuffle(values) {
   return result;
 }
 
-function speakSpanish(text) { if (!text || !window.speechSynthesis) return; speechSynthesis.cancel(); const utterance = new SpeechSynthesisUtterance(personalizeText(text)); utterance.lang = "es-ES"; utterance.rate = .85; speechSynthesis.speak(utterance); }
+function speakSpanish(text) {
+  void playSpeech(text, { rate: 0.85, speaker: "Model" });
+}
 function iconSvg(name, className = "") {
   const icons = {
     quiz: `<circle cx="12" cy="12" r="8.5"/><path d="m8.5 12 2.2 2.2 4.8-5"/>`,

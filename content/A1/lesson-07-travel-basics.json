@@ -280,6 +280,7 @@
     {
       "id": "tiled-street-sign",
       "title": "The tiled street sign",
+      "image": "assets/images/memories/chapter-01/tiled-street-sign.png",
       "savedLabel": "New Madrid Memory",
       "prompt": "A blue-and-white ceramic sign is set into the corner wall. Look closer before turning.",
       "carlosSpanish": "Muchas calles antiguas de Madrid tienen placas de cerámica con dibujos de su historia.",

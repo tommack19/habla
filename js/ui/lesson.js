@@ -18,6 +18,7 @@ import {
 import { CARLOS_FALLBACK_ONERROR, getCarlosAsset } from "../data/carlosAssets.js";
 import { LESSON_ARTWORK_ONERROR, preloadLessonArtwork } from "../data/lessonAssets.js";
 import { personalizeText } from "../core/personalization.js";
+import { playSpeech, playSpeechSequence } from "../core/audio.js";
 import { renderChoiceIcon } from "../components/choiceIcons.js";
 
 const ICONS = {
@@ -474,7 +475,7 @@ function renderCulture(lesson) {
     ${(culture.regionalNotes || []).length ? `<div class="lesson-regional-notes">${culture.regionalNotes.map(note => `<article><small>${escapeHtml(note.label)}</small><strong>${escapeHtml(note.phrase)}</strong><p>${escapeHtml(note.text)}</p></article>`).join("")}</div>` : ""}
     ${(lesson.livingWorldInteractions || []).length ? `<div class="lesson-discoveries">${lesson.livingWorldInteractions.map(discovery => {
       const found = discoveries.get(discovery.id);
-      return `<article class="${found ? "discovered" : ""}"><div><small>${found ? escapeHtml(discovery.savedEyebrow || "Travel journal moment") : escapeHtml(discovery.eyebrow || "Discover more")}</small><h2>${escapeHtml(discovery.title)}</h2>${found ? `<strong>${escapeHtml(discovery.carlosSpanish)}</strong><p>${escapeHtml(discovery.carlosEnglish)}</p>` : `<p>${escapeHtml(discovery.prompt || "Look a little closer.")}</p>`}</div><button type="button" onclick="hablaLesson.discover('${escapeAttr(discovery.id)}')" ${found ? "disabled" : ""}>${found ? icon("check") : icon("star")}<span>${found ? escapeHtml(discovery.savedLabel || "New memory added") : "Explore"}</span></button></article>`;
+      return `<article class="${found ? "discovered" : ""}">${discovery.image ? `<img class="lesson-discovery-image" src="${escapeAttr(discovery.image)}" alt="${escapeAttr(discovery.title)}" loading="lazy">` : ""}<div><small>${found ? escapeHtml(discovery.savedEyebrow || "Travel journal moment") : escapeHtml(discovery.eyebrow || "Discover more")}</small><h2>${escapeHtml(discovery.title)}</h2>${found ? `<strong>${escapeHtml(discovery.carlosSpanish)}</strong><p>${escapeHtml(discovery.carlosEnglish)}</p>` : `<p>${escapeHtml(discovery.prompt || "Look a little closer.")}</p>`}</div><button type="button" onclick="hablaLesson.discover('${escapeAttr(discovery.id)}')" ${found ? "disabled" : ""}>${found ? icon("check") : icon("star")}<span>${found ? escapeHtml(discovery.savedLabel || "New memory added") : "Explore"}</span></button></article>`;
     }).join("")}</div>` : ""}
     ${disclose(presentation.collapseNativeSpeech, nativeLabel, nativeSpeech.length, nativeContent)}
     ${presentation.showCommonMistakes || presentation.collapseCommonMistakes ? disclose(presentation.collapseCommonMistakes, "Common mix-ups", commonMistakes.length, mistakesContent) : ""}
@@ -853,40 +854,12 @@ function playListeningConversation(rate = 0.92) {
   else speakSpanish(listening.naturalScript || "", rate, "Carlos");
 }
 
-function speakSequence(lines, rate, index = 0) {
-  if (!window.speechSynthesis || index >= lines.length) return;
-  if (index === 0) window.speechSynthesis.cancel();
-  const utterance = createSpanishUtterance(lines[index].text, rate, lines[index].speaker);
-  utterance.onend = () => {
-    const currentSpeaker = normalize(lines[index]?.speaker);
-    const nextSpeaker = normalize(lines[index + 1]?.speaker);
-    const pause = currentSpeaker && nextSpeaker && currentSpeaker !== nextSpeaker ? 520 : 360;
-    window.setTimeout(() => speakSequence(lines, rate, index + 1), pause);
-  };
-  window.speechSynthesis.speak(utterance);
+function speakSequence(lines, rate) {
+  void playSpeechSequence(lines, { rate });
 }
 
 function speakSpanish(text, rate = 0.84, speaker = "Carlos") {
-  if (!text || !window.speechSynthesis) return;
-  window.speechSynthesis.cancel();
-  const utterance = createSpanishUtterance(text, rate, speaker);
-  window.speechSynthesis.speak(utterance);
-}
-
-function createSpanishUtterance(text, rate = 0.84, speaker = "Carlos") {
-  const utterance = new SpeechSynthesisUtterance(personalizeText(text).replaceAll("/", ""));
-  const profile = getVoiceProfile(speaker);
-  const voices = window.speechSynthesis?.getVoices?.() || [];
-  const spanishVoices = voices.filter(voice => /^es(?:-|_)/i.test(voice.lang || ""));
-  const regionalVoices = spanishVoices.filter(voice => /^es(?:-|_)ES/i.test(voice.lang || ""));
-  const pool = regionalVoices.length ? regionalVoices : spanishVoices;
-  const hinted = pool.find(voice => profile.hints.some(hint => normalize(voice.name).includes(normalize(hint))));
-  const fallback = pool.length ? pool[profile.voiceIndex % pool.length] : null;
-  if (hinted || fallback) utterance.voice = hinted || fallback;
-  utterance.lang = utterance.voice?.lang || "es-ES";
-  utterance.rate = Number(rate || 0.84) * profile.rate;
-  utterance.pitch = profile.pitch;
-  return utterance;
+  void playSpeech(text, { rate, speaker });
 }
 
 function getVoiceProfile(speaker) {

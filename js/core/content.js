@@ -276,6 +276,27 @@ export function updateLessonProgress(id, patch = {}) {
   return event;
 }
 
+export function prepareCompletedLessonReplay(id) {
+  const lesson = getLessonById(id);
+  if (!lesson) return { type: "lesson:missing", id };
+
+  const previous = getLessonProgress(id);
+  if (!previous.completed) {
+    return { type: "lesson:resume", id, lesson, progress: previous };
+  }
+
+  return updateLessonProgress(id, {
+    rendererStep: 0,
+    showCompletion: false,
+    guidedSpeakingIndex: 0,
+    flashcardIndex: 0,
+    flashcardFlipped: false,
+    rendererListening: undefined,
+    rendererQuiz: undefined,
+    replayStartedAt: new Date().toISOString(),
+  });
+}
+
 function readProgress() {
   try {
     const saved = localStorage.getItem(PROGRESS_KEY);

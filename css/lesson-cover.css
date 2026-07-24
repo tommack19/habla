@@ -173,6 +173,8 @@
 }
 .lesson-cover--home .lesson-cover__meta { backdrop-filter: blur(9px); background: rgba(4,10,12,.68); border: 1px solid rgba(226,185,95,.2); border-radius: 12px; flex-wrap: nowrap; overflow: hidden; }
 .lesson-cover--home .lesson-cover__meta > span { flex: 1 1 0; justify-content: center; padding: 7px 6px; }
+.lesson-cover--home .lesson-cover__meta b { line-height: 1.1; white-space: nowrap; }
+.lesson-cover--home .lesson-cover__meta i { flex: 0 0 auto; }
 .lesson-cover--home .lesson-cover__cta { margin: 0; min-width: 132px; width: 100%; }
 
 @media (max-width: 430px) {
@@ -187,7 +189,13 @@
   .lesson-cover--home .lesson-cover__copy { padding: 20px 14px 82px; width: 63%; }
   .lesson-cover--home h2 { font-size: 1.35rem; }
   .lesson-cover--home .lesson-cover__actions { bottom: 9px; left: 10px; right: 9px; }
-  .lesson-cover--home .lesson-cover__meta > span { flex-direction: column; font-size: .58rem; gap: 4px; padding: 6px 4px; text-align: center; }
+  .lesson-cover--home .lesson-cover__meta > span {
+    flex-direction: column;
+    font-size: .56rem;
+    gap: 4px;
+    padding: 6px 3px;
+    text-align: center;
+  }
   .lesson-cover--home .lesson-cover__cta { min-width: 116px; padding-inline: 12px; }
 }
 
@@ -197,7 +205,9 @@
   .lesson-cover__copy > p { font-size: .66rem; }
   .lesson-cover__meta > span { font-size: .56rem; padding-inline: 7px; }
   .lesson-cover--home .lesson-cover__copy { width: 65%; }
+  .lesson-cover--home .lesson-cover__actions { grid-template-columns: minmax(0, 1fr) minmax(108px, 34%); }
   .lesson-cover--home .lesson-cover__meta svg { height: 14px; width: 14px; }
+  .lesson-cover--home .lesson-cover__meta > span { font-size: .52rem; gap: 3px; padding-inline: 2px; }
   .lesson-cover--home .lesson-cover__cta { font-size: .7rem; min-width: 108px; }
 }
 

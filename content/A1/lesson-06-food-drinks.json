@@ -351,6 +351,7 @@
     {
       "id": "espresso-machine",
       "title": "The old espresso machine",
+      "image": "assets/images/memories/chapter-01/old-espresso-machine.png",
       "savedLabel": "Madrid Memory Added",
       "prompt": "The machine behind the bar hisses as the server prepares another order. Listen for a moment.",
       "carlosSpanish": "Esta máquina lleva muchos años aquí. La camarera dice que conoce el café perfecto para cada cliente.",
