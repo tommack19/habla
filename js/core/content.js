@@ -254,6 +254,27 @@ export function getLessonProgress(id) {
   };
 }
 
+export function getSavedQuizReviewQuestions() {
+  const progress = readProgress();
+  return LESSON_ORDER.flatMap(lessonId => {
+    const lesson = getLessonById(lessonId);
+    const flags = Object.values(progress.lessons[lessonId]?.quizReviewFlags || {});
+    if (!lesson || !flags.length) return [];
+    return flags.map(flag => {
+      const questionIndex = Number(flag.questionIndex);
+      const question = lesson.quiz?.[questionIndex];
+      if (!question) return null;
+      return {
+        lessonId,
+        lessonTitle: lesson.title,
+        questionIndex,
+        question,
+        savedAt: flag.savedAt || null,
+      };
+    }).filter(Boolean);
+  });
+}
+
 export function updateLessonProgress(id, patch = {}) {
   const lesson = getLessonById(id);
   if (!lesson) return { type: "lesson:missing", id };
@@ -289,6 +310,8 @@ export function prepareCompletedLessonReplay(id) {
     rendererStep: 0,
     showCompletion: false,
     guidedSpeakingIndex: 0,
+    guidedSpeakingAttempts: undefined,
+    rendererSpeakingChallenge: undefined,
     flashcardIndex: 0,
     flashcardFlipped: false,
     rendererListening: undefined,

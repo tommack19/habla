@@ -1,5 +1,5 @@
-const CACHE_NAME = "habla-v3-chapter-art";
-const ARTWORK_CACHE_NAME = "habla-artwork-v1";
+const CACHE_NAME = "habla-v4-carlos-consistency";
+const ARTWORK_CACHE_NAME = "habla-artwork-v2";
 
 self.addEventListener("install", (event) => {
   event.waitUntil(

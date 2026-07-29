@@ -1,8 +1,10 @@
 import { buildHomeViewModel } from "../core/homeViewModel.js";
+import { getLessonById, setActiveLesson } from "../core/content.js";
 import { CARLOS_FALLBACK_ONERROR, getCarlosAsset } from "../data/carlosAssets.js";
 import {
   LESSON_ARTWORK_ONERROR,
   getEpisodeArtworkAlt,
+  getLessonNumber,
   getLandmarkArtwork,
   preloadEpisodeArtwork,
   preloadLessonArtwork,
@@ -41,14 +43,12 @@ export function renderHome(state) {
 }
 
 function renderChapterHero(model) {
-  const destination = routeAttributes(model.routes.chapterTwo);
-  const primaryLabel = model.chapterTwoUnlocked ? "Begin Chapter 2" : "Finish Madrid";
-  const primaryAria = model.chapterTwoUnlocked
-    ? "Begin Chapter 2 in Granada"
-    : `Continue Madrid with Episode ${model.activeEntry?.number || 1}`;
+  if (model.selectedEntry || !model.chapterTwoUnlocked) {
+    return renderCurrentEpisodeHero(model);
+  }
 
   return `
-    <section class="home-chapter-hero ${model.chapterTwoUnlocked ? "is-unlocked" : "is-locked"}" aria-labelledby="home-chapter-title">
+    <section class="home-chapter-hero is-unlocked" aria-labelledby="home-chapter-title">
       <img class="home-chapter-hero__scenery" src="${GRANADA_ARTWORK}" alt="The Alhambra and Granada at sunset" fetchpriority="high" decoding="async" onerror="${LESSON_ARTWORK_ONERROR}">
       <img class="home-chapter-hero__carlos" src="${getCarlosAsset("home")}" alt="Carlos smiling and welcoming you to Granada" fetchpriority="high" decoding="async" onerror="${CARLOS_FALLBACK_ONERROR}">
       <span class="home-chapter-hero__overlay" aria-hidden="true"></span>
@@ -57,11 +57,47 @@ function renderChapterHero(model) {
         <h1 id="home-chapter-title">A New Invitation</h1>
         <p>Carlos and Javier are waiting to show you a different side of Spain.</p>
         <div class="home-chapter-hero__actions">
-          <button class="home-button home-button--primary" type="button" ${destination} aria-label="${escapeAttr(primaryAria)}">
-            <span>${primaryLabel}</span>${icon("arrow")}
+          <button class="home-button home-button--primary" type="button" ${routeAttributes(model.routes.chapterTwo)} aria-label="Begin Chapter 2 in Granada">
+            <span>Begin Chapter 2</span>${icon("arrow")}
           </button>
           <button class="home-button home-button--secondary" type="button" ${routeAttributes(model.routes.reviewMadrid)} aria-label="Review Chapter 1 in Madrid">
             ${icon("book")}<span>Review Madrid</span>
+          </button>
+        </div>
+      </div>
+    </section>
+  `;
+}
+
+function renderCurrentEpisodeHero(model) {
+  const entry = model.selectedEntry || model.activeEntry;
+  const lesson = entry?.lesson || model.currentOrNextEpisode;
+  if (!lesson) return "";
+
+  const episodeNumber = Number(entry?.number || getLessonNumber(lesson) || 1);
+  const title = lesson.title || EPISODE_LABELS[lesson.id] || `Episode ${episodeNumber}`;
+  const description = lesson.story?.mission
+    || lesson.realLifeMission?.mission
+    || lesson.objectives?.[0]
+    || "Continue your Spanish journey with Carlos.";
+  const hero = preloadEpisodeArtwork(lesson, "hero");
+  const heroAlt = getEpisodeArtworkAlt(lesson);
+  const destination = { page: "lesson", lessonId: lesson.id };
+
+  return `
+    <section class="home-chapter-hero is-current-episode" aria-labelledby="home-chapter-title">
+      <img class="home-chapter-hero__scenery" src="${escapeAttr(hero)}" alt="${escapeAttr(heroAlt)}" width="1536" height="864" fetchpriority="high" decoding="async" onerror="${LESSON_ARTWORK_ONERROR}">
+      <span class="home-chapter-hero__overlay" aria-hidden="true"></span>
+      <div class="home-chapter-hero__content">
+        <p class="home-eyebrow">Chapter 1 · Episode ${episodeNumber}</p>
+        <h1 id="home-chapter-title">${escapeHtml(title)}</h1>
+        <p>${escapeHtml(description)}</p>
+        <div class="home-chapter-hero__actions">
+          <button class="home-button home-button--primary" type="button" ${routeAttributes(destination)} aria-label="Continue Episode ${episodeNumber}: ${escapeAttr(title)}">
+            <span>Continue Episode</span>${icon("arrow")}
+          </button>
+          <button class="home-button home-button--secondary" type="button" ${routeAttributes(model.routes.journey)} aria-label="View your Madrid journey">
+            ${icon("book")}<span>View Journey</span>
           </button>
         </div>
       </div>
@@ -108,7 +144,7 @@ function renderJourney(model) {
       ` : ""}
       <div class="home-carousel home-journey__scroll" tabindex="0" role="region" aria-label="Madrid Chapter 1 episode timeline">
         <div class="home-journey__track progress-${model.completedCount}">
-          ${model.entries.map((entry) => renderEpisode(entry, model.activeEntry)).join("")}
+          ${model.entries.map((entry) => renderEpisode(entry, model.activeEntry, model.selectedEntry)).join("")}
           ${renderGranadaDestination(model.chapterTwoUnlocked)}
         </div>
       </div>
@@ -116,17 +152,17 @@ function renderJourney(model) {
   `;
 }
 
-function renderEpisode(entry, activeEntry) {
+function renderEpisode(entry, activeEntry, selectedEntry) {
   const completed = Boolean(entry.progress.completed);
   const current = !completed && activeEntry?.lesson?.id === entry.lesson.id;
+  const selected = selectedEntry?.lesson?.id === entry.lesson.id;
   const status = completed ? "completed" : current ? "current" : "locked";
   const label = EPISODE_LABELS[entry.lesson.id] || entry.lesson.title;
   const artwork = preloadEpisodeArtwork(entry.lesson, "thumbnail");
-  const cover = preloadEpisodeArtwork(entry.lesson, "cover");
   const artworkAlt = getEpisodeArtworkAlt(entry.lesson);
 
   return `
-    <button class="home-episode is-${status}" type="button" data-home-episode-poster="${escapeAttr(entry.lesson.id)}" data-episode-cover="${escapeAttr(cover)}" data-episode-alt="${escapeAttr(artworkAlt)}" data-episode-status="${status}" aria-label="Episode ${entry.number}: ${escapeAttr(label)}, ${status}">
+    <button class="home-episode is-${status}${selected ? " is-selected" : ""}" type="button" data-home-episode-select="${escapeAttr(entry.lesson.id)}" data-episode-number="${entry.number}" data-episode-status="${status}" aria-pressed="${selected ? "true" : "false"}" ${status === "locked" ? "disabled" : ""} aria-label="Show Episode ${entry.number}: ${escapeAttr(label)} in the Home hero, ${status}">
       <span class="home-episode__thumb">
         <img src="${escapeAttr(artwork)}" alt="${escapeAttr(artworkAlt)}" width="1024" height="1024" loading="lazy" decoding="async" onerror="${LESSON_ARTWORK_ONERROR}">
         ${completed ? `<i aria-hidden="true">${icon("check")}</i>` : current ? `<i aria-hidden="true">${entry.number}</i>` : `<i aria-hidden="true">${icon("lock")}</i>`}
@@ -264,36 +300,31 @@ function renderMetric(value, label, detail, iconName) {
   return `<span>${icon(iconName)}<b>${escapeHtml(value)}</b><small>${label}<br>${detail}</small></span>`;
 }
 
-function openEpisodePoster(button) {
-  const lessonId = button?.dataset?.homeEpisodePoster;
+function selectHomeEpisode(button) {
+  const lessonId = button?.dataset?.homeEpisodeSelect;
   const entryStatus = button?.dataset?.episodeStatus || "locked";
-  if (!lessonId || typeof document === "undefined") return;
+  if (!lessonId || entryStatus === "locked" || typeof document === "undefined") return;
 
-  const destination = entryStatus === "locked" ? "" : `data-page="lesson" data-lesson-id="${escapeAttr(lessonId)}"`;
-  let dialog = document.querySelector("#home-episode-poster");
-  if (!dialog) {
-    dialog = document.createElement("dialog");
-    dialog.id = "home-episode-poster";
-    dialog.className = "home-episode-poster";
-    document.body.append(dialog);
-  }
-  const title = button.querySelector("strong")?.textContent || "Madrid episode";
-  const cover = button.dataset.episodeCover || button.querySelector("img")?.getAttribute("src") || "";
-  const artworkAlt = button.dataset.episodeAlt || `${title} episode cover`;
-  const number = button.querySelector("small")?.textContent || "";
-  dialog.innerHTML = `
-    <article>
-      <img src="${escapeAttr(cover)}" alt="${escapeAttr(artworkAlt)}" width="1024" height="1280" decoding="async" onerror="${LESSON_ARTWORK_ONERROR}">
-      <button type="button" data-home-poster-close aria-label="Close episode preview">×</button>
-      <div><p class="home-eyebrow">Chapter 1 · Episode ${escapeHtml(number)}</p><h2>${escapeHtml(title)}</h2>
-        ${entryStatus === "locked"
-          ? `<button type="button" disabled>${icon("lock")} Complete earlier episodes</button>`
-          : `<button type="button" ${destination}>${entryStatus === "completed" ? "Revisit Episode" : "Continue Episode"}${icon("arrow")}</button>`}
-      </div>
-    </article>
-  `;
-  if (typeof dialog.showModal === "function") dialog.showModal();
-  else dialog.setAttribute("open", "");
+  const lesson = getLessonById(lessonId);
+  if (!lesson || !setActiveLesson(lessonId)) return;
+
+  document.querySelectorAll("[data-home-episode-select]").forEach((episode) => {
+    const selected = episode === button;
+    episode.classList.toggle("is-selected", selected);
+    episode.setAttribute("aria-pressed", selected ? "true" : "false");
+  });
+
+  const model = buildHomeViewModel();
+  const currentHero = document.querySelector(".home-chapter-hero");
+  if (!currentHero) return;
+  currentHero.outerHTML = renderChapterHero(model);
+
+  const updatedHero = document.querySelector(".home-chapter-hero");
+  const reducedMotion = window.matchMedia?.("(prefers-reduced-motion: reduce)")?.matches;
+  updatedHero?.scrollIntoView({
+    behavior: reducedMotion ? "auto" : "smooth",
+    block: "start",
+  });
 }
 
 function selectFeaturedStamps(stamps) {
@@ -346,15 +377,10 @@ function normalizeText(value) {
 
 if (typeof document !== "undefined") {
   document.addEventListener("click", (event) => {
-    const episode = event.target.closest?.("[data-home-episode-poster]");
+    const episode = event.target.closest?.("[data-home-episode-select]");
     if (episode) {
-      openEpisodePoster(episode);
-      return;
+      selectHomeEpisode(episode);
     }
-    const close = event.target.closest?.("[data-home-poster-close]");
-    if (close) close.closest("dialog")?.close?.();
-    if (event.target?.matches?.("dialog.home-episode-poster")) event.target.close?.();
-    event.target.closest?.(".home-episode-poster [data-page]")?.closest("dialog")?.close?.();
   });
 }
 

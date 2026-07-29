@@ -10,7 +10,7 @@ export const CARLOS_ASSETS = Object.freeze({
   celebrating: CARLOS_HOME_FALLBACK,
   morning: "assets/images/Carlos/Carlos-morning-hero.png",
   afternoon: "assets/images/Carlos/Carlos-afternoon-hero.png",
-  evening: "assets/images/Carlos/Carlos-noches-Hero.png",
+  evening: "assets/images/Carlos/Carlos-noches-hero.png",
 });
 
 export const CARLOS_FALLBACK_ONERROR = `this.onerror=null;this.src='${CARLOS_HOME_FALLBACK}'`;

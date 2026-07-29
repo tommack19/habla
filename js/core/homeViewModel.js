@@ -1,4 +1,5 @@
 import {
+  getActiveLesson,
   getLessonById,
   getLessonProgress,
   getUnlockedLessons,
@@ -44,6 +45,10 @@ export function buildHomeViewModel(state) {
   const chapterComplete = entries.length === MADRID_LESSON_IDS.length
     && completedEntries.length === MADRID_LESSON_IDS.length;
   const unlockedIds = new Set(getUnlockedLessons().map((lesson) => lesson.id));
+  const selectedLesson = getActiveLesson();
+  const selectedEntry = entries.find(({ lesson }) => (
+    lesson.id === selectedLesson?.id && unlockedIds.has(lesson.id)
+  )) || null;
   const chapterTwoUnlocked = chapterComplete && unlockedIds.has(GRANADA_ENTRY_LESSON_ID);
   const granadaLesson = getLessonById(GRANADA_ENTRY_LESSON_ID);
   const memories = entries
@@ -78,7 +83,10 @@ export function buildHomeViewModel(state) {
     completedCount: completedEntries.length,
     completionPercent,
     activeEntry,
-    currentOrNextEpisode: chapterTwoUnlocked ? granadaLesson : activeEntry?.lesson || null,
+    selectedEntry,
+    currentOrNextEpisode: selectedEntry?.lesson
+      || (chapterTwoUnlocked ? granadaLesson : activeEntry?.lesson)
+      || null,
     granadaLesson,
     earnedStamps,
     recentMemories: memories.slice(0, 4),

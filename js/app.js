@@ -653,6 +653,8 @@ function renderAppPage(page) {
   if (page !== currentPage) stopSpeech();
   currentPage = page;
   document.body.classList.toggle('carlos-mode', page === 'carlos');
+  document.body.classList.toggle('lesson-mode', page === 'lesson');
+  document.body.classList.remove('lesson-header-collapsed');
   renderPage(page);
   if (page === 'journey' || page === 'lesson') {
     const dashboard = document.getElementById('dashboard');
@@ -665,6 +667,11 @@ function renderAppPage(page) {
     initializeCarlosUI();
   }
 }
+
+document.getElementById('dashboard')?.addEventListener('scroll', event => {
+  const shouldCollapse = currentPage === 'lesson' && event.currentTarget.scrollTop > 54;
+  document.body.classList.toggle('lesson-header-collapsed', shouldCollapse);
+}, { passive: true });
 
 function updateLevelButton() {
   const levelBtn = document.getElementById('level-btn');

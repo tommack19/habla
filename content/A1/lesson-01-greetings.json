@@ -858,29 +858,34 @@
       {
         "text": "hola",
         "meaning": "hello",
-        "note": "Do not pronounce the h."
+        "note": "The h is silent: OH-lah."
       },
       {
         "text": "me llamo",
         "meaning": "my name is",
-        "note": "Link the two words smoothly."
+        "note": "Connect smoothly: meh-YAH-moh."
       },
       {
         "text": "mucho gusto",
         "meaning": "nice to meet you",
-        "note": "Keep both u sounds clear."
+        "note": "Keep both u sounds short and clear."
       },
       {
         "text": "¿cómo estás?",
         "meaning": "how are you?",
-        "note": "Stress có in cómo and tás in estás."
+        "note": "Stress CÓ-mo and es-TÁS."
       },
       {
         "text": "hasta luego",
         "meaning": "see you later",
         "note": "The h is silent; use one relaxed closing rhythm."
       }
-    ]
+    ],
+    "putItTogether": {
+      "text": "Hola, me llamo {{learnerName}}. Mucho gusto.",
+      "meaning": "Hello, my name is {{learnerName}}. Nice to meet you.",
+      "note": "Bring the greeting, your name, and the friendly closing together."
+    }
   },
   "listening": {
     "title": "Can you follow our conversation?",
@@ -1029,10 +1034,10 @@
       {
         "stage": "recall",
         "label": "One more challenge",
-        "carlosPrompt": "Perdón, hablo muy rápido.",
-        "carlosPromptEnglish": "Sorry, I speak very quickly.",
-        "prompt": "Ask Carlos to slow down.",
-        "cue": "Try it from memory before playing the model.",
+        "carlosPrompt": "Mucho gusto. Me llamo Carlos y vivo aquí, cerca de este café.",
+        "carlosPromptEnglish": "Nice to meet you. My name is Carlos and I live here, near this café.",
+        "prompt": "You missed part of that. Ask Carlos to slow down.",
+        "cue": "Use the repair phrase you practiced before opening the model.",
         "text": "Más despacio, por favor.",
         "meaning": "More slowly, please.",
         "focus": "Stress más and pa in despacio."

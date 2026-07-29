@@ -9,6 +9,19 @@
   background: linear-gradient(180deg, rgba(4, 8, 11, 0.98), rgba(5, 10, 13, 0.92));
 }
 
+body.lesson-mode #app > .primary-header {
+  max-height: 110px;
+  overflow: hidden;
+  transition: max-height 220ms ease, opacity 180ms ease, padding 220ms ease;
+}
+
+body.lesson-mode.lesson-header-collapsed #app > .primary-header {
+  max-height: 0;
+  padding-block: 0;
+  opacity: 0;
+  pointer-events: none;
+}
+
 .primary-header-dock {
   position: relative;
   display: flex;
@@ -410,6 +423,7 @@
 @media (prefers-reduced-motion: reduce) {
   #level-sheet { animation: none; }
   .level-xp-track i { transition: none; }
+  body.lesson-mode #app > .primary-header { transition: none; }
 }
 
 @media (max-width: 350px) {

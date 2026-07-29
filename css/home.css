@@ -146,6 +146,11 @@
   filter: saturate(0.9) brightness(0.92);
 }
 
+.home-chapter-hero.is-current-episode .home-chapter-hero__scenery {
+  object-position: center;
+  filter: saturate(1) brightness(0.98);
+}
+
 .home-chapter-hero__carlos {
   z-index: -1;
   top: -3%;
@@ -458,12 +463,18 @@
   box-shadow: 0 0 0 3px rgba(245, 189, 69, 0.11), 0 0 16px rgba(245, 189, 69, 0.22);
 }
 
+.home-episode.is-selected .home-episode__thumb {
+  border-color: var(--home-gold);
+  box-shadow: 0 0 0 3px rgba(245, 189, 69, 0.18), 0 0 18px rgba(245, 189, 69, 0.32);
+}
+
 .home-episode.is-current .home-episode__thumb i {
   background: var(--home-gold);
 }
 
 .home-episode.is-locked {
   opacity: 0.38;
+  cursor: not-allowed;
 }
 
 .home-episode small {
@@ -839,80 +850,6 @@
   margin: 11px 0 0;
   color: rgba(225, 232, 229, 0.69);
   font: 520 0.57rem/1.4 Inter, system-ui, sans-serif;
-}
-
-/* Episode poster */
-.home-episode-poster {
-  width: min(350px, calc(100vw - 28px));
-  max-height: calc(100dvh - 32px);
-  padding: 0;
-  overflow: hidden;
-  border: 1px solid rgba(245, 189, 69, 0.42);
-  border-radius: 22px;
-  background: #081012;
-  color: var(--home-text);
-  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.72);
-}
-
-.home-episode-poster::backdrop {
-  background: rgba(0, 5, 7, 0.76);
-  backdrop-filter: blur(8px);
-}
-
-.home-episode-poster article {
-  position: relative;
-}
-
-.home-episode-poster article > img {
-  width: 100%;
-  aspect-ratio: 4 / 5;
-  object-fit: cover;
-  mask-image: linear-gradient(#000 76%, transparent);
-}
-
-.home-episode-poster article > button {
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  display: grid;
-  place-items: center;
-  width: 36px;
-  height: 36px;
-  border: 1px solid rgba(255, 255, 255, 0.18);
-  border-radius: 50%;
-  background: rgba(0, 0, 0, 0.5);
-  color: #fff;
-  cursor: pointer;
-}
-
-.home-episode-poster article > div {
-  margin-top: -38px;
-  padding: 0 18px 18px;
-}
-
-.home-episode-poster h2 {
-  margin: 7px 0 18px;
-  font: 700 1.8rem/1 "Playfair Display", Georgia, serif;
-}
-
-.home-episode-poster article > div > button {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-  width: 100%;
-  min-height: 48px;
-  border: 1px solid rgba(245, 189, 69, 0.45);
-  border-radius: 14px;
-  background: rgba(245, 189, 69, 0.12);
-  color: var(--home-gold);
-  font: 800 0.72rem/1 Inter, sans-serif;
-  cursor: pointer;
-}
-
-.home-episode-poster article > div > button:disabled {
-  cursor: not-allowed;
-  opacity: 0.55;
 }
 
 @keyframes homeProgressFill {

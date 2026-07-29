@@ -37,6 +37,7 @@ export async function playSpeechSequence(lines, options = {}) {
   for (let index = 0; index < sequence.length; index += 1) {
     const line = sequence[index];
     if (token !== playbackToken) return false;
+    options.onLineStart?.(line, index);
     const completed = await playSpeechWithoutReset(
       cleanSpeechText(personalizeText(line?.text || "")),
       {
@@ -47,6 +48,7 @@ export async function playSpeechSequence(lines, options = {}) {
       },
       token,
     );
+    options.onLineEnd?.(line, index, completed);
     if (!completed || token !== playbackToken) return false;
     const nextLine = sequence[index + 1];
     if (nextLine) {

@@ -9,8 +9,8 @@ const EPISODE_SLUGS = Object.freeze({
   5: "episode-05-fresh-fruit-and-fresh-spanish",
   6: "episode-06-coffee-break",
   7: "episode-07-walking-through-madrid",
-  8: "episode-08-an-afternoon-at-home",
-  9: "episode-09-a-typical-day",
+  8: "episode-08-an-afternoon-at-home-consistent",
+  9: "episode-09-a-typical-day-consistent",
   10: "episode-10-weekend-adventure",
 });
 
