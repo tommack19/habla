@@ -15,6 +15,15 @@
     "heroText": "Talk about your daily routine in Spanish.",
     "scene": "The kettle is on and rain still taps the apartment windows. Carlos uses the familiar rooms and objects around him to describe an ordinary weekday, then stops being the example and asks {{learnerName}} to describe a real day.",
     "mission": "Tell Carlos about a real day from morning to night.",
+    "openingCarlosTitle": "Tell me about your day",
+    "openingCarlosMessage": "You’ve spent the day responding to me. Now I want to hear about you—from your morning to the time you practice Spanish.",
+    "openingMissionTitle": "Share your daily routine.",
+    "openingMissionItems": [
+      "Talk about your morning",
+      "Describe later in the day",
+      "Put events in order",
+      "Share when you practice"
+    ],
     "continuity": "The scene begins exactly where Lesson 8 ends. The apartment returns as a recurring landmark, but the communication goal shifts from describing space to describing life inside it."
   },
   "emotionalArc": {

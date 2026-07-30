@@ -28,8 +28,18 @@
   "story": {
     "chapter": 1,
     "city": "Madrid",
+    "location": "Outside Café Español, Madrid",
     "scene": "Outside the same Madrid café, Carlos introduces you to his longtime friend Ana.",
     "mission": "Today you’ll learn to tell Ana where you’re from, say where you live, and ask the same questions back.",
+    "openingCarlosTitle": "Let’s meet Ana",
+    "openingCarlosMessage": "¡Hola de nuevo! Ana is waiting outside the café. Introduce yourself, tell her where you’re from and where you live, then ask her the same.",
+    "openingMissionTitle": "Meet Ana in Spanish.",
+    "openingMissionItems": [
+      "Greet Ana",
+      "Say where you’re from",
+      "Say where you live",
+      "Return a question"
+    ],
     "continuity": "You reuse your Lesson 1 greeting and name before learning two new place phrases. Ana and Carlos invite you to the Lesson 3 family dinner."
   },
   "emotionalArc": {

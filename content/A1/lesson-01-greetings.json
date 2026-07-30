@@ -70,8 +70,18 @@
   "story": {
     "chapter": 1,
     "city": "Madrid",
+    "location": "Café Español, Madrid",
     "scene": "You meet Carlos at a neighborhood café for the first time.",
     "mission": "Today you’ll learn to greet Carlos, exchange names, and close your first Spanish conversation naturally.",
+    "openingCarlosTitle": "Let’s begin",
+    "openingCarlosMessage": "¡Hola! I’m Carlos. We’re meeting for coffee in Madrid. By the end, you’ll introduce yourself and complete your first short conversation in Spanish.",
+    "openingMissionTitle": "Have your first Spanish conversation.",
+    "openingMissionItems": [
+      "Greet Carlos",
+      "Introduce yourself",
+      "Answer and return a question",
+      "Close naturally"
+    ],
     "continuity": "This is the beginning of the Habla journey. Carlos will introduce you to his friend Ana next."
   },
   "emotionalArc": {
@@ -559,6 +569,8 @@
     "topic": "Introducing yourself with me llamo",
     "meaning": "Say your name in one clear, reusable phrase.",
     "explanation": "Learn “Me llamo…” as one complete phrase. You’ll use it almost every time you introduce yourself.",
+    "carlosTip": "Whenever I meet someone new, I almost always say, “Me llamo Carlos.” Try that first—it’ll sound natural every time.",
+    "madridTip": "If you only remember one introduction today, make it “Me llamo…” You’ll sound natural almost everywhere.",
     "notes": [
       {
         "title": "The safest first phrase",

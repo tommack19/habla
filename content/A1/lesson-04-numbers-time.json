@@ -39,6 +39,15 @@
       "Podemos ir al mercado juntos."
     ],
     "mission": "Today you’ll arrange a Saturday morning trip to the market with Carlos.",
+    "openingCarlosTitle": "Let’s make plans",
+    "openingCarlosMessage": "My family loved meeting you. Are you free this Saturday? Let’s choose a time and plan our trip to the market.",
+    "openingMissionTitle": "Arrange a Saturday market visit.",
+    "openingMissionItems": [
+      "Ask when Carlos is free",
+      "Choose a day",
+      "Agree on a time",
+      "Close the plan naturally"
+    ],
     "continuity": "Carlos asks how your family is before inviting you out, naturally reusing greetings, family language, and the conversation from dinner."
   },
   "emotionalArc": {

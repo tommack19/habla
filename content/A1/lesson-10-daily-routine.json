@@ -15,6 +15,15 @@
     "time": "Sunday, one complete day",
     "scene": "The rain has cleared. Carlos invites the learner to spend one more day moving through the Madrid they now know. There is no new grammar lesson and almost no new language. Six short scenes ask the learner to greet, navigate, order, shop, describe, and talk personally with less help each time.",
     "mission": "Complete one connected Madrid day in Spanish, from the first greeting to the final goodbye.",
+    "openingCarlosTitle": "Today you lead",
+    "openingCarlosMessage": "Let’s spend one more day exploring Madrid. I’ll stay beside you, but today you decide and speak first.",
+    "openingMissionTitle": "Spend a full day speaking Spanish.",
+    "openingMissionItems": [
+      "Greet Carlos",
+      "Navigate Madrid",
+      "Order and shop",
+      "Tell the story of your day"
+    ],
     "continuity": "The episode pays off the promise at the end of Lesson 9 and connects all three Chapter 1 landmarks into one final journey."
   },
   "emotionalArc": {

@@ -15,6 +15,15 @@
     "heroText": "Rain brings you back to Carlos and Marta’s apartment for a quiet afternoon at home.",
     "scene": "Rain interrupts the walk after Plaza Mayor, so Carlos and {{learnerName}} return to the apartment from the family dinner. This time the home is quiet and ordinary: a damp jacket by the door, a mug on the table, books on the shelf, a guitar in the corner, and family photos among the everyday clutter.",
     "mission": "Name the main rooms, say what exists in one room, and explain where one object is.",
+    "openingCarlosTitle": "Come inside",
+    "openingCarlosMessage": "It’s raining, so make yourself at home. Choose a room to explore, notice what is there, and tell Marta where one object is.",
+    "openingMissionTitle": "Describe a room in Carlos’s home.",
+    "openingMissionItems": [
+      "Name the room",
+      "Say what exists there",
+      "Locate one object",
+      "Describe what you notice"
+    ],
     "continuity": "The learner already knows Carlos’s family and has visited this home. The new perspective is the comfortable, lived-in rhythm of an ordinary afternoon there."
   },
   "emotionalArc": {

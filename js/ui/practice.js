@@ -3,6 +3,7 @@ import { PRACTICE_LIBRARY_CATEGORIES, findPracticeLibraryCategory, findPracticeL
 import { CARLOS_FALLBACK_ONERROR, getCarlosAsset } from "../data/carlosAssets.js";
 import { personalizeText } from "../core/personalization.js";
 import { playSpeech } from "../core/audio.js";
+import { state } from "../core/state.js";
 import { renderLessonCover } from "../components/lessonCover.js";
 
 const TOPIC_KEY = "habla_selected_practice_topic_v1";
@@ -604,11 +605,12 @@ function getLibraryItemStatus(entry, appState) {
 function getSmartReviewCount(key, appState) {
   const weakWords = Array.isArray(appState?.vocabulary?.weakWords) ? appState.vocabulary.weakWords.length : 0;
   const learned = Array.isArray(appState?.vocabulary?.learned) ? appState.vocabulary.learned.length : 0;
+  const favorites = Array.isArray(appState?.vocabulary?.savedPhrases) ? appState.vocabulary.savedPhrases.length : 0;
   const counts = {
     dueToday: 0,
     weakWords,
     recentlyMissed: 0,
-    favorites: 0,
+    favorites,
     recentlyPracticed: 0,
     dailyReview: weakWords,
     difficultVerbs: 0,
@@ -737,7 +739,7 @@ function renderFlashcardActivity(session, topic, lesson) {
     ${renderActivityHeader("Flashcards")}
     ${renderTopicSummary(topic, lesson, session.flash.index + 1, total, "flashcards")}
     <article class="practice-flashcard ${session.flash.flipped ? "flipped" : ""}" role="button" tabindex="0" onclick="hablaPractice.flip()" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();hablaPractice.flip()}" aria-label="Flip flashcard">
-      <span class="flash-star" aria-hidden="true">${iconSvg("star")}</span>
+      <span class="flash-star ${card.saved ? "is-saved" : ""}" aria-label="${card.saved ? "Saved phrase" : "Flashcard"}">${iconSvg("star")}</span>
       <button class="flash-audio" type="button" tabindex="${session.flash.flipped ? "-1" : "0"}" data-phrase="${escapeAttr(card.spanish)}" onclick="event.stopPropagation();hablaPractice.speakCard(this)" onkeydown="event.stopPropagation()" aria-label="Hear pronunciation" title="Hear pronunciation">${iconSvg("volume")}</button>
       <span class="flash-front" aria-hidden="${session.flash.flipped}"><strong>${escapeHtml(card.spanish)}</strong><span class="flash-hear-label">Tap to hear pronunciation</span><small>Tap card to flip</small></span>
       <span class="flash-back" aria-hidden="${!session.flash.flipped}">
@@ -797,7 +799,19 @@ function getLessonForTopic(slug) {
 
 function getCards(lesson) {
   const seen = new Set();
-  return (lesson?.vocabulary || []).filter(item => item?.spanish && item?.english && !seen.has(item.spanish.toLowerCase()) && seen.add(item.spanish.toLowerCase())).map(item => ({ spanish: item.spanish, english: item.english, exampleSpanish: item.exampleSpanish, exampleEnglish: item.exampleEnglish, tip: item.tip }));
+  const saved = Array.isArray(state.vocabulary?.savedPhrases)
+    ? state.vocabulary.savedPhrases.filter(item => item?.sourceLessonId === lesson?.id)
+    : [];
+  return [...saved, ...(lesson?.vocabulary || [])]
+    .filter(item => item?.spanish && item?.english && !seen.has(item.spanish.toLowerCase()) && seen.add(item.spanish.toLowerCase()))
+    .map(item => ({
+      spanish: item.spanish,
+      english: item.english,
+      exampleSpanish: item.exampleSpanish,
+      exampleEnglish: item.exampleEnglish,
+      tip: item.tip,
+      saved: Boolean(item.key),
+    }));
 }
 
 function getPronunciation(lesson) {

@@ -14,6 +14,15 @@
     "time": "Saturday at 10:00 AM",
     "scene": "Carlos is already waiting at the market. His mother sent him to buy a few things for lunch because she says he always forgets something.",
     "mission": "Today you’ll help Carlos buy ingredients for lunch.",
+    "openingCarlosTitle": "Help me with lunch",
+    "openingCarlosMessage": "My mother is making lunch and says I always forget something. Will you help me shop at Mercado de San Miguel?",
+    "openingMissionTitle": "Help Carlos shop for lunch.",
+    "openingMissionItems": [
+      "Choose what to buy",
+      "Point out a product",
+      "Ask the price",
+      "Thank the vendor"
+    ],
     "continuity": "The lesson opens at the exact day, time, and place arranged in Lesson 4. Carlos now reveals the special thing he needed: your help choosing something for the family table."
   },
   "emotionalArc": {

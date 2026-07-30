@@ -25,7 +25,8 @@ user: {
 
   vocabulary: {
     learned: [],
-    weakWords: []
+    weakWords: [],
+    savedPhrases: []
   }
 };
 

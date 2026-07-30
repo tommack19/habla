@@ -56,6 +56,7 @@ Optional `supplementalDialogueExamples` and `supplementalQuizBank` fields may pr
 - `recycledLanguage`: At least three earlier words or phrases that return naturally. Lesson 1 uses an empty array.
 - `vocabulary[].tier`: Primarily `1`; use `2` only when required by the situation.
 - `vocabulary[].group`: A short functional group such as Openers, Responses, or Repair.
+- `vocabulary[].icon`: Optional semantic icon ID from the centralized choice-icon registry. When omitted, the renderer infers a conservative icon from the phrase and context.
 - `essentialPhrases[].usage`: When or why a learner would use the phrase.
 - `listening.items[].answer`: Must exactly match one provided option.
 - `realLifeMission.successCriteria`: Clear, observable completion requirements.
@@ -91,6 +92,8 @@ Every Habla lesson should follow this standard format.
 - `nextLesson`: The `id` of the recommended next lesson, or `null` if none exists.
 - `contentRoles`: Optional maintenance metadata that classifies core, support, reviewed-reference, and compatibility fields without changing the rendered lesson order.
 - `sectionIntros`: Optional presentation copy for short section eyebrows, titles, and supporting lines. It may refine tone but must not replace teaching content or introduce unlearned Spanish.
+- `story.openingCarlosTitle` / `story.openingCarlosMessage`: Optional concise episode-opening copy. It should welcome the learner into the exact scene without repeating the full mission.
+- `story.openingMissionTitle` / `story.openingMissionItems`: Optional compact introduction-card presentation. Items must remain faithful to `canDo` outcomes and should use three or four short action phrases.
 - `sectionTransitions`: Optional brief Carlos lines that bridge completed sections. They should maintain story momentum without adding new teaching content.
 - `dialogue[].presentation.status`: Optional presence copy for message-thread headers, such as `Active now` or a story-specific last-seen time.
 - `realLifeMission.presentationBody`: Optional short setup copy for the example conversation.
@@ -140,7 +143,7 @@ Every Habla lesson should follow this standard format.
 - `estimatedMinutes`: Approximate lesson length for planning and mission estimates.
 - `objectives`: List of learner outcomes. Each objective should describe something the learner can do after the lesson.
 - `vocabulary`: List of lesson vocabulary objects. Each item should include Spanish, English, part of speech, tip, Spanish example, and English translation.
-- `grammar`: The main pattern or grammar point. Include topic, explanation, examples, and a short practice prompt.
+- `grammar`: The main language pattern, rendered to learners as a short Carlos “Language Tip.” Include topic, explanation, examples, and a short practice prompt. Optional `carlosTip` supplies Carlos’ conversational coaching copy; optional `madridTip` supplies the location-specific takeaway; optional `readyQuestion` overrides the next Spanish prompt shown in the handoff. When omitted, the renderer derives these from the existing meaning, explanation, notes, examples, and next dialogue.
 - `dialogue`: Short conversational exchange using the lesson vocabulary and grammar.
 - `pronunciation`: Sound, stress, rhythm, or phrase practice for the lesson.
 - `culture`: Practical cultural note that helps the learner use Spanish naturally.

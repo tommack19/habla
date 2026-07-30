@@ -661,7 +661,11 @@ function renderAppPage(page) {
     if (dashboard) dashboard.scrollTop = 0;
   }
   const navMount = document.getElementById('bottom-nav');
-  if (navMount) navMount.innerHTML = renderNavigation(page === 'journey' || page === 'lesson' ? 'learn' : page);
+  if (navMount) {
+    navMount.hidden = page === 'lesson';
+    navMount.setAttribute('aria-hidden', page === 'lesson' ? 'true' : 'false');
+    navMount.innerHTML = renderNavigation(page === 'journey' || page === 'lesson' ? 'learn' : page);
+  }
 
   if (page === 'carlos') {
     initializeCarlosUI();

@@ -32,6 +32,15 @@
     "location": "Madrid",
     "scene": "Carlos and Marta host a relaxed family dinner in Madrid. Ana joins you, and Carlos’s parents and siblings are visiting from Granada.",
     "mission": "Today you’ll meet Carlos’s family and learn to introduce the people closest to you.",
+    "openingCarlosTitle": "Come on in",
+    "openingCarlosMessage": "Everyone’s excited to meet you. I’ll introduce my family first, then I’d love to hear about yours.",
+    "openingMissionTitle": "Join Carlos’s family dinner.",
+    "openingMissionItems": [
+      "Greet the family",
+      "Identify family members",
+      "Talk about your family",
+      "Ask one question"
+    ],
     "continuity": "You greet Ana again and reuse names, origin, and residence while meeting the family Carlos mentioned at the end of Lesson 2."
   },
   "emotionalArc": {

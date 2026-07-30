@@ -14,6 +14,15 @@
     "time": "Saturday, late morning",
     "scene": "Carlos steps outside the café and points toward the old streets, but he does not lead. He asks you to find Plaza Mayor by speaking with a local and following three short direction cues.",
     "mission": "Today you’ll ask where Plaza Mayor is, understand three simple directions, and identify the destination.",
+    "openingCarlosTitle": "You lead the way",
+    "openingCarlosMessage": "Plaza Mayor is close, but this time you’ll find it. Ask a local, follow the directions, and tell me when we arrive.",
+    "openingMissionTitle": "Find Plaza Mayor.",
+    "openingMissionItems": [
+      "Ask for the route",
+      "Follow three directions",
+      "Identify the plaza",
+      "Thank the local"
+    ],
     "continuity": "The walk begins immediately after Lesson 6. Carlos briefly acknowledges the learner’s stored drink preference, then steps back so the learner can navigate."
   },
   "emotionalArc": {

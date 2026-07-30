@@ -14,6 +14,15 @@
     "time": "Saturday, just after the market",
     "scene": "Carlos carries the market bag into a quiet café. You sit on the terrace, choose what you genuinely prefer to drink, and order a drink and snack from the server.",
     "mission": "Today you’ll order a drink and snack politely and make one simple change.",
+    "openingCarlosTitle": "Order for yourself",
+    "openingCarlosMessage": "After the market, we deserve a break. Choose what you really want, then order it for yourself at my favorite café.",
+    "openingMissionTitle": "Order like a café regular.",
+    "openingMissionItems": [
+      "Choose a drink",
+      "Order a snack",
+      "Make one change",
+      "Ask for the bill"
+    ],
     "continuity": "The lesson begins moments after Lesson 5. Carlos briefly acknowledges the learner’s market choice, then turns naturally toward the café order."
   },
   "emotionalArc": {

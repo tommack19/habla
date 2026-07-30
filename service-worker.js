@@ -1,4 +1,4 @@
-const CACHE_NAME = "habla-v4-carlos-consistency";
+const CACHE_NAME = "habla-v11-language-tip-polish";
 const ARTWORK_CACHE_NAME = "habla-artwork-v2";
 
 self.addEventListener("install", (event) => {
