@@ -28,6 +28,7 @@
   "story": {
     "chapter": 1,
     "city": "Madrid",
+    "displayLocation": "Outside Café Español · Madrid",
     "location": "Outside Café Español, Madrid",
     "scene": "Outside the same Madrid café, Carlos introduces you to his longtime friend Ana.",
     "mission": "Today you’ll learn to tell Ana where you’re from, say where you live, and ask the same questions back.",

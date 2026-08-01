@@ -49,6 +49,7 @@ Optional `supplementalDialogueExamples` and `supplementalQuizBank` fields may pr
 
 - `story.chapter`: Chapter number from 1–3.
 - `story.city`: Madrid, Granada, or Valencia.
+- `story.displayLocation`: Optional concise learner-facing scene label for episode artwork, such as `Café Español · Madrid`. Keep the longer narrative setting in `story.location`.
 - `story.scene`: The concrete situation Carlos is guiding.
 - `emotionalArc`: The learner’s starting feeling, ending feeling, and the experience that creates the change.
 - `microCliffhanger`: Carlos’s short final story beat and the lesson where it pays off.

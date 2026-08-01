@@ -41,6 +41,7 @@ const ICONS = {
   message: `<path d="M4 5h16v11H8l-4 4V5Z"/>`,
   target: `<circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="4"/><path d="m14 10 6-6"/>`,
   star: `<path d="m12 2.8 2.8 5.8 6.4.9-4.6 4.5 1.1 6.3-5.7-3-5.7 3 1.1-6.3-4.6-4.5 6.4-.9L12 2.8Z"/>`,
+  pin: `<path d="M20 10c0 5-8 11-8 11S4 15 4 10a8 8 0 1 1 16 0Z"/><circle cx="12" cy="10" r="2.5"/>`,
   passport: `<rect x="5" y="3" width="14" height="18" rx="2"/><circle cx="12" cy="11" r="4"/><path d="M8 11h8M12 7c1.2 1.2 1.8 2.5 1.8 4S13.2 13.8 12 15M12 7c-1.2 1.2-1.8 2.5-1.8 4s.6 2.8 1.8 4"/>`,
   sofa: `<path d="M5 12V9a2.5 2.5 0 0 1 2.5-2.5h9A2.5 2.5 0 0 1 19 9v3"/><path d="M4 11a2 2 0 0 0-2 2v4h20v-4a2 2 0 0 0-2-2M5 17v2M19 17v2M12 7v5"/>`,
   cup: `<path d="M5 8h11v7a4 4 0 0 1-4 4H9a4 4 0 0 1-4-4V8Z"/><path d="M16 10h1.5a2.5 2.5 0 0 1 0 5H16M8 4c0 1 1 1 1 2M12 4c0 1 1 1 1 2"/>`,
@@ -100,6 +101,7 @@ if (typeof window !== "undefined") {
     exitSpeakingChallenge,
     discover: discoverLivingWorldMoment,
     speak: speakSpanish,
+    continueLanguageTip,
     finishCompletion: exitLessonCompletion,
   };
 }
@@ -137,38 +139,38 @@ export function renderLesson() {
 }
 
 function buildLessonSteps(lesson) {
-  const steps = [{ id: "story", label: "Introduction", type: "story" }];
+  const steps = [{ id: "story", label: "Episode Opening", type: "story" }];
   const dialogue = normalizeDialogue(lesson.dialogue || lesson.dialogues);
   const messageThread = dialogue.find(scene => scene.presentation?.type === "messageThread");
   if (messageThread) {
     steps.push({
       id: "messages",
-      label: "Conversation",
+      label: "A Message from Carlos",
       type: "dialogue",
       data: messageThread,
       legacyCombined: true,
     });
   }
-  if (lesson.learnerChoices?.options?.length) steps.push({ id: "choice", label: "Your Choice", type: "choice" });
-  if (lesson.vocabulary?.length) steps.push({ id: "vocabulary", label: "Vocabulary", type: "vocabulary" });
-  if (lesson.grammar) steps.push({ id: "grammar", label: "Language Tip", type: "grammar" });
+  if (lesson.learnerChoices?.options?.length) steps.push({ id: "choice", label: "Choose the Moment", type: "choice" });
+  if (lesson.vocabulary?.length) steps.push({ id: "vocabulary", label: "Words You’ll Need", type: "vocabulary" });
+  if (lesson.grammar) steps.push({ id: "grammar", label: "Carlos’ Advice", type: "grammar" });
   const standardDialogue = dialogue.find(scene => scene !== messageThread);
-  if (standardDialogue) steps.push({ id: "dialogue", label: "Conversation", type: "dialogue", data: standardDialogue });
+  if (standardDialogue) steps.push({ id: "dialogue", label: "Watch Carlos", type: "dialogue", data: standardDialogue });
   if (lesson.listening || lesson.listeningPhrases?.length) {
     steps.push({
       id: "listening",
-      label: "Conversation",
+      label: "Watch Carlos",
       type: "listening",
       data: standardDialogue || messageThread,
       legacyCombined: Boolean(standardDialogue),
     });
   }
-  if (lesson.pronunciation || lesson.pronunciationExercises?.length) steps.push({ id: "pronunciation", label: "Pronunciation", type: "pronunciation" });
-  if (lesson.speaking || lesson.speakingChallenge?.length) steps.push({ id: "speaking", label: "Talk to Carlos", type: "speaking" });
-  if (getFlashcardItems(lesson).length) steps.push({ id: "flashcards", label: "Flashcards", type: "flashcards" });
-  if (lesson.quiz?.length) steps.push({ id: "quiz", label: "Quiz", type: "quiz" });
-  if (lesson.miniConversation || lesson.realLifeMission) steps.push({ id: "conversation", label: "Carlos", type: "conversation" });
-  if (lesson.culture || lesson.worldBuilding?.length || lesson.livingWorldInteractions?.length) steps.push({ id: "culture", label: "Culture", type: "culture" });
+  if (lesson.pronunciation || lesson.pronunciationExercises?.length) steps.push({ id: "pronunciation", label: "Say It Naturally", type: "pronunciation" });
+  if (lesson.speaking || lesson.speakingChallenge?.length) steps.push({ id: "speaking", label: "Your Turn", type: "speaking" });
+  if (getFlashcardItems(lesson).length) steps.push({ id: "flashcards", label: "Keep It Fresh", type: "flashcards" });
+  if (lesson.quiz?.length) steps.push({ id: "quiz", label: "Can You Remember?", type: "quiz" });
+  if (lesson.miniConversation || lesson.realLifeMission) steps.push({ id: "conversation", label: "Today’s Mission", type: "conversation" });
+  if (lesson.culture || lesson.worldBuilding?.length || lesson.livingWorldInteractions?.length) steps.push({ id: "culture", label: "Madrid Moment", type: "culture" });
   return steps;
 }
 
@@ -183,7 +185,7 @@ function renderLessonHeader(lesson, step, visibleStepIndex, visibleStepCount, pe
     <header class="lesson-v2-header">
       <button class="lesson-back" type="button" ${step?.type === "complete" ? `onclick="hablaLesson.finishCompletion('learn')"` : `data-page="learn"`} aria-label="Back to Learn">${icon("back")}</button>
       <div class="lesson-header-copy">
-        <span>Lesson ${getLessonNumber(lesson)} · ${escapeHtml(step?.label || "Lesson")}</span>
+        <span>Episode ${getLessonNumber(lesson)} · ${escapeHtml(step?.label || "Episode")}</span>
         <strong>${escapeHtml(lesson.title)}</strong>
       </div>
       <span class="lesson-header-count"><strong>${progressLabel}</strong></span>
@@ -217,18 +219,18 @@ function renderLessonSceneBanner(lesson, step) {
   const artwork = preloadLessonArtwork(lesson);
   if (!artwork) return "";
   const labels = {
-    messages: "Messages",
-    choice: "Your choice",
-    vocabulary: "Vocabulary",
-    grammar: "Language tip",
-    dialogue: "Conversation",
-    listening: "Listening",
-    pronunciation: "Pronunciation",
-    speaking: "Talk to Carlos",
-    flashcards: "Flashcards",
-    quiz: "Quiz",
-    conversation: "Carlos challenge",
-    culture: "Culture",
+    messages: "A message from Carlos",
+    choice: "Choose the moment",
+    vocabulary: "Words you’ll need",
+    grammar: "Carlos’ advice",
+    dialogue: "Watch Carlos",
+    listening: "Watch Carlos",
+    pronunciation: "Say it naturally",
+    speaking: "Your turn",
+    flashcards: "Keep it fresh",
+    quiz: "Can you remember?",
+    conversation: "Today’s mission",
+    culture: "Madrid moment",
   };
   const titles = {
     messages: "A message from Carlos",
@@ -294,7 +296,6 @@ function renderStory(lesson) {
   const intro = lesson.carlosIntroduction || {};
   const artwork = preloadLessonArtwork(lesson);
   const carlosSceneArtwork = preloadEpisodeArtwork(lesson, "cover") || artwork;
-  const lessonNumber = getLessonNumber(lesson);
   const mission = story.mission || lesson.realLifeMission?.mission || lesson.objectives?.[0];
   const introCopy = getSectionIntro(lesson, "story", {
     eyebrow: story.time || story.location || story.city || "Your Spanish journey",
@@ -307,15 +308,16 @@ function renderStory(lesson) {
   const missionTitle = story.openingMissionTitle || mission || "Complete the conversation.";
   const chapterLabel = story.chapter ? `Chapter ${escapeHtml(story.chapter)}` : "Chapter 1";
   const cityLabel = story.city ? escapeHtml(story.city) : "Madrid";
+  const locationLabel = story.displayLocation || story.location || story.city || "Madrid";
   return `
     <article class="lesson-story-hero">
       ${artwork ? `<img src="${escapeAttr(artwork)}" alt="${escapeAttr(getEpisodeArtworkAlt(lesson))}" loading="eager" fetchpriority="high" decoding="async" onerror="${LESSON_ARTWORK_ONERROR}">` : ""}
       <div class="lesson-story-shade"></div>
       <div class="lesson-story-copy">
         <small class="lesson-story-chapter">${chapterLabel} · ${cityLabel}</small>
-        <span>Episode ${lessonNumber}</span>
         <h1>${escapeHtml(introCopy.title)}</h1>
         <p>${escapeHtml(introCopy.body)}</p>
+        <span class="lesson-story-location">${icon("pin")}<span>${escapeHtml(locationLabel)}</span></span>
       </div>
     </article>
     ${renderMemoryCallback(lesson)}
@@ -389,6 +391,11 @@ function renderVocabulary(lesson, progress) {
   const selected = lesson.learnerChoices?.options?.find(choice => choice.id === selectedId);
   const prioritized = prioritizeVocabulary(lesson.vocabulary || [], selected);
   const vocabularyCount = Array.isArray(lesson.vocabulary) ? lesson.vocabulary.length : 0;
+  const readyVocabularyCount = prioritized.filter(item => {
+    const key = `${lesson.id}:${slugify(item.spanish)}`;
+    const status = progress.rendererVocabularyStatus?.[key] || {};
+    return Boolean(status.heard || status.repeated);
+  }).length;
   const presentation = lesson.vocabularyPresentation || {};
   const renderCards = items => items.map(item => {
     const priority = item.learningPriority || (presentation.showPriorityLabels ? (item.tier > 1 ? "Good to know" : "Required") : "");
@@ -414,7 +421,8 @@ function renderVocabulary(lesson, progress) {
         <footer class="lesson-vocab-footer">
           <button type="button" class="lesson-vocab-save ${isSaved ? "is-saved" : ""}" data-vocabulary-key="${escapeAttr(vocabularyKey)}" data-spanish="${escapeAttr(item.spanish)}" data-english="${escapeAttr(item.english)}" data-example-spanish="${escapeAttr(item.exampleSpanish || "")}" data-example-english="${escapeAttr(item.exampleEnglish || "")}" onclick="hablaLesson.toggleVocabularyFavorite(this)" aria-pressed="${isSaved}" aria-label="${isSaved ? "Remove" : "Favorite"} ${escapeAttr(item.spanish)} ${isSaved ? "from" : "for"} Practice" title="${isSaved ? "Remove from Practice favorites" : "Favorite for Practice"}">${icon("star")}<span class="sr-only">${isSaved ? "Favorited" : "Favorite"}</span></button>
           ${contextChips.length ? `<span class="lesson-vocab-meta-chip">${icon(getVocabularyChipIcon(contextChips[0]))}${escapeHtml(contextChips[0])}</span>` : ""}
-          <span class="lesson-vocab-learning-status ${vocabularyStatus.heard ? "is-heard" : ""}" data-vocab-learning-status>${vocabularyStatus.heard ? `${icon("check")} Learned` : ""}</span>
+          ${item.tier <= 1 ? `<span class="lesson-vocab-essential-chip">${icon("star")} Essential</span>` : ""}
+          <span class="lesson-vocab-learning-status ${vocabularyStatus.heard || vocabularyStatus.repeated ? "is-heard" : ""}" data-vocab-learning-status>${vocabularyStatus.heard || vocabularyStatus.repeated ? `${icon("check")} Learned` : ""}</span>
           <span class="lesson-vocab-scene-chip">${icon("scene")} ${dialogueContext ? `Scene ${dialogueContext.sceneNumber}` : "Next scene"}</span>
         </footer>
       </article>`;
@@ -441,8 +449,8 @@ function renderVocabulary(lesson, progress) {
   const required = presentation.collapseOptional ? prioritized.filter(item => item.tier <= 1) : prioritized;
   const optional = presentation.collapseOptional ? prioritized.filter(item => item.tier > 1) : [];
   return `
-    <article class="lesson-vocab-prep">
-      <div><small>Prepare for the conversation</small><strong>${vocabularyCount} ${vocabularyCount === 1 ? "word or phrase" : "words and phrases"} from this episode</strong></div>
+    <article class="lesson-vocab-prep ${readyVocabularyCount >= vocabularyCount && vocabularyCount ? "is-ready" : ""}" data-vocab-readiness data-vocab-total="${vocabularyCount}">
+      <div><small>Conversation readiness</small><strong><span data-vocab-ready-count>${readyVocabularyCount}</span> / ${vocabularyCount} ready</strong><progress class="lesson-vocab-readiness-track" aria-label="Vocabulary ready for the conversation" max="${Math.max(vocabularyCount, 1)}" value="${readyVocabularyCount}">${readyVocabularyCount} of ${vocabularyCount}</progress></div>
       <span>${icon("message")}</span>
     </article>
     <div class="lesson-vocab-groups">${renderGroups(required)}</div>
@@ -580,46 +588,62 @@ function renderGrammar(lesson) {
     <article class="lesson-language-coach">
       <img src="${escapeAttr(getCarlosAsset("speaking"))}" alt="Carlos sharing a language tip" onerror="${CARLOS_FALLBACK_ONERROR}">
       <div>
-        <small>${icon("message")} Carlos’ tip</small>
+        <small>${icon("message")} Carlos says</small>
         <blockquote>${escapeHtml(coachTip)}</blockquote>
-        <button type="button" data-speech="${escapeAttr(coachTip)}" data-speaker="Carlos" onclick="hablaLesson.playLine(this)" aria-pressed="false">
-          <span data-playback-icon>${icon("play")}</span><span data-playback-label>Hear Carlos say it</span>
-        </button>
       </div>
+      <button type="button" data-speech="${escapeAttr(coachTip)}" data-speaker="Carlos" data-idle-icon="sound" onclick="hablaLesson.playLine(this)" aria-pressed="false" aria-label="Hear Carlos give this advice">
+        <span data-playback-icon>${icon("sound")}</span><span class="sr-only" data-playback-label>Hear Carlos</span>
+      </button>
     </article>
     <div class="lesson-language-phrases ${secondarySpanish ? "" : "single"}">
       <article class="lesson-language-primary">
-        <small>${icon("star")} Today’s phrase</small>
+        <small>${icon("star")} Learn this first</small>
         <strong>${escapeHtml(primarySpanish)}</strong>
         <p>${escapeHtml(primaryEnglish)}</p>
         <div>
           ${notes.slice(0, 2).map(note => `<span>${icon("check")}${escapeHtml(note.title)}</span>`).join("")}
         </div>
-        <button type="button" data-speech="${escapeAttr(primarySpanish)}" onclick="hablaLesson.speak(this.dataset.speech)" aria-label="Hear ${escapeAttr(primarySpanish)}">${icon("sound")} Listen</button>
+        <button type="button" data-speech="${escapeAttr(primarySpanish)}" data-speaker="Carlos" data-idle-icon="sound" onclick="hablaLesson.playLine(this)" aria-pressed="false" aria-label="Hear ${escapeAttr(primarySpanish)}"><span data-playback-icon>${icon("sound")}</span><span data-playback-label>Listen</span></button>
       </article>
       ${secondarySpanish ? `<article class="lesson-language-secondary">
-        <small>Also natural</small>
+        <small>Later you’ll also hear</small>
         <strong>${escapeHtml(secondarySpanish)}</strong>
         <p>${escapeHtml(secondaryEnglish)}</p>
         <span>${icon("user")}${escapeHtml(notes[1]?.title || "You’ll hear this later.")}</span>
-        <button type="button" data-speech="${escapeAttr(secondarySpanish)}" onclick="hablaLesson.speak(this.dataset.speech)" aria-label="Hear ${escapeAttr(secondarySpanish)}">${icon("sound")} Listen</button>
+        <button type="button" data-speech="${escapeAttr(secondarySpanish)}" data-speaker="Carlos" data-idle-icon="sound" onclick="hablaLesson.playLine(this)" aria-pressed="false" aria-label="Hear ${escapeAttr(secondarySpanish)}"><span data-playback-icon>${icon("sound")}</span><span data-playback-label>Listen</span></button>
       </article>` : ""}
     </div>
     <aside class="lesson-language-city-tip">
       <span>${icon("globe")}</span>
       <div><small>${escapeHtml(city)} tip</small><p>${escapeHtml(madridTip)}</p></div>
     </aside>
-    <section class="lesson-language-ready">
+    <section class="lesson-language-ready ${readyQuestion ? "has-question" : ""}">
       <span>${icon("check")}</span>
       <div>
-        <small>Ready?</small>
+        <small>One last thing…</small>
         ${readyQuestion
           ? `<p>Carlos is about to ask:</p><strong>${escapeHtml(readyQuestion)}</strong><em>Can you answer without looking?</em>`
           : `<strong>Perfect. You’re ready!</strong><p>${escapeHtml(lesson.sectionTransitions?.grammar || "Carlos is waiting in the next scene.")}</p>`}
       </div>
-      <button type="button" onclick="hablaLesson.next()">Continue Conversation${icon("arrow")}</button>
+      <button type="button" onclick="hablaLesson.continueLanguageTip(this)"><span data-handoff-label>Continue Conversation</span>${icon("arrow")}</button>
     </section>
   `;
+}
+
+function continueLanguageTip(button) {
+  const readyCard = button?.closest(".lesson-language-ready");
+  if (!readyCard || button.disabled) return;
+  if (prefersReducedMotion()) {
+    advanceLesson();
+    return;
+  }
+
+  button.disabled = true;
+  readyCard.setAttribute("aria-busy", "true");
+  readyCard.classList.add("is-continuing");
+  const label = button.querySelector("[data-handoff-label]");
+  if (label) label.textContent = "Carlos is waiting…";
+  window.setTimeout(advanceLesson, 360);
 }
 
 function getLanguageTipPhrase(source) {
@@ -1722,6 +1746,7 @@ function markVocabularyStatus(key, status, card) {
   statusElement.classList.toggle("is-heard", Boolean(current.heard || current.repeated));
   statusElement.classList.remove("is-repeated");
   statusElement.innerHTML = `${icon("check")} Learned`;
+  updateVocabularyReadiness();
   const groupGrid = card?.closest("[data-vocab-group-grid]");
   if (!groupGrid) return;
   const groupCards = [...groupGrid.querySelectorAll(".lesson-vocab-item")];
@@ -1730,6 +1755,18 @@ function markVocabularyStatus(key, status, card) {
   if (groupComplete && groupContainer && !groupContainer.querySelector(":scope > .lesson-vocab-group-outcome")) {
     groupGrid.insertAdjacentHTML("afterend", `<p class="lesson-vocab-group-outcome">${icon("check")}${escapeHtml(groupGrid.dataset.groupOutcome || "You’re ready for this part of the scene.")}</p>`);
   }
+}
+
+function updateVocabularyReadiness() {
+  const readiness = document.querySelector("[data-vocab-readiness]");
+  if (!readiness) return;
+  const total = Number(readiness.dataset.vocabTotal || 0);
+  const ready = document.querySelectorAll(".lesson-vocab-item [data-vocab-learning-status].is-heard").length;
+  const count = readiness.querySelector("[data-vocab-ready-count]");
+  const progressbar = readiness.querySelector(".lesson-vocab-readiness-track");
+  if (count) count.textContent = String(ready);
+  if (progressbar) progressbar.value = ready;
+  readiness.classList.toggle("is-ready", total > 0 && ready >= total);
 }
 
 function playDialogueConversation(button) {
@@ -1753,7 +1790,7 @@ function playDialogueConversation(button) {
 
 function playDialogueLine(button) {
   if (!button) return;
-  const card = button.closest(".lesson-dialogue-line, .lesson-listen-list article, .lesson-pronunciation-card, .lesson-speaking-prompt, .lesson-speaking-model, .lesson-quiz-question");
+  const card = button.closest(".lesson-dialogue-line, .lesson-listen-list article, .lesson-pronunciation-card, .lesson-speaking-prompt, .lesson-speaking-model, .lesson-quiz-question, .lesson-language-coach, .lesson-language-primary, .lesson-language-secondary");
   if (button === activePlaybackButton && isSpeechPlaying()) {
     stopSpeech();
     resetPlaybackUI();
@@ -1834,7 +1871,7 @@ function setPlaybackButtonState(button, playing) {
 }
 
 function resetPlaybackUI() {
-  document.querySelectorAll(".lesson-dialogue-line.is-playing, .lesson-listen-list article.is-playing, .lesson-pronunciation-card.is-playing, .lesson-speaking-prompt.is-playing, .lesson-speaking-model.is-playing, .lesson-quiz-question.is-playing")
+  document.querySelectorAll(".lesson-dialogue-line.is-playing, .lesson-listen-list article.is-playing, .lesson-pronunciation-card.is-playing, .lesson-speaking-prompt.is-playing, .lesson-speaking-model.is-playing, .lesson-quiz-question.is-playing, .lesson-language-coach.is-playing, .lesson-language-primary.is-playing, .lesson-language-secondary.is-playing")
     .forEach(card => card.classList.remove("is-playing"));
   if (activePlaybackButton) setPlaybackButtonState(activePlaybackButton, false);
   activePlaybackButton = null;

@@ -10,6 +10,7 @@
   "story": {
     "chapter": 1,
     "city": "Madrid",
+    "displayLocation": "Neighborhood Café · Madrid",
     "location": "A neighborhood café beside Mercado de San Miguel",
     "time": "Saturday, just after the market",
     "scene": "Carlos carries the market bag into a quiet café. You sit on the terrace, choose what you genuinely prefer to drink, and order a drink and snack from the server.",

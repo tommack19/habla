@@ -10,6 +10,7 @@
   "story": {
     "chapter": 1,
     "city": "Madrid",
+    "displayLocation": "Plaza Mayor · Madrid",
     "location": "The streets between the café and Plaza Mayor",
     "time": "Saturday, late morning",
     "scene": "Carlos steps outside the café and points toward the old streets, but he does not lead. He asks you to find Plaza Mayor by speaking with a local and following three short direction cues.",

@@ -10,6 +10,7 @@
   "story": {
     "chapter": 1,
     "city": "Madrid",
+    "displayLocation": "Mercado de San Miguel · Madrid",
     "location": "Mercado de San Miguel",
     "time": "Saturday at 10:00 AM",
     "scene": "Carlos is already waiting at the market. His mother sent him to buy a few things for lunch because she says he always forgets something.",

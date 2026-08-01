@@ -10,6 +10,7 @@
   "story": {
     "chapter": 1,
     "city": "Madrid",
+    "displayLocation": "Carlos & Marta’s Apartment · Madrid",
     "location": "Carlos and Marta’s apartment",
     "time": "Saturday, early afternoon",
     "heroText": "Rain brings you back to Carlos and Marta’s apartment for a quiet afternoon at home.",

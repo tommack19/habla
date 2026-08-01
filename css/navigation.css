@@ -138,6 +138,11 @@
   scroll-padding-bottom: calc(104px + env(safe-area-inset-bottom));
 }
 
+#dashboard.home-page {
+  padding-bottom: calc(var(--habla-bottom-nav-h, 76px) + env(safe-area-inset-bottom) + 44px);
+  scroll-padding-bottom: calc(var(--habla-bottom-nav-h, 76px) + env(safe-area-inset-bottom) + 44px);
+}
+
 /* Carlos has its own fixed composer, which sits directly above the shared nav. */
 #dashboard.carlos-page .carlos-screen #input-area {
   bottom: calc(92px + env(safe-area-inset-bottom));

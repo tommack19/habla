@@ -17,7 +17,7 @@ const EPISODE_LABELS = Object.freeze({
   "a1-lesson-02-introductions": "A New Friend",
   "lesson-03-family": "Family Dinner",
   "lesson-04-numbers-time": "See You at Ten",
-  "lesson-05-shopping": "Mercado de San Miguel",
+  "lesson-05-shopping": "The Market",
   "lesson-06-food-drinks": "Coffee Break",
   "lesson-07-travel-basics": "Plaza Mayor",
   "lesson-08-vacation": "Mi Casa",
@@ -83,6 +83,7 @@ function renderCurrentEpisodeHero(model) {
   const hero = preloadEpisodeArtwork(lesson, "hero");
   const heroAlt = getEpisodeArtworkAlt(lesson);
   const destination = { page: "lesson", lessonId: lesson.id };
+  const episodeState = entry?.episodeState || { action: "Begin Episode", context: "Ready to begin", percent: 0 };
 
   return `
     <section class="home-chapter-hero is-current-episode" aria-labelledby="home-chapter-title">
@@ -92,9 +93,13 @@ function renderCurrentEpisodeHero(model) {
         <p class="home-eyebrow">Chapter 1 · Episode ${episodeNumber}</p>
         <h1 id="home-chapter-title">${escapeHtml(title)}</h1>
         <p>${escapeHtml(description)}</p>
+        <div class="home-chapter-hero__progress">
+          <span>${escapeHtml(episodeState.context)}</span>
+          <progress max="100" value="${episodeState.percent}" aria-label="Episode ${episodeNumber} progress">${episodeState.percent}%</progress>
+        </div>
         <div class="home-chapter-hero__actions">
-          <button class="home-button home-button--primary" type="button" ${routeAttributes(destination)} aria-label="Continue Episode ${episodeNumber}: ${escapeAttr(title)}">
-            <span>Continue Episode</span>${icon("arrow")}
+          <button class="home-button home-button--primary" type="button" ${routeAttributes(destination)} aria-label="${escapeAttr(episodeState.action)} ${episodeNumber}: ${escapeAttr(title)}">
+            <span>${escapeHtml(episodeState.action)}</span>${icon("arrow")}
           </button>
           <button class="home-button home-button--secondary" type="button" ${routeAttributes(model.routes.journey)} aria-label="View your Madrid journey">
             ${icon("book")}<span>View Journey</span>
@@ -113,8 +118,8 @@ function renderCarlosCard(model) {
       </div>
       <div class="home-carlos-card__copy">
         <p class="home-eyebrow">Carlos</p>
-        <h2 id="home-carlos-title">Hola, ${escapeHtml(model.learnerName)}.</h2>
-        <p>You spent a full day speaking Spanish with me in Madrid. Before we travel to Granada, let’s keep a few important phrases fresh.</p>
+        <h2 id="home-carlos-title">${escapeHtml(model.carlosMessage.title)}</h2>
+        <p>${escapeHtml(model.carlosMessage.body)}</p>
       </div>
       <button class="home-carlos-card__action" type="button" ${routeAttributes(model.routes.carlos)} aria-label="Talk with Carlos">
         ${icon("chat")}<span>Talk with Carlos</span>
@@ -212,9 +217,10 @@ function renderPracticeShortcuts(model) {
             ${icon("arrow")}
           </button>
         `).join("")}
-        <button class="home-practice-card is-blue is-disabled" type="button" disabled aria-disabled="true" aria-label="Replay Chapter 1 conversations, coming soon">
+        <button class="home-practice-card is-blue is-disabled" type="button" disabled aria-disabled="true" aria-label="${model.completedCount ? "Listening practice is coming soon" : "Listening unlocks after Episode 1"}">
           <span class="home-practice-card__icon">${icon("listen")}</span>
-          <span><strong>Listen</strong><small>Replay conversations from Chapter 1.</small><em>Coming soon</em></span>
+          <span><strong>Listen</strong><small>${model.completedCount ? "Replay conversations from Chapter 1." : "Unlocks after Episode 1."}</small>${model.completedCount ? "<em>Coming soon</em>" : ""}</span>
+          ${icon("lock")}
         </button>
       </div>
     </section>
@@ -265,7 +271,7 @@ function renderMemoryEmptyState() {
         <i class="is-polaroid">${icon("landmark")}</i>
         <i class="is-stamp">M</i>
       </span>
-      <div><strong>Your travel journal is waiting.</strong><p>Hidden memories will appear as you explore Madrid.</p></div>
+      <div><strong>Your Travel Journal is waiting</strong><p>Complete Episode 1 to collect your first Madrid memory.</p></div>
     </div>
   `;
 }
@@ -288,7 +294,7 @@ function renderChapterComplete(model) {
           ${renderMetric(model.completedCount, "Episodes", "Completed", "check")}
           ${renderMetric(stampCount, "Passport", "Stamps", "stamp")}
           ${renderMetric(model.memoryCount, "Memories", "Collected", "bookmark")}
-          ${renderMetric("Countless", "Conversations", "Shared", "people")}
+          ${renderMetric(model.carlosConversationsCount, "Conversations", "Shared", "people")}
         </div>
         <p>${copy}</p>
       </div>

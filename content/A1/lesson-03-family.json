@@ -29,6 +29,7 @@
   "story": {
     "chapter": 1,
     "city": "Madrid",
+    "displayLocation": "Carlos’s Family Home · Madrid",
     "location": "Madrid",
     "scene": "Carlos and Marta host a relaxed family dinner in Madrid. Ana joins you, and Carlos’s parents and siblings are visiting from Granada.",
     "mission": "Today you’ll meet Carlos’s family and learn to introduce the people closest to you.",

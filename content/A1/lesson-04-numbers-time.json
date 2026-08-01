@@ -29,6 +29,7 @@
   "story": {
     "chapter": 1,
     "city": "Madrid",
+    "displayLocation": "WhatsApp · Madrid",
     "location": "A WhatsApp conversation the morning after the family dinner",
     "scene": "Your phone buzzes. Carlos is checking in after dinner and wants to take you to his favorite market on Saturday.",
     "openingMessage": [
