@@ -34,7 +34,7 @@
     "dialogue": {
       "eyebrow": "Conversation",
       "title": "Your first café conversation",
-      "body": "Meet Carlos one simple line at a time."
+      "body": "Listen, repeat, and answer Carlos one line at a time."
     },
     "listening": {
       "eyebrow": "Listening with Carlos",
@@ -1559,5 +1559,5 @@
   "completionLabel": "Episode complete",
   "xpReward": 50,
   "nextLesson": "a1-lesson-02-introductions",
-  "image": "assets/images/lessons/lesson-01-greetings.png"
+  "image": "assets/images/lessons/lesson-01-first-coffee-cafe-v2.png"
 }

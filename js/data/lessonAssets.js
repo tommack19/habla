@@ -41,7 +41,7 @@ const EPISODE_LANDMARKS = Object.freeze({
 });
 
 const HERO_ARTWORK = Object.freeze({
-  1: "assets/images/lessons/lesson-01-greetings.png",
+  1: "assets/images/lessons/lesson-01-first-coffee-cafe-v2.png",
   2: "assets/images/lessons/lesson-02-introductions.png",
   3: "assets/images/lessons/lesson-03-family.png",
   4: "assets/images/lessons/lesson-04-numbers-time.png",
@@ -54,7 +54,7 @@ const HERO_ARTWORK = Object.freeze({
 });
 
 const EPISODE_ALT_TEXT = Object.freeze({
-  1: "Carlos holding a coffee in a Madrid café",
+  1: "Carlos welcoming the learner to a Madrid café with two coffees waiting",
   2: "Carlos greeting a new friend in Madrid",
   3: "Carlos and his family sharing dinner",
   4: "Carlos making Saturday plans beside a clock and calendar",

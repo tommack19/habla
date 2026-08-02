@@ -10,13 +10,13 @@ const CHOICE_ICON_PATHS = Object.freeze({
   "living-room": `<path d="M5 12V9a2.5 2.5 0 0 1 2.5-2.5h9A2.5 2.5 0 0 1 19 9v3"/><path d="M4 11a2 2 0 0 0-2 2v4h20v-4a2 2 0 0 0-2-2M5 17v2M19 17v2M12 7v5"/>`,
   kitchen: `<path d="M4 4v7a3 3 0 0 0 3 3h1V4M6 4v5M18 4v17M14 4v6a4 4 0 0 0 4 4"/>`,
   "study-corner": `<path d="M4 5.5A2.5 2.5 0 0 1 6.5 3H11a3 3 0 0 1 3 3v15a3 3 0 0 0-3-3H4V5.5Z"/><path d="M20 5.5A2.5 2.5 0 0 0 17.5 3H14v18a3 3 0 0 1 3-3h3V5.5Z"/>`,
-  morning: `<circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/>`,
-  afternoon: `<path d="M3 17h18M5 17a7 7 0 0 1 14 0M12 4v3M4.8 9.8 7 12M19.2 9.8 17 12"/>`,
-  evening: `<path d="M20 15.5A8.5 8.5 0 0 1 8.5 4 8.5 8.5 0 1 0 20 15.5Z"/><path d="m17.5 4 .4 1.1L19 5.5l-1.1.4-.4 1.1-.4-1.1-1.1-.4 1.1-.4.4-1.1Z"/>`,
-  wave: `<path d="M8.5 11V6.5a1.5 1.5 0 0 1 3 0V10M11.5 10V4.5a1.5 1.5 0 0 1 3 0V10M14.5 10V6a1.5 1.5 0 0 1 3 0v6M17.5 11V8.5a1.5 1.5 0 0 1 3 0V14c0 4.4-3.2 7-7.5 7-3.2 0-5.3-1.4-6.8-3.8L3.8 13a1.6 1.6 0 0 1 2.5-2l2.2 2Z"/><path d="M4 4 2.5 2.5M20 4l1.5-1.5M5.5 7H3"/>`,
-  handshake: `<path d="m8.5 12 3-3a2 2 0 0 1 2.8 0l1.2 1.2"/><path d="m3 10 4-4 3 1-4.5 5.2L10 17a2 2 0 0 0 2.8 0l5.7-5.7L21 14"/><path d="m15.5 10.2 2-2.2 3.5 3.5M3 10l3 3"/>`,
-  smile: `<circle cx="12" cy="12" r="9"/><path d="M8.5 10h.01M15.5 10h.01M8.5 14.5c2.2 2 4.8 2 7 0"/>`,
-  choice: `<path d="m12 3 7 5v8l-7 5-7-5V8l7-5Z"/><path d="m9 12 2 2 4-4"/>`,
+  morning: `<circle cx="12" cy="12" r="4.25"/><path d="M12 2.25v2.1M12 19.65v2.1M4.82 4.82l1.49 1.49M17.69 17.69l1.49 1.49M2.25 12h2.1M19.65 12h2.1M4.82 19.18l1.49-1.49M17.69 6.31l1.49-1.49"/>`,
+  afternoon: `<path d="M3 18.25h18M5.25 18.25a6.75 6.75 0 0 1 13.5 0"/><path d="M12 4.25v2.5M5.9 9.2l1.75 1.75M18.1 9.2l-1.75 1.75M3.5 13.75h2.4M18.1 13.75h2.4"/>`,
+  evening: `<path d="M20.2 15.35A8.4 8.4 0 0 1 8.65 3.8a8.4 8.4 0 1 0 11.55 11.55Z"/><path d="m17.25 3.5.45 1.2 1.2.45-1.2.45-.45 1.2-.45-1.2-1.2-.45 1.2-.45.45-1.2ZM20.2 8.4l.27.72.73.28-.73.27-.27.73-.28-.73-.72-.27.72-.28.28-.72Z"/>`,
+  wave: `<path d="M8.35 11.65V7.1a1.45 1.45 0 0 1 2.9 0v3.15M11.25 10.25V5.35a1.45 1.45 0 0 1 2.9 0v4.9M14.15 10.25V6.5a1.45 1.45 0 0 1 2.9 0v5.15M17.05 11.65V9a1.45 1.45 0 0 1 2.9 0v5c0 4.45-3.05 7.2-7.25 7.2-2.9 0-5.15-1.35-6.65-3.9l-2.3-3.85a1.55 1.55 0 0 1 2.4-1.9l2.2 2.1Z"/><path d="M4.7 5.1 2.8 3.65M20.1 4.9l1.35-1.75M5.25 8.25H2.8"/>`,
+  handshake: `<path d="m3.1 10.15 3.4-3.4 3.35.85-4.5 4.65L9.6 16.5a1.8 1.8 0 0 0 2.55 0l5.95-5.95 2.8 2.8"/><path d="m8.7 12.15 2.75-2.75a2.25 2.25 0 0 1 3.2 0l1.3 1.3M14.6 13.95l1.35 1.35a1.45 1.45 0 0 1-2.05 2.05l-1.2-1.2M17.1 11.55l-2.65-2.65 3.05-2.15 3.4 3.4M3.1 10.15l2.55 2.55"/>`,
+  smile: `<circle cx="12" cy="12" r="9"/><path d="M8.4 9.75h.01M15.6 9.75h.01M8.25 14.1c.95 1.35 2.2 2.05 3.75 2.05s2.8-.7 3.75-2.05"/>`,
+  choice: `<rect x="4" y="4" width="16" height="16" rx="5"/><path d="m8.5 12 2.25 2.25 4.75-4.75"/>`,
 });
 
 const CHOICE_ICON_ALIASES = Object.freeze({
@@ -49,7 +49,7 @@ export function hasChoiceIcon(value) {
 export function renderChoiceIcon(value, className = "") {
   const iconId = resolveChoiceIconId(value);
   const cssClass = className ? ` class="${escapeClassName(className)}"` : "";
-  return `<svg${cssClass} viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" data-choice-icon="${iconId}">${CHOICE_ICON_PATHS[iconId]}</svg>`;
+  return `<svg${cssClass} viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" vector-effect="non-scaling-stroke" data-choice-icon="${iconId}">${CHOICE_ICON_PATHS[iconId]}</svg>`;
 }
 
 function escapeClassName(value) {

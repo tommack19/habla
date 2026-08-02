@@ -215,7 +215,7 @@ function renderStep(step, lesson, progress) {
 }
 
 function renderLessonSceneBanner(lesson, step) {
-  if (!step || step.type === "story" || step.type === "complete") return "";
+  if (!step || ["story", "complete", "dialogue", "listening"].includes(step.type)) return "";
   const artwork = preloadLessonArtwork(lesson);
   if (!artwork) return "";
   const labels = {
@@ -672,9 +672,20 @@ function renderDialogue(lesson, progress, scene) {
   const selectedId = progress.selectedChoiceId || getLessonMemory(lesson.id)?.choiceId;
   const selected = lesson.learnerChoices?.options?.find(choice => choice.id === selectedId);
   const compactChoice = Boolean(lesson.dialoguePresentation?.compactChoicePreview);
+  const intro = getSectionIntro(lesson, "dialogue", {
+    eyebrow: "Part 1 · Guided dialogue",
+    title: "Your first café conversation",
+    body: "Listen, repeat, and answer Carlos one line at a time.",
+  });
   return `
     <section class="lesson-conversation-module">
-      <div class="lesson-conversation-toolbar lesson-conversation-toolbar-standalone">
+      <div class="lesson-conversation-intro">
+        <div class="lesson-section-heading">
+          <span>Part 1 · Guided dialogue</span>
+          <h1>${escapeHtml(intro.title)}</h1>
+          ${intro.body ? `<p>${escapeHtml(intro.body)}</p>` : ""}
+        </div>
+        <div class="lesson-conversation-toolbar">
           <button class="lesson-play-full" type="button" onclick="hablaLesson.playDialogue(this)" aria-pressed="false">
             <span data-playback-icon>${icon("play")}</span><b data-playback-label>Play full conversation</b>
           </button>
@@ -685,6 +696,7 @@ function renderDialogue(lesson, progress, scene) {
           <button class="lesson-translation-toggle" type="button" onclick="hablaLesson.toggleTranslations(this)" aria-pressed="true">
             English translations: <strong>On</strong>
           </button>
+        </div>
       </div>
       ${selected ? compactChoice
         ? `<article class="lesson-branch-banner compact"><small>Your choice is part of this scene</small><p>You chose ${escapeHtml(String(selected.label || "this").toLowerCase())}. The conversation below uses your order: <strong>${escapeHtml(selected.modelOrder)}</strong></p></article>`
@@ -747,11 +759,16 @@ function renderListeningPasses(lesson, progress) {
   const question = questions[questionIndex];
   const options = question ? stableShuffle(question.options || [], `${lesson.id}:listening:${questionIndex}`) : [];
   const answered = state.selected !== null && state.selected !== undefined;
-  const stageLabels = listening.stageLabels || ["Listen", "Read Along", "Check Understanding"];
+  const stageLabels = listening.stageLabels || ["Listen only", "Read along", "Check understanding"];
+  const stageDescriptions = [
+    "Listen to the full conversation without reading.",
+    "Follow the transcript at natural or slow speed.",
+    "Answer a few questions to confirm what you understood.",
+  ];
   return `
     ${listening.soundscape ? `<article class="lesson-soundscape"><span>${icon("sound")}</span><div><small>${escapeHtml(listening.soundscape.label || "Scene atmosphere")}</small><p>${escapeHtml(listening.soundscape.description || listening.soundscape)}</p></div></article>` : ""}
-    <nav class="lesson-listening-progress" aria-label="Listening steps">
-      ${stageLabels.map((label, index) => `<button type="button" class="${pass === index ? "active" : ""} ${pass > index || state.complete ? "done" : ""}" onclick="hablaLesson.setListeningPass(${index})" ${pass === index ? 'aria-current="step"' : ""} aria-label="Listening pass ${index + 1}: ${escapeAttr(label)}"><i>${pass > index || state.complete ? icon("check") : index + 1}</i><span>${escapeHtml(label)}</span></button>`).join("")}
+    <nav class="lesson-listening-progress" aria-label="Listening steps" tabindex="0">
+      ${stageLabels.map((label, index) => `<button type="button" class="${pass === index ? "active" : ""} ${pass > index || state.complete ? "done" : ""}" onclick="hablaLesson.setListeningPass(${index})" ${pass === index ? 'aria-current="step"' : ""} aria-label="Listening pass ${index + 1}: ${escapeAttr(label)}"><i>${pass > index || state.complete ? icon("check") : index + 1}</i><span><strong>${escapeHtml(label)}</strong><small>${escapeHtml(stageDescriptions[index])}</small></span><em>${pass === index ? "Current" : pass > index || state.complete ? "Complete" : "Open"}</em></button>`).join("")}
     </nav>
     ${pass === 0 ? `
       <article class="lesson-listening-coach">
@@ -1163,7 +1180,9 @@ function renderQuiz(lesson, progress) {
         ${options.length ? options.map((option, optionIndex) => {
           const correct = answered && isQuizAnswerCorrect(option, question.answer);
           const wrong = answered && option === quiz.selected && !isQuizAnswerCorrect(option, question.answer);
-          return `<button type="button" class="${correct ? "correct" : ""} ${wrong ? "wrong" : ""}" onclick="hablaLesson.answerQuiz(${optionIndex})" ${answered ? "disabled" : ""}><span>${String.fromCharCode(65 + optionIndex)}</span><b>${escapeHtml(option)}</b>${correct ? icon("check") : wrong ? `<span class="lesson-quiz-wrong-mark" aria-hidden="true">×</span>` : ""}</button>`;
+          const optionLength = String(option || "").length;
+          const lengthClass = optionLength > 90 ? "is-very-long" : optionLength > 55 ? "is-long" : "";
+          return `<button type="button" class="${lengthClass} ${correct ? "correct" : ""} ${wrong ? "wrong" : ""}" onclick="hablaLesson.answerQuiz(${optionIndex})" ${answered ? "disabled" : ""}><span>${String.fromCharCode(65 + optionIndex)}</span><b>${escapeHtml(option)}</b>${correct ? icon("check") : wrong ? `<span class="lesson-quiz-wrong-mark" aria-hidden="true">×</span>` : ""}</button>`;
         }).join("") : `<form class="lesson-quiz-input" onsubmit="event.preventDefault();hablaLesson.submitQuiz(this.elements.answer.value)"><label for="lesson-quiz-answer">Type your answer</label><div><input id="lesson-quiz-answer" name="answer" type="text" autocomplete="off" autocapitalize="sentences" ${answered ? "disabled" : ""} value="${answered ? escapeAttr(quiz.selected) : ""}" placeholder="Your answer"><button type="submit" ${answered ? "disabled" : ""}>Check answer${icon("arrow")}</button></div></form>`}
       </div>
       ${answered ? `

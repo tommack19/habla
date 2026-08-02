@@ -85,7 +85,7 @@
 
 function getLessonImage(lessonId) {
   const imageMap = {
-    "a1-lesson-01-greetings": "assets/images/lessons/lesson-01-greetings.png",
+    "a1-lesson-01-greetings": "assets/images/lessons/lesson-01-first-coffee-cafe-v2.png",
     "a1-lesson-02-introductions": "assets/images/lessons/lesson-02-introductions.png",
     "lesson-03-family": "assets/images/lessons/lesson-03-family.png",
     "lesson-04-numbers-time": "assets/images/lessons/lesson-04-numbers-time.png",
