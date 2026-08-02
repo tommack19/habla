@@ -21,6 +21,20 @@ export const MADRID_LESSON_IDS = Object.freeze([
 ]);
 
 export const GRANADA_ENTRY_LESSON_ID = "lesson-11-weather";
+export const GRANADA_LESSON_IDS = Object.freeze([
+  "lesson-11-weather",
+  "lesson-12-clothing",
+  "lesson-13-school",
+  "lesson-14-work",
+  "lesson-15-hobbies",
+  "lesson-16-sports",
+  "lesson-17-health",
+  "lesson-18-body-parts",
+  "lesson-19-emotions",
+  "lesson-20-everyday-life-review",
+]);
+
+const NEXT_CHAPTER_ENTRY_LESSON_ID = "lesson-21-directions";
 
 const JOURNEY_LEVELS = Object.freeze([
   { code: "A1", name: "Explorer", cefrLabel: "Beginner", minXP: 0, nextXP: 3000 },
@@ -55,6 +69,15 @@ export function buildHomeViewModel(state) {
   )) || null;
   const chapterTwoUnlocked = chapterComplete && unlockedIds.has(GRANADA_ENTRY_LESSON_ID);
   const granadaLesson = getLessonById(GRANADA_ENTRY_LESSON_ID);
+  const granadaEntries = GRANADA_LESSON_IDS
+    .map((id) => getLessonById(id))
+    .filter(Boolean)
+    .map((lesson) => ({ lesson, progress: getLessonProgress(lesson.id) }));
+  const activeGranadaEntry = granadaEntries.find(({ progress }) => !progress.completed) || granadaEntries.at(-1) || null;
+  const chapterTwoStarted = granadaEntries.some(({ progress }) => isLessonStarted(progress));
+  const chapterTwoComplete = granadaEntries.length === GRANADA_LESSON_IDS.length
+    && granadaEntries.every(({ progress }) => progress.completed);
+  const nextChapterLesson = getLessonById(NEXT_CHAPTER_ENTRY_LESSON_ID);
   const memories = entries
     .flatMap(({ lesson, number }) => getLessonDiscoveries(lesson.id).map((memory) => ({
       ...memory,
@@ -76,6 +99,16 @@ export function buildHomeViewModel(state) {
   const completionPercent = MADRID_LESSON_IDS.length
     ? Math.round((completedEntries.length / MADRID_LESSON_IDS.length) * 100)
     : 0;
+  const heroPrimaryAction = getHomeHeroPrimaryAction({
+    chapterComplete,
+    chapterTwoStarted,
+    chapterTwoComplete,
+    activeEntry,
+    activeGranadaEntry,
+    granadaLesson,
+    nextChapterLesson,
+    unlockedIds,
+  });
 
   return {
     learnerName,
@@ -84,6 +117,9 @@ export function buildHomeViewModel(state) {
     nextChapter: chapterTwoUnlocked ? 3 : 2,
     chapterComplete,
     chapterTwoUnlocked,
+    chapterTwoStarted,
+    chapterTwoComplete,
+    heroPrimaryAction,
     entries,
     completedEntries,
     completedCount: completedEntries.length,
@@ -106,17 +142,67 @@ export function buildHomeViewModel(state) {
       activeLesson: activeEntry?.lesson,
     }),
     routes: {
-      chapterTwo: chapterTwoUnlocked && granadaLesson
-        ? { page: "lesson", lessonId: granadaLesson.id }
-        : activeEntry?.lesson
-          ? { page: "lesson", lessonId: activeEntry.lesson.id }
-          : { page: "learn" },
+      chapterTwo: heroPrimaryAction.route,
       reviewMadrid: { page: "practice" },
       journey: { page: "learn", view: "roadmap" },
       carlos: { page: "carlos" },
       travelJournal: { page: "journey" },
     },
   };
+}
+
+export function getHomeHeroPrimaryAction({
+  chapterComplete,
+  chapterTwoStarted,
+  chapterTwoComplete,
+  activeEntry,
+  activeGranadaEntry,
+  granadaLesson,
+  nextChapterLesson,
+  unlockedIds,
+}) {
+  if (!chapterComplete) {
+    return {
+      label: "Continue Madrid",
+      ariaLabel: "Continue your current Madrid episode",
+      route: activeEntry?.lesson ? { page: "lesson", lessonId: activeEntry.lesson.id } : { page: "learn" },
+    };
+  }
+
+  if (!chapterTwoStarted) {
+    return {
+      label: "Begin Chapter 2",
+      ariaLabel: "Begin Chapter 2 in Granada",
+      route: granadaLesson ? { page: "lesson", lessonId: granadaLesson.id } : { page: "learn", view: "roadmap" },
+    };
+  }
+
+  if (!chapterTwoComplete) {
+    return {
+      label: "Continue Granada",
+      ariaLabel: "Continue your current Granada episode",
+      route: activeGranadaEntry?.lesson
+        ? { page: "lesson", lessonId: activeGranadaEntry.lesson.id }
+        : { page: "learn", view: "roadmap" },
+    };
+  }
+
+  return {
+    label: "Continue Journey",
+    ariaLabel: "Continue your Spanish journey after Granada",
+    route: nextChapterLesson && unlockedIds.has(nextChapterLesson.id)
+      ? { page: "lesson", lessonId: nextChapterLesson.id }
+      : { page: "learn", view: "roadmap" },
+  };
+}
+
+function isLessonStarted(progress = {}) {
+  return Boolean(
+    progress.completed
+    || Number(progress.rendererStep || 0) > 0
+    || progress.updatedAt
+    || progress.completedSections?.length
+  );
 }
 
 function getHomeEpisodeState(lesson, progress = {}) {

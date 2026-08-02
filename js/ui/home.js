@@ -57,10 +57,10 @@ function renderChapterHero(model) {
         <h1 id="home-chapter-title">A New Invitation</h1>
         <p>Carlos and Javier are waiting to show you a different side of Spain.</p>
         <div class="home-chapter-hero__actions">
-          <button class="home-button home-button--primary" type="button" ${routeAttributes(model.routes.chapterTwo)} aria-label="Begin Chapter 2 in Granada">
-            <span>Begin Chapter 2</span>${icon("arrow")}
+          <button class="home-button home-button--primary" type="button" data-home-hero-action ${routeAttributes(model.heroPrimaryAction.route)} aria-label="${escapeAttr(model.heroPrimaryAction.ariaLabel)}">
+            <span>${escapeHtml(model.heroPrimaryAction.label)}</span>${icon("arrow")}
           </button>
-          <button class="home-button home-button--secondary" type="button" ${routeAttributes(model.routes.reviewMadrid)} aria-label="Review Chapter 1 in Madrid">
+          <button class="home-button home-button--secondary" type="button" data-home-hero-action ${routeAttributes(model.routes.reviewMadrid)} aria-label="Review Chapter 1 in Madrid">
             ${icon("book")}<span>Review Madrid</span>
           </button>
         </div>
@@ -82,7 +82,9 @@ function renderCurrentEpisodeHero(model) {
     || "Continue your Spanish journey with Carlos.";
   const hero = preloadEpisodeArtwork(lesson, "hero");
   const heroAlt = getEpisodeArtworkAlt(lesson);
-  const destination = { page: "lesson", lessonId: lesson.id };
+  const destination = model.selectedEntry
+    ? { page: "lesson", lessonId: lesson.id }
+    : model.heroPrimaryAction.route;
   const episodeState = entry?.episodeState || { action: "Begin Episode", context: "Ready to begin", percent: 0 };
 
   return `
@@ -98,11 +100,11 @@ function renderCurrentEpisodeHero(model) {
           <progress max="100" value="${episodeState.percent}" aria-label="Episode ${episodeNumber} progress">${episodeState.percent}%</progress>
         </div>
         <div class="home-chapter-hero__actions">
-          <button class="home-button home-button--primary" type="button" ${routeAttributes(destination)} aria-label="${escapeAttr(episodeState.action)} ${episodeNumber}: ${escapeAttr(title)}">
-            <span>${escapeHtml(episodeState.action)}</span>${icon("arrow")}
+          <button class="home-button home-button--primary" type="button" data-home-hero-action ${routeAttributes(destination)} aria-label="${escapeAttr(model.selectedEntry ? `Open Episode ${episodeNumber}: ${title}` : model.heroPrimaryAction.ariaLabel)}">
+            <span>${escapeHtml(model.heroPrimaryAction.label)}</span>${icon("arrow")}
           </button>
-          <button class="home-button home-button--secondary" type="button" ${routeAttributes(model.routes.journey)} aria-label="View your Madrid journey">
-            ${icon("book")}<span>View Journey</span>
+          <button class="home-button home-button--secondary" type="button" data-home-hero-action ${routeAttributes(model.routes.reviewMadrid)} aria-label="Review Chapter 1 in Madrid">
+            ${icon("book")}<span>Review Madrid</span>
           </button>
         </div>
       </div>
@@ -383,6 +385,14 @@ function normalizeText(value) {
 
 if (typeof document !== "undefined") {
   document.addEventListener("click", (event) => {
+    const heroAction = event.target.closest?.("[data-home-hero-action]");
+    if (heroAction && !heroAction.disabled) {
+      heroAction.setAttribute("aria-busy", "true");
+      document.querySelectorAll("[data-home-hero-action]").forEach((button) => {
+        button.disabled = true;
+      });
+    }
+
     const episode = event.target.closest?.("[data-home-episode-select]");
     if (episode) {
       selectHomeEpisode(episode);
