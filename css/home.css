@@ -951,6 +951,21 @@
 }
 
 @media (max-width: 430px) {
+  .home-chapter-hero__actions {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+  }
+
+  .home-button {
+    width: 100%;
+    padding-inline: 10px;
+  }
+
+  .home-button svg {
+    width: 17px;
+    height: 17px;
+  }
+
   .home-chapter-hero__content {
     width: 66%;
   }
