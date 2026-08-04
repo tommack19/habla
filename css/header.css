@@ -181,9 +181,17 @@
 }
 
 .header-profile span {
+  border-radius: inherit;
   color: #171005;
+  display: grid;
   font: 800 0.82rem/1 Inter, system-ui, sans-serif;
+  height: 100%;
+  overflow: hidden;
+  place-items: center;
+  width: 100%;
 }
+
+.header-profile span img { height:100%; object-fit:cover; object-position:center; width:100%; }
 
 .header-profile i {
   position: absolute;

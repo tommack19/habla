@@ -985,7 +985,6 @@
   "realLifeMission": {
     "title": "Family Dinner",
     "presentationEyebrow": "Dinner Conversation",
-    "presentationTitle": "Your Turn",
     "successTitle": "Dinner Complete",
     "mission": "At dinner, greet Carlos’s family, identify two people, ask Carlos about one family member, and share two simple details about your own or an imagined family.",
     "successCriteria": [

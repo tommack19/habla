@@ -75,7 +75,7 @@
     "scene": "You meet Carlos at a neighborhood café for the first time.",
     "mission": "Today you’ll learn to greet Carlos, exchange names, and close your first Spanish conversation naturally.",
     "openingCarlosTitle": "Let’s begin",
-    "openingCarlosMessage": "¡Hola! I’m Carlos. We’re meeting for coffee in Madrid. By the end, you’ll introduce yourself and complete your first short conversation in Spanish.",
+    "openingCarlosMessage": "¡Hola! I’m Carlos. We’re meeting for coffee in Madrid. By the end, you’ll introduce yourself and have your first short conversation in Spanish.",
     "openingMissionTitle": "Have your first Spanish conversation.",
     "openingMissionItems": [
       "Greet Carlos",
@@ -571,7 +571,12 @@
     "meaning": "Say your name in one clear, reusable phrase.",
     "explanation": "Learn “Me llamo…” as one complete phrase. You’ll use it almost every time you introduce yourself.",
     "carlosTip": "“Me llamo Carlos.” That’s what I usually say when I meet someone new. Try that first—it’ll sound natural every time.",
-    "madridTip": "Around Madrid, you’ll hear “Me llamo…” everywhere—from cafés to shops. Learn this phrase once and you’ll use it for the rest of your trip.",
+    "madridTip": "Around Madrid, you’ll hear “Me llamo…” everywhere—from cafés to shops. Learn it once and use it throughout your trip.",
+    "primaryBenefits": [
+      "The safest introduction",
+      "Works in almost any situation"
+    ],
+    "secondaryNote": "A natural shorter option",
     "notes": [
       {
         "title": "The safest first phrase",
@@ -871,33 +876,43 @@
       {
         "text": "hola",
         "meaning": "hello",
-        "note": "The h is silent: OH-lah."
+        "note": "The h is silent.",
+        "phonetic": "OH-lah",
+        "stress": "OH"
       },
       {
         "text": "me llamo",
         "meaning": "my name is",
-        "note": "Connect smoothly: meh-YAH-moh."
+        "note": "Connect the words smoothly.",
+        "phonetic": "meh YAH-moh",
+        "stress": "YAH"
       },
       {
         "text": "mucho gusto",
         "meaning": "nice to meet you",
-        "note": "Keep both u sounds short and clear."
+        "note": "Keep both u sounds short and clear.",
+        "phonetic": "MOO-choh GOOS-toh",
+        "stress": "MOO and GOOS"
       },
       {
         "text": "¿cómo estás?",
         "meaning": "how are you?",
-        "note": "Stress CÓ-mo and es-TÁS."
+        "note": "Let the question rise naturally.",
+        "phonetic": "KOH-moh es-TAHS",
+        "stress": "KOH and TAHS"
       },
       {
         "text": "hasta luego",
         "meaning": "see you later",
-        "note": "The h is silent; use one relaxed closing rhythm."
+        "note": "The h is silent; keep one relaxed rhythm.",
+        "phonetic": "AHS-tah LWEH-goh",
+        "stress": "AHS and LWEH"
       }
     ],
     "putItTogether": {
       "text": "Hola, me llamo {{learnerName}}. Mucho gusto.",
       "meaning": "Hello, my name is {{learnerName}}. Nice to meet you.",
-      "note": "Bring the greeting, your name, and the friendly closing together."
+      "note": "Bring the greeting, your name, and the friendly introduction together."
     }
   },
   "listening": {

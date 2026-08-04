@@ -428,4 +428,5 @@ function refreshProfile() {
   if (profileButton) profileButton.click();
   const headerAvatar = document.getElementById("header-avatar");
   if (headerAvatar) headerAvatar.textContent = getInitials(state.user?.name || "Habla Learner");
+  window.dispatchEvent(new CustomEvent("habla:profile-updated"));
 }

@@ -212,7 +212,7 @@ function getHomeEpisodeState(lesson, progress = {}) {
 
   const steps = getHomeLessonSteps(lesson);
   const rawIndex = Number(progress.rendererStep || 0);
-  const index = Math.max(0, Math.min(Number.isFinite(rawIndex) ? rawIndex : 0, Math.max(steps.length - 1, 0)));
+  const index = getHomeFlowIndex(lesson, progress, steps, rawIndex);
   const visibleSteps = steps.filter((step) => !step.legacyCombined);
   const visibleIndex = Math.max(0, steps.slice(0, index + 1).filter((step) => !step.legacyCombined).length - 1);
   const percent = Math.round((visibleIndex / Math.max(visibleSteps.length, 1)) * 100);
@@ -224,26 +224,37 @@ function getHomeEpisodeState(lesson, progress = {}) {
     : { status: "not-started", action: "Begin Episode", context: "Ready to begin", percent: 0, stepLabel };
 }
 
-function getHomeLessonSteps(lesson = {}) {
-  const steps = [{ label: "Episode Opening" }];
+function getHomeLessonSteps(lesson = {}, { includeRemovedConversation = false } = {}) {
+  const steps = [{ id: "story", label: "Episode Opening" }];
   const rawDialogue = lesson.dialogue || lesson.dialogues;
   const dialogue = rawDialogue ? (Array.isArray(rawDialogue) ? rawDialogue : [rawDialogue]) : [];
   const messageThread = dialogue.find((scene) => scene?.presentation?.type === "messageThread");
   const standardDialogue = dialogue.find((scene) => scene !== messageThread);
-  if (messageThread) steps.push({ label: "A Message from Carlos", legacyCombined: true });
-  if (lesson.learnerChoices?.options?.length) steps.push({ label: "Choose the Moment" });
-  if (lesson.vocabulary?.length) steps.push({ label: "Words You’ll Need" });
-  if (lesson.grammar) steps.push({ label: "Carlos’ Advice" });
-  if (standardDialogue) steps.push({ label: "Watch Carlos" });
-  if (lesson.listening || lesson.listeningPhrases?.length) steps.push({ label: "Watch Carlos", legacyCombined: Boolean(standardDialogue) });
-  if (lesson.pronunciation || lesson.pronunciationExercises?.length) steps.push({ label: "Say It Naturally" });
-  if (lesson.speaking || lesson.speakingChallenge?.length) steps.push({ label: "Your Turn" });
+  if (messageThread) steps.push({ id: "messages", label: "A Message from Carlos", legacyCombined: true });
+  if (lesson.learnerChoices?.options?.length) steps.push({ id: "choice", label: "Choose the Moment" });
+  if (lesson.vocabulary?.length) steps.push({ id: "vocabulary", label: "Words You’ll Need" });
+  if (lesson.grammar) steps.push({ id: "grammar", label: "Carlos’ Advice" });
+  if (standardDialogue) steps.push({ id: "dialogue", label: "Watch Carlos" });
+  if (lesson.listening || lesson.listeningPhrases?.length) steps.push({ id: "listening", label: "Watch Carlos", legacyCombined: Boolean(standardDialogue) });
+  if (lesson.pronunciation || lesson.pronunciationExercises?.length) steps.push({ id: "pronunciation", label: "Say It Naturally" });
+  if (lesson.speaking || lesson.speakingChallenge?.length) steps.push({ id: "speaking", label: "Talk with Carlos" });
   const flashcards = Array.isArray(lesson.flashcards) ? lesson.flashcards[0] : lesson.flashcards;
-  if (flashcards?.items?.length) steps.push({ label: "Keep It Fresh" });
-  if (lesson.quiz?.length) steps.push({ label: "Can You Remember?" });
-  if (lesson.miniConversation || lesson.realLifeMission) steps.push({ label: "Today’s Mission" });
-  if (lesson.culture || lesson.worldBuilding?.length || lesson.livingWorldInteractions?.length) steps.push({ label: "Madrid Moment" });
+  if (flashcards?.items?.length) steps.push({ id: "flashcards", label: "Keep It Fresh" });
+  if (lesson.quiz?.length) steps.push({ id: "quiz", label: "Can You Remember?" });
+  if (includeRemovedConversation && (lesson.miniConversation || lesson.realLifeMission)) steps.push({ id: "conversation", label: "Removed conversation" });
+  if (lesson.culture || lesson.worldBuilding?.length || lesson.livingWorldInteractions?.length) steps.push({ id: "culture", label: "Madrid Moment" });
   return steps;
+}
+
+function getHomeFlowIndex(lesson, progress, steps, rawIndex) {
+  const fallbackIndex = Math.max(0, Math.min(Number.isFinite(rawIndex) ? rawIndex : 0, Math.max(steps.length - 1, 0)));
+  if (Number(progress.lessonFlowVersion || 0) >= 2) return fallbackIndex;
+  const legacySteps = getHomeLessonSteps(lesson, { includeRemovedConversation: true });
+  const legacyIndex = Math.max(0, Math.min(Number.isFinite(rawIndex) ? rawIndex : 0, Math.max(legacySteps.length - 1, 0)));
+  const legacyStep = legacySteps[legacyIndex];
+  const targetId = legacyStep?.id === "conversation" ? "speaking" : legacyStep?.id;
+  const mappedIndex = steps.findIndex(step => step.id === targetId);
+  return mappedIndex >= 0 ? mappedIndex : fallbackIndex;
 }
 
 function getHomeCarlosMessage({ chapterComplete, completedEntries, learnerName, activeLesson }) {

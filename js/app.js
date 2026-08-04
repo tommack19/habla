@@ -655,19 +655,24 @@ function renderAppPage(page) {
   document.body.classList.toggle('carlos-mode', page === 'carlos');
   document.body.classList.toggle('lesson-mode', page === 'lesson');
   renderPage(page);
+  const isSpeakingLesson = page === 'lesson' && Boolean(document.querySelector('.lesson-speaking-page'));
+  document.body.classList.toggle('speaking-lesson-mode', isSpeakingLesson);
   if (page === 'journey' || page === 'lesson') {
     const dashboard = document.getElementById('dashboard');
     if (dashboard) dashboard.scrollTop = 0;
   }
   const navMount = document.getElementById('bottom-nav');
   if (navMount) {
-    navMount.hidden = page === 'lesson';
-    navMount.setAttribute('aria-hidden', page === 'lesson' ? 'true' : 'false');
+    navMount.hidden = page === 'lesson' && !isSpeakingLesson;
+    navMount.setAttribute('aria-hidden', page === 'lesson' && !isSpeakingLesson ? 'true' : 'false');
     navMount.innerHTML = renderNavigation(page === 'journey' || page === 'lesson' ? 'learn' : page);
   }
 
   if (page === 'carlos') {
     initializeCarlosUI();
+  }
+  if (isSpeakingLesson) {
+    requestAnimationFrame(() => document.querySelector('[data-speaking-autoplay]')?.click());
   }
 }
 
@@ -689,8 +694,29 @@ function updateLevelButton() {
   setText('level-journey-remaining', journey.isComplete ? 'Journey level complete' : `${formatNumber(journey.remaining)} XP remaining`);
   const progressBar = document.getElementById('level-journey-progress');
   if (progressBar) progressBar.style.width = `${journey.percent}%`;
-  if (avatar) avatar.textContent = getHeaderInitials(state.user.name);
+  if (avatar) renderHeaderAvatar(avatar, state.user || {});
 }
+
+function renderHeaderAvatar(mount, user) {
+  const sourceValue = user.profilePhoto || user.profilePhotoUrl || user.photoUrl || user.avatarUrl || user.avatar?.src || user.avatar;
+  const source = typeof sourceValue === 'string' && /^(?:data:image\/|blob:|https?:\/\/|\.?\.?\/|assets\/)/i.test(sourceValue) ? sourceValue : '';
+  mount.replaceChildren();
+  if (!source) {
+    mount.textContent = getHeaderInitials(user.name);
+    return;
+  }
+  const image = document.createElement('img');
+  image.src = source;
+  image.alt = '';
+  image.decoding = 'async';
+  image.addEventListener('error', () => {
+    mount.replaceChildren();
+    mount.textContent = getHeaderInitials(user.name);
+  }, { once: true });
+  mount.appendChild(image);
+}
+
+window.addEventListener('habla:profile-updated', updateLevelButton);
 
 function getHeaderJourney(xpValue) {
   const currentLessonNumber = Number(getCurrentLesson()?.id?.match?.(/lesson-(\d+)/)?.[1] || 0);
@@ -852,6 +878,13 @@ document.addEventListener('click', (event) => {
     delete practiceSession.libraryCategoryId;
     delete practiceSession.libraryCollectionId;
     delete practiceSession.libraryItemId;
+    delete practiceSession.returnView;
+    sessionStorage.setItem(PRACTICE_SESSION_KEY, JSON.stringify(practiceSession));
+  } else if (pageTarget.dataset.practiceSaved !== undefined) {
+    localStorage.removeItem(PRACTICE_TOPIC_KEY);
+    let practiceSession = {};
+    try { practiceSession = JSON.parse(sessionStorage.getItem(PRACTICE_SESSION_KEY) || '{}'); } catch {}
+    practiceSession.view = 'saved-words';
     delete practiceSession.returnView;
     sessionStorage.setItem(PRACTICE_SESSION_KEY, JSON.stringify(practiceSession));
   } else if (pageTarget.dataset.practiceTopic) {

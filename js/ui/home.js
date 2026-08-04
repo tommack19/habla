@@ -236,7 +236,7 @@ function renderRecentMemories(model) {
     <section class="home-panel home-memories" aria-labelledby="home-memories-title">
       <header class="home-section-header home-section-header--compact">
         <p class="home-eyebrow" id="home-memories-title">Recent Memories</p>
-        <button class="home-outline-action" type="button" ${routeAttributes(model.routes.travelJournal)}>View Travel Journal ${icon("arrow")}</button>
+        <button class="home-outline-action home-outline-action--journal" type="button" ${routeAttributes(model.routes.travelJournal)}>View Travel Journal ${icon("arrow")}</button>
       </header>
       ${memories.length ? `
         <div class="home-carousel home-memories__row" tabindex="0" role="region" aria-label="Recently collected Travel Journal memories">

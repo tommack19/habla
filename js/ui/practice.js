@@ -4,6 +4,7 @@ import { CARLOS_FALLBACK_ONERROR, getCarlosAsset } from "../data/carlosAssets.js
 import { personalizeText } from "../core/personalization.js";
 import { playSpeech } from "../core/audio.js";
 import { state } from "../core/state.js";
+import { saveState } from "../core/storage.js";
 import { renderLessonCover } from "../components/lessonCover.js";
 
 const TOPIC_KEY = "habla_selected_practice_topic_v1";
@@ -41,6 +42,12 @@ let playbackUrl = "";
 export function renderPractice(appState = {}) {
   const session = readSession();
 
+  if (session.view === "saved-words") return renderSavedWords(appState);
+  if (session.view === "saved-review") {
+    const savedLesson = buildSavedWordsLesson(appState);
+    if (!savedLesson.vocabulary.length) return renderSavedWords(appState);
+    return renderFlashcardActivity(session, { title: "Saved Words", icon: "flashcards" }, savedLesson);
+  }
   if (session.view === "library") return renderPracticeLibrary(appState);
   if (session.view === "library-category") return renderLibraryCategory(session, appState);
   if (session.view === "library-collection") return renderLibraryCollection(session, appState);
@@ -71,6 +78,7 @@ function renderLauncher(session, topic, lesson, appState) {
         <div><h1>Practice</h1><p>Practice speaking, listening and more.</p></div>
       </header>
       ${renderSummary(session, topic, lesson)}
+      ${renderSavedWordsShortcut(appState)}
       ${renderPracticeNextStep(session, lesson)}
       <section class="practice-topic-section">
         <div class="practice-section-title"><h2>Practice by Topic</h2><button class="practice-view-all" type="button" onclick="hablaPractice.openLibrary()">View All ${iconSvg("arrow-right")}</button></div>
@@ -101,6 +109,56 @@ function renderLauncher(session, topic, lesson, appState) {
       ${renderWeeklyPractice(appState)}
       ${renderRecentPractice()}
     </section>`;
+}
+
+function getSavedWords(appState = state) {
+  return Array.isArray(appState?.vocabulary?.savedPhrases)
+    ? appState.vocabulary.savedPhrases.filter(item => item?.key && item?.spanish && item?.english)
+    : [];
+}
+
+function renderSavedWordsShortcut(appState) {
+  const count = getSavedWords(appState).length;
+  return `<button class="practice-saved-shortcut" type="button" onclick="hablaPractice.openSavedWords()" aria-label="Open Saved Words, ${count} saved">
+    <span aria-hidden="true">${iconSvg("bookmark")}</span>
+    <span><small>Saved Words</small><strong>Review phrases you marked during lessons.</strong></span>
+    <b>${count}</b>${iconSvg("arrow-right")}
+  </button>`;
+}
+
+function renderSavedWords(appState) {
+  const saved = getSavedWords(appState);
+  return `<section class="practice-shell practice-saved-words" aria-label="Saved Words">
+    ${renderActivityHeader("Saved Words")}
+    <section class="practice-saved-hero">
+      <span aria-hidden="true">${iconSvg("bookmark")}</span>
+      <div><small>Practice collection</small><h2>${saved.length} saved ${saved.length === 1 ? "phrase" : "phrases"}</h2><p>Review the Spanish you chose to keep close.</p></div>
+      <button class="practice-primary" type="button" onclick="hablaPractice.startSavedReview()" ${saved.length ? "" : "disabled"}>${iconSvg("flashcards", "button-icon")}<span>Start review</span></button>
+    </section>
+    ${saved.length ? `<div class="practice-saved-list">${saved.map(renderSavedWord).join("")}</div>` : `<section class="practice-saved-empty"><span aria-hidden="true">${iconSvg("star")}</span><h2>No saved words yet</h2><p>Use the star on any lesson vocabulary card. Your choices will appear here for practice.</p><button type="button" data-page="learn">Continue learning ${iconSvg("arrow-right")}</button></section>`}
+  </section>`;
+}
+
+function renderSavedWord(item) {
+  const lesson = getLessonById(item.sourceLessonId);
+  const source = lesson ? `Episode ${String(lesson.id || "").match(/(\d+)/)?.[1]?.replace(/^0+/, "") || ""} · ${shortLessonTitle(lesson.title)}` : "Saved during a lesson";
+  return `<article class="practice-saved-word">
+    <div><small>${escapeHtml(source)}</small><strong>${escapeHtml(item.spanish)}</strong><span>${escapeHtml(item.english)}</span>${item.exampleSpanish ? `<p>${escapeHtml(item.exampleSpanish)}<em>${escapeHtml(item.exampleEnglish || "")}</em></p>` : ""}</div>
+    <div class="practice-saved-actions">
+      <button type="button" data-phrase="${escapeAttr(item.spanish)}" onclick="hablaPractice.speak(this.dataset.phrase)" aria-label="Listen to ${escapeAttr(item.spanish)}">${iconSvg("volume")}<span>Listen</span></button>
+      <button type="button" data-saved-key="${escapeAttr(item.key)}" onclick="hablaPractice.removeSavedWord(this)" aria-label="Remove ${escapeAttr(item.spanish)} from saved words">${iconSvg("bookmark")}<span>Remove</span></button>
+    </div>
+  </article>`;
+}
+
+function buildSavedWordsLesson(appState) {
+  return {
+    id: "saved-words",
+    title: "Saved Words",
+    contentVersion: String(getSavedWords(appState).length),
+    vocabulary: getSavedWords(appState),
+    flashcards: { shuffle: false },
+  };
 }
 
 function renderPracticeLibrary(appState) {
@@ -931,11 +989,27 @@ function readSession() {
   let suppliedTopic = "";
   try { suppliedTopic = localStorage.getItem(TOPIC_KEY) || ""; } catch {}
   const topic = TOPICS[suppliedTopic] ? suppliedTopic : (TOPICS[saved.topic] ? saved.topic : "greetings");
-  return { ...saved, mode: MODES.includes(saved.mode) ? saved.mode : "flashcards", topic, view: ["launcher", "activity", "results", "library", "library-category", "library-collection", "library-item", "library-study"].includes(saved.view) ? saved.view : "launcher" };
+  return { ...saved, mode: MODES.includes(saved.mode) ? saved.mode : "flashcards", topic, view: ["launcher", "activity", "results", "saved-words", "saved-review", "library", "library-category", "library-collection", "library-item", "library-study"].includes(saved.view) ? saved.view : "launcher" };
 }
 
 function writeSession(session) { sessionStorage.setItem(SESSION_KEY, JSON.stringify(session)); }
 function rerender() { window.dispatchEvent(new CustomEvent("habla:practice-render")); }
+
+function showPracticeToast(message) {
+  document.querySelector("[data-practice-toast]")?.remove();
+  const toast = document.createElement("div");
+  toast.className = "practice-toast";
+  toast.dataset.practiceToast = "";
+  toast.setAttribute("role", "status");
+  toast.setAttribute("aria-live", "polite");
+  toast.innerHTML = `${iconSvg("bookmark")}<strong>${escapeHtml(message)}</strong>`;
+  document.body.appendChild(toast);
+  requestAnimationFrame(() => toast.classList.add("is-visible"));
+  window.setTimeout(() => {
+    toast.classList.remove("is-visible");
+    window.setTimeout(() => toast.remove(), 180);
+  }, 2000);
+}
 
 function stopRecordingResources() {
   if (recordingStream) recordingStream.getTracks().forEach(track => track.stop());
@@ -944,6 +1018,17 @@ function stopRecordingResources() {
 }
 
 window.hablaPractice = {
+  openSavedWords() { const session = readSession(); session.view = "saved-words"; delete session.returnView; writeSession(session); rerender(); },
+  startSavedReview() { if (!getSavedWords(state).length) return; const session = readSession(); session.mode = "flashcards"; session.view = "saved-review"; session.returnView = "saved-words"; delete session.flash; writeSession(session); rerender(); },
+  removeSavedWord(button) {
+    const key = button?.dataset.savedKey;
+    if (!key) return;
+    const saved = getSavedWords(state).filter(item => item.key !== key);
+    state.vocabulary = { ...(state.vocabulary || {}), savedPhrases: saved };
+    saveState(state);
+    rerender();
+    showPracticeToast("Removed from Saved Words");
+  },
   selectMode(mode) { const session = readSession(); session.mode = MODES.includes(mode) ? mode : "flashcards"; session.view = "launcher"; clearLibraryContext(session); writeSession(session); rerender(); },
   selectTopic(topic) { const session = readSession(); session.topic = TOPICS[topic] ? topic : "greetings"; localStorage.setItem(TOPIC_KEY, session.topic); session.view = "launcher"; clearLibraryContext(session); writeSession(session); rerender(); },
   start() { const session = readSession(); delete session.returnView; if (session.mode === "conversation") { window.dispatchEvent(new CustomEvent("habla:practice-conversation", { detail: { topic: session.topic, title: TOPICS[session.topic].title } })); return; } session.view = "activity"; writeSession(session); rerender(); },
@@ -1087,6 +1172,7 @@ function iconSvg(name, className = "") {
     "arrow-right": `<path d="m9 5 7 7-7 7"/>`,
     "arrow-left": `<path d="m15 5-7 7 7 7"/>`,
     star: `<path d="m12 3 2.7 5.5 6 .9-4.4 4.2 1 6-5.3-2.8-5.3 2.8 1-6-4.4-4.2 6-.9L12 3Z"/>`,
+    bookmark: `<path d="M6 4.5A1.5 1.5 0 0 1 7.5 3h9A1.5 1.5 0 0 1 18 4.5V21l-6-3.7L6 21V4.5Z"/>`,
     volume: `<path d="M4 10h4l5-4v12l-5-4H4v-4Z"/><path d="M16 9a4 4 0 0 1 0 6M18.5 6.5a7.5 7.5 0 0 1 0 11"/>`,
     shuffle: `<path d="M4 7h3c4.5 0 5.5 10 10 10h3M17 14l3 3-3 3M4 17h3c1.8 0 3-1.6 4.2-3.5M15 7.5c.7-.3 1.3-.5 2-.5h3M17 4l3 3-3 3"/>`,
     replay: `<path d="M5.2 8A8 8 0 1 1 4 14"/><path d="M5 3v5h5"/>`,
