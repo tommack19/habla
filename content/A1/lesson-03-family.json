@@ -1,0 +1,1024 @@
+{
+  "id": "lesson-03-family",
+  "contentVersion": "1.3",
+  "title": "Family Dinner",
+  "image": "assets/images/lessons/lesson-03-family.png",
+  "level": "A1",
+  "module": "Family",
+  "estimatedMinutes": 30,
+  "sectionIntros": {
+    "story": { "eyebrow": "Story", "title": "Family Dinner", "body": "Meet Carlos’s family and share who matters to you." },
+    "vocabulary": { "eyebrow": "Vocabulary", "title": "The people around the table", "body": "Start with the family words you need tonight. The rest are there when you’re curious." },
+    "grammar": { "eyebrow": "One useful pattern", "title": "Talking about your family", "body": "Use mi, tu, and su to show whose family member you mean." },
+    "dialogue": { "eyebrow": "Dinner begins", "title": "Meet everyone", "body": "Follow one conversation as Carlos welcomes you into the family." },
+    "listening": { "eyebrow": "Listening at dinner", "title": "Can you follow the introductions?", "body": "Listen first. Read only when you’re ready." },
+    "pronunciation": { "eyebrow": "Pronunciation", "title": "Make family phrases flow", "body": "Keep the h silent and connect each relationship naturally." },
+    "speaking": { "eyebrow": "Guided conversation", "title": "Talk with Carlos about family", "body": "Listen, answer, and make the final response your own." },
+    "quiz": { "eyebrow": "Check your understanding", "title": "What do you remember?", "body": "Question {{questionNumber}} of {{questionCount}}" },
+    "culture": { "eyebrow": "Living Madrid", "title": "Meeting family in Spain", "body": "A little context before everyone sits down to eat." },
+    "reward": { "eyebrow": "Mission accomplished", "title": "You belong at the table.", "body": "Your first family dinner becomes part of your Spanish story." }
+  },
+  "sectionTransitions": {
+    "grammar": "Great. Now let me introduce everyone properly.",
+    "dialogue": "Nice! Could you follow the whole dinner introduction?",
+    "listening": "Now it’s your turn to talk about family.",
+    "speaking": "I think you’re ready for dinner."
+  },
+  "vocabularyPresentation": { "showPriorityLabels": true, "collapseOptional": true },
+  "prerequisiteLesson": "a1-lesson-02-introductions",
+  "story": {
+    "chapter": 1,
+    "city": "Madrid",
+    "displayLocation": "Carlos’s Family Home · Madrid",
+    "location": "Madrid",
+    "scene": "Carlos and Marta host a relaxed family dinner in Madrid. Ana joins you, and Carlos’s parents and siblings are visiting from Granada.",
+    "mission": "Today you’ll meet Carlos’s family and learn to introduce the people closest to you.",
+    "openingCarlosTitle": "Come on in",
+    "openingCarlosMessage": "Everyone’s excited to meet you. I’ll introduce my family first, then I’d love to hear about yours.",
+    "openingMissionTitle": "Join Carlos’s family dinner.",
+    "openingMissionItems": [
+      "Greet the family",
+      "Identify family members",
+      "Talk about your family",
+      "Ask one question"
+    ],
+    "continuity": "You greet Ana again and reuse names, origin, and residence while meeting the family Carlos mentioned at the end of Lesson 2."
+  },
+  "emotionalArc": {
+    "emotion": "Belonging",
+    "startsWith": "The learner is arriving as a guest among unfamiliar relatives.",
+    "endsWith": "The learner feels welcomed into Carlos’s family circle.",
+    "earnedBy": "Meeting the family and sharing who matters in their own life."
+  },
+  "microCliffhanger": {
+    "speaker": "Carlos",
+    "spanish": "Mañana te escribo. Quiero enseñarte otro lugar especial de Madrid.",
+    "english": "I’ll message you tomorrow. I want to show you another special place in Madrid.",
+    "payoffLesson": "lesson-04-numbers-time"
+  },
+  "carlosIntroduction": {
+    "eyebrow": "Your mission",
+    "title": "Meet my family",
+    "message": "¡Hola! Come on in—Ana is here, and everyone’s excited to meet you. My family is visiting from Granada. I’ll introduce them first, then I’d love to hear about yours. No long list—just a real family dinner.",
+    "prompt": "Start by saying: Hola, Carlos. ¿Cómo estás?"
+  },
+  "canDo": [
+    "I can introduce people in my family.",
+    "I can ask someone about their family.",
+    "I can say who a person is.",
+    "I can answer basic questions about family."
+  ],
+  "recycledLanguage": [
+    "Hola.",
+    "Me llamo...",
+    "¿Cómo estás?",
+    "Soy de...",
+    "Vivo en...",
+    "Mucho gusto.",
+    "¿Y tú?"
+  ],
+  "objectives": [
+    "Meet six members of Carlos’s family through a real-life story.",
+    "Use mi, tu, and su to identify family relationships.",
+    "Ask and answer simple questions about family.",
+    "Complete a short family conversation with Carlos."
+  ],
+  "essentialPhrases": [
+    {
+      "spanish": "Esta es mi madre.",
+      "english": "This is my mother.",
+      "usage": "Use esta es to introduce a woman or girl.",
+      "exampleSpanish": "Esta es mi madre, Elena.",
+      "exampleEnglish": "This is my mother, Elena."
+    },
+    {
+      "spanish": "Este es mi padre.",
+      "english": "This is my father.",
+      "usage": "Use este es to introduce a man or boy.",
+      "exampleSpanish": "Este es mi padre, Javier.",
+      "exampleEnglish": "This is my father, Javier."
+    },
+    {
+      "spanish": "¿Quién es ella?",
+      "english": "Who is she?",
+      "usage": "Ask this when you want to identify a woman or girl.",
+      "exampleSpanish": "¿Quién es ella? Es mi hermana.",
+      "exampleEnglish": "Who is she? She’s my sister."
+    },
+    {
+      "spanish": "¿Quién es él?",
+      "english": "Who is he?",
+      "usage": "Ask this when you want to identify a man or boy.",
+      "exampleSpanish": "¿Quién es él? Es mi hermano.",
+      "exampleEnglish": "Who is he? He’s my brother."
+    },
+    {
+      "spanish": "¿Tienes hermanos?",
+      "english": "Do you have siblings?",
+      "usage": "A natural way to ask whether someone has brothers or sisters.",
+      "exampleSpanish": "¿Tienes hermanos? Sí, tengo una hermana.",
+      "exampleEnglish": "Do you have siblings? Yes, I have a sister."
+    },
+    {
+      "spanish": "Tengo una hermana.",
+      "english": "I have a sister.",
+      "usage": "Use tengo + a family member to answer questions about your family.",
+      "exampleSpanish": "Sí, tengo una hermana. Se llama Sofía.",
+      "exampleEnglish": "Yes, I have a sister. Her name is Sofía."
+    },
+    {
+      "spanish": "No tengo hermanos.",
+      "english": "I don’t have siblings.",
+      "usage": "A complete and natural answer if you have no brothers or sisters.",
+      "exampleSpanish": "No, no tengo hermanos. ¿Y tú?",
+      "exampleEnglish": "No, I don’t have siblings. And you?"
+    }
+  ],
+  "vocabulary": [
+    {
+      "spanish": "la familia",
+      "english": "family",
+      "partOfSpeech": "noun",
+      "tier": 1,
+      "group": "Meeting the family",
+      "tip": "Use mi familia when talking about your family.",
+      "exampleSpanish": "Esta es mi familia.",
+      "exampleEnglish": "This is my family."
+    },
+    {
+      "spanish": "esta es",
+      "english": "this is (feminine)",
+      "partOfSpeech": "phrase",
+      "tier": 1,
+      "group": "Meeting the family",
+      "tip": "Use esta es before introducing a woman or girl.",
+      "exampleSpanish": "Esta es mi hermana.",
+      "exampleEnglish": "This is my sister."
+    },
+    {
+      "spanish": "este es",
+      "english": "this is (masculine)",
+      "partOfSpeech": "phrase",
+      "tier": 1,
+      "group": "Meeting the family",
+      "tip": "Use este es before introducing a man or boy.",
+      "exampleSpanish": "Este es mi hermano.",
+      "exampleEnglish": "This is my brother."
+    },
+    {
+      "spanish": "¿quién?",
+      "english": "who?",
+      "partOfSpeech": "question word",
+      "tier": 1,
+      "group": "Meeting the family",
+      "tip": "Quién carries an accent in a direct question.",
+      "exampleSpanish": "¿Quién es ella?",
+      "exampleEnglish": "Who is she?"
+    },
+    {
+      "spanish": "él",
+      "english": "he",
+      "partOfSpeech": "pronoun",
+      "tier": 1,
+      "group": "Meeting the family",
+      "tip": "The accent distinguishes él, he, from el, the.",
+      "exampleSpanish": "Él es mi padre.",
+      "exampleEnglish": "He is my father."
+    },
+    {
+      "spanish": "ella",
+      "english": "she",
+      "partOfSpeech": "pronoun",
+      "tier": 1,
+      "group": "Meeting the family",
+      "tip": "Use ella to refer to a woman or girl.",
+      "exampleSpanish": "Ella es mi madre.",
+      "exampleEnglish": "She is my mother."
+    },
+    {
+      "spanish": "la madre / mamá",
+      "english": "mother / mom",
+      "partOfSpeech": "noun",
+      "tier": 1,
+      "group": "Immediate family",
+      "tip": "Mamá is warm and common in everyday family conversation.",
+      "exampleSpanish": "Mi mamá se llama Elena.",
+      "exampleEnglish": "My mom’s name is Elena."
+    },
+    {
+      "spanish": "el padre / papá",
+      "english": "father / dad",
+      "partOfSpeech": "noun",
+      "tier": 1,
+      "group": "Immediate family",
+      "tip": "Papá is warm and common in everyday family conversation.",
+      "exampleSpanish": "Mi papá es de Granada.",
+      "exampleEnglish": "My dad is from Granada."
+    },
+    {
+      "spanish": "la hermana",
+      "english": "sister",
+      "partOfSpeech": "noun",
+      "tier": 1,
+      "group": "Immediate family",
+      "tip": "The h is silent.",
+      "exampleSpanish": "Tengo una hermana.",
+      "exampleEnglish": "I have a sister."
+    },
+    {
+      "spanish": "el hermano",
+      "english": "brother",
+      "partOfSpeech": "noun",
+      "tier": 1,
+      "group": "Immediate family",
+      "tip": "Hermanos can mean brothers or siblings, depending on context.",
+      "exampleSpanish": "Mi hermano se llama Diego.",
+      "exampleEnglish": "My brother’s name is Diego."
+    },
+    {
+      "spanish": "los hermanos",
+      "english": "siblings",
+      "partOfSpeech": "noun",
+      "tier": 1,
+      "group": "Immediate family",
+      "tip": "Use hermanos for siblings when the group is mixed or unspecified.",
+      "exampleSpanish": "Tengo dos hermanos.",
+      "exampleEnglish": "I have two siblings."
+    },
+    {
+      "spanish": "la esposa",
+      "english": "wife",
+      "partOfSpeech": "noun",
+      "tier": 2,
+      "group": "Immediate family",
+      "tip": "Use mi esposa for my wife.",
+      "exampleSpanish": "Esta es mi esposa, Lucía.",
+      "exampleEnglish": "This is my wife, Lucía."
+    },
+    {
+      "spanish": "el esposo",
+      "english": "husband",
+      "partOfSpeech": "noun",
+      "tier": 2,
+      "group": "Immediate family",
+      "tip": "Use mi esposo for my husband.",
+      "exampleSpanish": "Este es mi esposo, Luis.",
+      "exampleEnglish": "This is my husband, Luis."
+    },
+    {
+      "spanish": "la pareja",
+      "english": "partner",
+      "partOfSpeech": "noun",
+      "tier": 2,
+      "group": "Immediate family",
+      "tip": "Pareja is a broadly useful and inclusive word for partner.",
+      "exampleSpanish": "Mi pareja se llama Alex.",
+      "exampleEnglish": "My partner’s name is Alex."
+    },
+    {
+      "spanish": "el hijo",
+      "english": "son",
+      "partOfSpeech": "noun",
+      "tier": 2,
+      "group": "Immediate family",
+      "tip": "The h is silent.",
+      "exampleSpanish": "Mi hijo se llama Leo.",
+      "exampleEnglish": "My son’s name is Leo."
+    },
+    {
+      "spanish": "la hija",
+      "english": "daughter",
+      "partOfSpeech": "noun",
+      "tier": 2,
+      "group": "Immediate family",
+      "tip": "The h is silent.",
+      "exampleSpanish": "Mi hija se llama Sofía.",
+      "exampleEnglish": "My daughter’s name is Sofía."
+    },
+    {
+      "spanish": "los hijos",
+      "english": "children",
+      "partOfSpeech": "noun",
+      "tier": 2,
+      "group": "Immediate family",
+      "tip": "Hijos often means children, not only sons.",
+      "exampleSpanish": "Tengo dos hijos.",
+      "exampleEnglish": "I have two children."
+    },
+    {
+      "spanish": "los padres",
+      "english": "parents",
+      "partOfSpeech": "noun",
+      "tier": 2,
+      "group": "Immediate family",
+      "tip": "Padres means parents; parientes means relatives.",
+      "exampleSpanish": "Mis padres viven en Granada.",
+      "exampleEnglish": "My parents live in Granada."
+    },
+    {
+      "spanish": "la abuela",
+      "english": "grandmother",
+      "partOfSpeech": "noun",
+      "tier": 2,
+      "group": "Extended family",
+      "tip": "Abuela is grandmother; abuelita is an affectionate form.",
+      "exampleSpanish": "Mi abuela se llama Rosa.",
+      "exampleEnglish": "My grandmother’s name is Rosa."
+    },
+    {
+      "spanish": "el abuelo",
+      "english": "grandfather",
+      "partOfSpeech": "noun",
+      "tier": 2,
+      "group": "Extended family",
+      "tip": "Abuelo is grandfather; abuelito is an affectionate form.",
+      "exampleSpanish": "Mi abuelo vive en Granada.",
+      "exampleEnglish": "My grandfather lives in Granada."
+    },
+    {
+      "spanish": "la tía",
+      "english": "aunt",
+      "partOfSpeech": "noun",
+      "tier": 2,
+      "group": "Extended family",
+      "tip": "Keep the written accent on í.",
+      "exampleSpanish": "Esta es mi tía Rosa.",
+      "exampleEnglish": "This is my aunt Rosa."
+    },
+    {
+      "spanish": "el tío",
+      "english": "uncle",
+      "partOfSpeech": "noun",
+      "tier": 2,
+      "group": "Extended family",
+      "tip": "Keep the written accent on í.",
+      "exampleSpanish": "Este es mi tío Juan.",
+      "exampleEnglish": "This is my uncle Juan."
+    },
+    {
+      "spanish": "la prima / el primo",
+      "english": "female cousin / male cousin",
+      "partOfSpeech": "noun",
+      "tier": 2,
+      "group": "Extended family",
+      "tip": "The ending changes with the person: prima or primo.",
+      "exampleSpanish": "Mi prima vive en Madrid.",
+      "exampleEnglish": "My cousin lives in Madrid."
+    },
+    {
+      "spanish": "mi",
+      "english": "my",
+      "partOfSpeech": "possessive adjective",
+      "tier": 1,
+      "group": "Relationship words",
+      "tip": "Mi stays the same for masculine and feminine singular nouns.",
+      "exampleSpanish": "Mi madre y mi padre.",
+      "exampleEnglish": "My mother and my father."
+    },
+    {
+      "spanish": "tu",
+      "english": "your",
+      "partOfSpeech": "possessive adjective",
+      "tier": 1,
+      "group": "Relationship words",
+      "tip": "Tu has no accent when it means your.",
+      "exampleSpanish": "¿Cómo se llama tu hermana?",
+      "exampleEnglish": "What is your sister’s name?"
+    },
+    {
+      "spanish": "su",
+      "english": "his / her",
+      "partOfSpeech": "possessive adjective",
+      "tier": 1,
+      "group": "Relationship words",
+      "tip": "Context tells you whether su means his or her in this lesson.",
+      "exampleSpanish": "Carlos y su madre.",
+      "exampleEnglish": "Carlos and his mother."
+    },
+    {
+      "spanish": "nuestro / nuestra",
+      "english": "our",
+      "partOfSpeech": "possessive adjective",
+      "tier": 2,
+      "group": "Relationship words",
+      "tip": "Use nuestro with a masculine noun and nuestra with a feminine noun.",
+      "exampleSpanish": "Nuestra familia vive aquí.",
+      "exampleEnglish": "Our family lives here."
+    },
+    {
+      "spanish": "tengo",
+      "english": "I have",
+      "partOfSpeech": "conversation chunk",
+      "tier": 1,
+      "group": "Relationship words",
+      "tip": "Learn tengo as a complete chunk for answering family questions.",
+      "exampleSpanish": "Tengo un hermano.",
+      "exampleEnglish": "I have a brother."
+    }
+  ],
+  "grammar": {
+    "topic": "Talking about your family",
+    "meaning": "Show whose family member you are talking about.",
+    "explanation": "Say mi madre for my mother, tu hermano for your brother, and su esposa for his or her wife. Put the small relationship word directly before the family member.",
+    "notes": [
+      {
+        "title": "My and your",
+        "text": "Use mi for my and tu for your: mi hermano, tu hermana. Both work with masculine and feminine singular family words."
+      },
+      {
+        "title": "His or her",
+        "text": "Use su for his or her: Carlos y su madre; Ana y su padre. The conversation tells you whose family member you mean."
+      },
+      {
+        "title": "Our",
+        "text": "Use nuestro before a masculine singular word and nuestra before a feminine singular word: nuestro hijo, nuestra hija."
+      },
+      {
+        "title": "Keep the word before the relationship",
+        "text": "Spanish says mi madre, not madre mi. Keep mi, tu, su, or nuestro/nuestra directly before the family noun."
+      }
+    ],
+    "examples": [
+      {
+        "spanish": "Esta es mi madre.",
+        "english": "This is my mother."
+      },
+      {
+        "spanish": "¿Cómo se llama tu hermano?",
+        "english": "What is your brother’s name?"
+      },
+      {
+        "spanish": "Carlos habla con su hermana.",
+        "english": "Carlos is talking with his sister."
+      },
+      {
+        "spanish": "Nuestra hija se llama Sofía.",
+        "english": "Our daughter’s name is Sofía."
+      }
+    ],
+    "comparison": [
+      {"label": "Speaking to someone", "word": "tu", "meaning": "your", "exampleSpanish": "Tu hermano es simpático.", "exampleEnglish": "Your brother is friendly."},
+      {"label": "Speaking about someone", "word": "su", "meaning": "his / her / your formal / their", "exampleSpanish": "Su hermana vive aquí.", "exampleEnglish": "His or her sister lives here."}
+    ],
+    "practicePrompt": "Introduce two real or imagined family members using mi, then ask Carlos one question using tu."
+  },
+  "dialogue": [
+    {
+      "title": "Dinner with Carlos’s family",
+      "setting": "Carlos opens the door and introduces you to his family before dinner.",
+      "lines": [
+        {
+          "speaker": "Learner",
+          "spanish": "Hola, Carlos. ¿Cómo estás?",
+          "english": "Hi, Carlos. How are you?"
+        },
+        {
+          "speaker": "Ana",
+          "spanish": "¡Hola de nuevo! Mucho gusto en verte.",
+          "english": "Hello again! It’s nice to see you."
+        },
+        {
+          "speaker": "Carlos",
+          "spanish": "Muy bien. ¡Bienvenido! Esta es mi madre, Elena.",
+          "english": "Very well. Welcome! This is my mother, Elena."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "Hola, Elena. Me llamo {{learnerName}}. Mucho gusto.",
+          "english": "Hi, Elena. My name is {{learnerName}}. Nice to meet you."
+        },
+        {
+          "speaker": "Elena",
+          "spanish": "Mucho gusto, {{learnerName}}. Soy de Granada.",
+          "english": "Nice to meet you, {{learnerName}}. I’m from Granada."
+        },
+        {
+          "speaker": "Carlos",
+          "spanish": "Este es mi padre, Javier. Ella es mi hermana, Lucía, y él es mi hermano, Diego.",
+          "english": "This is my father, Javier. She is my sister, Lucía, and he is my brother, Diego."
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "Mucho gusto a todos. Carlos, ¿y ella?",
+          "english": "Nice to meet everyone. Carlos, and who is she?"
+        },
+        {
+          "speaker": "Carlos",
+          "spanish": "Ella es mi esposa, Marta. Y este es nuestro hijo, Nico.",
+          "english": "She is my wife, Marta. And this is our son, Nico."
+        },
+        {
+          "speaker": "Carlos",
+          "spanish": "¿Y tú? ¿Tienes hermanos?",
+          "english": "And you? Do you have siblings?"
+        },
+        {
+          "speaker": "Learner",
+          "spanish": "Sí, tengo una hermana. Se llama Sofía.",
+          "english": "Yes, I have a sister. Her name is Sofía."
+        },
+        {
+          "speaker": "Carlos",
+          "spanish": "¡Qué bien! Vamos a cenar.",
+          "english": "That’s great! Let’s have dinner."
+        }
+      ],
+      "comprehension": [
+        {
+          "prompt": "Where is Elena from?",
+          "options": ["Granada", "Madrid", "Valencia"],
+          "answer": "Granada"
+        },
+        {
+          "prompt": "Who is Lucía?",
+          "options": ["Carlos’s sister", "Carlos’s wife", "Carlos’s mother"],
+          "answer": "Carlos’s sister"
+        },
+        {
+          "prompt": "Who is Nico?",
+          "options": ["Carlos and Marta’s son", "Carlos’s brother", "Javier’s brother"],
+          "answer": "Carlos and Marta’s son"
+        }
+      ]
+    }
+  ],
+  "pronunciation": {
+    "focus": "Silent h and smooth possessive-family chunks",
+    "tips": [
+      "The h is silent in hermano, hermana, hijo, and hija.",
+      "Keep mi madre and tu padre connected as short thought groups.",
+      "Do not add an English h sound before hermano or hermana.",
+      "In nuestra familia, keep every vowel clear and light."
+    ],
+    "items": [
+      {
+        "text": "Mi madre vive en Granada.",
+        "meaning": "My mother lives in Granada.",
+        "note": "Connect mi madre, then keep every vowel clear."
+      },
+      {
+        "text": "Tu hermano es muy simpático.",
+        "meaning": "Your brother is very friendly.",
+        "note": "The h in hermano is silent."
+      },
+      {
+        "text": "Su hermana trabaja aquí.",
+        "meaning": "His or her sister works here.",
+        "note": "Link su hermana without adding an h sound."
+      },
+      {
+        "text": "Nuestro hijo se llama Nico.",
+        "meaning": "Our son’s name is Nico.",
+        "note": "The h in hijo is silent."
+      },
+      {
+        "text": "¿Tienes hermanos?",
+        "meaning": "Do you have siblings?",
+        "note": "Let the question rise gently at the end."
+      }
+    ]
+  },
+  "listening": {
+    "title": "Can you follow the family dinner?",
+    "instructions": "Listen, follow along, then check what you understood.",
+    "stageLabels": ["Listen", "Follow Along", "Understand"],
+    "playbackSpeeds": ["natural", "slow"],
+    "naturalScript": "Hola, Carlos. ¿Cómo estás? Muy bien. ¡Bienvenido! Esta es mi madre, Elena. Hola, Elena. Me llamo {{learnerName}}. Mucho gusto. Mucho gusto, {{learnerName}}. Soy de Granada. Este es mi padre, Javier. Ella es mi hermana, Lucía, y él es mi hermano, Diego. Mucho gusto a todos. Carlos, ¿y ella? Ella es mi esposa, Marta. Y este es nuestro hijo, Nico. ¿Y tú? ¿Tienes hermanos? Sí, tengo una hermana. Se llama Sofía. ¡Qué bien! Vamos a cenar.",
+    "slowScript": "Hola, Carlos. / ¿Cómo estás? / Muy bien. / ¡Bienvenido! / Esta es mi madre, Elena. / Hola, Elena. / Me llamo {{learnerName}}. / Mucho gusto. / Mucho gusto, {{learnerName}}. / Soy de Granada. / Este es mi padre, Javier. / Ella es mi hermana, Lucía, / y él es mi hermano, Diego. / Mucho gusto a todos. / Carlos, ¿y ella? / Ella es mi esposa, Marta. / Y este es nuestro hijo, Nico. / ¿Y tú? / ¿Tienes hermanos? / Sí, tengo una hermana. / Se llama Sofía. / ¡Qué bien! / Vamos a cenar.",
+    "transcript": [
+      {"speaker": "Learner", "spanish": "Hola, Carlos. ¿Cómo estás?", "english": "Hi, Carlos. How are you?"},
+      {"speaker": "Carlos", "spanish": "Muy bien. ¡Bienvenido! Esta es mi madre, Elena.", "english": "Very well. Welcome! This is my mother, Elena."},
+      {"speaker": "Learner", "spanish": "Hola, Elena. Me llamo {{learnerName}}. Mucho gusto.", "english": "Hi, Elena. My name is {{learnerName}}. Nice to meet you."},
+      {"speaker": "Elena", "spanish": "Mucho gusto, {{learnerName}}. Soy de Granada.", "english": "Nice to meet you, {{learnerName}}. I’m from Granada."},
+      {"speaker": "Carlos", "spanish": "Este es mi padre, Javier. Ella es mi hermana, Lucía, y él es mi hermano, Diego.", "english": "This is my father, Javier. She is my sister, Lucía, and he is my brother, Diego."},
+      {"speaker": "Learner", "spanish": "Mucho gusto a todos. Carlos, ¿y ella?", "english": "Nice to meet everyone. Carlos, and who is she?"},
+      {"speaker": "Carlos", "spanish": "Ella es mi esposa, Marta. Y este es nuestro hijo, Nico.", "english": "She is my wife, Marta. And this is our son, Nico."},
+      {"speaker": "Carlos", "spanish": "¿Y tú? ¿Tienes hermanos?", "english": "And you? Do you have siblings?"},
+      {"speaker": "Learner", "spanish": "Sí, tengo una hermana. Se llama Sofía.", "english": "Yes, I have a sister. Her name is Sofía."},
+      {"speaker": "Carlos", "spanish": "¡Qué bien! Vamos a cenar.", "english": "That’s great! Let’s have dinner."}
+    ],
+    "comprehension": [
+      {"prompt": "Who does Carlos introduce first?", "options": ["His mother, Elena", "His brother, Diego", "His wife, Marta"], "answer": "His mother, Elena", "explanation": "Carlos first says “Esta es mi madre, Elena.”"},
+      {"prompt": "Where is Elena from?", "options": ["Granada", "Madrid", "Valencia"], "answer": "Granada", "explanation": "Elena says “Soy de Granada.”"},
+      {"prompt": "Who is Nico?", "options": ["Carlos and Marta’s son", "Carlos’s brother", "Javier’s brother"], "answer": "Carlos and Marta’s son", "explanation": "Carlos says “este es nuestro hijo, Nico.”"},
+      {"prompt": "What does Carlos ask the learner?", "options": ["Whether they have siblings", "Where they live", "What they want to drink"], "answer": "Whether they have siblings", "explanation": "¿Tienes hermanos? asks whether someone has siblings."}
+    ]
+  },
+  "listeningPhrases": [
+    {
+      "spanish": "Esta es mi madre, Elena.",
+      "english": "This is my mother, Elena.",
+      "note": "Listen for mi directly before madre."
+    },
+    {
+      "spanish": "Él es mi hermano, Diego.",
+      "english": "He is my brother, Diego.",
+      "note": "The h in hermano is silent."
+    },
+    {
+      "spanish": "Marta es su esposa.",
+      "english": "Marta is his wife.",
+      "note": "Context tells you that su means his here."
+    },
+    {
+      "spanish": "Este es nuestro hijo, Nico.",
+      "english": "This is our son, Nico.",
+      "note": "Listen for nuestro before hijo."
+    },
+    {
+      "spanish": "¿Tienes hermanos? Sí, tengo una hermana.",
+      "english": "Do you have siblings? Yes, I have a sister.",
+      "note": "Hear the question and its complete answer as one exchange."
+    }
+  ],
+  "speaking": [
+    {
+      "instructions": "Carlos guides you through the family dinner one response at a time.",
+      "items": [
+        {
+          "stage": "repeat",
+          "label": "Listen",
+          "carlosPrompt": "Esta es mi madre, Elena.",
+          "carlosPromptEnglish": "This is my mother, Elena.",
+          "prompt": "Can you introduce your mother—or use the model?",
+          "cue": "Listen once, then make the introduction yourself.",
+          "text": "Esta es mi madre.",
+          "meaning": "This is my mother.",
+          "focus": "Connect mi madre smoothly."
+        },
+        {
+          "stage": "repeat",
+          "label": "Your turn",
+          "carlosPrompt": "Este es mi hermano, Diego.",
+          "carlosPromptEnglish": "This is my brother, Diego.",
+          "prompt": "Can you introduce your brother—or use the model?",
+          "cue": "Make the introduction in one smooth phrase.",
+          "text": "Este es mi hermano.",
+          "meaning": "This is my brother.",
+          "focus": "Keep the h in hermano silent."
+        },
+        {
+          "stage": "recall",
+          "label": "Keep talking",
+          "carlosPrompt": "¿Quién es ella?",
+          "carlosPromptEnglish": "Who is she?",
+          "prompt": "Carlos points to Lucía and asks: ¿Quién es ella?",
+          "cue": "Identify Lucía using tu because you are speaking to Carlos.",
+          "text": "Ella es tu hermana.",
+          "meaning": "She is your sister.",
+          "focus": "Use tu because you are speaking to Carlos."
+        },
+        {
+          "stage": "recall",
+          "label": "One more challenge",
+          "carlosPrompt": "Mi familia es grande.",
+          "carlosPromptEnglish": "My family is big.",
+          "prompt": "Ask Carlos whether he has siblings.",
+          "cue": "Try the question from memory before opening the model.",
+          "text": "¿Tienes hermanos?",
+          "meaning": "Do you have siblings?",
+          "focus": "Let your voice rise naturally at the end."
+        },
+        {
+          "stage": "personalize",
+          "label": "Finish the conversation",
+          "carlosPrompt": "¿Y tú? ¿Tienes hermanos?",
+          "carlosPromptEnglish": "And you? Do you have siblings?",
+          "prompt": "Give a true answer, or use the model if you prefer not to share personal details.",
+          "cue": "Share one true detail or use the imagined-family model.",
+          "text": "Sí, tengo una hermana. Se llama Sofía.",
+          "meaning": "Yes, I have a sister. Her name is Sofía.",
+          "focus": "Say the two short sentences confidently without rushing."
+        }
+      ]
+    }
+  ],
+  "miniConversation": {
+    "setting": "You and Ana are seated at dinner with Carlos and his family.",
+    "goal": "Identify two people, ask Carlos about his family, and share one detail about yours.",
+    "turns": [
+      {
+        "speaker": "Carlos",
+        "spanish": "¡Hola! ¿Cómo estás? Esta es mi madre, Elena.",
+        "english": "Hi! How are you? This is my mother, Elena."
+      },
+      {
+        "speaker": "Learner",
+        "intent": "Greet Elena, say your name, and say mucho gusto.",
+        "exampleSpanish": "Hola, Elena. Me llamo {{learnerName}}. Mucho gusto.",
+        "exampleEnglish": "Hi, Elena. My name is {{learnerName}}. Nice to meet you."
+      },
+      {
+        "speaker": "Carlos",
+        "spanish": "Mucho gusto. ¿Quién es él?",
+        "english": "Nice to meet you. Who is he?"
+      },
+      {
+        "speaker": "Learner",
+        "intent": "Identify Carlos’s father using tu.",
+        "exampleSpanish": "Él es tu padre.",
+        "exampleEnglish": "He is your father."
+      },
+      {
+        "speaker": "Carlos",
+        "spanish": "¡Exacto! ¿Tienes hermanos?",
+        "english": "Exactly! Do you have siblings?"
+      },
+      {
+        "speaker": "Learner",
+        "intent": "Give a true answer or use an imagined family. Add a name if you can.",
+        "exampleSpanish": "Sí, tengo una hermana. Se llama Sofía.",
+        "exampleEnglish": "Yes, I have a sister. Her name is Sofía."
+      },
+      {
+        "speaker": "Carlos",
+        "spanish": "¡Qué bien! Gracias por hablar de tu familia.",
+        "english": "That’s great! Thanks for talking about your family."
+      },
+      {
+        "speaker": "Ana",
+        "spanish": "¡Qué familia tan simpática!",
+        "english": "What a lovely family!"
+      }
+    ]
+  },
+  "culture": {
+    "title": "Meeting family in Spain",
+    "text": "Family gatherings are often warm and conversational. When meeting relatives, mucho gusto is always safe. Friends and family may greet with a hug or cheek kisses, while a handshake is also perfectly appropriate if you are unsure—follow the other person’s lead. Spanish names may include two surnames, one from each parent, but people usually use their first name in friendly introductions."
+  },
+  "nativeSpeech": {
+    "title": "Family words you will hear naturally",
+    "notes": [
+      "Mamá and papá are warmer everyday choices than madre and padre when speaking about your own parents.",
+      "Hermanos can mean brothers or siblings when the group is mixed or unspecified.",
+      "Hijos often means children, not only sons.",
+      "Pareja is a common and inclusive word for partner."
+    ]
+  },
+  "commonMistakes": [
+    {
+      "mistake": "Saying madre mi.",
+      "correction": "Say mi madre.",
+      "explanation": "The possessive comes directly before the family word."
+    },
+    {
+      "mistake": "Using mí with an accent for my.",
+      "correction": "Say mi madre, without an accent on mi.",
+      "explanation": "Mi means my. Mí with an accent is used after a preposition and is not the word you need here."
+    },
+    {
+      "mistake": "Saying su madre when speaking directly to Carlos about Carlos’s mother.",
+      "correction": "Say tu madre.",
+      "explanation": "Use tu for your when speaking directly to someone. Use su when speaking about his or her family."
+    },
+    {
+      "mistake": "Pronouncing the h in hermano.",
+      "correction": "Begin hermano with the vowel sound: er-MA-no.",
+      "explanation": "The Spanish h is silent."
+    }
+  ],
+  "review": {
+    "modes": ["quiz", "flashcards", "pronunciation", "conversation"],
+    "canDo": [
+      "I can introduce close family members.",
+      "I can identify someone using él or ella.",
+      "I can ask ¿tienes hermanos? and give a basic answer.",
+      "I can use mi, tu, su, and nuestro/nuestra in useful family phrases."
+    ],
+    "corePhrases": [
+      "Esta es mi madre.",
+      "Este es mi padre.",
+      "¿Quién es ella?",
+      "¿Quién es él?",
+      "¿Tienes hermanos?",
+      "Sí, tengo una hermana.",
+      "No tengo hermanos."
+    ],
+    "conversationReturn": "The next time Carlos asks how you are, add one family detail: Estoy bien. Mi familia está en casa."
+  },
+  "quiz": [
+    {
+      "type": "multipleChoice",
+      "difficulty": "easy",
+      "prompt": "What does mi madre mean?",
+      "options": ["my mother", "your mother", "his sister", "our daughter"],
+      "answer": "my mother",
+      "explanation": "Mi means my, and madre means mother."
+    },
+    {
+      "type": "multipleChoice",
+      "difficulty": "easy",
+      "prompt": "Choose the Spanish for my brother.",
+      "options": ["mi hermano", "tu hermano", "mi hermana", "su padre"],
+      "answer": "mi hermano",
+      "explanation": "Mi means my, and hermano means brother."
+    },
+    {
+      "type": "multipleChoice",
+      "difficulty": "easy",
+      "prompt": "Who is la hermana?",
+      "options": ["the sister", "the mother", "the wife", "the daughter"],
+      "answer": "the sister",
+      "explanation": "Hermana means sister; hermano means brother."
+    },
+    {
+      "type": "multipleChoice",
+      "difficulty": "easy",
+      "prompt": "What does los padres mean?",
+      "options": ["the parents", "the relatives", "the siblings", "the grandparents"],
+      "answer": "the parents",
+      "explanation": "Padres means parents. Parientes means relatives."
+    },
+    {
+      "type": "multipleChoice",
+      "difficulty": "easy",
+      "prompt": "Carlos points to his sister. Which sentence is correct?",
+      "options": ["Ella es mi hermana.", "Él es mi hermano.", "Ella es mi madre.", "Él es mi padre."],
+      "answer": "Ella es mi hermana.",
+      "explanation": "Ella means she, and hermana means sister."
+    },
+    {
+      "type": "multipleChoice",
+      "difficulty": "medium",
+      "prompt": "You are speaking directly to Carlos. How do you say your mother?",
+      "options": ["tu madre", "su madre", "mi madre", "nuestra madre"],
+      "answer": "tu madre",
+      "explanation": "Use tu for your when speaking directly to someone."
+    },
+    {
+      "type": "multipleChoice",
+      "difficulty": "medium",
+      "prompt": "You are talking about Ana and her father. Complete: Ana y _____ padre.",
+      "options": ["su", "tu", "mi", "nuestro"],
+      "answer": "su",
+      "explanation": "Su means her in this context."
+    },
+    {
+      "type": "multipleChoice",
+      "difficulty": "medium",
+      "prompt": "Choose the correct phrase for our daughter.",
+      "options": ["nuestra hija", "nuestro hija", "su hija", "nuestra hijo"],
+      "answer": "nuestra hija",
+      "explanation": "Use nuestra before the feminine singular noun hija."
+    },
+    {
+      "type": "multipleChoice",
+      "difficulty": "medium",
+      "prompt": "Which reply says: Yes, I have one sister?",
+      "options": ["Sí, tengo una hermana.", "Sí, tengo dos hermanos.", "No, soy hijo único.", "Vivo con mi familia."],
+      "answer": "Sí, tengo una hermana.",
+      "explanation": "The question asks whether you have siblings."
+    },
+    {
+      "type": "multipleChoice",
+      "difficulty": "medium",
+      "prompt": "Which question means Who is she?",
+      "options": ["¿Quién es ella?", "¿Cómo estás?", "¿Quién es él?", "¿Dónde vive?"],
+      "answer": "¿Quién es ella?",
+      "explanation": "Quién asks who, and ella means she."
+    },
+    {
+      "type": "fillBlank",
+      "difficulty": "medium",
+      "prompt": "Esta es _____ madre. (my)",
+      "options": ["mi", "tu", "su", "nuestro"],
+      "answer": "mi",
+      "explanation": "Mi means my and comes before madre."
+    },
+    {
+      "type": "fillBlank",
+      "difficulty": "medium",
+      "prompt": "¿Cómo se llama _____ hermano? (your)",
+      "options": ["tu", "mi", "su", "nuestra"],
+      "answer": "tu",
+      "explanation": "Tu means your when speaking directly to someone."
+    },
+    {
+      "type": "multipleChoice",
+      "difficulty": "hard",
+      "prompt": "Carlos says: Esta es mi esposa, Marta. Who is Marta?",
+      "options": ["Carlos’s wife", "Carlos’s sister", "Carlos’s mother", "Carlos’s daughter"],
+      "answer": "Carlos’s wife",
+      "explanation": "Mi esposa means my wife."
+    },
+    {
+      "type": "multipleChoice",
+      "difficulty": "hard",
+      "prompt": "You point to your father. Which introduction is natural?",
+      "options": ["Este es mi padre.", "Esta es mi padre.", "Él es tu padre.", "Este es su madre."],
+      "answer": "Este es mi padre.",
+      "explanation": "Use este es for a man and mi for your own relationship."
+    },
+    {
+      "type": "multipleChoice",
+      "difficulty": "hard",
+      "prompt": "Carlos and Marta introduce their son. What should they say?",
+      "options": ["Este es nuestro hijo.", "Este es nuestra hijo.", "Esta es nuestro hijo.", "Este es su hermano."],
+      "answer": "Este es nuestro hijo.",
+      "explanation": "Nuestro agrees with the masculine singular noun hijo."
+    },
+    {
+      "type": "translation",
+      "difficulty": "hard",
+      "prompt": "Translate: Ella es mi hermana.",
+      "options": ["She is my sister.", "He is my brother.", "She is your mother.", "This is our daughter."],
+      "answer": "She is my sister.",
+      "explanation": "Ella means she, and mi hermana means my sister."
+    },
+    {
+      "type": "translation",
+      "difficulty": "hard",
+      "prompt": "Translate: ¿Quién es él?",
+      "options": ["Who is he?", "Who is she?", "What is his name?", "Is he your brother?"],
+      "answer": "Who is he?",
+      "explanation": "Quién means who, and él means he."
+    },
+    {
+      "type": "multipleChoice",
+      "difficulty": "practical usage",
+      "prompt": "Which reply says: Yes, I have one sister. Her name is Sofía?",
+      "options": ["Sí, tengo una hermana. Se llama Sofía.", "Sí, tengo dos hermanos. Se llaman Diego y Javier.", "No, soy hijo único.", "Vivo con mi familia en Madrid."],
+      "answer": "Sí, tengo una hermana. Se llama Sofía.",
+      "explanation": "Sí, tengo una hermana directly answers the sibling question, and Se llama Sofía adds one clear detail. Ana remains Carlos’s friend."
+    }
+  ],
+  "flashcards": {
+    "selectionRule": "Only Tier 1 vocabulary and the most useful relationship chunks appear in the core deck.",
+    "items": [
+      "la familia",
+      "esta es",
+      "este es",
+      "la madre / mamá",
+      "el padre / papá",
+      "la hermana",
+      "el hermano",
+      "los hermanos",
+      "mi",
+      "tu",
+      "su",
+      "¿quién?",
+      "tengo"
+    ]
+  },
+  "speakingChallenge": [
+    {
+      "prompt": "Introduce one woman in your family.",
+      "exampleAnswer": "Esta es mi madre. Se llama Elena."
+    },
+    {
+      "prompt": "Introduce one man in your family.",
+      "exampleAnswer": "Este es mi hermano. Se llama Diego."
+    },
+    {
+      "prompt": "Ask Carlos about his siblings.",
+      "exampleAnswer": "¿Tienes hermanos?"
+    },
+    {
+      "prompt": "Answer Carlos with a true or imagined family detail.",
+      "exampleAnswer": "Sí, tengo una hermana. Se llama Sofía."
+    },
+    {
+      "prompt": "Use mi, tu, and su in three short family phrases.",
+      "exampleAnswer": "Mi madre. Tu padre. Su hermana."
+    }
+  ],
+  "realLifeMission": {
+    "title": "Family Dinner",
+    "presentationEyebrow": "Dinner Conversation",
+    "successTitle": "Dinner Complete",
+    "mission": "At dinner, greet Carlos’s family, identify two people, ask Carlos about one family member, and share two simple details about your own or an imagined family.",
+    "successCriteria": [
+      "Reuse hola, me llamo, ¿cómo estás?, soy de, or mucho gusto naturally.",
+      "Introduce or identify at least two people with mi, tu, or su.",
+      "Ask ¿quién es él/ella? or ¿tienes hermanos?",
+      "Answer with tengo + a family member or no tengo hermanos.",
+      "Say one family member’s name with se llama.",
+      "Respond to one natural follow-up from Carlos."
+    ],
+    "completionResponse": "¡Excelente! You met my family and told me about yours. That was a real family conversation.",
+    "correctionRule": "Celebrate the message first. Correct only one possessive or family-word error that affects meaning.",
+    "suggestedPartner": "Carlos",
+    "xpReward": 10,
+    "handoff": "Mañana te escribo. Quiero enseñarte otro lugar especial de Madrid."
+  },
+  "carlosClosing": "You met my family and told me about yours entirely in Spanish. Everyone was happy you joined us. Tomorrow I’ll send you a message so we can make our next plan.",
+  "passportStamp": {
+    "id": "family-dinner-granada",
+    "title": "Family Dinner",
+    "city": "Madrid",
+    "description": "You joined Carlos’s family in Madrid, met relatives visiting from Granada, and shared who matters to you.",
+    "unlockCondition": "Complete the Dinner Conversation in Lesson 3."
+  },
+  "achievement": {
+    "id": "family_ready",
+    "title": "Family Friend",
+    "description": "Introduce family members and complete your first family conversation.",
+    "unlockCondition": "Complete Lesson 3."
+  },
+  "achievementsUnlocked": [
+    "family_ready"
+  ],
+  "completionLabel": "Episode complete",
+  "xpReward": 60,
+  "nextLesson": "lesson-04-numbers-time"
+}
