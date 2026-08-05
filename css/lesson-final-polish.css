@@ -1,0 +1,191 @@
+/* Final Lesson 1–2 layout polish. Loaded after lesson.css. */
+
+.lesson-opening-carlos {
+  display: grid;
+  grid-template-columns: minmax(72px, 88px) minmax(0, 1fr) 48px;
+  align-items: center;
+  gap: 16px;
+  padding: 22px 24px;
+}
+
+.lesson-opening-carlos > img {
+  width: 80px;
+  height: 96px;
+  object-fit: contain;
+  object-position: center bottom;
+  align-self: end;
+}
+
+.lesson-opening-carlos > div {
+  min-width: 0;
+}
+
+.lesson-opening-carlos p {
+  display: block;
+  overflow: visible;
+  text-overflow: initial;
+  -webkit-line-clamp: unset;
+}
+
+.lesson-scene-banner {
+  min-height: 152px;
+  overflow: hidden;
+}
+
+.lesson-scene-banner > img {
+  object-fit: cover;
+  object-position: 72% 40%;
+}
+
+.lesson-scene-banner-shade {
+  background: linear-gradient(
+    90deg,
+    rgba(2, 10, 8, .94) 0%,
+    rgba(2, 10, 8, .78) 38%,
+    rgba(2, 10, 8, .36) 64%,
+    rgba(2, 10, 8, .08) 100%
+  );
+}
+
+.lesson-speaking-intro {
+  align-items: stretch;
+}
+
+.lesson-speaking-tip {
+  min-width: 190px;
+  max-width: 230px;
+}
+
+.lesson-speaking-workspace {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 118px;
+  gap: 18px;
+  align-items: start;
+}
+
+.lesson-speaking-exchange-progress {
+  position: sticky;
+  top: 164px;
+}
+
+.lesson-speaking-prompt,
+.lesson-speaking-turn {
+  grid-template-columns: 52px minmax(0, 1fr) auto;
+}
+
+.lesson-speaking-prompt img,
+.lesson-speaking-turn img,
+.lesson-dialogue-avatar,
+.lesson-learner-avatar {
+  width: 48px;
+  height: 48px;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.lesson-speaking-record {
+  min-height: 52px;
+}
+
+.lesson-pronunciation-card {
+  padding-block: 20px;
+}
+
+.lesson-pronunciation-actions > button {
+  min-height: 50px;
+}
+
+.lesson-pronunciation-final {
+  border-color: rgba(232, 184, 109, .8);
+  box-shadow: inset 0 0 0 1px rgba(232, 184, 109, .12);
+}
+
+.lesson-flashcard {
+  min-height: 430px;
+}
+
+.lesson-flashcard-front,
+.lesson-flashcard-back {
+  min-height: inherit;
+}
+
+.lesson-quiz-next,
+.lesson-completion-primary,
+.lesson-begin-episode,
+.lesson-next-button,
+.lesson-speaking-after .continue {
+  background: linear-gradient(135deg, #2dbe78, #17935a) !important;
+  border-color: #48d493 !important;
+  color: #fff !important;
+  box-shadow: 0 10px 24px rgba(24, 147, 90, .2) !important;
+}
+
+.lesson-quiz-feedback.is-incorrect + .lesson-quiz-next,
+.lesson-quiz-next.is-incorrect {
+  background: #111b18 !important;
+  border-color: rgba(211, 83, 83, .72) !important;
+  box-shadow: none !important;
+}
+
+.lesson-vocab-save.is-saved {
+  color: #e8b86d;
+  border-color: rgba(232, 184, 109, .8);
+  background: rgba(232, 184, 109, .12);
+}
+
+@media (max-width: 680px) {
+  .lesson-opening-carlos {
+    grid-template-columns: 68px minmax(0, 1fr) 44px;
+    gap: 12px;
+    padding: 18px;
+  }
+
+  .lesson-opening-carlos > img {
+    width: 68px;
+    height: 84px;
+  }
+
+  .lesson-scene-banner > img {
+    object-position: 76% 38%;
+  }
+
+  .lesson-speaking-intro {
+    display: block;
+  }
+
+  .lesson-speaking-tip {
+    max-width: none;
+    margin-top: 14px;
+  }
+
+  .lesson-speaking-workspace {
+    display: block;
+  }
+
+  .lesson-speaking-exchange-progress {
+    position: static;
+    display: flex;
+    overflow-x: auto;
+    margin-bottom: 14px;
+    padding-bottom: 4px;
+  }
+
+  .lesson-speaking-exchange-progress span {
+    min-width: 76px;
+  }
+
+  .lesson-speaking-prompt,
+  .lesson-speaking-turn {
+    grid-template-columns: 44px minmax(0, 1fr);
+  }
+
+  .lesson-speaking-prompt > button,
+  .lesson-speaking-turn > button {
+    grid-column: 1 / -1;
+    width: 100%;
+  }
+
+  .lesson-flashcard {
+    min-height: 390px;
+  }
+}
