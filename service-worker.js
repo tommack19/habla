@@ -1,4 +1,4 @@
-const CACHE_NAME = "habla-v1";
+const CACHE_NAME = "habla-v18-lesson-layout-cleanup";
 
 self.addEventListener("install", (event) => {
   event.waitUntil(
@@ -9,6 +9,8 @@ self.addEventListener("install", (event) => {
         "./css/styles.css",
         "./js/app.js",
         "./manifest.json"
+        "./css/lesson-final-polish.css",
+        "./js/lesson-content-fixes.js",
       ]);
     })
   );
