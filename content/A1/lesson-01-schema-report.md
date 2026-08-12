@@ -4,13 +4,15 @@ Audited against `HABLA_TEACHING_PHILOSOPHY.md`, `content/CONTENT_REVIEW_CHECKLIS
 
 ## Executive decision
 
-Lesson 1 already conforms to the production lesson structure. This pass does not delete or merge lesson content. It documents field ownership, clarifies XP semantics, marks formal address as optional beginner exposure, and fixes the duplicated artwork extension. Stable IDs, progression links, quiz mappings, memory hooks, rewards, and the visible lesson sequence are preserved.
+Lesson 1 conforms to the production lesson structure. The redundant standalone mission transcript has been removed because guided production now lives in Talk with Carlos. Its concise success summary is rendered on Episode Complete. Stable IDs, progression links, quiz mappings, memory hooks, and rewards remain preserved.
+
+The learner-facing flow is frozen at ten screens and uses `lessonFlowVersion: 3` with stable `rendererStepId` restoration. The canonical contract is recorded in `LESSON_01_PRODUCTION_FREEZE.md`.
 
 ## Field ownership
 
 ### Core lesson fields
 
-Rendered directly by the lesson experience: `story`, `essentialPhrases`, `vocabulary`, `grammar`, `dialogue`, `listening`, `pronunciation`, `speaking`, `quiz`, `miniConversation`, and `realLifeMission`.
+Rendered directly by the lesson experience: `story`, `essentialPhrases`, `vocabulary`, `grammar`, `dialogue`, `listening`, `pronunciation`, `speaking`, and `quiz`. `realLifeMission` supplies mission framing and the compact completion summary; it no longer creates a standalone step.
 
 ### Practice and Carlos support
 
@@ -35,7 +37,10 @@ These fields remain in place because the frozen schema explicitly supports suppl
 - Added `rewards.challengeXp` and `rewards.lessonCompletionXp` as explicit reward semantics.
 - Kept `¿Cómo está?` and `¿Y usted?` as Tier 2, **Good to know** vocabulary rather than required production language.
 - Normalized `lesson-01-greetings.png.png` to `lesson-01-greetings.png` in the content and all known runtime references.
-- Preserved `contentVersion` at `1.3` because no rendered questions or lesson steps changed; existing learner progress remains valid.
+- Removed the duplicate `miniConversation` transcript from Lesson 1 and moved its useful outcome summary into Episode Complete.
+- Redirected removed `conversation`, `your-turn`, and `mission` saved positions to Talk with Carlos.
+- Connected Saved Words, Saved Questions, and difficult flashcards to persistent Practice collections.
+- Preserved `contentVersion` at `1.3` because quiz content and stable lesson identifiers did not change; existing learner progress remains valid.
 
 ## Deferred migration
 

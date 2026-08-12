@@ -3,7 +3,6 @@ import {
   getActiveLesson,
   getCourseProgress,
   getLessonById,
-  getLessonCompletionXP,
   getLessonProgress,
   setActiveLesson,
   updateLessonProgress,
@@ -26,7 +25,9 @@ import { personalizeText } from "../core/personalization.js";
 import { state } from "../core/state.js";
 import { saveState } from "../core/storage.js";
 import { isSpeechPlaying, playSpeech, playSpeechSequence, stopSpeech } from "../core/audio.js";
+import { buildLessonFlow, LESSON_FLOW_VERSION, resolveLessonFlow } from "../core/lessonFlow.js";
 import { renderChoiceIcon } from "../components/choiceIcons.js";
+import { renderUserAvatar } from "../components/avatar.js";
 
 const ICONS = {
   back: `<path d="m15 18-6-6 6-6"/>`,
@@ -66,7 +67,6 @@ let flashSwipeStartY = 0;
 let flashSwipeHandled = false;
 const recordedLineUrls = new WeakMap();
 const speakingRecordingUrls = new Map();
-const LESSON_FLOW_VERSION = 2;
 
 if (typeof window !== "undefined") {
   window.hablaLesson = {
@@ -82,6 +82,7 @@ if (typeof window !== "undefined") {
     flashSwipeStart: startFlashcardSwipe,
     flashSwipeEnd: endFlashcardSwipe,
     answerQuiz: answerQuizQuestion,
+    confirmQuiz: confirmQuizAnswer,
     submitQuiz: submitQuizAnswer,
     nextQuiz: nextQuizQuestion,
     toggleQuizReview: toggleQuizReviewQuestion,
@@ -114,7 +115,9 @@ if (typeof window !== "undefined") {
     speak: speakSpanish,
     continueLanguageTip,
     finishCompletion: exitLessonCompletion,
+    cleanup: cleanupLessonMedia,
   };
+  window.addEventListener("pagehide", cleanupLessonMedia);
 }
 
 export function renderLesson() {
@@ -123,19 +126,12 @@ export function renderLesson() {
 
   const progress = migrateRemovedConversationStep(lesson, getLessonProgress(lesson.id));
   if (progress.completed && progress.showCompletion) return renderLessonCompletion(lesson, progress);
-  const steps = buildLessonSteps(lesson);
-  const stepIndex = clamp(Number(progress.rendererStep || 0), 0, Math.max(steps.length - 1, 0));
-  const step = steps[stepIndex];
-  const visibleStepCount = steps.filter(item => !item.legacyCombined).length;
-  const visibleStepIndex = Math.max(
-    0,
-    steps.slice(0, stepIndex + 1).filter(item => !item.legacyCombined).length - 1,
-  );
+  const flow = resolveLessonFlow(lesson, progress);
+  const { steps, index: stepIndex, step, visibleIndex: visibleStepIndex, totalScreens: visibleStepCount } = flow;
   const isReplay = Boolean(progress.completed && progress.replayStartedAt && !progress.showCompletion);
-  const completedStepCount = step?.type === "story" ? 0 : visibleStepIndex;
   const percent = progress.completed && !isReplay
     ? 100
-    : Math.round((completedStepCount / Math.max(visibleStepCount, 1)) * 100);
+    : flow.percent;
 
   return `
     <section class="lesson-v2 emotion-${slugify(lesson.emotionalArc?.emotion || "journey")}" aria-label="${escapeAttr(lesson.title)} lesson">
@@ -149,55 +145,18 @@ export function renderLesson() {
   `;
 }
 
-function buildLessonSteps(lesson, { includeRemovedConversation = false } = {}) {
-  const steps = [{ id: "story", label: "Introduction", type: "story" }];
-  const dialogue = normalizeDialogue(lesson.dialogue || lesson.dialogues);
-  const messageThread = dialogue.find(scene => scene.presentation?.type === "messageThread");
-  if (messageThread) {
-    steps.push({
-      id: "messages",
-      label: "A Message from Carlos",
-      type: "dialogue",
-      data: messageThread,
-      legacyCombined: true,
-    });
-  }
-  if (lesson.learnerChoices?.options?.length) steps.push({ id: "choice", label: "Choose the Moment", type: "choice" });
-  if (lesson.vocabulary?.length) steps.push({ id: "vocabulary", label: "Words You’ll Need", type: "vocabulary" });
-  if (lesson.grammar) steps.push({ id: "grammar", label: "Carlos’ Advice", type: "grammar" });
-  const standardDialogue = dialogue.find(scene => scene !== messageThread);
-  if (standardDialogue) steps.push({ id: "dialogue", label: "Watch Carlos", type: "dialogue", data: standardDialogue });
-  if (lesson.listening || lesson.listeningPhrases?.length) {
-    steps.push({
-      id: "listening",
-      label: "Watch Carlos",
-      type: "listening",
-      data: standardDialogue || messageThread,
-      legacyCombined: Boolean(standardDialogue),
-    });
-  }
-  if (lesson.pronunciation || lesson.pronunciationExercises?.length) steps.push({ id: "pronunciation", label: "Say It Naturally", type: "pronunciation" });
-  if (lesson.speaking || lesson.speakingChallenge?.length) steps.push({ id: "speaking", label: "Talk with Carlos", type: "speaking" });
-  if (getFlashcardItems(lesson).length) steps.push({ id: "flashcards", label: "Keep It Fresh", type: "flashcards" });
-  if (lesson.quiz?.length) steps.push({ id: "quiz", label: "Can You Remember?", type: "quiz" });
-  if (includeRemovedConversation && (lesson.miniConversation || lesson.realLifeMission)) {
-    steps.push({ id: "conversation", label: "Removed conversation", type: "conversation" });
-  }
-  if (lesson.culture || lesson.worldBuilding?.length || lesson.livingWorldInteractions?.length) steps.push({ id: "culture", label: "Madrid Moment", type: "culture" });
-  return steps;
+function buildLessonSteps(lesson, options) {
+  return buildLessonFlow(lesson, options);
 }
 
 function migrateRemovedConversationStep(lesson, progress) {
-  if (Number(progress.lessonFlowVersion || 0) >= LESSON_FLOW_VERSION) return progress;
-  const newSteps = buildLessonSteps(lesson);
-  const legacySteps = buildLessonSteps(lesson, { includeRemovedConversation: true });
-  const oldIndex = clamp(Number(progress.rendererStep || 0), 0, Math.max(legacySteps.length - 1, 0));
-  const oldStep = legacySteps[oldIndex];
-  const targetId = oldStep?.id === "conversation" ? "speaking" : oldStep?.id;
-  const mappedIndex = Math.max(0, newSteps.findIndex(step => step.id === targetId));
-  const migrated = { ...progress, lessonFlowVersion: LESSON_FLOW_VERSION, rendererStep: mappedIndex };
+  const flow = resolveLessonFlow(lesson, progress);
+  if (Number(progress.lessonFlowVersion || 0) >= LESSON_FLOW_VERSION
+    && progress.rendererStepId === flow.stepId
+    && Number(progress.rendererStep || 0) === flow.index) return progress;
+  const migrated = { ...progress, lessonFlowVersion: LESSON_FLOW_VERSION, rendererStep: flow.index, rendererStepId: flow.stepId };
   const hasSavedSession = Boolean(progress.updatedAt || progress.completed || progress.completedSections?.length || Number(progress.rendererStep || 0));
-  if (hasSavedSession) updateLessonProgress(lesson.id, { lessonFlowVersion: LESSON_FLOW_VERSION, rendererStep: mappedIndex });
+  if (hasSavedSession) updateLessonProgress(lesson.id, { lessonFlowVersion: LESSON_FLOW_VERSION, rendererStep: flow.index, rendererStepId: flow.stepId });
   return migrated;
 }
 
@@ -216,6 +175,8 @@ function renderLessonHeader(lesson, step, visibleStepIndex, visibleStepCount, pe
       </div>
       <span class="lesson-header-count">${isIntroduction
         ? `<strong>0/${visibleStepCount}</strong><small>0%</small>`
+        : step?.type === "complete"
+          ? `<strong>100%</strong>`
         : step?.type === "speaking"
           ? `<strong>${visibleStepIndex + 1}/${visibleStepCount}</strong><small>${percent}%</small>`
         : `<strong>${progressLabel}</strong>`}</span>
@@ -273,7 +234,7 @@ function renderLessonSceneBanner(lesson, step) {
     speaking: lesson.sectionIntros?.speaking?.title || "Your turn",
     flashcards: "Keep the mission language close",
     quiz: lesson.sectionIntros?.quiz?.title || "Can you remember?",
-    culture: "Life in Madrid",
+    culture: lesson.sectionIntros?.culture?.title || "Life in Madrid",
   };
   const sceneEyebrow = step.type === "vocabulary"
     ? `Episode ${getLessonNumber(lesson)}`
@@ -281,6 +242,8 @@ function renderLessonSceneBanner(lesson, step) {
       ? "Carlos’ Advice"
       : step.type === "pronunciation"
         ? "Say it naturally"
+      : step.type === "culture"
+        ? "Local culture"
       : `Episode ${getLessonNumber(lesson)} · ${labels[step.type] || step.label}`;
   const sceneBody = step.type === "grammar"
     ? "One quick tip before the conversation continues."
@@ -1316,8 +1279,8 @@ function renderQuiz(lesson, progress) {
   if (!question) return `<p>No quiz questions are available.</p>`;
   const options = stableShuffle(question.options || [], `${lesson.id}:${index}`);
   const answered = quiz.selected !== null && quiz.selected !== undefined;
+  const pendingAnswer = quiz.pending ?? null;
   const correctAnswer = answered && isQuizAnswerCorrect(quiz.selected, question.answer);
-  const answeredCount = index + (answered ? 1 : 0);
   const presentation = getQuizPresentation(question, answered);
   const reviewKey = getQuizReviewKey(question, index);
   const savedForReview = Boolean(progress.quizReviewFlags?.[reviewKey]);
@@ -1326,7 +1289,7 @@ function renderQuiz(lesson, progress) {
     <article class="lesson-quiz-card quiz-kind-${escapeAttr(presentation.kind)}">
       <div class="lesson-quiz-status">
         <span>Question ${index + 1} of ${questions.length}</span>
-        <strong>Score: ${quiz.score || 0} / ${answeredCount}</strong>
+        <strong>${quiz.score || 0} correct</strong>
       </div>
       <div class="lesson-quiz-progress" role="progressbar" aria-label="Quiz progress" aria-valuemin="0" aria-valuemax="${questions.length}" aria-valuenow="${index + 1}">
         <i style="width:${progressPercent}%"></i>
@@ -1342,22 +1305,25 @@ function renderQuiz(lesson, progress) {
         ${options.length ? options.map((option, optionIndex) => {
           const correct = answered && isQuizAnswerCorrect(option, question.answer);
           const wrong = answered && option === quiz.selected && !isQuizAnswerCorrect(option, question.answer);
+          const pending = !answered && option === pendingAnswer;
           const optionLength = String(option || "").length;
           const lengthClass = optionLength > 90 ? "is-very-long" : optionLength > 55 ? "is-long" : "";
-          return `<button type="button" class="${lengthClass} ${correct ? "correct" : ""} ${wrong ? "wrong" : ""}" onclick="hablaLesson.answerQuiz(${optionIndex})" ${answered ? "disabled" : ""}><span>${String.fromCharCode(65 + optionIndex)}</span><b>${escapeHtml(option)}</b>${correct ? icon("check") : wrong ? `<span class="lesson-quiz-wrong-mark" aria-hidden="true">×</span>` : ""}</button>`;
-        }).join("") : `<form class="lesson-quiz-input" onsubmit="event.preventDefault();hablaLesson.submitQuiz(this.elements.answer.value)"><label for="lesson-quiz-answer">Type your answer</label><div><input id="lesson-quiz-answer" name="answer" type="text" autocomplete="off" autocapitalize="sentences" ${answered ? "disabled" : ""} value="${answered ? escapeAttr(quiz.selected) : ""}" placeholder="Your answer"><button type="submit" ${answered ? "disabled" : ""}>Check answer${icon("arrow")}</button></div></form>`}
+          return `<button type="button" class="${lengthClass} ${pending ? "selected" : ""} ${correct ? "correct" : ""} ${wrong ? "wrong" : ""}" onclick="hablaLesson.answerQuiz(${optionIndex})" ${answered ? "disabled" : ""} aria-pressed="${pending}"><span>${String.fromCharCode(65 + optionIndex)}</span><b>${escapeHtml(option)}</b>${correct ? icon("check") : wrong ? `<span class="lesson-quiz-wrong-mark" aria-hidden="true">×</span>` : ""}</button>`;
+        }).join("") : `<form class="lesson-quiz-input" onsubmit="event.preventDefault();hablaLesson.submitQuiz(this.elements.answer.value)"><label for="lesson-quiz-answer">Type your answer</label><div><input id="lesson-quiz-answer" name="answer" type="text" autocomplete="off" autocapitalize="sentences" ${answered ? "disabled" : ""} value="${answered ? escapeAttr(quiz.selected) : ""}" placeholder="Your answer" oninput="this.form.querySelector('button[type=submit]').disabled=!this.value.trim()"><button type="submit" disabled>Check answer${icon("arrow")}</button></div></form>`}
       </div>
+      ${options.length && !answered ? `<button type="button" class="lesson-quiz-check" onclick="hablaLesson.confirmQuiz()" ${pendingAnswer === null ? "disabled" : ""}>Check answer${icon("arrow")}</button>` : ""}
       ${answered ? `
         <div class="lesson-quiz-feedback ${correctAnswer ? "correct" : "incorrect"}" role="status" aria-live="polite">
           <span>${correctAnswer ? icon("check") : "×"}</span>
           <div>
             <strong>${correctAnswer ? "¡Correcto!" : "Not quite."}</strong>
-            ${correctAnswer ? "" : `<small>The correct answer is ${escapeHtml(question.answer)}.</small>`}
             <p>${escapeHtml(question.explanation || "")}</p>
+            ${correctAnswer ? "" : `<small>Correct answer: <b>${escapeHtml(question.answer)}</b></small>`}
           </div>
         </div>
-        <button type="button" class="lesson-quiz-next" onclick="hablaLesson.nextQuiz()">${index + 1 >= questions.length ? "Finish quiz" : "Next question"}${icon("arrow")}</button>
-        <button type="button" class="lesson-quiz-review ${savedForReview ? "is-saved" : ""}" onclick="hablaLesson.toggleQuizReview()" aria-pressed="${savedForReview}">${icon("bookmark")}<span>${savedForReview ? "Saved for review" : "Save for review"}</span></button>
+        <button type="button" class="lesson-quiz-next ${index + 1 >= questions.length ? "is-final" : correctAnswer ? "is-correct" : "is-incorrect"}" onclick="hablaLesson.nextQuiz()">${index + 1 >= questions.length ? "Finish quiz" : correctAnswer ? "Next question" : "Continue"}${icon("arrow")}</button>
+        <button type="button" class="lesson-quiz-review ${savedForReview ? "is-saved" : ""}" onclick="hablaLesson.toggleQuizReview()" aria-pressed="${savedForReview}" aria-label="${savedForReview ? "Remove this question from Saved Questions" : "Save this question to Practice"}">${icon("bookmark")}<span>${savedForReview ? "Saved in Practice" : "Save this question"}</span></button>
+        <small class="lesson-quiz-review-destination">Saved questions appear in Practice › Saved Questions</small>
       ` : ""}
     </article>
   `;
@@ -1384,8 +1350,15 @@ function renderCulture(lesson) {
   const firstPhrase = phrases[0]?.spanish || "";
   const secondPhrase = phrases.find(item => /gusto/i.test(item.spanish || ""))?.spanish || phrases[1]?.spanish || "";
   const takeaway = culture.keyTakeaway || presentation.keyTakeaway || [firstPhrase, secondPhrase].filter(Boolean).join(" → ");
+  const takeawaySteps = (culture.keyTakeawaySteps || presentation.keyTakeawaySteps || [])
+    .filter(item => item?.phrase)
+    .slice(0, 2);
+  const takeawayContent = takeawaySteps.length
+    ? `<ol>${takeawaySteps.map((item, index) => `<li><span>${index + 1}</span><div><strong>${escapeHtml(item.phrase)}</strong><small>${escapeHtml(item.label || "")}</small></div></li>`).join("")}</ol>`
+    : `<strong>${escapeHtml(takeaway)}</strong>`;
+  const audioText = culture.audioText || presentation.audioText || "";
   return `
-    ${culture.text ? `<article class="lesson-culture-quote"><small>${escapeHtml(culture.speaker || "Carlos")}</small><blockquote>${escapeHtml(culture.text)}</blockquote>${takeaway ? `<div class="lesson-culture-takeaway"><span>${icon("bulb")}</span><div><small>Key takeaway</small><strong>${escapeHtml(takeaway)}</strong></div></div>` : ""}</article>` : ""}
+    ${culture.text ? `<article class="lesson-culture-quote"><small>${escapeHtml(culture.speaker || "Carlos")}</small><blockquote>${escapeHtml(culture.text)}</blockquote>${audioText ? `<button type="button" class="lesson-culture-audio" data-speech="${escapeAttr(audioText)}" data-speaker="Carlos" data-idle-icon="sound" onclick="hablaLesson.playLine(this)" aria-label="Hear Carlos say: ${escapeAttr(audioText)}" aria-pressed="false"><span data-playback-icon>${icon("sound")}</span><span>Hear Carlos say it</span></button>` : ""}${takeaway ? `<div class="lesson-culture-takeaway"><span>${icon("bulb")}</span><div><small>Key takeaway</small>${takeawayContent}</div></div>` : ""}</article>` : ""}
     ${extraCount ? `<details class="lesson-culture-extras"><summary><span><small>Optional</small><strong>Explore more</strong></span><b>${extraCount}</b>${icon("arrow")}</summary><div>${worldContent}${regionalContent}${discoveryContent}${nativeContent}${mistakesContent}</div></details>` : ""}
   `;
 }
@@ -1396,6 +1369,26 @@ function getLessonClosing(lesson) {
     || lesson.carlosClosing
     || lesson.realLifeMission?.completionResponse
     || "You used Spanish successfully in a real situation.";
+}
+
+function renderCompletionMissionSummary(lesson) {
+  const mission = lesson.realLifeMission || {};
+  const items = mission.completionSummary
+    || mission.successMoments
+    || mission.successCriteria
+    || [];
+  const visibleItems = items.map(personalizeText).filter(Boolean).slice(0, 4);
+  if (!visibleItems.length) return "";
+  const statement = personalizeText(
+    mission.completionStatement
+      || mission.successHeadline
+      || `You completed ${String(mission.title || "today’s mission").replace(/^Carlos Challenge:\s*/i, "").toLowerCase()}.`
+  );
+  return `<section class="lesson-completion-mission" aria-label="What you can do now">
+    <small>${icon("target")} What you can do now</small>
+    <ul>${visibleItems.map(item => `<li>${icon("check")}<span>${escapeHtml(item)}</span></li>`).join("")}</ul>
+    <p>${escapeHtml(statement)}</p>
+  </section>`;
 }
 
 function renderChapterPostcard(ceremony) {
@@ -1428,12 +1421,11 @@ function renderChapterPostcard(ceremony) {
 }
 
 function renderLessonCompletion(lesson, progress = {}) {
-  const completionXP = getLessonCompletionXP(lesson);
   const next = getLessonById(lesson.nextLesson);
+  const nextArtwork = next ? preloadLessonArtwork(next) : "";
   const ceremony = lesson.chapterCeremony;
-  const visibleStepCount = buildLessonSteps(lesson).filter(item => !item.legacyCombined).length;
+  const visibleStepCount = buildLessonSteps(lesson).filter(item => !item.legacyCombined).length + 1;
   const showAchievement = lesson.achievement && !ceremony?.hideAchievement;
-  const showXp = !ceremony?.hideXp;
   const completionTitle = ceremony?.title || lesson.title;
   const completionBody = ceremony?.subtitle
     || lesson.sectionIntros?.reward?.body
@@ -1463,16 +1455,16 @@ function renderLessonCompletion(lesson, progress = {}) {
               <p>${escapeHtml(getLessonClosing(lesson))}</p>
             </div>
           </section>
+          ${renderCompletionMissionSummary(lesson)}
           ${ceremony ? `<section class="lesson-completion-ceremony"><small>Carlos says</small><blockquote>${escapeHtml(ceremony.carlosSpanish)}</blockquote><p>${escapeHtml(ceremony.carlosEnglish)}</p>${ceremony.journey?.length ? `<div>${ceremony.journey.map(place => `<span>${escapeHtml(place)}</span>`).join("")}</div>` : ""}${ceremony.nextDestination ? `<b>Next destination · ${escapeHtml(ceremony.nextDestination)}</b>` : ""}</section>` : ""}
           <section class="lesson-completion-rewards" aria-label="Unlocked rewards">
-            ${lesson.passportStamp ? `<span>${icon("passport")}<small>Passport stamp</small><b>${escapeHtml(lesson.passportStamp.title)} · ${escapeHtml(lesson.passportStamp.city || "España")}</b></span>` : ""}
-            ${showAchievement ? `<span>${icon("star")}<small>Achievement</small><b>${escapeHtml(lesson.achievement.title)}</b></span>` : ""}
-            ${showXp ? `<span class="lesson-completion-xp"><b>+${completionXP}</b><small>XP earned</small></span>` : ""}
+            ${lesson.passportStamp ? `<article><i>${icon("passport")}</i><div><small>Passport stamp</small><b>${escapeHtml(lesson.passportStamp.title)}</b><span>${escapeHtml(lesson.passportStamp.city || "España")}</span></div></article>` : ""}
+            ${showAchievement ? `<article><i>${icon("star")}</i><div><small>Achievement</small><b>${escapeHtml(lesson.achievement.title)}</b><span>Unlocked</span></div></article>` : ""}
           </section>
           ${ceremony?.postcard ? renderChapterPostcard(ceremony) : ""}
-          ${next ? `<section class="lesson-completion-next"><small>Next episode</small><strong>Lesson ${getLessonNumber(next)} · ${escapeHtml(next.title)}</strong><p>${escapeHtml(nextDescription)}</p></section>` : ""}
+          ${next ? `<section class="lesson-completion-next">${nextArtwork ? `<img src="${escapeAttr(nextArtwork)}" alt="${escapeAttr(getEpisodeArtworkAlt(next))}" loading="lazy" decoding="async" onerror="${LESSON_ARTWORK_ONERROR}">` : ""}<span class="lesson-completion-next-shade" aria-hidden="true"></span><div><small>Next episode</small><strong>${escapeHtml(next.title)}</strong><p>${escapeHtml(nextDescription)}</p></div></section>` : ""}
           <div class="lesson-completion-actions">
-            ${next ? `<button class="lesson-completion-primary" type="button" onclick="hablaLesson.finishCompletion('next')">Start next lesson${icon("arrow")}</button>` : ""}
+            ${next ? `<button class="lesson-completion-primary" type="button" onclick="hablaLesson.finishCompletion('next')">Start next episode${icon("arrow")}</button>` : ""}
             <button class="lesson-completion-secondary" type="button" onclick="hablaLesson.finishCompletion('learn')">Back to Learn</button>
           </div>
         </article>
@@ -1485,6 +1477,9 @@ function renderLessonControls(step, stepIndex, steps, lesson, progress) {
   if (step?.type === "story") return "";
   if (step?.type === "grammar") return "";
   if (step?.type === "speaking") return "";
+  if (step?.type === "quiz" && !progress.rendererQuiz?.complete) {
+    return `<footer class="lesson-controls lesson-controls-quiz"><button type="button" class="lesson-control-secondary" onclick="hablaLesson.previous()">${icon("back")} Back</button></footer>`;
+  }
   const isLast = stepIndex === steps.length - 1;
   const choiceBlocked = step?.type === "choice" && !progress.selectedChoiceId && !getLessonMemory(lesson.id)?.choiceId;
   const quizBlocked = step?.type === "quiz" && !progress.rendererQuiz?.complete;
@@ -1543,19 +1538,19 @@ function advanceLesson() {
   const conversationSections = step.type === "dialogue" || step.type === "listening" ? ["dialogue", "listening"] : [step.id];
   const completedSections = Array.from(new Set([...(progress.completedSections || []), ...conversationSections]));
   if (index >= steps.length - 1) {
+    updateLessonProgress(lesson.id, { completedSections, rendererStep: index, rendererStepId: step.id, showCompletion: true });
     if (!progress.completed) {
-      updateLessonProgress(lesson.id, { completedSections, rendererStep: index, showCompletion: true });
       completeLesson(lesson.id);
       evaluateAchievements({ completedLessonsCount: getCourseProgress().completedCount });
-      rerenderLesson(true);
-    } else {
-      document.querySelector('[data-page="learn"]')?.click();
     }
+    rerenderLesson(true);
     return;
   }
+  const nextIndex = getAdjacentLessonStepIndex(steps, index, 1);
   updateLessonProgress(lesson.id, {
     completedSections,
-    rendererStep: getAdjacentLessonStepIndex(steps, index, 1),
+    rendererStep: nextIndex,
+    rendererStepId: steps[nextIndex]?.id,
     flashcardFlipped: false,
   });
   rerenderLesson(true);
@@ -1586,7 +1581,8 @@ function previousLessonStep() {
     return;
   }
   const currentIndex = clamp(Number(progress.rendererStep || 0), 0, Math.max(steps.length - 1, 0));
-  updateLessonProgress(lesson.id, { rendererStep: getAdjacentLessonStepIndex(steps, currentIndex, -1) });
+  const targetIndex = getAdjacentLessonStepIndex(steps, currentIndex, -1);
+  updateLessonProgress(lesson.id, { rendererStep: targetIndex, rendererStepId: steps[targetIndex]?.id });
   rerenderLesson(true);
 }
 
@@ -1598,7 +1594,7 @@ function goToLessonStep(index) {
   const target = clamp(Number(index), 0, steps.length - 1);
   const allowed = progress.completed || target <= Number(progress.rendererStep || 0) || (progress.completedSections || []).includes(steps[target].id);
   if (!allowed) return;
-  updateLessonProgress(lesson.id, { rendererStep: target });
+  updateLessonProgress(lesson.id, { rendererStep: target, rendererStepId: steps[target]?.id });
   rerenderLesson(true);
 }
 
@@ -1660,6 +1656,11 @@ function rateFlashcard(rating) {
     flashcardFlipped: false,
   });
   rerenderLesson(false);
+  if (rating === "got-it") {
+    showVocabularyToast("Marked as learned", "You can change this rating during review.");
+  } else {
+    showVocabularyToast("Saved to Needs Practice", "Review it later in Practice.");
+  }
 }
 
 function handleFlashcardTap() {
@@ -1749,7 +1750,21 @@ function answerQuizQuestion(optionIndex) {
   const options = stableShuffle(question.options || [], `${lesson.id}:${questionIndex}`);
   const answer = options[Number(optionIndex)];
   if (typeof answer !== "string") return;
-  saveQuizAnswer(lesson, quiz, questionIndex, question, answer);
+  updateLessonProgress(lesson.id, { rendererQuiz: { ...quiz, index: questionIndex, pending: answer } });
+  rerenderLesson(false);
+}
+
+function confirmQuizAnswer() {
+  const lesson = getActiveLesson();
+  if (!lesson) return;
+  const progress = getLessonProgress(lesson.id);
+  const quiz = getRendererQuiz(lesson, progress);
+  if (quiz.selected !== null && quiz.selected !== undefined) return;
+  if (quiz.pending === null || quiz.pending === undefined) return;
+  const questionIndex = clamp(Number(quiz.index || 0), 0, Math.max((lesson.quiz?.length || 1) - 1, 0));
+  const question = lesson.quiz?.[questionIndex];
+  if (!question) return;
+  saveQuizAnswer(lesson, quiz, questionIndex, question, quiz.pending);
 }
 
 function submitQuizAnswer(answer) {
@@ -1765,7 +1780,7 @@ function submitQuizAnswer(answer) {
 }
 
 function saveQuizAnswer(lesson, quiz, questionIndex, question, answer) {
-  updateLessonProgress(lesson.id, { rendererQuiz: { ...quiz, index: questionIndex, selected: answer, score: Number(quiz.score || 0) + (isQuizAnswerCorrect(answer, question.answer) ? 1 : 0) } });
+  updateLessonProgress(lesson.id, { rendererQuiz: { ...quiz, index: questionIndex, pending: null, selected: answer, score: Number(quiz.score || 0) + (isQuizAnswerCorrect(answer, question.answer) ? 1 : 0) } });
   rerenderLesson(false);
 }
 
@@ -1780,7 +1795,7 @@ function nextQuizQuestion() {
     completeCurrentStepAndAdvance(lesson, "quiz", { rendererQuiz: { ...quiz, complete: true } });
     return;
   }
-  updateLessonProgress(lesson.id, { rendererQuiz: { ...quiz, index: Number(quiz.index || 0) + 1, selected: null } });
+  updateLessonProgress(lesson.id, { rendererQuiz: { ...quiz, index: Number(quiz.index || 0) + 1, pending: null, selected: null } });
   rerenderLesson(false);
 }
 
@@ -1804,6 +1819,10 @@ function toggleQuizReviewQuestion() {
   }
   updateLessonProgress(lesson.id, { quizReviewFlags });
   rerenderLesson(false);
+  showVocabularyToast(
+    quizReviewFlags[key] ? "Saved to Practice" : "Removed from Saved Questions",
+    quizReviewFlags[key] ? "Find it in Saved Questions." : ""
+  );
 }
 
 function completeCurrentStepAndAdvance(lesson, stepId, patch = {}) {
@@ -1811,10 +1830,12 @@ function completeCurrentStepAndAdvance(lesson, stepId, patch = {}) {
   const steps = buildLessonSteps(lesson);
   const index = clamp(Number(progress.rendererStep || 0), 0, Math.max(steps.length - 1, 0));
   const completedSections = Array.from(new Set([...(progress.completedSections || []), stepId]));
+  const nextIndex = Math.min(index + 1, Math.max(steps.length - 1, 0));
   updateLessonProgress(lesson.id, {
     ...patch,
     completedSections,
-    rendererStep: Math.min(index + 1, Math.max(steps.length - 1, 0)),
+    rendererStep: nextIndex,
+    rendererStepId: steps[nextIndex]?.id,
   });
   rerenderLesson(true);
 }
@@ -2499,16 +2520,7 @@ function renderDialogueAvatar(speaker) {
 }
 
 function renderLearnerAvatar() {
-  const user = state.user || {};
-  const sourceValue = user.profilePhoto || user.profilePhotoUrl || user.photoUrl || user.avatarUrl || user.avatar?.src || user.avatar;
-  const source = typeof sourceValue === "string" && /^(?:data:image\/|blob:|https?:\/\/|\.?\.?\/|assets\/)/i.test(sourceValue)
-    ? sourceValue
-    : "";
-  const initial = String(user.name || "").trim().charAt(0).toUpperCase();
-  const fallback = initial
-    ? `<span class="lesson-dialogue-avatar-fallback" aria-hidden="true">${escapeHtml(initial)}</span>`
-    : `<span class="lesson-dialogue-avatar-fallback is-generic" aria-hidden="true">${icon("user")}</span>`;
-  return `<span class="lesson-dialogue-avatar is-learner" role="img" aria-label="${escapeAttr(user.name || "Learner")} profile">${source ? `<img src="${escapeAttr(source)}" alt="" onerror="this.hidden=true;this.nextElementSibling.hidden=false"><span class="lesson-dialogue-avatar-fallback" hidden aria-hidden="true">${initial ? escapeHtml(initial) : icon("user")}</span>` : fallback}</span>`;
+  return renderUserAvatar(state.user || {}, { className: "lesson-dialogue-avatar is-learner", label: "profile" });
 }
 
 function displaySpeakerName(speaker) {
@@ -2693,7 +2705,7 @@ function getRendererQuiz(lesson, progress) {
   const saved = progress.rendererQuiz;
   const contentVersion = lesson.contentVersion || `quiz-${lesson.quiz?.length || 0}-${(lesson.quiz || []).map(item => item.answer).join("|")}`;
   if (!saved || saved.contentVersion !== contentVersion) {
-    return { index: 0, score: 0, selected: null, complete: false, contentVersion };
+    return { index: 0, score: 0, pending: null, selected: null, complete: false, contentVersion };
   }
   return {
     ...saved,
@@ -2766,10 +2778,15 @@ function isQuizAnswerCorrect(given, expected) {
     .some(answer => normalizedGiven === answer);
 }
 
-function rerenderLesson(scroll = false) {
+function cleanupLessonMedia() {
   stopSpeech();
   resetPlaybackUI();
   if (activeRecorder?.state === "recording") activeRecorder.stop();
+  activeRecordButton = null;
+}
+
+function rerenderLesson(scroll = false) {
+  cleanupLessonMedia();
   window.dispatchEvent(new CustomEvent("habla:lesson-render", { detail: { scroll } }));
 }
 

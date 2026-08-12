@@ -964,6 +964,21 @@
   width: 94px;
 }
 
+.profile-user-avatar > img,
+.profile-user-avatar > .user-avatar-fallback {
+  border-radius: inherit;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  width: 100%;
+}
+
+.profile-user-avatar > .user-avatar-fallback {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+}
+
 .profile-avatar-wrap button {
   color: #fff;
   display: grid;

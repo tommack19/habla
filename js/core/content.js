@@ -307,7 +307,9 @@ export function prepareCompletedLessonReplay(id) {
   }
 
   return updateLessonProgress(id, {
+    lessonFlowVersion: 3,
     rendererStep: 0,
+    rendererStepId: "story",
     showCompletion: false,
     guidedSpeakingIndex: 0,
     guidedSpeakingAttempts: undefined,

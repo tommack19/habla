@@ -5,8 +5,8 @@
   --text:#e8e4de;--muted:#4a5a6a;--soft:#8a9ab8;
 }
 html,body{height:100%;background:var(--bg);color:var(--text);font-family:-apple-system,'Inter',sans-serif;overflow:hidden}
-#app{display:flex;flex-direction:column;height:100vh;max-width:520px;margin:0 auto}
-#dashboard{flex:1;min-height:0;overflow-y:auto}
+#app{display:flex;flex-direction:column;height:100vh;height:100dvh;max-width:520px;margin:0 auto}
+#dashboard{flex:1;min-height:0;overflow-y:auto;-webkit-overflow-scrolling:touch;overscroll-behavior-y:contain}
 #dashboard.home-page {
   padding: 22px 16px 90px;
   background:

@@ -4,6 +4,7 @@ import { state } from "../core/state.js";
 import { saveState } from "../core/storage.js";
 import { CARLOS_FALLBACK_ONERROR, getCarlosAsset } from "../data/carlosAssets.js";
 import { getCourseProgress } from "../core/content.js";
+import { renderUserAvatar } from "../components/avatar.js";
 
 const LEVELS = [
   { name: "A1 Beginner", minXP: 0 },
@@ -85,7 +86,6 @@ export function renderProfile(appState) {
   const completedLessons = Number(courseProgress.completedCount || 0);
   const milestoneProgress = Math.min(100, (completedLessons / 10) * 100);
   const user = appState.user || {};
-  const initials = getInitials(user.name || "Habla Learner");
   const nextLevel = getNextLevel(xp);
   const journeyLevel = getJourneyLevelName(xp);
   const lessonsRemaining = Math.max(0, 10 - completedLessons);
@@ -95,7 +95,7 @@ export function renderProfile(appState) {
       ${renderProfileHeader()}
       <section class="profile-card user-card">
         <div class="profile-avatar-wrap">
-          <span class="profile-user-avatar" role="img" aria-label="${escapeHTML(user.name || "Habla learner")} profile">${escapeHTML(initials)}</span>
+          ${renderUserAvatar(user, { className: "profile-user-avatar", label: "profile" })}
           <button type="button" aria-label="Edit profile" onclick="hablaProfile.openSettings('edit')">${profileIcon("edit")}</button>
         </div>
         <div class="profile-user-copy">

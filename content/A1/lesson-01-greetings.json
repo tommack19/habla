@@ -6,7 +6,7 @@
   "module": "Greetings",
   "estimatedMinutes": 25,
   "contentRoles": {
-    "coreLesson": ["story", "essentialPhrases", "vocabulary", "grammar", "dialogue", "listening", "pronunciation", "speaking", "quiz", "miniConversation", "realLifeMission"],
+    "coreLesson": ["story", "essentialPhrases", "vocabulary", "grammar", "dialogue", "listening", "pronunciation", "speaking", "quiz", "realLifeMission"],
     "practiceSupport": ["listeningPhrases", "speakingChallenge", "nativeSpeech", "commonMistakes"],
     "reviewedReference": ["greetings", "politeExpressions", "supplementalDialogueExamples", "supplementalPronunciation", "supplementalQuizBank"],
     "compatibility": {
@@ -94,7 +94,7 @@
   "microCliffhanger": {
     "speaker": "Carlos",
     "spanish": "Mañana quiero presentarte a mi amiga Ana.",
-    "english": "Tomorrow you’ll meet my friend Ana outside the café. She speaks a little faster than I do, so get ready!",
+    "english": "Meet Ana outside the café and introduce yourself again—with less help.",
     "payoffLesson": "a1-lesson-02-introductions"
   },
   "carlosIntroduction": {
@@ -1084,49 +1084,21 @@
       }
     ]
   },
-  "miniConversation": {
-    "setting": "You meet Carlos at a café in Madrid.",
-    "goal": "Exchange greetings and names, respond naturally, and close the conversation.",
-    "turns": [
-      {
-        "speaker": "Carlos",
-        "spanish": "Hola, ¿qué tal? Me llamo Carlos.",
-        "english": "Hi, how’s it going? My name is Carlos."
-      },
-      {
-        "speaker": "Learner",
-        "intent": "Greet Carlos and introduce yourself.",
-        "exampleSpanish": "¡Hola! Mucho gusto. Me llamo {{learnerName}}.",
-        "exampleEnglish": "Hi! Nice to meet you. My name is {{learnerName}}."
-      },
-      {
-        "speaker": "Carlos",
-        "spanish": "Mucho gusto, {{learnerName}}. ¿Cómo estás?",
-        "english": "Nice to meet you, {{learnerName}}. How are you?"
-      },
-      {
-        "speaker": "Learner",
-        "intent": "Say how you are and return the question.",
-        "exampleSpanish": "Muy bien, gracias. ¿Y tú?",
-        "exampleEnglish": "Very well, thanks. And you?"
-      },
-      {
-        "speaker": "Carlos",
-        "spanish": "Muy bien, gracias. Bienvenido a Madrid.",
-        "english": "Very well, thanks. Welcome to Madrid."
-      },
-      {
-        "speaker": "Learner",
-        "intent": "Thank Carlos and close naturally.",
-        "exampleSpanish": "Gracias. Nos vemos luego, Carlos.",
-        "exampleEnglish": "Thanks. See you later, Carlos."
-      }
-    ]
-  },
   "culture": {
     "speaker": "Carlos",
     "title": "Greeting with warmth and respect",
-    "text": "When I meet someone here in Madrid, I usually say “Hola, ¿qué tal?” instead of only hola. After we exchange names, mucho gusto makes the greeting feel warm and natural."
+    "text": "When I meet someone in Madrid, I usually say “Hola, ¿qué tal?” instead of only hola. After we exchange names, mucho gusto makes the greeting feel warmer and more natural.",
+    "audioText": "Hola, ¿qué tal? Mucho gusto.",
+    "keyTakeawaySteps": [
+      {
+        "label": "Start warmly",
+        "phrase": "Hola, ¿qué tal?"
+      },
+      {
+        "label": "After names",
+        "phrase": "Mucho gusto."
+      }
+    ]
   },
   "nativeSpeech": {
     "title": "How native speakers really greet",
@@ -1502,6 +1474,13 @@
       "Answer ¿cómo estás? and return the question with ¿y tú?",
       "Close with nos vemos or hasta luego."
     ],
+    "completionSummary": [
+      "Greet someone naturally",
+      "Say your name",
+      "Answer ¿Cómo estás?",
+      "End the conversation naturally"
+    ],
+    "completionStatement": "You completed your first Spanish conversation.",
     "completionResponse": "Fantastic work today. You greeted me, introduced yourself, and completed your first Spanish conversation. I’m proud of you.",
     "correctionRule": "Celebrate the completed exchange first. Correct only one greeting or introduction error that affects meaning.",
     "suggestedPartner": "Carlos",

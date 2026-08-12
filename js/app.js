@@ -14,9 +14,10 @@ import { consumeDueRecap, rememberLessonCompletion, scheduleLessonRecap } from "
 import { isSpeechPlaying, playSpeech, stopSpeech } from "./core/audio.js";
 import { renderNavigation } from "./ui/navigation.js";
 import { CARLOS_FALLBACK_ONERROR, getCarlosAsset } from "./data/carlosAssets.js";
+import { getUserAvatarSource, getUserInitial } from "./components/avatar.js";
 
 const PRACTICE_TOPIC_KEY = 'habla_selected_practice_topic_v1';
-const PRACTICE_SESSION_KEY = 'habla_practice_session_v2';
+const PRACTICE_SESSION_KEY = 'habla_practice_session_v3';
 const CARLOS_HISTORY_KEY = 'habla_carlos_history_v1';
 
 console.log("Habla state loaded:", state);
@@ -650,7 +651,11 @@ updateLevelButton();
 saveState(state);
 
 function renderAppPage(page) {
-  if (page !== currentPage) stopSpeech();
+  if (page !== currentPage) {
+    stopSpeech();
+    if (currentPage === "lesson") window.hablaLesson?.cleanup?.();
+    if (currentPage === "practice") window.hablaPractice?.cleanup?.();
+  }
   currentPage = page;
   document.body.classList.toggle('carlos-mode', page === 'carlos');
   document.body.classList.toggle('lesson-mode', page === 'lesson');
@@ -663,8 +668,8 @@ function renderAppPage(page) {
   }
   const navMount = document.getElementById('bottom-nav');
   if (navMount) {
-    navMount.hidden = page === 'lesson' && !isSpeakingLesson;
-    navMount.setAttribute('aria-hidden', page === 'lesson' && !isSpeakingLesson ? 'true' : 'false');
+    navMount.hidden = page === 'lesson';
+    navMount.setAttribute('aria-hidden', page === 'lesson' ? 'true' : 'false');
     navMount.innerHTML = renderNavigation(page === 'journey' || page === 'lesson' ? 'learn' : page);
   }
 
@@ -698,11 +703,10 @@ function updateLevelButton() {
 }
 
 function renderHeaderAvatar(mount, user) {
-  const sourceValue = user.profilePhoto || user.profilePhotoUrl || user.photoUrl || user.avatarUrl || user.avatar?.src || user.avatar;
-  const source = typeof sourceValue === 'string' && /^(?:data:image\/|blob:|https?:\/\/|\.?\.?\/|assets\/)/i.test(sourceValue) ? sourceValue : '';
+  const source = getUserAvatarSource(user);
   mount.replaceChildren();
   if (!source) {
-    mount.textContent = getHeaderInitials(user.name);
+    mount.textContent = getUserInitial(user) || getHeaderInitials(user.name);
     return;
   }
   const image = document.createElement('img');
@@ -711,7 +715,7 @@ function renderHeaderAvatar(mount, user) {
   image.decoding = 'async';
   image.addEventListener('error', () => {
     mount.replaceChildren();
-    mount.textContent = getHeaderInitials(user.name);
+    mount.textContent = getUserInitial(user) || getHeaderInitials(user.name);
   }, { once: true });
   mount.appendChild(image);
 }
@@ -874,7 +878,7 @@ document.addEventListener('click', (event) => {
     localStorage.removeItem(PRACTICE_TOPIC_KEY);
     let practiceSession = {};
     try { practiceSession = JSON.parse(sessionStorage.getItem(PRACTICE_SESSION_KEY) || '{}'); } catch {}
-    practiceSession.view = 'library';
+    practiceSession.view = 'hub';
     delete practiceSession.libraryCategoryId;
     delete practiceSession.libraryCollectionId;
     delete practiceSession.libraryItemId;
@@ -891,8 +895,8 @@ document.addEventListener('click', (event) => {
     localStorage.setItem(PRACTICE_TOPIC_KEY, pageTarget.dataset.practiceTopic);
     let practiceSession = {};
     try { practiceSession = JSON.parse(sessionStorage.getItem(PRACTICE_SESSION_KEY) || '{}'); } catch {}
-    practiceSession.topic = pageTarget.dataset.practiceTopic;
-    practiceSession.view = 'launcher';
+    practiceSession.deckId = pageTarget.dataset.practiceTopic;
+    practiceSession.view = 'flashcards-setup';
     sessionStorage.setItem(PRACTICE_SESSION_KEY, JSON.stringify(practiceSession));
   } else if (pageTarget.dataset.page === 'practice') {
     localStorage.removeItem(PRACTICE_TOPIC_KEY);

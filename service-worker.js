@@ -1,4 +1,4 @@
-const CACHE_NAME = "habla-v17-first-coffee-polish";
+const CACHE_NAME = "habla-v25-practice-flashcards";
 const ARTWORK_CACHE_NAME = "habla-artwork-v2";
 
 self.addEventListener("install", (event) => {
@@ -8,8 +8,17 @@ self.addEventListener("install", (event) => {
         "./",
         "./index.html",
         "./css/styles.css",
+        "./css/practice.css",
         "./js/app.js",
+        "./js/ui/practice.js",
         "./js/core/audio.js",
+        "./js/core/lessonFlow.js",
+        "./js/core/practiceData.js",
+        "./js/core/practiceStore.js",
+        "./js/components/avatar.js",
+        "./js/data/practiceGrammar.js",
+        "./js/data/practiceVerbs.js",
+        "./assets/images/landmarks/cafe/cafe-exterior.webp",
         "./manifest.json"
       ]);
     })

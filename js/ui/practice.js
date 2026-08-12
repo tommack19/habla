@@ -1,1188 +1,511 @@
-import { getLessonById, getLessonProgress, getUnlockedLessons } from "../core/content.js";
-import { PRACTICE_LIBRARY_CATEGORIES, findPracticeLibraryCategory, findPracticeLibraryCollection, findPracticeLibraryItem } from "../data/practiceLibrary.js";
-import { CARLOS_FALLBACK_ONERROR, getCarlosAsset } from "../data/carlosAssets.js";
-import { personalizeText } from "../core/personalization.js";
-import { playSpeech } from "../core/audio.js";
+import { getLessonProgress, getSavedQuizReviewQuestions, getUnlockedLessons, updateLessonProgress } from "../core/content.js";
+import { playSpeech, stopSpeech } from "../core/audio.js";
+import { awardXP, getCurrentXP } from "../core/progress.js";
 import { state } from "../core/state.js";
 import { saveState } from "../core/storage.js";
-import { renderLessonCover } from "../components/lessonCover.js";
+import {
+  getDeck,
+  getDecks,
+  getPracticeSentences,
+  getPracticeVocabulary,
+  getSavedWords,
+  getWeakSpots,
+} from "../core/practiceData.js";
+import {
+  getPracticeStreak,
+  ratePracticeCard,
+  readPracticeState,
+  recordPracticeResult,
+  recordWeakSpot,
+  saveGameScore,
+} from "../core/practiceStore.js";
+import { buildVerbQuestion, getVerb, PRACTICE_VERBS, VERB_SUBJECTS } from "../data/practiceVerbs.js";
+import { getGrammarTopic, GRAMMAR_TOPICS } from "../data/practiceGrammar.js";
 
-const TOPIC_KEY = "habla_selected_practice_topic_v1";
-const SESSION_KEY = "habla_practice_session_v2";
-const LIBRARY_PROGRESS_KEY = "habla_practice_library_progress_v1";
-const PRACTICE_HISTORY_KEY = "habla_practice_history_v1";
-const MODES = ["flashcards", "conversation", "pronunciation", "quiz"];
-const PRIMARY_TOPIC_IDS = ["greetings", "family", "food-restaurants", "travel", "shopping", "work", "phrases", "numbers"];
-const TOPICS = {
-  greetings: { title: "Greetings", icon: "greetings", lessons: ["a1-lesson-01-greetings", "a1-lesson-02-introductions"] },
-  family: { title: "Family", icon: "family", lessons: ["lesson-03-family", "lesson-08-vacation"] },
-  "food-restaurants": { title: "Restaurants", icon: "restaurants", lessons: ["lesson-06-food-drinks"] },
-  travel: { title: "Travel", icon: "travel", lessons: ["lesson-07-travel-basics"] },
-  shopping: { title: "Shopping", icon: "shopping", lessons: ["lesson-05-shopping"] },
-  work: { title: "Work", icon: "work", lessons: ["lesson-14-work"] },
-  phrases: { title: "Small Talk", icon: "phrases", lessons: ["a1-lesson-02-introductions"] },
-  numbers: { title: "Numbers", icon: "numbers", lessons: ["lesson-04-numbers-time"] },
-  time: { title: "Time", icon: "time", lessons: ["lesson-04-numbers-time"] },
-  weather: { title: "Weather", icon: "weather", lessons: ["lesson-11-weather"] },
-  directions: { title: "Directions", icon: "directions", lessons: ["lesson-21-directions"] },
-  health: { title: "Health", icon: "health", lessons: ["lesson-17-health"] },
-  hobbies: { title: "Hobbies", icon: "hobbies", lessons: ["lesson-15-hobbies"] },
-  school: { title: "School", icon: "school", lessons: ["lesson-13-school"] },
-  "phone-calls": { title: "Phone Calls", icon: "phone-calls", lessons: ["lesson-25-phone-conversations"] },
-  airport: { title: "Airport", icon: "airport", lessons: ["lesson-28-airport"] },
-  hotel: { title: "Hotel", icon: "hotel", lessons: ["lesson-27-hotels"] },
-  emergency: { title: "Emergency", icon: "emergency", lessons: ["lesson-24-emergencies"] },
-};
+const SESSION_KEY = "habla_practice_session_v3";
+const DIRECTIONS = ["spanish-english", "english-spanish", "mixed"];
+let speedTimer = null;
+let autoAdvanceTimer = null;
+let pointerStart = null;
 
-let recorder = null;
-let recordingStream = null;
-let recordingChunks = [];
-let playbackUrl = "";
-
-export function renderPractice(appState = {}) {
+export function renderPractice() {
   const session = readSession();
-
-  if (session.view === "saved-words") return renderSavedWords(appState);
-  if (session.view === "saved-review") {
-    const savedLesson = buildSavedWordsLesson(appState);
-    if (!savedLesson.vocabulary.length) return renderSavedWords(appState);
-    return renderFlashcardActivity(session, { title: "Saved Words", icon: "flashcards" }, savedLesson);
-  }
-  if (session.view === "library") return renderPracticeLibrary(appState);
-  if (session.view === "library-category") return renderLibraryCategory(session, appState);
-  if (session.view === "library-collection") return renderLibraryCollection(session, appState);
-  if (session.view === "library-item") return renderLibraryItemLauncher(session, appState);
-  if (session.view === "library-study") return renderLibraryStudy(session, appState);
-
-  const libraryResult = session.returnView === "library-item" ? findPracticeLibraryItem(session.libraryCategoryId, session.libraryItemId, session.libraryCollectionId) : null;
-  const libraryLesson = libraryResult ? buildLibraryLesson(libraryResult) : null;
-  const topic = libraryResult ? { title: libraryResult.item.title, icon: libraryResult.category.icon } : (TOPICS[session.topic] || TOPICS.greetings);
-  const lesson = libraryLesson || getLessonForTopic(session.topic);
-
-  if (session.view === "activity") {
-    if (!lesson && session.mode !== "conversation") return renderLockedActivity(session, topic);
-    if (lesson && getModeCount(session.mode, lesson) === 0) return renderNoDataActivity(session, topic, lesson);
-    if (session.mode === "quiz") return renderQuizActivity(session, topic, lesson);
-    if (session.mode === "flashcards") return renderFlashcardActivity(session, topic, lesson);
-    if (session.mode === "pronunciation") return renderPronunciationActivity(session, topic, lesson);
-  }
-
-  if (session.view === "results") return renderResults(session, topic, lesson);
-  return renderLauncher(session, topic, lesson, appState);
-}
-
-function renderLauncher(session, topic, lesson, appState) {
-  return `
-    <section class="practice-shell practice-launcher" aria-label="Practice launcher">
-      <header class="practice-launcher-head">
-        <div><h1>Practice</h1><p>Practice speaking, listening and more.</p></div>
-      </header>
-      ${renderSummary(session, topic, lesson)}
-      ${renderSavedWordsShortcut(appState)}
-      ${renderPracticeNextStep(session, lesson)}
-      <section class="practice-topic-section">
-        <div class="practice-section-title"><h2>Practice by Topic</h2><button class="practice-view-all" type="button" onclick="hablaPractice.openLibrary()">View All ${iconSvg("arrow-right")}</button></div>
-        <div class="practice-topic-grid">
-          ${PRIMARY_TOPIC_IDS.map(slug => [slug, TOPICS[slug]]).map(([slug, item]) => {
-            const availableLesson = getLessonForTopic(slug);
-            const count = availableLesson ? getModeCount(session.mode, availableLesson) : 0;
-            const progress = availableLesson ? getPracticeLessonPercent(availableLesson) : 0;
-            const completed = progress >= 100;
-            return `<button class="practice-topic accent-${item.icon} ${session.topic === slug ? "selected" : ""} ${availableLesson ? "" : "locked"} ${completed ? "completed" : ""}" type="button" onclick="hablaPractice.selectTopic('${slug}')" aria-pressed="${session.topic === slug}">
-              ${completed ? `<span class="practice-topic-check" aria-label="Completed">${iconSvg("quiz")}</span>` : ""}
-              <span class="practice-topic-icon topic-${item.icon}" aria-hidden="true">${iconSvg(item.icon)}</span>
-              <strong>${item.title}</strong><small>${completed ? "Completed" : availableLesson ? `${count} ${unitForMode(session.mode, count)}` : "Locked"}</small>
-              <i class="practice-topic-progress" aria-hidden="true"><b style="width:${progress}%"></b></i>
-            </button>`;
-          }).join("")}
-        </div>
-      </section>
-      <section class="practice-mode-section" aria-label="Choose how to practice">
-        <div class="practice-section-title"><h2>Practice Modes</h2><span>Learn first, test last</span></div>
-        <div class="practice-mode-tabs" role="tablist" aria-label="Practice mode">
-          ${modeTab("flashcards", "Flashcards", session.mode)}
-          ${modeTab("conversation", "Conversation", session.mode)}
-          ${modeTab("pronunciation", "Pronunciation", session.mode)}
-          ${modeTab("quiz", "Quiz", session.mode)}
-        </div>
-      </section>
-      ${renderWeeklyPractice(appState)}
-      ${renderRecentPractice()}
-    </section>`;
-}
-
-function getSavedWords(appState = state) {
-  return Array.isArray(appState?.vocabulary?.savedPhrases)
-    ? appState.vocabulary.savedPhrases.filter(item => item?.key && item?.spanish && item?.english)
-    : [];
-}
-
-function renderSavedWordsShortcut(appState) {
-  const count = getSavedWords(appState).length;
-  return `<button class="practice-saved-shortcut" type="button" onclick="hablaPractice.openSavedWords()" aria-label="Open Saved Words, ${count} saved">
-    <span aria-hidden="true">${iconSvg("bookmark")}</span>
-    <span><small>Saved Words</small><strong>Review phrases you marked during lessons.</strong></span>
-    <b>${count}</b>${iconSvg("arrow-right")}
-  </button>`;
-}
-
-function renderSavedWords(appState) {
-  const saved = getSavedWords(appState);
-  return `<section class="practice-shell practice-saved-words" aria-label="Saved Words">
-    ${renderActivityHeader("Saved Words")}
-    <section class="practice-saved-hero">
-      <span aria-hidden="true">${iconSvg("bookmark")}</span>
-      <div><small>Practice collection</small><h2>${saved.length} saved ${saved.length === 1 ? "phrase" : "phrases"}</h2><p>Review the Spanish you chose to keep close.</p></div>
-      <button class="practice-primary" type="button" onclick="hablaPractice.startSavedReview()" ${saved.length ? "" : "disabled"}>${iconSvg("flashcards", "button-icon")}<span>Start review</span></button>
-    </section>
-    ${saved.length ? `<div class="practice-saved-list">${saved.map(renderSavedWord).join("")}</div>` : `<section class="practice-saved-empty"><span aria-hidden="true">${iconSvg("star")}</span><h2>No saved words yet</h2><p>Use the star on any lesson vocabulary card. Your choices will appear here for practice.</p><button type="button" data-page="learn">Continue learning ${iconSvg("arrow-right")}</button></section>`}
-  </section>`;
-}
-
-function renderSavedWord(item) {
-  const lesson = getLessonById(item.sourceLessonId);
-  const source = lesson ? `Episode ${String(lesson.id || "").match(/(\d+)/)?.[1]?.replace(/^0+/, "") || ""} · ${shortLessonTitle(lesson.title)}` : "Saved during a lesson";
-  return `<article class="practice-saved-word">
-    <div><small>${escapeHtml(source)}</small><strong>${escapeHtml(item.spanish)}</strong><span>${escapeHtml(item.english)}</span>${item.exampleSpanish ? `<p>${escapeHtml(item.exampleSpanish)}<em>${escapeHtml(item.exampleEnglish || "")}</em></p>` : ""}</div>
-    <div class="practice-saved-actions">
-      <button type="button" data-phrase="${escapeAttr(item.spanish)}" onclick="hablaPractice.speak(this.dataset.phrase)" aria-label="Listen to ${escapeAttr(item.spanish)}">${iconSvg("volume")}<span>Listen</span></button>
-      <button type="button" data-saved-key="${escapeAttr(item.key)}" onclick="hablaPractice.removeSavedWord(this)" aria-label="Remove ${escapeAttr(item.spanish)} from saved words">${iconSvg("bookmark")}<span>Remove</span></button>
-    </div>
-  </article>`;
-}
-
-function buildSavedWordsLesson(appState) {
-  return {
-    id: "saved-words",
-    title: "Saved Words",
-    contentVersion: String(getSavedWords(appState).length),
-    vocabulary: getSavedWords(appState),
-    flashcards: { shuffle: false },
+  const routes = {
+    hub: renderHub,
+    daily: renderDailyPractice,
+    "flashcards-setup": renderFlashcardSetup,
+    flashcards: renderFlashcards,
+    verbs: renderVerbTrainer,
+    "verb-drill": renderVerbDrill,
+    games: renderGames,
+    "word-match": renderWordMatch,
+    "sentence-builder": renderSentenceBuilder,
+    "speed-round": renderSpeedRound,
+    "conjugation-sprint": renderConjugationSprint,
+    grammar: renderGrammarLab,
+    "grammar-drill": renderGrammarDrill,
+    "saved-words": renderSavedWords,
+    "saved-questions": renderSavedQuestions,
+    "needs-practice": renderNeedsPractice,
+    summary: renderReviewSummary,
   };
+  return (routes[session.view] || renderHub)(session);
 }
 
-function renderPracticeLibrary(appState) {
-  return `<section class="practice-shell practice-library" aria-label="Practice Library">
-    ${renderLibraryHeader("Practice Library", "Browse every way to practice in Habla.", "launcher")}
-    <div class="practice-library-categories">
-      ${PRACTICE_LIBRARY_CATEGORIES.map(category => {
-        const stats = getLibraryCategoryStats(category, appState);
-        return `<button class="practice-library-category accent-${category.accent}" type="button" onclick="hablaPractice.openLibraryCategory('${category.id}')">
-          <span class="library-category-icon" aria-hidden="true">${iconSvg(category.icon)}</span>
-          <span class="library-category-copy"><small>Practice collection</small><strong>${escapeHtml(category.title)}</strong><em>${escapeHtml(category.description)}</em><b>${stats.available} available · ${stats.total} ${stats.total === 1 ? "item" : "items"}</b></span>
-          <span class="library-card-arrow" aria-hidden="true">${iconSvg("arrow-right")}</span>
-          <span class="library-destination-copy">${libraryDestinationCopy(category, stats)}</span>
-        </button>`;
-      }).join("")}
-    </div>
-  </section>`;
-}
-
-function libraryDestinationCopy(category, stats) {
-  if (category.id === "topics") return `${stats.total} real-life situations to master`;
-  if (category.id === "verbs") return `${stats.total} verb paths to explore`;
-  if (category.id === "grammar") return `${stats.total} foundations to build`;
-  if (category.id === "expressions") return `${stats.total} real Spanish collections`;
-  return "A review plan shaped by your progress";
-}
-
-function renderWeeklyPractice(appState) {
-  const streak = Math.max(0, Number(appState?.user?.streak || 0));
-  const todayIndex = (new Date().getDay() + 6) % 7;
-  const activeDays = Math.min(streak, todayIndex + 1);
-  const firstActiveDay = todayIndex - activeDays + 1;
-  return `<section class="practice-weekly-card">
-    <div class="practice-weekly-copy"><span>This Week</span><strong>${activeDays} day${activeDays === 1 ? "" : "s"} active</strong><small>${activeDays ? `Keep your ${streak}-day streak moving.` : "Complete one focused session to begin."}</small></div>
-    <div class="practice-week-dots" aria-label="${activeDays} active study days this week">
-      ${["M", "T", "W", "T", "F", "S", "S"].map((day, index) => { const done = activeDays > 0 && index >= firstActiveDay && index <= todayIndex; return `<span><small>${day}</small><i class="${done ? "done" : ""}">${done ? iconSvg("quiz") : ""}</i></span>`; }).join("")}
-    </div>
-    <p class="practice-weekly-nudge">${activeDays >= 7 ? "Weekly goal complete." : `${7 - activeDays} more ${7 - activeDays === 1 ? "day" : "days"} to complete your weekly goal.`}</p>
-  </section>`;
-}
-
-function renderRecentPractice() {
-  const history = readPracticeHistory().slice(0, 3);
-  return `<section class="practice-recent">
-    <div class="practice-section-title"><h2>Recent Activity</h2></div>
-    ${history.length ? `<div class="practice-timeline">${history.map(entry => `<article><span class="mode-${escapeAttr(entry.mode)}" aria-hidden="true">${iconSvg(entry.mode)}</span><div><small>${relativePracticeDate(entry.completedAt)}</small><strong>${escapeHtml(entry.title)}</strong><p>${escapeHtml(entry.detail)}</p></div></article>`).join("")}</div>` : `<div class="practice-empty-row"><span aria-hidden="true">${iconSvg("activity")}</span><div><strong>Your practice history starts here</strong><small>Complete a focused session to build your timeline.</small></div></div>`}
-  </section>`;
-}
-
-function renderLibraryCategory(session, appState) {
-  const category = findPracticeLibraryCategory(session.libraryCategoryId);
-  if (!category) return renderPracticeLibrary(appState);
-
-  return `<section class="practice-shell practice-library accent-${category.accent}" aria-label="${escapeAttr(category.title)}">
-    ${isGrammarLibrary(category) ? renderStudyBackControl("library") : renderLibraryHeader(category.title, category.description, "library")}
-    ${category.featured ? renderLibraryFeatured(category) : ""}
-    ${category.collections ? `<section class="library-shelf">
-      <div class="library-shelf-heading"><h2>Browse the course</h2><span>${category.collections.length} collections</span></div>
-      <div class="library-collection-grid">${category.collections.map(entry => renderLibraryCollectionCard(category, entry, appState)).join("")}</div>
-    </section>` : (category.sections || []).map(group => `<section class="library-shelf">
-      <div class="library-shelf-heading"><h2>${escapeHtml(group.title)}</h2><span>${group.items.length} items</span></div>
-      <div class="library-item-grid">
-        ${group.items.map(entry => renderLibraryItemCard(category, entry, appState)).join("")}
+function renderHub() {
+  const dueCount = getDeck("due").cards.length;
+  const weakSpots = getWeakSpots();
+  const savedCount = getSavedWords().length;
+  const needsPracticeCount = getNeedsPracticeCards().length;
+  const store = readPracticeState();
+  const streak = getPracticeStreak(store);
+  const verbsToReview = Math.min(3, PRACTICE_VERBS.length);
+  const estimatedMinutes = Math.max(2, Math.min(8, Math.ceil((dueCount + verbsToReview + 1) / 4)));
+  const dailyActivityCount = buildDailyTasks().length;
+  return `<section class="practice-hub" aria-labelledby="practice-title">
+    <header class="practice-hub-title"><div><small>Practice</small><h1 id="practice-title">Practice</h1><p>Sharpen your Spanish.</p></div><span aria-hidden="true">${icon("target")}</span></header>
+    <section class="practice-today" aria-label="Today's challenge">
+      <header><div><small>Today’s challenge</small><h2>Build today’s<br>momentum</h2><p>${estimatedMinutes} minutes · ${dailyActivityCount} activities</p></div><div class="practice-streak" aria-label="${streak} day practice streak">${icon("flame")}<strong>${streak}</strong><span>day streak</span></div></header>
+      <div class="practice-hero-scene" role="img" aria-label="A warm café street in Madrid"><span><small>Today in Madrid</small><strong>Café &amp; conversation</strong></span></div>
+      <button class="practice-cta" type="button" onclick="hablaPractice.startDailyPractice()">${icon("review")}<span>Start Daily Practice</span>${icon("arrow")}</button>
+    </section>
+    <section class="practice-section practice-modes"><header><h2>Choose a mode</h2></header>
+      <div class="practice-mode-grid">
+        ${modeCard("flashcards", "Flashcards", "Review words and phrases", `${dueCount} due`, "cards")}
+        ${modeCard("verbs", "Verb Trainer", "Master conjugations", `${verbsToReview} to review`, "verbs")}
+        ${modeCard("games", "Quick Games", "Fast recall challenges", "4 games", "games")}
+        ${modeCard("grammar", "Grammar Lab", "Practice useful patterns", `${GRAMMAR_TOPICS.length} topics`, "grammar")}
       </div>
-    </section>`).join("")}
-  </section>`;
-}
-
-function renderLibraryFeatured(category) {
-  const featured = category.featured;
-  const action = featured.itemId
-    ? `hablaPractice.openLibraryItem('${category.id}','${featured.itemId}','${featured.collectionId}')`
-    : `hablaPractice.openLibraryCollection('${category.id}','${featured.collectionId}')`;
-  return `<button class="library-featured-card" type="button" onclick="${action}">
-    <span class="library-featured-icon" aria-hidden="true">${iconSvg("star")}</span>
-    <span><small>${escapeHtml(featured.eyebrow)}</small><strong>${escapeHtml(featured.title)}</strong><em>${escapeHtml(featured.description)}</em><b>Start ${iconSvg("arrow-right")}</b></span>
-  </button>`;
-}
-
-function renderLibraryCollectionCard(category, entry, appState) {
-  const stats = getLibraryCollectionStats(entry, appState);
-  const count = entry.plannedCount || entry.items.length;
-  const countLabel = entry.locked ? entry.level || "Locked" : entry.plannedCount > entry.items.length ? `${entry.items.length} of ${entry.plannedCount} ${entry.unit}` : `${count} ${count === 1 ? entry.unit.replace(/s$/, "") : entry.unit}`;
-  return `<button class="library-collection-card${entry.locked ? " locked" : ""}" type="button" onclick="hablaPractice.openLibraryCollection('${category.id}','${entry.id}')">
-    <span class="library-collection-icon" aria-hidden="true">${iconSvg(entry.locked ? "lock" : category.icon)}</span>
-    <span class="library-collection-copy"><small>${escapeHtml(countLabel)}</small><strong>${escapeHtml(entry.title)}</strong>
-      <span class="library-stars" aria-label="${stats.stars} of 5 mastery stars">${renderMasteryStars(stats.stars)}</span>
-      <em>${stats.mastered} mastered</em><b>${stats.completion}%</b>
-    </span>
-    <span class="library-card-arrow" aria-hidden="true">${iconSvg("arrow-right")}</span>
-    <span class="library-collection-progress"><i style="width:${stats.completion}%"></i></span>
-  </button>`;
-}
-
-function renderLibraryCollection(session, appState) {
-  const result = findPracticeLibraryCollection(session.libraryCategoryId, session.libraryCollectionId);
-  if (!result) return renderPracticeLibrary(appState);
-  const { category, collection: entry } = result;
-  const stats = getLibraryCollectionStats(entry, appState);
-  const count = entry.plannedCount || entry.items.length;
-  const availability = entry.plannedCount > entry.items.length ? `${entry.items.length} available · ${entry.plannedCount} planned` : `${count} ${entry.unit}`;
-  if (category.id === "verbs" && !entry.locked && entry.items.length) return renderVerbCollection(category, entry, stats, appState, availability);
-  return `<section class="practice-shell practice-library accent-${category.accent}" aria-label="${escapeAttr(entry.title)}">
-    ${isGrammarLibrary(category) ? renderStudyBackControl("library-category") : renderLibraryHeader(entry.title, `${availability} · ${stats.completion}% complete`, "library-category")}
-    <section class="library-collection-hero">
-      <small>${escapeHtml(category.shortTitle || category.title)}</small><h2>${escapeHtml(entry.title)}</h2>
-      <div class="library-collection-summary"><span>${renderMasteryStars(stats.stars)}</span><b>${stats.mastered} mastered</b><em>${stats.completion}%</em></div>
-      <span class="library-item-progress" aria-label="${stats.completion}% complete"><b style="width:${stats.completion}%"></b></span>
     </section>
-    ${entry.locked ? `<div class="library-empty-state"><span aria-hidden="true">${iconSvg("lock")}</span><p>This advanced collection unlocks later in the course.</p></div>` : entry.items.length ? `<section class="library-shelf"><div class="library-shelf-heading"><h2>${category.id === "verbs" ? "Choose a verb" : "Choose a lesson"}</h2><span>${entry.items.length} items</span></div><div class="library-item-grid">${entry.items.map(item => renderLibraryItemCard(category, item, appState, entry.id)).join("")}</div></section>` : `<div class="library-empty-state"><span aria-hidden="true">${iconSvg("activity")}</span><p>The course path is ready. Individual lessons will appear here as real content is added.</p></div>`}
-  </section>`;
-}
-
-function renderVerbCollection(category, entry, stats, appState, availability) {
-  const totals = entry.items.reduce((sum, item) => {
-    const status = getLibraryItemStatus(item, appState);
-    sum.cards += status.cards;
-    sum.questions += status.questions;
-    return sum;
-  }, { cards: 0, questions: 0 });
-  const minutes = Math.max(5, Math.ceil((totals.cards * .25) + (totals.questions * .5)));
-  const itemLabel = entry.items.length === 1 ? entry.unit.replace(/s$/, "") : entry.unit;
-  const chooserLabel = entry.unit === "verbs" ? "Choose a verb" : "Choose a lesson";
-  return `<section class="practice-shell practice-library library-verb-collection accent-${category.accent}" aria-label="${escapeAttr(entry.title)}">
-    ${renderStudyBackControl("library-category")}
-    <section class="verb-collection-hero">
-      <div class="verb-collection-ring" style="--progress:${stats.completion * 3.6}deg"><span>${iconSvg("verbs")}</span></div>
-      <div class="verb-collection-copy"><small>Verbs</small><h2>${escapeHtml(entry.title)}</h2><p>${escapeHtml(getVerbCollectionDescription(entry))}</p></div>
-      <div class="verb-collection-art" aria-hidden="true">${verbAcademyIllustration()}</div>
-      <div class="verb-collection-progress"><span><b>${stats.mastered} mastered</b><strong>${stats.completion}%</strong></span><i><b style="width:${stats.completion}%"></b></i></div>
+    <section class="practice-shortcuts" aria-labelledby="practice-review-title"><header><h2 id="practice-review-title">Review status</h2></header>
+      <div class="practice-collections">
+        ${collectionButton("saved-words", "bookmark", "Saved Words", savedCount, "", "saved")}
+        ${collectionButton("needs-practice", "retry", "Needs Practice", needsPracticeCount, "", "practice")}
+        ${collectionButton("needs-practice", "alert", "Weak Spots", weakSpots.length, "", "weak")}
+        ${collectionButton("flashcards-setup", "clock", "Due for Review", dueCount, "due", "due")}
+      </div>
     </section>
-    <section class="verb-collection-stats" aria-label="Collection statistics">
-      ${verbCollectionStat("star", entry.items.length, itemLabel)}
-      ${verbCollectionStat("flashcards", totals.cards, "cards")}
-      ${verbCollectionStat("quiz", totals.questions, "questions")}
-      ${verbCollectionStat("time", `~${minutes}`, "min total")}
+    <section class="practice-section practice-weak"><header><h2>Your weak spots</h2><button type="button" onclick="hablaPractice.open('needs-practice')">View all</button></header>
+      ${weakSpots.length ? `<div class="practice-weak-list">${weakSpots.map(renderWeakSpot).join("")}</div>` : `<div class="practice-empty"><span>${icon("spark")}</span><div><strong>No weak spots yet</strong><p>Mistakes from drills and saved review items will guide this section.</p></div></div>`}
     </section>
-    <section class="library-shelf verb-collection-shelf"><div class="library-shelf-heading"><h2>${chooserLabel}</h2><span>${entry.items.length} ${itemLabel}</span></div><div class="library-verb-item-grid">${entry.items.map(item => renderVerbCollectionItem(category, entry, item, appState)).join("")}</div></section>
   </section>`;
 }
 
-function renderVerbCollectionItem(category, collection, entry, appState) {
-  const status = getLibraryItemStatus(entry, appState);
-  const meaning = entry.libraryContent?.english || "Verb lesson";
-  return `<button class="library-verb-item" type="button" onclick="hablaPractice.openLibraryItem('${category.id}','${entry.id}','${collection.id}')">
-    <span class="library-verb-item-icon" aria-hidden="true">${iconSvg("verbs")}</span>
-    <span class="library-verb-item-copy"><strong>${escapeHtml(entry.title)}</strong><small>${escapeHtml(meaning)}</small></span>
-    <b>${status.completion}%</b><span class="library-verb-item-arrow" aria-hidden="true">${iconSvg("arrow-right")}</span>
-    <i aria-label="${status.completion}% complete"><span style="width:${status.completion}%"></span></i>
-  </button>`;
+function modeCard(route, title, description, count, iconName) {
+  return `<button class="practice-mode-card mode-${route}" type="button" onclick="hablaPractice.open('${route === "flashcards" ? "flashcards-setup" : route}')"><span class="practice-mode-icon">${icon(iconName)}</span><span class="practice-mode-copy"><strong>${title}</strong><p>${description}</p></span><small class="practice-mode-metric">${count}</small>${icon("arrow")}</button>`;
 }
 
-function verbCollectionStat(icon, value, label) {
-  return `<div><span aria-hidden="true">${iconSvg(icon)}</span><strong>${escapeHtml(value)}</strong><small>${escapeHtml(label)}</small></div>`;
+function collectionButton(route, iconName, title, count, deck = "", accent = "saved") {
+  return `<button class="progress-${accent}" type="button" onclick="hablaPractice.open('${route}'${deck ? `,'${deck}'` : ""})"><span>${icon(iconName)}</span><strong>${count}</strong><small>${title}</small></button>`;
 }
 
-function getVerbCollectionDescription(entry) {
-  return ({
-    "core-verbs": "Master the 10 most important verbs you’ll use every day.",
-    "regular-ar": "Build confidence with the most useful regular -AR verbs.",
-    "regular-er": "Learn the repeatable pattern behind everyday -ER verbs.",
-    "regular-ir": "Practice common -IR verbs and their predictable forms.",
-    "irregular-verbs": "Learn the high-value verbs that break the usual patterns.",
-    "past-tense": "Talk about completed actions with essential past-tense forms.",
-    "future-tense": "Make plans and describe what will happen next.",
-  })[entry.id] || `Build confidence with ${entry.title.toLowerCase()}.`;
+function renderWeakSpot(item) {
+  const improving = item.mastery >= 55;
+  return `<button class="${improving ? "is-improving" : "needs-work"}" type="button" onclick="hablaPractice.openWeakSpot('${escapeJs(item.id)}')"><span>${icon(improving ? "trend" : "alert")}</span><div><strong>${escapeHtml(item.title)}</strong><i aria-label="${item.mastery}% mastery">${[20,40,60,80,100].map(value => `<b class="${item.mastery >= value ? "filled" : ""}"></b>`).join("")}</i></div><small>${improving ? "Improving" : "Needs work"}</small>${icon("arrow")}</button>`;
 }
 
-function verbAcademyIllustration() {
-  return `<svg viewBox="0 0 180 170" role="presentation" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
-    <path d="M77 50h56M84 43h42l7 7H77l7-7ZM87 50v62M123 50v62M96 53v56M114 53v56M80 112h50M75 120h60"/>
-    <path d="M18 139c22-14 43-14 65 0v20c-22-14-43-14-65 0v-20ZM148 139c-22-14-43-14-65 0v20c22-14 43-14 65 0v-20ZM83 139v20"/>
-    <path d="M40 132c-12-15-16-33-11-52M126 130c14-15 20-34 17-54M30 98l-11-8M31 113l-13-2M137 97l12-10M134 113l14-3"/>
-    <path d="m153 34 2 5 5 2-5 2-2 5-2-5-5-2 5-2 2-5ZM59 35l1 3 3 1-3 1-1 3-1-3-3-1 3-1 1-3Z"/>
-  </svg>`;
+function deckChip(deck) {
+  return `<button type="button" onclick="hablaPractice.open('flashcards-setup','${deck.id}')"><span>${icon(deckIcon(deck.id))}</span><strong>${escapeHtml(deck.title)}</strong><small>${deck.cards.length}</small></button>`;
 }
 
-function renderLibraryItemCard(category, entry, appState, collectionId = "") {
-  const status = getLibraryItemStatus(entry, appState);
-  const countLabel = entry.smartKey
-    ? `${status.dynamicCount} ready`
-    : status.hasLessonContent
-      ? `${status.cards} cards · ${status.questions} questions`
-      : "Practice structure ready";
-  return `<button class="library-item-card ${status.state}" type="button" onclick="hablaPractice.openLibraryItem('${category.id}','${entry.id}','${collectionId}')">
-    <span class="library-item-top"><i aria-hidden="true">${iconSvg(entry.practiceTopic || category.icon)}</i><em>${status.state === "unlocked" ? `${status.completion}%` : status.state === "locked" ? "Locked" : collectionId ? "0%" : entry.level || "Planned"}</em></span>
-    <strong>${escapeHtml(entry.title)}</strong>
-    <small>${collectionId ? "Not started" : escapeHtml(countLabel)}</small>
-    <span class="library-item-progress" aria-label="${status.completion}% complete"><b style="width:${status.completion}%"></b></span>
-  </button>`;
-}
-
-function renderLibraryItemLauncher(session, appState) {
-  const result = findPracticeLibraryItem(session.libraryCategoryId, session.libraryItemId, session.libraryCollectionId);
-  if (!result) return renderPracticeLibrary(appState);
-  const { category, item: entry } = result;
-  const status = getLibraryItemStatus(entry, appState);
-  const available = status.state === "unlocked" && Boolean(entry.practiceTopic || entry.libraryContent || entry.sourceLessonIds?.length);
-  const isVerb = category.id === "verbs" && entry.libraryContent?.kind === "verb";
-
-  return `<section class="practice-shell practice-library library-item-launcher accent-${category.accent}" aria-label="${escapeAttr(entry.title)} practice">
-    ${isGrammarLibrary(category) ? renderStudyBackControl(session.libraryCollectionId ? "library-collection" : "library-category") : renderLibraryHeader(entry.title, category.description, session.libraryCollectionId ? "library-collection" : "library-category")}
-    ${isVerb ? renderVerbLauncherHero(category, entry) : `<section class="library-item-hero"><span class="library-item-hero-icon" aria-hidden="true">${iconSvg(entry.practiceTopic || category.icon)}</span><div><small>${escapeHtml(category.title)}</small><h2>${escapeHtml(entry.title)}</h2><p>${renderLibraryItemAvailability(status, entry)}</p></div></section>`}
-    ${category.capabilities ? `<div class="library-capabilities" aria-label="Future expression features">${category.capabilities.map(capability => `<span>${escapeHtml(capability)}</span>`).join("")}</div>` : ""}
-    <section class="library-mode-launcher">
-      <div class="library-shelf-heading"><h2>${isVerb ? "Continue Learning" : "Learn & Practice"}</h2></div>
-      ${isVerb ? renderVerbLearningPath(category, entry, available) : `<div class="library-mode-grid">${(category.launcherActions || MODES).map(mode => `<button class="library-mode-button mode-${mode}" type="button" ${available ? "" : "disabled"} onclick="hablaPractice.launchLibraryItem('${category.id}','${entry.id}','${mode}')"><span aria-hidden="true">${iconSvg(mode)}</span><strong>${libraryActionLabel(mode)}</strong><small>${available ? libraryModeMeta(entry, mode) : status.state === "locked" ? "Unlock through Learn" : "Content coming soon"}</small></button>`).join("")}</div>`}
-    </section>
-    ${available ? "" : `<div class="library-empty-state"><span aria-hidden="true">${iconSvg(status.state === "locked" ? "lock" : "activity")}</span><p>${status.state === "locked" ? "Continue through Learn to unlock this real lesson content." : entry.smartKey ? "This review shelf will fill automatically as you practice." : "The catalog structure is ready. Dedicated practice content has not been added yet."}</p></div>`}
+function renderDailyPractice(session) {
+  const daily = session.daily;
+  if (!daily?.tasks?.length) return renderHub();
+  if (daily.index >= daily.tasks.length) return renderReviewSummary({ summary: { title: "Daily Practice", answered: daily.tasks.length, correct: daily.correct, missed: daily.missed, returnView: "hub" } });
+  const task = daily.tasks[daily.index];
+  if (daily.feedback) queueAutoAdvance(advanceDaily, daily.feedback.type === "correct" ? 650 : 1050);
+  const progress = Math.round((daily.index / daily.tasks.length) * 100);
+  return `<section class="practice-tool practice-daily">${toolHeader("Daily Practice")}
+    <div class="practice-live-head"><span>${daily.index + 1} / ${daily.tasks.length}</span><i><b style="width:${progress}%"></b></i><strong>${icon("flame")} ${daily.streak}</strong></div>
+    ${task.type === "flash" ? renderDailyFlash(task, daily) : renderDailyQuestion(task, daily)}
   </section>`;
 }
 
-function renderVerbLauncherHero(category, entry) {
-  const progress = getLibraryItemProgress(category.id, entry.id);
-  const uses = getVerbUses(entry.id);
-  return `<section class="library-item-hero library-verb-hero">
-    <span class="library-item-hero-icon" aria-hidden="true">${iconSvg("verbs")}</span>
-    <div class="library-verb-summary"><small>${escapeHtml(category.title)}</small><h2>${escapeHtml(entry.title)}</h2>
-      <dl><div><dt>Meaning</dt><dd>${escapeHtml(entry.libraryContent.english)}</dd></div><div><dt>Used for</dt><dd>${uses.map(use => `<span>${escapeHtml(use)}</span>`).join("")}</dd></div></dl>
-      <div class="library-verb-progress"><span><small>Progress</small><b>${progress.overall}%</b></span><i><b style="width:${progress.overall}%"></b></i></div>
-    </div>
+function renderDailyFlash(task, daily) {
+  const revealed = daily.revealed;
+  return `<article class="practice-daily-card ${revealed ? "is-revealed" : ""}"><small>Vocabulary recall</small><h1>${escapeHtml(task.spanish)}</h1>${revealed ? `<div class="practice-daily-answer"><strong>${escapeHtml(task.english)}</strong><p>${escapeHtml(task.exampleSpanish || "")}</p></div><div class="practice-rating"><button class="again" onclick="hablaPractice.answerDaily('again')">${icon("back")}Again</button><button class="hard" onclick="hablaPractice.answerDaily('hard')">Hard</button><button class="got-it" onclick="hablaPractice.answerDaily('got-it')">Got it${icon("arrow")}</button></div>` : `<button class="practice-cta" onclick="hablaPractice.revealDaily()"><span>Reveal answer</span>${icon("flip")}</button>`}${daily.feedback ? practiceLiveFeedback(daily.feedback) : ""}</article>`;
+}
+
+function renderDailyQuestion(task, daily) {
+  const answered = daily.selected != null;
+  const correct = answered && normalize(daily.selected) === normalize(task.answer);
+  return `<article class="practice-drill-card practice-daily-card"><small>${task.type === "verb" ? `${escapeHtml(task.infinitive)} · present` : "Grammar focus"}</small><h1>${escapeHtml(task.prompt)}</h1>${task.english ? `<p>${escapeHtml(task.english)}</p>` : ""}<div class="practice-answer-grid">${task.options.map(option => answerButton(option, task.answer, daily.selected, "answerDaily")).join("")}</div>${answered ? feedback(correct, task.explanation || completedPrompt(task.prompt, task.answer), task.explanation || `Correct answer: ${task.answer}.`) : ""}${daily.feedback ? practiceLiveFeedback(daily.feedback) : ""}</article>`;
+}
+
+function renderFlashcardSetup(session) {
+  const decks = getDecks();
+  const selected = session.deckId || "due";
+  const direction = DIRECTIONS.includes(session.direction) ? session.direction : "mixed";
+  return `<section class="practice-tool practice-flash-setup">${toolHeader("Flashcards")}
+    <header class="practice-tool-intro"><span>${icon("cards")}</span><div><small>Deck builder</small><h1>Flashcards</h1><p>Choose what to review and which direction to practise.</p></div></header>
+    <section class="practice-picker"><h2>Choose a deck</h2><div class="practice-deck-list">${decks.map(deck => `<button type="button" class="${selected === deck.id ? "selected" : ""}" onclick="hablaPractice.selectDeck('${deck.id}')" aria-pressed="${selected === deck.id}"><span>${icon(deckIcon(deck.id))}</span><div><strong>${escapeHtml(deck.title)}</strong><small>${deck.cards.length} cards</small></div>${selected === deck.id ? icon("check") : icon("arrow")}</button>`).join("")}</div></section>
+    <section class="practice-picker"><h2>Card direction</h2><div class="practice-segmented">${directionButton("spanish-english", "Spanish → English", direction)}${directionButton("english-spanish", "English → Spanish", direction)}${directionButton("mixed", "Mixed", direction)}</div></section>
+    <button class="practice-cta practice-tool-cta" type="button" onclick="hablaPractice.startFlashcards()" ${getDeck(selected).cards.length ? "" : "disabled"}>${icon("cards")}<span>${getDeck(selected).cards.length ? "Start flashcards" : "No cards in this deck"}</span>${icon("arrow")}</button>
   </section>`;
 }
 
-function renderVerbLearningPath(category, entry, available) {
-  const order = ["mini-lessons", "flashcards", "quiz", "conjugation"];
-  const progress = getLibraryItemProgress(category.id, entry.id);
-  const recommended = order.find(mode => progress.modes[mode] < 100) || "mini-lessons";
-  const recommendedLabel = progress.modes[recommended] > 0 ? "Continue" : "Start";
-  const launch = mode => `hablaPractice.launchLibraryItem('${category.id}','${entry.id}','${mode}')`;
-  return `<div class="library-learning-path">
-    <button class="library-recommended-mode mode-${recommended}" type="button" ${available ? "" : "disabled"} onclick="${launch(recommended)}">
-      <span class="library-recommended-icon" aria-hidden="true">${iconSvg(recommended)}</span>
-      <span class="library-recommended-copy"><small>Today’s Recommendation</small><strong>${recommendedLabel} ${libraryActionLabel(recommended)}</strong><em>${libraryModeMeta(entry, recommended, progress.modes[recommended])} · ${progress.modes[recommended]}% complete</em><i><b style="width:${progress.modes[recommended]}%"></b></i><span>${recommendedLabel} ${iconSvg("arrow-right")}</span></span>
-    </button>
-    <div class="library-path-list">${order.filter(mode => mode !== recommended).map(mode => `<button class="library-path-mode mode-${mode}" type="button" ${available ? "" : "disabled"} onclick="${launch(mode)}"><span aria-hidden="true">${iconSvg(mode)}</span><strong>${libraryActionLabel(mode)}</strong><small>${libraryModeMeta(entry, mode, progress.modes[mode])}</small><b>${progress.modes[mode]}%</b>${iconSvg("arrow-right")}</button>`).join("")}</div>
-  </div>`;
+function directionButton(id, label, current) {
+  return `<button type="button" class="${id === current ? "selected" : ""}" onclick="hablaPractice.setDirection('${id}')" aria-pressed="${id === current}">${label}</button>`;
 }
 
-function libraryModeMeta(entry, mode, progress = 0) {
-  const content = entry.libraryContent;
-  if (progress >= 100) return "Complete · Review anytime";
-  if (mode === "mini-lessons" || mode === "mini-lesson") return progress ? "Lesson in progress" : "3 guided steps · Lesson 1 of 3";
-  if (mode === "flashcards") return `${1 + (content?.examples?.length || 0)} cards`;
-  if (mode === "quiz") return `3 questions · about 2 min`;
-  if (mode === "conjugation") return `${content?.forms?.length || 0} forms · Reference`;
-  return progress ? "In progress" : "Ready to begin";
-}
-
-function getVerbUses(id) {
-  return ({
-    ser: ["Identity", "Origin", "Profession", "Characteristics"], estar: ["Location", "Conditions", "Feelings"], tener: ["Possession", "Age", "Needs"], ir: ["Movement", "Destinations", "Future plans"], hacer: ["Actions", "Making things", "Weather"], poder: ["Ability", "Permission", "Requests"], querer: ["Wants", "Preferences", "Affection"], venir: ["Coming", "Origin", "Arrival"], decir: ["Speaking", "Telling", "Reported words"], dar: ["Giving", "Requests", "Expressions"],
-  })[id] || ["Everyday actions", "Useful statements"];
-}
-
-function renderLibraryStudy(session, appState) {
-  const result = findPracticeLibraryItem(session.libraryCategoryId, session.libraryItemId, session.libraryCollectionId);
-  if (!result) return renderPracticeLibrary(appState);
-  const lesson = buildLibraryLesson(result);
-  const mode = session.libraryStudyMode || "examples";
-  const content = result.item.libraryContent;
-  const examples = content?.examples?.length ? content.examples : (lesson?.grammar?.examples || lesson?.vocabulary?.slice(0, 6).map(card => ({ spanish: card.exampleSpanish || card.spanish, english: card.exampleEnglish || card.english })) || []);
-  const forms = content?.forms || [];
-  const mistakes = content?.commonMistake ? [content.commonMistake] : (lesson?.commonMistakes || []).map(entry => typeof entry === "string" ? entry : `${entry.mistake} → ${entry.correction}. ${entry.explanation || ""}`);
-  const title = libraryActionLabel(mode);
-  const guidance = content?.kind === "verb" ? getVerbGuidance(result.item, content) : null;
-  const studyHero = guidance ? `${result.item.title} (${guidance.tense} Tense)` : (lesson?.grammar?.topic || result.item.title);
-  const isMiniLesson = mode === "mini-lessons" || mode === "mini-lesson";
-  const isConjugation = mode === "conjugation";
-  return `<section class="practice-shell practice-library library-study ${isConjugation ? "conjugation-study" : ""} accent-${result.category.accent}" aria-label="${escapeAttr(title)}">
-    ${isGrammarLibrary(result.category) || isMiniLesson || isConjugation ? renderStudyBackControl("library-item") : renderLibraryHeader(title, result.item.title, "library-item")}
-    ${isConjugation ? renderConjugationHero(result.item, content, guidance, examples) : `<section class="library-item-hero"><span class="library-item-hero-icon" aria-hidden="true">${iconSvg(mode)}</span><div><small>${escapeHtml(result.category.title)}</small><h2>${escapeHtml(result.item.title)}</h2><p>${escapeHtml(content?.explanation || lesson?.grammar?.explanation || "Review this pattern in clear, practical Spanish.")}</p></div></section>`}
-    ${isConjugation ? renderConjugationStudy(result.item, content, guidance, forms, examples) : ""}
-    ${false && mode === "conjugation" ? `<section class="library-direction-card"><small>3 Simple Steps</small><ol><li><b>Choose the subject</b><span>Who is doing the action?</span></li><li><b>Find its form</b><span>Match that subject to the verb below.</span></li><li><b>Say a full sentence</b><span>Tap the form, repeat it, then add a detail.</span></li></ol></section>
-      <section class="library-study-card library-conjugation-card"><div class="library-study-heading"><div><small>${escapeHtml(guidance.tense)} tense</small><h2>${escapeHtml(result.item.title)}</h2></div><span>${escapeHtml(content.english)}</span></div>
-        <div class="library-pattern"><small>${guidance.isRegular ? "Build the form" : "Remember the pattern"}</small><strong>${guidance.patternHtml}</strong><p>${escapeHtml(guidance.rule)}</p></div>
-        <div class="library-conjugation-grid">${guidance.subjects.map((subject, index) => `<button type="button" data-phrase="${escapeAttr(forms[index] || "")}" onclick="hablaPractice.speakForm(this)" aria-label="Hear ${escapeAttr(subject.spanish)}: ${escapeAttr(forms[index] || "verb form")}"><small>${escapeHtml(subject.spanish)} <em>${escapeHtml(subject.english)}</em></small><strong>${escapeHtml(forms[index] || "—")}</strong>${iconSvg("volume")}</button>`).join("")}</div>
-      </section>
-      <section class="library-try-card"><small>Your turn</small><h2>Make one sentence</h2><p>Start with <strong>${escapeHtml(guidance.tryForm)}</strong>, then add your own detail.</p><em>Example: ${escapeHtml(examples[0]?.spanish || guidance.tryForm)}</em><button class="practice-primary" type="button" onclick="hablaPractice.completeLibraryStudy('quiz')"><span class="button-label">Check What You Learned</span>${iconSvg("arrow-right", "button-icon")}</button></section>` : ""}
-    ${mode === "examples" ? `<section class="library-study-card"><h2>Examples</h2><div class="library-example-list">${examples.map(example => `<article><button type="button" data-phrase="${escapeAttr(example.spanish)}" onclick="hablaPractice.speak(this.dataset.phrase)" aria-label="Hear example">${iconSvg("volume")}</button><div><strong>${escapeHtml(example.spanish)}</strong><p>${escapeHtml(example.english || "")}</p></div></article>`).join("")}</div></section>` : ""}
-    ${isMiniLesson ? `<section class="library-lesson-progress" aria-label="Mini lesson progress"><div><small>Mini Lesson</small><strong>Lesson 1 of 3</strong></div><span class="active"></span><span></span><span></span></section>
-      <section class="library-study-card library-mini-lesson"><div class="library-step-heading"><small>Step 1</small><strong>Learn the Rule</strong><h2>${escapeHtml(studyHero)}</h2></div><p>${escapeHtml(content?.explanation || lesson?.grammar?.explanation || "Study the examples, then say one of your own.")}</p>${guidance ? `${renderVerbChangeExplanation(result.item, content, guidance)}<div class="library-pattern"><small>The pattern</small><strong>${guidance.patternHtml}</strong><p>${escapeHtml(guidance.rule)}</p></div>` : ""}</section>
-      <section class="library-study-card library-mini-lesson"><div class="library-step-heading"><small>Step 2</small><strong>Notice It in Context</strong><h2>Spanish in Real Life</h2></div><p>Listen once, then repeat the full Spanish sentence aloud.</p>${guidance ? renderVerbFormGuide(result.item, content, guidance, examples) : ""}${examples.slice(0, 3).map(example => `<blockquote><button type="button" data-phrase="${escapeAttr(example.spanish)}" onclick="hablaPractice.speak(this.dataset.phrase)" aria-label="Hear example">${iconSvg("volume")}</button><span><small>Spanish</small><strong>${escapeHtml(example.spanish)}</strong><small>English</small><em>${escapeHtml(example.english || "")}</em></span></blockquote>`).join("")}</section>
-      <section class="library-try-card library-challenge-card"><div class="library-challenge-heading"><span aria-hidden="true">${iconSvg("target")}</span><div><small>Step 3</small><strong>Your Challenge</strong><h2>Build Your Own Sentence</h2></div></div><p>Create a sentence using:</p><b class="library-challenge-starter">${escapeHtml(guidance?.tryForm || result.item.title)}</b><div class="library-challenge-examples"><small>Examples</small>${examples.slice(0, 3).map(example => `<span>${iconSvg("quiz")}<b>${escapeHtml(example.spanish)}</b></span>`).join("")}</div><p class="library-carlos-note">Say it in your own words. Carlos will help you continue the conversation.</p><button class="practice-primary" type="button" onclick="hablaPractice.completeLibraryStudy('conversation')"><span class="button-label">Practice with Carlos</span>${iconSvg("arrow-right", "button-icon")}</button></section>` : ""}
-    ${mode === "common-mistakes" ? `<section class="library-study-card"><h2>Common mistakes</h2><div class="library-mistake-list">${(mistakes.length ? mistakes : ["No special exception is needed at this level. Focus on the forms and examples above."]).map(text => `<p>${iconSvg("common-mistakes")}<span>${escapeHtml(text)}</span></p>`).join("")}</div></section>` : ""}
-  </section>`;
-}
-
-function renderConjugationHero(entry, content, guidance, examples) {
-  const example = examples[0] || {};
-  const concept = getVerbUses(entry.id)[0] || "Everyday Spanish";
-  return `<section class="library-grammar-hero">
-    <div class="library-grammar-hero-copy"><small>Verbs &middot; ${escapeHtml(guidance.tense)}</small><h1>${escapeHtml(entry.title)}</h1><p>${escapeHtml(content.english)}</p>
-      <blockquote><b>Carlos explains</b><span>${escapeHtml(getCarlosGrammarTip(entry, content))}</span></blockquote>
-    </div>
-    <aside class="library-grammar-poster"><small>${escapeHtml(concept)}</small><strong>${escapeHtml(example.spanish || entry.title)}</strong><em>${escapeHtml(example.english || content.english)}</em><img src="${getCarlosAsset("speaking")}" alt="Carlos, your Spanish tutor" onerror="${CARLOS_FALLBACK_ONERROR}"></aside>
-  </section>`;
-}
-
-function renderConjugationStudy(entry, content, guidance, forms, examples) {
-  const showTips = entry.id === "ser";
-  return `<details class="library-direction-card" ${showTips ? "open" : ""}>
-      <summary><span><small>First time learning grammar?</small><strong>3 Simple Steps</strong></span><i aria-hidden="true"></i></summary>
-      <ol><li><b>Choose the subject</b><span>Who is doing the action?</span></li><li><b>Find its form</b><span>Match that subject to the verb below.</span></li><li><b>Say a full sentence</b><span>Tap the form, repeat it, then add a detail.</span></li></ol>
-    </details>
-    <section class="library-conjugation-card"><div class="library-study-heading"><div><small>${escapeHtml(guidance.tense)}</small><h2>${escapeHtml(entry.title)}</h2></div><span>${escapeHtml(content.english)}</span></div>
-      <div class="library-pattern"><small>${guidance.isRegular ? "Build the form" : "Remember"}</small><strong>${guidance.patternHtml}</strong><p>${escapeHtml(guidance.rule)} Think of this as your cheat sheet.</p></div>
-      <div class="library-forms-heading"><small>Forms</small><p>Tap any form to hear it.</p></div>
-      <div class="library-conjugation-grid">${guidance.subjects.map((subject, index) => {
-        const form = forms[index] || "\u2014";
-        const example = findConjugationExample(examples, form);
-        return `<button type="button" data-phrase="${escapeAttr(form)}" onclick="hablaPractice.speakForm(this)" aria-label="Hear ${escapeAttr(subject.spanish)}: ${escapeAttr(form || "verb form")}"><small>${escapeHtml(subject.spanish)} <em>${escapeHtml(subject.english)}</em></small><strong>${escapeHtml(form || "â€”")}</strong>${example ? `<span class="library-form-example"><b>${escapeHtml(example.spanish)}</b><em>${escapeHtml(example.english || "")}</em></span>` : ""}${iconSvg("volume")}</button>`;
-      }).join("")}</div>
-    </section>
-    <section class="library-try-card library-grammar-turn"><small>Your turn</small><h2>Build your sentence</h2><p>Start with <strong>${escapeHtml(guidance.tryForm)}</strong>, then make the thought your own.</p>
-      <label><span>Your sentence</span><input type="text" autocomplete="off" placeholder="Write a Spanish sentence&hellip;" aria-label="Your Spanish sentence"></label>
-      <details><summary>Need inspiration?</summary><p><strong>${escapeHtml(examples[0]?.spanish || guidance.tryForm)}</strong><span>${escapeHtml(examples[0]?.english || "")}</span></p></details>
-      <button class="practice-primary" type="button" onclick="hablaPractice.completeLibraryStudy('quiz')"><span class="button-label">Test Yourself</span>${iconSvg("arrow-right", "button-icon")}</button>
-    </section>`;
-}
-
-function findConjugationExample(examples, form) {
-  if (!form) return null;
-  const normalizedForm = normalize(form);
-  return examples.find(example => normalize(example.spanish).split(/\s+/).includes(normalizedForm)) || null;
-}
-
-function getCarlosGrammarTip(entry, content) {
-  const tips = {
-    ser: "Think of ser as identity: who someone is, where they are from, or what defines them.",
-    estar: "Use estar when you are locating someone or describing how they feel right now.",
-  };
-  return tips[entry.id] || content.explanation || `Listen for the subject, then choose the matching form of ${entry.title}.`;
-}
-
-function getVerbGuidance(entry, content) {
-  const subjects = [
-    { spanish: "yo", english: "I" }, { spanish: "tú", english: "you" }, { spanish: "él / ella", english: "he / she" },
-    { spanish: "nosotros", english: "we" }, { spanish: "ellos / ellas", english: "they" },
-  ];
-  const infinitive = entry.title.split(" · ")[0].toLowerCase();
-  const ending = infinitive.slice(-2);
-  const stem = infinitive.slice(0, -2);
-  const isRegular = ["ar", "er", "ir"].includes(ending) && content.forms.every(form => form.startsWith(stem));
-  const tense = entry.title.includes("Preterite") ? "Preterite" : entry.title.includes("Future") ? "Future" : entry.id === "ir-a-infinitive" ? "Near future" : "Present";
-  const patternBase = tense === "Future" ? infinitive : stem;
-  const patternHtml = isRegular
-    ? `<span>${escapeHtml(infinitive)}</span><i>→</i><span>${escapeHtml(patternBase)}</span><b> + ending</b>`
-    : `<span>${escapeHtml(infinitive)}</span><i>→</i><span>${escapeHtml(content.forms.slice(0, 3).join(" · "))}</span>`;
-  return {
-    subjects, isRegular, tense, patternHtml,
-    rule: isRegular ? (tense === "Future" ? `Keep the full infinitive “${infinitive}” and add the future ending that matches the subject.` : `Remove -${ending.toUpperCase()}, keep the stem “${stem},” and add the ending that matches the subject.`) : "This verb changes form. Match each subject with its form, then learn it inside a short sentence.",
-    tryForm: `Yo ${content.forms[0] || infinitive}…`,
-  };
-}
-
-function renderStudyBackControl(backView = "library-item") {
-  return `<div class="library-study-back compact-library-back"><button type="button" onclick="hablaPractice.libraryBack('${escapeAttr(backView)}')" aria-label="Go back">${iconSvg("arrow-left")}</button></div>`;
-}
-
-function isGrammarLibrary(category) {
-  return category?.id === "verbs" || category?.id === "grammar";
-}
-
-function renderVerbChangeExplanation(entry, content, guidance) {
-  const infinitive = entry.title.split(" · ")[0].toLowerCase();
-  return `<section class="library-verb-change">
-    <small>Why it changes</small>
-    <h3>The verb matches the subject</h3>
-    <p><strong>${escapeHtml(infinitive)}</strong> is the infinitive&mdash;the dictionary form. In a sentence, Spanish changes the verb to show who the sentence is about. This is called conjugation.</p>
-    <p class="library-verb-change-note">Use <strong>${escapeHtml(infinitive)}</strong> when naming the verb. In a full sentence, use the form that matches the subject: <strong>${escapeHtml(guidance.subjects[0].spanish)} &rarr; ${escapeHtml(content.forms[0] || infinitive)}</strong>, <strong>${escapeHtml(guidance.subjects[1].spanish)} &rarr; ${escapeHtml(content.forms[1] || infinitive)}</strong>.</p>
-  </section>`;
-}
-
-function renderVerbFormGuide(entry, content, guidance, examples) {
-  const infinitive = entry.title.split(" · ")[0].toLowerCase();
-  const meanings = ["ser", "estar"].includes(entry.id)
-    ? ["I am", "You are", "He/she is", "We are", "They are"]
-    : [];
-  const rows = guidance.subjects.map((subject, index) => `<span><small>${escapeHtml(subject.spanish)} <em>${escapeHtml(subject.english)}</em></small><b>${escapeHtml(content.forms[index] || infinitive)}</b>${meanings[index] ? `<i>${escapeHtml(meanings[index])}</i>` : ""}</span>`).join("");
-  const groupForm = content.forms[3] || "";
-  const groupExample = examples.find(example => String(example.spanish || "").toLowerCase().includes(String(groupForm).toLowerCase()));
-  return `<section class="library-context-form-guide">
-    <header><div><small>Quick form guide</small><h3>${escapeHtml(entry.title)} means ${escapeHtml(content.english)}</h3></div><span>Present tense</span></header>
-    <div>${rows}</div>
-    ${groupForm && groupExample ? `<p><strong>${escapeHtml(groupExample.spanish)}</strong> means <strong>${escapeHtml(groupExample.english)}</strong> Use <b>${escapeHtml(groupForm)}</b> with <b>${escapeHtml(guidance.subjects[3].spanish)}</b>&mdash;a group that includes you.</p>` : ""}
-  </section>`;
-}
-
-function buildLibraryLesson(result) {
-  const entry = result?.item;
-  if (!entry) return null;
-  if (entry.libraryContent?.kind === "verb") {
-    const content = entry.libraryContent;
-    const guidance = getVerbGuidance(entry, content);
-    const labels = ["I", "you", "he / she", "we", "they"];
-    const vocabulary = [{ spanish: entry.title.toLowerCase(), english: content.english, exampleSpanish: content.examples[0]?.spanish, exampleEnglish: content.examples[0]?.english, tip: content.explanation }, ...content.examples.map(example => ({ spanish: example.spanish, english: example.english }))];
-    const formOptions = content.forms.slice(0, 4);
-    return {
-      id: `library-${entry.id}`, title: entry.title, vocabulary,
-      grammar: { topic: `${entry.title}: ${guidance.tense.toLowerCase()} tense`, explanation: content.explanation, examples: content.examples },
-      commonMistakes: [{ mistake: content.commonMistake, correction: content.explanation, explanation: "Review the pattern and examples." }],
-      pronunciation: { items: [{ text: entry.title.toLowerCase(), english: content.english }, ...content.examples.map(example => ({ text: example.spanish, english: example.english }))] },
-      quiz: [
-        { prompt: `What does “${entry.title.toLowerCase()}” mean?`, options: uniqueQuizOptions(content.english, ["to speak", "to eat", "to live", "to write"]), answer: content.english },
-        { prompt: `Which is the yo form of ${entry.title.toLowerCase()}?`, options: formOptions, answer: content.forms[0] },
-        { prompt: `Which form matches “${labels[1]}”?`, options: formOptions, answer: content.forms[1] },
-      ],
-    };
-  }
-  const sources = (entry.sourceLessonIds || []).map(id => getLessonById(id)).filter(Boolean);
-  if (!sources.length) return null;
-  const grammar = sources.find(source => source.grammar)?.grammar || {};
-  return {
-    id: `library-${entry.id}`, title: entry.title,
-    vocabulary: sources.flatMap(source => source.vocabulary || []).slice(0, 30),
-    quiz: sources.flatMap(source => source.quiz || []).filter(question => question?.prompt && question?.options?.length && question?.answer).slice(0, 15),
-    pronunciation: { items: sources.flatMap(source => source.pronunciation?.items || []).slice(0, 15) },
-    grammar,
-    commonMistakes: sources.flatMap(source => source.commonMistakes || []).slice(0, 6),
-  };
-}
-
-function uniqueQuizOptions(answer, alternatives) {
-  return [answer, ...alternatives.filter(option => option !== answer)].slice(0, 4);
-}
-
-function renderLibraryHeader(title, description, backView) {
-  return `<header class="practice-library-header"><button type="button" onclick="hablaPractice.libraryBack('${backView}')" aria-label="Go back">${iconSvg("arrow-left")}</button><div><h1>${escapeHtml(title)}</h1><p>${escapeHtml(description)}</p></div></header>`;
-}
-
-function renderLibraryItemAvailability(status, entry) {
-  if (entry.smartKey) return `${status.dynamicCount} items currently available from saved progress.`;
-  if (status.state === "unlocked") return `${status.cards} cards and ${status.questions} questions from your unlocked lesson · ${status.completion}% complete.`;
-  if (status.state === "locked") return "Real lesson content is available but still locked in your course progression.";
-  return "This practice collection is planned and waiting for dedicated content.";
-}
-
-function getLibraryCategoryStats(category, appState) {
-  if (category.collections) return {
-    total: category.collections.length,
-    available: category.collections.filter(entry => !entry.locked).length,
-  };
-  const groups = category.sections || category.collections || [];
-  const items = groups.flatMap(group => group.items);
-  return {
-    total: category.collections?.length || items.length,
-    available: items.filter(entry => {
-      const status = getLibraryItemStatus(entry, appState);
-      return status.state === "unlocked" || (entry.smartKey && status.dynamicCount > 0);
-    }).length,
-  };
-}
-
-function getLibraryCollectionStats(entry, appState) {
-  const statuses = entry.items.map(item => getLibraryItemStatus(item, appState));
-  const mastered = statuses.filter(status => status.completion === 100).length;
-  const denominator = entry.plannedCount || entry.items.length;
-  const completion = denominator ? Math.round(statuses.reduce((sum, status) => sum + status.completion, 0) / denominator) : 0;
-  return { mastered, completion, stars: Math.round(completion / 20) };
-}
-
-function renderMasteryStars(count) {
-  return Array.from({ length: 5 }, (_, index) => `<i class="${index < count ? "active" : ""}">${iconSvg("star")}</i>`).join("");
-}
-
-function libraryActionLabel(mode) {
-  return ({ quiz: "Quiz", flashcards: "Flashcards", pronunciation: "Pronunciation", conversation: "Conversation", "mini-lessons": "Mini Lesson", "mini-lesson": "Mini Lesson", conjugation: "Conjugation", examples: "Examples", "common-mistakes": "Common Mistakes" })[mode] || mode;
-}
-
-function getLibraryItemStatus(entry, appState) {
-  if (entry.smartKey) {
-    const dynamicCount = getSmartReviewCount(entry.smartKey, appState);
-    return { state: dynamicCount > 0 ? "ready" : "planned", completion: 0, cards: 0, questions: 0, dynamicCount, hasLessonContent: false };
-  }
-
-  if (entry.libraryContent || entry.sourceLessonIds?.length) {
-    const lesson = buildLibraryLesson({ item: entry });
-    const completion = entry.libraryContent?.kind === "verb" ? getLibraryItemProgress("verbs", entry.id).overall : 0;
-    return { state: "unlocked", completion, cards: lesson?.vocabulary?.length || 0, questions: lesson?.quiz?.length || 0, dynamicCount: 0, hasLessonContent: true };
-  }
-
-  const lessonIds = Array.isArray(entry.lessonIds) ? entry.lessonIds : [];
-  const lessons = lessonIds.map(id => getLessonById(id)).filter(Boolean);
-  if (!lessons.length) return { state: "planned", completion: 0, cards: 0, questions: 0, dynamicCount: 0, hasLessonContent: false };
-
-  const unlockedIds = new Set(getUnlockedLessons().map(lesson => lesson.id));
-  const unlockedLessons = lessons.filter(lesson => unlockedIds.has(lesson.id));
-  const cards = lessons.reduce((total, lesson) => total + (lesson.vocabulary?.length || 0), 0);
-  const questions = lessons.reduce((total, lesson) => total + (lesson.quiz?.length || 0), 0);
-  const completed = lessons.filter(lesson => getLessonProgress(lesson.id).completed).length;
-  return {
-    state: unlockedLessons.length ? "unlocked" : "locked",
-    completion: lessons.length ? Math.round((completed / lessons.length) * 100) : 0,
-    cards,
-    questions,
-    dynamicCount: 0,
-    hasLessonContent: true,
-  };
-}
-
-function getSmartReviewCount(key, appState) {
-  const weakWords = Array.isArray(appState?.vocabulary?.weakWords) ? appState.vocabulary.weakWords.length : 0;
-  const learned = Array.isArray(appState?.vocabulary?.learned) ? appState.vocabulary.learned.length : 0;
-  const favorites = Array.isArray(appState?.vocabulary?.savedPhrases) ? appState.vocabulary.savedPhrases.length : 0;
-  const counts = {
-    dueToday: 0,
-    weakWords,
-    recentlyMissed: 0,
-    favorites,
-    recentlyPracticed: 0,
-    dailyReview: weakWords,
-    difficultVerbs: 0,
-    difficultExpressions: 0,
-  };
-  return Number(counts[key] ?? (key === "learned" ? learned : 0));
-}
-
-function modeTab(mode, label, selected) {
-  return `<button class="practice-mode-tab mode-${mode} ${selected === mode ? "selected" : ""}" type="button" role="tab" aria-label="${label}" aria-selected="${selected === mode}" onclick="hablaPractice.selectMode('${mode}')"><span aria-hidden="true">${iconSvg(mode)}</span><small>${label}</small></button>`;
-}
-
-function renderSummary(session, topic, lesson) {
-  const mode = session.mode;
-  const definitions = {
-    quiz: ["Today's Focus", "Test your knowledge with multiple choice.", "Start Quiz"],
-    flashcards: ["Flashcards", "Review vocabulary from your available lesson.", "Start Flashcards"],
-    pronunciation: ["Pronunciation Practice", "Listen, record, and repeat useful phrases.", "Start Speaking"],
-    conversation: ["Speak with Carlos", "Use this topic as context for a focused conversation.", "Start Conversation"],
-  };
-  const [, description] = definitions[mode];
-  const action = practiceHeroAction(session, lesson);
-  const title = lesson ? "Today's Recommendation" : "Today's Practice";
-  const count = lesson ? getModeCount(mode, lesson) : 0;
-  const minutes = estimateMinutes(mode, count);
-  const objective = lesson?.objectives?.[0] || lesson?.objective || description;
-  const meta = mode === "conversation"
-    ? [{ icon: iconSvg("conversation"), text: "Topic ready" }]
-    : lesson
-      ? [
-          { icon: iconSvg(mode), text: `${count} ${unitForMode(mode, count)}` },
-          { icon: iconSvg("time"), text: `${minutes} Min` },
-        ]
-      : [{ icon: iconSvg("lock"), text: "Complete earlier lessons to unlock" }];
-
-  return renderLessonCover({
-    variant: "practice",
-    className: `mode-${mode}`,
-    lesson,
-    artworkAlt: `${topic.title} practice scene`,
-    eyebrow: title,
-    title: topic.title,
-    context: lesson ? "Continue your story" : "",
-    description: lesson || mode === "conversation" ? objective : "This topic is not available in your unlocked lessons yet.",
-    meta,
-    action: {
-      label: action,
-      attributes: `onclick="hablaPractice.start()"`,
-    },
-  });
-}
-
-function practiceHeroAction(session, lesson) {
-  if (session.mode === "conversation") return "Start Conversation";
-  if (session.mode === "pronunciation") return session.pronunciation?.index > 0 ? "Resume Speaking" : "Start Speaking";
-  if (session.mode === "flashcards") return session.flash?.lessonId === lesson?.id && session.flash.index > 0 ? "Continue Cards" : "Start Flashcards";
-  if (session.quiz?.lessonId === lesson?.id && session.quiz.index > 0) return "Continue Quiz";
-  if (session.lastCompletedMode === "quiz" && session.lastCompletedTopic === session.topic) return "Practice Again";
-  return "Start Quiz";
-}
-
-function renderPracticeNextStep(session, lesson) {
-  if (!lesson || session.lastCompletedTopic !== session.topic || !session.lastCompletedMode) return "";
-  const nextModes = {
-    flashcards: ["pronunciation", "Practice Pronunciation", "Say the phrases aloud while they are fresh."],
-    pronunciation: ["quiz", "Check What You Know", "Finish by testing the language you have reviewed."],
-  };
-  const next = nextModes[session.lastCompletedMode];
-  if (!next) return "";
-  const [mode, label, copy] = next;
-  return `<section class="practice-next-step" aria-label="Recommended next step">
-    <span aria-hidden="true">${iconSvg("quiz")}</span>
-    <div><small>Today&rsquo;s Study Plan</small><strong>${escapeHtml(label)}</strong><p>${escapeHtml(copy)}</p></div>
-    <button type="button" onclick="hablaPractice.selectMode('${mode}')" aria-label="${escapeAttr(label)}">${iconSvg("arrow-right")}</button>
-  </section>`;
-}
-
-function getPracticeLessonPercent(lesson) {
-  const progress = getLessonProgress(lesson?.id);
-  if (progress?.completed) return 100;
-  const value = Number(progress?.percent ?? progress?.completionPercent ?? progress?.progress ?? 0);
-  return Number.isFinite(value) ? Math.max(0, Math.min(100, Math.round(value))) : 0;
-}
-
-function renderActivityHeader(title) {
-  return `<header class="practice-activity-head"><button type="button" onclick="hablaPractice.back()" aria-label="Back to Practice">${iconSvg("arrow-left")}</button><h1>${title}</h1><span></span></header>`;
-}
-
-function renderTopicSummary(topic, lesson, current, total, mode) {
-  const percent = total ? Math.round((current / total) * 100) : 0;
-  return `<section class="practice-activity-summary mode-${mode}">
-    <span class="practice-topic-icon topic-${topic.icon}" aria-hidden="true">${iconSvg(topic.icon)}</span>
-    <div><strong>${topic.title}</strong><small>${lesson ? shortLessonTitle(lesson.title) : "Practice"}</small></div>
-    <div class="practice-summary-progress"><b>${current} / ${total}</b><i><span style="width:${percent}%"></span></i></div>
-  </section>`;
-}
-
-function renderQuizActivity(session, topic, lesson) {
-  ensureQuizSession(session, lesson);
-  const question = session.quiz.questions[session.quiz.index];
-  const total = session.quiz.questions.length;
-  const selected = session.quiz.selected;
-  return `<section class="practice-shell practice-activity quiz-activity">
-    ${renderActivityHeader(topic.title)}
-    <article class="practice-question-card">
-      <div class="practice-question-step"><span>Question ${session.quiz.index + 1} of ${total}</span><i><b style="width:${((session.quiz.index + 1) / total) * 100}%"></b></i></div>
-      <h2>${escapeHtml(question.prompt)}</h2>
-      <div class="practice-answer-list">${question.options.map((option, index) => {
-        const isCorrect = selected && option === question.answer;
-        const isWrong = selected === option && option !== question.answer;
-        return `<button type="button" class="practice-answer ${isCorrect ? "correct" : ""} ${isWrong ? "wrong" : ""}" ${selected ? "disabled" : ""} onclick="hablaPractice.answer(${index})"><span aria-hidden="true">${isCorrect ? iconSvg("quiz") : isWrong ? "&times;" : ""}</span>${escapeHtml(option)}</button>`;
-      }).join("")}</div>
+function renderFlashcards(session) {
+  const cards = session.flash?.cards || [];
+  const index = Math.min(Number(session.flash?.index || 0), Math.max(cards.length - 1, 0));
+  const card = cards[index];
+  if (!card) return renderFlashcardSetup(session);
+  const direction = session.flash.direction === "mixed" ? (index % 2 ? "english-spanish" : "spanish-english") : session.flash.direction;
+  const front = direction === "english-spanish" ? card.english : card.spanish;
+  const back = direction === "english-spanish" ? card.spanish : card.english;
+  const revealed = Boolean(session.flash.revealed);
+  if (session.flash.feedback) queueAutoAdvance(advanceFlash, 520);
+  return `<section class="practice-tool practice-flash-session">${toolHeader("Flashcards", "flashcards-setup")}
+    <div class="practice-flash-hud"><div><strong>${index + 1}</strong><span>of ${cards.length}</span></div><i aria-label="${Math.round(((index + 1) / cards.length) * 100)}% complete"><b style="width:${Math.round(((index + 1) / cards.length) * 100)}%"></b></i><div class="practice-mini-streak">${icon("flame")}<strong>${session.flash.streak || 0}</strong></div></div>
+    <article class="practice-review-card ${revealed ? "revealed" : ""}" tabindex="0" onclick="hablaPractice.revealCard()" onpointerdown="hablaPractice.pointerStart(event)" onpointerup="hablaPractice.flashPointerEnd(event)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();hablaPractice.revealCard()}" aria-label="${revealed ? `Revealed: ${escapeAttr(front)} means ${escapeAttr(back)}` : `Flashcard: ${escapeAttr(front)}. Activate to reveal`}">
+      <div class="practice-flash-glow" aria-hidden="true"></div><div class="practice-flash-inner"><div class="practice-flash-face practice-flash-front"><small>${direction === "english-spanish" ? "English" : "Spanish"}</small><h1>${escapeHtml(front)}</h1><button type="button" onclick="event.stopPropagation();hablaPractice.speak('${escapeJs(card.spanish)}')" aria-label="Hear ${escapeAttr(card.spanish)}">${icon("sound")}</button><p class="practice-reveal-hint">${icon("flip")} Tap to reveal</p></div><div class="practice-flash-face practice-flash-back"><div class="practice-flash-pair"><small>${direction === "english-spanish" ? "English" : "Spanish"}</small><strong>${escapeHtml(front)}</strong><small>${direction === "english-spanish" ? "Spanish" : "English"}</small><h1>${escapeHtml(back)}</h1></div><button type="button" onclick="event.stopPropagation();hablaPractice.speak('${escapeJs(card.spanish)}')" aria-label="Hear ${escapeAttr(card.spanish)}">${icon("sound")}</button>${card.exampleSpanish ? `<div class="practice-card-answer"><p>${escapeHtml(card.exampleSpanish)}<span>${escapeHtml(card.exampleEnglish || "")}</span></p></div>` : ""}</div></div>
     </article>
-    ${selected ? `<section class="practice-feedback ${selected === question.answer ? "correct" : "wrong"}"><strong>${selected === question.answer ? "Correct!" : "Keep going"}</strong><p>${selected === question.answer ? `“${escapeHtml(question.answer)}” is the right answer.` : `The correct answer is “${escapeHtml(question.answer)}”.`}</p></section>` : ""}
-    ${selected ? `<p class="practice-auto-advance">${session.quiz.index + 1 === total ? "Preparing your results" : "Next question coming up"}<i></i><i></i><i></i></p>` : ""}
+    ${revealed ? `<div class="practice-rating" aria-label="Rate this card"><button class="again" onclick="hablaPractice.rateCard('again')"><span>${icon("back")}</span><strong>Again</strong><small>Review soon</small></button><button class="hard" onclick="hablaPractice.rateCard('hard')"><span>${icon("alert")}</span><strong>Hard</strong><small>Needs work</small></button><button class="got-it" onclick="hablaPractice.rateCard('got-it')"><span>${icon("check")}</span><strong>Got it</strong><small>Keep going</small></button></div><div class="practice-flash-footer"><span>${icon("flame")} ${session.flash.streak || 0} in a row</span><strong>+15 XP max</strong></div><p class="practice-swipe-hint">Swipe to rate this card</p>` : ""}
+    ${session.flash.feedback ? practiceLiveFeedback(session.flash.feedback) : ""}
   </section>`;
 }
 
-function renderFlashcardActivity(session, topic, lesson) {
-  ensureFlashSession(session, lesson);
-  const cards = getCards(lesson);
-  const orderedCards = session.flash.order.map(index => cards[index]).filter(Boolean);
-  const card = orderedCards[session.flash.index];
-  const total = orderedCards.length;
-  return `<section class="practice-shell practice-activity flash-activity">
-    ${renderActivityHeader("Flashcards")}
-    ${renderTopicSummary(topic, lesson, session.flash.index + 1, total, "flashcards")}
-    <article class="practice-flashcard ${session.flash.flipped ? "flipped" : ""}" role="button" tabindex="0" onclick="hablaPractice.flip()" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();hablaPractice.flip()}" aria-label="Flip flashcard">
-      <span class="flash-star ${card.saved ? "is-saved" : ""}" aria-label="${card.saved ? "Saved phrase" : "Flashcard"}">${iconSvg("star")}</span>
-      <button class="flash-audio" type="button" tabindex="${session.flash.flipped ? "-1" : "0"}" data-phrase="${escapeAttr(card.spanish)}" onclick="event.stopPropagation();hablaPractice.speakCard(this)" onkeydown="event.stopPropagation()" aria-label="Hear pronunciation" title="Hear pronunciation">${iconSvg("volume")}</button>
-      <span class="flash-front" aria-hidden="${session.flash.flipped}"><strong>${escapeHtml(card.spanish)}</strong><span class="flash-hear-label">Tap to hear pronunciation</span><small>Tap card to flip</small></span>
-      <span class="flash-back" aria-hidden="${!session.flash.flipped}">
-        <strong class="flash-meaning">${escapeHtml(card.english)}</strong>
-        <span class="flash-term">${escapeHtml(card.spanish)}</span>
-        ${card.exampleSpanish ? `<i class="flash-divider" aria-hidden="true"></i><span class="flash-example-head"><em class="flash-example-label">Example</em><button class="flash-example-audio" type="button" tabindex="${session.flash.flipped ? "0" : "-1"}" data-phrase="${escapeAttr(card.exampleSpanish)}" onclick="event.stopPropagation();hablaPractice.speakExample(this)" onkeydown="event.stopPropagation()" aria-label="Hear example sentence" title="Hear example sentence">${iconSvg("volume")}</button></span><p class="flash-example-spanish">${escapeHtml(card.exampleSpanish)}</p><p class="flash-example-english">${escapeHtml(card.exampleEnglish || "")}</p>` : ""}
-        ${card.tip ? `<small>${escapeHtml(card.tip)}</small>` : ""}
-      </span>
+function renderVerbTrainer(session) {
+  const selected = session.verbId || PRACTICE_VERBS[0].id;
+  const activeVerb = getVerb(selected);
+  return `<section class="practice-tool">${toolHeader("Verb Trainer")}
+    <header class="practice-tool-intro accent-purple"><span>${icon("verbs")}</span><div><small>Verb trainer</small><h1>Build fast recall</h1><p>Choose a verb, scan the pattern, then train it.</p></div></header>
+    <section class="practice-picker practice-verb-picker"><div class="practice-picker-title"><h2>Choose a verb</h2><span>Present tense</span></div><div class="practice-verb-grid">${PRACTICE_VERBS.map(verb => `<button type="button" class="${selected === verb.id ? "selected" : ""}" onclick="hablaPractice.selectVerb('${verb.id}')" aria-pressed="${selected === verb.id}"><strong>${escapeHtml(verb.infinitive)}</strong><small>${escapeHtml(verb.english)}</small></button>`).join("")}</div></section>
+    <section class="practice-verb-preview"><header><span>${icon("verbs")}</span><div><small>${escapeHtml(activeVerb.infinitive)} · present</small><h2>${escapeHtml(activeVerb.english)}</h2></div></header><div class="practice-conjugation-strip">${VERB_SUBJECTS.map((subject,index) => `<span><b>${escapeHtml(subject)}</b><strong>${escapeHtml(activeVerb.present[index])}</strong></span>`).join("")}</div></section>
+    <button class="practice-cta practice-tool-cta" type="button" onclick="hablaPractice.startVerbDrill()">${icon("verbs")}<span>Start verb drill</span>${icon("arrow")}</button>
+  </section>`;
+}
+
+function renderVerbDrill(session) {
+  const drill = session.verbDrill;
+  if (!drill?.questions?.length) return renderVerbTrainer(session);
+  const question = drill.questions[drill.index];
+  const answered = drill.selected !== undefined && drill.selected !== null;
+  const correct = answered && normalize(drill.selected) === normalize(question.answer);
+  if (drill.feedback) queueAutoAdvance(advanceVerb, drill.feedback.type === "correct" ? 700 : 1100);
+  return `<section class="practice-tool practice-rapid-drill practice-verb-drill">${toolHeader("Verb Trainer", "verbs")}<div class="practice-live-head"><span>${drill.index + 1} / ${drill.questions.length}</span><i><b style="width:${Math.round(((drill.index + 1) / drill.questions.length) * 100)}%"></b></i><strong>${icon("flame")} ${drill.streak || 0}</strong></div>
+    <article class="practice-drill-card ${answered ? (correct ? "is-correct" : "is-incorrect") : ""}"><header><span>${icon("verbs")}</span><small>${escapeHtml(question.infinitive.toUpperCase())} · PRESENT</small></header><div class="practice-subject-cue">${escapeHtml(question.subject)}</div><h1>${escapeHtml(answered ? completedPrompt(question.prompt, question.answer) : question.prompt)}</h1><p>Choose the correct present-tense form.</p>
+      ${question.type === "fill" ? (!answered ? `<form onsubmit="event.preventDefault();hablaPractice.answerVerbText(this.answer.value)"><label><span>Type the conjugation</span><input name="answer" type="text" autocomplete="off" autocapitalize="none" required></label><button class="practice-cta" type="submit"><span>Check answer</span>${icon("arrow")}</button></form>` : "") : `<div class="practice-answer-grid">${question.options.map(option => answerButton(option, question.answer, drill.selected, "answerVerb")).join("")}</div>`}
+      ${answered ? feedback(correct, completedPrompt(question.prompt, question.answer), `Correct form: ${question.answer}.`) : ""}
+      ${drill.feedback ? practiceLiveFeedback(drill.feedback) : ""}
     </article>
-    <div class="practice-card-nav"><button type="button" onclick="hablaPractice.prevCard()" aria-label="Previous card">${iconSvg("arrow-left")}</button><strong>${session.flash.index + 1} / ${total}</strong><button type="button" onclick="hablaPractice.nextCard()" aria-label="Next card">${iconSvg("arrow-right")}</button></div>
-    <button class="practice-secondary" type="button" onclick="hablaPractice.shuffleCards()">${iconSvg("shuffle", "button-icon")}<span class="button-label">Shuffle Cards</span></button>
   </section>`;
 }
 
-function renderPronunciationActivity(session, topic, lesson) {
-  ensurePronunciationSession(session, lesson);
-  const exercises = getPronunciation(lesson);
-  const item = exercises[session.pronunciation.index];
-  const total = exercises.length;
-  return `<section class="practice-shell practice-activity pronunciation-activity">
-    ${renderActivityHeader("Pronunciation")}
-    ${renderTopicSummary(topic, lesson, session.pronunciation.index + 1, total, "pronunciation")}
-    <div class="pronunciation-stage">
-      <span>Listen and repeat</span><h2>${escapeHtml(item.text)}</h2>
-      ${item.english ? `<p>${escapeHtml(item.english)}</p>` : ""}
-      <button class="pron-listen" type="button" data-phrase="${escapeAttr(item.text)}" onclick="hablaPractice.speak(this.dataset.phrase)" aria-label="Listen to phrase">${iconSvg("volume")}</button>
-      <button class="pron-mic ${session.pronunciation.recording ? "recording" : ""}" type="button" onclick="hablaPractice.toggleRecording()"><span>${iconSvg("pronunciation")}</span><small>${session.pronunciation.recording ? "Tap to stop" : "Tap to record"}</small></button>
-      <div class="pron-status" aria-live="polite">${escapeHtml(session.pronunciation.message || "Speak now when you’re ready.")}</div>
-      <audio class="pron-playback" controls ${playbackUrl ? `src="${escapeAttr(playbackUrl)}"` : "hidden"}></audio>
-      <div class="pron-wave" aria-hidden="true">${Array.from({length: 26}, (_, i) => `<i style="height:${8 + ((i * 11) % 27)}px"></i>`).join("")}</div>
-      ${item.note ? `<small class="pron-note">${escapeHtml(item.note)}</small>` : ""}
-    </div>
-    <div class="pron-actions"><button type="button" data-phrase="${escapeAttr(item.text)}" onclick="hablaPractice.speak(this.dataset.phrase)">${iconSvg("replay", "button-icon")}<span>Listen Again</span></button><button type="button" onclick="hablaPractice.nextPronunciation()"><span>${session.pronunciation.index + 1 === total ? "Finish" : "Next"}</span>${iconSvg("arrow-right", "button-icon")}</button></div>
-  </section>`;
+function renderGames() {
+  const scores = readPracticeState().gameScores;
+  return `<section class="practice-tool practice-games-landing">${toolHeader("Quick Games")}<header class="practice-tool-intro accent-orange"><span>${icon("games")}</span><div><small>Quick games</small><h1>Play with Spanish</h1><p>Pick a fast challenge and beat your best.</p></div></header><div class="practice-game-list">
+    ${gameCard("word-match", "match", "Word Match", "Match Spanish words to their meanings.", scores["word-match"]?.best)}
+    ${gameCard("sentence-builder", "sentence", "Sentence Builder", "Put useful phrases in the right order.", scores["sentence-builder"]?.best)}
+    ${gameCard("speed-round", "timer", "Speed Round", "Answer as many as you can in 60 seconds.", scores["speed-round"]?.best)}
+    ${gameCard("conjugation-sprint", "sprint", "Conjugation Sprint", "Race through rapid verb forms.", scores["conjugation-sprint"]?.best)}
+  </div></section>`;
 }
 
-function renderLockedActivity(session, topic) {
-  return `<section class="practice-shell practice-activity">${renderActivityHeader(modeTitle(session.mode))}<div class="practice-locked-state"><span>${iconSvg("lock")}</span><h2>${topic.title} practice is still locked</h2><p>Continue your lessons to unlock real ${topic.title.toLowerCase()} vocabulary and exercises.</p><button class="practice-primary" onclick="hablaPractice.back()"><span class="button-label">Back to Practice</span>${iconSvg("arrow-right", "button-icon")}</button></div></section>`;
+function gameCard(route, iconName, title, description, score = 0) {
+  const preview = route === "word-match" ? `<i></i><i></i><i></i><i></i>` : route === "sentence-builder" ? `<i></i><i></i><i></i>` : route === "speed-round" ? `<b>30</b>` : `<b>${icon("flame")}</b>`;
+  return `<button class="game-${route}" type="button" onclick="hablaPractice.startGame('${route}')"><header><span>${icon(iconName)}</span><small>${score ? `Best · ${score}` : "New game"}</small></header><div class="practice-game-preview" aria-hidden="true">${preview}</div><div><strong>${title}</strong><p>${description}</p></div><span class="practice-play-arrow">${icon("arrow")}</span></button>`;
 }
 
-function renderNoDataActivity(session, topic, lesson) {
-  return `<section class="practice-shell practice-activity">${renderActivityHeader(modeTitle(session.mode))}<div class="practice-locked-state"><span>${iconSvg("lock")}</span><h2>No ${modeTitle(session.mode).toLowerCase()} material yet</h2><p>${escapeHtml(shortLessonTitle(lesson.title))} does not include this practice type. Nothing unrelated has been substituted.</p><button class="practice-primary" onclick="hablaPractice.back()"><span class="button-label">Back to Practice</span>${iconSvg("arrow-right", "button-icon")}</button></div></section>`;
+function renderWordMatch(session) {
+  if (!session.match?.pairs?.length) return renderGames();
+  const game = session.match;
+  if (game.matched.length === game.pairs.length) return renderInlineGameComplete("Word Match", game.pairs.length, game.mistakes, "word-match");
+  if (game.lastResult) queueAutoAdvance(() => clearMatchFeedback(game.lastResult.type === "correct"), game.lastResult.type === "correct" ? 420 : 520);
+  const elapsed = Math.max(0, Math.floor((Date.now() - game.startedAt) / 1000));
+  const tileButton = (tile, index) => `<button type="button" class="${game.selected === index ? "selected" : ""} ${game.matched.includes(tile.pairId) ? "matched" : ""} ${game.lastResult?.indexes?.includes(index) ? game.lastResult.type : ""}" onclick="hablaPractice.selectMatch(${index})" ${game.matched.includes(tile.pairId) || game.lastResult ? "disabled" : ""}>${escapeHtml(tile.text)}</button>`;
+  const spanishTiles = game.tiles.map((tile,index) => ({tile,index})).filter(item => item.tile.side === "es");
+  const englishTiles = game.tiles.map((tile,index) => ({tile,index})).filter(item => item.tile.side === "en");
+  return `<section class="practice-tool practice-game practice-match-game">${toolHeader("Word Match", "games")}<div class="practice-game-hud"><div><small>Matched</small><strong>${game.matched.length}<span>/${game.pairs.length}</span></strong></div><div><small>Time</small><strong>${elapsed}<span>s</span></strong></div><div><small>Mistakes</small><strong>${game.mistakes}</strong></div></div><header class="practice-game-heading"><small>Quick game</small><h1>Match each pair</h1><p>Choose one tile from each language.</p></header><div class="practice-match-board"><section><h2>Spanish</h2>${spanishTiles.map(({tile,index}) => tileButton(tile,index)).join("")}</section><i aria-hidden="true"></i><section><h2>English</h2>${englishTiles.map(({tile,index}) => tileButton(tile,index)).join("")}</section></div>${game.lastResult ? practiceLiveFeedback(game.lastResult) : ""}</section>`;
 }
 
-function renderResults(session, topic, lesson) {
-  const total = session.quiz?.questions?.length || 0;
-  const score = session.quiz?.score || 0;
-  const percent = total ? Math.round((score / total) * 100) : 0;
-  return `<section class="practice-shell practice-activity practice-results">${renderActivityHeader("Results")}<div class="results-card"><span>Session complete</span><strong>${percent}%</strong><h2>${topic.title} Quiz</h2><p>${score} of ${total} correct</p><button class="practice-primary" onclick="hablaPractice.restartQuiz()"><span class="button-label">Practice Again</span>${iconSvg("replay", "button-icon")}</button><button class="practice-secondary" onclick="hablaPractice.back()">${iconSvg("arrow-left", "button-icon")}<span class="button-label">Back to Practice</span></button></div></section>`;
+function renderSentenceBuilder(session) {
+  const game = session.sentence;
+  if (!game?.items?.length) return renderGames();
+  if (game.index >= game.items.length) return renderInlineGameComplete("Sentence Builder", game.correct, game.items.length - game.correct, "sentence-builder");
+  const item = game.items[game.index];
+  if (game.feedback) queueAutoAdvance(() => game.feedback === "correct" ? advanceSentence() : retrySentence(), game.feedback === "correct" ? 700 : 1050);
+  return `<section class="practice-tool practice-game practice-builder-game">${toolHeader("Sentence Builder", "games")}<div class="practice-live-head"><span>${game.index + 1} / ${game.items.length}</span><i><b style="width:${Math.round(((game.index + 1) / game.items.length) * 100)}%"></b></i><strong>${icon("flame")} ${game.streak || 0}</strong></div><article class="practice-builder ${game.feedback ? `is-${game.feedback}` : ""}"><header><small>Build the Spanish</small><h1>${escapeHtml(item.english)}</h1></header><section class="practice-construction-zone"><small>Your sentence</small><div class="practice-answer-row" aria-label="Your sentence" ondragover="event.preventDefault()" ondrop="hablaPractice.dropToken(event)">${game.answer.length ? game.answer.map((token,index) => `<button type="button" onclick="hablaPractice.returnToken(${index})">${escapeHtml(token)}</button>`).join("") : `<span>Tap words to build your answer</span>`}</div></section><section class="practice-word-bank"><small>Available words</small><div class="practice-token-bank">${game.bank.map((token,index) => `<button type="button" draggable="true" ondragstart="hablaPractice.dragToken(event,${index})" onclick="hablaPractice.useToken(${index})">${escapeHtml(token)}</button>`).join("")}</div></section><div class="practice-builder-actions"><button type="button" onclick="hablaPractice.resetSentence()">${icon("retry")} Reset</button><button class="practice-cta" type="button" onclick="hablaPractice.checkSentence()" ${game.answer.length || game.feedback ? "" : "disabled"}>Check answer${icon("check")}</button></div>${game.feedback ? `<div class="practice-builder-result ${game.feedback}" role="status" aria-live="polite"><span>${icon(game.feedback === "correct" ? "spark" : "retry")}</span><div><strong>${game.feedback === "correct" ? "¡Excelente!" : "Try that order again"}</strong><small>${game.feedback === "correct" ? "+10 XP" : `Correct sentence: ${escapeHtml(item.spanish)}`}</small></div></div>` : ""}</article></section>`;
 }
 
-function getLessonForTopic(slug) {
-  const topic = TOPICS[slug] || TOPICS.greetings;
-  const unlocked = getUnlockedLessons();
-  return topic.lessons.map(id => unlocked.find(lesson => lesson.id === id)).find(Boolean) || null;
+function renderSpeedRound(session) {
+  const game = session.speed;
+  if (!game?.questions?.length) return renderGames();
+  const remaining = Math.max(0, Math.ceil((game.deadline - Date.now()) / 1000));
+  if (!remaining || game.complete) return renderInlineGameComplete("Speed Round", game.correct, game.missed, "speed-round");
+  const question = game.questions[game.index % game.questions.length];
+  queueSpeedTick();
+  if (game.feedback) queueAutoAdvance(() => advanceTimedGame("speed"), game.feedback.type === "correct" ? 260 : 520);
+  return `<section class="practice-tool practice-game practice-timed-game speed-theme">${toolHeader("Speed Round", "games")}${renderTimedHud(game, remaining, readPracticeState().gameScores["speed-round"]?.best || 0)}<div class="practice-combo">${icon("flame")}<strong>${game.streak} streak</strong>${game.multiplier > 1 ? `<b>×${game.multiplier} XP</b>` : `<span>Build your combo</span>`}</div><article class="practice-speed-card ${game.feedback ? `is-${game.feedback.type}` : ""}"><small>Choose the Spanish</small><h1>${escapeHtml(question.english)}</h1><div class="practice-answer-grid">${question.options.map(option => `<button type="button" onclick="hablaPractice.answerSpeed('${escapeJs(option)}')" ${game.feedback ? "disabled" : ""}>${escapeHtml(option)}</button>`).join("")}</div>${game.feedback ? practiceLiveFeedback(game.feedback) : ""}</article></section>`;
 }
 
-function getCards(lesson) {
-  const seen = new Set();
-  const saved = Array.isArray(state.vocabulary?.savedPhrases)
-    ? state.vocabulary.savedPhrases.filter(item => item?.sourceLessonId === lesson?.id)
-    : [];
-  return [...saved, ...(lesson?.vocabulary || [])]
-    .filter(item => item?.spanish && item?.english && !seen.has(item.spanish.toLowerCase()) && seen.add(item.spanish.toLowerCase()))
-    .map(item => ({
-      spanish: item.spanish,
-      english: item.english,
-      exampleSpanish: item.exampleSpanish,
-      exampleEnglish: item.exampleEnglish,
-      tip: item.tip,
-      saved: Boolean(item.key),
-    }));
+function renderConjugationSprint(session) {
+  const game = session.sprint;
+  if (!game?.questions?.length) return renderGames();
+  const remaining = Math.max(0, Math.ceil((game.deadline - Date.now()) / 1000));
+  if (!remaining || game.complete) return renderInlineGameComplete("Conjugation Sprint", game.correct, game.missed, "conjugation-sprint");
+  const question = game.questions[game.index % game.questions.length];
+  queueSpeedTick("sprint");
+  if (game.feedback) queueAutoAdvance(() => advanceTimedGame("sprint"), game.feedback.type === "correct" ? 260 : 520);
+  return `<section class="practice-tool practice-game practice-timed-game sprint-theme">${toolHeader("Conjugation Sprint", "games")}${renderTimedHud(game, remaining, readPracticeState().gameScores["conjugation-sprint"]?.best || 0)}<div class="practice-combo">${icon("flame")}<strong>${game.streak} streak</strong>${game.multiplier > 1 ? `<b>×${game.multiplier} XP</b>` : `<span>Keep the pace</span>`}</div><article class="practice-speed-card accent-purple ${game.feedback ? `is-${game.feedback.type}` : ""}"><small>${escapeHtml(question.infinitive.toUpperCase())} · PRESENT</small><div class="practice-subject-cue">${escapeHtml(question.subject)}</div><h1>${escapeHtml(question.prompt)}</h1><div class="practice-answer-grid">${question.options.map(option => `<button type="button" onclick="hablaPractice.answerSprint('${escapeJs(option)}')" ${game.feedback ? "disabled" : ""}>${escapeHtml(option)}</button>`).join("")}</div>${game.feedback ? practiceLiveFeedback(game.feedback) : ""}</article></section>`;
 }
 
-function getPronunciation(lesson) {
-  const vocab = lesson?.vocabulary || [];
-  const listening = lesson?.listeningPhrases || [];
-  return (lesson?.pronunciation?.items || []).map(raw => {
-    const item = typeof raw === "string" ? { text: raw, note: "" } : raw;
-    const normalized = normalize(item.text);
-    const word = vocab.find(entry => normalize(entry.spanish) === normalized);
-    const phrase = listening.find(entry => normalize(entry.spanish) === normalized);
-    return { text: item.text, note: item.note || "", english: word?.english || phrase?.english || "" };
-  }).filter(item => item.text);
+function renderTimedHud(game, remaining, best) {
+  return `<div class="practice-speed-head"><div><small>Score</small><strong>${game.correct}</strong></div><span class="practice-timer-ring" style="--time:${remaining}"><b data-speed-time>${remaining}</b><small>seconds</small></span><div><small>Best</small><strong>${best}</strong></div></div>`;
 }
 
-function getModeCount(mode, lesson) {
-  if (mode === "flashcards") return getCards(lesson).length;
-  if (mode === "pronunciation") return getPronunciation(lesson).length;
-  if (mode === "conversation") return 1;
-  return (lesson?.quiz || []).length;
+function renderGrammarLab() {
+  const store = readPracticeState();
+  return `<section class="practice-tool practice-grammar-landing">${toolHeader("Grammar Lab")}<header class="practice-tool-intro accent-blue"><span>${icon("grammar")}</span><div><small>Grammar lab</small><h1>Patterns that unlock Spanish</h1><p>Short drills with immediate, useful feedback.</p></div></header><div class="practice-grammar-list">${GRAMMAR_TOPICS.map((topic,index) => { const spot = store.weakSpots[`grammar-${topic.id}`]; const progress = Math.min(topic.drills.length, Number(spot?.correct || 0)); const percent = topic.drills.length ? Math.round((progress / topic.drills.length) * 100) : 0; return `<button type="button" class="accent-${topic.accent}" onclick="hablaPractice.startGrammar('${topic.id}')"><span>${icon(grammarIcon(topic.id))}</span><div><small>Topic ${String(index + 1).padStart(2,"0")}</small><strong>${escapeHtml(topic.title)}</strong><p>${escapeHtml(topic.subtitle)}</p><i aria-label="${percent}% mastered"><b style="width:${percent}%"></b></i></div><em>${progress}/${topic.drills.length}</em>${icon("arrow")}</button>`; }).join("")}</div></section>`;
 }
 
-function unitForMode(mode, count) {
-  if (mode === "flashcards") return count === 1 ? "card" : "cards";
-  if (mode === "pronunciation") return count === 1 ? "exercise" : "exercises";
-  if (mode === "conversation") return "conversation";
-  return count === 1 ? "question" : "questions";
+function renderGrammarDrill(session) {
+  const drill = session.grammarDrill;
+  if (!drill) return renderGrammarLab();
+  const topic = getGrammarTopic(drill.topicId);
+  if (drill.index >= topic.drills.length) return renderInlineGameComplete(topic.title, drill.correct, topic.drills.length - drill.correct, "grammar");
+  const question = topic.drills[drill.index];
+  const answered = drill.selected !== null && drill.selected !== undefined;
+  const correct = answered && normalize(drill.selected) === normalize(question.answer);
+  if (drill.feedback) queueAutoAdvance(advanceGrammar, drill.feedback.type === "correct" ? 700 : 1150);
+  const hearts = Math.max(0, 3 - drill.missed);
+  return `<section class="practice-tool practice-rapid-drill practice-grammar-drill">${toolHeader(topic.title, "grammar")}<div class="practice-live-head"><span>${drill.index + 1} / ${topic.drills.length}</span><i><b style="width:${Math.round(((drill.index + 1) / topic.drills.length) * 100)}%"></b></i><strong class="practice-hearts" aria-label="${hearts} hearts remaining">${[0,1,2].map(index => icon(index < hearts ? "heart" : "heart-empty")).join("")}</strong></div><article class="practice-drill-card ${answered ? (correct ? "is-correct" : "is-incorrect") : ""}"><header><span>${icon(grammarIcon(topic.id))}</span><small>${escapeHtml(topic.title)}</small></header><h1>${escapeHtml(answered && correct ? completedPrompt(question.prompt, question.answer) : question.prompt)}</h1><div class="practice-answer-grid">${question.options.map(option => answerButton(option, question.answer, drill.selected, "answerGrammar")).join("")}</div>${answered ? feedback(correct, question.explanation, question.explanation) : ""}${drill.feedback ? practiceLiveFeedback(drill.feedback) : ""}</article></section>`;
 }
 
-function estimateMinutes(mode, count) { return Math.max(2, Math.ceil(count * (mode === "pronunciation" ? .7 : .45))); }
+function renderSavedWords() {
+  const words = getSavedWords();
+  return `<section class="practice-tool">${toolHeader("Saved Words")}<header class="practice-tool-intro"><span>${icon("bookmark")}</span><div><small>Saved collection</small><h1>${words.length} saved ${words.length === 1 ? "phrase" : "phrases"}</h1><p>Everything you marked during lessons is ready for review.</p></div></header>${words.length ? `<div class="practice-word-list">${words.map(word => `<article><div><strong>${escapeHtml(word.spanish)}</strong><span>${escapeHtml(word.english)}</span></div><button type="button" onclick="hablaPractice.speak('${escapeJs(word.spanish)}')" aria-label="Hear ${escapeAttr(word.spanish)}">${icon("sound")}</button><button type="button" onclick="hablaPractice.removeSavedWord('${escapeJs(word.key)}')" aria-label="Remove ${escapeAttr(word.spanish)} from Saved Words">${icon("close")}</button></article>`).join("")}</div><button class="practice-cta practice-tool-cta" onclick="hablaPractice.open('flashcards-setup','saved')">${icon("cards")}<span>Review saved words</span>${icon("arrow")}</button>` : emptyState("bookmark", "No saved words yet", "Use the bookmark on lesson vocabulary to build this collection.")}</section>`;
+}
 
-function ensureQuizSession(session, lesson, force = false) {
-  if (!force && session.quiz?.lessonId === lesson.id && session.quiz.questions?.length) return;
-  const questions = (lesson.quiz || []).map((question, index, all) => {
-    let options = Array.isArray(question.options) ? [...question.options] : [];
-    options = [question.answer, ...options.filter(option => option !== question.answer)];
-    const pool = [...all.map(item => item.answer), ...getCards(lesson).map(item => item.english)].filter(Boolean);
-    for (const option of shuffle(pool)) if (options.length < 4 && !options.includes(option)) options.push(option);
-    return { prompt: question.prompt || "Choose the correct answer.", answer: question.answer, options: shuffle(options.slice(0, 4)) };
+function renderSavedQuestions() {
+  const items = getSavedQuizReviewQuestions();
+  return `<section class="practice-tool">${toolHeader("Saved Questions")}<header class="practice-tool-intro accent-blue"><span>${icon("question")}</span><div><small>Saved collection</small><h1>${items.length} saved ${items.length === 1 ? "question" : "questions"}</h1><p>Questions you bookmarked during an episode, with the answer ready when you need it.</p></div></header>${items.length ? `<div class="practice-question-list">${items.map(item => {
+    const prompt = item.question?.prompt || "Saved question";
+    const answer = item.question?.answer || item.question?.correctAnswer || "";
+    const explanation = item.question?.explanation || "";
+    return `<article><small>${escapeHtml(item.lessonTitle || "Episode review")}</small><h2>${escapeHtml(prompt)}</h2>${answer ? `<p><strong>Answer:</strong> ${escapeHtml(answer)}</p>` : ""}${explanation ? `<p>${escapeHtml(explanation)}</p>` : ""}<button type="button" onclick="hablaPractice.removeSavedQuestion('${escapeJs(item.lessonId)}',${Number(item.questionIndex)})" aria-label="Remove saved question from ${escapeAttr(item.lessonTitle || "episode")}">${icon("close")}<span>Remove</span></button></article>`;
+  }).join("")}</div>` : emptyState("question", "No saved questions yet", "Bookmark a difficult quiz question and it will appear here for later review.")}</section>`;
+}
+
+function renderNeedsPractice() {
+  const cards = getNeedsPracticeCards();
+  return `<section class="practice-tool">${toolHeader("Needs Practice")}<header class="practice-tool-intro accent-orange"><span>${icon("retry")}</span><div><small>Adaptive collection</small><h1>${cards.length} ${cards.length === 1 ? "card" : "cards"} to revisit</h1><p>Words you rated Again during lessons or Practice appear here.</p></div></header>${cards.length ? `<div class="practice-word-list">${cards.map(card => `<article><div><strong>${escapeHtml(card.spanish)}</strong><span>${escapeHtml(card.english)}</span></div><button type="button" onclick="hablaPractice.speak('${escapeJs(card.spanish)}')" aria-label="Hear ${escapeAttr(card.spanish)}">${icon("sound")}</button><button type="button" onclick="hablaPractice.markLearned('${escapeJs(card.key)}','${escapeJs(card.lessonId || "")}','${escapeJs(normalize(card.spanish))}')" aria-label="Mark ${escapeAttr(card.spanish)} learned">${icon("check")}</button></article>`).join("")}</div><button class="practice-cta practice-tool-cta" onclick="hablaPractice.startNeedsPractice()">${icon("cards")}<span>Review difficult cards</span>${icon("arrow")}</button>` : emptyState("check", "Nothing needs extra practice", "Cards you rate Again will appear here automatically.")}</section>`;
+}
+
+function renderReviewSummary(session) {
+  const summary = session.summary || { title: "Review complete", answered: 0, correct: 0, missed: 0, returnView: "hub" };
+  const accuracy = summary.answered ? Math.round((summary.correct / summary.answered) * 100) : 0;
+  return `<section class="practice-tool practice-summary-screen">${toolHeader("Review Summary", summary.returnView || "hub")}<div class="practice-summary-ring" style="--accuracy:${accuracy}"><span><strong>${accuracy}%</strong><small>accuracy</small></span></div><small>Session complete</small><h1>${escapeHtml(summary.title)}</h1><dl><div><dt>${summary.answered}</dt><dd>answered</dd></div><div><dt>${summary.correct}</dt><dd>correct</dd></div><div><dt>${summary.missed}</dt><dd>missed</dd></div></dl><button class="practice-cta" type="button" onclick="hablaPractice.continuePractice()"><span>Continue practising</span>${icon("arrow")}</button><button class="practice-secondary-action" type="button" onclick="hablaPractice.open('hub')">Back to Practice</button></section>`;
+}
+
+function renderInlineGameComplete(title, correct, missed, gameId) {
+  return `<section class="practice-tool practice-inline-complete">${toolHeader(title, gameId === "grammar" ? "grammar" : "games")}<span>${icon("trophy")}</span><h1>${escapeHtml(title)} complete</h1><p>${correct} correct · ${missed} missed</p><button class="practice-cta" type="button" onclick="hablaPractice.finishInlineGame('${gameId}',${correct},${missed})"><span>View summary</span>${icon("arrow")}</button></section>`;
+}
+
+function toolHeader(title, backView = "hub") {
+  return `<header class="practice-tool-header"><button type="button" onclick="hablaPractice.open('${backView}')" aria-label="Back">${icon("back")}</button><h2>${escapeHtml(title)}</h2><span aria-hidden="true"></span></header>`;
+}
+
+function drillProgress(index, total, correct, label) {
+  return `<div class="practice-session-progress"><span>${escapeHtml(label)} · ${index + 1} / ${total}</span><small>${correct} correct</small><i><b style="width:${Math.round((index / total) * 100)}%"></b></i></div>`;
+}
+
+function answerButton(option, answer, selected, action) {
+  const answered = selected !== null && selected !== undefined;
+  const isCorrect = answered && normalize(option) === normalize(answer);
+  const isWrong = answered && normalize(option) === normalize(selected) && !isCorrect;
+  return `<button type="button" class="${isCorrect ? "correct" : ""} ${isWrong ? "wrong" : ""}" onclick="hablaPractice.${action}('${escapeJs(option)}')" ${answered ? "disabled" : ""}>${escapeHtml(option)}${isCorrect ? icon("check") : isWrong ? icon("close") : ""}</button>`;
+}
+
+function feedback(correct, correctCopy, incorrectCopy) {
+  return `<div class="practice-feedback ${correct ? "correct" : "incorrect"}" role="status" aria-live="polite"><span>${icon(correct ? "check" : "close")}</span><div><strong>${correct ? "¡Correcto!" : "Not quite."}</strong><p>${escapeHtml(correct ? correctCopy : incorrectCopy)}</p></div></div>`;
+}
+
+function emptyState(iconName, title, copy) { return `<div class="practice-empty"><span>${icon(iconName)}</span><div><strong>${escapeHtml(title)}</strong><p>${escapeHtml(copy)}</p></div></div>`; }
+
+function getNeedsPracticeCards() {
+  const vocabulary = getPracticeVocabulary();
+  return vocabulary.filter(card => {
+    const schedule = readPracticeState().cards[card.key];
+    const lessonConfidence = card.lessonId ? getLessonProgress(card.lessonId).flashcardConfidence?.[normalize(card.spanish)] : null;
+    return schedule?.rating === "again" || lessonConfidence === "again";
   });
-  session.quiz = { lessonId: lesson.id, questions: shuffle(questions), index: 0, score: 0, selected: "" };
-  writeSession(session);
-}
-
-function ensureFlashSession(session, lesson, force = false) {
-  const cards = getCards(lesson);
-  const lessonVersion = `${lesson.id}:${lesson.contentVersion || "1"}`;
-  if (!force && session.flash?.lessonId === lesson.id && session.flash.lessonVersion === lessonVersion && session.flash.order?.length === cards.length) return;
-  const flashcardConfig = Array.isArray(lesson.flashcards) ? lesson.flashcards[0] : lesson.flashcards;
-  const order = cards.map((_, index) => index);
-  session.flash = { lessonId: lesson.id, lessonVersion, order: flashcardConfig?.shuffle ? shuffle(order) : order, index: 0, flipped: false };
-  writeSession(session);
-}
-
-function readPracticeHistory() {
-  try {
-    const history = JSON.parse(localStorage.getItem(PRACTICE_HISTORY_KEY) || "[]");
-    return Array.isArray(history) ? history : [];
-  } catch { return []; }
-}
-
-function recordPracticeActivity(mode, topicId, detail) {
-  const topic = TOPICS[topicId];
-  if (!topic) return;
-  const labels = { quiz: "Quiz", flashcards: "Flashcards", pronunciation: "Pronunciation" };
-  const history = readPracticeHistory();
-  history.unshift({ mode, title: `${topic.title} ${labels[mode] || "Practice"}`, detail, completedAt: new Date().toISOString() });
-  localStorage.setItem(PRACTICE_HISTORY_KEY, JSON.stringify(history.slice(0, 20)));
-}
-
-function relativePracticeDate(value) {
-  const date = new Date(value);
-  if (Number.isNaN(date.getTime())) return "Recently";
-  const now = new Date();
-  const today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
-  const activityDay = new Date(date.getFullYear(), date.getMonth(), date.getDate());
-  const difference = Math.round((today - activityDay) / 86400000);
-  if (difference === 0) return "Today";
-  if (difference === 1) return "Yesterday";
-  return new Intl.DateTimeFormat(undefined, { month: "short", day: "numeric" }).format(date);
-}
-
-function ensurePronunciationSession(session, lesson) {
-  if (session.pronunciation?.lessonId === lesson.id) return;
-  session.pronunciation = { lessonId: lesson.id, index: 0, recording: false, message: "" };
-  writeSession(session);
-}
-
-function readLibraryProgress() {
-  try { return JSON.parse(localStorage.getItem(LIBRARY_PROGRESS_KEY) || "{}"); } catch { return {}; }
-}
-
-function getLibraryItemProgress(categoryId, itemId) {
-  const saved = readLibraryProgress()[`${categoryId}:${itemId}`] || {};
-  const modes = {
-    "mini-lessons": Number(saved["mini-lessons"] || 0),
-    flashcards: Number(saved.flashcards || 0),
-    quiz: Number(saved.quiz || 0),
-    conjugation: Number(saved.conjugation || 0),
-  };
-  const overall = Math.round(Object.values(modes).reduce((sum, value) => sum + value, 0) / Object.keys(modes).length);
-  return { modes, overall };
-}
-
-function saveLibraryModeProgress(categoryId, itemId, mode, value) {
-  if (!categoryId || !itemId) return;
-  const normalizedMode = mode === "mini-lesson" ? "mini-lessons" : mode;
-  if (!["mini-lessons", "flashcards", "quiz", "conjugation"].includes(normalizedMode)) return;
-  const progress = readLibraryProgress();
-  const key = `${categoryId}:${itemId}`;
-  progress[key] = { ...(progress[key] || {}), [normalizedMode]: Math.max(Number(progress[key]?.[normalizedMode] || 0), Math.min(100, value)) };
-  localStorage.setItem(LIBRARY_PROGRESS_KEY, JSON.stringify(progress));
 }
 
 function readSession() {
-  let saved = {};
-  try { saved = JSON.parse(sessionStorage.getItem(SESSION_KEY) || "{}"); } catch {}
-  let suppliedTopic = "";
-  try { suppliedTopic = localStorage.getItem(TOPIC_KEY) || ""; } catch {}
-  const topic = TOPICS[suppliedTopic] ? suppliedTopic : (TOPICS[saved.topic] ? saved.topic : "greetings");
-  return { ...saved, mode: MODES.includes(saved.mode) ? saved.mode : "flashcards", topic, view: ["launcher", "activity", "results", "saved-words", "saved-review", "library", "library-category", "library-collection", "library-item", "library-study"].includes(saved.view) ? saved.view : "launcher" };
+  try {
+    const parsed = JSON.parse(sessionStorage.getItem(SESSION_KEY) || "null");
+    return parsed && typeof parsed === "object" ? { view: "hub", direction: "mixed", deckId: "due", ...parsed } : { view: "hub", direction: "mixed", deckId: "due" };
+  } catch { return { view: "hub", direction: "mixed", deckId: "due" }; }
 }
 
 function writeSession(session) { sessionStorage.setItem(SESSION_KEY, JSON.stringify(session)); }
 function rerender() { window.dispatchEvent(new CustomEvent("habla:practice-render")); }
 
-function showPracticeToast(message) {
-  document.querySelector("[data-practice-toast]")?.remove();
-  const toast = document.createElement("div");
-  toast.className = "practice-toast";
-  toast.dataset.practiceToast = "";
-  toast.setAttribute("role", "status");
-  toast.setAttribute("aria-live", "polite");
-  toast.innerHTML = `${iconSvg("bookmark")}<strong>${escapeHtml(message)}</strong>`;
-  document.body.appendChild(toast);
-  requestAnimationFrame(() => toast.classList.add("is-visible"));
-  window.setTimeout(() => {
-    toast.classList.remove("is-visible");
-    window.setTimeout(() => toast.remove(), 180);
-  }, 2000);
+function startFlashSession(deckId, direction = "mixed", overrideCards = null) {
+  const session = readSession();
+  const source = overrideCards || getDeck(deckId).cards;
+  session.view = "flashcards";
+  session.flash = { cards: stableShuffle(source, `${deckId}-${Date.now()}`).slice(0, 30), index: 0, direction, revealed: false, correct: 0, missed: 0, streak: 0, ratings: [], feedback: null };
+  writeSession(session); rerender();
 }
 
-function stopRecordingResources() {
-  if (recordingStream) recordingStream.getTracks().forEach(track => track.stop());
-  recordingStream = null;
-  recorder = null;
+function finishSession(title, mode, answered, correct, missed, returnView = "hub") {
+  recordPracticeResult({ mode, answered, correct, missed, topic: title });
+  const session = readSession();
+  session.view = "summary";
+  session.summary = { title, answered, correct, missed, returnView };
+  writeSession(session); rerender();
 }
+
+function buildSpeedQuestions() {
+  const cards = getPracticeVocabulary();
+  return cards.slice(0, 20).map((card,index) => ({ ...card, options: stableOptions(card.spanish, cards.map(item => item.spanish), `speed-${index}`) }));
+}
+
+function buildSprintQuestions() {
+  return Array.from({ length: 24 }, (_, index) => {
+    const verb = PRACTICE_VERBS[index % PRACTICE_VERBS.length];
+    const question = buildVerbQuestion(verb, index % VERB_SUBJECTS.length);
+    return { ...question, prompt: `${question.subject.toUpperCase()} + ${verb.infinitive.toUpperCase()}` };
+  });
+}
+
+function buildDailyTasks() {
+  const allCards = getDeck("all").cards;
+  const due = getDeck("due").cards;
+  const difficult = getNeedsPracticeCards();
+  const cards = dedupeByKey([...difficult, ...due, ...allCards]).slice(0, 4).map(card => ({ type: "flash", ...card }));
+  const verbTasks = [0, 1].map(index => { const question=buildVerbQuestion(PRACTICE_VERBS[index % PRACTICE_VERBS.length],index);return { ...question, drillType:question.type, type:"verb" }; });
+  const grammarTopic = GRAMMAR_TOPICS[new Date().getDate() % GRAMMAR_TOPICS.length];
+  const grammar = grammarTopic.drills[0];
+  return [...cards, ...verbTasks, { type: "grammar", topicId: grammarTopic.id, ...grammar }];
+}
+
+function queueSpeedTick(mode = "speed") {
+  if (speedTimer) return;
+  speedTimer = window.setInterval(() => {
+    const session = readSession();
+    const expectedView = mode === "sprint" ? "conjugation-sprint" : "speed-round";
+    const game = mode === "sprint" ? session.sprint : session.speed;
+    if (session.view !== expectedView || !game) { clearSpeedTimer(); return; }
+    const remaining = Math.max(0, Math.ceil((game.deadline - Date.now()) / 1000));
+    const timer=document.querySelector("[data-speed-time]");timer?.replaceChildren(String(remaining));timer?.closest(".practice-timer-ring")?.style.setProperty("--time",String(remaining));
+    if (!remaining) { game.complete = true; writeSession(session); clearSpeedTimer(); rerender(); }
+  }, 500);
+}
+
+function clearSpeedTimer() { if (speedTimer) window.clearInterval(speedTimer); speedTimer = null; }
+function clearAutoAdvance() { if (autoAdvanceTimer) window.clearTimeout(autoAdvanceTimer); autoAdvanceTimer = null; }
+function queueAutoAdvance(callback, delay = 700) { clearAutoAdvance(); autoAdvanceTimer = window.setTimeout(() => { autoAdvanceTimer = null; callback(); }, delay); }
 
 window.hablaPractice = {
-  openSavedWords() { const session = readSession(); session.view = "saved-words"; delete session.returnView; writeSession(session); rerender(); },
-  startSavedReview() { if (!getSavedWords(state).length) return; const session = readSession(); session.mode = "flashcards"; session.view = "saved-review"; session.returnView = "saved-words"; delete session.flash; writeSession(session); rerender(); },
-  removeSavedWord(button) {
-    const key = button?.dataset.savedKey;
-    if (!key) return;
-    const saved = getSavedWords(state).filter(item => item.key !== key);
-    state.vocabulary = { ...(state.vocabulary || {}), savedPhrases: saved };
-    saveState(state);
-    rerender();
-    showPracticeToast("Removed from Saved Words");
-  },
-  selectMode(mode) { const session = readSession(); session.mode = MODES.includes(mode) ? mode : "flashcards"; session.view = "launcher"; clearLibraryContext(session); writeSession(session); rerender(); },
-  selectTopic(topic) { const session = readSession(); session.topic = TOPICS[topic] ? topic : "greetings"; localStorage.setItem(TOPIC_KEY, session.topic); session.view = "launcher"; clearLibraryContext(session); writeSession(session); rerender(); },
-  start() { const session = readSession(); delete session.returnView; if (session.mode === "conversation") { window.dispatchEvent(new CustomEvent("habla:practice-conversation", { detail: { topic: session.topic, title: TOPICS[session.topic].title } })); return; } session.view = "activity"; writeSession(session); rerender(); },
-  back() { stopRecordingResources(); const session = readSession(); session.view = session.returnView || "launcher"; delete session.returnView; if (session.pronunciation) session.pronunciation.recording = false; writeSession(session); rerender(); },
-  openLibrary() { const session = readSession(); session.view = "library"; delete session.libraryCategoryId; delete session.libraryCollectionId; delete session.libraryItemId; delete session.returnView; writeSession(session); rerender(); },
-  openLibraryCategory(categoryId) { if (!findPracticeLibraryCategory(categoryId)) return; const session = readSession(); session.view = "library-category"; session.libraryCategoryId = categoryId; delete session.libraryCollectionId; delete session.libraryItemId; writeSession(session); rerender(); },
-  openLibraryCollection(categoryId, collectionId) { if (!findPracticeLibraryCollection(categoryId, collectionId)) return; const session = readSession(); session.view = "library-collection"; session.libraryCategoryId = categoryId; session.libraryCollectionId = collectionId; delete session.libraryItemId; writeSession(session); rerender(); },
-  openLibraryItem(categoryId, itemId, collectionId = "") { if (!findPracticeLibraryItem(categoryId, itemId, collectionId)) return; const session = readSession(); session.view = "library-item"; session.libraryCategoryId = categoryId; if (collectionId) session.libraryCollectionId = collectionId; else delete session.libraryCollectionId; session.libraryItemId = itemId; writeSession(session); rerender(); },
-  libraryBack(target) { const session = readSession(); if (target === "library-item" && session.libraryItemId) { session.view = "library-item"; delete session.libraryStudyMode; } else if (target === "library-collection" && session.libraryCollectionId) { session.view = "library-collection"; delete session.libraryItemId; } else if (target === "library-category" && session.libraryCategoryId) { session.view = "library-category"; delete session.libraryCollectionId; delete session.libraryItemId; } else if (target === "library") { session.view = "library"; delete session.libraryCollectionId; delete session.libraryItemId; } else { session.view = "launcher"; clearLibraryContext(session); } writeSession(session); rerender(); },
-  launchLibraryItem(categoryId, itemId, mode) {
-    const currentSession = readSession();
-    const result = findPracticeLibraryItem(categoryId, itemId, currentSession.libraryCollectionId);
-    if (!result) return;
-    const libraryLesson = buildLibraryLesson(result);
-    const isCourseTopic = Boolean(result.item.practiceTopic && getLessonForTopic(result.item.practiceTopic));
-    if (!libraryLesson && !isCourseTopic) return;
-    const session = readSession();
-    if (result.item.practiceTopic) session.topic = result.item.practiceTopic;
-    session.libraryCategoryId = categoryId;
-    session.libraryItemId = itemId;
-    session.returnView = "library-item";
-    saveLibraryModeProgress(categoryId, itemId, mode, 1);
-    if (!MODES.includes(mode)) { session.view = "library-study"; session.libraryStudyMode = mode; writeSession(session); rerender(); return; }
-    session.mode = mode;
-    if (result.item.practiceTopic) localStorage.setItem(TOPIC_KEY, session.topic);
-    if (mode === "conversation") {
-      writeSession(session);
-      window.dispatchEvent(new CustomEvent("habla:practice-conversation", { detail: { topic: session.topic, title: result.item.title } }));
-      return;
-    }
-    session.view = "activity";
-    writeSession(session);
-    rerender();
-  },
-  completeLibraryStudy(nextMode) {
-    const session = readSession();
-    saveLibraryModeProgress(session.libraryCategoryId, session.libraryItemId, session.libraryStudyMode, 100);
-    window.hablaPractice.launchLibraryItem(session.libraryCategoryId, session.libraryItemId, nextMode);
-  },
-  answer(index) { const session = readSession(); const questionIndex = session.quiz?.index; const question = session.quiz?.questions?.[questionIndex]; if (!question || session.quiz.selected) return; const answer = question.options[index]; session.quiz.selected = answer; if (answer === question.answer) session.quiz.score += 1; writeSession(session); rerender(); window.setTimeout(() => window.hablaPractice.autoAdvanceQuiz(questionIndex), 1900); },
-  autoAdvanceQuiz(questionIndex) { const session = readSession(); if (session.view !== "activity" || session.mode !== "quiz" || session.quiz?.index !== questionIndex || !session.quiz.selected) return; window.hablaPractice.nextQuiz(); },
-  nextQuiz() { const session = readSession(); if (!session.quiz?.selected) return; if (session.quiz.index + 1 >= session.quiz.questions.length) { session.view = "results"; session.lastCompletedMode = "quiz"; session.lastCompletedTopic = session.topic; recordPracticeActivity("quiz", session.topic, `${session.quiz.questions.length} questions, ${session.quiz.score} correct`); saveLibraryModeProgress(session.libraryCategoryId, session.libraryItemId, "quiz", 100); } else { session.quiz.index += 1; session.quiz.selected = ""; } writeSession(session); rerender(); },
-  restartQuiz() { const session = readSession(); const result = findPracticeLibraryItem(session.libraryCategoryId, session.libraryItemId, session.libraryCollectionId); const lesson = result ? buildLibraryLesson(result) : getLessonForTopic(session.topic); if (!lesson) return; ensureQuizSession(session, lesson, true); session.view = "activity"; writeSession(session); rerender(); },
-  flip() { const session = readSession(); session.flash.flipped = !session.flash.flipped; writeSession(session); rerender(); },
-  prevCard() { const session = readSession(); const total = session.flash.order.length; session.flash.index = (session.flash.index - 1 + total) % total; session.flash.flipped = false; writeSession(session); rerender(); },
-  nextCard() { const session = readSession(); const completedRound = session.flash.index + 1 >= session.flash.order.length; session.flash.index = (session.flash.index + 1) % session.flash.order.length; session.flash.flipped = false; if (completedRound) { session.lastCompletedMode = "flashcards"; session.lastCompletedTopic = session.topic; recordPracticeActivity("flashcards", session.topic, `${session.flash.order.length} cards reviewed`); saveLibraryModeProgress(session.libraryCategoryId, session.libraryItemId, "flashcards", 100); } writeSession(session); rerender(); },
-  shuffleCards() { const session = readSession(); session.flash.order = shuffle(session.flash.order); session.flash.index = 0; session.flash.flipped = false; writeSession(session); rerender(); },
-  speak(text) { speakSpanish(text); },
-  speakForm(button) {
-    button?.closest(".library-conjugation-grid")?.querySelectorAll("button.active").forEach(tile => tile.classList.remove("active"));
-    button?.classList.add("active");
-    speakSpanish(button?.dataset.phrase || "");
-  },
-  speakCard(button) {
-    const card = button?.closest(".practice-flashcard");
-    if (card) {
-      card.classList.remove("is-speaking");
-      void card.offsetWidth;
-      card.classList.add("is-speaking");
-      window.setTimeout(() => card.classList.remove("is-speaking"), 760);
-    }
-    speakSpanish(button?.dataset.phrase || "");
-  },
-  speakExample(button) {
-    const card = button?.closest(".practice-flashcard");
-    if (card) {
-      card.classList.remove("is-speaking-example");
-      void card.offsetWidth;
-      card.classList.add("is-speaking-example");
-      window.setTimeout(() => card.classList.remove("is-speaking-example"), 760);
-    }
-    speakSpanish(button?.dataset.phrase || "");
-  },
-  async toggleRecording() {
-    const session = readSession();
-    if (recorder?.state === "recording") { recorder.stop(); return; }
-    if (!navigator.mediaDevices?.getUserMedia || typeof MediaRecorder === "undefined") { session.pronunciation.message = "Recording isn’t supported here. You can still listen, retry, and continue."; writeSession(session); rerender(); return; }
-    try {
-      recordingStream = await navigator.mediaDevices.getUserMedia({ audio: true });
-      recordingChunks = [];
-      recorder = new MediaRecorder(recordingStream);
-      recorder.ondataavailable = event => { if (event.data.size) recordingChunks.push(event.data); };
-      recorder.onstop = () => { if (playbackUrl) URL.revokeObjectURL(playbackUrl); playbackUrl = URL.createObjectURL(new Blob(recordingChunks, { type: recorder.mimeType || "audio/webm" })); const next = readSession(); next.pronunciation.recording = false; next.pronunciation.message = "Attempt recorded. Play it back or try again."; writeSession(next); stopRecordingResources(); rerender(); };
-      recorder.start(); session.pronunciation.recording = true; session.pronunciation.message = "Recording… tap again when you’re finished."; writeSession(session); rerender();
-    } catch { session.pronunciation.recording = false; session.pronunciation.message = "Microphone access wasn’t available. You can still listen and continue."; writeSession(session); stopRecordingResources(); rerender(); }
-  },
-  nextPronunciation() { const session = readSession(); const result = findPracticeLibraryItem(session.libraryCategoryId, session.libraryItemId, session.libraryCollectionId); const lesson = result ? buildLibraryLesson(result) : getLessonForTopic(session.topic); const total = getPronunciation(lesson).length; if (session.pronunciation.index + 1 >= total) { session.view = session.returnView || "launcher"; delete session.returnView; session.pronunciation.index = 0; session.lastCompletedMode = "pronunciation"; session.lastCompletedTopic = session.topic; recordPracticeActivity("pronunciation", session.topic, `${total} exercises completed`); } else session.pronunciation.index += 1; session.pronunciation.message = ""; writeSession(session); rerender(); },
+  open(view, value = "") { clearSpeedTimer(); clearAutoAdvance(); stopSpeech(); const session = readSession(); session.view = view || "hub"; if (view === "flashcards-setup" && value) session.deckId = value; writeSession(session); rerender(); },
+  openWeakSpot(id) { if(String(id).startsWith("grammar-")){this.open("grammar");return;}if(String(id).startsWith("verb-")){this.open("verbs");return;}if(id==="saved-questions"){this.open("saved-questions");return;}if(id==="sentence-order"){this.open("games");return;}this.open("needs-practice"); },
+  startTodayReview() { const due = getDeck("due").cards; startFlashSession("due", "mixed", due.length ? due : getDeck("all").cards.slice(0, 12)); },
+  startDailyPractice() { const session=readSession();session.view="daily";session.daily={tasks:buildDailyTasks(),index:0,correct:0,missed:0,streak:0,selected:null,revealed:false,feedback:null};writeSession(session);rerender(); },
+  revealDaily() { const session=readSession();if(!session.daily)return;session.daily.revealed=true;writeSession(session);rerender(); },
+  answerDaily(value) { answerDaily(value); },
+  selectDeck(id) { const session = readSession(); session.deckId = id; writeSession(session); rerender(); },
+  setDirection(direction) { const session = readSession(); session.direction = DIRECTIONS.includes(direction) ? direction : "mixed"; writeSession(session); rerender(); },
+  startFlashcards() { const session = readSession(); startFlashSession(session.deckId || "due", session.direction || "mixed"); },
+  startNeedsPractice() { const cards = getNeedsPracticeCards(); startFlashSession("needs-practice", "mixed", cards); },
+  revealCard() { const session = readSession(); if (!session.flash || session.flash.revealed) return; session.flash.revealed = true; writeSession(session); rerender(); },
+  rateCard(rating) { const session=readSession();const flash=session.flash,card=flash?.cards?.[flash.index];if(!card||flash.feedback)return;ratePracticeCard(card.key,rating);flash.ratings.push(rating);const correct=rating==="got-it";if(correct){flash.correct+=1;flash.streak+=1;}else{flash.missed+=1;flash.streak=0;}const xp=rating==="got-it"?15:rating==="hard"?8:3;awardPracticeXP(xp,"Flashcard review");const spot=cardWeakSpot(card);recordWeakSpot(spot.id,spot.title,correct);flash.feedback={type:correct?"correct":rating==="hard"?"hard":"incorrect",xp,streak:flash.streak,message:rating==="got-it"?"Got it!":rating==="hard"?"Reviewing sooner":"Back again soon"};writeSession(session);haptic(correct?"success":"light");rerender();queueAutoAdvance(advanceFlash,520); },
+  pointerStart(event) { pointerStart={x:event.clientX,y:event.clientY}; },
+  flashPointerEnd(event) { if(!pointerStart)return;const dx=event.clientX-pointerStart.x,dy=event.clientY-pointerStart.y;pointerStart=null;const session=readSession();if(!session.flash?.revealed||session.flash.feedback)return;if(Math.abs(dx)>55&&Math.abs(dx)>Math.abs(dy)){this.rateCard(dx>0?"got-it":"again");}else if(dy>55){this.rateCard("hard");} },
+  selectVerb(id) { const session = readSession(); session.verbId = getVerb(id).id; writeSession(session); rerender(); },
+  startVerbDrill() { const session = readSession(); const verb = getVerb(session.verbId); session.view = "verb-drill"; session.verbDrill = { questions: Array.from({length:10},(_,i)=>buildVerbQuestion(verb,i)), index:0, correct:0, missed:0, streak:0, selected:null, feedback:null }; writeSession(session); rerender(); },
+  answerVerb(value) { answerVerb(value); },
+  answerVerbText(value) { answerVerb(value); },
+  nextVerb() { advanceVerb(); },
+  startGame(route) { clearSpeedTimer();clearAutoAdvance();const session=readSession(),startedAt=Date.now();if(route==="word-match"){const cards=getPracticeVocabulary().slice(0,6);session.match={pairs:cards,tiles:stableShuffle(cards.flatMap((card,index)=>[{pairId:index,side:"es",text:card.spanish},{pairId:index,side:"en",text:card.english}]),`match-${startedAt}`),matched:[],selected:null,mistakes:0,startedAt,lastResult:null};}else if(route==="sentence-builder"){const items=getPracticeSentences().slice(0,6);session.sentence={items,index:0,correct:0,streak:0,bank:[],answer:[],feedback:null,startedAt};prepareSentence(session.sentence);}else if(route==="conjugation-sprint"){session.sprint={questions:buildSprintQuestions(),index:0,correct:0,missed:0,streak:0,bestStreak:0,multiplier:1,startedAt,deadline:startedAt+60000,complete:false,feedback:null};}else{const questions=buildSpeedQuestions();session.speed={questions,index:0,correct:0,missed:0,streak:0,bestStreak:0,multiplier:1,startedAt,deadline:startedAt+60000,complete:false,feedback:null};}session.view=route;writeSession(session);rerender(); },
+  selectMatch(index) { const session=readSession(),game=session.match,tile=game?.tiles?.[index];if(!tile||game.matched.includes(tile.pairId)||game.lastResult)return;if(game.selected==null){game.selected=index;writeSession(session);rerender();return;}const firstIndex=game.selected,first=game.tiles[firstIndex],correct=first.pairId===tile.pairId&&first.side!==tile.side;game.lastResult={type:correct?"correct":"incorrect",indexes:[firstIndex,index],xp:correct?5:0,message:correct?"Match!":"Try another pair"};if(correct){game.matched.push(tile.pairId);awardPracticeXP(5,"Word Match");recordWeakSpot("word-match","Word matching",true);haptic("success");}else{game.mistakes+=1;recordWeakSpot("word-match","Word matching",false);haptic("error");}game.selected=null;writeSession(session);rerender();queueAutoAdvance(()=>clearMatchFeedback(correct),correct?420:520); },
+  useToken(index) { const session=readSession(); if(session.sentence?.feedback)return; const [token]=session.sentence.bank.splice(index,1); if(token)session.sentence.answer.push(token);writeSession(session);rerender(); },
+  returnToken(index) { const session=readSession(); if(session.sentence?.feedback)return; const [token]=session.sentence.answer.splice(index,1);if(token)session.sentence.bank.push(token);writeSession(session);rerender(); },
+  resetSentence() { const session=readSession();prepareSentence(session.sentence);writeSession(session);rerender(); },
+  dragToken(event,index) { event.dataTransfer?.setData("text/plain",String(index)); },
+  dropToken(event) { event.preventDefault();const index=Number(event.dataTransfer?.getData("text/plain"));if(Number.isInteger(index))this.useToken(index); },
+  checkSentence() { const session=readSession(),game=session.sentence,item=game?.items?.[game.index];if(!item||game.feedback)return;const correct=normalize(game.answer.join(" "))===normalize(item.spanish);game.feedback=correct?"correct":"incorrect";if(correct){game.correct+=1;game.streak+=1;awardPracticeXP(10,"Sentence Builder");haptic("success");}else{game.streak=0;haptic("error");}recordWeakSpot("sentence-order","Sentence building",correct);writeSession(session);rerender();queueAutoAdvance(()=>correct?advanceSentence():retrySentence(),correct?700:1050); },
+  nextSentence() { const session=readSession();session.sentence.index+=1;if(session.sentence.index<session.sentence.items.length)prepareSentence(session.sentence);writeSession(session);rerender(); },
+  answerSpeed(value) { answerTimedGame("speed",value); },
+  answerSprint(value) { answerTimedGame("sprint",value); },
+  startGrammar(id) { const session=readSession();session.view="grammar-drill";session.grammarDrill={topicId:getGrammarTopic(id).id,index:0,correct:0,missed:0,streak:0,selected:null,feedback:null};writeSession(session);rerender(); },
+  answerGrammar(value) { const session=readSession(),drill=session.grammarDrill,topic=getGrammarTopic(drill?.topicId),question=topic.drills[drill?.index];if(!question||drill.selected!=null)return;drill.selected=value;const correct=normalize(value)===normalize(question.answer);if(correct){drill.correct+=1;drill.streak+=1;awardPracticeXP(10,"Grammar Lab");haptic("success");}else{drill.missed+=1;drill.streak=0;haptic("error");}drill.feedback={type:correct?"correct":"incorrect",xp:correct?10:0,streak:drill.streak,message:correct?"¡Correcto!":"Quick correction"};recordWeakSpot(`grammar-${topic.id}`,topic.title,correct);writeSession(session);rerender();queueAutoAdvance(advanceGrammar,correct?700:1150); },
+  nextGrammar() { advanceGrammar(); },
+  finishInlineGame(gameId,correct,missed) { const session=readSession();const game=gameId==="word-match"?session.match:gameId==="conjugation-sprint"?session.sprint:gameId==="speed-round"?session.speed:null;const elapsedSeconds=game?.startedAt?Math.round((Date.now()-game.startedAt)/1000):0;saveGameScore(gameId,correct,{streak:game?.bestStreak||game?.streak||0,elapsedSeconds});finishSession(gameId==="grammar"?"Grammar drill":titleCase(gameId),gameId,correct+missed,correct,missed,gameId==="grammar"?"grammar":"games"); },
+  continuePractice() { const session=readSession();session.view=session.summary?.returnView||"hub";delete session.summary;writeSession(session);rerender(); },
+  removeSavedWord(key) { state.vocabulary.savedPhrases=getSavedWords().filter(item=>item.key!==key);saveState(state);showToast("Removed from Saved Words");rerender(); },
+  removeSavedQuestion(lessonId, questionIndex) { const progress=getLessonProgress(lessonId);const flags={...(progress.quizReviewFlags||{})};Object.keys(flags).forEach(key=>{if(Number(flags[key]?.questionIndex)===Number(questionIndex))delete flags[key];});updateLessonProgress(lessonId,{quizReviewFlags:flags});showToast("Removed from Saved Questions");rerender(); },
+  markLearned(cardKey,lessonId,lessonKey) { ratePracticeCard(cardKey,"got-it");if(lessonId){const progress=getLessonProgress(lessonId);updateLessonProgress(lessonId,{flashcardConfidence:{...(progress.flashcardConfidence||{}),[lessonKey]:"got-it"}});}showToast("Marked as learned");rerender(); },
+  speak(text) { playSpeech(text,{speaker:"Carlos"}); },
+  cleanup() { clearSpeedTimer();clearAutoAdvance();stopSpeech(); },
 };
 
-function clearLibraryContext(session) {
-  delete session.libraryCategoryId;
-  delete session.libraryCollectionId;
-  delete session.libraryItemId;
-  delete session.returnView;
+function answerDaily(value) {
+  const session=readSession(),daily=session.daily,task=daily?.tasks?.[daily.index];
+  if(!task||daily.feedback)return;
+  if(task.type==="flash"){
+    const rating=value;
+    ratePracticeCard(task.key,rating);
+    const correct=rating==="got-it";
+    const xp=correct?15:rating==="hard"?8:3;
+    if(correct){daily.correct+=1;daily.streak+=1;}else{daily.missed+=1;daily.streak=0;}
+    daily.feedback={type:correct?"correct":rating==="hard"?"hard":"incorrect",xp,streak:daily.streak,message:correct?"Got it!":rating==="hard"?"Reviewing sooner":"Back again soon"};
+    awardPracticeXP(xp,"Daily vocabulary");
+    const spot=cardWeakSpot(task);recordWeakSpot(spot.id,spot.title,correct);
+  }else{
+    daily.selected=value;
+    const correct=normalize(value)===normalize(task.answer);
+    if(correct){daily.correct+=1;daily.streak+=1;awardPracticeXP(10,"Daily Practice");}else{daily.missed+=1;daily.streak=0;}
+    daily.feedback={type:correct?"correct":"incorrect",xp:correct?10:0,streak:daily.streak,message:correct?"¡Perfecto!":`Answer: ${task.answer}`};
+    recordWeakSpot(task.type==="verb"?`verb-${task.verbId}`:`grammar-${task.topicId}`,task.type==="verb"?`${task.infinitive} conjugation`:"Daily grammar",correct);
+  }
+  writeSession(session);haptic(daily.feedback.type==="correct"?"success":"error");rerender();queueAutoAdvance(advanceDaily,daily.feedback.type==="correct"?650:1050);
 }
 
-function shuffle(values) {
-  const result = [...values];
-  for (let i = result.length - 1; i > 0; i -= 1) { const j = Math.floor(Math.random() * (i + 1)); [result[i], result[j]] = [result[j], result[i]]; }
-  return result;
-}
+function advanceDaily(){const session=readSession(),daily=session.daily;if(!daily)return;daily.index+=1;daily.selected=null;daily.revealed=false;daily.feedback=null;if(daily.index>=daily.tasks.length){const {tasks,correct,missed}=daily;writeSession(session);finishSession("Daily Practice","daily",tasks.length,correct,missed,"hub");return;}writeSession(session);rerender();}
 
-function speakSpanish(text) {
-  void playSpeech(text, { rate: 0.85, speaker: "Model" });
-}
-function iconSvg(name, className = "") {
-  const icons = {
-    quiz: `<circle cx="12" cy="12" r="8.5"/><path d="m8.5 12 2.2 2.2 4.8-5"/>`,
-    flashcards: `<rect x="7" y="4" width="11" height="16" rx="2"/><path d="M7 7H5.8A1.8 1.8 0 0 0 4 8.8v8.4A1.8 1.8 0 0 0 5.8 19H7"/>`,
-    pronunciation: `<rect x="9" y="3" width="6" height="12" rx="3"/><path d="M6.5 11.5a5.5 5.5 0 0 0 11 0M12 17v4M9 21h6"/>`,
-    conversation: `<path d="M5.5 5.5h13A2.5 2.5 0 0 1 21 8v7a2.5 2.5 0 0 1-2.5 2.5H10L5 21v-3.6A2.5 2.5 0 0 1 3 15V8a2.5 2.5 0 0 1 2.5-2.5Z"/><circle cx="8" cy="11.5" r=".7" fill="currentColor" stroke="none"/><circle cx="12" cy="11.5" r=".7" fill="currentColor" stroke="none"/><circle cx="16" cy="11.5" r=".7" fill="currentColor" stroke="none"/>`,
-    "mini-lessons": `<path d="M5 5.5A3.5 3.5 0 0 1 8.5 2H20v17H8.5A3.5 3.5 0 0 0 5 22V5.5Z"/><path d="M9 7h7M9 11h5"/>`,
-    "mini-lesson": `<path d="M5 5.5A3.5 3.5 0 0 1 8.5 2H20v17H8.5A3.5 3.5 0 0 0 5 22V5.5Z"/><path d="M9 7h7M9 11h5"/>`,
-    conjugation: `<path d="M5 6h14M5 12h14M5 18h14M9 3v18"/>`,
-    examples: `<path d="M5 4h14v16H5z"/><path d="M8 8h8M8 12h6M8 16h4"/>`,
-    "common-mistakes": `<path d="M12 3 2.5 20h19L12 3Z"/><path d="M12 9v5M12 17h.01"/>`,
-    target: `<circle cx="12" cy="12" r="8.5"/><circle cx="12" cy="12" r="4.5"/><circle cx="12" cy="12" r="1" fill="currentColor" stroke="none"/><path d="m15.5 8.5 5-5M17.5 3.5h3v3"/>`,
-    greetings: `<path d="M5 5.5h14A2.5 2.5 0 0 1 21.5 8v7A2.5 2.5 0 0 1 19 17.5h-8L5.5 21v-3.6A2.5 2.5 0 0 1 3 15V7.5A2 2 0 0 1 5 5.5Z"/><path d="M7.5 11.5h9"/>`,
-    family: `<circle cx="9" cy="8" r="3"/><circle cx="16.5" cy="9" r="2.5"/><path d="M3.5 20c.5-4.2 2.4-6.3 5.5-6.3s5 2.1 5.5 6.3M13 14.5c1-.9 2.1-1.3 3.5-1.3 2.6 0 4.2 1.9 4.6 5.6"/>`,
-    restaurants: `<path d="M5 3.5V9c0 2.05 1.1 3.1 3 3.1s3-1.05 3-3.1V3.5M7 3.5V9M9 3.5V9M8 12.1v8.4"/><path d="M18.25 3.5c-2.4 2.1-3.6 4.8-3.6 8.1h3.6v8.9M14.65 11.6h3.6V3.5"/>`,
-    travel: `<path d="m3 13 18-9-7.5 16-2.8-6.2L3 13Z"/><path d="m10.7 13.8 10-9.3"/>`,
-    shopping: `<path d="M5 8h14l1.5 13h-17L5 8Z"/><path d="M8.5 9V6.5a3.5 3.5 0 0 1 7 0V9"/>`,
-    work: `<rect x="3" y="7" width="18" height="13" rx="2.5"/><path d="M8 7V4h8v3M3 12.5h18M10 12.5v2h4v-2"/>`,
-    phrases: `<path d="M4.5 5h10A2.5 2.5 0 0 1 17 7.5v5a2.5 2.5 0 0 1-2.5 2.5H9l-4.5 3v-3.1A2.5 2.5 0 0 1 2 12.5v-5A2.5 2.5 0 0 1 4.5 5Z"/><path d="M17 9.5h2A2.5 2.5 0 0 1 21.5 12v3a2.5 2.5 0 0 1-2.5 2.5h-.5V20L15 17.5"/>`,
-    numbers: `<path d="M5 8.5c.4-1.8 1.5-2.7 3.1-2.7 1.7 0 2.9 1 2.9 2.5 0 2.7-3.4 3.2-5.8 6.9H11M14 7c.7-.8 1.5-1.2 2.6-1.2 1.7 0 2.8.9 2.8 2.3 0 1.1-.6 1.9-1.7 2.2 1.4.3 2.1 1.1 2.1 2.4 0 1.7-1.3 2.8-3.2 2.8-1.3 0-2.4-.5-3.1-1.4"/>`,
-    topics: `<rect x="4" y="4" width="6" height="6" rx="1.5"/><rect x="14" y="4" width="6" height="6" rx="1.5"/><rect x="4" y="14" width="6" height="6" rx="1.5"/><rect x="14" y="14" width="6" height="6" rx="1.5"/>`,
-    verbs: `<path d="M5 5h14M5 12h9M5 19h11"/><path d="m16 9 3 3-3 3"/>`,
-    grammar: `<path d="M5 20V7a3 3 0 0 1 3-3h11v16H8a3 3 0 0 0-3 3"/><path d="M9 8h6M9 12h7"/>`,
-    expressions: `<path d="M5 5.5h14A2.5 2.5 0 0 1 21.5 8v7A2.5 2.5 0 0 1 19 17.5h-8L5.5 21v-3.6A2.5 2.5 0 0 1 3 15V7.5A2 2 0 0 1 5 5.5Z"/><path d="M8 11.5h8M8 14.5h5"/>`,
-    time: `<circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/>`,
-    weather: `<path d="M7 17h10a4 4 0 1 0-.8-7.9A6 6 0 0 0 5 12a3 3 0 0 0 2 5Z"/><path d="M8 4V2M3.8 6.2 2.4 4.8M12.2 6.2l1.4-1.4"/>`,
-    directions: `<path d="M4 20 9 5l6 14 5-15-7 4-4-3-5 15Z"/>`,
-    health: `<path d="M12 20S4 15.5 4 9.5A4.5 4.5 0 0 1 12 6a4.5 4.5 0 0 1 8 3.5C20 15.5 12 20 12 20Z"/><path d="M8 12h2l1-3 2 6 1-3h2"/>`,
-    hobbies: `<path d="M6 6h12l2 14H4L6 6Z"/><path d="M9 6a3 3 0 0 1 6 0"/>`,
-    school: `<path d="m3 9 9-5 9 5-9 5-9-5Z"/><path d="M6 11.5V17c3 2 9 2 12 0v-5.5M21 9v6"/>`,
-    "phone-calls": `<path d="M8 3h3l1.5 4-2 1.5a14 14 0 0 0 5 5l1.5-2 4 1.5v3c0 2-1.5 3-3.5 3C10 18.5 5.5 14 5 6.5 5 4.5 6 3 8 3Z"/>`,
-    airport: `<path d="m3 14 18-9-7 16-3-6-8-1Z"/><path d="m11 15 10-10"/>`,
-    hotel: `<path d="M4 20V5h16v15M8 9h2M14 9h2M8 13h2M14 13h2M10 20v-3h4v3"/>`,
-    emergency: `<path d="M12 3 2.5 20h19L12 3Z"/><path d="M12 9v5M12 17h.01"/>`,
-    activity: `<path d="M4 12a8 8 0 1 0 2.3-5.7L4 8.5"/><path d="M4 4v4.5h4.5M12 7.5V12l3 2"/>`,
-    "arrow-right": `<path d="m9 5 7 7-7 7"/>`,
-    "arrow-left": `<path d="m15 5-7 7 7 7"/>`,
-    star: `<path d="m12 3 2.7 5.5 6 .9-4.4 4.2 1 6-5.3-2.8-5.3 2.8 1-6-4.4-4.2 6-.9L12 3Z"/>`,
-    bookmark: `<path d="M6 4.5A1.5 1.5 0 0 1 7.5 3h9A1.5 1.5 0 0 1 18 4.5V21l-6-3.7L6 21V4.5Z"/>`,
-    volume: `<path d="M4 10h4l5-4v12l-5-4H4v-4Z"/><path d="M16 9a4 4 0 0 1 0 6M18.5 6.5a7.5 7.5 0 0 1 0 11"/>`,
-    shuffle: `<path d="M4 7h3c4.5 0 5.5 10 10 10h3M17 14l3 3-3 3M4 17h3c1.8 0 3-1.6 4.2-3.5M15 7.5c.7-.3 1.3-.5 2-.5h3M17 4l3 3-3 3"/>`,
-    replay: `<path d="M5.2 8A8 8 0 1 1 4 14"/><path d="M5 3v5h5"/>`,
-    lock: `<rect x="5" y="10" width="14" height="11" rx="2.5"/><path d="M8 10V7a4 4 0 0 1 8 0v3M12 14.5v3"/>`,
+function advanceFlash(){const session=readSession(),flash=session.flash;if(!flash)return;flash.index+=1;flash.revealed=false;flash.feedback=null;if(flash.index>=flash.cards.length){const {cards,correct,missed}=flash;writeSession(session);finishSession("Flashcard review","flashcards",cards.length,correct,missed,"flashcards-setup");return;}writeSession(session);rerender();}
+
+function answerVerb(value) { const session=readSession(),drill=session.verbDrill,question=drill?.questions?.[drill.index];if(!question||drill.selected!=null)return;drill.selected=value;const correct=normalize(value)===normalize(question.answer);if(correct){drill.correct+=1;drill.streak+=1;awardPracticeXP(10,"Verb Trainer");haptic("success");}else{drill.missed+=1;drill.streak=0;haptic("error");}drill.feedback={type:correct?"correct":"incorrect",xp:correct?10:0,streak:drill.streak,message:correct?"¡Perfecto!":`Correct form: ${question.answer}`};recordWeakSpot(`verb-${question.verbId}`,`${question.infinitive} conjugation`,correct);writeSession(session);rerender();queueAutoAdvance(advanceVerb,correct?700:1100); }
+function advanceVerb(){const session=readSession(),drill=session.verbDrill;if(!drill||drill.selected==null)return;drill.index+=1;drill.selected=null;drill.feedback=null;if(drill.index>=drill.questions.length){const verb=getVerb(session.verbId);writeSession(session);finishSession(`${verb.infinitive} · Present`,"verbs",drill.questions.length,drill.correct,drill.missed,"verbs");return;}writeSession(session);rerender();}
+
+function clearMatchFeedback(correct){const session=readSession(),game=session.match;if(!game)return;game.lastResult=null;if(game.matched.length>=game.pairs.length){const elapsed=Math.max(1,Math.round((Date.now()-game.startedAt)/1000));const score=Math.max(10,(game.pairs.length*25)-(game.mistakes*8)-elapsed);saveGameScore("word-match",score,{elapsedSeconds:elapsed,streak:game.pairs.length});writeSession(session);finishSession("Word Match","word-match",game.pairs.length+game.mistakes,game.pairs.length,game.mistakes,"games");return;}writeSession(session);rerender();}
+function advanceSentence(){const session=readSession(),game=session.sentence;if(!game)return;game.index+=1;if(game.index>=game.items.length){saveGameScore("sentence-builder",game.correct,{streak:game.streak});writeSession(session);finishSession("Sentence Builder","sentence-builder",game.items.length,game.correct,game.items.length-game.correct,"games");return;}prepareSentence(game);writeSession(session);rerender();}
+function retrySentence(){const session=readSession(),game=session.sentence;if(!game)return;prepareSentence(game);writeSession(session);rerender();}
+
+function answerTimedGame(kind,value){const session=readSession(),game=kind==="sprint"?session.sprint:session.speed,question=game?.questions?.[game.index%game.questions.length];if(!question||game.complete||game.feedback)return;const answer=kind==="sprint"?question.answer:question.spanish;const correct=normalize(value)===normalize(answer);if(correct){game.correct+=1;game.streak+=1;game.bestStreak=Math.max(game.bestStreak||0,game.streak);game.multiplier=Math.min(3,1+Math.floor(game.streak/5));const xp=5*game.multiplier;awardPracticeXP(xp,kind==="sprint"?"Conjugation Sprint":"Speed Round");if(game.streak%5===0)game.deadline+=2000;game.feedback={type:"correct",xp,streak:game.streak,message:game.streak%5===0?"+2 seconds!":"Correct"};haptic("success");}else{game.missed+=1;game.streak=0;game.multiplier=1;game.feedback={type:"incorrect",xp:0,streak:0,message:`Answer: ${answer}`};haptic("error");}recordWeakSpot(kind==="sprint"?`verb-${question.verbId}`:"speed-vocabulary",kind==="sprint"?`${question.infinitive} conjugation`:"Vocabulary recall",correct);writeSession(session);rerender();queueAutoAdvance(()=>advanceTimedGame(kind),correct?260:520);}
+function advanceTimedGame(kind){const session=readSession(),game=kind==="sprint"?session.sprint:session.speed;if(!game)return;game.index+=1;game.feedback=null;if(Date.now()>=game.deadline){game.complete=true;const id=kind==="sprint"?"conjugation-sprint":"speed-round";saveGameScore(id,game.correct,{streak:game.bestStreak});writeSession(session);finishSession(titleCase(id),id,game.correct+game.missed,game.correct,game.missed,"games");return;}writeSession(session);rerender();}
+
+function advanceGrammar(){const session=readSession(),drill=session.grammarDrill;if(!drill||drill.selected==null)return;const topic=getGrammarTopic(drill.topicId);drill.index+=1;drill.selected=null;drill.feedback=null;if(drill.index>=topic.drills.length){saveGameScore(`grammar-${topic.id}`,drill.correct,{streak:drill.streak});writeSession(session);finishSession(topic.title,"grammar",topic.drills.length,drill.correct,drill.missed,"grammar");return;}writeSession(session);rerender();}
+
+function practiceLiveFeedback(value){const type=value.type||"correct";return `<div class="practice-live-feedback ${type}" role="status" aria-live="polite"><span>${icon(type==="correct"?"check":type==="hard"?"alert":"close")}</span><strong>${escapeHtml(value.message||(type==="correct"?"Great!":"Try again"))}</strong>${value.streak>1?`<em>${icon("flame")} ${value.streak} in a row</em>`:""}${value.xp?`<b>+${value.xp} XP</b>`:""}</div>`;}
+function completedPrompt(prompt,answer){return String(prompt||"").replace(/_{2,}/g,answer);}
+function awardPracticeXP(amount,reason){if(amount>0)awardXP(amount,reason);return getCurrentXP();}
+function haptic(type="light"){if(typeof navigator==="undefined"||typeof navigator.vibrate!=="function")return;navigator.vibrate(type==="error"?[24,35,24]:type==="success"?[12,24,12]:8);}
+function dedupeByKey(items){const seen=new Set();return items.filter(item=>item?.key&&!seen.has(item.key)&&seen.add(item.key));}
+function cardWeakSpot(card){const id=(card.deckIds||[]).find(value=>!["saved","all","due","recent"].includes(value))||"vocabulary";return {id:`vocab-${id}`,title:id==="vocabulary"?"Vocabulary recall":`${titleCase(id)} vocabulary`};}
+function prepareSentence(game) { const item=game?.items?.[game.index];if(!item)return;game.bank=stableShuffle(tokenize(item.spanish),item.id);game.answer=[];game.feedback=null; }
+function tokenize(value) { return String(value||"").replace(/([.,!?¿¡])/g," $1 ").trim().split(/\s+/).filter(Boolean); }
+function stableOptions(answer,values,seed){return [answer,...[...new Set(values)].filter(v=>normalize(v)!==normalize(answer)).sort((a,b)=>hash(seed+a)-hash(seed+b)).slice(0,3)].sort((a,b)=>hash(seed+"o"+a)-hash(seed+"o"+b));}
+function stableShuffle(values,seed){return [...values].sort((a,b)=>hash(seed+JSON.stringify(a))-hash(seed+JSON.stringify(b)));}
+function hash(value){return [...String(value)].reduce((sum,c)=>((sum*31)+c.charCodeAt(0))>>>0,2166136261);}
+function normalize(value){return String(value||"").toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g,"").replace(/[¿?¡!.,]/g,"").replace(/\s+/g," ").trim();}
+function grammarIcon(id){return ({articles:"articles","ser-estar":"compare",agreement:"agreement",possessives:"people",questions:"question",conjugation:"verbs"})[id]||"grammar";}
+function deckIcon(id){return ({due:"clock",recent:"spark",saved:"bookmark",greetings:"wave",family:"people",food:"food",travel:"travel",numbers:"clock",all:"cards"})[id]||"cards";}
+function titleCase(value){return String(value||"").split(/[-\s]+/).map(word=>word.charAt(0).toUpperCase()+word.slice(1)).join(" ");}
+function showToast(message){document.querySelector(".practice-toast")?.remove();const toast=document.createElement("div");toast.className="practice-toast";toast.setAttribute("role","status");toast.setAttribute("aria-live","polite");toast.innerHTML=`${icon("check")}<strong>${escapeHtml(message)}</strong>`;document.body.appendChild(toast);requestAnimationFrame(()=>toast.classList.add("visible"));setTimeout(()=>{toast.classList.remove("visible");setTimeout(()=>toast.remove(),200);},1800);}
+function escapeJs(value){return String(value||"").replace(/\\/g,"\\\\").replace(/'/g,"\\'").replace(/\r?\n/g," ");}
+function escapeAttr(value){return escapeHtml(value).replace(/`/g,"&#96;");}
+function escapeHtml(value){return String(value||"").replace(/[&<>"']/g,char=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"})[char]);}
+
+function icon(name) {
+  const paths = {
+    target:'<circle cx="11.5" cy="12.5" r="7.5"/><circle cx="11.5" cy="12.5" r="3.25"/><path d="m14 10 6-6m0 0v4m0-4h-4"/>',review:'<rect x="4" y="7" width="13" height="10" rx="2"/><path d="m10 10 3 2-3 2v-4Zm7 1 3-2v6l-3-2"/>',arrow:'<path d="m9 5 7 7-7 7"/>',back:'<path d="m15 18-6-6 6-6"/>',cards:'<rect x="5.5" y="4" width="13" height="16" rx="2.2"/><path d="M8.5 8h7M8.5 12h5"/><path d="M8 2.5h9.5A3.5 3.5 0 0 1 21 6v11"/>',verbs:'<path d="M5 4h14M5 20h14M8 4v16M16 4v16"/><path d="M6 8h4m4 8h4"/>',games:'<path d="M8.2 8h7.6c1.4 0 2.5.8 3 2.1l1.5 4.5c.7 2.2-1.9 4-3.7 2.5l-2.2-1.8H9.6l-2.2 1.8c-1.8 1.5-4.4-.3-3.7-2.5l1.5-4.5A3.2 3.2 0 0 1 8.2 8Z"/><path d="M9 11v4m-2-2h4m4.5-1.5h.01M17.5 14h.01"/>',grammar:'<path d="M6 3.5h9l3 3V20.5H6z"/><path d="M15 3.5v3h3M9 10h6M9 13.5h6M9 17h4"/>',bookmark:'<path d="M7 4.5c0-1 .8-1.8 1.8-1.8h6.4c1 0 1.8.8 1.8 1.8V21l-5-3.2L7 21V4.5Z"/>',retry:'<path d="M5.2 8.5A8 8 0 1 1 4 14"/><path d="M5 3v5.5h5.5"/>',clock:'<circle cx="12" cy="12" r="9"/><path d="M12 6.5v5.8l3.8 2.2"/>',trend:'<path d="m4 16.5 5-5 4 3.5 7-8"/><path d="M15.5 7H20v4.5"/>',alert:'<path d="M10.4 4.6 2.8 18a1.8 1.8 0 0 0 1.6 2.7h15.2a1.8 1.8 0 0 0 1.6-2.7L13.6 4.6a1.8 1.8 0 0 0-3.2 0Z"/><path d="M12 9v5M12 17.5h.01"/>',spark:'<path d="m12 3 1.5 5.5L19 10l-5.5 1.5L12 17l-1.5-5.5L5 10l5.5-1.5L12 3Z"/>',check:'<path d="m5 12 4 4L19 6"/>',sound:'<path d="M5 10v4h3l4 3V7l-4 3H5Z"/><path d="M15 9a4 4 0 0 1 0 6M18 6a8 8 0 0 1 0 12"/>',match:'<path d="M7 7h10v4H7zM7 15h10v4H7z"/><path d="m4 9 2 2 3-4M15 17l2 2 3-4"/>',sentence:'<path d="M4 6h7M13 6h7M4 12h4M10 12h10M4 18h10"/>',timer:'<circle cx="12" cy="13" r="8"/><path d="M12 9v5l3 2M9 3h6"/>',trophy:'<path d="M8 4h8v5a4 4 0 0 1-8 0V4Z"/><path d="M8 6H4v2a4 4 0 0 0 4 4M16 6h4v2a4 4 0 0 1-4 4M12 13v4M8 21h8"/>',close:'<path d="m6 6 12 12M18 6 6 18"/>',wave:'<path d="M8 12V6a1.5 1.5 0 0 1 3 0v4-6a1.5 1.5 0 0 1 3 0v6-5a1.5 1.5 0 0 1 3 0v8l2-2a1.7 1.7 0 0 1 2.4 2.4L17 18a7 7 0 0 1-5 2H9a6 6 0 0 1-6-6v-2a1.5 1.5 0 0 1 3 0v1"/>',people:'<circle cx="9" cy="8" r="3"/><circle cx="17" cy="9" r="2.5"/><path d="M3 20c.5-5 2.5-7 6-7s5.5 2 6 7M14 14c4 0 6 2 6.5 6"/>',food:'<path d="M7 3v8M4 3v5a3 3 0 0 0 6 0V3M7 11v10M17 3v18M14 3v7h3"/>',travel:'<path d="m3 15 18-9-7 15-2-7-9 1Z"/>',articles:'<path d="M5 19 10 5h4l5 14M7 14h10"/>',compare:'<path d="M4 8h16M7 5 4 8l3 3M17 13l3 3-3 3M4 16h16"/>',agreement:'<path d="M5 7h9M5 12h14M5 17h7"/><path d="m16 6 2 2 3-4"/>',question:'<circle cx="12" cy="12" r="9"/><path d="M9.5 9a2.7 2.7 0 1 1 4 2.4c-1 .6-1.5 1.1-1.5 2.1M12 17h.01"/>',flame:'<path d="M13 3s1 4-2 6c-2 1.5-3 3-3 5a4 4 0 0 0 8 0c0-2-1-3.5-1-5 3 2 4 4 4 7a7 7 0 0 1-14 0c0-5 4-7 8-13Z"/>',flip:'<path d="M4 7h11a5 5 0 0 1 5 5v5"/><path d="m16 14 4 3 3-4M20 17H9a5 5 0 0 1-5-5V7"/>',sprint:'<path d="M5 16c3-7 7-10 14-10-1 7-4 11-11 14l-3-4Z"/><path d="m10 15-5 5M13 9h.01"/>',heart:'<path d="M20.8 5.7a5 5 0 0 0-7.1 0L12 7.4l-1.7-1.7a5 5 0 1 0-7.1 7.1L12 21l8.8-8.2a5 5 0 0 0 0-7.1Z" fill="currentColor"/>',"heart-empty":'<path d="M20.8 5.7a5 5 0 0 0-7.1 0L12 7.4l-1.7-1.7a5 5 0 1 0-7.1 7.1L12 21l8.8-8.2a5 5 0 0 0 0-7.1Z"/>',
   };
-  const body = icons[name] || icons.quiz;
-  return `<svg class="practice-svg-icon${className ? ` ${className}` : ""}" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">${body}</svg>`;
+  return `<svg class="practice-icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">${paths[name] || paths.spark}</svg>`;
 }
-function normalize(value) { return String(value || "").toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/[¿?¡!.,]/g, "").trim(); }
-function shortLessonTitle(title) { return String(title || "Lesson").replace(/^.*?:\s*/, ""); }
-function modeTitle(mode) { return mode === "flashcards" ? "Flashcards" : mode === "pronunciation" ? "Pronunciation" : "Quiz"; }
-function escapeAttr(value) { return escapeHtml(value).replace(/`/g, "&#96;"); }
-function escapeHtml(value) { return personalizeText(value).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;").replace(/'/g, "&#39;"); }

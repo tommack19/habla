@@ -37,6 +37,13 @@
   object-position: 72% 40%;
 }
 
+.lesson-scene-banner.scene-vocabulary > img { object-position: 68% 38%; }
+.lesson-scene-banner.scene-grammar > img { object-position: 72% 42%; }
+.lesson-scene-banner.scene-pronunciation > img { object-position: 70% 28%; }
+.lesson-scene-banner.scene-flashcards > img { object-position: 52% 68%; }
+.lesson-scene-banner.scene-quiz > img { object-position: 54% 78%; }
+.lesson-scene-banner.scene-culture > img { object-position: 68% 54%; }
+
 .lesson-scene-banner-shade {
   background: linear-gradient(
     90deg,
@@ -120,11 +127,17 @@
   box-shadow: 0 10px 24px rgba(24, 147, 90, .2) !important;
 }
 
-.lesson-quiz-feedback.is-incorrect + .lesson-quiz-next,
 .lesson-quiz-next.is-incorrect {
-  background: #111b18 !important;
+  background: #111719 !important;
   border-color: rgba(211, 83, 83, .72) !important;
   box-shadow: none !important;
+}
+
+.lesson-quiz-next.is-final,
+.lesson-quiz-next.is-correct {
+  background: linear-gradient(135deg, #2dbe78, #17935a) !important;
+  border-color: #48d493 !important;
+  color: #fff !important;
 }
 
 .lesson-vocab-save.is-saved {
@@ -148,6 +161,17 @@
   .lesson-scene-banner > img {
     object-position: 76% 38%;
   }
+
+  .lesson-scene-banner.scene-vocabulary > img { object-position: 72% 38%; }
+  .lesson-scene-banner.scene-grammar > img { object-position: 76% 38%; }
+  .lesson-scene-banner.scene-pronunciation > img { object-position: 74% 30%; }
+  .lesson-scene-banner.scene-flashcards > img { object-position: 52% 72%; }
+
+  .lesson-scene-banner.scene-quiz > img {
+    object-position: 56% 82%;
+  }
+
+  .lesson-scene-banner.scene-culture > img { object-position: 72% 56%; }
 
   .lesson-speaking-intro {
     display: block;
