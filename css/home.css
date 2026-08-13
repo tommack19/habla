@@ -57,7 +57,7 @@
 .home-eyebrow {
   margin: 0;
   color: var(--home-gold);
-  font: 800 0.64rem/1.15 Inter, system-ui, sans-serif;
+  font: 800 0.64rem/1.15 var(--habla-font-body);
   letter-spacing: 0.105em;
   text-transform: uppercase;
 }
@@ -83,7 +83,7 @@
 .home-section-header h2 {
   margin: 7px 0 0;
   color: var(--home-text);
-  font: 700 1.28rem/1.08 "Playfair Display", Georgia, serif;
+  font: 700 1.28rem/1.08 var(--habla-font-display);
   letter-spacing: -0.02em;
 }
 
@@ -100,7 +100,7 @@
   border-radius: 14px;
   background: rgba(8, 13, 13, 0.52);
   color: var(--home-gold);
-  font: 600 15px/1 Inter, system-ui, sans-serif;
+  font: 600 15px/1 var(--habla-font-body);
   white-space: nowrap;
   cursor: pointer;
 }
@@ -185,7 +185,7 @@
 .home-chapter-hero h1 {
   margin: 10px 0 8px;
   color: #fbf8f1;
-  font: 700 clamp(1.7rem, 7vw, 2.25rem)/0.98 "Playfair Display", Georgia, serif;
+  font: 700 clamp(1.7rem, 7vw, 2.25rem)/0.98 var(--habla-font-display);
   letter-spacing: -0.045em;
   text-wrap: balance;
   text-shadow: 0 4px 18px rgba(0, 0, 0, 0.55);
@@ -195,7 +195,7 @@
   max-width: 30ch;
   margin: 0;
   color: rgba(248, 246, 239, 0.88);
-  font: 560 0.72rem/1.45 Inter, system-ui, sans-serif;
+  font: 560 0.72rem/1.45 var(--habla-font-body);
 }
 
 .home-chapter-hero__progress {
@@ -208,7 +208,7 @@
 .home-chapter-hero__progress span {
   overflow:hidden;
   color:rgba(245,243,237,.7);
-  font:650 .56rem/1.2 Inter,system-ui,sans-serif;
+  font:650 .56rem/1.2 var(--habla-font-body);
   text-overflow:ellipsis;
   white-space:nowrap;
 }
@@ -246,7 +246,7 @@
   min-width: 0;
   padding: 0 18px;
   border-radius: 16px;
-  font: 600 16px/1 Inter, system-ui, sans-serif;
+  font: 600 16px/1 var(--habla-font-body);
   cursor: pointer;
   transition: background-color 160ms ease, border-color 160ms ease, box-shadow 160ms ease, filter 160ms ease, opacity 160ms ease, transform 120ms ease;
 }
@@ -360,14 +360,14 @@
 .home-carlos-card h2 {
   margin: 5px 0 5px;
   color: var(--home-text);
-  font: 700 1.42rem/1 "Playfair Display", Georgia, serif;
+  font: 700 1.42rem/1 var(--habla-font-display);
   letter-spacing: -0.02em;
 }
 
 .home-carlos-card__copy > p:last-child {
   margin: 0;
   color: var(--home-muted);
-  font: 520 0.66rem/1.4 Inter, system-ui, sans-serif;
+  font: 520 0.66rem/1.4 var(--habla-font-body);
 }
 
 .home-carlos-card__action {
@@ -383,7 +383,7 @@
   border-radius: 18px;
   background: rgba(11, 30, 25, 0.72);
   color: var(--home-green);
-  font: 600 16px/20px Inter, system-ui, sans-serif;
+  font: 600 16px/20px var(--habla-font-body);
   cursor: pointer;
 }
 
@@ -415,7 +415,7 @@
 .home-journey__progress {
   margin: 5px 0 0;
   color: var(--home-green);
-  font: 730 0.66rem/1 Inter, system-ui, sans-serif;
+  font: 730 0.66rem/1 var(--habla-font-body);
 }
 
 .home-stamp-pills {
@@ -438,7 +438,7 @@
   border: 1px solid rgba(255, 255, 255, 0.12);
   border-radius: 999px;
   color: rgba(235, 239, 236, 0.76);
-  font: 600 0.57rem/1 Inter, system-ui, sans-serif;
+  font: 600 0.57rem/1 var(--habla-font-body);
 }
 
 .home-stamp-pills svg {
@@ -547,7 +547,7 @@
   border-radius: 50%;
   background: var(--home-green);
   color: #04110a;
-  font: 850 0.52rem/1 Inter, system-ui, sans-serif;
+  font: 850 0.52rem/1 var(--habla-font-body);
   font-style: normal;
 }
 
@@ -589,13 +589,13 @@
 .home-episode small {
   margin-top: 2px;
   color: rgba(255, 255, 255, 0.76);
-  font: 800 0.56rem/1 Inter, system-ui, sans-serif;
+  font: 800 0.56rem/1 var(--habla-font-body);
 }
 
 .home-episode strong {
   max-width: 68px;
   color: rgba(250, 248, 242, 0.86);
-  font: 650 0.54rem/1.15 Inter, system-ui, sans-serif;
+  font: 650 0.54rem/1.15 var(--habla-font-body);
 }
 
 .home-episode--destination {
@@ -691,17 +691,17 @@
 
 .home-practice-card strong {
   color: currentColor;
-  font: 780 0.68rem/1 Inter, system-ui, sans-serif;
+  font: 780 0.68rem/1 var(--habla-font-body);
 }
 
 .home-practice-card small {
   color: var(--home-muted);
-  font: 520 0.53rem/1.25 Inter, system-ui, sans-serif;
+  font: 520 0.53rem/1.25 var(--habla-font-body);
 }
 
 .home-practice-card em {
   color: rgba(255, 255, 255, 0.36);
-  font: 650 0.48rem/1 Inter, system-ui, sans-serif;
+  font: 650 0.48rem/1 var(--habla-font-body);
   font-style: normal;
 }
 
@@ -782,7 +782,7 @@
   margin-top: 6px;
   overflow: hidden;
   color: rgba(250, 248, 242, 0.9);
-  font: 700 0.58rem/1.2 Inter, system-ui, sans-serif;
+  font: 700 0.58rem/1.2 var(--habla-font-body);
   text-overflow: ellipsis;
   white-space: nowrap;
 }
@@ -792,7 +792,7 @@
   margin-top: 2px;
   overflow: hidden;
   color: rgba(225, 232, 229, 0.53);
-  font: 520 0.48rem/1.2 Inter, system-ui, sans-serif;
+  font: 520 0.48rem/1.2 var(--habla-font-body);
   text-overflow: ellipsis;
   white-space: nowrap;
 }
@@ -859,13 +859,13 @@
 
 .home-memory-empty strong {
   color: #efe9dc;
-  font: 700 0.75rem/1.2 "Playfair Display", Georgia, serif;
+  font: 700 0.75rem/1.2 var(--habla-font-display);
 }
 
 .home-memory-empty p {
   margin: 5px 0 0;
   color: var(--home-muted);
-  font: 520 0.58rem/1.35 Inter, system-ui, sans-serif;
+  font: 520 0.58rem/1.35 var(--habla-font-body);
 }
 
 /* Chapter completion */
@@ -903,7 +903,7 @@
 
 .home-madrid-passport span,
 .home-madrid-passport small {
-  font: 800 0.54rem/1 Inter, system-ui, sans-serif;
+  font: 800 0.54rem/1 var(--habla-font-body);
   letter-spacing: 0.13em;
   text-transform: uppercase;
 }
@@ -920,7 +920,7 @@
 .home-chapter-complete h2 {
   margin: 0 0 11px;
   color: var(--home-text);
-  font: 700 1.35rem/1.05 "Playfair Display", Georgia, serif;
+  font: 700 1.35rem/1.05 var(--habla-font-display);
   letter-spacing: -0.025em;
 }
 
@@ -956,19 +956,19 @@
   min-width: 0;
   overflow: hidden;
   color: var(--home-text);
-  font: 800 0.76rem/1 Inter, system-ui, sans-serif;
+  font: 800 0.76rem/1 var(--habla-font-body);
   text-overflow: ellipsis;
 }
 
 .home-chapter-metrics small {
   color: rgba(225, 232, 229, 0.6);
-  font: 520 0.43rem/1.15 Inter, system-ui, sans-serif;
+  font: 520 0.43rem/1.15 var(--habla-font-body);
 }
 
 .home-chapter-complete__body > p {
   margin: 11px 0 0;
   color: rgba(225, 232, 229, 0.69);
-  font: 520 0.57rem/1.4 Inter, system-ui, sans-serif;
+  font: 520 0.57rem/1.4 var(--habla-font-body);
 }
 
 @keyframes homeProgressFill {

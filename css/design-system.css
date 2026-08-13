@@ -16,6 +16,12 @@
   --habla-radius-button: 18px;
   --habla-shadow-card: 0 24px 70px rgba(0, 0, 0, 0.36);
   --habla-shadow-gold: 0 12px 28px rgba(244, 190, 88, 0.24);
+  --habla-shadow-green: 0 10px 24px rgba(32, 185, 99, 0.18);
+  --habla-font-display: "Manrope", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --habla-font-body: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --habla-primary-top: #39e182;
+  --habla-primary-mid: #2fd276;
+  --habla-primary-bottom: #22bc65;
   --space-1: 8px;
   --space-2: 16px;
   --space-3: 24px;
@@ -109,10 +115,20 @@
 }
 
 .h-btn--primary {
-  background: linear-gradient(180deg, var(--habla-gold-2), var(--habla-gold));
-  border: 0;
-  box-shadow: var(--habla-shadow-gold);
-  color: #120d03;
+  background: linear-gradient(180deg, var(--habla-primary-top) 0%, var(--habla-primary-mid) 48%, var(--habla-primary-bottom) 100%);
+  border: 1px solid rgba(93, 235, 157, 0.45);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.18), var(--habla-shadow-green);
+  color: #fff;
+}
+
+.h-btn--primary:hover {
+  background: linear-gradient(180deg, #43e78b 0%, #35d97d 48%, #27c36b 100%);
+}
+
+.h-btn--primary:active {
+  background: linear-gradient(180deg, #24c66d, #1daf5d);
+  box-shadow: inset 0 1px 3px rgba(0,0,0,.18), 0 5px 12px rgba(32,185,99,.13);
+  transform: translateY(0);
 }
 
 .h-btn--secondary {
@@ -254,7 +270,7 @@ body {
 .practice-header h1,
 .profile-header h1 {
   color: var(--habla-gold);
-  font-family: Georgia, serif;
+  font-family: var(--habla-font-display);
   font-size: clamp(2rem, 9vw, 2.65rem);
   letter-spacing: -0.01em;
   line-height: 0.98;
@@ -427,7 +443,7 @@ body {
 .learn-icon-grammar::before {
   color: currentColor;
   content: "Aa";
-  font-family: Georgia, serif;
+  font-family: var(--habla-font-display);
   font-size: 1rem;
   font-weight: 800;
   left: 10px;

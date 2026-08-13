@@ -66,7 +66,7 @@ let flashSwipeStartY = 0;
 let flashSwipeHandled = false;
 const recordedLineUrls = new WeakMap();
 const speakingRecordingUrls = new Map();
-const LESSON_FLOW_VERSION = 3;
+const LESSON_FLOW_VERSION = 4;
 const CANONICAL_LESSON_ID = "a1-lesson-01-greetings";
 
 if (typeof window !== "undefined") {
@@ -181,10 +181,10 @@ function buildLessonSteps(lesson) {
 
   if (lesson.vocabulary?.length) steps.push({ id: "vocabulary", label: "Words Youâ€™ll Need", type: "vocabulary" });
   if (lesson.grammar) steps.push({ id: "grammar", label: "Carlosâ€™ Advice", type: "grammar" });
-  if (standardDialogue) steps.push({ id: "dialogue", label: "Watch Carlos", type: "dialogue", data: standardDialogue });
+  if (standardDialogue) steps.push({ id: "dialogue", label: isCanonicalLesson ? "Talk with Carlos" : "Watch Carlos", type: "dialogue", data: standardDialogue });
 
   // On the canonical Lesson 1 flow, the dialogue screen itself is the
-  // "Watch Carlos" experience. The old standalone listening pass is removed.
+  // "Talk with Carlos" experience. The old standalone listening pass is removed.
   if ((lesson.listening || lesson.listeningPhrases?.length) && (!isCanonicalLesson || !standardDialogue)) {
     steps.push({
       id: "listening",
@@ -198,7 +198,7 @@ function buildLessonSteps(lesson) {
   if (lesson.pronunciation || lesson.pronunciationExercises?.length) {
     steps.push({ id: "pronunciation", label: "Say It Naturally", type: "pronunciation" });
   }
-  if (lesson.speaking || lesson.speakingChallenge?.length) {
+  if (!isCanonicalLesson && (lesson.speaking || lesson.speakingChallenge?.length)) {
     steps.push({ id: "speaking", label: "Talk with Carlos", type: "speaking" });
   }
   if (getFlashcardItems(lesson).length) {
@@ -260,8 +260,11 @@ function mapLegacyStepId(lesson, stepId) {
 
   if (stepId === "messages") return "story";
   if (stepId === "choice") return "vocabulary";
-  if (stepId === "listening") return "dialogue";
-  if (stepId === "conversation" || stepId === "your-turn" || stepId === "mission") return "speaking";
+  if (stepId === "listening"
+    || stepId === "speaking"
+    || stepId === "conversation"
+    || stepId === "your-turn"
+    || stepId === "mission") return "dialogue";
   return stepId;
 }
 
@@ -765,12 +768,12 @@ function renderGrammar(lesson) {
     <section class="lesson-language-ready ${readyQuestion ? "has-question" : ""}">
       <span>${icon("check")}</span>
       <div>
-        <small>Ready to use it?</small>
+        <small>${readyQuestion ? "Carlos is about to ask you" : "Ready to use it?"}</small>
         ${readyQuestion
-          ? `<p>Carlos is about to ask:</p><strong>${escapeHtml(readyQuestion)}</strong><em>Can you answer without looking?</em>`
-          : `<strong>Perfect. You’re ready!</strong><p>${escapeHtml(lesson.sectionTransitions?.grammar || "Carlos is waiting in the next scene.")}</p>`}
+          ? `<strong>${escapeHtml(readyQuestion)}</strong><p>Use the phrase above and answer naturally.</p>`
+          : `<strong>Perfect. You’re ready.</strong><p>${escapeHtml(lesson.sectionTransitions?.grammar || "Carlos is waiting in the next scene.")}</p>`}
       </div>
-      <button type="button" onclick="hablaLesson.continueLanguageTip(this)"><span data-handoff-label>Continue Conversation</span>${icon("arrow")}</button>
+      <button type="button" onclick="hablaLesson.continueLanguageTip(this)"><span data-handoff-label>Continue</span>${icon("arrow")}</button>
     </section>
   `;
 }
@@ -814,6 +817,9 @@ function getLanguageTipReadyQuestion(lesson) {
 }
 
 function renderDialogue(lesson, progress, scene) {
+  if (lesson.id === CANONICAL_LESSON_ID) {
+    return renderSpeaking(lesson, progress, { embedded: true, scene });
+  }
   const selectedId = progress.selectedChoiceId || getLessonMemory(lesson.id)?.choiceId;
   const selected = lesson.learnerChoices?.options?.find(choice => choice.id === selectedId);
   const compactChoice = Boolean(lesson.dialoguePresentation?.compactChoicePreview);
@@ -1088,12 +1094,14 @@ function renderPronunciationTip(value) {
   );
 }
 
-function renderSpeaking(lesson, progress) {
+function renderSpeaking(lesson, progress, options = {}) {
+  const embedded = Boolean(options?.embedded && lesson.id === CANONICAL_LESSON_ID);
   const speaking = normalizeFirst(lesson.speaking) || {};
   const items = speaking.items || lesson.speakingChallenge || [];
   const index = clamp(Number(progress.guidedSpeakingIndex || 0), 0, Math.max(items.length - 1, 0));
   const challenge = progress.rendererSpeakingChallenge || {};
-  if (challenge.active) return renderSpeakingChallenge(lesson, progress, speaking, items, challenge);
+  if (challenge.active) return `<section class="lesson-speaking-page lesson-speaking-challenge-page">${renderSpeakingChallenge(lesson, progress, speaking, items, challenge)}</section>`;
+  if (embedded && challenge.complete) return `<section class="lesson-speaking-page lesson-speaking-result-page">${renderSpeakingChallengeComplete(lesson, items, challenge)}</section>`;
   const selectedId = progress.selectedChoiceId || getLessonMemory(lesson.id)?.choiceId;
   const selected = lesson.learnerChoices?.options?.find(choice => choice.id === selectedId);
   const sourceItem = items[index];
@@ -1119,6 +1127,7 @@ function renderSpeaking(lesson, progress) {
   });
   const exchangeTitle = item.title || getSpeakingStageLabel(item, index);
   const usefulWords = getSpeakingUsefulWords(item);
+  const showInlineContinue = !embedded || index + 1 < items.length;
   return `
     <section class="lesson-speaking-page" aria-label="Talk with Carlos">
       <div class="lesson-speaking-intro">
@@ -1129,6 +1138,7 @@ function renderSpeaking(lesson, progress) {
         </section>
         <aside class="lesson-speaking-tip"><span>${icon("bulb")}</span><div><strong>Tip</strong><p>Speak naturally and Carlos will understand.</p></div></aside>
       </div>
+      ${embedded ? renderSpeakingWatchBar() : ""}
       ${renderSpeakingHistory(items, index, progress, lesson)}
       <div class="lesson-speaking-workspace">
         <div class="lesson-speaking-path">
@@ -1161,7 +1171,7 @@ function renderSpeaking(lesson, progress) {
               <div>
                 <button type="button" onclick="hablaLesson.replaySpeaking(this)" ${hasRecording ? "" : "disabled"}>${icon("play")} Replay my answer</button>
                 <button type="button" onclick="hablaLesson.retrySpeaking(this)">${icon("refresh")} Try again</button>
-                <button type="button" class="continue" onclick="hablaLesson.next()">${icon("arrow")} ${index + 1 >= items.length ? "Finish" : "Continue"}</button>
+                ${showInlineContinue ? `<button type="button" class="continue" onclick="hablaLesson.next()">${icon("arrow")} ${index + 1 >= items.length ? "Finish" : "Continue"}</button>` : ""}
               </div>
             </div>
             <details class="lesson-speaking-model" ontoggle="this.querySelector('summary')?.setAttribute('aria-expanded', String(this.open))">
@@ -1177,6 +1187,54 @@ function renderSpeaking(lesson, progress) {
       </div>
       ${renderSpeakingNavigation(index, items.length, attempted)}
       ${index + 1 >= items.length && attempted ? renderSpeakingFinalChallenge(lesson, progress, items) : ""}
+    </section>
+  `;
+}
+
+function renderSpeakingWatchBar() {
+  return `
+    <aside class="lesson-speaking-watchbar" aria-label="Watch Carlos before you answer">
+      <div>
+        <small>Watch Carlos first</small>
+        <strong>Hear the conversation once</strong>
+        <p>Listen to the rhythm, then take the conversation yourself.</p>
+      </div>
+      <div class="lesson-speaking-watch-actions">
+        <button class="lesson-play-full" type="button" onclick="hablaLesson.playDialogue(this)" aria-pressed="false">
+          <span data-playback-icon>${icon("play")}</span><b data-playback-label>Play conversation</b>
+        </button>
+        <div class="lesson-speed-control" role="group" aria-label="Conversation playback speed">
+          <button type="button" data-dialogue-speed="0.8" onclick="hablaLesson.setDialogueRate(this, .8)" aria-pressed="false">0.8×</button>
+          <button type="button" class="active" data-dialogue-speed="0.92" onclick="hablaLesson.setDialogueRate(this, .92)" aria-pressed="true">1×</button>
+        </div>
+      </div>
+    </aside>
+  `;
+}
+
+function renderSpeakingChallengeComplete(lesson, items, challenge) {
+  const completedCount = Object.values(challenge.attempts || {}).filter(Boolean).length;
+  const helpCount = Object.values(challenge.helpUsed || {}).filter(Boolean).length;
+  const withoutHelp = Math.max(0, items.length - helpCount);
+  return `
+    <section class="lesson-speaking-result" aria-label="Conversation challenge complete">
+      <span class="lesson-speaking-result-icon">${icon("trophy")}</span>
+      <small>First conversation complete</small>
+      <h1>You did it!</h1>
+      <p>You completed your first conversation in Spanish.</p>
+      <div class="lesson-speaking-result-stats">
+        <span><b>${completedCount || items.length} / ${items.length}</b><small>Exchanges completed</small></span>
+        <span><b>${withoutHelp}</b><small>Without help</small></span>
+        <span><b>${icon("star")}</b><small>Great start</small></span>
+      </div>
+      <aside class="lesson-speaking-result-note">
+        <span>${icon("bulb")}</span>
+        <div><small>Coach’s note</small><p>Clear and natural responses. You’re building real confidence—keep going.</p></div>
+      </aside>
+      <div class="lesson-speaking-result-actions">
+        <button type="button" class="secondary" onclick="hablaLesson.startSpeakingChallenge()">Replay conversation${icon("arrow")}</button>
+        <button type="button" class="primary" onclick="hablaLesson.next()">Continue to Say It Naturally${icon("arrow")}</button>
+      </div>
     </section>
   `;
 }
@@ -1598,7 +1656,7 @@ function renderLessonCompletion(lesson, progress = {}) {
 function renderLessonControls(step, stepIndex, steps, lesson, progress) {
   if (step?.type === "story") return "";
   if (step?.type === "grammar") return "";
-  if (step?.type === "speaking") return "";
+  if (step?.type === "speaking" || (lesson.id === CANONICAL_LESSON_ID && step?.type === "dialogue")) return "";
   const isLast = stepIndex === steps.length - 1;
   const choiceBlocked = step?.type === "choice" && !progress.selectedChoiceId && !getLessonMemory(lesson.id)?.choiceId;
   const quizBlocked = step?.type === "quiz" && !progress.rendererQuiz?.complete;
@@ -1638,7 +1696,9 @@ function advanceLesson() {
   const progress = getLessonProgress(lesson.id);
   const index = clamp(Number(progress.rendererStep || 0), 0, steps.length - 1);
   const step = steps[index];
-  if (step.type === "speaking") {
+  const isGuidedConversation = step.type === "speaking"
+    || (lesson.id === CANONICAL_LESSON_ID && step.type === "dialogue");
+  if (isGuidedConversation) {
     const speakingItems = normalizeFirst(lesson.speaking)?.items || lesson.speakingChallenge || [];
     const guidedIndex = clamp(Number(progress.guidedSpeakingIndex || 0), 0, Math.max(speakingItems.length - 1, 0));
     const attempt = getSpeakingAttempt(progress, guidedIndex);
@@ -1648,6 +1708,9 @@ function advanceLesson() {
       rerenderLesson(true);
       return;
     }
+    if (lesson.id === CANONICAL_LESSON_ID
+      && step.type === "dialogue"
+      && !progress.rendererSpeakingChallenge?.complete) return;
   }
   if (step.type === "choice" && !progress.selectedChoiceId && !getLessonMemory(lesson.id)?.choiceId) return;
   if (step.type === "quiz" && !progress.rendererQuiz?.complete) return;
@@ -1696,7 +1759,9 @@ function previousLessonStep() {
   const progress = getLessonProgress(lesson.id);
   const steps = buildLessonSteps(lesson);
   const currentStep = steps[clamp(Number(progress.rendererStep || 0), 0, Math.max(steps.length - 1, 0))];
-  if (currentStep?.type === "speaking" && Number(progress.guidedSpeakingIndex || 0) > 0) {
+  const isGuidedConversation = currentStep?.type === "speaking"
+    || (lesson.id === CANONICAL_LESSON_ID && currentStep?.type === "dialogue");
+  if (isGuidedConversation && Number(progress.guidedSpeakingIndex || 0) > 0) {
     updateLessonProgress(lesson.id, { guidedSpeakingIndex: Number(progress.guidedSpeakingIndex) - 1 });
     rerenderLesson(true);
     return;

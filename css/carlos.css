@@ -65,7 +65,7 @@
 
 .carlos-greeting-card h1 {
   color: var(--gold);
-  font-family: Georgia, serif;
+  font-family: var(--habla-font-display);
   font-size: 1.08rem;
   line-height: 1.1;
 }
@@ -591,7 +591,7 @@
 
 .carlos-hero-copy h1 {
   color: #fff;
-  font-family: "Playfair Display", Georgia, serif;
+  font-family: var(--habla-font-display);
   font-size: clamp(2.25rem, 11vw, 3.35rem);
   font-weight: 800;
   letter-spacing: 0;
@@ -760,7 +760,7 @@
 
 .carlos-conversation-card h2 {
   color: #fff;
-  font-family: "Playfair Display", Georgia, serif;
+  font-family: var(--habla-font-display);
   font-size: 1.34rem;
   line-height: 1.02;
   margin: 10px 0 9px;
@@ -952,7 +952,7 @@
 
 .carlos-progress-card strong {
   color: #fff;
-  font-family: "Playfair Display", Georgia, serif;
+  font-family: var(--habla-font-display);
   font-size: clamp(1.2rem, 5vw, 1.75rem);
   line-height: 1;
 }
@@ -1004,7 +1004,7 @@
 
 .carlos-quote-mark {
   color: rgba(255, 255, 255, 0.08);
-  font-family: Georgia, serif;
+  font-family: var(--habla-font-display);
   font-size: 3rem;
   line-height: 1;
 }
@@ -1314,7 +1314,7 @@
 
 .carlos-top-row h1 {
   color: #f4be58;
-  font-family: "Playfair Display", Georgia, serif;
+  font-family: var(--habla-font-display);
   font-size: 1.85rem;
   line-height: 1;
   margin: 0;
@@ -1779,7 +1779,7 @@
   color: #eef2ef;
   cursor: pointer;
   display: grid;
-  font: 600 0.76rem/1.2 Inter, system-ui, sans-serif;
+  font: 600 0.76rem/1.2 var(--habla-font-body);
   gap: 10px;
   grid-template-columns: 20px minmax(0, 1fr) auto;
   min-height: 46px;
@@ -1837,7 +1837,7 @@
   color: rgba(242, 244, 240, 0.88);
   cursor: pointer;
   display: inline-flex;
-  font: 600 0.7rem/1.2 Inter, system-ui, sans-serif;
+  font: 600 0.7rem/1.2 var(--habla-font-body);
   gap: 7px;
   min-height: 44px;
   padding: 8px 12px;
@@ -1888,7 +1888,7 @@
 .carlos-screen .bub {
   animation: carlosFadeIn 0.2s ease;
   box-shadow: none;
-  font: 500 0.94rem/1.48 Inter, system-ui, sans-serif;
+  font: 500 0.94rem/1.48 var(--habla-font-body);
   overflow-wrap: anywhere;
   padding: 0;
 }
@@ -2200,7 +2200,7 @@
   align-items: center;
   color: rgba(248, 244, 236, 0.78);
   display: flex;
-  font: 600 0.66rem/1.2 Inter, system-ui, sans-serif;
+  font: 600 0.66rem/1.2 var(--habla-font-body);
   gap: 4px;
   justify-content: center;
   margin: 5px 0 0;
@@ -2231,7 +2231,7 @@
   border: 1px solid rgba(255, 255, 255, 0.12);
   border-radius: 999px;
   color: rgba(248, 244, 236, 0.78);
-  font: 650 0.58rem/1 Inter, system-ui, sans-serif;
+  font: 650 0.58rem/1 var(--habla-font-body);
   margin: 0;
   padding: 5px 7px;
   white-space: nowrap;
@@ -2303,7 +2303,7 @@
   align-items: center;
   color: #54d98a;
   display: flex;
-  font: 750 0.66rem/1.2 Inter, system-ui, sans-serif;
+  font: 750 0.66rem/1.2 var(--habla-font-body);
   gap: 6px;
   letter-spacing: 0.035em;
   text-transform: uppercase;
@@ -2328,7 +2328,7 @@
 
 .carlos-memory-strip > div span {
   color: rgba(244, 246, 242, 0.76);
-  font: 600 0.64rem/1.2 Inter, system-ui, sans-serif;
+  font: 600 0.64rem/1.2 var(--habla-font-body);
   min-width: 0;
   overflow: hidden;
   padding: 0 9px;
@@ -2432,7 +2432,7 @@
 
 .carlos-memory-strip strong {
   color: #66dfa0;
-  font-family: "Playfair Display", Georgia, serif;
+  font-family: var(--habla-font-display);
   font-size: 0.79rem;
   font-weight: 700;
   letter-spacing: 0;
@@ -2488,14 +2488,14 @@
 
 .carlos-memory-strip .carlos-memory-item small {
   color: rgba(244, 246, 242, 0.48);
-  font: 700 0.54rem/1 Inter, system-ui, sans-serif;
+  font: 700 0.54rem/1 var(--habla-font-body);
   letter-spacing: 0.07em;
   text-transform: uppercase;
 }
 
 .carlos-memory-strip .carlos-memory-item b {
   color: rgba(247, 248, 245, 0.86);
-  font: 650 0.64rem/1.28 Inter, system-ui, sans-serif;
+  font: 650 0.64rem/1.28 var(--habla-font-body);
   overflow-wrap: anywhere;
 }
 

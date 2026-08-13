@@ -63,7 +63,7 @@
 
 .learn-hero-copy h1 {
   color: var(--habla-gold, #f4be58);
-  font-family: "Playfair Display", Georgia, serif;
+  font-family: var(--habla-font-display);
   font-size: 2.4rem;
   font-weight: 700;
   line-height: 0.95;
@@ -72,7 +72,7 @@
 
 .learn-hero-copy p {
   color: rgba(255, 255, 255, 0.76);
-  font-family: Inter, system-ui, sans-serif;
+  font-family: var(--habla-font-body);
   font-size: 0.8rem;
   font-weight: 400;
   line-height: 1.32;
@@ -87,7 +87,7 @@
   color: var(--habla-gold, #f4be58);
   display: inline-flex;
   flex: 0 0 auto;
-  font-family: Inter, system-ui, sans-serif;
+  font-family: var(--habla-font-body);
   font-size: 0.66rem;
   font-weight: 700;
   gap: 6px;
@@ -126,7 +126,7 @@
   color: rgba(255, 255, 255, 0.68);
   cursor: pointer;
   display: inline-flex !important;
-  font-family: Inter, system-ui, sans-serif;
+  font-family: var(--habla-font-body);
   font-size: 0.72rem;
   font-weight: 600;
   gap: 6px;
@@ -169,7 +169,7 @@
 .learn-tab-icon-grammar::before {
   color: currentColor;
   content: "Aa";
-  font-family: Georgia, serif;
+  font-family: var(--habla-font-display);
   font-size: 0.68rem;
   font-weight: 900;
   left: 0;
@@ -246,7 +246,7 @@
   border-radius: 999px;
   color: var(--habla-green, #29d66e);
   display: inline-flex;
-  font-family: Inter, system-ui, sans-serif;
+  font-family: var(--habla-font-body);
   font-size: 0.58rem;
   font-weight: 700;
   letter-spacing: 0.06em;
@@ -257,7 +257,7 @@
 .learn-current-copy em {
   color: var(--habla-green, #29d66e);
   display: block;
-  font-family: Inter, system-ui, sans-serif;
+  font-family: var(--habla-font-body);
   font-size: 0.68rem;
   font-style: normal;
   font-weight: 700;
@@ -266,7 +266,7 @@
 
 .learn-today-card h2 {
   color: #fff;
-  font-family: "Playfair Display", Georgia, serif;
+  font-family: var(--habla-font-display);
   font-size: 1.3rem;
   font-weight: 700;
   line-height: 1.12;
@@ -276,7 +276,7 @@
 
 .learn-today-card p {
   color: rgba(255, 255, 255, 0.8);
-  font-family: Inter, system-ui, sans-serif;
+  font-family: var(--habla-font-body);
   font-size: 0.72rem;
   font-weight: 400;
   line-height: 1.35;
@@ -287,7 +287,7 @@
   color: var(--habla-gold, #f4be58);
   display: flex;
   flex-wrap: wrap;
-  font-family: Inter, system-ui, sans-serif;
+  font-family: var(--habla-font-body);
   font-size: 0.6rem;
   font-weight: 600;
   gap: 10px;
@@ -309,7 +309,7 @@
   color: #14100a;
   cursor: pointer;
   display: inline-flex;
-  font-family: Inter, system-ui, sans-serif;
+  font-family: var(--habla-font-body);
   font-size: 0.74rem;
   font-weight: 700;
   gap: 10px;
@@ -356,7 +356,7 @@
 .learn-bubble-green,
 .learn-bubble-gold {
   border-radius: 10px;
-  font-family: Inter, system-ui, sans-serif;
+  font-family: var(--habla-font-body);
   font-size: 0.64rem;
   font-weight: 700;
   line-height: 1.05;
@@ -405,7 +405,7 @@
 
 .learn-current-progress span {
   color: rgba(255, 255, 255, 0.72);
-  font-family: Inter, system-ui, sans-serif;
+  font-family: var(--habla-font-body);
   font-size: 0.62rem;
   font-weight: 600;
   white-space: nowrap;
@@ -413,7 +413,7 @@
 
 .learn-current-progress strong {
   color: var(--habla-green, #29d66e);
-  font-family: Inter, system-ui, sans-serif;
+  font-family: var(--habla-font-body);
   font-size: 0.66rem;
   font-weight: 700;
   white-space: nowrap;
@@ -474,7 +474,7 @@
 
 .learn-section-title h2 {
   color: var(--habla-gold, #f4be58);
-  font-family: Inter, system-ui, sans-serif;
+  font-family: var(--habla-font-body);
   font-size: 0.68rem;
   font-weight: 700;
   letter-spacing: 0.07em;
@@ -530,7 +530,7 @@
   border-radius: 10px;
   color: #05200f;
   display: inline-flex;
-  font-family: Inter, system-ui, sans-serif;
+  font-family: var(--habla-font-body);
   font-size: 0.9rem;
   font-weight: 800;
   grid-row: 1 / span 2;
@@ -556,7 +556,7 @@
 .learn-lesson-copy strong {
   color: #fff;
   display: -webkit-box;
-  font-family: Inter, system-ui, sans-serif;
+  font-family: var(--habla-font-body);
   font-size: 0.76rem;
   font-weight: 700;
   line-height: 1.24;
@@ -568,7 +568,7 @@
 .learn-lesson-copy em {
   color: rgba(255, 255, 255, 0.6);
   display: -webkit-box;
-  font-family: Inter, system-ui, sans-serif;
+  font-family: var(--habla-font-body);
   font-size: 0.62rem;
   font-style: normal;
   font-weight: 500;
@@ -587,7 +587,7 @@
   align-self: center;
   color: var(--habla-green, #29d66e);
   display: grid;
-  font-family: Inter, system-ui, sans-serif;
+  font-family: var(--habla-font-body);
   font-size: 0.62rem;
   font-weight: 700;
   gap: 4px;
@@ -695,7 +695,7 @@
   cursor: pointer;
   display: flex;
   font: inherit;
-  font-family: Inter, system-ui, sans-serif;
+  font-family: var(--habla-font-body);
   font-size: 0.76rem;
   font-weight: 700;
   justify-content: space-between;
@@ -744,7 +744,7 @@
 .learn-milestone-card h2,
 .learn-tip-card h2 {
   color: var(--habla-gold, #f4be58);
-  font-family: Inter, system-ui, sans-serif;
+  font-family: var(--habla-font-body);
   font-size: 0.6rem;
   font-weight: 700;
   letter-spacing: 0.06em;
@@ -817,7 +817,7 @@
 
 .learn-side-stat strong {
   color: #fff;
-  font-family: "Playfair Display", Georgia, serif;
+  font-family: var(--habla-font-display);
   font-size: 1.05rem;
   font-weight: 700;
   line-height: 1.1;
@@ -825,7 +825,7 @@
 
 .learn-side-stat small {
   color: rgba(255, 255, 255, 0.7);
-  font-family: Inter, system-ui, sans-serif;
+  font-family: var(--habla-font-body);
   font-size: 0.58rem;
   font-weight: 500;
   line-height: 1.25;
@@ -837,7 +837,7 @@
 
 .learn-milestone-card p {
   color: rgba(255, 255, 255, 0.7);
-  font-family: Inter, system-ui, sans-serif;
+  font-family: var(--habla-font-body);
   font-size: 0.62rem;
   line-height: 1.3;
   margin: 8px 0 0;
@@ -849,7 +849,7 @@
   border-radius: 14px;
   color: var(--habla-gold, #f4be58);
   display: inline-flex;
-  font-family: "Playfair Display", Georgia, serif;
+  font-family: var(--habla-font-display);
   font-size: 1.15rem;
   font-weight: 700;
   height: 42px;
@@ -861,7 +861,7 @@
 .learn-milestone-card span {
   color: var(--habla-green, #29d66e);
   display: block;
-  font-family: Inter, system-ui, sans-serif;
+  font-family: var(--habla-font-body);
   font-size: 0.6rem;
   font-weight: 600;
   margin-top: 6px;
@@ -885,7 +885,7 @@
 
 .learn-tip-card p {
   color: rgba(255, 255, 255, 0.8);
-  font-family: Inter, system-ui, sans-serif;
+  font-family: var(--habla-font-body);
   font-size: 0.66rem;
   line-height: 1.35;
   margin: 0;
@@ -954,14 +954,14 @@
 
 .learn-support-card h2 {
   color: #fff;
-  font-family: "Playfair Display", Georgia, serif;
+  font-family: var(--habla-font-display);
   font-size: 1.1rem;
   margin: 0;
 }
 
 .learn-support-card p {
   color: rgba(255, 255, 255, 0.72);
-  font-family: Inter, system-ui, sans-serif;
+  font-family: var(--habla-font-body);
   font-size: 0.76rem;
   line-height: 1.4;
   margin: 10px 0 0;
@@ -1134,7 +1134,7 @@
 }
 .learn-locked-icon svg { height: 25px; width: 25px; }
 .learn-locked-preview > small { color: var(--habla-gold, #f4be58); font-size: 0.65rem; font-weight: 850; letter-spacing: 0.1em; text-transform: uppercase; }
-.learn-locked-preview h2 { font: 700 1.65rem/1.08 "Playfair Display", Georgia, serif; margin: 7px 0 9px; }
+.learn-locked-preview h2 { font: 700 1.65rem/1.08 var(--habla-font-display); margin: 7px 0 9px; }
 .learn-locked-preview p { color: rgba(255,255,255,.68); font-size: .76rem; line-height: 1.5; margin: 0; max-width: 31ch; }
 .learn-locked-preview p strong { color: #f5f1e9; }
 .learn-locked-return { gap: 10px; margin-top: 20px; min-height: 46px; padding-inline: 20px; }
@@ -1317,7 +1317,7 @@
 
 .learn-state-icon.progress i {
   color: rgba(255, 255, 255, 0.84);
-  font: 750 0.46rem/1 Inter, system-ui, sans-serif;
+  font: 750 0.46rem/1 var(--habla-font-body);
 }
 
 .learn-state-icon.complete,
@@ -1493,7 +1493,7 @@
 
 .learn-passport-preview h2 {
   color: #f7f4ed;
-  font: 700 1.35rem/1.05 "Playfair Display", Georgia, serif;
+  font: 700 1.35rem/1.05 var(--habla-font-display);
   margin: 5px 0 0;
 }
 
@@ -1636,7 +1636,7 @@
 }
 
 .learn-roadmap-intro h2 {
-  font: 700 clamp(1.65rem, 4vw, 2.15rem)/1.08 "Playfair Display", Georgia, serif;
+  font: 700 clamp(1.65rem, 4vw, 2.15rem)/1.08 var(--habla-font-display);
   margin: 8px 0 0;
   max-width: 23ch;
   position: relative;
@@ -1656,7 +1656,7 @@
 .learn-roadmap-stats > span { border-right:1px solid rgba(255,255,255,.09); display:grid; gap:4px; padding:0 10px; text-align:center; }
 .learn-roadmap-stats > span:first-child { padding-left:0; }
 .learn-roadmap-stats > span:last-child { border-right:0; padding-right:0; }
-.learn-roadmap-stats strong { color:#fff; font:700 1.25rem/1 "Playfair Display",Georgia,serif; }
+.learn-roadmap-stats strong { color:#fff; font:700 1.25rem/1 var(--habla-font-display); }
 .learn-roadmap-stats small { color:rgba(255,255,255,.48); font:700 .5rem/1.25 Inter,sans-serif; letter-spacing:0; text-transform:none; }
 
 .learn-roadmap-chapters { display: grid; gap: 20px; }
@@ -1684,7 +1684,7 @@
 .learn-roadmap-cover > div { align-self:flex-end; position:relative; z-index:1; }
 .learn-roadmap-cover small { align-items:center; color:var(--chapter-accent); display:flex; font:800 .55rem/1 Inter,sans-serif; gap:6px; letter-spacing:.09em; text-transform:uppercase; }
 .learn-roadmap-cover small svg { height:15px; width:15px; }
-.learn-roadmap-cover h3 { font:700 1.8rem/1 "Playfair Display",Georgia,serif; margin:7px 0 4px; }
+.learn-roadmap-cover h3 { font:700 1.8rem/1 var(--habla-font-display); margin:7px 0 4px; }
 .learn-roadmap-cover p { color:rgba(255,255,255,.78); font:650 .68rem/1.35 Inter,sans-serif; margin:0; }
 .learn-roadmap-cover span { color:rgba(255,255,255,.52); display:block; font:650 .55rem/1 Inter,sans-serif; margin-top:9px; }
 
@@ -1866,26 +1866,26 @@
 .learn-v2-section-header > p {
   margin: 0;
   color: var(--learn-gold);
-  font: 800 .62rem/1.15 Inter, system-ui, sans-serif;
+  font: 800 .62rem/1.15 var(--habla-font-body);
   letter-spacing: .1em;
   text-transform: uppercase;
 }
 .learn-episode-hero__copy > .learn-v2-eyebrow { color: var(--learn-green); }
-.learn-episode-hero__copy > small { margin-top: 10px; color: var(--learn-gold); font: 750 .68rem/1 Inter, system-ui, sans-serif; }
+.learn-episode-hero__copy > small { margin-top: 10px; color: var(--learn-gold); font: 750 .68rem/1 var(--habla-font-body); }
 .learn-episode-hero h2 {
   max-width: 12ch;
   margin: 7px 0 8px;
   color: #fbf8f1;
-  font: 700 1.78rem/.98 "Playfair Display", Georgia, serif;
+  font: 700 1.78rem/.98 var(--habla-font-display);
   letter-spacing: -.04em;
   text-wrap: balance;
   text-shadow: 0 4px 18px rgba(0, 0, 0, .55);
 }
-.learn-episode-hero__copy > p:not(.learn-v2-eyebrow) { max-width: 27ch; margin: 0; color: rgba(248, 246, 239, .82); font: 540 .65rem/1.42 Inter, system-ui, sans-serif; }
+.learn-episode-hero__copy > p:not(.learn-v2-eyebrow) { max-width: 27ch; margin: 0; color: rgba(248, 246, 239, .82); font: 540 .65rem/1.42 var(--habla-font-body); }
 .learn-episode-hero__meta { display: flex; align-items: center; gap: 10px; margin-top: 13px; }
 .learn-episode-hero__meta span { display: inline-flex; align-items: center; gap: 4px; color: var(--learn-gold); white-space: nowrap; }
 .learn-episode-hero__meta svg { width: 13px; height: 13px; }
-.learn-episode-hero__meta b { color: rgba(250, 248, 242, .88); font: 700 .53rem/1 Inter, system-ui, sans-serif; }
+.learn-episode-hero__meta b { color: rgba(250, 248, 242, .88); font: 700 .53rem/1 var(--habla-font-body); }
 .learn-episode-hero__cta {
   display: inline-flex;
   align-items: center;
@@ -1898,7 +1898,7 @@
   border-radius: 14px;
   background: linear-gradient(135deg, #34ce7d, #24985d);
   color: #f6fff9;
-  font: 800 .72rem/1 Inter, system-ui, sans-serif;
+  font: 800 .72rem/1 var(--habla-font-body);
   cursor: pointer;
   box-shadow: 0 9px 21px rgba(31, 164, 94, .2);
 }
@@ -1918,8 +1918,8 @@
   background: radial-gradient(circle at 100% 50%, rgba(49, 212, 125, .12), transparent 35%), linear-gradient(110deg, rgba(6, 30, 24, .98), rgba(7, 17, 18, .96));
 }
 .learn-coach-v2 > img { width: 58px; height: 58px; object-fit: cover; object-position: top center; border: 1px solid rgba(245, 189, 69, .7); border-radius: 50%; background: #112118; }
-.learn-coach-v2 h2 { margin: 5px 0 0; color: var(--learn-text); font: 620 .69rem/1.35 Inter, system-ui, sans-serif; }
-.learn-coach-v2 strong { display: block; margin-top: 7px; color: var(--learn-gold); font: 750 .59rem/1 Inter, system-ui, sans-serif; }
+.learn-coach-v2 h2 { margin: 5px 0 0; color: var(--learn-text); font: 620 .69rem/1.35 var(--habla-font-body); }
+.learn-coach-v2 strong { display: block; margin-top: 7px; color: var(--learn-gold); font: 750 .59rem/1 var(--habla-font-body); }
 .learn-coach-v2 > span { display: grid; place-items: center; width: 58px; height: 58px; color: var(--learn-green); opacity: .35; }
 .learn-coach-v2 > span svg { width: 52px; height: 52px; }
 
@@ -1946,7 +1946,7 @@
   border-radius: 12px;
   background: rgba(8, 13, 13, .52);
   color: var(--learn-gold);
-  font: 750 .56rem/1 Inter, system-ui, sans-serif;
+  font: 750 .56rem/1 var(--habla-font-body);
   cursor: pointer;
 }
 .learn-v2-outline-action svg { width: 12px; height: 12px; }
@@ -1975,8 +1975,8 @@
 .learn-journey-episode.is-current > span { border-color: var(--learn-gold); box-shadow: 0 0 0 3px rgba(245, 189, 69, .1), 0 0 15px rgba(245, 189, 69, .23); }
 .learn-journey-episode.is-current i { background: var(--learn-gold); }
 .learn-journey-episode.is-locked { opacity: .4; }
-.learn-journey-episode > small { color: rgba(255, 255, 255, .72); font: 800 .5rem/1 Inter, system-ui, sans-serif; }
-.learn-journey-episode > strong { max-width: 64px; color: rgba(250, 248, 242, .86); font: 650 .48rem/1.14 Inter, system-ui, sans-serif; }
+.learn-journey-episode > small { color: rgba(255, 255, 255, .72); font: 800 .5rem/1 var(--habla-font-body); }
+.learn-journey-episode > strong { max-width: 64px; color: rgba(250, 248, 242, .86); font: 650 .48rem/1.14 var(--habla-font-body); }
 
 .learn-episodes-card { padding: 10px 7px 8px; }
 .learn-episodes-card > .learn-v2-section-header { padding: 0 3px 7px; }
@@ -1987,17 +1987,17 @@
 .learn-episode-row.locked { opacity: .5; }
 .learn-episode-row__art { position: relative; align-self: stretch; min-height: 94px; overflow: hidden; background: #17201b; }
 .learn-episode-row__art img { width: 100%; height: 100%; object-fit: cover; }
-.learn-episode-row__art i { position: absolute; left: 6px; top: 50%; display: grid; place-items: center; width: 20px; height: 20px; border-radius: 50%; background: var(--learn-gold); color: #171005; font: 850 .52rem/1 Inter, system-ui, sans-serif; font-style: normal; transform: translateY(-50%); }
+.learn-episode-row__art i { position: absolute; left: 6px; top: 50%; display: grid; place-items: center; width: 20px; height: 20px; border-radius: 50%; background: var(--learn-gold); color: #171005; font: 850 .52rem/1 var(--habla-font-body); font-style: normal; transform: translateY(-50%); }
 .learn-episode-row.completed .learn-episode-row__art i { background: var(--learn-green); }
 .learn-episode-row__art i svg { width: 11px; height: 11px; stroke-width: 2.8; }
 .learn-episode-row__copy { display: grid; gap: 3px; align-self: stretch; align-content: center; min-width: 0; padding: 7px 10px; border: 0; background: transparent; color: var(--learn-text); text-align: left; cursor: pointer; }
-.learn-episode-row__copy > small { color: var(--learn-green); font: 720 .5rem/1 Inter, system-ui, sans-serif; }
+.learn-episode-row__copy > small { color: var(--learn-green); font: 720 .5rem/1 var(--habla-font-body); }
 .learn-episode-row.current .learn-episode-row__copy > small { color: var(--learn-gold); }
-.learn-episode-row__copy > strong { overflow: hidden; color: #f7f4ed; font: 620 .76rem/1.08 Inter, system-ui, sans-serif; text-overflow: ellipsis; white-space: nowrap; }
-.learn-episode-row__copy > span { display: flex; align-items: center; gap: 3px; color: rgba(225, 232, 229, .55); font: 550 .48rem/1 Inter, system-ui, sans-serif; white-space: nowrap; }
+.learn-episode-row__copy > strong { overflow: hidden; color: #f7f4ed; font: 620 .76rem/1.08 var(--habla-font-body); text-overflow: ellipsis; white-space: nowrap; }
+.learn-episode-row__copy > span { display: flex; align-items: center; gap: 3px; color: rgba(225, 232, 229, .55); font: 550 .48rem/1 var(--habla-font-body); white-space: nowrap; }
 .learn-episode-row__copy > span svg { width: 10px; height: 10px; }
 .learn-episode-row__copy > span b { margin: 0 2px; font-weight: 500; }
-.learn-episode-row__continue { display: inline-flex; align-items: center; justify-content: center; gap: 7px; min-height: 36px; margin-right: 8px; padding: 0 10px; border: 0; border-radius: 12px; background: linear-gradient(135deg, #ffd366, #e7a82e); color: #171005; font: 800 .6rem/1 Inter, system-ui, sans-serif; cursor: pointer; }
+.learn-episode-row__continue { display: inline-flex; align-items: center; justify-content: center; gap: 7px; min-height: 36px; margin-right: 8px; padding: 0 10px; border: 0; border-radius: 12px; background: linear-gradient(135deg, #ffd366, #e7a82e); color: #171005; font: 800 .6rem/1 var(--habla-font-body); cursor: pointer; }
 .learn-episode-row__continue svg,
 .learn-episode-row__chevron svg { width: 12px; height: 12px; }
 .learn-episode-row__chevron { display: grid; place-items: center; width: 36px; height: 40px; border: 0; background: transparent; color: rgba(255, 255, 255, .76); cursor: pointer; }
@@ -2010,8 +2010,8 @@
 .learn-progress-strip .is-fire svg { color: #ff7042; }
 .learn-progress-strip .is-target svg { color: var(--learn-green); }
 .learn-progress-strip .is-book svg { color: #4a9df6; }
-.learn-progress-strip b { color: var(--learn-text); font: 700 1rem/1 "Playfair Display", Georgia, serif; }
-.learn-progress-strip small { color: rgba(225, 232, 229, .62); font: 540 .48rem/1.2 Inter, system-ui, sans-serif; text-align: center; }
+.learn-progress-strip b { color: var(--learn-text); font: 700 1rem/1 var(--habla-font-display); }
+.learn-progress-strip small { color: rgba(225, 232, 229, .62); font: 540 .48rem/1.2 var(--habla-font-body); text-align: center; }
 
 .learn-passport-v2 {
   display: grid;
@@ -2024,16 +2024,16 @@
 }
 .learn-passport-book { display: grid; place-items: center; width: 70px; height: 112px; justify-self: center; border: 1px solid rgba(245, 189, 69, .48); border-radius: 7px 12px 12px 7px; background: #102d29; color: var(--learn-gold); box-shadow: -7px 9px 18px rgba(0, 0, 0, .36), inset 5px 0 8px rgba(0, 0, 0, .28); transform: rotate(-6deg); }
 .learn-passport-book span,
-.learn-passport-book small { font: 800 .49rem/1 Inter, system-ui, sans-serif; letter-spacing: .11em; text-transform: uppercase; }
+.learn-passport-book small { font: 800 .49rem/1 var(--habla-font-body); letter-spacing: .11em; text-transform: uppercase; }
 .learn-passport-book svg { width: 34px; height: 34px; }
 .learn-passport-v2__body { min-width: 0; }
-.learn-passport-v2__body h2 { margin: 5px 0 0; color: var(--learn-text); font: 700 1.17rem/1 "Playfair Display", Georgia, serif; }
+.learn-passport-v2__body h2 { margin: 5px 0 0; color: var(--learn-text); font: 700 1.17rem/1 var(--habla-font-display); }
 .learn-passport-v2__stamps { display: grid; grid-auto-flow: column; grid-auto-columns: minmax(70px, 1fr); gap: 5px; margin-top: 12px; overflow-x: auto; scrollbar-width: none; }
 .learn-passport-v2__stamps > span { position: relative; display: grid; justify-items: center; gap: 4px; min-width: 0; color: var(--learn-gold); text-align: center; }
 .learn-passport-v2__stamps > span > svg { width: 31px; height: 31px; padding: 6px; border: 1px dashed currentColor; border-radius: 50%; }
-.learn-passport-v2__stamps small { color: var(--learn-gold); font: 800 .43rem/1 Inter, system-ui, sans-serif; letter-spacing: .05em; text-transform: uppercase; }
-.learn-passport-v2__stamps strong { max-width: 76px; color: rgba(250, 248, 242, .82); font: 620 .48rem/1.15 Inter, system-ui, sans-serif; }
-.learn-passport-v2__stamps i { color: rgba(225, 232, 229, .48); font: 550 .42rem/1 Inter, system-ui, sans-serif; font-style: normal; }
+.learn-passport-v2__stamps small { color: var(--learn-gold); font: 800 .43rem/1 var(--habla-font-body); letter-spacing: .05em; text-transform: uppercase; }
+.learn-passport-v2__stamps strong { max-width: 76px; color: rgba(250, 248, 242, .82); font: 620 .48rem/1.15 var(--habla-font-body); }
+.learn-passport-v2__stamps i { color: rgba(225, 232, 229, .48); font: 550 .42rem/1 var(--habla-font-body); font-style: normal; }
 .learn-passport-v2__stamps i svg { width: 10px; height: 10px; }
 .learn-passport-v2__stamps .is-next { opacity: .5; }
 .learn-v2 .learn-roadmap-panel { padding-top: 2px; }

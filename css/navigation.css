@@ -46,7 +46,7 @@
   border-radius: 20px;
   background: transparent;
   color: #9099a5;
-  font-family: Inter, system-ui, sans-serif;
+  font-family: var(--habla-font-body);
   font-size: 10px;
   font-weight: 500;
   line-height: 1;

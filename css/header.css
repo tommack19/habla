@@ -65,7 +65,7 @@
 }
 
 .primary-brand > span {
-  font: 700 1.42rem/1 "Playfair Display", Georgia, serif;
+  font: 700 1.42rem/1 var(--habla-font-display);
   letter-spacing: -0.025em;
   white-space: nowrap;
 }
@@ -95,7 +95,7 @@
   border-radius: 999px;
   background: rgba(5, 10, 13, 0.54);
   color: rgba(255, 255, 255, 0.82);
-  font: 700 0.64rem/1 Inter, system-ui, sans-serif;
+  font: 700 0.64rem/1 var(--habla-font-body);
   letter-spacing: 0;
   text-transform: none;
   white-space: nowrap;
@@ -116,7 +116,7 @@
   border: 1px solid rgba(245, 189, 69, 0.2);
   border-radius: 999px;
   color: #f5bd45;
-  font: 800 0.53rem/1 Inter, system-ui, sans-serif;
+  font: 800 0.53rem/1 var(--habla-font-body);
   letter-spacing: 0.04em;
 }
 
@@ -184,7 +184,7 @@
   border-radius: inherit;
   color: #171005;
   display: grid;
-  font: 800 0.82rem/1 Inter, system-ui, sans-serif;
+  font: 800 0.82rem/1 var(--habla-font-body);
   height: 100%;
   overflow: hidden;
   place-items: center;
@@ -264,14 +264,14 @@
 
 .level-sheet-heading > span {
   color: #f5bd45;
-  font: 800 0.67rem/1 Inter, system-ui, sans-serif;
+  font: 800 0.67rem/1 var(--habla-font-body);
   letter-spacing: 0.11em;
   text-transform: uppercase;
 }
 
 .level-sheet-heading > small {
   color: rgba(229, 235, 232, 0.52);
-  font: 500 0.62rem/1.2 Inter, system-ui, sans-serif;
+  font: 500 0.62rem/1.2 var(--habla-font-body);
 }
 
 .level-current {
@@ -306,13 +306,13 @@
 #level-sheet .level-current h3 {
   margin: 0 0 4px;
   color: #f5f5f3;
-  font: 700 1.42rem/1 "Playfair Display", Georgia, serif;
+  font: 700 1.42rem/1 var(--habla-font-display);
 }
 
 #level-sheet .level-current p {
   margin: 0;
   color: rgba(229, 235, 232, 0.62);
-  font: 500 0.7rem/1 Inter, system-ui, sans-serif;
+  font: 500 0.7rem/1 var(--habla-font-body);
 }
 
 .level-current em {
@@ -321,7 +321,7 @@
   border-radius: 999px;
   background: rgba(41, 214, 110, 0.08);
   color: #29d66e;
-  font: 700 0.57rem/1 Inter, system-ui, sans-serif;
+  font: 700 0.57rem/1 var(--habla-font-body);
   font-style: normal;
 }
 
@@ -331,7 +331,7 @@
   gap: 12px;
   margin-top: 18px;
   color: rgba(229, 235, 232, 0.65);
-  font: 600 0.66rem/1 Inter, system-ui, sans-serif;
+  font: 600 0.66rem/1 var(--habla-font-body);
 }
 
 .level-xp-copy b { color: #f5bd45; }
@@ -367,16 +367,16 @@
 .level-next div { display: grid; gap: 4px; }
 .level-next small {
   color: rgba(229, 235, 232, 0.5);
-  font: 600 0.57rem/1 Inter, system-ui, sans-serif;
+  font: 600 0.57rem/1 var(--habla-font-body);
   letter-spacing: 0.08em;
   text-transform: uppercase;
 }
 .level-next strong {
-  font: 700 1rem/1.1 "Playfair Display", Georgia, serif;
+  font: 700 1rem/1.1 var(--habla-font-display);
 }
 .level-next > span {
   color: rgba(229, 235, 232, 0.6);
-  font: 600 0.62rem/1.2 Inter, system-ui, sans-serif;
+  font: 600 0.62rem/1.2 var(--habla-font-body);
   white-space: nowrap;
 }
 
@@ -392,7 +392,7 @@
   border-radius: 13px;
   background: linear-gradient(135deg, rgba(245, 189, 69, 0.16), rgba(245, 189, 69, 0.07));
   color: #f5bd45;
-  font: 800 0.72rem/1 Inter, system-ui, sans-serif;
+  font: 800 0.72rem/1 var(--habla-font-body);
   cursor: pointer;
 }
 

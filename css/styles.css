@@ -1,10 +1,10 @@
-﻿*{box-sizing:border-box;margin:0;padding:0}
+*{box-sizing:border-box;margin:0;padding:0}
 :root{
   --bg:#080c10;--surface:#0d1117;--card:#111820;--border:#1e2a38;
   --gold:#e8b86d;--red:#c0392b;--green:#27ae60;--purple:#8e44ad;--blue:#2980b9;
   --text:#e8e4de;--muted:#4a5a6a;--soft:#8a9ab8;
 }
-html,body{height:100%;background:var(--bg);color:var(--text);font-family:-apple-system,'Inter',sans-serif;overflow:hidden}
+html,body{height:100%;background:var(--bg);color:var(--text);font-family:var(--habla-font-body);overflow:hidden}
 #app{display:flex;flex-direction:column;height:100vh;max-width:520px;margin:0 auto}
 #dashboard{flex:1;min-height:0;overflow-y:auto}
 #dashboard.home-page {
@@ -17,7 +17,7 @@ html,body{height:100%;background:var(--bg);color:var(--text);font-family:-apple-
 
 /* HEADER */
 #app > header{display:flex;align-items:center;justify-content:space-between;padding:11px 16px;background:var(--surface);border-bottom:1px solid var(--border);flex-shrink:0}
-.logo{font-family:Georgia,serif;font-size:1.3rem;color:var(--gold)}.logo span{color:var(--red);font-style:italic}
+.logo{font-family:var(--habla-font-display);font-size:1.3rem;color:var(--gold)}.logo span{color:var(--red);font-style:italic}
 #level-btn{background:transparent;border:1px solid rgba(232,184,109,0.3);border-radius:20px;padding:4px 11px;color:var(--gold);font-size:0.67rem;font-weight:600;letter-spacing:.8px;text-transform:uppercase;cursor:pointer}
 
 /* VIEWS */
@@ -27,7 +27,7 @@ html,body{height:100%;background:var(--bg);color:var(--text);font-family:-apple-
 /* VOCAB TAB */
 #vocab-view{overflow-y:auto;padding:14px}
 .vocab-top{margin-bottom:12px}
-.vocab-top h2{font-family:Georgia,serif;color:var(--gold);font-size:1.05rem}
+.vocab-top h2{font-family:var(--habla-font-display);color:var(--gold);font-size:1.05rem}
 .vocab-top p{font-size:.75rem;color:var(--muted);margin-top:2px}
 .cats{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:12px}
 .cat-btn{padding:5px 12px;border-radius:20px;border:1px solid var(--border);background:transparent;color:var(--muted);font-size:.68rem;font-weight:600;letter-spacing:.4px;text-transform:uppercase;cursor:pointer;transition:all .15s}
@@ -36,7 +36,7 @@ html,body{height:100%;background:var(--bg);color:var(--text);font-family:-apple-
 .vcard{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:11px 13px;display:flex;align-items:flex-start;justify-content:space-between;transition:border-color .2s}
 .vcard:hover{border-color:var(--border)}
 .v-left{flex:1}
-.v-es{font-family:Georgia,serif;font-size:1rem;color:var(--gold)}
+.v-es{font-family:var(--habla-font-display);font-size:1rem;color:var(--gold)}
 .v-en{font-size:.78rem;color:var(--muted);margin-top:1px}
 .v-tip{font-size:.74rem;color:var(--gold);opacity:.8;margin-top:5px;font-style:italic}
 .v-ex{font-size:.72rem;color:#5a7090;margin-top:3px}
@@ -51,7 +51,7 @@ html,body{height:100%;background:var(--bg);color:var(--text);font-family:-apple-
 /* PLAN TAB */
 #plan-view{overflow-y:auto;padding:14px}
 .plan-hero{margin-bottom:16px}
-.plan-hero h2{font-family:Georgia,serif;color:var(--gold);font-size:1.1rem}
+.plan-hero h2{font-family:var(--habla-font-display);color:var(--gold);font-size:1.1rem}
 .plan-hero p{font-size:.76rem;color:var(--muted);margin-top:3px}
 .phase{background:var(--card);border:1px solid var(--border);border-radius:11px;margin-bottom:11px;overflow:hidden}
 .phase-hd{display:flex;align-items:center;gap:11px;padding:12px 14px}
@@ -75,7 +75,7 @@ html,body{height:100%;background:var(--bg);color:var(--text);font-family:-apple-
 /* QUIZ TAB */
 #quiz-view{overflow-y:auto;padding:14px;display:flex;flex-direction:column;gap:12px}
 .quiz-hero{background:var(--card);border:1px solid var(--border);border-radius:11px;padding:14px}
-.quiz-hero h2{font-family:Georgia,serif;color:var(--gold);font-size:1.05rem;margin-bottom:4px}
+.quiz-hero h2{font-family:var(--habla-font-display);color:var(--gold);font-size:1.05rem;margin-bottom:4px}
 .quiz-hero p{font-size:.76rem;color:var(--muted)}
 .quiz-modes{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:11px}
 .qmode-btn{background:var(--bg);border:1px solid var(--border);border-radius:9px;padding:11px 10px;cursor:pointer;text-align:center;transition:border-color .2s;font-family:inherit}
@@ -91,7 +91,7 @@ html,body{height:100%;background:var(--bg);color:var(--text);font-family:-apple-
 .q-score-display{font-size:.7rem;color:var(--green);font-weight:600}
 .q-card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:18px 16px;text-align:center;margin-bottom:12px}
 .q-cat{font-size:.62rem;color:var(--muted);letter-spacing:1px;text-transform:uppercase;margin-bottom:8px}
-.q-word{font-family:Georgia,serif;font-size:1.6rem;color:var(--gold);margin-bottom:6px}
+.q-word{font-family:var(--habla-font-display);font-size:1.6rem;color:var(--gold);margin-bottom:6px}
 .q-hint{font-size:.74rem;color:var(--muted);font-style:italic}
 .q-pronounce{background:transparent;border:1px solid var(--border);border-radius:20px;padding:5px 14px;color:var(--gold);font-size:.7rem;cursor:pointer;margin-top:8px;font-family:inherit}
 .q-options{display:grid;grid-template-columns:1fr 1fr;gap:8px}
@@ -105,7 +105,7 @@ html,body{height:100%;background:var(--bg);color:var(--text);font-family:-apple-
 #q-next{display:none;width:100%;padding:11px;background:var(--gold);color:#000;border:none;border-radius:9px;font-size:.88rem;font-weight:600;cursor:pointer;font-family:inherit;margin-top:4px}
 .q-result{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:20px;text-align:center;display:none}
 .q-result .trophy{font-size:2.5rem;margin-bottom:8px}
-.q-result h3{font-family:Georgia,serif;color:var(--gold);font-size:1.1rem;margin-bottom:6px}
+.q-result h3{font-family:var(--habla-font-display);color:var(--gold);font-size:1.1rem;margin-bottom:6px}
 .q-result .q-final-score{font-size:1.8rem;font-weight:700;color:var(--text);margin-bottom:4px}
 .q-result p{font-size:.78rem;color:var(--muted);margin-bottom:14px}
 .q-result button{padding:10px 24px;background:var(--gold);color:#000;border:none;border-radius:8px;font-size:.85rem;font-weight:600;cursor:pointer;font-family:inherit}

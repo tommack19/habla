@@ -48,7 +48,7 @@
 .lesson-cover__eyebrow,
 .lesson-cover__overline {
   display: block;
-  font: 800 0.68rem/1.2 Inter, system-ui, sans-serif;
+  font: 800 0.68rem/1.2 var(--habla-font-body);
   letter-spacing: 0.08em;
   text-transform: uppercase;
 }
@@ -58,7 +58,7 @@
 
 .lesson-cover h2 {
   color: #fffdf8;
-  font: 700 1.78rem/1.07 "Playfair Display", Georgia, serif;
+  font: 700 1.78rem/1.07 var(--habla-font-display);
   letter-spacing: -0.025em;
   margin: 6px 0 8px;
   max-width: 14ch;
@@ -67,13 +67,13 @@
 
 .lesson-cover__context {
   color: var(--lesson-cover-accent);
-  font: 750 0.64rem/1.25 Inter, system-ui, sans-serif;
+  font: 750 0.64rem/1.25 var(--habla-font-body);
   margin-bottom: 7px;
 }
 
 .lesson-cover__copy > p {
   color: rgba(255, 255, 255, 0.84);
-  font: 500 0.76rem/1.48 Inter, system-ui, sans-serif;
+  font: 500 0.76rem/1.48 var(--habla-font-body);
   margin: 0;
   max-width: 31ch;
   text-wrap: pretty;
@@ -95,7 +95,7 @@
   align-items: center;
   color: #f1eee7;
   display: inline-flex;
-  font: 750 0.65rem/1.2 Inter, system-ui, sans-serif;
+  font: 750 0.65rem/1.2 var(--habla-font-body);
   gap: 6px;
   min-width: 0;
   padding: 0 12px;
@@ -111,7 +111,7 @@
   border: 0;
   border-radius: var(--habla-radius-button, 18px);
   color: #171107;
-  font: 750 0.78rem/1.15 Inter, system-ui, sans-serif;
+  font: 750 0.78rem/1.15 var(--habla-font-body);
   gap: 12px;
   justify-content: center;
   margin-top: 15px;
@@ -142,7 +142,7 @@
 .lesson-cover--learn .lesson-cover__copy { padding-bottom: 58px; }
 .learn-current-shell:has(> .lesson-cover) { background: transparent; border: 0; box-shadow: none; overflow: visible; }
 .lesson-cover--learn .lesson-cover__footer span,
-.lesson-cover--learn .lesson-cover__footer strong { font: 700 0.68rem Inter, system-ui, sans-serif; }
+.lesson-cover--learn .lesson-cover__footer strong { font: 700 0.68rem var(--habla-font-body); }
 .lesson-cover--learn .lesson-cover__footer strong { color: var(--lesson-cover-accent); }
 .lesson-cover--learn .lesson-cover__footer i { background: rgba(255,255,255,.16); border-radius: 99px; height: 4px; overflow: hidden; }
 .lesson-cover--learn .lesson-cover__footer i b { background: var(--lesson-cover-accent); display: block; height: 100%; }
