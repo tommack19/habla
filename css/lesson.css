@@ -15,6 +15,167 @@
 .lesson-v2.emotion-discovery { --lesson-accent: #f3a83b; }
 .lesson-v2.emotion-belonging { --lesson-accent: #36d47b; }
 .lesson-v2.emotion-confidence { --lesson-accent: #8f68f6; }
+
+/* LESSON 1 CANONICAL VISUAL FOUNDATION
+   Keep this scoped until Lesson 1 is approved on a real phone. */
+.lesson-v2.lesson-canonical {
+  --lesson-accent: var(--habla-green);
+  gap: 16px;
+  max-width: 760px;
+  padding-top: 12px;
+}
+
+.lesson-v2.lesson-canonical .lesson-v2-header {
+  border-color: rgba(191,206,211,.14);
+  border-radius: 16px;
+  grid-template-columns: 40px minmax(0,1fr) auto;
+  padding: 10px;
+}
+
+.lesson-v2.lesson-canonical .lesson-back {
+  background: rgba(255,255,255,.035);
+  border-color: rgba(191,206,211,.14);
+  height: 40px;
+}
+
+.lesson-v2.lesson-canonical .lesson-header-progress { height: 3px; }
+.lesson-v2.lesson-canonical .lesson-header-progress i,
+.lesson-v2.lesson-canonical .lesson-quiz-progress i {
+  background: linear-gradient(90deg,var(--habla-green),#55e491);
+}
+
+.lesson-v2.lesson-canonical .lesson-stage { gap: 16px; }
+.lesson-v2.lesson-canonical .lesson-section-heading { padding-top: 4px; }
+.lesson-v2.lesson-canonical .lesson-section-heading h1 {
+  font-size: clamp(1.7rem,7vw,2.55rem);
+  margin-bottom: 8px;
+}
+
+.lesson-v2.lesson-canonical .lesson-story-hero {
+  border-radius: 18px;
+  box-shadow: 0 16px 42px rgba(0,0,0,.3);
+  max-height: 300px;
+  min-height: 210px;
+}
+
+.lesson-v2.lesson-canonical .lesson-story-copy {
+  max-width: 80%;
+  padding: 20px;
+}
+
+.lesson-v2.lesson-canonical .lesson-story-copy h1 {
+  font-size: clamp(1.75rem,7vw,2.45rem);
+  margin: 7px 0 9px;
+}
+
+.lesson-v2.lesson-canonical .lesson-opening-carlos {
+  gap: 12px;
+  grid-template-columns: 58px minmax(0,1fr) 40px;
+  padding: 15px;
+}
+
+.lesson-v2.lesson-canonical .lesson-opening-carlos img {
+  height: 58px;
+  object-position: center;
+  width: 58px;
+}
+
+.lesson-v2.lesson-canonical .lesson-opening-carlos h2 {
+  font-size: 1.15rem;
+  margin-bottom: 5px;
+}
+
+.lesson-v2.lesson-canonical .lesson-opening-carlos p {
+  font-size: .82rem;
+  line-height: 1.45;
+}
+
+.lesson-v2.lesson-canonical .lesson-opening-actions {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.lesson-v2.lesson-canonical :is(
+  .lesson-carlos-intro,
+  .lesson-vocab-item,
+  .lesson-language-primary,
+  .lesson-language-secondary,
+  .lesson-language-city-tip,
+  .lesson-language-ready,
+  .lesson-dialogue-line,
+  .lesson-pronunciation-card,
+  .lesson-speaking-path article,
+  .lesson-flashcard,
+  .lesson-quiz-card,
+  .lesson-culture-quote,
+  .lesson-culture-extras,
+  .lesson-success-criteria,
+  .lesson-completion-next
+) {
+  border-radius: 18px;
+  box-shadow: none;
+}
+
+.lesson-v2.lesson-canonical :is(
+  .lesson-begin-episode,
+  .lesson-language-ready button,
+  .lesson-quiz-next,
+  .lesson-quiz-input button,
+  .lesson-flash-actions > button:last-child:not(.got-it),
+  .lesson-control-primary,
+  .lesson-completion-primary
+) {
+  background: linear-gradient(180deg,#35dc7c,#20b963);
+  border: 1px solid rgba(75,229,145,.55);
+  box-shadow: 0 10px 24px rgba(32,185,99,.16);
+  color: #fff !important;
+}
+
+.lesson-v2.lesson-canonical .lesson-begin-episode {
+  grid-column: auto;
+  max-width: 240px;
+}
+
+.lesson-v2.lesson-canonical .lesson-controls {
+  border-top-color: rgba(191,206,211,.14);
+  gap: 9px;
+}
+
+.lesson-v2.lesson-canonical .lesson-control-primary {
+  border-radius: 13px;
+  justify-content: center;
+  max-width: 70%;
+  padding-inline: 14px;
+}
+
+.lesson-v2.lesson-canonical .lesson-control-secondary {
+  background: rgba(255,255,255,.025);
+  border: 1px solid rgba(244,190,88,.28);
+  color: #d8c27e;
+}
+
+.lesson-v2.lesson-canonical .lesson-completion-card {
+  border-color: rgba(244,190,88,.28);
+  border-radius: 22px;
+  box-shadow: 0 20px 55px rgba(0,0,0,.34);
+}
+
+.lesson-v2.lesson-canonical .lesson-completion-success {
+  margin: 16px auto 0;
+  max-width: 760px;
+  text-align: left;
+}
+
+@media (max-width: 520px) {
+  .lesson-v2.lesson-canonical { gap: 14px; padding-top: 8px; }
+  .lesson-v2.lesson-canonical .lesson-v2-header {
+    border-radius: 0 0 14px 14px;
+    grid-template-columns: 38px minmax(0,1fr) auto;
+    padding-inline: 12px;
+  }
+  .lesson-v2.lesson-canonical .lesson-opening-actions,
+  .lesson-v2.lesson-canonical .lesson-begin-episode { max-width: none; width: 100%; }
+}
 .lesson-v2 button { color: inherit; font: inherit; min-width: 0; }
 .lesson-v2 svg { display: block; height: 20px; width: 20px; }
 

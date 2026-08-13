@@ -141,7 +141,7 @@ export function renderLesson() {
     : Math.round((completedStepCount / Math.max(displayedStepCount, 1)) * 100);
 
   return `
-    <section class="lesson-v2 emotion-${slugify(lesson.emotionalArc?.emotion || "journey")}" aria-label="${escapeAttr(lesson.title)} lesson">
+    <section class="lesson-v2${lesson.id === CANONICAL_LESSON_ID ? " lesson-canonical" : ""} emotion-${slugify(lesson.emotionalArc?.emotion || "journey")}" aria-label="${escapeAttr(lesson.title)} lesson">
       ${renderLessonHeader(lesson, step, visibleStepIndex, displayedStepCount, percent, progress)}
       <main class="lesson-stage" id="lesson-stage" tabindex="-1">
         ${renderLessonSceneBanner(lesson, step)}
@@ -431,6 +431,7 @@ function renderStory(lesson) {
     body: story.heroText || mission || "A new conversation with Carlos begins.",
   });
   const missionItems = getOpeningMissionItems(lesson);
+  const isCanonicalLesson = lesson.id === CANONICAL_LESSON_ID;
   const openingMessage = story.openingCarlosMessage || intro.message || intro.text || mission;
   const openingTitle = story.openingCarlosTitle || intro.title || intro.eyebrow || "Let’s begin";
   const missionTitle = story.openingMissionTitle || mission || "Complete the conversation.";
@@ -453,15 +454,19 @@ function renderStory(lesson) {
       <div><span>Carlos</span><h2>${escapeHtml(openingTitle)}</h2><p>${escapeHtml(openingMessage)}</p></div>
       <button type="button" class="lesson-opening-audio" data-speech="${escapeAttr(openingMessage)}" onclick="hablaLesson.speak(this.dataset.speech)" aria-label="Hear Carlos introduce the episode">${icon("sound")}</button>
     </article>
-    <article class="lesson-mission-card lesson-opening-mission">
-      <span class="lesson-icon">${icon("target")}</span>
-      <div class="lesson-opening-mission-copy">
-        <small>Today's mission</small>
-        <h2>${escapeHtml(missionTitle)}</h2>
-        <ul>${missionItems.map(item => `<li>${icon("check")}<span>${escapeHtml(item)}</span></li>`).join("")}</ul>
-      </div>
-      <button type="button" class="lesson-begin-episode" onclick="hablaLesson.next()"><span>Begin episode</span>${icon("arrow")}</button>
-    </article>
+    ${isCanonicalLesson
+      ? `<div class="lesson-opening-actions">
+          <button type="button" class="lesson-begin-episode" onclick="hablaLesson.next()"><span>Begin Episode</span>${icon("arrow")}</button>
+        </div>`
+      : `<article class="lesson-mission-card lesson-opening-mission">
+          <span class="lesson-icon">${icon("target")}</span>
+          <div class="lesson-opening-mission-copy">
+            <small>Today's mission</small>
+            <h2>${escapeHtml(missionTitle)}</h2>
+            <ul>${missionItems.map(item => `<li>${icon("check")}<span>${escapeHtml(item)}</span></li>`).join("")}</ul>
+          </div>
+          <button type="button" class="lesson-begin-episode" onclick="hablaLesson.next()"><span>Begin episode</span>${icon("arrow")}</button>
+        </article>`}
   `;
 }
 
@@ -1495,6 +1500,17 @@ function getLessonClosing(lesson) {
     || "You used Spanish successfully in a real situation.";
 }
 
+function renderLessonSuccessSummary(lesson) {
+  const items = getOpeningMissionItems(lesson);
+  if (!items.length) return "";
+  return `
+    <section class="lesson-success-criteria lesson-completion-success" aria-label="What you accomplished">
+      <h2>What you accomplished</h2>
+      <ul>${items.map(item => `<li>${icon("check")}<span>${escapeHtml(item)}</span></li>`).join("")}</ul>
+    </section>
+  `;
+}
+
 function renderChapterPostcard(ceremony) {
   const postcard = ceremony?.postcard;
   if (!postcard) return "";
@@ -1540,7 +1556,7 @@ function renderLessonCompletion(lesson, progress = {}) {
     || next?.objectives?.[0]
     || "Your Spanish journey continues.";
   return `
-    <section class="lesson-v2 lesson-completion-screen ${ceremony ? "lesson-finale-screen" : ""}" aria-label="${escapeAttr(completionTitle)} complete" aria-live="polite">
+    <section class="lesson-v2${lesson.id === CANONICAL_LESSON_ID ? " lesson-canonical" : ""} lesson-completion-screen ${ceremony ? "lesson-finale-screen" : ""}" aria-label="${escapeAttr(completionTitle)} complete" aria-live="polite">
       ${renderLessonHeader(lesson, { label: "Complete", type: "complete" }, visibleStepCount - 1, visibleStepCount, 100, { ...progress, completed: true })}
       <main class="lesson-completion-stage">
         <article class="lesson-completion-card">
@@ -1560,6 +1576,7 @@ function renderLessonCompletion(lesson, progress = {}) {
               <p>${escapeHtml(getLessonClosing(lesson))}</p>
             </div>
           </section>
+          ${lesson.id === CANONICAL_LESSON_ID ? renderLessonSuccessSummary(lesson) : ""}
           ${ceremony ? `<section class="lesson-completion-ceremony"><small>Carlos says</small><blockquote>${escapeHtml(ceremony.carlosSpanish)}</blockquote><p>${escapeHtml(ceremony.carlosEnglish)}</p>${ceremony.journey?.length ? `<div>${ceremony.journey.map(place => `<span>${escapeHtml(place)}</span>`).join("")}</div>` : ""}${ceremony.nextDestination ? `<b>Next destination · ${escapeHtml(ceremony.nextDestination)}</b>` : ""}</section>` : ""}
           <section class="lesson-completion-rewards" aria-label="Unlocked rewards">
             ${lesson.passportStamp ? `<span>${icon("passport")}<small>Passport stamp</small><b>${escapeHtml(lesson.passportStamp.title)} · ${escapeHtml(lesson.passportStamp.city || "España")}</b></span>` : ""}
