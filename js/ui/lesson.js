@@ -66,7 +66,8 @@ let flashSwipeStartY = 0;
 let flashSwipeHandled = false;
 const recordedLineUrls = new WeakMap();
 const speakingRecordingUrls = new Map();
-const LESSON_FLOW_VERSION = 2;
+const LESSON_FLOW_VERSION = 3;
+const CANONICAL_LESSON_ID = "a1-lesson-01-greetings";
 
 if (typeof window !== "undefined") {
   window.hablaLesson = {
@@ -126,20 +127,22 @@ export function renderLesson() {
   const steps = buildLessonSteps(lesson);
   const stepIndex = clamp(Number(progress.rendererStep || 0), 0, Math.max(steps.length - 1, 0));
   const step = steps[stepIndex];
-  const visibleStepCount = steps.filter(item => !item.legacyCombined).length;
+  const visibleFlowStepCount = steps.filter(item => !item.legacyCombined).length;
   const visibleStepIndex = Math.max(
     0,
     steps.slice(0, stepIndex + 1).filter(item => !item.legacyCombined).length - 1,
   );
+  const isCanonicalLesson = lesson.id === CANONICAL_LESSON_ID;
+  const displayedStepCount = isCanonicalLesson ? visibleFlowStepCount + 1 : visibleFlowStepCount;
   const isReplay = Boolean(progress.completed && progress.replayStartedAt && !progress.showCompletion);
   const completedStepCount = step?.type === "story" ? 0 : visibleStepIndex;
   const percent = progress.completed && !isReplay
     ? 100
-    : Math.round((completedStepCount / Math.max(visibleStepCount, 1)) * 100);
+    : Math.round((completedStepCount / Math.max(displayedStepCount, 1)) * 100);
 
   return `
     <section class="lesson-v2 emotion-${slugify(lesson.emotionalArc?.emotion || "journey")}" aria-label="${escapeAttr(lesson.title)} lesson">
-      ${renderLessonHeader(lesson, step, visibleStepIndex, visibleStepCount, percent, progress)}
+      ${renderLessonHeader(lesson, step, visibleStepIndex, displayedStepCount, percent, progress)}
       <main class="lesson-stage" id="lesson-stage" tabindex="-1">
         ${renderLessonSceneBanner(lesson, step)}
         ${renderStep(step, lesson, progress)}
@@ -149,7 +152,68 @@ export function renderLesson() {
   `;
 }
 
-function buildLessonSteps(lesson, { includeRemovedConversation = false } = {}) {
+function buildLessonSteps(lesson) {
+  const isCanonicalLesson = lesson.id === CANONICAL_LESSON_ID;
+  const steps = [{
+    id: "story",
+    label: isCanonicalLesson ? "Episode Opening" : "Introduction",
+    type: "story",
+  }];
+  const dialogue = normalizeDialogue(lesson.dialogue || lesson.dialogues);
+  const messageThread = dialogue.find(scene => scene.presentation?.type === "messageThread");
+  const standardDialogue = dialogue.find(scene => scene !== messageThread);
+
+  // Lesson 1 recovery rule:
+  // message/choice/listening content may support the canonical screens, but none
+  // of them may create an extra learner-facing page.
+  if (!isCanonicalLesson && messageThread) {
+    steps.push({
+      id: "messages",
+      label: "A Message from Carlos",
+      type: "dialogue",
+      data: messageThread,
+      legacyCombined: true,
+    });
+  }
+  if (!isCanonicalLesson && lesson.learnerChoices?.options?.length) {
+    steps.push({ id: "choice", label: "Choose the Moment", type: "choice" });
+  }
+
+  if (lesson.vocabulary?.length) steps.push({ id: "vocabulary", label: "Words Youâ€™ll Need", type: "vocabulary" });
+  if (lesson.grammar) steps.push({ id: "grammar", label: "Carlosâ€™ Advice", type: "grammar" });
+  if (standardDialogue) steps.push({ id: "dialogue", label: "Watch Carlos", type: "dialogue", data: standardDialogue });
+
+  // On the canonical Lesson 1 flow, the dialogue screen itself is the
+  // "Watch Carlos" experience. The old standalone listening pass is removed.
+  if ((lesson.listening || lesson.listeningPhrases?.length) && (!isCanonicalLesson || !standardDialogue)) {
+    steps.push({
+      id: "listening",
+      label: "Watch Carlos",
+      type: "listening",
+      data: standardDialogue || messageThread,
+      legacyCombined: Boolean(standardDialogue),
+    });
+  }
+
+  if (lesson.pronunciation || lesson.pronunciationExercises?.length) {
+    steps.push({ id: "pronunciation", label: "Say It Naturally", type: "pronunciation" });
+  }
+  if (lesson.speaking || lesson.speakingChallenge?.length) {
+    steps.push({ id: "speaking", label: "Talk with Carlos", type: "speaking" });
+  }
+  if (getFlashcardItems(lesson).length) {
+    steps.push({ id: "flashcards", label: "Keep It Fresh", type: "flashcards" });
+  }
+  if (lesson.quiz?.length) {
+    steps.push({ id: "quiz", label: "Can You Remember?", type: "quiz" });
+  }
+  if (lesson.culture || lesson.worldBuilding?.length || lesson.livingWorldInteractions?.length) {
+    steps.push({ id: "culture", label: "Madrid Moment", type: "culture" });
+  }
+  return steps;
+}
+
+function buildLegacyLessonSteps(lesson, { includeRemovedConversation = false } = {}) {
   const steps = [{ id: "story", label: "Introduction", type: "story" }];
   const dialogue = normalizeDialogue(lesson.dialogue || lesson.dialogues);
   const messageThread = dialogue.find(scene => scene.presentation?.type === "messageThread");
@@ -163,8 +227,8 @@ function buildLessonSteps(lesson, { includeRemovedConversation = false } = {}) {
     });
   }
   if (lesson.learnerChoices?.options?.length) steps.push({ id: "choice", label: "Choose the Moment", type: "choice" });
-  if (lesson.vocabulary?.length) steps.push({ id: "vocabulary", label: "Words You’ll Need", type: "vocabulary" });
-  if (lesson.grammar) steps.push({ id: "grammar", label: "Carlos’ Advice", type: "grammar" });
+  if (lesson.vocabulary?.length) steps.push({ id: "vocabulary", label: "Words Youâ€™ll Need", type: "vocabulary" });
+  if (lesson.grammar) steps.push({ id: "grammar", label: "Carlosâ€™ Advice", type: "grammar" });
   const standardDialogue = dialogue.find(scene => scene !== messageThread);
   if (standardDialogue) steps.push({ id: "dialogue", label: "Watch Carlos", type: "dialogue", data: standardDialogue });
   if (lesson.listening || lesson.listeningPhrases?.length) {
@@ -183,24 +247,57 @@ function buildLessonSteps(lesson, { includeRemovedConversation = false } = {}) {
   if (includeRemovedConversation && (lesson.miniConversation || lesson.realLifeMission)) {
     steps.push({ id: "conversation", label: "Removed conversation", type: "conversation" });
   }
-  if (lesson.culture || lesson.worldBuilding?.length || lesson.livingWorldInteractions?.length) steps.push({ id: "culture", label: "Madrid Moment", type: "culture" });
+  if (lesson.culture || lesson.worldBuilding?.length || lesson.livingWorldInteractions?.length) {
+    steps.push({ id: "culture", label: "Madrid Moment", type: "culture" });
+  }
   return steps;
 }
 
-function migrateRemovedConversationStep(lesson, progress) {
-  if (Number(progress.lessonFlowVersion || 0) >= LESSON_FLOW_VERSION) return progress;
-  const newSteps = buildLessonSteps(lesson);
-  const legacySteps = buildLessonSteps(lesson, { includeRemovedConversation: true });
-  const oldIndex = clamp(Number(progress.rendererStep || 0), 0, Math.max(legacySteps.length - 1, 0));
-  const oldStep = legacySteps[oldIndex];
-  const targetId = oldStep?.id === "conversation" ? "speaking" : oldStep?.id;
-  const mappedIndex = Math.max(0, newSteps.findIndex(step => step.id === targetId));
-  const migrated = { ...progress, lessonFlowVersion: LESSON_FLOW_VERSION, rendererStep: mappedIndex };
-  const hasSavedSession = Boolean(progress.updatedAt || progress.completed || progress.completedSections?.length || Number(progress.rendererStep || 0));
-  if (hasSavedSession) updateLessonProgress(lesson.id, { lessonFlowVersion: LESSON_FLOW_VERSION, rendererStep: mappedIndex });
-  return migrated;
+function mapLegacyStepId(lesson, stepId) {
+  if (lesson.id !== CANONICAL_LESSON_ID) {
+    return stepId === "conversation" ? "speaking" : stepId;
+  }
+
+  if (stepId === "messages") return "story";
+  if (stepId === "choice") return "vocabulary";
+  if (stepId === "listening") return "dialogue";
+  if (stepId === "conversation" || stepId === "your-turn" || stepId === "mission") return "speaking";
+  return stepId;
 }
 
+function migrateRemovedConversationStep(lesson, progress) {
+  const previousVersion = Number(progress.lessonFlowVersion || 0);
+  if (previousVersion >= LESSON_FLOW_VERSION) return progress;
+
+  const newSteps = buildLessonSteps(lesson);
+  const legacySteps = buildLegacyLessonSteps(lesson, {
+    includeRemovedConversation: previousVersion < 2,
+  });
+  const oldIndex = clamp(Number(progress.rendererStep || 0), 0, Math.max(legacySteps.length - 1, 0));
+  const oldStep = legacySteps[oldIndex];
+  const targetId = mapLegacyStepId(lesson, oldStep?.id);
+  let mappedIndex = newSteps.findIndex(step => step.id === targetId);
+  if (mappedIndex < 0) mappedIndex = 0;
+
+  const migrated = {
+    ...progress,
+    lessonFlowVersion: LESSON_FLOW_VERSION,
+    rendererStep: mappedIndex,
+  };
+  const hasSavedSession = Boolean(
+    progress.updatedAt
+      || progress.completed
+      || progress.completedSections?.length
+      || Number(progress.rendererStep || 0),
+  );
+  if (hasSavedSession) {
+    updateLessonProgress(lesson.id, {
+      lessonFlowVersion: LESSON_FLOW_VERSION,
+      rendererStep: mappedIndex,
+    });
+  }
+  return migrated;
+}
 function renderLessonHeader(lesson, step, visibleStepIndex, visibleStepCount, percent, progress) {
   const isReplay = Boolean(progress.completed && progress.replayStartedAt && !progress.showCompletion);
   const isIntroduction = step?.type === "story";
@@ -1488,7 +1585,8 @@ function renderLessonControls(step, stepIndex, steps, lesson, progress) {
   const isLast = stepIndex === steps.length - 1;
   const choiceBlocked = step?.type === "choice" && !progress.selectedChoiceId && !getLessonMemory(lesson.id)?.choiceId;
   const quizBlocked = step?.type === "quiz" && !progress.rendererQuiz?.complete;
-  const conversationBlocked = (step?.type === "dialogue" || step?.type === "listening")
+  const conversationBlocked = lesson.id !== CANONICAL_LESSON_ID
+    && (step?.type === "dialogue" || step?.type === "listening")
     && Boolean(lesson.listening || lesson.listeningPhrases?.length)
     && !progress.rendererListening?.complete;
   const blocked = choiceBlocked || quizBlocked || conversationBlocked;
@@ -1536,7 +1634,8 @@ function advanceLesson() {
   }
   if (step.type === "choice" && !progress.selectedChoiceId && !getLessonMemory(lesson.id)?.choiceId) return;
   if (step.type === "quiz" && !progress.rendererQuiz?.complete) return;
-  if ((step.type === "dialogue" || step.type === "listening")
+  if (lesson.id !== CANONICAL_LESSON_ID
+    && (step.type === "dialogue" || step.type === "listening")
     && (lesson.listening || lesson.listeningPhrases?.length)
     && !progress.rendererListening?.complete) return;
 
