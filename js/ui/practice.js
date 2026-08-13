@@ -61,12 +61,12 @@ function renderHub() {
   const streak = getPracticeStreak(store);
   const verbsToReview = Math.min(3, PRACTICE_VERBS.length);
   const estimatedMinutes = Math.max(2, Math.min(8, Math.ceil((dueCount + verbsToReview + 1) / 4)));
-  const dailyActivityCount = buildDailyTasks().length;
   return `<section class="practice-hub" aria-labelledby="practice-title">
     <header class="practice-hub-title"><div><small>Practice</small><h1 id="practice-title">Practice</h1><p>Sharpen your Spanish.</p></div><span aria-hidden="true">${icon("target")}</span></header>
     <section class="practice-today" aria-label="Today's challenge">
-      <header><div><small>Today’s challenge</small><h2>Build today’s<br>momentum</h2><p>${estimatedMinutes} minutes · ${dailyActivityCount} activities</p></div><div class="practice-streak" aria-label="${streak} day practice streak">${icon("flame")}<strong>${streak}</strong><span>day streak</span></div></header>
-      <div class="practice-hero-scene" role="img" aria-label="A warm café street in Madrid"><span><small>Today in Madrid</small><strong>Café &amp; conversation</strong></span></div>
+      <header><div><small>Today’s challenge</small><h2>Build today’s momentum</h2><p>A quick mix shaped by what needs attention.</p></div><div class="practice-streak" aria-label="${streak} day practice streak">${icon("flame")}<strong>${streak}</strong><span>day streak</span></div></header>
+      <div class="practice-hero-scene" aria-hidden="true"></div>
+      <dl aria-label="Daily practice details"><div><dt>${dueCount}</dt><dd>cards due</dd></div><div><dt>${verbsToReview}</dt><dd>verbs to review</dd></div><div><dt>~${estimatedMinutes}</dt><dd>minutes</dd></div></dl>
       <button class="practice-cta" type="button" onclick="hablaPractice.startDailyPractice()">${icon("review")}<span>Start Daily Practice</span>${icon("arrow")}</button>
     </section>
     <section class="practice-section practice-modes"><header><h2>Choose a mode</h2></header>

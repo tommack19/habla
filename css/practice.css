@@ -1203,3 +1203,377 @@
   .practice-flash-session .practice-flash-inner,
   .practice-flash-session .practice-flash-face { min-height:275px; }
 }
+
+/* Practice home premium cohesion pass */
+#dashboard.practice-page {
+  background:
+    radial-gradient(circle at 86% 6%,rgba(37,131,87,.1),transparent 25rem),
+    linear-gradient(180deg,#050b12 0%,#07110f 48%,#050b12 100%);
+  padding-bottom:calc(var(--habla-bottom-nav-h,82px) + env(safe-area-inset-bottom) + 54px);
+  scroll-padding-bottom:calc(var(--habla-bottom-nav-h,82px) + env(safe-area-inset-bottom) + 54px);
+}
+
+.practice-hub .practice-hub-title {
+  min-height:80px;
+  margin:0 2px 12px;
+}
+
+.practice-hub .practice-hub-title h1 {
+  font-size:clamp(2.35rem,10vw,3rem);
+  letter-spacing:-.04em;
+}
+
+.practice-hub .practice-hub-title p {
+  margin-top:5px;
+}
+
+.practice-hub .practice-hub-title > span {
+  height:46px;
+  width:46px;
+}
+
+.practice-hub .practice-hub-title > span .practice-icon {
+  height:25px;
+  width:25px;
+}
+
+.practice-hub .practice-today {
+  background:linear-gradient(105deg,#07251b 0%,#08251c 55%,#07120f 100%);
+  gap:10px;
+  min-height:266px;
+  padding:17px;
+}
+
+.practice-hub .practice-today::before {
+  background:linear-gradient(90deg,rgba(3,20,15,.98) 0%,rgba(4,24,17,.92) 43%,rgba(3,18,14,.64) 68%,rgba(2,12,10,.4) 100%);
+}
+
+.practice-hub .practice-today > header {
+  min-height:112px;
+}
+
+.practice-hub .practice-today > header > div:first-child {
+  max-width:68%;
+}
+
+.practice-hub .practice-today > header small {
+  padding:6px 10px;
+}
+
+.practice-hub .practice-today h2 {
+  font-size:clamp(1.55rem,6.8vw,2rem);
+  line-height:1.05;
+  margin:11px 0 7px;
+  max-width:12ch;
+}
+
+.practice-hub .practice-today p {
+  font-size:.64rem;
+  font-weight:550;
+  line-height:1.4;
+  max-width:31ch;
+}
+
+.practice-hub .practice-hero-scene {
+  background-position:66% center;
+  filter:saturate(.76) brightness(.72);
+  left:40%;
+}
+
+.practice-hub .practice-hero-scene::after {
+  background:linear-gradient(180deg,rgba(2,12,9,.08) 28%,rgba(2,12,9,.72) 100%);
+}
+
+.practice-hub .practice-today dl {
+  background:rgba(2,12,9,.68);
+  border-color:rgba(93,145,120,.18);
+  border-radius:14px;
+  margin:0;
+  padding:9px 2px;
+}
+
+.practice-hub .practice-today dl div {
+  display:block;
+  padding:0 7px;
+  text-align:center;
+}
+
+.practice-hub .practice-today dl div > span {
+  display:none;
+}
+
+.practice-hub .practice-today dt {
+  font-size:1.15rem;
+  text-align:center;
+}
+
+.practice-hub .practice-today dd {
+  font-size:.5rem;
+  margin-top:3px;
+  text-align:center;
+}
+
+.practice-hub .practice-today .practice-cta {
+  border-radius:15px;
+  min-height:52px;
+}
+
+.practice-hub .practice-section > header,
+.practice-hub .practice-shortcuts > header {
+  margin-bottom:9px;
+}
+
+.practice-hub .practice-mode-grid {
+  gap:9px;
+}
+
+.practice-hub .practice-mode-card {
+  border-color:color-mix(in srgb,currentColor 32%,#26332f);
+  border-radius:17px;
+  grid-template-rows:48px auto 1fr auto;
+  min-height:142px;
+  padding:12px;
+}
+
+.practice-hub .practice-mode-card .practice-mode-icon {
+  border-radius:13px;
+  height:48px;
+  width:48px;
+}
+
+.practice-hub .practice-mode-card .practice-mode-icon .practice-icon {
+  height:27px;
+  width:27px;
+}
+
+.practice-hub .practice-mode-card .practice-mode-copy {
+  margin-top:6px;
+}
+
+.practice-hub .practice-mode-card .practice-mode-copy strong {
+  font-size:.79rem;
+}
+
+.practice-hub .practice-mode-card .practice-mode-copy p {
+  font-size:.57rem;
+  margin-top:4px;
+  white-space:nowrap;
+}
+
+.practice-hub .practice-mode-card .practice-mode-metric {
+  font-size:.55rem;
+  margin-top:6px;
+}
+
+.practice-hub .practice-shortcuts {
+  margin:19px 0 21px;
+}
+
+.practice-hub .practice-collections {
+  gap:6px;
+}
+
+.practice-hub .practice-collections button {
+  background:linear-gradient(145deg,rgba(15,25,31,.92),rgba(7,14,18,.98));
+  border-color:rgba(106,127,135,.22);
+  border-radius:14px;
+  min-height:80px;
+  padding:8px 6px;
+}
+
+.practice-hub .practice-collections button > strong {
+  font-size:.92rem;
+}
+
+.practice-hub .practice-collections button > small {
+  font-size:.5rem;
+}
+
+.practice-hub .practice-weak-list {
+  background:linear-gradient(145deg,rgba(11,22,27,.94),rgba(6,14,17,.98));
+  border-color:rgba(102,126,134,.22);
+}
+
+.practice-hub .practice-weak-list > button {
+  min-height:64px;
+  padding-block:8px;
+}
+
+.practice-hub .practice-weak-list strong {
+  color:#f0f2ef;
+  font-size:.77rem;
+}
+
+.practice-hub .practice-weak-list i {
+  margin-top:7px;
+}
+
+.practice-hub .practice-weak-list i b {
+  background:#24332f;
+  height:5px;
+}
+
+.practice-hub .practice-weak-list i b.filled {
+  box-shadow:0 0 7px currentColor;
+}
+
+@media (max-width:430px) {
+  .practice-hub .practice-hub-title { min-height:76px; }
+  .practice-hub .practice-hub-title h1 { font-size:clamp(2.25rem,10.8vw,2.75rem); }
+  .practice-hub .practice-today { min-height:258px; padding:15px; }
+  .practice-hub .practice-today > header { min-height:108px; }
+  .practice-hub .practice-today > header > div:first-child { max-width:70%; }
+  .practice-hub .practice-hero-scene { background-position:63% center; left:37%; }
+  .practice-hub .practice-mode-card { min-height:138px; }
+}
+
+@media (max-width:350px) {
+  .practice-hub .practice-today { min-height:264px; }
+  .practice-hub .practice-today > header > div:first-child { max-width:76%; }
+  .practice-hub .practice-today h2 { font-size:1.45rem; }
+  .practice-hub .practice-mode-card { min-height:134px; padding:10px; }
+  .practice-hub .practice-mode-card .practice-mode-icon { height:44px; width:44px; }
+  .practice-hub .practice-mode-card .practice-mode-copy p { font-size:.52rem; }
+  .practice-hub .practice-collections button { min-height:78px; }
+}
+
+/* Practice home final density and icon-alignment pass */
+.practice-hub .practice-today {
+  min-height:252px;
+}
+
+.practice-hub .practice-today > header {
+  min-height:105px;
+}
+
+.practice-hub .practice-modes {
+  margin-bottom:16px;
+}
+
+.practice-hub .practice-mode-card {
+  align-content:stretch;
+  gap:0;
+  grid-template-columns:minmax(0,1fr) 16px;
+  grid-template-rows:42px auto 1fr 18px;
+  min-height:124px;
+  padding:10px 11px;
+}
+
+.practice-hub .practice-mode-card .practice-mode-icon {
+  align-items:center;
+  border:0;
+  border-radius:12px;
+  display:flex;
+  grid-column:1/-1;
+  height:42px;
+  justify-content:center;
+  padding:0;
+  width:42px;
+}
+
+.practice-hub .practice-mode-card .practice-mode-icon .practice-icon {
+  display:block;
+  height:24px;
+  margin:auto;
+  overflow:visible;
+  width:24px;
+}
+
+.practice-hub .practice-mode-card .practice-mode-copy {
+  background:none;
+  border:0;
+  border-radius:0;
+  color:inherit;
+  display:block;
+  grid-column:1/-1;
+  height:auto;
+  margin:7px 0 0;
+  padding:0;
+  width:auto;
+}
+
+.practice-hub .practice-mode-card .practice-mode-copy strong {
+  font-size:.75rem;
+  line-height:1.12;
+}
+
+.practice-hub .practice-mode-card .practice-mode-copy p {
+  color:#9fa9a5;
+  font-size:.54rem;
+  line-height:1.25;
+  margin-top:3px;
+  overflow:hidden;
+  text-overflow:ellipsis;
+  white-space:nowrap;
+}
+
+.practice-hub .practice-mode-card .practice-mode-metric {
+  align-self:end;
+  font-size:.53rem;
+  grid-column:1;
+  line-height:1;
+  margin:0;
+}
+
+.practice-hub .practice-mode-card > .practice-icon:last-child {
+  align-self:center;
+  grid-column:2;
+  height:15px;
+  justify-self:end;
+  margin:0;
+  width:15px;
+}
+
+.practice-hub .practice-shortcuts {
+  margin:14px 0 18px;
+}
+
+.practice-hub .practice-collections button {
+  align-items:center;
+  min-height:70px;
+  padding:7px 5px;
+}
+
+.practice-hub .practice-collections button > span {
+  align-items:center;
+  display:flex;
+  justify-content:center;
+}
+
+.practice-hub .practice-collections button > span .practice-icon {
+  display:block;
+  margin:auto;
+}
+
+.practice-hub .practice-collections button > strong {
+  font-size:.86rem;
+}
+
+.practice-hub .practice-collections button > small {
+  line-height:1.12;
+}
+
+.practice-hub .practice-weak {
+  margin-bottom:18px;
+}
+
+#dashboard.practice-page {
+  padding-bottom:calc(var(--habla-bottom-nav-h,82px) + env(safe-area-inset-bottom) + 72px);
+  scroll-padding-bottom:calc(var(--habla-bottom-nav-h,82px) + env(safe-area-inset-bottom) + 72px);
+}
+
+@media (max-width:430px) {
+  .practice-hub .practice-today { min-height:246px; }
+  .practice-hub .practice-today > header { min-height:101px; }
+  .practice-hub .practice-mode-card { min-height:120px; }
+}
+
+@media (max-width:350px) {
+  .practice-hub .practice-today { min-height:250px; }
+  .practice-hub .practice-mode-card { min-height:116px; padding:9px; }
+  .practice-hub .practice-mode-card .practice-mode-icon { height:38px; width:38px; }
+  .practice-hub .practice-mode-card .practice-mode-icon .practice-icon { height:22px; width:22px; }
+  .practice-hub .practice-mode-card .practice-mode-copy strong { font-size:.7rem; }
+  .practice-hub .practice-mode-card .practice-mode-copy p { font-size:.49rem; }
+  .practice-hub .practice-collections button { min-height:70px; }
+}

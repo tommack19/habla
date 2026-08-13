@@ -1,4 +1,4 @@
-const CACHE_NAME = "habla-v25-practice-flashcards";
+const CACHE_NAME = "habla-v26-practice-premium";
 const ARTWORK_CACHE_NAME = "habla-artwork-v2";
 
 self.addEventListener("install", (event) => {
