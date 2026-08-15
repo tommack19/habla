@@ -1,12 +1,12 @@
 {
   "id": "a1-lesson-01-greetings",
-  "contentVersion": "1.4",
+  "contentVersion": "1.5",
   "title": "First Coffee",
   "level": "A1",
   "module": "Greetings",
   "estimatedMinutes": 25,
   "contentRoles": {
-    "coreLesson": ["story", "essentialPhrases", "vocabulary", "grammar", "dialogue", "listening", "pronunciation", "speaking", "quiz", "miniConversation", "realLifeMission"],
+    "coreLesson": ["story", "essentialPhrases", "conversationBuilder", "vocabulary", "grammar", "dialogue", "listening", "pronunciation", "speaking", "quiz", "miniConversation", "realLifeMission"],
     "practiceSupport": ["listeningPhrases", "speakingChallenge", "nativeSpeech", "commonMistakes"],
     "reviewedReference": ["greetings", "politeExpressions", "supplementalDialogueExamples", "supplementalPronunciation", "supplementalQuizBank"],
     "compatibility": {
@@ -127,7 +127,7 @@
     {
       "spanish": "Me llamo {{learnerName}}.",
       "english": "My name is {{learnerName}}.",
-      "usage": "A clear introduction that works in formal and informal situations.",
+      "usage": "A clear introduction you can reuse in everyday conversations.",
       "exampleSpanish": "Hola, me llamo {{learnerName}}.",
       "exampleEnglish": "Hi, my name is {{learnerName}}."
     },
@@ -501,6 +501,62 @@
     "¿puedes repetir, por favor?",
     "más despacio, por favor"
   ],
+  "conversationBuilder": [
+    {
+      "id": "start",
+      "title": "Start and keep it going",
+      "shortLabel": "Start",
+      "carlosSpanish": "¡Hola! ¿Qué tal?",
+      "carlosEnglish": "Hi! How’s it going?",
+      "prompt": "Answer Carlos and return the question.",
+      "responseSpanish": "¡Hola! Muy bien, gracias. ¿Y tú?",
+      "responseEnglish": "Hi! Very well, thanks. And you?",
+      "tip": "Answer first, then send the same question back with ¿Y tú?",
+      "feedback": "Nice. You answered and kept the conversation moving.",
+      "practiceOptions": [
+        "¡Hola! Muy bien, gracias. ¿Y tú?",
+        "Mucho gusto.",
+        "Hasta luego."
+      ]
+    },
+    {
+      "id": "introduce",
+      "title": "Introduce yourself",
+      "shortLabel": "Your name",
+      "carlosSpanish": "Muy bien. Me llamo Carlos. ¿Cómo te llamas?",
+      "carlosEnglish": "Very well. My name is Carlos. What’s your name?",
+      "prompt": "Tell Carlos your name and make the introduction warm.",
+      "responseSpanish": "Me llamo {{learnerName}}. Mucho gusto.",
+      "responseEnglish": "My name is {{learnerName}}. Nice to meet you.",
+      "tip": "Use Me llamo + your name, then Mucho gusto.",
+      "feedback": "Good—your introduction was clear.",
+      "practiceOptions": [
+        "Me llamo {{learnerName}}. Mucho gusto.",
+        "Muy bien, gracias.",
+        "Por favor."
+      ]
+    },
+    {
+      "id": "close",
+      "title": "Close naturally",
+      "shortLabel": "Close",
+      "carlosSpanish": "Mucho gusto, {{learnerName}}. Nos vemos luego.",
+      "carlosEnglish": "Nice to meet you, {{learnerName}}. See you later.",
+      "prompt": "Finish the conversation with a friendly goodbye.",
+      "responseSpanish": "Hasta luego.",
+      "responseEnglish": "See you later.",
+      "tip": "Hasta luego and Nos vemos luego are both natural friendly closings.",
+      "feedback": "Perfect. You closed the conversation naturally.",
+      "alternatives": [
+        "Nos vemos luego."
+      ],
+      "practiceOptions": [
+        "Hasta luego.",
+        "Me llamo {{learnerName}}.",
+        "¿Cómo te llamas?"
+      ]
+    }
+  ],
   "grammar": {
     "topic": "Introducing yourself with me llamo",
     "meaning": "Say your name in one clear, reusable phrase.",
@@ -770,11 +826,11 @@
     ],
     "items": [
       {
-        "text": "hola",
-        "meaning": "hello",
-        "note": "The h is silent.",
-        "phonetic": "OH-lah",
-        "stress": "OH"
+        "text": "hola, ¿qué tal?",
+        "meaning": "hi, how’s it going?",
+        "note": "The h is silent; keep the greeting relaxed.",
+        "phonetic": "OH-lah keh TAHL",
+        "stress": "OH and TAHL"
       },
       {
         "text": "me llamo",
@@ -791,11 +847,11 @@
         "stress": "MOO and GOOS"
       },
       {
-        "text": "¿cómo estás?",
-        "meaning": "how are you?",
-        "note": "Let the question rise naturally.",
-        "phonetic": "KOH-moh es-TAHS",
-        "stress": "KOH and TAHS"
+        "text": "muy bien, gracias. ¿y tú?",
+        "meaning": "very well, thanks. and you?",
+        "note": "Keep the answer relaxed, then lift slightly on ¿y tú?",
+        "phonetic": "mwee BYEN GRAH-syahs ee TOO",
+        "stress": "BYEN and TOO"
       },
       {
         "text": "hasta luego",

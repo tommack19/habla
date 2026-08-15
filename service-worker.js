@@ -1,4 +1,4 @@
-const CACHE_NAME = "habla-v18-lesson1-v3";
+const CACHE_NAME = "habla-v19-lesson1-learning-arc";
 const ARTWORK_CACHE_NAME = "habla-artwork-v2";
 
 self.addEventListener("install", (event) => {
