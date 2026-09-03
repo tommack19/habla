@@ -1,18 +1,104 @@
 {
   "id": "a1-lesson-01-greetings",
-  "contentVersion": "1.5",
+  "contentVersion": "2.1",
   "title": "First Coffee",
   "level": "A1",
   "module": "Greetings",
-  "estimatedMinutes": 25,
+  "estimatedMinutes": 8,
   "contentRoles": {
-    "coreLesson": ["story", "essentialPhrases", "conversationBuilder", "vocabulary", "grammar", "dialogue", "listening", "pronunciation", "speaking", "quiz", "miniConversation", "realLifeMission"],
+    "coreLesson": ["learnExperience", "story", "essentialPhrases", "conversationBuilder", "vocabulary", "grammar", "dialogue", "listening", "pronunciation", "speaking", "quiz", "miniConversation", "realLifeMission"],
     "practiceSupport": ["listeningPhrases", "speakingChallenge", "nativeSpeech", "commonMistakes"],
     "reviewedReference": ["greetings", "politeExpressions", "supplementalDialogueExamples", "supplementalPronunciation", "supplementalQuizBank"],
     "compatibility": {
       "canDoAndObjectives": "Both fields are retained because the frozen schema and current UI support them.",
       "achievementAndAchievementsUnlocked": "The achievement object provides display metadata; achievementsUnlocked preserves stable global achievement IDs.",
       "legacyXpFields": "Use rewards as the explicit source of truth; legacy xpReward fields remain as renderer fallbacks."
+    }
+  },
+  "learnExperience": {
+    "version": 2,
+    "estimatedMinutes": 8,
+    "flow": [
+      "arrive",
+      "encounter",
+      "pattern",
+      "rehearse",
+      "speak",
+      "conversation",
+      "culture"
+    ],
+    "scenes": {
+      "arrive": {
+        "eyebrow": "Episode 1 · Madrid",
+        "title": "First Coffee",
+        "body": "Meet Carlos and have your first conversation in Spanish.",
+        "location": "Café Español · Madrid",
+        "cta": "Meet Carlos"
+      },
+      "encounter": {
+        "eyebrow": "Meet Carlos",
+        "title": "Spanish comes first.",
+        "spanish": "¡Hola! ¿Qué tal?",
+        "english": "Hi! How’s it going?",
+        "body": "Carlos just greeted you. You only need three simple moves to handle this conversation.",
+        "cta": "See the pattern"
+      },
+      "pattern": {
+        "eyebrow": "The pattern",
+        "title": "Your first conversation starts here.",
+        "body": "Three simple moves are enough to greet someone naturally.",
+        "tip": "Learn the whole phrase first. Don’t worry about memorizing every individual word yet."
+      },
+      "rehearse": {
+        "eyebrow": "Try it",
+        "title": "Let’s put it together.",
+        "body": "Reply to Carlos one turn at a time. This is a conversation, not a test."
+      },
+      "speak": {
+        "eyebrow": "Speak",
+        "title": "Now make it yours.",
+        "body": "Say one useful greeting aloud. Communication first; polish comes later.",
+        "spanish": "Hola, ¿qué tal?",
+        "english": "Hi, how’s it going?",
+        "tip": "Keep qué tal flowing together."
+      },
+      "conversation": {
+        "eyebrow": "Your turn",
+        "title": "Talk with Carlos.",
+        "body": "No choices this time. Carlos will guide each turn."
+      },
+      "culture": {
+        "eyebrow": "Madrid Moment",
+        "title": "¿Qué tal? is everywhere.",
+        "lead": "You’ll hear ¿qué tal? constantly.",
+        "body": "In Madrid, it’s an easy, natural greeting with friends, neighbours, café staff and people you’ve just met.",
+        "takeaway": "Hola, ¿qué tal? → a natural everyday greeting"
+      },
+      "completion": {
+        "eyebrow": "First Coffee complete",
+        "title": "You just had your first conversation in Spanish.",
+        "body": "You can now greet someone, introduce yourself and close a simple introduction.",
+        "capabilities": [
+          "Greet someone naturally",
+          "Say your name",
+          "Return a simple greeting",
+          "Close an introduction"
+        ],
+        "nextCta": "Continue to A New Friend",
+        "reviewCta": "Review what you learned"
+      }
+    },
+    "practiceUnlock": {
+      "topic": "greetings",
+      "phrases": [
+        "Hola",
+        "¿Qué tal?",
+        "Muy bien, gracias.",
+        "¿Y tú?",
+        "Me llamo...",
+        "Mucho gusto."
+      ],
+      "conversationPatterns": 1
     }
   },
   "sectionIntros": {
@@ -160,10 +246,10 @@
       "exampleEnglish": "Pardon, can you repeat?"
     },
     {
-      "spanish": "Nos vemos luego.",
+      "spanish": "Hasta luego.",
       "english": "See you later.",
-      "usage": "A natural closing when you expect to meet again.",
-      "exampleSpanish": "Mucho gusto. Nos vemos luego.",
+      "usage": "A natural, friendly goodbye you can use at the end of a first meeting.",
+      "exampleSpanish": "Mucho gusto. Hasta luego.",
       "exampleEnglish": "Nice to meet you. See you later."
     }
   ],
@@ -325,7 +411,7 @@
       "tier": 1,
       "group": "Politeness and Repair",
       "tip": "Often goes at the end of a request.",
-      "exampleSpanish": "Repita, por favor.",
+      "exampleSpanish": "¿Puedes repetir, por favor?",
       "exampleEnglish": "Repeat, please."
     },
     {
@@ -335,7 +421,7 @@
       "tier": 1,
       "group": "Politeness and Repair",
       "tip": "Use for small interruptions or apologies.",
-      "exampleSpanish": "Perdón, ¿cómo se llama?",
+      "exampleSpanish": "Perdón, ¿cómo te llamas?",
       "exampleEnglish": "Excuse me, what is your name?"
     },
     {
@@ -514,9 +600,9 @@
       "tip": "Answer first, then send the same question back with ¿Y tú?",
       "feedback": "Nice. You answered and kept the conversation moving.",
       "practiceOptions": [
+        "Bien, gracias.",
         "¡Hola! Muy bien, gracias. ¿Y tú?",
-        "Mucho gusto.",
-        "Hasta luego."
+        "No muy bien."
       ]
     },
     {
@@ -826,36 +912,36 @@
     ],
     "items": [
       {
-        "text": "hola, ¿qué tal?",
-        "meaning": "hi, how’s it going?",
+        "text": "Hola, ¿qué tal?",
+        "meaning": "Hi, how’s it going?",
         "note": "The h is silent; keep the greeting relaxed.",
         "phonetic": "OH-lah keh TAHL",
         "stress": "OH and TAHL"
       },
       {
-        "text": "me llamo",
-        "meaning": "my name is",
+        "text": "Me llamo",
+        "meaning": "My name is",
         "note": "Connect the words smoothly.",
         "phonetic": "meh YAH-moh",
         "stress": "YAH"
       },
       {
-        "text": "mucho gusto",
-        "meaning": "nice to meet you",
+        "text": "Mucho gusto",
+        "meaning": "Nice to meet you",
         "note": "Keep both u sounds short and clear.",
         "phonetic": "MOO-choh GOOS-toh",
         "stress": "MOO and GOOS"
       },
       {
-        "text": "muy bien, gracias. ¿y tú?",
-        "meaning": "very well, thanks. and you?",
+        "text": "Muy bien, gracias. ¿Y tú?",
+        "meaning": "Very well, thanks. And you?",
         "note": "Keep the answer relaxed, then lift slightly on ¿y tú?",
         "phonetic": "mwee BYEN GRAH-syahs ee TOO",
         "stress": "BYEN and TOO"
       },
       {
-        "text": "hasta luego",
-        "meaning": "see you later",
+        "text": "Hasta luego",
+        "meaning": "See you later",
         "note": "The h is silent; keep one relaxed rhythm.",
         "phonetic": "AHS-tah LWEH-goh",
         "stress": "AHS and LWEH"
