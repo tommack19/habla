@@ -1,0 +1,197 @@
+/* Shared five-tab navigation. This is the only stylesheet that owns it. */
+
+.bottom-nav {
+  position: fixed;
+  z-index: 100;
+  left: 16px;
+  right: 16px;
+  bottom: calc(10px + env(safe-area-inset-bottom));
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  align-items: center;
+  gap: 2px;
+  width: auto;
+  max-width: 500px;
+  height: 72px;
+  margin-inline: auto;
+  padding: 6px 8px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, .08);
+  border-radius: 26px;
+  background: linear-gradient(180deg, rgba(24, 30, 36, .88), rgba(10, 15, 21, .94));
+  box-shadow:
+    0 18px 44px rgba(0, 0, 0, .5),
+    0 0 28px rgba(0, 199, 112, .035),
+    inset 0 1px 0 rgba(255, 255, 255, .045);
+  backdrop-filter: blur(22px) saturate(145%);
+  -webkit-backdrop-filter: blur(22px) saturate(145%);
+}
+
+.bottom-nav[hidden] {
+  display: none;
+}
+
+.bottom-nav .tab {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 3px;
+  min-width: 0;
+  height: 60px;
+  min-height: 44px;
+  padding: 3px 2px 7px;
+  border: 1px solid transparent;
+  border-radius: 20px;
+  background: transparent;
+  color: #9099a5;
+  font-family: var(--habla-font-body);
+  font-size: 10px;
+  font-weight: 500;
+  line-height: 1;
+  cursor: pointer;
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+  transition:
+    background-color 200ms ease,
+    color 200ms ease,
+    transform 160ms ease,
+    box-shadow 200ms ease,
+    border-color 200ms ease;
+}
+
+.bottom-nav .tab:active {
+  transform: scale(.96);
+}
+
+.bottom-nav .tab.active {
+  color: #f5bd45;
+  font-weight: 700;
+  border-color: rgba(245, 189, 69, .2);
+  background: linear-gradient(180deg, rgba(93, 71, 25, .38), rgba(54, 42, 18, .24));
+  box-shadow:
+    inset 0 1px 0 rgba(255, 224, 151, .05),
+    0 8px 20px rgba(0, 0, 0, .22),
+    0 0 18px rgba(245, 189, 69, .07);
+}
+
+.bottom-nav .tab.active::after {
+  position: absolute;
+  bottom: 3px;
+  left: 50%;
+  width: 24px;
+  height: 3px;
+  border-radius: 999px;
+  background: #f5bd45;
+  box-shadow: 0 0 8px rgba(245, 189, 69, .5);
+  content: "";
+  transform: translateX(-50%);
+}
+
+.bottom-nav .tab:focus-visible {
+  outline: 2px solid #f5bd45;
+  outline-offset: 2px;
+}
+
+.bottom-nav .nav-icon.has-svg {
+  display: grid;
+  place-items: center;
+  width: 23px;
+  height: 23px;
+  background: transparent;
+  color: #929ca8;
+  transition: color 200ms ease, transform 200ms ease, filter 200ms ease;
+}
+
+.bottom-nav .nav-icon.has-svg svg {
+  width: 100%;
+  height: 100%;
+  stroke-width: 1.9;
+}
+
+.bottom-nav .tab.active .nav-icon.has-svg {
+  width: 26px;
+  height: 26px;
+  color: #f5bd45;
+  filter: drop-shadow(0 0 7px rgba(245, 189, 69, .34));
+}
+
+/* Home's active treatment is intentionally a touch quieter than the others. */
+.bottom-nav .tab[data-page="home"].active {
+  height: 57px;
+  margin-inline: 2px;
+  border-radius: 19px;
+}
+
+.bottom-nav .tab[data-page="home"].active .nav-icon.has-svg {
+  width: 25px;
+  height: 25px;
+}
+
+/* Every scrollable page clears the fixed navigation by the same amount. */
+#dashboard.home-page,
+#dashboard.learn-page,
+#dashboard.practice-page,
+#dashboard.profile-page {
+  padding-bottom: calc(104px + env(safe-area-inset-bottom));
+  scroll-padding-bottom: calc(104px + env(safe-area-inset-bottom));
+}
+
+#dashboard.home-page {
+  padding-bottom: calc(var(--habla-bottom-nav-h, 76px) + env(safe-area-inset-bottom) + 44px);
+  scroll-padding-bottom: calc(var(--habla-bottom-nav-h, 76px) + env(safe-area-inset-bottom) + 44px);
+}
+
+/* Carlos has its own fixed composer, which sits directly above the shared nav. */
+#dashboard.carlos-page .carlos-screen #input-area {
+  bottom: calc(92px + env(safe-area-inset-bottom));
+}
+
+#dashboard.carlos-page .carlos-screen {
+  scroll-padding-bottom: calc(188px + env(safe-area-inset-bottom));
+}
+
+#dashboard.carlos-page .carlos-screen .carlos-conversation-thread {
+  padding-bottom: calc(176px + env(safe-area-inset-bottom));
+}
+
+#dashboard.carlos-page .carlos-screen #messages {
+  padding-bottom: 0;
+}
+
+@media (max-width: 430px) {
+  .bottom-nav {
+    left: 12px;
+    right: 12px;
+  }
+}
+
+@media (max-width: 359px) {
+  .bottom-nav {
+    left: 8px;
+    right: 8px;
+    padding-inline: 4px;
+  }
+
+  .bottom-nav .tab {
+    font-size: 9px;
+  }
+
+  .bottom-nav .nav-icon.has-svg {
+    width: 21px;
+    height: 21px;
+  }
+
+  .bottom-nav .tab.active .nav-icon.has-svg {
+    width: 24px;
+    height: 24px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .bottom-nav .tab,
+  .bottom-nav .nav-icon.has-svg {
+    transition-duration: .01ms;
+  }
+}
