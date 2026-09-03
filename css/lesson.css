@@ -2741,6 +2741,192 @@ body.speaking-lesson-mode #dashboard.lesson-page {
   font-weight: 600;
 }
 
+/* Lesson 1 production motion system */
+.lesson-canonical {
+  --motion-enter: 420ms;
+  --motion-exit: 220ms;
+  --motion-feedback: 180ms;
+  --motion-progress: 460ms;
+  --motion-dissolve: 520ms;
+  --motion-stagger: 70ms;
+  --motion-ease: cubic-bezier(.16, 1, .3, 1);
+}
+
+.lesson-canonical .lesson-narrative-header > div i,
+.lesson-canonical .lesson-narrative-turn-progress b {
+  transition: width var(--motion-progress) var(--motion-ease);
+}
+
+.lesson-canonical button {
+  transition:
+    transform 80ms var(--motion-ease),
+    filter var(--motion-feedback) ease,
+    background-color var(--motion-feedback) ease,
+    border-color var(--motion-feedback) ease,
+    color var(--motion-feedback) ease;
+}
+
+.lesson-canonical button:not(:disabled):hover { filter: brightness(1.035); }
+.lesson-canonical button.motion-pressed:not(:disabled) { transform: scale(.98); }
+.lesson-canonical button:focus-visible { outline: 3px solid #f3c86d; outline-offset: 3px; }
+
+.lesson-canonical.motion-preparing [data-motion-scene]:not(.lesson-narrative-completion) > *,
+.lesson-canonical.lesson-narrative-completion.motion-preparing .lesson-narrative-completion-stage > * {
+  opacity: 0;
+  transform: translateY(12px);
+}
+
+.lesson-canonical.motion-ready [data-motion-scene]:not(.lesson-narrative-completion) > *,
+.lesson-canonical.lesson-narrative-completion.motion-ready .lesson-narrative-completion-stage > * {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity var(--motion-enter) var(--motion-ease), transform var(--motion-enter) var(--motion-ease);
+}
+
+.lesson-canonical.motion-ready [data-motion-scene]:not(.lesson-narrative-completion) > :nth-child(2) { transition-delay: calc(var(--motion-stagger) * 1); }
+.lesson-canonical.motion-ready [data-motion-scene]:not(.lesson-narrative-completion) > :nth-child(3) { transition-delay: calc(var(--motion-stagger) * 2); }
+.lesson-canonical.motion-ready [data-motion-scene]:not(.lesson-narrative-completion) > :nth-child(4) { transition-delay: calc(var(--motion-stagger) * 3); }
+.lesson-canonical.motion-ready [data-motion-scene]:not(.lesson-narrative-completion) > :nth-child(5) { transition-delay: calc(var(--motion-stagger) * 4); }
+.lesson-canonical.motion-ready [data-motion-scene]:not(.lesson-narrative-completion) > :nth-child(6) { transition-delay: calc(var(--motion-stagger) * 5); }
+.lesson-canonical.motion-ready [data-motion-scene]:not(.lesson-narrative-completion) > :nth-child(7) { transition-delay: calc(var(--motion-stagger) * 6); }
+
+/* Arrival: preserve the approved composition while adding depth. */
+.lesson-canonical.motion-ready .lesson-narrative-arrival > img {
+  animation: lesson-cinematic-push 10s ease-out both;
+  opacity: 1;
+  transition: opacity var(--motion-dissolve) ease;
+}
+.lesson-canonical.motion-preparing .lesson-narrative-arrival > img { opacity: 0; }
+.lesson-canonical.motion-ready .lesson-narrative-arrival-copy { transition-delay: var(--motion-stagger); }
+.lesson-canonical.motion-ready .lesson-narrative-arrival-actions { transition-delay: calc(var(--motion-stagger) * 3); }
+.lesson-narrative-arrival-summary,
+.lesson-narrative-location,
+.lesson-narrative-arrival-actions .lesson-narrative-primary {
+  animation: lesson-element-enter var(--motion-enter) var(--motion-ease) both;
+}
+.lesson-narrative-location { animation-delay: calc(var(--motion-stagger) * 1); }
+.lesson-narrative-arrival-actions .lesson-narrative-primary { animation-delay: calc(var(--motion-stagger) * 2); }
+
+/* Encounter and audio: Carlos leads, translation follows the phrase. */
+.lesson-canonical.motion-ready .lesson-narrative-encounter-image { transition-delay: 0ms; }
+.lesson-canonical.motion-ready .lesson-narrative-encounter-copy { transition-delay: var(--motion-stagger); }
+.lesson-canonical.motion-ready .lesson-narrative-phrase-line h1 { animation: lesson-element-enter var(--motion-enter) var(--motion-ease) both; }
+.lesson-canonical.motion-ready .lesson-narrative-phrase-line p { animation: lesson-element-enter var(--motion-enter) var(--motion-ease) 150ms both; }
+
+.lesson-motion-waveform {
+  align-items: center;
+  display: none;
+  gap: 2px;
+  height: 16px;
+}
+.lesson-motion-waveform b {
+  animation: lesson-wave 620ms ease-in-out infinite alternate;
+  background: currentColor;
+  border-radius: 2px;
+  height: 35%;
+  width: 2px;
+}
+.lesson-motion-waveform b:nth-child(2) { animation-delay: -360ms; }
+.lesson-motion-waveform b:nth-child(3) { animation-delay: -180ms; }
+.lesson-motion-waveform b:nth-child(4) { animation-delay: -470ms; }
+.lesson-canonical button.is-playing [data-playback-icon] > svg { display: none; }
+.lesson-canonical button.is-playing .lesson-motion-waveform { display: inline-flex; }
+
+/* Pattern accents illuminate in sequence, then settle. */
+.lesson-canonical.motion-ready .lesson-narrative-move {
+  animation: lesson-element-enter var(--motion-enter) var(--motion-ease) both;
+}
+.lesson-canonical.motion-ready .lesson-narrative-move:nth-child(2) { animation-delay: 80ms; }
+.lesson-canonical.motion-ready .lesson-narrative-move:nth-child(3) { animation-delay: 160ms; }
+.lesson-canonical.motion-ready .lesson-narrative-move > span { animation: lesson-accent 700ms var(--motion-ease) both; }
+.lesson-canonical.motion-ready .lesson-narrative-move:nth-child(2) > span { animation-delay: 80ms; }
+.lesson-canonical.motion-ready .lesson-narrative-move:nth-child(3) > span { animation-delay: 160ms; }
+.lesson-canonical.motion-ready .lesson-narrative-tip { transition-delay: 260ms; }
+
+/* Rehearsal and Converse retain their stage; only live content changes. */
+.lesson-canonical.motion-scene-stable.motion-preparing [data-motion-scene]:not(.lesson-narrative-completion) > * { opacity: 1; transform: none; }
+.lesson-canonical.motion-scene-stable.motion-turn-change :is(.lesson-narrative-live-turn, .lesson-narrative-rehearsal .lesson-narrative-carlos-line, .lesson-narrative-rehearsal .lesson-narrative-question, .lesson-narrative-rehearsal .lesson-narrative-options) {
+  animation: lesson-turn-enter var(--motion-enter) var(--motion-ease) both;
+}
+.lesson-canonical.motion-scene-stable.motion-turn-change .lesson-narrative-your-turn { animation-delay: 150ms; }
+.lesson-canonical.motion-scene-stable.motion-turn-change .lesson-narrative-history-pair:last-child {
+  animation: lesson-history-enter var(--motion-enter) var(--motion-ease) both;
+}
+.lesson-narrative-options button.is-correct,
+.lesson-narrative-options button.is-wrong { transition-duration: var(--motion-feedback); }
+.lesson-narrative-options button.is-correct > i { animation: lesson-check-in var(--motion-feedback) var(--motion-ease) both; }
+.lesson-narrative-feedback { animation: lesson-feedback-in var(--motion-feedback) var(--motion-ease) both; }
+
+/* Speaking states only animate while active. */
+.lesson-canonical .lesson-narrative-record.is-recording svg { animation: lesson-mic-pulse 900ms ease-in-out infinite; }
+.lesson-canonical .lesson-narrative-record .lesson-motion-waveform { display: none; }
+.lesson-canonical .lesson-narrative-record.is-recording .lesson-motion-waveform { display: inline-flex; }
+.lesson-canonical .lesson-narrative-record.is-recording::after {
+  animation: lesson-mic-ring 1.2s ease-out infinite;
+  border: 1px solid currentColor;
+  border-radius: inherit;
+  content: "";
+  inset: 3px;
+  opacity: .3;
+  pointer-events: none;
+  position: absolute;
+}
+.lesson-canonical .lesson-narrative-record { position: relative; }
+.lesson-canonical .lesson-narrative-record.is-requesting,
+.lesson-canonical .lesson-narrative-record.is-processing { filter: saturate(.72); }
+.lesson-canonical .lesson-narrative-record.is-captured { border-color: var(--learn-v2-green); }
+
+/* Culture and completion ceremony. */
+.lesson-canonical.motion-ready .lesson-narrative-culture-image img { animation: lesson-cinematic-push 11s ease-out both; }
+.lesson-canonical.motion-ready .lesson-narrative-culture-image figcaption { animation: lesson-element-enter var(--motion-enter) var(--motion-ease) 520ms both; }
+.lesson-canonical.motion-ready .lesson-narrative-culture-copy { transition-delay: 590ms; }
+.lesson-narrative-completion.motion-ready .lesson-narrative-completion-stage > :nth-child(1) { transition-delay: 120ms; }
+.lesson-narrative-completion.motion-ready .lesson-narrative-completion-stage > :nth-child(2) { transition-delay: 260ms; }
+.lesson-narrative-completion.motion-ready .lesson-narrative-completion-stage > :nth-child(3) { transition-delay: 430ms; }
+.lesson-narrative-completion.motion-ready .lesson-narrative-completion-stage > :nth-child(4) { transition-delay: 570ms; }
+.lesson-narrative-completion.motion-ready .lesson-narrative-completion-stage > :nth-child(5) { transition-delay: 820ms; }
+.lesson-narrative-completion.motion-ready .lesson-narrative-completion-stage > :nth-child(6) { transition-delay: 960ms; }
+.lesson-narrative-completion.motion-ready .lesson-narrative-completion-scene img { animation: lesson-dissolve var(--motion-dissolve) ease both; }
+.lesson-narrative-completion.motion-ready .lesson-narrative-can-do span { animation: lesson-check-in var(--motion-feedback) var(--motion-ease) both; }
+.lesson-narrative-completion.motion-ready .lesson-narrative-can-do span:nth-child(2) { animation-delay: 90ms; }
+.lesson-narrative-completion.motion-ready .lesson-narrative-can-do span:nth-child(3) { animation-delay: 180ms; }
+.lesson-narrative-completion.motion-ready .lesson-narrative-can-do span:nth-child(4) { animation-delay: 270ms; }
+.lesson-narrative-completion.motion-ready .lesson-narrative-practice-unlock { animation: lesson-gold-confirm 900ms var(--motion-ease) both; }
+
+@keyframes lesson-element-enter { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: none; } }
+@keyframes lesson-turn-enter { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
+@keyframes lesson-history-enter { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }
+@keyframes lesson-feedback-in { from { opacity: 0; transform: translateY(4px); } to { opacity: 1; transform: none; } }
+@keyframes lesson-check-in { from { opacity: 0; transform: scale(.82); } to { opacity: 1; transform: scale(1); } }
+@keyframes lesson-dissolve { from { opacity: 0; } to { opacity: 1; } }
+@keyframes lesson-cinematic-push { from { transform: scale(1); } to { transform: scale(1.023); } }
+@keyframes lesson-accent { 0% { color: #96a69d; } 42% { color: #5af49e; text-shadow: 0 0 16px rgba(49, 215, 124, .34); } 100% { color: var(--learn-v2-green); text-shadow: none; } }
+@keyframes lesson-wave { from { height: 30%; } to { height: 100%; } }
+@keyframes lesson-mic-pulse { 50% { transform: scale(1.08); } }
+@keyframes lesson-mic-ring { from { opacity: .34; transform: scale(.94); } to { opacity: 0; transform: scale(1.08); } }
+@keyframes lesson-gold-confirm { 0% { box-shadow: 0 0 0 rgba(239, 185, 76, 0); } 45% { box-shadow: 0 0 24px rgba(239, 185, 76, .12); } 100% { box-shadow: 0 0 0 rgba(239, 185, 76, 0); } }
+
+@media (prefers-reduced-motion: reduce) {
+  html:focus-within { scroll-behavior: auto; }
+  .lesson-canonical *,
+  .lesson-canonical *::before,
+  .lesson-canonical *::after {
+    animation-delay: 0s !important;
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-delay: 0s !important;
+    transition-duration: .01ms !important;
+  }
+  .lesson-canonical.motion-preparing [data-motion-scene]:not(.lesson-narrative-completion) > *,
+  .lesson-canonical.lesson-narrative-completion.motion-preparing .lesson-narrative-completion-stage > * {
+    opacity: 1;
+    transform: none;
+  }
+  .lesson-canonical .lesson-motion-waveform { display: none !important; }
+  .lesson-canonical button.is-playing [data-playback-icon] > svg { display: block; }
+}
+
 .lesson-v2.lesson-canonical .lesson-header-count strong {
   color: var(--v52-text-secondary);
   font-size: .75rem;

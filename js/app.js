@@ -1,19 +1,23 @@
 import { state } from "./core/state.js";
 import { saveState, loadState } from "./core/storage.js";
 import { renderPage } from "./core/router.js";
+import { readAppRoute, writeAppRoute } from "./core/appRoute.js";
 import { getCurrentXP, initializeProgressEngine } from "./core/progress.js";
 import { completeMission as completeDailyMission } from "./core/missions.js";
 import {
   contentReady,
+  getLessonProgress,
   getCurrentLesson,
   prepareCompletedLessonReplay,
   setActiveLesson,
+  updateLessonProgress,
 } from "./core/content.js";
 import { getHomeJourneyLevel } from "./core/homeViewModel.js";
 import { consumeDueRecap, rememberLessonCompletion, scheduleLessonRecap } from "./core/lessonMemory.js";
 import { isSpeechPlaying, playSpeech, stopSpeech } from "./core/audio.js";
 import { renderNavigation } from "./ui/navigation.js";
 import { CARLOS_FALLBACK_ONERROR, getCarlosAsset } from "./data/carlosAssets.js";
+import { initializeLessonMotion } from "./core/lessonMotion.js";
 
 const PRACTICE_TOPIC_KEY = 'habla_selected_practice_topic_v1';
 const PRACTICE_SESSION_KEY = 'habla_practice_session_v2';
@@ -640,9 +644,7 @@ initializeProgressEngine(state, {
 contentReady
   .then(() => {
     updateLevelButton();
-    if (currentPage === "home" || currentPage === "learn" || currentPage === "journey" || currentPage === "carlos" || currentPage === "practice") {
-      renderAppPage(currentPage);
-    }
+    applyCurrentRoute();
   })
   .catch(error => console.error("Habla content could not be loaded:", error));
 
@@ -655,6 +657,7 @@ function renderAppPage(page) {
   document.body.classList.toggle('carlos-mode', page === 'carlos');
   document.body.classList.toggle('lesson-mode', page === 'lesson');
   renderPage(page);
+  if (page === 'lesson') initializeLessonMotion();
   const isSpeakingLesson = page === 'lesson' && Boolean(document.querySelector('.lesson-speaking-page'));
   document.body.classList.toggle('speaking-lesson-mode', isSpeakingLesson);
   if (page === 'journey' || page === 'lesson') {
@@ -674,6 +677,32 @@ function renderAppPage(page) {
   if (isSpeakingLesson) {
     requestAnimationFrame(() => document.querySelector('[data-speaking-autoplay]')?.click());
   }
+}
+
+function applyCurrentRoute() {
+  const route = readAppRoute();
+  if (route.page === 'lesson') {
+    const lesson = setActiveLesson(route.lessonId);
+    if (!lesson) {
+      writeAppRoute('home', null, { replace: true });
+      renderAppPage('home');
+      return;
+    }
+    clearTransientLessonState(lesson);
+  }
+  renderAppPage(route.page);
+}
+
+function clearTransientLessonState(lesson) {
+  if (lesson.id !== 'a1-lesson-01-greetings') return;
+  const progress = getLessonProgress(lesson.id);
+  const practice = progress.rendererPatternPractice;
+  if (!practice || practice.selected === null || practice.selected === undefined) return;
+  const stage = lesson.conversationBuilder?.[Number(practice.index || 0)];
+  if (!stage || practice.selected === stage.responseSpanish) return;
+  updateLessonProgress(lesson.id, {
+    rendererPatternPractice: { ...practice, selected: null },
+  });
 }
 
 function updateLevelButton() {
@@ -898,11 +927,16 @@ document.addEventListener('click', (event) => {
     localStorage.removeItem(PRACTICE_TOPIC_KEY);
     sessionStorage.removeItem(PRACTICE_SESSION_KEY);
   }
+  writeAppRoute(pageTarget.dataset.page, pageTarget.dataset.lessonId || null);
   renderAppPage(pageTarget.dataset.page);
   if (pageTarget.dataset.homeLearnView === 'roadmap') {
     const roadmapTab = document.getElementById('learn-tab-roadmap');
     if (roadmapTab) roadmapTab.checked = true;
   }
+});
+
+window.addEventListener('popstate', () => {
+  void contentReady.then(applyCurrentRoute);
 });
 
 window.addEventListener('habla:practice-render', () => {

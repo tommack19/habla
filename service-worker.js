@@ -1,4 +1,4 @@
-const CACHE_NAME = "habla-v27-learn-v2-hero-composition";
+const CACHE_NAME = "habla-v29-durable-lesson-route";
 const ARTWORK_CACHE_NAME = "habla-artwork-v3";
 
 self.addEventListener("install", (event) => {
@@ -11,7 +11,9 @@ self.addEventListener("install", (event) => {
         "./css/styles.css",
         "./css/lesson.css",
         "./js/app.js",
+        "./js/core/appRoute.js",
         "./js/ui/lesson.js",
+        "./js/core/lessonMotion.js",
         "./js/core/audio.js",
         "./content/A1/lesson-01-greetings.json",
         "./manifest.json"

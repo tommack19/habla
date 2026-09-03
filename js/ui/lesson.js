@@ -28,6 +28,7 @@ import { state } from "../core/state.js";
 import { saveState } from "../core/storage.js";
 import { isSpeechPlaying, playSpeech, playSpeechSequence, stopSpeech } from "../core/audio.js";
 import { renderChoiceIcon } from "../components/choiceIcons.js";
+import { writeAppRoute } from "../core/appRoute.js";
 
 const ICONS = {
   back: `<path d="m15 18-6-6 6-6"/>`,
@@ -504,7 +505,7 @@ function renderNarrativeArrival(lesson) {
   const scene = getLearnScene(lesson, "arrive");
   const artwork = preloadEpisodeArtwork(lesson, "cover");
   return `
-    <article class="lesson-narrative-arrival">
+    <article class="lesson-narrative-arrival" data-motion-scene="arrive">
       ${artwork ? `<img src="${escapeAttr(artwork)}" alt="Carlos sharing a first coffee in Madrid" loading="eager" fetchpriority="high" decoding="async" onerror="${LESSON_ARTWORK_ONERROR}">` : ""}
       <span class="lesson-narrative-arrival-shade" aria-hidden="true"></span>
       <div class="lesson-narrative-arrival-copy">
@@ -526,7 +527,7 @@ function renderNarrativeEncounter(lesson) {
   const spanish = scene.spanish || lesson.essentialPhrases?.[0]?.spanish || "¡Hola! ¿Qué tal?";
   const english = scene.english || lesson.essentialPhrases?.[0]?.english || "Hi! How’s it going?";
   return `
-    <section class="lesson-narrative-scene lesson-narrative-encounter" aria-label="Meet Carlos">
+    <section class="lesson-narrative-scene lesson-narrative-encounter" data-motion-scene="encounter" aria-label="Meet Carlos">
       <figure class="lesson-narrative-encounter-image">
         ${artwork ? `<img src="${escapeAttr(artwork)}" alt="Carlos greeting you at Café Español in Madrid" loading="eager" decoding="async" onerror="${LESSON_ARTWORK_ONERROR}">` : ""}
         <span aria-hidden="true"></span>
@@ -554,7 +555,7 @@ function renderNarrativePattern(lesson) {
     { label: "Connect", spanish: phrases[2]?.spanish || "Mucho gusto.", english: phrases[2]?.english || "Nice to meet you." },
   ];
   return `
-    <section class="lesson-narrative-scene lesson-narrative-pattern" aria-label="The conversation pattern">
+    <section class="lesson-narrative-scene lesson-narrative-pattern" data-motion-scene="discover" aria-label="The conversation pattern">
       <header class="lesson-narrative-heading">
         ${renderNarrativeEyebrow(scene.eyebrow || "The pattern")}
         <h1>${escapeHtml(scene.title || "Your first conversation starts here.")}</h1>
@@ -809,14 +810,20 @@ function renderPatternPractice(lesson, progress) {
   const correctionLead = /goodbye|close/i.test(stage.prompt || "")
     ? "Almost—choose a goodbye."
     : "Almost—choose the reply that fits this turn.";
+  const acceptedTurns = stages.slice(0, index).map(item => ({ carlos: item.carlosSpanish, learner: item.responseSpanish }));
+  if (correct) acceptedTurns.push({ carlos: stage.carlosSpanish, learner: stage.responseSpanish });
+  const rehearsalHistory = acceptedTurns.length
+    ? `<div class="lesson-narrative-history lesson-narrative-rehearsal-history" aria-label="Accepted conversation turns">${acceptedTurns.map(turn => `<div class="lesson-narrative-history-pair"><div><small>Carlos</small><strong>${escapeHtml(turn.carlos)}</strong></div><div><small>You</small><strong>${escapeHtml(turn.learner)}</strong></div></div>`).join("")}</div>`
+    : "";
   return `
-    <section class="lesson-narrative-scene lesson-narrative-rehearsal" aria-label="Rehearse the conversation">
+    <section class="lesson-narrative-scene lesson-narrative-rehearsal" data-motion-scene="rehearse" data-motion-turn="${index}" aria-label="Rehearse the conversation">
       <header class="lesson-narrative-heading">
         ${renderNarrativeEyebrow(scene.eyebrow || "Try it")}
         <h1>${escapeHtml(scene.title || "Let’s put it together.")}</h1>
         <p>${escapeHtml(scene.body || "Reply to Carlos one turn at a time.")}</p>
       </header>
       <div class="lesson-narrative-turn-progress"><span>Conversation · ${index + 1} of ${stages.length}</span><i><b style="width:${percent}%"></b></i></div>
+      ${rehearsalHistory}
       <div class="lesson-narrative-carlos-line">${renderDialogueAvatar("Carlos")}<div><small>Carlos</small><strong>${escapeHtml(stage.carlosSpanish)}</strong><p>${escapeHtml(stage.carlosEnglish)}</p></div><button class="lesson-narrative-audio" type="button" data-speech="${escapeAttr(stage.carlosSpanish)}" data-speaker="Carlos" onclick="hablaLesson.playLine(this)" aria-label="Hear Carlos" aria-pressed="false"><span data-playback-icon>${icon("sound")}</span></button></div>
       <div class="lesson-narrative-question"><small>Your turn</small><h2>${escapeHtml(stage.prompt)}</h2></div>
       <div class="lesson-narrative-options">
@@ -891,7 +898,7 @@ function renderNarrativeSpeak(lesson, progress) {
   const spanish = scene.spanish || "Hola, ¿qué tal?";
   const english = scene.english || "Hi, how’s it going?";
   return `
-    <section class="lesson-narrative-scene lesson-narrative-speak" aria-label="Speak Spanish">
+    <section class="lesson-narrative-scene lesson-narrative-speak" data-motion-scene="speak" aria-label="Speak Spanish">
       <header class="lesson-narrative-heading">
         ${renderNarrativeEyebrow(scene.eyebrow || "Speak")}
         <h1>${escapeHtml(scene.title || "Now make it yours.")}</h1>
@@ -905,7 +912,7 @@ function renderNarrativeSpeak(lesson, progress) {
       </div>
       <div class="lesson-narrative-speak-actions lesson-speaking-turn">
         <button class="lesson-narrative-listen" type="button" data-speech="${escapeAttr(spanish)}" data-speaker="Model" onclick="hablaLesson.playLine(this)" aria-pressed="false"><span data-playback-icon>${icon("sound")}</span><b>Listen</b></button>
-        <button class="lesson-narrative-record lesson-record-line" type="button" data-pronunciation-attempt-key="${attemptKey}" data-recording-key="${escapeAttr(recordingKey)}" onclick="hablaLesson.recordLine(this)" aria-pressed="false">${icon("mic")}<span>${hasRecording ? "Replay" : attempt.captured ? "Say it again" : "Speak"}</span></button>
+        <button class="lesson-narrative-record lesson-record-line" type="button" data-pronunciation-attempt-key="${attemptKey}" data-recording-key="${escapeAttr(recordingKey)}" onclick="hablaLesson.recordLine(this)" aria-pressed="false">${icon("mic")}<i class="lesson-motion-waveform" aria-hidden="true"><b></b><b></b><b></b><b></b></i><span>${hasRecording ? "Replay" : attempt.captured ? "Say it again" : "Speak"}</span></button>
         <span class="lesson-record-status" aria-live="polite">${attempt.captured ? "Recording ready. Replay it or continue when you’re ready." : "Your recording stays on this device."}</span>
       </div>
       ${attempt.captured ? `<div class="lesson-narrative-speak-feedback">${icon("check")}<div><strong>Nice work.</strong><p>Your recording is ready. Replay it once if you want to hear your rhythm.</p></div></div>` : ""}
@@ -954,7 +961,7 @@ function renderImmersiveConversation(lesson, progress) {
   }).join("");
   const status = attempt?.skipped ? "Speaking practice skipped for now." : attempted ? "Response recorded. Replay it, try again, or continue." : "Tap Speak when you’re ready.";
   return `
-    <section class="lesson-narrative-scene lesson-narrative-conversation" aria-label="Talk with Carlos">
+    <section class="lesson-narrative-scene lesson-narrative-conversation" data-motion-scene="converse" data-motion-turn="${index}" aria-label="Talk with Carlos">
       <header class="lesson-narrative-conversation-hero">
         ${artwork ? `<img src="${escapeAttr(artwork)}" alt="Carlos waiting at the café in Madrid" loading="eager" decoding="async" onerror="${LESSON_ARTWORK_ONERROR}">` : ""}
         <span aria-hidden="true"></span>
@@ -964,7 +971,7 @@ function renderImmersiveConversation(lesson, progress) {
       ${history ? `<div class="lesson-narrative-history">${history}</div>` : ""}
       <article class="lesson-narrative-live-turn lesson-speaking-exchange" data-speaking-index="${index}">
         <div class="lesson-narrative-carlos-line">${renderDialogueAvatar("Carlos")}<div><small>Carlos</small><strong>${escapeHtml(item.carlosPrompt)}</strong></div><button class="lesson-narrative-audio" type="button" data-speech="${escapeAttr(item.carlosPrompt)}" data-speaker="Carlos" onclick="hablaLesson.playLine(this)" aria-pressed="false" aria-label="Replay Carlos"><span data-playback-icon>${icon("sound")}</span></button></div>
-        <div class="lesson-speaking-turn lesson-narrative-your-turn">${renderLearnerAvatar()}<div><small>Your reply</small><strong>${escapeHtml(item.prompt)}</strong></div><button class="lesson-speaking-record lesson-record-line lesson-narrative-record" type="button" data-speaking-attempt-index="${index}" data-recording-key="${escapeAttr(recordingKey)}" onclick="hablaLesson.recordLine(this)" aria-pressed="false">${icon("mic")}<span>${hasRecording ? "Replay" : attempted ? "Answer again" : "Speak"}</span></button><span class="lesson-record-status" aria-live="polite">${status}</span><div class="lesson-speaking-recovery" hidden><p><strong>Microphone access is off.</strong><span>Try again or type your response.</span></p><div><button type="button" onclick="hablaLesson.retrySpeakingMicrophone(this)">Try microphone again</button><button type="button" onclick="hablaLesson.revealSpeakingTextInput(this)">Type response</button></div><label hidden><span>Type your response</span><input type="text" autocomplete="off" value="${escapeAttr(attempt?.typedResponse || "")}" placeholder="Write your Spanish answer"><button type="button" onclick="hablaLesson.submitSpeakingText(this)">Use this answer</button></label></div></div>
+        <div class="lesson-speaking-turn lesson-narrative-your-turn">${renderLearnerAvatar()}<div><small>Your reply</small><strong>${escapeHtml(item.prompt)}</strong></div><button class="lesson-speaking-record lesson-record-line lesson-narrative-record" type="button" data-speaking-attempt-index="${index}" data-recording-key="${escapeAttr(recordingKey)}" onclick="hablaLesson.recordLine(this)" aria-pressed="false">${icon("mic")}<i class="lesson-motion-waveform" aria-hidden="true"><b></b><b></b><b></b><b></b></i><span>${hasRecording ? "Replay" : attempted ? "Answer again" : "Speak"}</span></button><span class="lesson-record-status" aria-live="polite">${status}</span><div class="lesson-speaking-recovery" hidden><p><strong>Microphone access is off.</strong><span>Try again or type your response.</span></p><div><button type="button" onclick="hablaLesson.retrySpeakingMicrophone(this)">Try microphone again</button><button type="button" onclick="hablaLesson.revealSpeakingTextInput(this)">Type response</button></div><label hidden><span>Type your response</span><input type="text" autocomplete="off" value="${escapeAttr(attempt?.typedResponse || "")}" placeholder="Write your Spanish answer"><button type="button" onclick="hablaLesson.submitSpeakingText(this)">Use this answer</button></label></div></div>
         <details class="lesson-narrative-hint"><summary>${icon("bulb")}<span>Need a hand?</span>${icon("arrow")}</summary><div><p><small>Show a response</small><strong>${escapeHtml(item.text || "")}</strong>${item.meaning ? `<span>${escapeHtml(item.meaning)}</span>` : ""}</p><div><button type="button" data-speech="${escapeAttr(item.carlosPrompt)}" data-speaker="Carlos" onclick="hablaLesson.speak(this.dataset.speech, .72, this.dataset.speaker)">${icon("sound")} Hear Carlos slowly</button><button type="button" data-speech="${escapeAttr(item.text || "")}" data-speaker="Model" onclick="hablaLesson.playLine(this)">${icon("play")} Hear the response</button></div></div></details>
         ${attempted ? `<div class="lesson-narrative-conversation-actions">${hasRecording ? `<button type="button" class="lesson-narrative-text-action" onclick="hablaLesson.replaySpeaking(this)">Replay my answer</button>` : ""}<button class="lesson-narrative-primary" type="button" onclick="hablaLesson.next()"><span>${last ? "Finish conversation" : "Carlos replies"}</span>${icon("arrow")}</button></div>` : `<p class="lesson-narrative-privacy">Your practice recording stays on this device.</p>`}
       </article>
@@ -2009,7 +2016,7 @@ function renderNarrativeCulture(lesson) {
   const scene = getLearnScene(lesson, "culture");
   const image = getLandmarkArtwork("madrid", "madrid-street");
   return `
-    <section class="lesson-narrative-scene lesson-narrative-culture" aria-label="Madrid Moment">
+    <section class="lesson-narrative-scene lesson-narrative-culture" data-motion-scene="culture" aria-label="Madrid Moment">
       <header class="lesson-narrative-heading">
         ${renderNarrativeEyebrow(scene.eyebrow || "Madrid Moment")}
         <h1>${escapeHtml(scene.title || "¿Qué tal? is everywhere.")}</h1>
@@ -2087,7 +2094,7 @@ function renderNarrativeCompletion(lesson, progress = {}) {
   const next = getLessonById(lesson.nextLesson);
   const landmark = getLandmarkArtwork("madrid", "madrid-evening");
   return `
-    <section class="lesson-v2 lesson-canonical lesson-narrative-completion" aria-label="First Coffee complete" aria-live="polite">
+    <section class="lesson-v2 lesson-canonical lesson-narrative-completion" data-motion-scene="completion" aria-label="First Coffee complete" aria-live="polite">
       ${renderLessonHeader(lesson, { label: "Complete", type: "complete" }, 6, 7, 100, { ...progress, completed: true })}
       <main class="lesson-narrative-completion-stage">
         <header class="lesson-narrative-completion-heading">
@@ -2325,6 +2332,7 @@ function exitLessonCompletion(destination = "learn") {
   updateLessonProgress(lesson.id, { showCompletion: false });
   if (destination === "next" && next) {
     setActiveLesson(next.id);
+    writeAppRoute("lesson", next.id);
     rerenderLesson(true);
     return;
   }
@@ -2820,6 +2828,9 @@ function setPlaybackButtonState(button, playing) {
   const iconMount = button.querySelector("[data-playback-icon]");
   const label = button.querySelector("[data-playback-label]");
   if (iconMount) iconMount.innerHTML = icon(playing ? "pause" : (button.dataset.idleIcon || "play"));
+  if (iconMount && !iconMount.querySelector(".lesson-motion-waveform")) {
+    iconMount.insertAdjacentHTML("beforeend", '<i class="lesson-motion-waveform" aria-hidden="true"><b></b><b></b><b></b><b></b></i>');
+  }
   if (label) {
     label.dataset.idleLabel ||= label.textContent;
     label.textContent = playing ? "Pause" : label.dataset.idleLabel;
