@@ -1,0 +1,558 @@
+:root {
+  --habla-bg: #02070b;
+  --habla-bg-2: #071018;
+  --habla-surface: rgba(13, 20, 29, 0.92);
+  --habla-surface-strong: rgba(17, 26, 38, 0.96);
+  --habla-border: rgba(190, 202, 220, 0.16);
+  --habla-border-strong: rgba(244, 190, 88, 0.48);
+  --habla-gold: #F4BE58;
+  --habla-gold-2: #ffd979;
+  --habla-green: #29D66E;
+  --habla-text: #f8fafc;
+  --habla-muted: #aab5c6;
+  --habla-soft: #d8dee9;
+  --habla-danger: #ff6b55;
+  --habla-radius-card: 24px;
+  --habla-radius-button: 18px;
+  --habla-shadow-card: 0 24px 70px rgba(0, 0, 0, 0.36);
+  --habla-shadow-gold: 0 12px 28px rgba(244, 190, 88, 0.24);
+  --habla-shadow-green: 0 10px 24px rgba(32, 185, 99, 0.18);
+  --habla-font-display: "Manrope", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --habla-font-editorial: "Newsreader", Georgia, "Times New Roman", serif;
+  --habla-font-body: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --habla-primary-top: #39e182;
+  --habla-primary-mid: #2fd276;
+  --habla-primary-bottom: #22bc65;
+  --space-1: 8px;
+  --space-2: 16px;
+  --space-3: 24px;
+  --space-4: 32px;
+  --space-5: 40px;
+}
+
+.h-section {
+  width: 100%;
+  max-width: 100%;
+}
+
+.h-card {
+  border: 1px solid var(--habla-border);
+  border-radius: var(--habla-radius-card);
+  background:
+    linear-gradient(180deg, rgba(18, 28, 40, 0.92), rgba(7, 13, 20, 0.9));
+  box-shadow: var(--habla-shadow-card);
+}
+
+.h-card--gold {
+  border-color: var(--habla-border-strong);
+}
+
+.h-label {
+  color: var(--habla-green);
+  font-size: 0.75rem;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+  line-height: 1.2;
+  text-transform: uppercase;
+}
+
+.h-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  border: 1px solid var(--habla-border);
+  border-radius: 999px;
+  background: rgba(5, 10, 16, 0.54);
+  color: var(--habla-soft);
+  font-size: 0.78rem;
+  font-weight: 800;
+  line-height: 1;
+  padding: 9px 12px;
+  white-space: nowrap;
+}
+
+.h-badge--green {
+  border-color: rgba(41, 214, 110, 0.34);
+  color: var(--habla-green);
+}
+
+.h-badge--gold {
+  border-color: rgba(244, 190, 88, 0.42);
+  color: var(--habla-gold);
+}
+
+.h-dot {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border-radius: 999px;
+  background: var(--habla-green);
+  box-shadow: 0 0 0 5px rgba(41, 214, 110, 0.12);
+}
+
+.h-btn {
+  align-items: center;
+  border-radius: var(--habla-radius-button);
+  cursor: pointer;
+  display: inline-flex;
+  font-family: inherit;
+  font-size: 0.95rem;
+  font-weight: 900;
+  justify-content: center;
+  min-height: 56px;
+  padding: 0 18px;
+  text-align: center;
+  transition: transform 0.16s ease, border-color 0.16s ease, box-shadow 0.16s ease;
+  width: 100%;
+}
+
+.h-btn:hover {
+  transform: translateY(-1px);
+}
+
+.h-btn:focus-visible {
+  outline: 2px solid var(--habla-gold);
+  outline-offset: 3px;
+}
+
+.h-btn--primary {
+  background: linear-gradient(180deg, var(--habla-primary-top) 0%, var(--habla-primary-mid) 48%, var(--habla-primary-bottom) 100%);
+  border: 1px solid rgba(93, 235, 157, 0.45);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.18), var(--habla-shadow-green);
+  color: #fff;
+}
+
+.h-btn--primary:hover {
+  background: linear-gradient(180deg, #43e78b 0%, #35d97d 48%, #27c36b 100%);
+}
+
+.h-btn--primary:active {
+  background: linear-gradient(180deg, #24c66d, #1daf5d);
+  box-shadow: inset 0 1px 3px rgba(0,0,0,.18), 0 5px 12px rgba(32,185,99,.13);
+  transform: translateY(0);
+}
+
+.h-btn--secondary {
+  background: rgba(5, 10, 16, 0.42);
+  border: 1px solid rgba(216, 222, 233, 0.22);
+  color: var(--habla-text);
+}
+
+.h-btn--quiet {
+  background: rgba(5, 10, 16, 0.34);
+  border: 1px solid rgba(216, 222, 233, 0.18);
+  color: var(--habla-muted);
+}
+
+.h-progress {
+  background: rgba(1, 7, 11, 0.78);
+  border-radius: 999px;
+  height: 10px;
+  overflow: hidden;
+}
+
+.h-progress > i {
+  background: linear-gradient(90deg, var(--habla-green), #4fe287);
+  border-radius: inherit;
+  display: block;
+  height: 100%;
+}
+
+.h-stack {
+  display: grid;
+  gap: var(--space-3);
+}
+
+.h-flow {
+  display: grid;
+  gap: var(--space-2);
+}
+
+.h-icon-badge {
+  align-items: center;
+  background:
+    radial-gradient(circle at 35% 25%, rgba(244, 190, 88, 0.24), transparent 44%),
+    rgba(5, 10, 16, 0.74);
+  border: 1px solid rgba(244, 190, 88, 0.28);
+  border-radius: 16px;
+  color: var(--habla-gold);
+  display: inline-flex;
+  flex: 0 0 auto;
+  height: 44px;
+  justify-content: center;
+  position: relative;
+  width: 44px;
+}
+
+.h-control {
+  align-items: center;
+  border-radius: var(--habla-radius-button);
+  display: inline-flex;
+  font-family: inherit;
+  font-weight: 800;
+  gap: 8px;
+  justify-content: center;
+  min-height: 48px;
+}
+
+.h-readable {
+  max-width: 62ch;
+  overflow-wrap: anywhere;
+}
+
+/* HABLA DESIGN SYSTEM V1 APP POLISH */
+:root {
+  --habla-page-pad-x: 16px;
+  --habla-bottom-nav-h: 76px;
+  --habla-bottom-nav-total-h: calc(var(--habla-bottom-nav-h) + env(safe-area-inset-bottom));
+  --habla-page-bottom-clearance: calc(var(--habla-bottom-nav-total-h) + 28px);
+  --habla-section-gap: 24px;
+  --habla-card-pad: 20px;
+  --habla-radius-control: 14px;
+}
+
+html,
+body {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+#app {
+  background:
+    radial-gradient(circle at 78% 10%, rgba(244, 190, 88, 0.09), transparent 28%),
+    linear-gradient(180deg, var(--habla-bg), var(--habla-bg-2));
+}
+
+#dashboard {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+#dashboard > * {
+  min-width: 0;
+}
+
+#dashboard.learn-page,
+#dashboard.practice-page,
+#dashboard.profile-page {
+  padding: 24px var(--habla-page-pad-x) var(--habla-page-bottom-clearance);
+  background:
+    radial-gradient(circle at 78% 10%, rgba(244, 190, 88, 0.12), transparent 28%),
+    radial-gradient(circle at 18% 24%, rgba(41, 214, 110, 0.08), transparent 34%),
+    linear-gradient(180deg, var(--habla-bg), var(--habla-bg-2));
+}
+
+.learn-screen,
+.practice-screen,
+.profile-screen {
+  gap: var(--habla-section-gap);
+}
+
+.learn-header,
+.practice-header,
+.profile-header {
+  padding-top: 0;
+}
+
+.learn-eyebrow,
+.practice-eyebrow,
+.profile-eyebrow,
+.learn-page .h-label,
+.practice-page .h-label,
+.profile-page .h-label {
+  color: var(--habla-green);
+  font-size: 0.72rem;
+  font-weight: 900;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+}
+
+.learn-header h1,
+.practice-header h1,
+.profile-header h1 {
+  color: var(--habla-gold);
+  font-family: var(--habla-font-display);
+  font-size: clamp(2rem, 9vw, 2.65rem);
+  letter-spacing: -0.01em;
+  line-height: 0.98;
+}
+
+.learn-header p,
+.practice-header p,
+.profile-header p,
+.section-heading p {
+  color: var(--habla-muted);
+  font-size: 0.92rem;
+  line-height: 1.55;
+  overflow-wrap: anywhere;
+}
+
+.learn-card,
+.learn-panel,
+.current-lesson-card,
+.learn-vocab-card,
+.grammar-card,
+.roadmap-card,
+.practice-mode-card,
+.practice-mode-panel,
+.flash-slide,
+.pron-slide,
+.profile-card,
+.profile-row,
+.profile-stat,
+.achievement,
+.module-list div,
+.lesson-metrics div,
+.lesson-preview-list div {
+  border-color: var(--habla-border);
+  border-radius: var(--habla-radius-card);
+  background:
+    linear-gradient(180deg, rgba(18, 28, 40, 0.9), rgba(7, 13, 20, 0.88));
+  box-shadow: var(--habla-shadow-card);
+}
+
+.learn-card,
+.practice-mode-card {
+  border-radius: 20px;
+  min-height: 88px;
+  padding: 16px;
+  min-width: 0;
+}
+
+.learn-panel,
+.practice-mode-panel,
+.profile-card,
+.current-lesson-card {
+  padding: var(--habla-card-pad);
+}
+
+.learn-card-icon,
+.practice-mode-icon,
+.achievement-icon,
+.pronounce-btn,
+.pbtn,
+.avatar-mark {
+  border-color: rgba(244, 190, 88, 0.28);
+  border-radius: 16px;
+  background:
+    radial-gradient(circle at 35% 25%, rgba(244, 190, 88, 0.24), transparent 42%),
+    rgba(5, 10, 16, 0.7);
+  color: var(--habla-gold);
+}
+
+.quiz-option,
+.practice-actions button,
+.practice-primary,
+.profile-save-btn,
+.dev-actions button,
+.profile-field textarea,
+.profile-field select,
+.vocab-category-row label {
+  border-radius: var(--habla-radius-control);
+  font-family: inherit;
+}
+
+.practice-primary,
+.profile-save-btn {
+  min-height: 48px;
+  background: linear-gradient(180deg, var(--habla-gold-2), var(--habla-gold));
+  box-shadow: var(--habla-shadow-gold);
+  color: #120d03;
+  font-weight: 900;
+}
+
+.quiz-option,
+.practice-actions button,
+.dev-actions button {
+  min-height: 44px;
+  background: rgba(5, 10, 16, 0.62);
+}
+
+.practice-actions button,
+.dev-actions button,
+.lesson-actions button,
+.pronounce-btn,
+.pbtn {
+  align-items: center;
+  display: inline-flex;
+  gap: 8px;
+  justify-content: center;
+}
+
+.ui-icon,
+.learn-card-icon,
+.practice-mode-icon {
+  position: relative;
+}
+
+.ui-icon {
+  display: inline-block;
+  flex: 0 0 auto;
+  height: 1em;
+  vertical-align: -0.14em;
+  width: 1em;
+}
+
+.ui-icon::before,
+.ui-icon::after,
+.learn-card-icon::before,
+.learn-card-icon::after,
+.practice-mode-icon::before,
+.practice-mode-icon::after {
+  content: "";
+  position: absolute;
+}
+
+.learn-icon-vocab::before,
+.practice-icon-cards::before {
+  border: 2px solid currentColor;
+  border-radius: 3px;
+  height: 18px;
+  left: 11px;
+  top: 10px;
+  width: 18px;
+}
+
+.learn-icon-vocab::after,
+.practice-icon-cards::after {
+  background: currentColor;
+  height: 18px;
+  left: 20px;
+  top: 10px;
+  width: 2px;
+}
+
+.learn-icon-roadmap::before {
+  border: 2px solid currentColor;
+  border-radius: 50%;
+  height: 7px;
+  left: 10px;
+  top: 11px;
+  width: 7px;
+}
+
+.learn-icon-roadmap::after {
+  border-bottom: 2px solid currentColor;
+  border-right: 2px solid currentColor;
+  height: 16px;
+  left: 19px;
+  top: 15px;
+  transform: skewX(-18deg);
+  width: 14px;
+}
+
+.learn-icon-grammar::before {
+  color: currentColor;
+  content: "Aa";
+  font-family: var(--habla-font-display);
+  font-size: 1rem;
+  font-weight: 800;
+  left: 10px;
+  top: 10px;
+}
+
+.practice-icon-quiz::before {
+  border: 2px solid currentColor;
+  border-radius: 50%;
+  height: 20px;
+  left: 10px;
+  top: 10px;
+  width: 20px;
+}
+
+.practice-icon-quiz::after {
+  background: currentColor;
+  border-radius: 50%;
+  height: 8px;
+  left: 18px;
+  top: 18px;
+  width: 8px;
+}
+
+.practice-icon-mic::before,
+.ui-icon-mic::before {
+  border: 2px solid currentColor;
+  border-radius: 999px;
+}
+
+.practice-icon-mic::before {
+  height: 18px;
+  left: 15px;
+  top: 8px;
+  width: 10px;
+}
+
+.practice-icon-mic::after {
+  border-bottom: 2px solid currentColor;
+  border-left: 2px solid currentColor;
+  border-right: 2px solid currentColor;
+  border-radius: 0 0 10px 10px;
+  height: 12px;
+  left: 11px;
+  top: 18px;
+  width: 18px;
+}
+
+.ui-icon-mic::before {
+  height: 0.86em;
+  left: 0.3em;
+  top: 0;
+  width: 0.4em;
+}
+
+.ui-icon-mic::after {
+  border-bottom: 0.14em solid currentColor;
+  border-left: 0.14em solid currentColor;
+  border-right: 0.14em solid currentColor;
+  border-radius: 0 0 0.5em 0.5em;
+  height: 0.54em;
+  left: 0.18em;
+  top: 0.36em;
+  width: 0.64em;
+}
+
+.ui-icon-sound::before {
+  border-bottom: 0.34em solid transparent;
+  border-right: 0.46em solid currentColor;
+  border-top: 0.34em solid transparent;
+  left: 0.05em;
+  top: 0.17em;
+}
+
+.ui-icon-sound::after {
+  border: 0.12em solid currentColor;
+  border-bottom-color: transparent;
+  border-left-color: transparent;
+  border-top-color: transparent;
+  border-radius: 50%;
+  height: 0.78em;
+  left: 0.42em;
+  top: 0.11em;
+  width: 0.42em;
+}
+
+.ui-icon-send::before {
+  border-right: 0.18em solid currentColor;
+  border-top: 0.18em solid currentColor;
+  height: 0.68em;
+  left: 0.14em;
+  top: 0.2em;
+  transform: rotate(45deg);
+  width: 0.68em;
+}
+
+.ui-icon-send::after {
+  background: currentColor;
+  border-radius: 999px;
+  height: 0.16em;
+  left: 0.1em;
+  top: 0.48em;
+  width: 0.82em;
+}
+
+@media (max-width: 380px) {
+  :root {
+    --habla-page-pad-x: 12px;
+  }
+
+}
