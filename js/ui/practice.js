@@ -15,6 +15,10 @@ const MODES = ["flashcards", "conversation", "pronunciation", "quiz"];
 const PRIMARY_TOPIC_IDS = ["greetings", "family", "food-restaurants", "travel", "shopping", "work", "phrases", "numbers"];
 const TOPICS = {
   greetings: { title: "Greetings", icon: "greetings", lessons: ["a1-lesson-01-greetings", "a1-lesson-02-introductions"] },
+  introductions: { title: "A New Friend", icon: "greetings", lessons: ["a1-lesson-02-introductions"] },
+  home: { title: "An Afternoon at Home", icon: "family", lessons: ["lesson-08-vacation"] },
+  "daily-routine": { title: "A Typical Day", icon: "time", lessons: ["lesson-09-around-the-house"] },
+  "madrid-review": { title: "Your Madrid Weekend", icon: "travel", lessons: ["lesson-10-daily-routine"] },
   family: { title: "Family", icon: "family", lessons: ["lesson-03-family", "lesson-08-vacation"] },
   "food-restaurants": { title: "Restaurants", icon: "restaurants", lessons: ["lesson-06-food-drinks"] },
   travel: { title: "Travel", icon: "travel", lessons: ["lesson-07-travel-basics"] },
@@ -121,7 +125,7 @@ function renderSavedWordsShortcut(appState) {
   const count = getSavedWords(appState).length;
   return `<button class="practice-saved-shortcut" type="button" onclick="hablaPractice.openSavedWords()" aria-label="Open Saved Words, ${count} saved">
     <span aria-hidden="true">${iconSvg("bookmark")}</span>
-    <span><small>Saved Words</small><strong>Review phrases you marked during lessons.</strong></span>
+    <span><small>Saved Words</small><strong>Review phrases from lessons and Carlos.</strong></span>
     <b>${count}</b>${iconSvg("arrow-right")}
   </button>`;
 }
@@ -141,7 +145,7 @@ function renderSavedWords(appState) {
 
 function renderSavedWord(item) {
   const lesson = getLessonById(item.sourceLessonId);
-  const source = lesson ? `Episode ${String(lesson.id || "").match(/(\d+)/)?.[1]?.replace(/^0+/, "") || ""} · ${shortLessonTitle(lesson.title)}` : "Saved during a lesson";
+  const source = item.source === "carlos" ? "Saved with Carlos" : lesson ? `Episode ${String(lesson.id || "").match(/(\d+)/)?.[1]?.replace(/^0+/, "") || ""} · ${shortLessonTitle(lesson.title)}` : "Saved during a lesson";
   return `<article class="practice-saved-word">
     <div><small>${escapeHtml(source)}</small><strong>${escapeHtml(item.spanish)}</strong><span>${escapeHtml(item.english)}</span>${item.exampleSpanish ? `<p>${escapeHtml(item.exampleSpanish)}<em>${escapeHtml(item.exampleEnglish || "")}</em></p>` : ""}</div>
     <div class="practice-saved-actions">
@@ -646,7 +650,7 @@ function getLibraryItemStatus(entry, appState) {
   if (!lessons.length) return { state: "planned", completion: 0, cards: 0, questions: 0, dynamicCount: 0, hasLessonContent: false };
 
   const unlockedIds = new Set(getUnlockedLessons().map(lesson => lesson.id));
-  const unlockedLessons = lessons.filter(lesson => unlockedIds.has(lesson.id));
+  const unlockedLessons = lessons.filter(lesson => unlockedIds.has(lesson.id) && isLessonPracticeAvailable(lesson));
   const cards = lessons.reduce((total, lesson) => total + (lesson.vocabulary?.length || 0), 0);
   const questions = lessons.reduce((total, lesson) => total + (lesson.quiz?.length || 0), 0);
   const completed = lessons.filter(lesson => getLessonProgress(lesson.id).completed).length;
@@ -724,8 +728,8 @@ function renderSummary(session, topic, lesson) {
 function practiceHeroAction(session, lesson) {
   if (session.mode === "conversation") return "Start Conversation";
   if (session.mode === "pronunciation") return session.pronunciation?.index > 0 ? "Resume Speaking" : "Start Speaking";
-  if (session.mode === "flashcards") return session.flash?.lessonId === lesson?.id && session.flash.index > 0 ? "Continue Cards" : "Start Flashcards";
-  if (session.quiz?.lessonId === lesson?.id && session.quiz.index > 0) return "Continue Quiz";
+  if (session.mode === "flashcards") return lesson && session.flash?.lessonId === lesson.id && Number(session.flash?.index) > 0 ? "Continue Cards" : "Start Flashcards";
+  if (lesson && session.quiz?.lessonId === lesson.id && Number(session.quiz?.index) > 0) return "Continue Quiz";
   if (session.lastCompletedMode === "quiz" && session.lastCompletedTopic === session.topic) return "Practice Again";
   return "Start Quiz";
 }
@@ -852,7 +856,14 @@ function renderResults(session, topic, lesson) {
 function getLessonForTopic(slug) {
   const topic = TOPICS[slug] || TOPICS.greetings;
   const unlocked = getUnlockedLessons();
-  return topic.lessons.map(id => unlocked.find(lesson => lesson.id === id)).find(Boolean) || null;
+  return topic.lessons
+    .map(id => unlocked.find(lesson => lesson.id === id))
+    .find(lesson => lesson && isLessonPracticeAvailable(lesson)) || null;
+}
+
+function isLessonPracticeAvailable(lesson) {
+  const unlock = lesson?.learnExperience?.practiceUnlock;
+  return !unlock?.requiresCompletion || Boolean(getLessonProgress(lesson.id).completed);
 }
 
 function getCards(lesson) {

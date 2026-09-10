@@ -37,7 +37,7 @@ const EPISODE_LANDMARKS = Object.freeze({
   7: "plaza-mayor",
   8: "apartment",
   9: "apartment",
-  10: "granada",
+  10: "madrid",
 });
 
 const HERO_ARTWORK = Object.freeze({
@@ -50,7 +50,7 @@ const HERO_ARTWORK = Object.freeze({
   7: "assets/images/lessons/lesson-07-travel.png",
   8: "assets/images/lessons/lesson-08-home.png",
   9: "assets/images/lessons/lesson-09-routine.png",
-  10: "assets/images/lessons/lesson-10-finale.png",
+  10: "assets/images/landmarks/madrid/madrid-evening.webp",
 });
 
 const EPISODE_ALT_TEXT = Object.freeze({
@@ -63,7 +63,7 @@ const EPISODE_ALT_TEXT = Object.freeze({
   7: "Carlos walking through Plaza Mayor",
   8: "Carlos welcoming a guest into his Madrid apartment",
   9: "Carlos writing his daily routine at the kitchen table",
-  10: "Carlos and a friend overlooking Granada at sunset",
+  10: "Madrid at dusk, the city where the first chapter takes place",
 });
 
 export const CHAPTER_ARTWORK = Object.freeze({
@@ -84,8 +84,8 @@ export const CHAPTER_ARTWORK = Object.freeze({
         number: Number(number),
         landmark: EPISODE_LANDMARKS[number],
         hero: HERO_ARTWORK[number],
-        thumbnail: `${CHAPTER_ONE_ROOT}/thumbnails/${slug}.webp`,
-        cover: `${CHAPTER_ONE_ROOT}/covers/${slug}.webp`,
+        thumbnail: Number(number) === 10 ? HERO_ARTWORK[number] : `${CHAPTER_ONE_ROOT}/thumbnails/${slug}.webp`,
+        cover: Number(number) === 10 ? HERO_ARTWORK[number] : `${CHAPTER_ONE_ROOT}/covers/${slug}.webp`,
         alt: EPISODE_ALT_TEXT[number],
       }),
     ]),

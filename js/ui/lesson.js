@@ -8,7 +8,7 @@ import {
   setActiveLesson,
   updateLessonProgress,
 } from "../core/content.js";
-import { evaluateAchievements } from "../core/achievements.js";
+import { evaluateAchievements, unlockAchievement } from "../core/achievements.js";
 import {
   getLessonDiscoveries,
   getLessonMemory,
@@ -72,6 +72,16 @@ const LESSON_FLOW_VERSION = 5;
 const CANONICAL_LESSON_FLOW_VERSION = 6;
 const CANONICAL_LESSON_ID = "a1-lesson-01-greetings";
 
+function isNarrativeExperience(lesson) {
+  return Number(lesson?.learnExperience?.version || 0) >= 2;
+}
+
+function getNarrativeFlowVersion(lesson) {
+  return lesson.id === CANONICAL_LESSON_ID
+    ? CANONICAL_LESSON_FLOW_VERSION
+    : Number(lesson.learnExperience?.flowVersion || CANONICAL_LESSON_FLOW_VERSION);
+}
+
 if (typeof window !== "undefined") {
   window.hablaLesson = {
     next: advanceLesson,
@@ -122,6 +132,9 @@ if (typeof window !== "undefined") {
     retryPattern: retryPatternPractice,
     continueWithoutSpeaking: continueConversationWithoutSpeaking,
     finishNarrativeSpeak,
+    submitNarrativeSpeakText,
+    playNarrativeModel,
+    stopModel: stopSpeech,
     finishCompletion: exitLessonCompletion,
   };
 }
@@ -141,6 +154,7 @@ export function renderLesson() {
     steps.slice(0, stepIndex + 1).filter(item => !item.legacyCombined).length - 1,
   );
   const isCanonicalLesson = lesson.id === CANONICAL_LESSON_ID;
+  const isNarrativeLesson = isNarrativeExperience(lesson);
   const displayedStepCount = isCanonicalLesson ? visibleFlowStepCount : visibleFlowStepCount;
   const isReplay = Boolean(progress.completed && progress.replayStartedAt && !progress.showCompletion);
   const completedStepCount = step?.type === "story" ? 0 : visibleStepIndex;
@@ -149,7 +163,7 @@ export function renderLesson() {
     : Math.round((completedStepCount / Math.max(displayedStepCount, 1)) * 100);
 
   return `
-    <section class="lesson-v2${lesson.id === CANONICAL_LESSON_ID ? " lesson-canonical" : ""} emotion-${slugify(lesson.emotionalArc?.emotion || "journey")}" aria-label="${escapeAttr(lesson.title)} lesson">
+    <section class="lesson-v2${isNarrativeLesson ? " lesson-narrative-experience" : ""}${isCanonicalLesson ? " lesson-canonical" : ""}${isNarrativeLesson && getLessonNumber(lesson) >= 3 ? " lesson-chapter-episode" : ""} emotion-${slugify(lesson.emotionalArc?.emotion || "journey")}" aria-label="${escapeAttr(lesson.title)} lesson">
       ${renderLessonHeader(lesson, step, visibleStepIndex, displayedStepCount, percent, progress)}
       <main class="lesson-stage" id="lesson-stage" tabindex="-1">
         ${renderLessonSceneBanner(lesson, step)}
@@ -162,6 +176,7 @@ export function renderLesson() {
 
 function buildLessonSteps(lesson) {
   const isCanonicalLesson = lesson.id === CANONICAL_LESSON_ID;
+  const isNarrativeLesson = isNarrativeExperience(lesson);
   const steps = [{
     id: "story",
     label: isCanonicalLesson ? "Episode Opening" : "Introduction",
@@ -171,7 +186,7 @@ function buildLessonSteps(lesson) {
   const messageThread = dialogue.find(scene => scene.presentation?.type === "messageThread");
   const standardDialogue = dialogue.find(scene => scene !== messageThread);
 
-  if (!isCanonicalLesson && messageThread) {
+  if (!isNarrativeLesson && messageThread) {
     steps.push({
       id: "messages",
       label: "A Message from Carlos",
@@ -180,17 +195,18 @@ function buildLessonSteps(lesson) {
       legacyCombined: true,
     });
   }
-  if (!isCanonicalLesson && lesson.learnerChoices?.options?.length) {
+  if (!isNarrativeLesson && lesson.learnerChoices?.options?.length) {
     steps.push({ id: "choice", label: "Choose the Moment", type: "choice" });
   }
 
-  if (isCanonicalLesson) {
+  if (isNarrativeLesson) {
+    const scenes = lesson.learnExperience?.scenes || {};
     steps[0] = { id: "story", label: "Arrive", type: "story" };
-    steps.push({ id: "encounter", label: "Meet Carlos", type: "encounter" });
-    steps.push({ id: "pattern", label: "The Pattern", type: "pattern" });
-    steps.push({ id: "rehearsal", label: "Try It", type: "rehearsal" });
-    steps.push({ id: "speak", label: "Speak", type: "narrativeSpeak" });
-    steps.push({ id: "conversation", label: "Talk with Carlos", type: "dialogue", data: standardDialogue });
+    steps.push({ id: "encounter", label: scenes.encounter?.stepLabel || scenes.encounter?.eyebrow || "Meet Carlos", type: "encounter" });
+    steps.push({ id: "pattern", label: scenes.pattern?.stepLabel || "The Pattern", type: "pattern" });
+    steps.push({ id: "rehearsal", label: scenes.rehearse?.stepLabel || "Try It", type: "rehearsal" });
+    steps.push({ id: "speak", label: scenes.speak?.stepLabel || "Speak", type: "narrativeSpeak" });
+    steps.push({ id: "conversation", label: scenes.conversation?.stepLabel || "Talk with Carlos", type: "dialogue", data: standardDialogue });
   } else {
     if (lesson.vocabulary?.length) steps.push({ id: "vocabulary", label: "Words You’ll Need", type: "vocabulary" });
     if (lesson.grammar) steps.push({ id: "grammar", label: "Carlos’ Advice", type: "grammar" });
@@ -214,10 +230,10 @@ function buildLessonSteps(lesson) {
     }
   }
 
-  if (!isCanonicalLesson && getFlashcardItems(lesson).length) {
+  if (!isNarrativeLesson && getFlashcardItems(lesson).length) {
     steps.push({ id: "flashcards", label: "Keep It Fresh", type: "flashcards" });
   }
-  if (!isCanonicalLesson && lesson.quiz?.length) {
+  if (!isNarrativeLesson && lesson.quiz?.length) {
     steps.push({ id: "quiz", label: "Can You Remember?", type: "quiz" });
   }
   if (lesson.culture || lesson.worldBuilding?.length || lesson.livingWorldInteractions?.length) {
@@ -267,10 +283,11 @@ function buildLegacyLessonSteps(lesson, { includeRemovedConversation = false } =
 }
 
 function mapLegacyStepId(lesson, stepId) {
-  if (lesson.id !== CANONICAL_LESSON_ID) {
+  if (!isNarrativeExperience(lesson)) {
     return stepId === "conversation" ? "speaking" : stepId;
   }
 
+  if (stepId === "choice" && lesson.id !== CANONICAL_LESSON_ID) return "encounter";
   if (stepId === "messages") return "encounter";
   if (stepId === "choice" || stepId === "vocabulary" || stepId === "essentials" || stepId === "build" || stepId === "grammar") return "pattern";
   if (stepId === "pronunciation") return "speak";
@@ -281,8 +298,8 @@ function mapLegacyStepId(lesson, stepId) {
 
 function migrateRemovedConversationStep(lesson, progress) {
   const previousVersion = Number(progress.lessonFlowVersion || 0);
-  const targetVersion = lesson.id === CANONICAL_LESSON_ID
-    ? CANONICAL_LESSON_FLOW_VERSION
+  const targetVersion = isNarrativeExperience(lesson)
+    ? getNarrativeFlowVersion(lesson)
     : LESSON_FLOW_VERSION;
   if (previousVersion >= targetVersion) return progress;
 
@@ -321,12 +338,16 @@ function migrateRemovedConversationStep(lesson, progress) {
   const targetId = mapLegacyStepId(lesson, oldStep?.id);
   let mappedIndex = newSteps.findIndex(step => step.id === targetId);
   if (mappedIndex < 0) mappedIndex = 0;
+  if (isNarrativeExperience(lesson) && lesson.learnerChoices?.options?.length && mappedIndex > 1
+    && !lesson.learnerChoices.options.some(choice => choice.id === (progress.selectedChoiceId || getLessonMemory(lesson.id)?.choiceId))) {
+    mappedIndex = 1;
+  }
 
   const migrated = {
     ...progress,
     lessonFlowVersion: targetVersion,
     rendererStep: mappedIndex,
-    ...(lesson.id === CANONICAL_LESSON_ID && previousVersion < 6 ? {
+    ...(isNarrativeExperience(lesson) && previousVersion < targetVersion ? {
       guidedSpeakingIndex: 0,
       guidedSpeakingAttempts: {},
       rendererPatternPractice: { index: 0, selected: null, complete: false },
@@ -336,22 +357,13 @@ function migrateRemovedConversationStep(lesson, progress) {
       )),
     } : {}),
   };
-  const hasSavedSession = Boolean(
-    progress.updatedAt
-      || progress.completed
-      || progress.completedSections?.length
-      || Number(progress.rendererStep || 0),
-  );
-  if (hasSavedSession) {
-    updateLessonProgress(lesson.id, {
-      lessonFlowVersion: targetVersion,
-      rendererStep: mappedIndex,
-    });
-  }
+  // Version fresh sessions too, so advancing once cannot be mistaken for a legacy step.
+  // Persist the full migration once; otherwise old attempts return on the next render.
+  updateLessonProgress(lesson.id, migrated);
   return migrated;
 }
 function renderLessonHeader(lesson, step, visibleStepIndex, visibleStepCount, percent, progress) {
-  if (lesson.id === CANONICAL_LESSON_ID && lesson.learnExperience?.version >= 2) {
+  if (isNarrativeExperience(lesson)) {
     const complete = step?.type === "complete" || percent >= 100;
     return `
       <header class="lesson-narrative-header">
@@ -411,7 +423,7 @@ function renderStep(step, lesson, progress) {
 
 function renderLessonSceneBanner(lesson, step) {
   if (!step || ["story", "complete", "dialogue", "listening", "speaking"].includes(step.type)) return "";
-  if (lesson.id === CANONICAL_LESSON_ID) return "";
+  if (isNarrativeExperience(lesson)) return "";
   const artwork = preloadLessonArtwork(lesson);
   if (!artwork) return "";
   const labels = {
@@ -494,7 +506,9 @@ function getLearnExperience(lesson) {
 }
 
 function getLearnScene(lesson, id) {
-  return getLearnExperience(lesson).scenes?.[id] || {};
+  const scene = getLearnExperience(lesson).scenes?.[id] || {};
+  const choiceId = getLessonProgress(lesson.id).selectedChoiceId || getLessonMemory(lesson.id)?.choiceId;
+  return { ...scene, ...(scene.byChoice?.[choiceId] || {}) };
 }
 
 function renderNarrativeEyebrow(value) {
@@ -503,13 +517,16 @@ function renderNarrativeEyebrow(value) {
 
 function renderNarrativeArrival(lesson) {
   const scene = getLearnScene(lesson, "arrive");
-  const artwork = preloadEpisodeArtwork(lesson, "cover");
+  const artwork = scene.image || preloadEpisodeArtwork(lesson, "cover");
+  const artworkAlt = scene.artworkAlt || scene.imageAlt || (lesson.id === CANONICAL_LESSON_ID
+    ? "Carlos sharing a first coffee in Madrid"
+    : getEpisodeArtworkAlt(lesson));
   return `
     <article class="lesson-narrative-arrival" data-motion-scene="arrive">
-      ${artwork ? `<img src="${escapeAttr(artwork)}" alt="Carlos sharing a first coffee in Madrid" loading="eager" fetchpriority="high" decoding="async" onerror="${LESSON_ARTWORK_ONERROR}">` : ""}
+      ${artwork ? `<img src="${escapeAttr(artwork)}" alt="${escapeAttr(artworkAlt)}" loading="eager" fetchpriority="high" decoding="async" onerror="${LESSON_ARTWORK_ONERROR}">` : ""}
       <span class="lesson-narrative-arrival-shade" aria-hidden="true"></span>
       <div class="lesson-narrative-arrival-copy">
-        ${renderNarrativeEyebrow(scene.eyebrow || "Episode 1 · Madrid")}
+        ${renderNarrativeEyebrow(scene.eyebrow || `Episode ${getLessonNumber(lesson)} · ${lesson.story?.city || "Madrid"}`)}
         <h1>${escapeHtml(scene.title || lesson.title)}</h1>
       </div>
       <div class="lesson-narrative-arrival-actions">
@@ -521,39 +538,71 @@ function renderNarrativeArrival(lesson) {
   `;
 }
 
-function renderNarrativeEncounter(lesson) {
+function renderNarrativeEncounter(lesson, progress) {
   const scene = getLearnScene(lesson, "encounter");
-  const artwork = preloadLessonArtwork(lesson);
+  const artwork = scene.image || preloadLessonArtwork(lesson);
+  const speaker = scene.speaker || "Carlos";
+  const artworkAlt = scene.artworkAlt || scene.imageAlt || (lesson.id === CANONICAL_LESSON_ID
+    ? "Carlos greeting you at Café Español in Madrid"
+    : getEpisodeArtworkAlt(lesson));
   const spanish = scene.spanish || lesson.essentialPhrases?.[0]?.spanish || "¡Hola! ¿Qué tal?";
   const english = scene.english || lesson.essentialPhrases?.[0]?.english || "Hi! How’s it going?";
+  const choices = lesson.learnerChoices?.options || [];
+  const selectedId = progress.selectedChoiceId || getLessonMemory(lesson.id)?.choiceId;
+  const selected = choices.find(choice => choice.id === selectedId);
   return `
-    <section class="lesson-narrative-scene lesson-narrative-encounter" data-motion-scene="encounter" aria-label="Meet Carlos">
+    <section class="lesson-narrative-scene lesson-narrative-encounter" data-motion-scene="encounter" aria-label="${escapeAttr(scene.ariaLabel || `Meet ${speaker}`)}">
       <figure class="lesson-narrative-encounter-image">
-        ${artwork ? `<img src="${escapeAttr(artwork)}" alt="Carlos greeting you at Café Español in Madrid" loading="eager" decoding="async" onerror="${LESSON_ARTWORK_ONERROR}">` : ""}
+        ${artwork ? `<img src="${escapeAttr(artwork)}" alt="${escapeAttr(artworkAlt)}" loading="eager" decoding="async" onerror="${LESSON_ARTWORK_ONERROR}">` : ""}
         <span aria-hidden="true"></span>
         <figcaption>${renderNarrativeEyebrow(scene.eyebrow || "Meet Carlos")}</figcaption>
       </figure>
       <div class="lesson-narrative-encounter-copy">
-        <small>Carlos</small>
+        <small>${escapeHtml(speaker)}</small>
         <div class="lesson-narrative-phrase-line">
           <div><h1>${escapeHtml(spanish)}</h1><p>${escapeHtml(english)}</p></div>
-          <button class="lesson-narrative-audio" type="button" data-speech="${escapeAttr(spanish)}" data-speaker="Carlos" onclick="hablaLesson.playLine(this)" aria-pressed="false" aria-label="Replay Carlos"><span data-playback-icon>${icon("sound")}</span></button>
+          <button class="lesson-narrative-audio" type="button" data-speech="${escapeAttr(spanish)}" data-speaker="${escapeAttr(speaker)}" onclick="hablaLesson.playLine(this)" aria-pressed="false" aria-label="Replay ${escapeAttr(speaker)}"><span data-playback-icon>${icon("sound")}</span></button>
         </div>
         <p class="lesson-narrative-bridge">${escapeHtml(scene.body || "Carlos just greeted you. You only need three simple moves to handle this conversation.")}</p>
-        <button class="lesson-narrative-primary" type="button" onclick="hablaLesson.next()"><span>${escapeHtml(scene.cta || "See the pattern")}</span>${icon("arrow")}</button>
+        ${lesson.id !== CANONICAL_LESSON_ID ? renderMemoryCallback(lesson) : ""}
+        ${choices.length ? `<div class="lesson-narrative-choice"><div class="lesson-choice-grid">${choices.map(choice => `<button type="button" class="lesson-choice-card ${choice.id === selectedId ? "selected" : ""}" aria-pressed="${choice.id === selectedId}" onclick="hablaLesson.choose('${escapeAttr(choice.id)}')"><span>${renderChoiceIcon(choice.icon || choice.id)}</span><strong>${escapeHtml(choice.label)}</strong><small>${escapeHtml(choice.learnerSpanish)}</small></button>`).join("")}</div>${selected ? `<div class="lesson-narrative-choice-response" aria-live="polite"><small>Carlos</small><strong>${escapeHtml(selected.carlosSpanish)}</strong><p>${escapeHtml(selected.carlosEnglish)}</p></div>` : `<p>Choose one to continue the story.</p>`}</div>` : ""}
+        ${scene.showModel && (!choices.length || selected) ? renderNarrativeModel(lesson) : ""}
+        <button class="lesson-narrative-primary" type="button" onclick="hablaLesson.next()" ${choices.length && !selected ? "disabled" : ""}><span>${escapeHtml(scene.cta || "See the pattern")}</span>${icon("arrow")}</button>
       </div>
     </section>
   `;
 }
 
+function getNarrativeModelLines(lesson) {
+  return getCanonicalConversationBuilder(lesson).flatMap(stage => [
+    { speaker: stage.speaker || "Carlos", spanish: stage.carlosSpanish, english: stage.carlosEnglish },
+    { speaker: "Model", spanish: stage.responseSpanish, english: stage.responseEnglish },
+  ]);
+}
+
+function renderNarrativeModel(lesson) {
+  const lines = getNarrativeModelLines(lesson);
+  return `<details class="lesson-narrative-hint lesson-narrative-model"><summary>${icon("sound")}<span>Hear the conversation</span>${icon("arrow")}</summary><div><p>Listen once, follow the Spanish, then use the English to check the meaning. These are practice responses; use your own details when you speak.</p><div class="lesson-narrative-model-actions"><button type="button" onclick="hablaLesson.playNarrativeModel(.92)">${icon("play")} Listen</button><button type="button" onclick="hablaLesson.playNarrativeModel(.72)">${icon("sound")} Listen slowly</button><button type="button" onclick="hablaLesson.stopModel()">${icon("pause")} Stop</button></div><details><summary>Follow along · Spanish and English</summary><div class="lesson-narrative-model-lines">${lines.map(line => `<article><small>${escapeHtml(line.speaker === "Model" ? "Example reply" : line.speaker)}</small><strong>${escapeHtml(line.spanish)}</strong><p>${escapeHtml(line.english)}</p></article>`).join("")}</div></details></div></details>`;
+}
+
+function playNarrativeModel(rate = .92) {
+  const lesson = getActiveLesson();
+  if (!lesson || !isNarrativeExperience(lesson)) return;
+  const lines = getNarrativeModelLines(lesson);
+  void playSpeechSequence(lines.map(line => ({ text: line.spanish, speaker: line.speaker })), { rate });
+}
+
 function renderNarrativePattern(lesson) {
   const scene = getLearnScene(lesson, "pattern");
   const phrases = lesson.essentialPhrases || [];
-  const moves = [
+  const defaultMoves = [
     { label: "Greet", spanish: phrases[0]?.spanish || "¡Hola! ¿Qué tal?", english: phrases[0]?.english || "Hi! How’s it going?" },
     { label: "Your name", spanish: phrases[1]?.spanish || "Me llamo {{learnerName}}.", english: phrases[1]?.english || "My name is {{learnerName}}." },
     { label: "Connect", spanish: phrases[2]?.spanish || "Mucho gusto.", english: phrases[2]?.english || "Nice to meet you." },
   ];
+  const moves = Array.isArray(scene.moves) && scene.moves.length
+    ? scene.moves.map(move => ({ ...move, spanish: personalizeText(move.spanish), english: personalizeText(move.english) }))
+    : defaultMoves;
   return `
     <section class="lesson-narrative-scene lesson-narrative-pattern" data-motion-scene="discover" aria-label="The conversation pattern">
       <header class="lesson-narrative-heading">
@@ -569,13 +618,14 @@ function renderNarrativePattern(lesson) {
         </article>`).join("")}
       </div>
       <aside class="lesson-narrative-tip"><span>${icon("star")}</span><div><small>Carlos’ tip</small><p>${escapeHtml(scene.tip || "Learn the whole phrase first, not each word.")}</p></div></aside>
-      <button class="lesson-narrative-primary" type="button" onclick="hablaLesson.next()"><span>Try the conversation</span>${icon("arrow")}</button>
+      ${scene.showReference ? `<details class="lesson-narrative-hint lesson-narrative-reference"><summary>${icon("book")}<span>Words for this conversation</span>${icon("arrow")}</summary><div>${renderVocabulary(lesson, getLessonProgress(lesson.id))}</div></details>` : ""}
+      <button class="lesson-narrative-primary" type="button" onclick="hablaLesson.next()"><span>${escapeHtml(scene.cta || "Try the conversation")}</span>${icon("arrow")}</button>
     </section>
   `;
 }
 
 function renderStory(lesson) {
-  if (lesson.id === CANONICAL_LESSON_ID && lesson.learnExperience?.version >= 2) {
+  if (isNarrativeExperience(lesson)) {
     return renderNarrativeArrival(lesson);
   }
   const story = lesson.story || {};
@@ -589,7 +639,7 @@ function renderStory(lesson) {
     body: story.heroText || mission || "A new conversation with Carlos begins.",
   });
   const missionItems = getOpeningMissionItems(lesson);
-  const isCanonicalLesson = lesson.id === CANONICAL_LESSON_ID;
+  const isCanonicalLesson = isNarrativeExperience(lesson);
   const openingMessage = story.openingCarlosMessage || intro.message || intro.text || mission;
   const openingTitle = story.openingCarlosTitle || intro.title || intro.eyebrow || "Let’s begin";
   const missionTitle = story.openingMissionTitle || mission || "Complete the conversation.";
@@ -678,8 +728,9 @@ function renderChoice(lesson, progress) {
 
 
 function getCanonicalConversationBuilder(lesson) {
-  if (lesson.id !== CANONICAL_LESSON_ID || !Array.isArray(lesson.conversationBuilder)) return [];
-  return lesson.conversationBuilder.map(item => ({
+  if (!isNarrativeExperience(lesson) || !Array.isArray(lesson.conversationBuilder)) return [];
+  const choiceId = getLessonProgress(lesson.id).selectedChoiceId || getLessonMemory(lesson.id)?.choiceId;
+  return lesson.conversationBuilder.map(source => ({ ...source, ...(source.byChoice?.[choiceId] || {}) })).map(item => ({
     ...item,
     title: personalizeText(item.title || ""),
     shortLabel: personalizeText(item.shortLabel || ""),
@@ -690,12 +741,15 @@ function getCanonicalConversationBuilder(lesson) {
     responseEnglish: personalizeText(item.responseEnglish || ""),
     tip: personalizeText(item.tip || ""),
     feedback: personalizeText(item.feedback || ""),
+    speaker: item.speaker || "Carlos",
     practiceOptions: Array.isArray(item.practiceOptions) ? item.practiceOptions.map(personalizeText) : [],
     alternatives: Array.isArray(item.alternatives) ? item.alternatives.map(personalizeText) : [],
   }));
 }
 
 function getGuidedSpeakingItems(lesson) {
+  const configuredStages = getLearnScene(lesson, "conversation").stages;
+  if (Array.isArray(configuredStages) && configuredStages.length) return configuredStages;
   const builder = getCanonicalConversationBuilder(lesson);
   if (builder.length) {
     return builder.map(item => ({
@@ -704,13 +758,14 @@ function getGuidedSpeakingItems(lesson) {
       trackerLabel: item.shortLabel || item.title,
       carlosPrompt: item.carlosSpanish,
       carlosPromptEnglish: item.carlosEnglish,
-      prompt: item.prompt,
+      prompt: item.speakingPrompt || item.prompt,
       cue: item.tip,
       englishHint: item.responseEnglish,
       text: item.responseSpanish,
       meaning: item.responseEnglish,
       feedback: item.feedback,
       alternatives: item.alternatives,
+      speaker: item.speaker || "Carlos",
     }));
   }
   const speaking = normalizeFirst(lesson.speaking) || {};
@@ -807,13 +862,14 @@ function renderPatternPractice(lesson, progress) {
   const correct = answered && selected === stage.responseSpanish;
   const percent = Math.round(((index + 1) / Math.max(stages.length, 1)) * 100);
   const scene = getLearnScene(lesson, "rehearse");
+  const speaker = stage.speaker || scene.speaker || "Carlos";
   const correctionLead = /goodbye|close/i.test(stage.prompt || "")
     ? "Almost—choose a goodbye."
     : "Almost—choose the reply that fits this turn.";
-  const acceptedTurns = stages.slice(0, index).map(item => ({ carlos: item.carlosSpanish, learner: item.responseSpanish }));
-  if (correct) acceptedTurns.push({ carlos: stage.carlosSpanish, learner: stage.responseSpanish });
+  const acceptedTurns = stages.slice(0, index).map(item => ({ speaker: item.speaker || scene.speaker || "Carlos", prompt: item.carlosSpanish, learner: item.responseSpanish }));
+  if (correct) acceptedTurns.push({ speaker, prompt: stage.carlosSpanish, learner: stage.responseSpanish });
   const rehearsalHistory = acceptedTurns.length
-    ? `<div class="lesson-narrative-history lesson-narrative-rehearsal-history" aria-label="Accepted conversation turns">${acceptedTurns.map(turn => `<div class="lesson-narrative-history-pair"><div><small>Carlos</small><strong>${escapeHtml(turn.carlos)}</strong></div><div><small>You</small><strong>${escapeHtml(turn.learner)}</strong></div></div>`).join("")}</div>`
+    ? `<div class="lesson-narrative-history lesson-narrative-rehearsal-history" aria-label="Accepted conversation turns">${acceptedTurns.map(turn => `<div class="lesson-narrative-history-pair"><div><small>${escapeHtml(turn.speaker)}</small><strong>${escapeHtml(turn.prompt)}</strong></div><div><small>You</small><strong>${escapeHtml(turn.learner)}</strong></div></div>`).join("")}</div>`
     : "";
   return `
     <section class="lesson-narrative-scene lesson-narrative-rehearsal" data-motion-scene="rehearse" data-motion-turn="${index}" aria-label="Rehearse the conversation">
@@ -822,9 +878,9 @@ function renderPatternPractice(lesson, progress) {
         <h1>${escapeHtml(scene.title || "Let’s put it together.")}</h1>
         <p>${escapeHtml(scene.body || "Reply to Carlos one turn at a time.")}</p>
       </header>
-      <div class="lesson-narrative-turn-progress"><span>Conversation · ${index + 1} of ${stages.length}</span><i><b style="width:${percent}%"></b></i></div>
+      <div class="lesson-narrative-turn-progress"><span>${escapeHtml(scene.progressLabel || "Conversation")} · ${index + 1} of ${stages.length}</span><i><b style="width:${percent}%"></b></i></div>
       ${rehearsalHistory}
-      <div class="lesson-narrative-carlos-line">${renderDialogueAvatar("Carlos")}<div><small>Carlos</small><strong>${escapeHtml(stage.carlosSpanish)}</strong><p>${escapeHtml(stage.carlosEnglish)}</p></div><button class="lesson-narrative-audio" type="button" data-speech="${escapeAttr(stage.carlosSpanish)}" data-speaker="Carlos" onclick="hablaLesson.playLine(this)" aria-label="Hear Carlos" aria-pressed="false"><span data-playback-icon>${icon("sound")}</span></button></div>
+      <div class="lesson-narrative-carlos-line">${renderDialogueAvatar(speaker, lesson, scene)}<div><small>${escapeHtml(speaker)}</small><strong>${escapeHtml(stage.carlosSpanish)}</strong><p>${escapeHtml(stage.carlosEnglish)}</p></div><button class="lesson-narrative-audio" type="button" data-speech="${escapeAttr(stage.carlosSpanish)}" data-speaker="${escapeAttr(speaker)}" onclick="hablaLesson.playLine(this)" aria-label="Hear ${escapeAttr(speaker)}" aria-pressed="false"><span data-playback-icon>${icon("sound")}</span></button></div>
       <div class="lesson-narrative-question"><small>Your turn</small><h2>${escapeHtml(stage.prompt)}</h2></div>
       <div class="lesson-narrative-options">
           ${options.map((option, optionIndex) => {
@@ -837,7 +893,7 @@ function renderPatternPractice(lesson, progress) {
       </div>
         ${answered ? `
           <div class="lesson-narrative-feedback ${correct ? "is-correct" : "is-wrong"}" aria-live="polite"><span>${correct ? icon("check") : icon("refresh")}</span><div><strong>${correct ? "That works." : correctionLead}</strong><p>${correct ? escapeHtml(stage.feedback || stage.tip) : `<b>Try:</b> ${escapeHtml(stage.responseSpanish)}`}</p></div></div>
-          <button type="button" class="${correct ? "lesson-narrative-primary" : "lesson-narrative-retry"}" onclick="${correct ? "hablaLesson.nextPattern()" : "hablaLesson.retryPattern()"}"><span>${correct ? (index + 1 >= stages.length ? "Continue" : "Carlos replies") : "Try another answer"}</span>${icon(correct ? "arrow" : "refresh")}</button>
+          <button type="button" class="${correct ? "lesson-narrative-primary" : "lesson-narrative-retry"}" onclick="${correct ? "hablaLesson.nextPattern()" : "hablaLesson.retryPattern()"}"><span>${correct ? (index + 1 >= stages.length ? "Continue" : `${speaker} replies`) : "Try another answer"}</span>${icon(correct ? "arrow" : "refresh")}</button>
         ` : ""}
     </section>
   `;
@@ -845,7 +901,7 @@ function renderPatternPractice(lesson, progress) {
 
 function answerPatternPractice(optionIndex) {
   const lesson = getActiveLesson();
-  if (!lesson || lesson.id !== CANONICAL_LESSON_ID) return;
+  if (!lesson || !isNarrativeExperience(lesson)) return;
   const progress = getLessonProgress(lesson.id);
   const practice = getPatternPracticeState(progress);
   if (practice.selected !== null && practice.selected !== undefined) return;
@@ -860,12 +916,13 @@ function answerPatternPractice(optionIndex) {
 
 function nextPatternPractice() {
   const lesson = getActiveLesson();
-  if (!lesson || lesson.id !== CANONICAL_LESSON_ID) return;
+  if (!lesson || !isNarrativeExperience(lesson)) return;
   const progress = getLessonProgress(lesson.id);
   const practice = getPatternPracticeState(progress);
   if (practice.selected === null || practice.selected === undefined) return;
   const stages = getCanonicalConversationBuilder(lesson);
   const index = clamp(Number(practice.index || 0), 0, Math.max(stages.length - 1, 0));
+  if (practice.selected !== stages[index]?.responseSpanish) return;
   if (index + 1 >= stages.length) {
     completeCurrentStepAndAdvance(lesson, "rehearsal", {
       rendererPatternPractice: { ...practice, index, complete: true },
@@ -880,7 +937,7 @@ function nextPatternPractice() {
 
 function retryPatternPractice() {
   const lesson = getActiveLesson();
-  if (!lesson || lesson.id !== CANONICAL_LESSON_ID) return;
+  if (!lesson || !isNarrativeExperience(lesson)) return;
   const progress = getLessonProgress(lesson.id);
   const practice = getPatternPracticeState(progress);
   updateLessonProgress(lesson.id, {
@@ -895,8 +952,8 @@ function renderNarrativeSpeak(lesson, progress) {
   const attempt = progress.pronunciationAttempts?.[attemptKey] || {};
   const recordingKey = getPronunciationRecordingKey(lesson.id, attemptKey);
   const hasRecording = speakingRecordingUrls.has(recordingKey);
-  const spanish = scene.spanish || "Hola, ¿qué tal?";
-  const english = scene.english || "Hi, how’s it going?";
+  const spanish = personalizeText(scene.spanish || "Hola, ¿qué tal?");
+  const english = personalizeText(scene.english || "Hi, how’s it going?");
   return `
     <section class="lesson-narrative-scene lesson-narrative-speak" data-motion-scene="speak" aria-label="Speak Spanish">
       <header class="lesson-narrative-heading">
@@ -918,15 +975,29 @@ function renderNarrativeSpeak(lesson, progress) {
       ${attempt.captured ? `<div class="lesson-narrative-speak-feedback">${icon("check")}<div><strong>Nice work.</strong><p>Your recording is ready. Replay it once if you want to hear your rhythm.</p></div></div>` : ""}
       <div class="lesson-narrative-speak-navigation">
         ${attempt.captured ? `<button class="lesson-narrative-primary" type="button" onclick="hablaLesson.finishNarrativeSpeak(false)"><span>Continue</span>${icon("arrow")}</button>` : ""}
+        ${scene.allowTypedResponse ? `<details class="lesson-narrative-hint"><summary>${icon("user")}<span>Type instead</span>${icon("arrow")}</summary><form onsubmit="event.preventDefault();hablaLesson.submitNarrativeSpeakText(this)"><label for="lesson-narrative-speak-text">Your Spanish answer</label><input id="lesson-narrative-speak-text" name="answer" type="text" autocomplete="off" autocapitalize="sentences" value="${escapeAttr(attempt.typedResponse || "")}" placeholder="Soy de… y vivo en…"><button type="submit">Save my answer</button></form></details>` : ""}
         <button class="lesson-narrative-text-action" type="button" onclick="hablaLesson.finishNarrativeSpeak(true)">${attempt.captured ? "Continue without another take" : "Continue without speaking"}</button>
       </div>
     </section>
   `;
 }
 
+function submitNarrativeSpeakText(form) {
+  const lesson = getActiveLesson();
+  if (!lesson || !isNarrativeExperience(lesson)) return;
+  const answer = String(new FormData(form).get("answer") || "").trim();
+  if (!answer) return;
+  const progress = getLessonProgress(lesson.id);
+  const attemptKey = "narrative-speak";
+  const attempts = { ...(progress.pronunciationAttempts || {}) };
+  attempts[attemptKey] = { ...(attempts[attemptKey] || {}), captured: true, practised: true, typedResponse: answer };
+  updateLessonProgress(lesson.id, { pronunciationAttempts: attempts });
+  rerenderLesson(false);
+}
+
 function finishNarrativeSpeak(skipped = false) {
   const lesson = getActiveLesson();
-  if (!lesson || lesson.id !== CANONICAL_LESSON_ID) return;
+  if (!lesson || !isNarrativeExperience(lesson)) return;
   const progress = getLessonProgress(lesson.id);
   const attemptKey = "narrative-speak";
   const attempts = { ...(progress.pronunciationAttempts || {}) };
@@ -950,30 +1021,36 @@ function renderImmersiveConversation(lesson, progress) {
   const hasRecording = speakingRecordingUrls.has(recordingKey);
   const last = index + 1 >= items.length;
   const scene = getLearnScene(lesson, "conversation");
-  const artwork = preloadLessonArtwork(lesson);
+  const speaker = item.speaker || scene.speaker || "Carlos";
+  const artwork = scene.image || preloadLessonArtwork(lesson);
+  const artworkAlt = scene.artworkAlt || scene.imageAlt || (lesson.id === CANONICAL_LESSON_ID
+    ? "Carlos waiting at the café in Madrid"
+    : getEpisodeArtworkAlt(lesson));
   const history = items.slice(0, index).map((source, historyIndex) => {
     const resolved = personalizeSpeakingItem(source);
     const historyAttempt = getSpeakingAttempt(progress, historyIndex);
     if (!historyAttempt) return "";
     const historyRecordingKey = getSpeakingRecordingKey(lesson.id, historyIndex);
     const historyHasRecording = speakingRecordingUrls.has(historyRecordingKey);
-    return `<div class="lesson-narrative-history-pair"><div><small>Carlos</small><strong>${escapeHtml(resolved.carlosPrompt)}</strong></div><div><small>You</small><strong>${historyAttempt.typedResponse ? escapeHtml(historyAttempt.typedResponse) : historyAttempt.skipped ? "Continued without speaking" : "Response recorded"}</strong>${historyHasRecording ? `<button type="button" data-history-speaking-index="${historyIndex}" onclick="hablaLesson.replaySpeaking(this)" aria-label="Replay your response">${icon("play")}</button>` : ""}</div></div>`;
+    return `<div class="lesson-narrative-history-pair"><div><small>${escapeHtml(resolved.speaker || scene.speaker || "Carlos")}</small><strong>${escapeHtml(resolved.carlosPrompt)}</strong></div><div><small>You</small><strong>${historyAttempt.typedResponse ? escapeHtml(historyAttempt.typedResponse) : historyAttempt.skipped ? "Continued without speaking" : "Response recorded"}</strong>${historyHasRecording ? `<button type="button" data-history-speaking-index="${historyIndex}" onclick="hablaLesson.replaySpeaking(this)" aria-label="Replay your response">${icon("play")}</button>` : ""}</div></div>`;
   }).join("");
-  const status = attempt?.skipped ? "Speaking practice skipped for now." : attempted ? "Response recorded. Replay it, try again, or continue." : "Tap Speak when you’re ready.";
+  const status = attempt?.skipped ? "Speaking practice skipped for now." : attempt?.typedResponse ? "Reply saved. Edit it or continue." : attempted ? "Response recorded. Replay it, try again, or continue." : lesson.id === CANONICAL_LESSON_ID ? "Tap Speak when you’re ready." : "Tap Speak or type your reply when you’re ready.";
   return `
-    <section class="lesson-narrative-scene lesson-narrative-conversation" data-motion-scene="converse" data-motion-turn="${index}" aria-label="Talk with Carlos">
+    <section class="lesson-narrative-scene lesson-narrative-conversation" data-motion-scene="converse" data-motion-turn="${index}" aria-label="${escapeAttr(scene.ariaLabel || `Talk with ${speaker}`)}">
       <header class="lesson-narrative-conversation-hero">
-        ${artwork ? `<img src="${escapeAttr(artwork)}" alt="Carlos waiting at the café in Madrid" loading="eager" decoding="async" onerror="${LESSON_ARTWORK_ONERROR}">` : ""}
+        ${artwork ? `<img src="${escapeAttr(artwork)}" alt="${escapeAttr(artworkAlt)}" loading="eager" decoding="async" onerror="${LESSON_ARTWORK_ONERROR}">` : ""}
         <span aria-hidden="true"></span>
         <div>${renderNarrativeEyebrow(scene.eyebrow || "Your turn")}<h1>${escapeHtml(scene.title || "Talk with Carlos.")}</h1><p>${escapeHtml(scene.body || "No choices this time. Carlos will guide each turn.")}</p></div>
       </header>
       <div class="lesson-narrative-turn-progress"><span>Conversation · ${index + 1} of ${items.length}</span><i><b style="width:${Math.round(((index + 1) / Math.max(items.length, 1)) * 100)}%"></b></i></div>
       ${history ? `<div class="lesson-narrative-history">${history}</div>` : ""}
       <article class="lesson-narrative-live-turn lesson-speaking-exchange" data-speaking-index="${index}">
-        <div class="lesson-narrative-carlos-line">${renderDialogueAvatar("Carlos")}<div><small>Carlos</small><strong>${escapeHtml(item.carlosPrompt)}</strong></div><button class="lesson-narrative-audio" type="button" data-speech="${escapeAttr(item.carlosPrompt)}" data-speaker="Carlos" onclick="hablaLesson.playLine(this)" aria-pressed="false" aria-label="Replay Carlos"><span data-playback-icon>${icon("sound")}</span></button></div>
+        <div class="lesson-narrative-carlos-line">${renderDialogueAvatar(speaker, lesson, scene)}<div><small>${escapeHtml(speaker)}</small><strong>${escapeHtml(item.carlosPrompt)}</strong>${lesson.id !== CANONICAL_LESSON_ID && item.carlosPromptEnglish ? `<p>${escapeHtml(item.carlosPromptEnglish)}</p>` : ""}</div><button class="lesson-narrative-audio" type="button" data-speech="${escapeAttr(item.carlosPrompt)}" data-speaker="${escapeAttr(speaker)}" onclick="hablaLesson.playLine(this)" aria-pressed="false" aria-label="Replay ${escapeAttr(speaker)}"><span data-playback-icon>${icon("sound")}</span></button></div>
         <div class="lesson-speaking-turn lesson-narrative-your-turn">${renderLearnerAvatar()}<div><small>Your reply</small><strong>${escapeHtml(item.prompt)}</strong></div><button class="lesson-speaking-record lesson-record-line lesson-narrative-record" type="button" data-speaking-attempt-index="${index}" data-recording-key="${escapeAttr(recordingKey)}" onclick="hablaLesson.recordLine(this)" aria-pressed="false">${icon("mic")}<i class="lesson-motion-waveform" aria-hidden="true"><b></b><b></b><b></b><b></b></i><span>${hasRecording ? "Replay" : attempted ? "Answer again" : "Speak"}</span></button><span class="lesson-record-status" aria-live="polite">${status}</span><div class="lesson-speaking-recovery" hidden><p><strong>Microphone access is off.</strong><span>Try again or type your response.</span></p><div><button type="button" onclick="hablaLesson.retrySpeakingMicrophone(this)">Try microphone again</button><button type="button" onclick="hablaLesson.revealSpeakingTextInput(this)">Type response</button></div><label hidden><span>Type your response</span><input type="text" autocomplete="off" value="${escapeAttr(attempt?.typedResponse || "")}" placeholder="Write your Spanish answer"><button type="button" onclick="hablaLesson.submitSpeakingText(this)">Use this answer</button></label></div></div>
-        <details class="lesson-narrative-hint"><summary>${icon("bulb")}<span>Need a hand?</span>${icon("arrow")}</summary><div><p><small>Show a response</small><strong>${escapeHtml(item.text || "")}</strong>${item.meaning ? `<span>${escapeHtml(item.meaning)}</span>` : ""}</p><div><button type="button" data-speech="${escapeAttr(item.carlosPrompt)}" data-speaker="Carlos" onclick="hablaLesson.speak(this.dataset.speech, .72, this.dataset.speaker)">${icon("sound")} Hear Carlos slowly</button><button type="button" data-speech="${escapeAttr(item.text || "")}" data-speaker="Model" onclick="hablaLesson.playLine(this)">${icon("play")} Hear the response</button></div></div></details>
-        ${attempted ? `<div class="lesson-narrative-conversation-actions">${hasRecording ? `<button type="button" class="lesson-narrative-text-action" onclick="hablaLesson.replaySpeaking(this)">Replay my answer</button>` : ""}<button class="lesson-narrative-primary" type="button" onclick="hablaLesson.next()"><span>${last ? "Finish conversation" : "Carlos replies"}</span>${icon("arrow")}</button></div>` : `<p class="lesson-narrative-privacy">Your practice recording stays on this device.</p>`}
+        ${lesson.id !== CANONICAL_LESSON_ID ? `<button type="button" class="lesson-narrative-text-action" onclick="hablaLesson.revealSpeakingTextInput(this)">Type my reply</button>` : ""}
+        <details class="lesson-narrative-hint"><summary>${icon("bulb")}<span>Need a hand?</span>${icon("arrow")}</summary><div><p><small>Show a response</small><strong>${escapeHtml(item.text || "")}</strong>${item.meaning ? `<span>${escapeHtml(item.meaning)}</span>` : ""}</p><div><button type="button" data-speech="${escapeAttr(item.carlosPrompt)}" data-speaker="${escapeAttr(speaker)}" onclick="hablaLesson.speak(this.dataset.speech, .72, this.dataset.speaker)">${icon("sound")} Hear ${escapeHtml(speaker)} slowly</button><button type="button" data-speech="${escapeAttr(item.text || "")}" data-speaker="Model" onclick="hablaLesson.playLine(this)">${icon("play")} Hear the response</button></div></div></details>
+        ${attempted && last && scene.closingSpanish ? `<aside class="lesson-narrative-discovery"><span>${icon("message")}</span><div><small>${escapeHtml(scene.closingSpeaker || "Carlos")}</small><strong>${escapeHtml(scene.closingSpanish)}</strong>${scene.closingEnglish ? `<p>${escapeHtml(scene.closingEnglish)}</p>` : ""}</div></aside>` : ""}
+        ${attempted ? `<div class="lesson-narrative-conversation-actions">${hasRecording ? `<button type="button" class="lesson-narrative-text-action" onclick="hablaLesson.replaySpeaking(this)">Replay my answer</button>` : ""}<button class="lesson-narrative-primary" type="button" onclick="hablaLesson.next()"><span>${last ? "Finish conversation" : `${speaker} replies`}</span>${icon("arrow")}</button></div>` : `<p class="lesson-narrative-privacy">Your practice recording stays on this device.</p>`}
       </article>
       ${attempted ? "" : `<button type="button" class="lesson-narrative-text-action lesson-narrative-skip" onclick="hablaLesson.continueWithoutSpeaking()">Continue without speaking</button>`}
     </section>
@@ -1277,7 +1354,7 @@ function getLanguageTipReadyQuestion(lesson) {
 }
 
 function renderDialogue(lesson, progress, scene) {
-  if (lesson.id === CANONICAL_LESSON_ID) {
+  if (isNarrativeExperience(lesson)) {
     return renderImmersiveConversation(lesson, progress, scene);
   }
   const selectedId = progress.selectedChoiceId || getLessonMemory(lesson.id)?.choiceId;
@@ -1420,7 +1497,7 @@ function renderPronunciation(lesson, progress) {
     </div>
     ${finalPractice ? renderPronunciationFinalPractice(lesson, progress, finalPractice) : ""}
   `;
-  if (lesson.id !== CANONICAL_LESSON_ID) return content;
+  if (!isNarrativeExperience(lesson)) return content;
   return `
     <section class="lesson-pronunciation-page" aria-label="Say it naturally">
       <header class="lesson-learning-intro compact"><span>Speak with confidence</span><h1>Say it naturally</h1><p>Listen for the rhythm, then make each phrase feel comfortable in your own voice.</p></header>
@@ -1439,7 +1516,7 @@ function renderPronunciationCard(lesson, progress, item, index, timeline) {
   const attempt = progress.pronunciationAttempts?.[attemptKey] || {};
   const recordingKey = getPronunciationRecordingKey(lesson.id, attemptKey);
   const hasRecording = speakingRecordingUrls.has(recordingKey);
-  const listenLabel = lesson.id === CANONICAL_LESSON_ID ? "Listen" : "Hear Carlos";
+  const listenLabel = isNarrativeExperience(lesson) ? "Listen" : "Hear Carlos";
   return `
     <article class="lesson-pronunciation-card ${attempt.captured ? "is-captured" : ""} ${attempt.practised ? "is-practised" : ""}" data-pronunciation-line-index="${index}">
       <span class="lesson-pronunciation-number">${label}</span>
@@ -1563,7 +1640,7 @@ function renderPronunciationTip(value) {
 }
 
 function renderSpeaking(lesson, progress, options = {}) {
-  const embedded = Boolean(options?.embedded && lesson.id === CANONICAL_LESSON_ID);
+  const embedded = Boolean(options?.embedded && isNarrativeExperience(lesson));
   const speaking = normalizeFirst(lesson.speaking) || {};
   const items = getGuidedSpeakingItems(lesson);
   const index = clamp(Number(progress.guidedSpeakingIndex || 0), 0, Math.max(items.length - 1, 0));
@@ -1904,8 +1981,8 @@ function renderFlashcards(lesson, progress) {
   const cards = getAdaptiveFlashcards(lesson, progress.selectedChoiceId, progress);
   const index = clamp(Number(progress.flashcardIndex || 0), 0, Math.max(cards.length - 1, 0));
   const card = cards[index] || { spanish: "", english: "" };
-  const displaySpanish = lesson.id === CANONICAL_LESSON_ID ? capitalizeDisplayText(card.spanish) : card.spanish;
-  const displayEnglish = lesson.id === CANONICAL_LESSON_ID ? capitalizeDisplayText(card.english) : card.english;
+  const displaySpanish = isNarrativeExperience(lesson) ? capitalizeDisplayText(card.spanish) : card.spanish;
+  const displayEnglish = isNarrativeExperience(lesson) ? capitalizeDisplayText(card.english) : card.english;
   const flipped = Boolean(progress.flashcardFlipped);
   const percent = cards.length ? Math.round(((index + 1) / cards.length) * 100) : 0;
   return `
@@ -1958,7 +2035,7 @@ function renderQuiz(lesson, progress) {
   const savedForReview = Boolean(progress.quizReviewFlags?.[reviewKey]);
   const progressPercent = Math.round(((index + 1) / questions.length) * 100);
   const scoreLabel = answeredCount ? `${quiz.score || 0} correct` : "Ready";
-  const intro = lesson.id === CANONICAL_LESSON_ID
+  const intro = isNarrativeExperience(lesson)
     ? `<header class="lesson-learning-intro compact"><span>Quick recall</span><h1>Can you remember?</h1><p>Use what you learned in the conversation. Take your time—this is here to strengthen the pattern.</p></header>`
     : "";
   return `
@@ -1985,7 +2062,7 @@ function renderQuiz(lesson, progress) {
             const wrong = answered && option === quiz.selected && !isQuizAnswerCorrect(option, question.answer);
             const optionLength = String(option || "").length;
             const lengthClass = optionLength > 90 ? "is-very-long" : optionLength > 55 ? "is-long" : "";
-            const displayOption = lesson.id === CANONICAL_LESSON_ID ? capitalizeDisplayText(option) : option;
+            const displayOption = isNarrativeExperience(lesson) ? capitalizeDisplayText(option) : option;
             return `<button type="button" class="${lengthClass} ${correct ? "correct" : ""} ${wrong ? "wrong" : ""}" onclick="hablaLesson.answerQuiz(${optionIndex})" ${answered ? "disabled" : ""}><span>${String.fromCharCode(65 + optionIndex)}</span><b>${escapeHtml(displayOption)}</b>${correct ? icon("check") : wrong ? `<span class="lesson-quiz-wrong-mark" aria-hidden="true">×</span>` : ""}</button>`;
           }).join("") : `<form class="lesson-quiz-input" onsubmit="event.preventDefault();hablaLesson.submitQuiz(this.elements.answer.value)"><label for="lesson-quiz-answer">Type your answer</label><div><input id="lesson-quiz-answer" name="answer" type="text" autocomplete="off" autocapitalize="sentences" ${answered ? "disabled" : ""} value="${answered ? escapeAttr(quiz.selected) : ""}" placeholder="Your answer"><button type="submit" ${answered ? "disabled" : ""}>Check answer${icon("arrow")}</button></div></form>`}
         </div>
@@ -2014,7 +2091,7 @@ function renderMadridMomentBanner(lesson) {
 
 function renderNarrativeCulture(lesson) {
   const scene = getLearnScene(lesson, "culture");
-  const image = getLandmarkArtwork("madrid", "madrid-street");
+  const image = scene.image || getLandmarkArtwork(scene.landmark || "madrid", scene.artworkVariation || "madrid-street");
   return `
     <section class="lesson-narrative-scene lesson-narrative-culture" data-motion-scene="culture" aria-label="Madrid Moment">
       <header class="lesson-narrative-heading">
@@ -2022,22 +2099,30 @@ function renderNarrativeCulture(lesson) {
         <h1>${escapeHtml(scene.title || "¿Qué tal? is everywhere.")}</h1>
       </header>
       <figure class="lesson-narrative-culture-image">
-        <img src="${escapeAttr(image)}" alt="A warm evening street in Madrid" loading="eager" decoding="async" onerror="${LESSON_ARTWORK_ONERROR}">
+        <img src="${escapeAttr(image)}" alt="${escapeAttr(scene.artworkAlt || scene.imageAlt || "A warm evening street in Madrid")}" loading="eager" decoding="async" onerror="${LESSON_ARTWORK_ONERROR}">
         <span aria-hidden="true"></span>
-        <figcaption>Calle de Madrid · evening</figcaption>
+        <figcaption>${escapeHtml(scene.location || scene.caption || "Calle de Madrid · evening")}</figcaption>
       </figure>
       <div class="lesson-narrative-culture-copy">
         <span class="lesson-narrative-culture-carlos"><img src="${escapeAttr(getCarlosAsset("speaking"))}" alt="Carlos" onerror="${CARLOS_FALLBACK_ONERROR}"></span>
         <div><small>Carlos</small><strong>${escapeHtml(scene.lead || "You’ll hear ¿qué tal? constantly.")}</strong><p>${escapeHtml(scene.body || lesson.culture?.text || "It’s a natural everyday greeting in Madrid.")}</p></div>
       </div>
       <aside class="lesson-narrative-discovery"><span>${icon("star")}</span><div><small>You discovered</small><strong>${escapeHtml(scene.takeaway || "Hola, ¿qué tal? → a natural everyday greeting")}</strong></div></aside>
-      <button class="lesson-narrative-primary" type="button" onclick="hablaLesson.next()"><span>Complete First Coffee</span>${icon("arrow")}</button>
+      ${scene.showDiscovery ? renderNarrativeDiscovery(lesson) : ""}
+      <button class="lesson-narrative-primary" type="button" onclick="hablaLesson.next()"><span>${escapeHtml(scene.cta || `Complete ${lesson.title}`)}</span>${icon("arrow")}</button>
     </section>
   `;
 }
 
+function renderNarrativeDiscovery(lesson) {
+  const discovery = lesson.livingWorldInteractions?.[0];
+  if (!discovery) return "";
+  const found = getLessonDiscoveries(lesson.id).some(item => item.id === discovery.id);
+  return `<details class="lesson-narrative-hint lesson-narrative-world"><summary>${icon("star")}<span>${escapeHtml(discovery.title)}</span>${icon("arrow")}</summary><div>${found ? `<strong>${escapeHtml(discovery.carlosSpanish)}</strong><p>${escapeHtml(discovery.carlosEnglish)}</p><small>${escapeHtml(discovery.savedLabel || "New memory added")}</small>` : `<p>${escapeHtml(discovery.prompt || "Look a little closer.")}</p><button type="button" onclick="hablaLesson.discover('${escapeAttr(discovery.id)}')">${icon("star")} Explore this moment</button>`}</div></details>`;
+}
+
 function renderCulture(lesson) {
-  if (lesson.id === CANONICAL_LESSON_ID && lesson.learnExperience?.version >= 2) {
+  if (isNarrativeExperience(lesson)) {
     return renderNarrativeCulture(lesson);
   }
   const culture = lesson.culture || {};
@@ -2061,7 +2146,7 @@ function renderCulture(lesson) {
   const secondPhrase = phrases.find(item => /gusto/i.test(item.spanish || ""))?.spanish || phrases[1]?.spanish || "";
   const takeaway = culture.keyTakeaway || presentation.keyTakeaway || [firstPhrase, secondPhrase].filter(Boolean).join(" → ");
   return `
-    ${lesson.id === CANONICAL_LESSON_ID ? renderMadridMomentBanner(lesson) : ""}
+    ${isNarrativeExperience(lesson) ? renderMadridMomentBanner(lesson) : ""}
     ${culture.text ? `<article class="lesson-culture-quote"><small>${escapeHtml(culture.speaker || "Carlos")}</small><blockquote>${escapeHtml(culture.text)}</blockquote>${takeaway ? `<div class="lesson-culture-takeaway"><span>${icon("bulb")}</span><div><small>Key takeaway</small><strong>${escapeHtml(takeaway)}</strong></div></div>` : ""}</article>` : ""}
     ${extraCount ? `<details class="lesson-culture-extras"><summary><span><small>Optional</small><strong>Explore more</strong></span><b>${extraCount}</b>${icon("arrow")}</summary><div>${worldContent}${regionalContent}${discoveryContent}${nativeContent}${mistakesContent}</div></details>` : ""}
   `;
@@ -2078,7 +2163,7 @@ function getLessonClosing(lesson) {
 function renderLessonSuccessSummary(lesson, progress = {}) {
   const items = getOpeningMissionItems(lesson);
   if (!items.length) return "";
-  if (progress.speakingSkipped && lesson.id === CANONICAL_LESSON_ID) {
+  if (progress.speakingSkipped && isNarrativeExperience(lesson)) {
     const learned = ["Learned the greeting pattern", "Introduced yourself in guided practice", "Practised how to keep the exchange going"];
     return `<section class="lesson-success-criteria lesson-completion-success" aria-label="What you accomplished"><h2>What you accomplished</h2><ul>${learned.map(item => `<li>${icon("check")}<span>${escapeHtml(item)}</span></li>`).join("")}<li class="is-saved-for-later">${icon("bookmark")}<span>Conversation practice saved for later</span></li></ul></section>`;
   }
@@ -2092,29 +2177,36 @@ function renderNarrativeCompletion(lesson, progress = {}) {
   const phraseCount = Array.isArray(unlock.phrases) ? unlock.phrases.length : 0;
   const patternCount = Number(unlock.conversationPatterns || 0);
   const next = getLessonById(lesson.nextLesson);
-  const landmark = getLandmarkArtwork("madrid", "madrid-evening");
+  const landmark = scene.image || getLandmarkArtwork(scene.landmark || "madrid", scene.artworkVariation || "madrid-evening");
+  const ceremony = scene.showCeremony ? lesson.chapterCeremony : null;
+  const speakingDeferred = lesson.id !== CANONICAL_LESSON_ID && Boolean(progress.speakingSkipped);
+  const visibleStepCount = buildLessonSteps(lesson).filter(item => !item.legacyCombined).length;
   return `
-    <section class="lesson-v2 lesson-canonical lesson-narrative-completion" data-motion-scene="completion" aria-label="First Coffee complete" aria-live="polite">
-      ${renderLessonHeader(lesson, { label: "Complete", type: "complete" }, 6, 7, 100, { ...progress, completed: true })}
+    <section class="lesson-v2 lesson-narrative-experience${lesson.id === CANONICAL_LESSON_ID ? " lesson-canonical" : ""} lesson-narrative-completion" data-motion-scene="completion" aria-label="${escapeAttr(scene.ariaLabel || `${lesson.title} complete`)}" aria-live="polite">
+      ${renderLessonHeader(lesson, { label: "Complete", type: "complete" }, visibleStepCount - 1, visibleStepCount, 100, { ...progress, completed: true })}
       <main class="lesson-narrative-completion-stage">
         <header class="lesson-narrative-completion-heading">
-          ${renderNarrativeEyebrow(scene.eyebrow || "First Coffee complete")}
-          <h1>${escapeHtml(scene.title || "You just had your first conversation in Spanish.")}</h1>
+          ${renderNarrativeEyebrow(scene.eyebrow || `${lesson.title} complete`)}
+          <h1>${escapeHtml(speakingDeferred ? "Your next conversation is ready." : scene.title || "You just had your first conversation in Spanish.")}</h1>
         </header>
         <figure class="lesson-narrative-completion-scene">
-          <img src="${escapeAttr(landmark)}" alt="Madrid glowing in the evening" loading="eager" decoding="async" onerror="${LESSON_ARTWORK_ONERROR}">
+          <img src="${escapeAttr(landmark)}" alt="${escapeAttr(scene.artworkAlt || scene.imageAlt || "Madrid glowing in the evening")}" loading="eager" decoding="async" onerror="${LESSON_ARTWORK_ONERROR}">
           <span aria-hidden="true"></span>
-          <figcaption>${escapeHtml(scene.body || "You can now greet someone, introduce yourself and close a simple introduction.")}</figcaption>
+          <figcaption>${escapeHtml(speakingDeferred ? "You worked through the conversation pattern. Come back to the speaking practice whenever you are ready." : scene.body || "You can now greet someone, introduce yourself and close a simple introduction.")}</figcaption>
         </figure>
         <section class="lesson-narrative-capability">
-          <div class="lesson-narrative-capability-carlos"><img src="${escapeAttr(getCarlosAsset("celebrating"))}" alt="Carlos celebrating your first conversation" onerror="${CARLOS_FALLBACK_ONERROR}"></div>
-          <div><small>Carlos</small><h2>¡Muy bien!</h2><p>${escapeHtml(getLessonClosing(lesson))}</p></div>
+          <div class="lesson-narrative-capability-carlos"><img src="${escapeAttr(getCarlosAsset("celebrating"))}" alt="Carlos celebrating with you" onerror="${CARLOS_FALLBACK_ONERROR}"></div>
+          <div><small>Carlos</small><h2>¡Muy bien!</h2><p>${escapeHtml(speakingDeferred ? "You have the pattern. We can practise saying it together when you’re ready." : getLessonClosing(lesson))}</p></div>
         </section>
         <section class="lesson-narrative-can-do" aria-label="You can now">
-          <small>You can now</small>
+          <small>${speakingDeferred ? "Ready to practise" : "You can now"}</small>
           <div>${capabilities.map(item => `<span>${icon("check")}<strong>${escapeHtml(item)}</strong></span>`).join("")}</div>
         </section>
         <aside class="lesson-narrative-practice-unlock">${icon("book")}<div><small>Added to Practice</small><strong>${phraseCount} phrases · ${patternCount} conversation pattern${patternCount === 1 ? "" : "s"}</strong></div></aside>
+        ${scene.showRewards ? `<section class="lesson-completion-rewards" aria-label="Unlocked rewards">${lesson.passportStamp ? `<span>${icon("passport")}<small>Passport stamp</small><b>${escapeHtml(lesson.passportStamp.title)} · ${escapeHtml(lesson.passportStamp.city || "España")}</b></span>` : ""}${lesson.achievement ? `<span>${icon("star")}<small>Achievement</small><b>${escapeHtml(lesson.achievement.title)}</b></span>` : ""}<span class="lesson-completion-xp"><b>+${getLessonCompletionXP(lesson)}</b><small>XP earned</small></span></section>` : ""}
+        ${!scene.showRewards && lesson.id !== CANONICAL_LESSON_ID && lesson.passportStamp ? `<aside class="lesson-narrative-stamp">${icon("passport")}<div><small>Passport memory</small><strong>${escapeHtml(lesson.passportStamp.title)}</strong><p>${escapeHtml(lesson.passportStamp.city || lesson.story?.city || "Madrid")}</p></div></aside>` : ""}
+        ${ceremony ? `<section class="lesson-completion-ceremony"><small>${escapeHtml(ceremony.eyebrow)}</small><h2>${escapeHtml(ceremony.title)}</h2>${speakingDeferred ? `<p>The Madrid chapter is complete. Your speaking practice is ready to revisit.</p>` : `<blockquote>${escapeHtml(ceremony.carlosSpanish)}</blockquote><p>${escapeHtml(ceremony.carlosEnglish)}</p>`}${ceremony.journey?.length ? `<div>${ceremony.journey.map(place => `<span>${escapeHtml(place)}</span>`).join("")}</div>` : ""}</section>${renderChapterPostcard(ceremony)}` : ""}
+        ${!scene.showRewards && lesson.id !== CANONICAL_LESSON_ID && !ceremony && lesson.microCliffhanger ? `<aside class="lesson-narrative-handoff"><small>${escapeHtml(lesson.microCliffhanger.speaker || "Carlos")} · Next time</small><strong>${escapeHtml(lesson.microCliffhanger.spanish)}</strong><p>${escapeHtml(lesson.microCliffhanger.english)}</p></aside>` : ""}
         <div class="lesson-narrative-completion-actions">
           ${next ? `<button class="lesson-narrative-primary" type="button" onclick="hablaLesson.finishCompletion('next')"><span>${escapeHtml(scene.nextCta || `Continue to ${next.title}`)}</span>${icon("arrow")}</button>` : ""}
           <button class="lesson-narrative-review" type="button" onclick="hablaLesson.finishCompletion('review')">${icon("refresh")}<span>${escapeHtml(scene.reviewCta || "Review what you learned")}</span></button>
@@ -2155,7 +2247,7 @@ function renderChapterPostcard(ceremony) {
 }
 
 function renderLessonCompletion(lesson, progress = {}) {
-  if (lesson.id === CANONICAL_LESSON_ID && lesson.learnExperience?.version >= 2) {
+  if (isNarrativeExperience(lesson)) {
     return renderNarrativeCompletion(lesson, progress);
   }
   const completionXP = getLessonCompletionXP(lesson);
@@ -2163,9 +2255,9 @@ function renderLessonCompletion(lesson, progress = {}) {
   const ceremony = lesson.chapterCeremony;
   const visibleStepCount = buildLessonSteps(lesson).filter(item => !item.legacyCombined).length;
   const showAchievement = lesson.achievement && !ceremony?.hideAchievement;
-  const showXp = lesson.id !== CANONICAL_LESSON_ID && !ceremony?.hideXp;
+  const showXp = !isNarrativeExperience(lesson) && !ceremony?.hideXp;
   const completionTitle = ceremony?.title || lesson.title;
-  const completionBody = progress.speakingSkipped && lesson.id === CANONICAL_LESSON_ID
+  const completionBody = progress.speakingSkipped && isNarrativeExperience(lesson)
     ? "You learned the conversation pattern. Speaking practice is ready whenever you want to come back."
     : ceremony?.subtitle
       || lesson.sectionIntros?.reward?.body
@@ -2175,7 +2267,7 @@ function renderLessonCompletion(lesson, progress = {}) {
     || next?.objectives?.[0]
     || "Your Spanish journey continues.";
   return `
-    <section class="lesson-v2${lesson.id === CANONICAL_LESSON_ID ? " lesson-canonical" : ""} lesson-completion-screen ${ceremony ? "lesson-finale-screen" : ""}" aria-label="${escapeAttr(completionTitle)} complete" aria-live="polite">
+    <section class="lesson-v2${isNarrativeExperience(lesson) ? " lesson-canonical" : ""} lesson-completion-screen ${ceremony ? "lesson-finale-screen" : ""}" aria-label="${escapeAttr(completionTitle)} complete" aria-live="polite">
       ${renderLessonHeader(lesson, { label: "Complete", type: "complete" }, visibleStepCount - 1, visibleStepCount, 100, { ...progress, completed: true })}
       <main class="lesson-completion-stage">
         <article class="lesson-completion-card">
@@ -2192,10 +2284,10 @@ function renderLessonCompletion(lesson, progress = {}) {
             <img src="${escapeAttr(getCarlosAsset("celebrating"))}" alt="Carlos celebrating with you" onerror="${CARLOS_FALLBACK_ONERROR}">
             <div>
               <small>Carlos</small>
-              <p>${escapeHtml(progress.speakingSkipped && lesson.id === CANONICAL_LESSON_ID ? "Strong start today. You learned the pattern and can come back to speaking with me whenever you’re ready." : getLessonClosing(lesson))}</p>
+              <p>${escapeHtml(progress.speakingSkipped && isNarrativeExperience(lesson) ? "Strong start today. You learned the pattern and can come back to speaking with me whenever you’re ready." : getLessonClosing(lesson))}</p>
             </div>
           </section>
-          ${lesson.id === CANONICAL_LESSON_ID ? renderLessonSuccessSummary(lesson, progress) : ""}
+          ${isNarrativeExperience(lesson) ? renderLessonSuccessSummary(lesson, progress) : ""}
           ${ceremony ? `<section class="lesson-completion-ceremony"><small>Carlos says</small><blockquote>${escapeHtml(ceremony.carlosSpanish)}</blockquote><p>${escapeHtml(ceremony.carlosEnglish)}</p>${ceremony.journey?.length ? `<div>${ceremony.journey.map(place => `<span>${escapeHtml(place)}</span>`).join("")}</div>` : ""}${ceremony.nextDestination ? `<b>Next destination · ${escapeHtml(ceremony.nextDestination)}</b>` : ""}</section>` : ""}
           <section class="lesson-completion-rewards" aria-label="Unlocked rewards">
             ${lesson.passportStamp ? `<span>${icon("passport")}<small>Passport stamp</small><b>${escapeHtml(lesson.passportStamp.title)} · ${escapeHtml(lesson.passportStamp.city || "España")}</b></span>` : ""}
@@ -2215,11 +2307,11 @@ function renderLessonCompletion(lesson, progress = {}) {
 }
 
 function renderLessonControls(step, stepIndex, steps, lesson, progress) {
-  if (lesson.id === CANONICAL_LESSON_ID && lesson.learnExperience?.version >= 2) return "";
+  if (isNarrativeExperience(lesson)) return "";
   if (step?.type === "story") return "";
   if (step?.type === "grammar" || step?.type === "rehearsal") return "";
-  if (step?.type === "speaking" || (lesson.id === CANONICAL_LESSON_ID && step?.type === "dialogue")) return "";
-  if (lesson.id === CANONICAL_LESSON_ID && step?.type === "quiz") {
+  if (step?.type === "speaking" || (isNarrativeExperience(lesson) && step?.type === "dialogue")) return "";
+  if (isNarrativeExperience(lesson) && step?.type === "quiz") {
     return `
       <footer class="lesson-controls lesson-controls-quiz">
         <button type="button" class="lesson-control-secondary" onclick="hablaLesson.previous()">${icon("back")} Back</button>
@@ -2229,7 +2321,7 @@ function renderLessonControls(step, stepIndex, steps, lesson, progress) {
   const isLast = stepIndex === steps.length - 1;
   const choiceBlocked = step?.type === "choice" && !progress.selectedChoiceId && !getLessonMemory(lesson.id)?.choiceId;
   const quizBlocked = step?.type === "quiz" && !progress.rendererQuiz?.complete;
-  const conversationBlocked = lesson.id !== CANONICAL_LESSON_ID
+  const conversationBlocked = !isNarrativeExperience(lesson)
     && (step?.type === "dialogue" || step?.type === "listening")
     && Boolean(lesson.listening || lesson.listeningPhrases?.length)
     && !progress.rendererListening?.complete;
@@ -2243,7 +2335,7 @@ function renderLessonControls(step, stepIndex, steps, lesson, progress) {
   const backLabel = step?.type === "speaking" && guidedIndex > 0 ? "Previous exchange" : "Back";
   const nextStepIndex = getAdjacentLessonStepIndex(steps, stepIndex, 1);
   const nextStep = steps[nextStepIndex];
-  const canonicalCompletion = lesson.id === CANONICAL_LESSON_ID && isLast;
+  const canonicalCompletion = isNarrativeExperience(lesson) && isLast;
   const nextLabel = moreGuidedExchanges
     ? "Next exchange"
     : canonicalCompletion
@@ -2269,7 +2361,7 @@ function advanceLesson() {
   const index = clamp(Number(progress.rendererStep || 0), 0, steps.length - 1);
   const step = steps[index];
   const isGuidedConversation = step.type === "speaking"
-    || (lesson.id === CANONICAL_LESSON_ID && step.type === "dialogue");
+    || (isNarrativeExperience(lesson) && step.type === "dialogue");
   if (isGuidedConversation) {
     const speakingItems = getGuidedSpeakingItems(lesson);
     const guidedIndex = clamp(Number(progress.guidedSpeakingIndex || 0), 0, Math.max(speakingItems.length - 1, 0));
@@ -2282,19 +2374,21 @@ function advanceLesson() {
     }
   }
   if (step.type === "rehearsal" && !progress.rendererPatternPractice?.complete) return;
+  if (step.type === "encounter" && lesson.learnerChoices?.options?.length
+    && !lesson.learnerChoices.options.some(choice => choice.id === (progress.selectedChoiceId || getLessonMemory(lesson.id)?.choiceId))) return;
   if (step.type === "choice" && !progress.selectedChoiceId && !getLessonMemory(lesson.id)?.choiceId) return;
   if (step.type === "quiz" && !progress.rendererQuiz?.complete) return;
-  if (lesson.id !== CANONICAL_LESSON_ID
+  if (!isNarrativeExperience(lesson)
     && (step.type === "dialogue" || step.type === "listening")
     && (lesson.listening || lesson.listeningPhrases?.length)
     && !progress.rendererListening?.complete) return;
 
-  const conversationSections = lesson.id === CANONICAL_LESSON_ID && step.id === "conversation"
+  const conversationSections = isNarrativeExperience(lesson) && step.id === "conversation"
     ? ["conversation"]
     : step.type === "dialogue" || step.type === "listening" ? ["dialogue", "listening"] : [step.id];
   const completedSections = Array.from(new Set([...(progress.completedSections || []), ...conversationSections]));
   if (index >= steps.length - 1) {
-    if (lesson.id === CANONICAL_LESSON_ID) {
+    if (isNarrativeExperience(lesson)) {
       updateLessonProgress(lesson.id, {
         completedSections,
         rendererStep: index,
@@ -2302,6 +2396,7 @@ function advanceLesson() {
       });
       if (!progress.completed) {
         completeLesson(lesson.id);
+        for (const achievementId of lesson.learnExperience?.completionAchievements || []) unlockAchievement(achievementId);
         evaluateAchievements({ completedLessonsCount: getCourseProgress().completedCount });
       }
       rerenderLesson(true);
@@ -2358,7 +2453,7 @@ function previousLessonStep() {
   const steps = buildLessonSteps(lesson);
   const currentStep = steps[clamp(Number(progress.rendererStep || 0), 0, Math.max(steps.length - 1, 0))];
   const isGuidedConversation = currentStep?.type === "speaking"
-    || (lesson.id === CANONICAL_LESSON_ID && currentStep?.type === "dialogue");
+    || (isNarrativeExperience(lesson) && currentStep?.type === "dialogue");
   if (isGuidedConversation && Number(progress.guidedSpeakingIndex || 0) > 0) {
     updateLessonProgress(lesson.id, { guidedSpeakingIndex: Number(progress.guidedSpeakingIndex) - 1 });
     rerenderLesson(true);
@@ -2385,8 +2480,16 @@ function chooseLessonOption(choiceId) {
   const lesson = getActiveLesson();
   const choice = lesson?.learnerChoices?.options?.find(item => item.id === choiceId);
   if (!lesson || !choice) return;
+  const previousChoice = getLessonProgress(lesson.id).selectedChoiceId || getLessonMemory(lesson.id)?.choiceId;
   rememberLessonChoice(lesson, choice);
-  updateLessonProgress(lesson.id, { selectedChoiceId: choice.id, selectedChoiceAt: new Date().toISOString(), flashcardIndex: 0, flashcardFlipped: false });
+  updateLessonProgress(lesson.id, {
+    selectedChoiceId: choice.id, selectedChoiceAt: new Date().toISOString(), flashcardIndex: 0, flashcardFlipped: false,
+    ...(isNarrativeExperience(lesson) && previousChoice !== choice.id ? {
+      rendererPatternPractice: { index: 0, selected: null, complete: false },
+      guidedSpeakingIndex: 0, guidedSpeakingAttempts: {},
+      pronunciationAttempts: {}, speakingSkipped: false,
+    } : {}),
+  });
   rerenderLesson(false);
 }
 
@@ -3076,7 +3179,7 @@ function getRecordedSpeakingFeedback(button) {
   if (!lesson) return "";
   const index = Number(button.dataset.speakingAttemptIndex);
   if (!Number.isInteger(index) || index < 0) return button.dataset.speakingChallengeIndex !== undefined ? "Response recorded." : "";
-  if (lesson.id === CANONICAL_LESSON_ID) return "Response recorded. Replay it, try again, or continue.";
+  if (isNarrativeExperience(lesson)) return "Response recorded. Replay it, try again, or continue.";
   const progress = getLessonProgress(lesson.id);
   const items = getGuidedSpeakingItems(lesson);
   const item = resolveSpeakingItemForChoice(lesson, progress, items[index]);
@@ -3097,7 +3200,7 @@ function skipSpeakingAttempt() {
 
 function continueConversationWithoutSpeaking() {
   const lesson = getActiveLesson();
-  if (!lesson || lesson.id !== CANONICAL_LESSON_ID) return;
+  if (!lesson || !isNarrativeExperience(lesson)) return;
   const progress = getLessonProgress(lesson.id);
   const items = getGuidedSpeakingItems(lesson);
   const attempts = { ...(progress.guidedSpeakingAttempts || {}) };
@@ -3160,8 +3263,14 @@ function retrySpeakingMicrophone(button) {
 }
 
 function revealSpeakingTextInput(button) {
-  const label = button?.closest(".lesson-speaking-recovery")?.querySelector("label");
+  const recovery = button?.closest(".lesson-speaking-recovery") || button?.closest(".lesson-speaking-exchange")?.querySelector(".lesson-speaking-recovery");
+  const label = recovery?.querySelector("label");
   if (!label) return;
+  recovery.hidden = false;
+  if (!button.closest(".lesson-speaking-recovery")) {
+    recovery.querySelector(":scope > p")?.setAttribute("hidden", "");
+    recovery.querySelector(":scope > div")?.setAttribute("hidden", "");
+  }
   label.hidden = false;
   label.querySelector("input")?.focus();
 }
@@ -3286,11 +3395,15 @@ function renderDialogueAudioButton(text, speaker = "Carlos", label = "Hear phras
   return `<button class="lesson-dialogue-audio" type="button" data-dialogue-audio data-speech="${escapeAttr(text)}" data-speaker="${escapeAttr(voice)}" onclick="hablaLesson.playLine(this)" aria-pressed="false" aria-label="${escapeAttr(label)}"><span data-playback-icon>${icon("sound")}</span><span class="sr-only" data-playback-label>${escapeHtml(label)}</span></button>`;
 }
 
-function renderDialogueAvatar(speaker) {
+function renderDialogueAvatar(speaker, lesson = null, scene = {}) {
   if (isLearnerSpeaker(speaker)) return renderLearnerAvatar();
   const name = displaySpeakerName(speaker);
   if (normalize(name) === "carlos") {
     return `<span class="lesson-dialogue-avatar is-carlos"><img src="${escapeAttr(getCarlosAsset("speaking"))}" alt="Carlos" onerror="${CARLOS_FALLBACK_ONERROR}"></span>`;
+  }
+  if (normalize(name) === "ana" && lesson && isNarrativeExperience(lesson)) {
+    const artwork = preloadLessonArtwork(lesson);
+    return `<span class="lesson-dialogue-avatar is-character is-ana"><img src="${escapeAttr(artwork)}" alt="Ana" style="object-position:${escapeAttr(scene.avatarObjectPosition || "88% 42%")}" onerror="this.hidden=true;this.nextElementSibling.hidden=false"><span hidden aria-hidden="true">A</span></span>`;
   }
   const initial = String(name || "?").trim().charAt(0).toUpperCase();
   return `<span class="lesson-dialogue-avatar is-character" role="img" aria-label="${escapeAttr(name)}">${escapeHtml(initial)}</span>`;

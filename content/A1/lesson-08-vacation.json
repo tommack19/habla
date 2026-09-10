@@ -1,6 +1,6 @@
 {
   "id": "lesson-08-vacation",
-  "contentVersion": "1.2",
+  "contentVersion": "1.5",
   "title": "An Afternoon at Home",
   "image": "assets/images/lessons/lesson-08-home.png",
   "level": "A1",
@@ -430,5 +430,364 @@
   "achievementsUnlocked": ["at_home_in_spanish"],
   "carlosClosing": "Thanks for spending the afternoon with us. You explored my home, noticed the little details, and talked about them in Spanish. The rain is still falling, so while we wait I’ll show you what an ordinary day looks like for me...",
   "xpReward": 70,
-  "nextLesson": "lesson-09-around-the-house"
+  "nextLesson": "lesson-09-around-the-house",
+  "conversationBuilder": [
+    {
+      "id": "room",
+      "title": "Choose a room",
+      "shortLabel": "Choose a room",
+      "speaker": "Carlos",
+      "carlosSpanish": "¿Qué habitación quieres ver primero?",
+      "carlosEnglish": "Which room would you like to see first?",
+      "responseSpanish": "El salón, por favor.",
+      "responseEnglish": "The living room, please.",
+      "prompt": "Name the room you chose.",
+      "tip": "Start with the room so Marta knows where you are looking.",
+      "feedback": "Start with the room so Marta knows where you are looking.",
+      "practiceOptions": [
+        "El salón, por favor.",
+        "La cocina, por favor.",
+        "El rincón de estudio, por favor."
+      ],
+      "byChoice": {
+        "living-room": {
+          "responseSpanish": "El salón, por favor.",
+          "responseEnglish": "The living room, please.",
+          "practiceOptions": [
+            "El salón, por favor.",
+            "La cocina, por favor.",
+            "El rincón de estudio, por favor."
+          ]
+        },
+        "kitchen": {
+          "responseSpanish": "La cocina, por favor.",
+          "responseEnglish": "The kitchen, please.",
+          "practiceOptions": [
+            "La cocina, por favor.",
+            "El salón, por favor.",
+            "El rincón de estudio, por favor."
+          ]
+        },
+        "study-corner": {
+          "responseSpanish": "El rincón de estudio, por favor.",
+          "responseEnglish": "The study corner, please.",
+          "practiceOptions": [
+            "El rincón de estudio, por favor.",
+            "El salón, por favor.",
+            "La cocina, por favor."
+          ]
+        }
+      }
+    },
+    {
+      "id": "exists",
+      "title": "What is there",
+      "shortLabel": "What is there",
+      "speaker": "Marta",
+      "carlosSpanish": "¿Qué hay allí?",
+      "carlosEnglish": "What is there?",
+      "responseSpanish": "En el salón hay un sofá y una guitarra.",
+      "responseEnglish": "In the living room there is a sofa and a guitar.",
+      "prompt": "Tell Marta what exists in the room.",
+      "tip": "Hay introduces something for the first time.",
+      "feedback": "Hay introduces something for the first time.",
+      "practiceOptions": [
+        "En el salón hay un sofá y una guitarra.",
+        "En el salón está un sofá y una guitarra.",
+        "En el salón hay el sofá."
+      ],
+      "byChoice": {
+        "living-room": {
+          "responseSpanish": "En el salón hay un sofá y una guitarra.",
+          "responseEnglish": "In the living room there is a sofa and a guitar.",
+          "practiceOptions": [
+            "En el salón hay un sofá y una guitarra.",
+            "En el salón está un sofá y una guitarra.",
+            "En el salón es un sofá y una guitarra."
+          ]
+        },
+        "kitchen": {
+          "responseSpanish": "En la cocina hay una mesa y una taza.",
+          "responseEnglish": "In the kitchen there is a table and a mug.",
+          "practiceOptions": [
+            "En la cocina hay una mesa y una taza.",
+            "En la cocina está una mesa y una taza.",
+            "En la cocina es una mesa y una taza."
+          ]
+        },
+        "study-corner": {
+          "responseSpanish": "En el rincón de estudio hay una estantería y una lámpara.",
+          "responseEnglish": "In the study corner there is a bookshelf and a lamp.",
+          "practiceOptions": [
+            "En el rincón de estudio hay una estantería y una lámpara.",
+            "En el rincón de estudio está una estantería y una lámpara.",
+            "En el rincón de estudio es una estantería y una lámpara."
+          ]
+        }
+      }
+    },
+    {
+      "id": "locate",
+      "title": "Where it is",
+      "shortLabel": "Where it is",
+      "speaker": "Carlos",
+      "carlosSpanish": "¿Dónde está el sofá?",
+      "carlosEnglish": "Where is the sofa?",
+      "responseSpanish": "El sofá está junto a la ventana.",
+      "responseEnglish": "The sofa is by the window.",
+      "prompt": "Locate the object Carlos named.",
+      "tip": "Use está because you both know which object you mean.",
+      "feedback": "Use está because you both know which object you mean.",
+      "practiceOptions": [
+        "El sofá está junto a la ventana.",
+        "El sofá hay junto a la ventana.",
+        "Hay está un sofá."
+      ],
+      "byChoice": {
+        "living-room": {
+          "carlosSpanish": "¿Dónde está el sofá?",
+          "carlosEnglish": "Where is the sofa?",
+          "responseSpanish": "El sofá está junto a la ventana.",
+          "responseEnglish": "The sofa is by the window.",
+          "practiceOptions": [
+            "El sofá está junto a la ventana.",
+            "El sofá hay junto a la ventana.",
+            "El sofá es junto a la ventana."
+          ]
+        },
+        "kitchen": {
+          "carlosSpanish": "¿Dónde está la taza?",
+          "carlosEnglish": "Where is the mug?",
+          "responseSpanish": "La taza está sobre la mesa.",
+          "responseEnglish": "The mug is on the table.",
+          "practiceOptions": [
+            "La taza está sobre la mesa.",
+            "La taza hay sobre la mesa.",
+            "La taza es sobre la mesa."
+          ]
+        },
+        "study-corner": {
+          "carlosSpanish": "¿Dónde está la lámpara?",
+          "carlosEnglish": "Where is the lamp?",
+          "responseSpanish": "La lámpara está al lado de los libros.",
+          "responseEnglish": "The lamp is beside the books.",
+          "practiceOptions": [
+            "La lámpara está al lado de los libros.",
+            "La lámpara hay al lado de los libros.",
+            "La lámpara es al lado de los libros."
+          ]
+        }
+      }
+    },
+    {
+      "id": "photo",
+      "title": "Back in the living room",
+      "shortLabel": "Back in the living room",
+      "speaker": "Carlos",
+      "carlosSpanish": "Volvemos al salón. ¿Dónde está la foto de la familia?",
+      "carlosEnglish": "We return to the living room. Where is the family photo?",
+      "responseSpanish": "Está en la estantería, al lado de los libros.",
+      "responseEnglish": "It is on the bookshelf, beside the books.",
+      "prompt": "Tell Carlos where the family photo is.",
+      "tip": "En gives the place; al lado de adds a useful detail.",
+      "feedback": "En gives the place; al lado de adds a useful detail.",
+      "practiceOptions": [
+        "Está en la estantería, al lado de los libros.",
+        "Hay en la estantería.",
+        "Está al lado la libros."
+      ]
+    },
+    {
+      "id": "describe",
+      "title": "Your own space",
+      "shortLabel": "Your own space",
+      "speaker": "Marta",
+      "carlosSpanish": "Ahora describe una habitación. ¿Qué hay y dónde está?",
+      "carlosEnglish": "Now describe a room. What is there and where is it?",
+      "responseSpanish": "Hay una mesa. La mesa está junto a la ventana.",
+      "responseEnglish": "There is a table. The table is by the window.",
+      "prompt": "Introduce a table, then say where that table is.",
+      "tip": "First hay to introduce it, then está to locate it.",
+      "feedback": "First hay to introduce it, then está to locate it.",
+      "practiceOptions": [
+        "Hay una mesa. La mesa está junto a la ventana.",
+        "Está una mesa. La mesa hay junto a la ventana.",
+        "Hay una mesa. La mesa hay junto a la ventana."
+      ],
+      "speakingPrompt": "Describe a real room with hay and está, or use the apartment as your example."
+    }
+  ],
+  "learnExperience": {
+    "version": 2,
+    "estimatedMinutes": 12,
+    "flow": [
+      "arrive",
+      "encounter",
+      "pattern",
+      "rehearse",
+      "speak",
+      "conversation",
+      "culture"
+    ],
+    "scenes": {
+      "arrive": {
+        "eyebrow": "Episode 8 · Madrid",
+        "title": "An Afternoon at Home",
+        "body": "The rain brings you back to the apartment. This time, make yourself at home.",
+        "location": "Carlos & Marta’s Apartment · Madrid",
+        "cta": "Come inside"
+      },
+      "encounter": {
+        "eyebrow": "Come inside",
+        "speaker": "Carlos",
+        "spanish": "¿Qué habitación quieres ver primero?",
+        "english": "Which room would you like to see first?",
+        "body": "You know this home from the family dinner. Choose a room to explore, then return to the living room together.",
+        "cta": "See the pattern",
+        "showModel": true
+      },
+      "pattern": {
+        "eyebrow": "The pattern",
+        "title": "What is there? Where is it?",
+        "body": "Introduce an object, then help someone find it.",
+        "tip": "Hay tells someone what exists. Está locates a particular object that you both know.",
+        "moves": [
+          {
+            "label": "Introduce",
+            "spanish": "Hay un sofá en el salón.",
+            "english": "There is a sofa in the living room."
+          },
+          {
+            "label": "Locate",
+            "spanish": "El sofá está junto a la ventana.",
+            "english": "The sofa is by the window."
+          },
+          {
+            "label": "Add a detail",
+            "spanish": "Está al lado de los libros.",
+            "english": "It is beside the books."
+          }
+        ],
+        "showReference": true,
+        "byChoice": {
+          "living-room": {
+            "moves": [
+              {
+                "label": "Introduce",
+                "spanish": "En el salón hay un sofá y una guitarra.",
+                "english": "In the living room there is a sofa and a guitar."
+              },
+              {
+                "label": "Locate",
+                "spanish": "El sofá está junto a la ventana.",
+                "english": "The sofa is by the window."
+              },
+              {
+                "label": "Find the photo",
+                "spanish": "Está al lado de los libros.",
+                "english": "It is beside the books."
+              }
+            ]
+          },
+          "kitchen": {
+            "moves": [
+              {
+                "label": "Introduce",
+                "spanish": "En la cocina hay una mesa y una taza.",
+                "english": "In the kitchen there is a table and a mug."
+              },
+              {
+                "label": "Locate",
+                "spanish": "La taza está sobre la mesa.",
+                "english": "The mug is on the table."
+              },
+              {
+                "label": "Find the photo",
+                "spanish": "Está al lado de los libros.",
+                "english": "It is beside the books."
+              }
+            ]
+          },
+          "study-corner": {
+            "moves": [
+              {
+                "label": "Introduce",
+                "spanish": "En el rincón de estudio hay una estantería y una lámpara.",
+                "english": "In the study corner there is a bookshelf and a lamp."
+              },
+              {
+                "label": "Locate",
+                "spanish": "La lámpara está al lado de los libros.",
+                "english": "The lamp is beside the books."
+              },
+              {
+                "label": "Find the photo",
+                "spanish": "Está al lado de los libros.",
+                "english": "It is beside the books."
+              }
+            ]
+          }
+        }
+      },
+      "rehearse": {
+        "eyebrow": "Try it",
+        "title": "Let’s put it together.",
+        "body": "Choose a reply, notice why it works, then continue the same conversation."
+      },
+      "speak": {
+        "eyebrow": "Speak",
+        "title": "Now make it yours.",
+        "body": "Listen to the phrase, say it aloud, and replay your own recording.",
+        "spanish": "Hay una mesa. La mesa está junto a la ventana.",
+        "english": "There is a table. The table is by the window.",
+        "tip": "Pause between the two ideas: introduce first, locate second."
+      },
+      "conversation": {
+        "eyebrow": "Your turn",
+        "title": "Show Marta what you noticed.",
+        "body": "Describe your chosen room, locate an object, and find the familiar family photo."
+      },
+      "culture": {
+        "eyebrow": "Madrid Moment",
+        "title": "Mi casa es tu casa.",
+        "lead": "The apartment is becoming familiar.",
+        "body": "The phrase means my home is your home and helps a guest feel welcome. A quiet greeting and attention to your host are enough; there is no single routine you have to imitate.",
+        "takeaway": "Hay introduces. Está helps you find it.",
+        "image": "assets/images/landmarks/apartment/apartment-living-room.webp",
+        "imageAlt": "Carlos & Marta’s Apartment · Madrid — the setting for An Afternoon at Home",
+        "caption": "Carlos & Marta’s Apartment · Madrid",
+        "showDiscovery": true,
+        "cta": "Complete the episode"
+      },
+      "completion": {
+        "eyebrow": "An Afternoon at Home complete",
+        "title": "You made yourself at home in Spanish.",
+        "body": "You named a room, described what exists there, and helped locate a familiar object.",
+        "capabilities": [
+          "Name the main rooms in a home",
+          "Say that an object exists with hay",
+          "Say where a known object is with está",
+          "Describe one familiar room in two or three short sentences"
+        ],
+        "image": "assets/images/landmarks/apartment/apartment-living-room.webp",
+        "imageAlt": "A memory from An Afternoon at Home in Madrid",
+        "nextCta": "Continue to A Typical Day",
+        "reviewCta": "Review what you learned"
+      }
+    },
+    "practiceUnlock": {
+      "topic": "home",
+      "phrases": [
+        "¿Qué hay en...?",
+        "Hay un...",
+        "Hay una...",
+        "¿Dónde está...?",
+        "Está en...",
+        "Está sobre...",
+        "Está al lado de...",
+        "Mi casa es tu casa."
+      ],
+      "conversationPatterns": 1
+    }
+  }
 }

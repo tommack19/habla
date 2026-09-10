@@ -1,4 +1,4 @@
-const CACHE_NAME = "habla-v29-durable-lesson-route";
+const CACHE_NAME = "habla-v32-chapter-one-cinematic-tutor";
 const ARTWORK_CACHE_NAME = "habla-artwork-v3";
 
 self.addEventListener("install", (event) => {
@@ -16,6 +16,20 @@ self.addEventListener("install", (event) => {
         "./js/core/lessonMotion.js",
         "./js/core/audio.js",
         "./content/A1/lesson-01-greetings.json",
+        "./content/A1/lesson-02-introductions.json",
+        "./js/core/tutor.js",
+        "./js/core/tutorVoice.js",
+        "./js/ui/tutorFeedback.js",
+        "./js/ui/carlos.js",
+        "./css/carlos.css",
+        "./content/A1/lesson-03-family.json",
+        "./content/A1/lesson-04-numbers-time.json",
+        "./content/A1/lesson-05-shopping.json",
+        "./content/A1/lesson-06-food-drinks.json",
+        "./content/A1/lesson-07-travel-basics.json",
+        "./content/A1/lesson-08-vacation.json",
+        "./content/A1/lesson-09-around-the-house.json",
+        "./content/A1/lesson-10-daily-routine.json",
         "./manifest.json"
       ]);
     }).then(() => self.skipWaiting())

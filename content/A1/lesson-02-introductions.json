@@ -6,9 +6,157 @@
   "level": "A1",
   "module": "Introductions",
   "estimatedMinutes": 25,
+  "learnExperience": {
+    "version": 2,
+    "flowVersion": 7,
+    "estimatedMinutes": 9,
+    "completionAchievements": ["first_conversation"],
+    "flow": [
+      "arrive",
+      "encounter",
+      "pattern",
+      "rehearse",
+      "speak",
+      "conversation",
+      "culture"
+    ],
+    "scenes": {
+      "arrive": {
+        "eyebrow": "Episode 2 · Madrid",
+        "title": "A New Friend",
+        "body": "Step outside the café with Carlos and meet his friend Ana.",
+        "location": "Outside Café Español · Madrid",
+        "cta": "Meet Ana",
+        "artworkAlt": "Carlos introducing Ana outside Café Español in Madrid"
+      },
+      "encounter": {
+        "eyebrow": "Meet Ana",
+        "stepLabel": "Meet Ana",
+        "title": "Ana speaks Spanish first.",
+        "speaker": "Ana",
+        "spanish": "Hola, me llamo Ana. ¿Cómo te llamas?",
+        "english": "Hi, my name is Ana. What’s your name?",
+        "body": "You already know how to answer. Reuse the name phrase from your first coffee with Carlos.",
+        "cta": "Keep talking",
+        "ariaLabel": "Meet Ana",
+        "showModel": true,
+        "artworkAlt": "Ana greeting the learner while Carlos introduces them outside the café"
+      },
+      "pattern": {
+        "eyebrow": "The pattern",
+        "title": "One introduction, two places.",
+        "showReference": true,
+        "body": "Ana tells you where she comes from and where she lives now. Those are two different ideas in Spanish.",
+        "tip": "Keep soy de and vivo en as complete chunks. The small words de and en carry the difference.",
+        "moves": [
+          { "label": "Origin", "spanish": "Soy de Sevilla.", "english": "I’m from Seville." },
+          { "label": "Home now", "spanish": "Vivo en Madrid.", "english": "I live in Madrid." },
+          { "label": "Return it", "spanish": "¿Y tú?", "english": "And you?" }
+        ]
+      },
+      "rehearse": {
+        "eyebrow": "Try it with Ana",
+        "title": "Build the introduction together.",
+        "body": "Answer Ana one turn at a time. The conversation stays with you as it grows.",
+        "speaker": "Ana",
+        "progressLabel": "Meeting Ana"
+      },
+      "speak": {
+        "eyebrow": "Speak",
+        "title": "Now connect both places.",
+        "body": "Say where you’re from and where you live. Substitute your real places if the example does not match you.",
+        "spanish": "Soy de {{learnerCountry}} y vivo en {{learnerCity}}.",
+        "english": "I’m from {{learnerCountryEnglish}} and I live in {{learnerCity}}.",
+        "tip": "Keep soy de together, then connect the second idea with y vivo en. Your recording stays on this device.",
+        "allowTypedResponse": true
+      },
+      "conversation": {
+        "eyebrow": "Your turn",
+        "stepLabel": "Talk with Ana",
+        "title": "Talk with Ana.",
+        "body": "Carlos has made the introduction. Ana will guide the conversation, and you’ll answer with your own places.",
+        "speaker": "Ana",
+        "ariaLabel": "Talk with Ana",
+        "artworkAlt": "Ana and Carlos outside Café Español during the learner’s introduction",
+        "avatarObjectPosition": "88% 42%",
+        "closingSpeaker": "Carlos",
+        "closingSpanish": "Esta noche vienes a cenar. Quiero presentarte a mi familia.",
+        "closingEnglish": "Tonight you’re coming for dinner. I want to introduce you to my family.",
+        "stages": [
+          {
+            "speaker": "Ana",
+            "carlosPrompt": "Hola, me llamo Ana. ¿Cómo te llamas?",
+            "carlosPromptEnglish": "Hi, my name is Ana. What’s your name?",
+            "prompt": "Tell Ana your name and say it’s nice to meet her.",
+            "text": "Me llamo {{learnerName}}. Mucho gusto.",
+            "meaning": "My name is {{learnerName}}. Nice to meet you.",
+            "feedback": "You reused your Lesson 1 introduction naturally."
+          },
+          {
+            "speaker": "Ana",
+            "carlosPrompt": "Mucho gusto. ¿De dónde eres?",
+            "carlosPromptEnglish": "Nice to meet you. Where are you from?",
+            "prompt": "Say where you’re from and return Ana’s question.",
+            "text": "Soy de {{learnerCountry}}. ¿Y tú?",
+            "meaning": "I’m from {{learnerCountryEnglish}}. And you?",
+            "feedback": "You shared your origin and returned the question."
+          },
+          {
+            "speaker": "Ana",
+            "carlosPrompt": "Soy de Sevilla, pero vivo en Madrid. ¿Dónde vives?",
+            "carlosPromptEnglish": "I’m from Seville, but I live in Madrid. Where do you live?",
+            "prompt": "Say where you live and keep the exchange moving.",
+            "text": "Vivo en {{learnerCity}}. ¿Y tú?",
+            "meaning": "I live in {{learnerCity}}. And you?",
+            "feedback": "You distinguished your current home from your origin."
+          }
+        ]
+      },
+      "culture": {
+        "eyebrow": "Madrid Moment",
+        "title": "A place can open the conversation.",
+        "showDiscovery": true,
+        "lead": "In a friendly introduction, a first name is usually enough to begin.",
+        "body": "When someone in Madrid asks ¿De dónde eres?, people often answer with the city or region that feels most natural, then add where they live now if it helps the story along.",
+        "takeaway": "Soy de… tells your origin · Vivo en… tells your home now",
+        "location": "Outside the café · Madrid",
+        "artworkAlt": "A lively Madrid street where new friends stop to talk",
+        "cta": "Complete A New Friend"
+      },
+      "completion": {
+        "eyebrow": "A New Friend complete",
+        "title": "You introduced yourself to Ana.",
+        "body": "You can now say where you’re from, say where you live and return the question naturally.",
+        "capabilities": [
+          "Ask where someone is from",
+          "Say where you are from",
+          "Ask where someone lives",
+          "Say where you live now",
+          "Keep the exchange moving with ¿Y tú?"
+        ],
+        "artworkAlt": "Madrid in the evening before the family dinner",
+        "showRewards": true,
+        "nextCta": "Continue to Family Dinner",
+        "reviewCta": "Practice introductions"
+      }
+    },
+    "practiceUnlock": {
+      "topic": "introductions",
+      "requiresCompletion": true,
+      "phrases": [
+        "Soy de...",
+        "Vivo en...",
+        "¿De dónde eres?",
+        "¿Dónde vives?",
+        "¿Y tú?",
+        "Yo también."
+      ],
+      "conversationPatterns": 1
+    }
+  },
   "sectionIntros": {
     "story": { "eyebrow": "Story", "title": "Meet Ana", "body": "Meet Carlos’ friend Ana and introduce yourself." },
-    "vocabulary": { "eyebrow": "Vocabulary", "title": "Words for a new friendship", "body": "Eight new phrases help you share where you’re from and where you live." },
+    "vocabulary": { "eyebrow": "Vocabulary", "title": "Words for a new friendship", "body": "Useful phrases help you share where you’re from and where you live." },
     "grammar": { "eyebrow": "Two useful patterns", "title": "Origin and home", "body": "Use one phrase for where you’re from and one for where you live." },
     "dialogue": { "eyebrow": "Conversation", "title": "Meet Ana", "body": "Follow your first introduction with a new friend." },
     "listening": { "eyebrow": "Listening with Ana", "title": "Can you follow the introduction?", "body": "Listen first. Read only when you’re ready." },
@@ -365,6 +513,74 @@
       "mexicanSpanishVersion": "¿Y tú?",
       "spainSpanishVersion": "¿Y tú?",
       "whenUsed": "Use after answering a name, origin, or residence question to return the same question naturally."
+    }
+  ],
+  "conversationBuilder": [
+    {
+      "id": "share-origin",
+      "title": "Share your origin",
+      "shortLabel": "Origin",
+      "speaker": "Ana",
+      "carlosSpanish": "¿De dónde eres?",
+      "carlosEnglish": "Where are you from?",
+      "prompt": "Tell Ana where you’re from and return the question.",
+      "responseSpanish": "Soy de {{learnerCountry}}. ¿Y tú?",
+      "responseEnglish": "I’m from {{learnerCountryEnglish}}. And you?",
+      "tip": "Use soy de for your origin, then ¿Y tú? to return Ana’s question naturally.",
+      "feedback": "You shared your origin and kept the exchange moving.",
+      "practiceOptions": [
+        "Soy de {{learnerCountry}}. ¿Y tú?",
+        "Vivo en {{learnerCountry}}. ¿Y tú?",
+        "Me llamo {{learnerCountry}}."
+      ],
+      "alternatives": [
+        "Soy de {{learnerCountry}}.",
+        "Soy de {{learnerCountry}}. ¿De dónde eres?"
+      ]
+    },
+    {
+      "id": "share-residence",
+      "title": "Share your home now",
+      "shortLabel": "Home now",
+      "speaker": "Ana",
+      "carlosSpanish": "Soy de Sevilla, pero vivo en Madrid. ¿Dónde vives?",
+      "carlosEnglish": "I’m from Seville, but I live in Madrid. Where do you live?",
+      "prompt": "Tell Ana where you live now.",
+      "responseSpanish": "Vivo en {{learnerCity}}.",
+      "responseEnglish": "I live in {{learnerCity}}.",
+      "tip": "Use vivo en—not soy de—for your current home.",
+      "feedback": "You kept origin and current residence clear.",
+      "practiceOptions": [
+        "Vivo en {{learnerCity}}.",
+        "Soy de {{learnerCity}}.",
+        "Me llamo {{learnerCity}}."
+      ],
+      "alternatives": [
+        "Ahora vivo en {{learnerCity}}.",
+        "Vivo en {{learnerCity}} ahora."
+      ]
+    },
+    {
+      "id": "ask-residence",
+      "title": "Ask about Ana’s home",
+      "shortLabel": "Ask back",
+      "speaker": "Ana",
+      "carlosSpanish": "¿Y tú?",
+      "carlosEnglish": "And you?",
+      "prompt": "Answer, then ask Ana directly where she lives.",
+      "responseSpanish": "Vivo en {{learnerCity}}. ¿Dónde vives?",
+      "responseEnglish": "I live in {{learnerCity}}. Where do you live?",
+      "tip": "Answer first, then use ¿Dónde vives? to invite Ana back into the conversation.",
+      "feedback": "You answered and asked a natural follow-up question.",
+      "practiceOptions": [
+        "Vivo en {{learnerCity}}. ¿Dónde vives?",
+        "Soy de {{learnerCity}}. ¿Cómo te llamas?",
+        "Vivo de {{learnerCity}}. ¿De dónde vives?"
+      ],
+      "alternatives": [
+        "Vivo en {{learnerCity}}. ¿Y tú?",
+        "¿Dónde vives, Ana?"
+      ]
     }
   ],
   "grammar": {
@@ -1281,7 +1497,7 @@
   "realLifeMission": {
     "title": "Meet Ana",
     "presentationEyebrow": "Today’s Mission",
-    "presentationTitle": "Your Conversation",
+    "presentationTitle": "Your Conversation with Ana",
     "successTitle": "You Did It!",
     "mission": "Carlos introduces you to Ana. Greet her, exchange names, say where you are from and where you live, then ask about her origin.",
     "successCriteria": [
@@ -1293,7 +1509,7 @@
     ],
     "completionResponse": "¡Muy bien! You met Ana, shared where you’re from and where you live, and kept the conversation moving.",
     "correctionRule": "Celebrate the completed introduction first. Correct only one soy de or vivo en error that changes the meaning.",
-    "suggestedPartner": "Carlos",
+    "suggestedPartner": "Ana",
     "xpReward": 10,
     "handoff": "Esta noche vienes a cenar. Quiero presentarte a mi familia."
   },

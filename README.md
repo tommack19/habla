@@ -14,6 +14,12 @@ An AI-powered Spanish tutor designed to help me become conversational through re
 
 Built with HTML, CSS, JavaScript, and OpenAI.
 
+## AI tutor setup
+
+See [AI_TUTOR_SETUP.md](AI_TUTOR_SETUP.md) to connect Carlos's conversation and
+microphone endpoints on Cloudflare, retain the existing character voice, and
+verify the complete tutor flow. AI provider keys belong only in server secrets.
+
 ## Season 1 content validation
 
 Run the frozen Chapter 1 quality gate before shipping lesson or renderer changes:

@@ -1010,6 +1010,8 @@
 }
 .lesson-dialogue-avatar img { height: 100%; object-fit: cover; object-position: center; width: 100%; }
 .lesson-dialogue-avatar.is-carlos img { background: #d7a83e; object-fit: cover; }
+.lesson-dialogue-avatar.is-ana img { height: 100%; object-fit: cover; transform: scale(2.7); transform-origin: 88% 42%; width: 100%; }
+.lesson-dialogue-avatar.is-ana > span { align-items: center; display: flex; height: 100%; justify-content: center; width: 100%; }
 .lesson-dialogue-avatar.is-learner { border-color: rgba(244,190,88,.62); }
 .lesson-dialogue-avatar-fallback { align-items: center; display: flex; height: 100%; justify-content: center; width: 100%; }
 .lesson-dialogue-avatar-fallback.is-generic svg { height: 24px; width: 24px; }
@@ -4956,11 +4958,11 @@ body.speaking-lesson-mode #dashboard.lesson-page {
 /* HABLA LEARN V2 — cinematic narrative lesson system
    First Coffee is the reference implementation. The namespace is reusable by
    later scene-driven lessons without changing Home, Talk, or Practice. */
-body.lesson-mode:has(#dashboard > .lesson-v2.lesson-canonical) #app > .primary-header {
+body.lesson-mode:has(#dashboard > .lesson-v2.lesson-narrative-experience) #app > .primary-header {
   display: none;
 }
 
-#dashboard.lesson-page:has(> .lesson-v2.lesson-canonical) {
+#dashboard.lesson-page:has(> .lesson-v2.lesson-narrative-experience) {
   background:
     radial-gradient(circle at 82% 7%, rgba(37, 216, 116, .055), transparent 28%),
     radial-gradient(circle at 16% 88%, rgba(239, 185, 76, .035), transparent 34%),
@@ -4969,7 +4971,7 @@ body.lesson-mode:has(#dashboard > .lesson-v2.lesson-canonical) #app > .primary-h
   scroll-padding-top: 74px;
 }
 
-.lesson-v2.lesson-canonical {
+.lesson-v2.lesson-narrative-experience {
   --learn-v2-bg: #030a09;
   --learn-v2-surface: #0a1613;
   --learn-v2-surface-strong: #0d1b17;
@@ -4990,12 +4992,12 @@ body.lesson-mode:has(#dashboard > .lesson-v2.lesson-canonical) #app > .primary-h
   padding-top: 0;
 }
 
-.lesson-v2.lesson-canonical,
-.lesson-v2.lesson-canonical :is(button, input, textarea, select) {
+.lesson-v2.lesson-narrative-experience,
+.lesson-v2.lesson-narrative-experience :is(button, input, textarea, select) {
   font-family: var(--habla-font-body);
 }
 
-.lesson-v2.lesson-canonical .lesson-stage {
+.lesson-v2.lesson-narrative-experience .lesson-stage {
   display: block;
   min-width: 0;
   padding: clamp(24px, 5vw, 40px) 0 0;
@@ -5034,7 +5036,10 @@ body.lesson-mode:has(#dashboard > .lesson-v2.lesson-canonical) #app > .primary-h
   font-weight: 600;
   justify-self: center;
   letter-spacing: -.01em;
-  line-height: 1;
+  line-height: 1.2;
+  min-width: 0;
+  overflow-wrap: anywhere;
+  text-align: center;
 }
 
 .lesson-narrative-header > span {
@@ -5091,10 +5096,10 @@ body.lesson-mode:has(#dashboard > .lesson-v2.lesson-canonical) #app > .primary-h
 
 .lesson-narrative-back:focus-visible,
 .lesson-narrative-audio:focus-visible,
-.lesson-v2.lesson-canonical .lesson-narrative-primary:focus-visible,
-.lesson-v2.lesson-canonical .lesson-narrative-options button:focus-visible,
-.lesson-v2.lesson-canonical .lesson-narrative-text-action:focus-visible,
-.lesson-v2.lesson-canonical .lesson-narrative-review:focus-visible {
+.lesson-v2.lesson-narrative-experience .lesson-narrative-primary:focus-visible,
+.lesson-v2.lesson-narrative-experience .lesson-narrative-options button:focus-visible,
+.lesson-v2.lesson-narrative-experience .lesson-narrative-text-action:focus-visible,
+.lesson-v2.lesson-narrative-experience .lesson-narrative-review:focus-visible {
   outline: 2px solid var(--learn-v2-gold);
   outline-offset: 3px;
 }
@@ -5147,7 +5152,7 @@ body.lesson-mode:has(#dashboard > .lesson-v2.lesson-canonical) #app > .primary-h
   max-width: 46ch;
 }
 
-.lesson-v2.lesson-canonical .lesson-narrative-primary {
+.lesson-v2.lesson-narrative-experience .lesson-narrative-primary {
   align-items: center;
   background: linear-gradient(180deg, #38df85 0%, #23c86d 52%, #18ae5c 100%);
   border: 1px solid rgba(99, 244, 164, .42);
@@ -5168,23 +5173,23 @@ body.lesson-mode:has(#dashboard > .lesson-v2.lesson-canonical) #app > .primary-h
   width: 100%;
 }
 
-.lesson-v2.lesson-canonical .lesson-narrative-primary svg {
+.lesson-v2.lesson-narrative-experience .lesson-narrative-primary svg {
   height: 20px;
   margin-left: auto;
   width: 20px;
 }
 
-.lesson-v2.lesson-canonical .lesson-narrative-primary:hover {
+.lesson-v2.lesson-narrative-experience .lesson-narrative-primary:hover {
   filter: brightness(1.06);
   transform: translateY(-1px);
 }
 
-.lesson-v2.lesson-canonical .lesson-narrative-primary:active {
+.lesson-v2.lesson-narrative-experience .lesson-narrative-primary:active {
   transform: translateY(0);
 }
 
 /* Arrival — one immersive surface, not a card stack. */
-.lesson-v2.lesson-canonical .lesson-stage:has(> .lesson-narrative-arrival) {
+.lesson-v2.lesson-narrative-experience .lesson-stage:has(> .lesson-narrative-arrival) {
   padding-top: 14px;
 }
 
@@ -5726,7 +5731,7 @@ body.lesson-mode:has(#dashboard > .lesson-v2.lesson-canonical) #app > .primary-h
   grid-template-columns: repeat(2, minmax(0, 1fr));
 }
 
-.lesson-v2.lesson-canonical .lesson-narrative-record {
+.lesson-v2.lesson-narrative-experience .lesson-narrative-record {
   align-items: center;
   background: linear-gradient(180deg, #38df85, #1bb965);
   border: 1px solid rgba(99, 244, 164, .4);
@@ -5742,12 +5747,12 @@ body.lesson-mode:has(#dashboard > .lesson-v2.lesson-canonical) #app > .primary-h
   width: 100%;
 }
 
-.lesson-v2.lesson-canonical .lesson-narrative-record svg {
+.lesson-v2.lesson-narrative-experience .lesson-narrative-record svg {
   height: 20px;
   width: 20px;
 }
 
-.lesson-v2.lesson-canonical .lesson-narrative-record.is-recording {
+.lesson-v2.lesson-narrative-experience .lesson-narrative-record.is-recording {
   background: #d9574c;
   border-color: rgba(255, 255, 255, .24);
   color: #fff;
@@ -5944,7 +5949,7 @@ body.lesson-mode:has(#dashboard > .lesson-v2.lesson-canonical) #app > .primary-h
   border-block: 1px solid var(--learn-v2-line);
 }
 
-.lesson-narrative-hint summary {
+.lesson-narrative-hint > summary {
   align-items: center;
   color: var(--learn-v2-gold);
   cursor: pointer;
@@ -5957,9 +5962,9 @@ body.lesson-mode:has(#dashboard > .lesson-v2.lesson-canonical) #app > .primary-h
   min-height: 52px;
 }
 
-.lesson-narrative-hint summary::-webkit-details-marker { display: none; }
-.lesson-narrative-hint summary svg { height: 18px; width: 18px; }
-.lesson-narrative-hint[open] summary svg:last-child { transform: rotate(90deg); }
+.lesson-narrative-hint > summary::-webkit-details-marker { display: none; }
+.lesson-narrative-hint > summary svg { height: 18px; width: 18px; }
+.lesson-narrative-hint[open] > summary svg:last-child { transform: rotate(90deg); }
 
 .lesson-narrative-hint > div {
   display: grid;
@@ -5991,6 +5996,85 @@ body.lesson-mode:has(#dashboard > .lesson-v2.lesson-canonical) #app > .primary-h
   padding: 8px 10px;
 }
 .lesson-narrative-hint > div button svg { height: 16px; width: 16px; }
+.lesson-narrative-hint form { display: grid; gap: 10px; }
+.lesson-narrative-hint form label { color: var(--learn-v2-muted); font-size: .74rem; font-weight: 700; }
+.lesson-narrative-hint form input { background: rgba(255,255,255,.045); border: 1px solid var(--learn-v2-line); border-radius: 12px; color: var(--learn-v2-text); font-size: 1rem; min-height: 48px; padding: 0 13px; width: 100%; }
+.lesson-narrative-hint form button { justify-self: start; }
+
+/* Chapter episodes share the narrative system; longer titles stay in document flow. */
+.lesson-chapter-episode .lesson-narrative-arrival {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(110px, 16svh, 180px);
+  padding: clamp(20px, 5vw, 34px);
+}
+
+.lesson-chapter-episode .lesson-narrative-arrival-copy,
+.lesson-chapter-episode .lesson-narrative-arrival-actions {
+  inset: auto;
+  position: relative;
+}
+
+.lesson-chapter-episode .lesson-narrative-arrival-actions { margin-top: auto; }
+.lesson-chapter-episode .lesson-narrative-arrival h1 { max-width: 12ch; }
+.lesson-chapter-episode .lesson-narrative-location { border-radius: 16px; }
+.lesson-chapter-episode .lesson-narrative-location svg { flex-shrink: 0; }
+
+.lesson-v2:is(.lesson-canonical, .lesson-narrative-experience) .lesson-narrative-primary:disabled {
+  cursor: default;
+  filter: saturate(.4);
+  opacity: .55;
+  transform: none;
+}
+
+.lesson-narrative-primary > span,
+.lesson-narrative-history-pair strong,
+.lesson-narrative-carlos-line > div,
+.lesson-narrative-your-turn > div,
+.lesson-narrative-hint {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+.lesson-narrative-primary > svg { flex-shrink: 0; }
+.lesson-narrative-choice .lesson-choice-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.lesson-narrative-choice .lesson-choice-card { min-width: 0; padding: 16px 12px; }
+.lesson-narrative-choice .lesson-choice-card :is(strong, small) { overflow-wrap: anywhere; }
+.lesson-narrative-choice-response { border-left: 2px solid var(--learn-v2-gold); margin-top: 18px; padding-left: 16px; }
+.lesson-narrative-choice-response :is(small, strong) { display: block; }
+.lesson-narrative-choice-response small { color: var(--learn-v2-green); font-size: .875rem; margin-bottom: 6px; }
+.lesson-narrative-choice-response p { color: var(--learn-v2-muted); line-height: 1.6; }
+.lesson-narrative-model > div,
+.lesson-narrative-world > div { color: var(--learn-v2-muted); font-size: 1rem; line-height: 1.6; }
+.lesson-narrative-model details > summary { color: var(--learn-v2-gold); cursor: pointer; font-size: .875rem; padding-block: 12px; }
+.lesson-narrative-model-lines { display: grid; gap: 16px; }
+.lesson-narrative-model-lines article { border-left: 1px solid var(--learn-v2-line); padding-left: 14px; }
+.lesson-narrative-model-lines :is(small, strong) { display: block; }
+.lesson-narrative-model-lines small { color: var(--learn-v2-green); font-size: .875rem; }
+.lesson-narrative-model-lines strong { color: var(--learn-v2-text); }
+.lesson-narrative-model .lesson-narrative-model-actions button,
+.lesson-narrative-world > div button { font-size: .875rem; min-height: 44px; }
+.lesson-narrative-reference > div { display: block; padding-left: 0; }
+.lesson-narrative-reference > div > .lesson-vocab-groups { display: grid; }
+.lesson-narrative-reference .lesson-vocab-prep { display: none; }
+.lesson-narrative-reference .lesson-vocab-card-head { grid-template-columns: 30px minmax(0, 1fr); }
+.lesson-narrative-reference .lesson-vocab-actions { grid-column: 2; }
+.lesson-narrative-your-turn .lesson-speaking-recovery[hidden],
+.lesson-narrative-your-turn .lesson-speaking-recovery [hidden] { display: none; }
+.lesson-narrative-handoff { border-top: 1px solid var(--learn-v2-line); padding-top: 22px; }
+.lesson-narrative-handoff :is(small, strong) { display: block; }
+.lesson-narrative-handoff small { color: var(--learn-v2-gold); font-size: .875rem; margin-bottom: 8px; }
+.lesson-narrative-handoff p { color: var(--learn-v2-muted); line-height: 1.6; }
+.lesson-narrative-stamp { align-items: start; display: grid; grid-template-columns: 28px minmax(0, 1fr); gap: 14px; border-block: 1px solid var(--learn-v2-line); padding-block: 18px; }
+.lesson-narrative-stamp > svg { color: var(--learn-v2-gold); width: 26px; height: 26px; }
+.lesson-narrative-stamp :is(small, strong) { display: block; }
+.lesson-narrative-stamp small { color: var(--learn-v2-gold); font-size: .875rem; }
+.lesson-narrative-stamp p { color: var(--learn-v2-muted); margin: 4px 0 0; }
+
+@media (max-width: 360px) {
+  .lesson-narrative-choice .lesson-choice-grid { grid-template-columns: minmax(0, 1fr); }
+  .lesson-narrative-model > div, .lesson-narrative-world > div { padding-left: 0; }
+}
 
 .lesson-narrative-conversation-actions {
   display: grid;
@@ -6245,7 +6329,7 @@ body.lesson-mode:has(#dashboard > .lesson-v2.lesson-canonical) #app > .primary-h
   }
 
   .lesson-narrative-header > strong { font-size: 1rem; }
-  .lesson-v2.lesson-canonical .lesson-stage { padding-top: 26px; }
+  .lesson-v2.lesson-narrative-experience .lesson-stage { padding-top: 26px; }
 
   .lesson-narrative-arrival {
     border-radius: 20px;
@@ -6275,20 +6359,20 @@ body.lesson-mode:has(#dashboard > .lesson-v2.lesson-canonical) #app > .primary-h
 
 @media (prefers-reduced-motion: reduce) {
   .lesson-narrative-header > div i,
-  .lesson-v2.lesson-canonical .lesson-narrative-primary {
+  .lesson-v2.lesson-narrative-experience .lesson-narrative-primary {
     transition: none;
   }
 }
 
 /* Neutralise legacy speaking-card primitives inside the new open narrative scenes. */
-.lesson-v2.lesson-canonical :is(.lesson-narrative-speak-actions, .lesson-narrative-your-turn) {
+.lesson-v2.lesson-narrative-experience :is(.lesson-narrative-speak-actions, .lesson-narrative-your-turn) {
   background: transparent;
   border: 0;
   border-radius: 0;
   padding: 0;
 }
 
-.lesson-v2.lesson-canonical :is(
+.lesson-v2.lesson-narrative-experience :is(
   .lesson-narrative-heading h1,
   .lesson-narrative-arrival h1,
   .lesson-narrative-encounter h1,

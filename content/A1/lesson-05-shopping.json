@@ -1,6 +1,6 @@
 {
   "id": "lesson-05-shopping",
-  "contentVersion": "1.2",
+  "contentVersion": "1.5",
   "title": "Fresh Fruit and Fresh Spanish",
   "image": "assets/images/lessons/lesson-05-shopping.png",
   "level": "A1",
@@ -90,44 +90,361 @@
     "Personalize the lesson by choosing a product."
   ],
   "essentialPhrases": [
-    { "spanish": "¿Qué compramos primero?", "english": "What should we buy first?", "usage": "Carlos uses this to give the learner control of the shopping route.", "exampleSpanish": "¿Qué compramos primero, pan o queso?", "exampleEnglish": "What should we buy first, bread or cheese?" },
-    { "spanish": "Quiero este / esta...", "english": "I want this...", "usage": "Point to one product and ask for it.", "exampleSpanish": "Quiero este pan, por favor.", "exampleEnglish": "I want this bread, please." },
-    { "spanish": "Quiero estos / estas...", "english": "I want these...", "usage": "Point to more than one item.", "exampleSpanish": "Quiero estas manzanas, por favor.", "exampleEnglish": "I want these apples, please." },
-    { "spanish": "¿Cuánto cuesta?", "english": "How much does it cost?", "usage": "Learn this as one useful price question for a single item.", "exampleSpanish": "¿Cuánto cuesta este queso?", "exampleEnglish": "How much does this cheese cost?" },
-    { "spanish": "Necesito...", "english": "I need...", "usage": "Say what you need to buy.", "exampleSpanish": "Necesito pan para el almuerzo.", "exampleEnglish": "I need bread for lunch." },
-    { "spanish": "Uno / una, por favor.", "english": "One, please.", "usage": "Choose a simple amount without learning a full quantity system.", "exampleSpanish": "Una, por favor.", "exampleEnglish": "One, please." },
-    { "spanish": "Nada más, gracias.", "english": "Nothing else, thank you.", "usage": "Tell the vendor your order is complete.", "exampleSpanish": "Una bolsa, por favor. Nada más, gracias.", "exampleEnglish": "One bag, please. Nothing else, thank you." },
-    { "spanish": "Está muy rico.", "english": "It’s very tasty.", "usage": "React naturally after seeing or trying food.", "exampleSpanish": "Este queso está muy rico.", "exampleEnglish": "This cheese is very tasty." }
+    {
+      "spanish": "¿Qué compramos primero?",
+      "english": "What should we buy first?",
+      "usage": "Carlos uses this to give the learner control of the shopping route.",
+      "exampleSpanish": "¿Qué compramos primero, pan o queso?",
+      "exampleEnglish": "What should we buy first, bread or cheese?"
+    },
+    {
+      "spanish": "Quiero este / esta...",
+      "english": "I want this...",
+      "usage": "Point to one product and ask for it.",
+      "exampleSpanish": "Quiero este pan, por favor.",
+      "exampleEnglish": "I want this bread, please."
+    },
+    {
+      "spanish": "Quiero estos / estas...",
+      "english": "I want these...",
+      "usage": "Point to more than one item.",
+      "exampleSpanish": "Quiero estas manzanas, por favor.",
+      "exampleEnglish": "I want these apples, please."
+    },
+    {
+      "spanish": "¿Cuánto cuesta?",
+      "english": "How much does it cost?",
+      "usage": "Learn this as one useful price question for a single item.",
+      "exampleSpanish": "¿Cuánto cuesta este queso?",
+      "exampleEnglish": "How much does this cheese cost?"
+    },
+    {
+      "spanish": "Necesito...",
+      "english": "I need...",
+      "usage": "Say what you need to buy.",
+      "exampleSpanish": "Necesito pan para el almuerzo.",
+      "exampleEnglish": "I need bread for lunch."
+    },
+    {
+      "spanish": "Uno / una, por favor.",
+      "english": "One, please.",
+      "usage": "Choose a simple amount without learning a full quantity system.",
+      "exampleSpanish": "Una, por favor.",
+      "exampleEnglish": "One, please."
+    },
+    {
+      "spanish": "Nada más, gracias.",
+      "english": "Nothing else, thank you.",
+      "usage": "Tell the vendor your order is complete.",
+      "exampleSpanish": "Una bolsa, por favor. Nada más, gracias.",
+      "exampleEnglish": "One bag, please. Nothing else, thank you."
+    },
+    {
+      "spanish": "Está muy rico.",
+      "english": "It’s very tasty.",
+      "usage": "React naturally after seeing or trying food.",
+      "exampleSpanish": "Este queso está muy rico.",
+      "exampleEnglish": "This cheese is very tasty."
+    },
+    {
+      "spanish": "¿Cuánto cuestan?",
+      "english": "How much do they cost?",
+      "usage": "Ask the price of several selected items as one ready-to-use chunk.",
+      "exampleSpanish": "¿Cuánto cuestan estas flores?",
+      "exampleEnglish": "How much do these flowers cost?"
+    }
   ],
   "vocabulary": [
-    { "spanish": "la manzana", "english": "apple", "partOfSpeech": "noun", "tier": 1, "group": "Fruit and produce", "tip": "Use esta manzana for this apple.", "exampleSpanish": "Quiero esta manzana.", "exampleEnglish": "I want this apple." },
-    { "spanish": "el plátano", "english": "banana", "partOfSpeech": "noun", "tier": 1, "group": "Fruit and produce", "tip": "In some regions you may also hear banana; Carlos teaches plátano here.", "exampleSpanish": "Este plátano está fresco.", "exampleEnglish": "This banana is fresh." },
-    { "spanish": "la naranja", "english": "orange", "partOfSpeech": "noun", "tier": 1, "group": "Fruit and produce", "tip": "Use esta with the feminine noun naranja.", "exampleSpanish": "Esta naranja es dulce.", "exampleEnglish": "This orange is sweet." },
-    { "spanish": "la fresa", "english": "strawberry", "partOfSpeech": "noun", "tier": 1, "group": "Fruit and produce", "tip": "Use estas fresas when pointing to several.", "exampleSpanish": "Quiero estas fresas.", "exampleEnglish": "I want these strawberries." },
-    { "spanish": "las uvas", "english": "grapes", "partOfSpeech": "noun", "tier": 1, "group": "Fruit and produce", "tip": "This item is commonly used in the plural.", "exampleSpanish": "Estas uvas están muy ricas.", "exampleEnglish": "These grapes are very tasty." },
-    { "spanish": "el tomate", "english": "tomato", "partOfSpeech": "noun", "tier": 1, "group": "Fruit and produce", "tip": "Use estos tomates when choosing several.", "exampleSpanish": "Necesito estos tomates.", "exampleEnglish": "I need these tomatoes." },
-    { "spanish": "el pan", "english": "bread", "partOfSpeech": "noun", "tier": 1, "group": "Bakery", "tip": "Use este because pan is masculine and singular.", "exampleSpanish": "Este pan está fresco.", "exampleEnglish": "This bread is fresh." },
-    { "spanish": "el cruasán", "english": "croissant", "partOfSpeech": "noun", "tier": 2, "group": "Bakery", "tip": "Cruasán is the adapted Spanish spelling.", "exampleSpanish": "Quiero este cruasán.", "exampleEnglish": "I want this croissant." },
-    { "spanish": "el queso", "english": "cheese", "partOfSpeech": "noun", "tier": 1, "group": "Dairy", "tip": "Use este queso for this cheese.", "exampleSpanish": "¿Cuánto cuesta este queso?", "exampleEnglish": "How much does this cheese cost?" },
-    { "spanish": "la leche", "english": "milk", "partOfSpeech": "noun", "tier": 1, "group": "Dairy", "tip": "Leche is feminine: esta leche.", "exampleSpanish": "Necesito esta leche.", "exampleEnglish": "I need this milk." },
-    { "spanish": "el café", "english": "coffee", "partOfSpeech": "noun", "tier": 1, "group": "Drinks", "tip": "The written accent marks the final stress.", "exampleSpanish": "Este café huele muy bien.", "exampleEnglish": "This coffee smells very good." },
-    { "spanish": "el zumo", "english": "juice", "partOfSpeech": "noun", "tier": 2, "group": "Drinks", "tip": "Zumo is common in Spain; jugo is common in much of Latin America.", "exampleSpanish": "Quiero este zumo.", "exampleEnglish": "I want this juice." },
-    { "spanish": "el agua", "english": "water", "partOfSpeech": "noun", "tier": 1, "group": "Drinks", "tip": "Agua is feminine but uses el in singular; treat el agua as one chunk for now.", "exampleSpanish": "Quiero esta agua, por favor.", "exampleEnglish": "I want this water, please." },
-    { "spanish": "el precio", "english": "price", "partOfSpeech": "noun", "tier": 1, "group": "At the stall", "tip": "Use it when talking about what something costs.", "exampleSpanish": "El precio es bueno.", "exampleEnglish": "The price is good." },
-    { "spanish": "la bolsa", "english": "bag", "partOfSpeech": "noun", "tier": 1, "group": "At the stall", "tip": "Ask for una bolsa after buying something.", "exampleSpanish": "Una bolsa, por favor.", "exampleEnglish": "A bag, please." },
-    { "spanish": "el dinero", "english": "money", "partOfSpeech": "noun", "tier": 1, "group": "At the stall", "tip": "Carlos carries the money; your mission is the conversation.", "exampleSpanish": "Carlos tiene el dinero.", "exampleEnglish": "Carlos has the money." },
-    { "spanish": "comprar", "english": "to buy", "partOfSpeech": "verb", "tier": 1, "group": "At the stall", "tip": "Compramos means we buy or we’re buying in the lesson phrase.", "exampleSpanish": "¿Qué compramos primero?", "exampleEnglish": "What should we buy first?" },
-    { "spanish": "vender", "english": "to sell", "partOfSpeech": "verb", "tier": 2, "group": "At the stall", "tip": "The vendor sells; the customer buys.", "exampleSpanish": "Venden pan fresco.", "exampleEnglish": "They sell fresh bread." },
-    { "spanish": "el mercado", "english": "market", "partOfSpeech": "noun", "tier": 1, "group": "At the stall", "tip": "You arranged this market visit in Lesson 4.", "exampleSpanish": "El mercado está muy animado.", "exampleEnglish": "The market is very lively." },
-    { "spanish": "el puesto", "english": "stall", "partOfSpeech": "noun", "tier": 1, "group": "At the stall", "tip": "A market has different puestos for different foods.", "exampleSpanish": "Este puesto vende queso.", "exampleEnglish": "This stall sells cheese." },
-    { "spanish": "el cliente / la clienta", "english": "customer", "partOfSpeech": "noun", "tier": 2, "group": "At the stall", "tip": "Choose the form that matches the person.", "exampleSpanish": "La clienta compra flores.", "exampleEnglish": "The customer buys flowers." },
-    { "spanish": "los ingredientes", "english": "ingredients", "partOfSpeech": "noun", "tier": 1, "group": "For lunch", "tip": "These are the things Carlos needs for lunch.", "exampleSpanish": "Necesitamos ingredientes para el almuerzo.", "exampleEnglish": "We need ingredients for lunch." },
-    { "spanish": "las flores", "english": "flowers", "partOfSpeech": "noun", "tier": 1, "group": "For the table", "tip": "Flowers are one of the learner’s six shopping choices.", "exampleSpanish": "Estas flores son para mi madre.", "exampleEnglish": "These flowers are for my mother." },
-    { "spanish": "fresco / fresca", "english": "fresh", "partOfSpeech": "adjective", "tier": 1, "group": "Describing food", "tip": "Match the ending to the product: pan fresco, fruta fresca.", "exampleSpanish": "Este pan está fresco.", "exampleEnglish": "This bread is fresh." },
-    { "spanish": "dulce", "english": "sweet", "partOfSpeech": "adjective", "tier": 1, "group": "Describing food", "tip": "Dulce works with masculine and feminine nouns.", "exampleSpanish": "Esta naranja es dulce.", "exampleEnglish": "This orange is sweet." },
-    { "spanish": "rico / rica", "english": "tasty / delicious", "partOfSpeech": "adjective", "tier": 1, "group": "Describing food", "tip": "Match rico or rica to the noun you describe.", "exampleSpanish": "Este queso está muy rico.", "exampleEnglish": "This cheese is very tasty." },
-    { "spanish": "grande", "english": "big / large", "partOfSpeech": "adjective", "tier": 1, "group": "Describing food", "tip": "Grande works with masculine and feminine nouns.", "exampleSpanish": "Quiero esta bolsa grande.", "exampleEnglish": "I want this large bag." },
-    { "spanish": "pequeño / pequeña", "english": "small", "partOfSpeech": "adjective", "tier": 1, "group": "Describing food", "tip": "Match the ending to the noun.", "exampleSpanish": "Quiero este queso pequeño.", "exampleEnglish": "I want this small cheese." }
+    {
+      "spanish": "la manzana",
+      "english": "apple",
+      "partOfSpeech": "noun",
+      "tier": 1,
+      "group": "Fruit and produce",
+      "tip": "Use esta manzana for this apple.",
+      "exampleSpanish": "Quiero esta manzana.",
+      "exampleEnglish": "I want this apple."
+    },
+    {
+      "spanish": "el plátano",
+      "english": "banana",
+      "partOfSpeech": "noun",
+      "tier": 1,
+      "group": "Fruit and produce",
+      "tip": "In some regions you may also hear banana; Carlos teaches plátano here.",
+      "exampleSpanish": "Este plátano está fresco.",
+      "exampleEnglish": "This banana is fresh."
+    },
+    {
+      "spanish": "la naranja",
+      "english": "orange",
+      "partOfSpeech": "noun",
+      "tier": 1,
+      "group": "Fruit and produce",
+      "tip": "Use esta with the feminine noun naranja.",
+      "exampleSpanish": "Esta naranja es dulce.",
+      "exampleEnglish": "This orange is sweet."
+    },
+    {
+      "spanish": "la fresa",
+      "english": "strawberry",
+      "partOfSpeech": "noun",
+      "tier": 1,
+      "group": "Fruit and produce",
+      "tip": "Use estas fresas when pointing to several.",
+      "exampleSpanish": "Quiero estas fresas.",
+      "exampleEnglish": "I want these strawberries."
+    },
+    {
+      "spanish": "las uvas",
+      "english": "grapes",
+      "partOfSpeech": "noun",
+      "tier": 1,
+      "group": "Fruit and produce",
+      "tip": "This item is commonly used in the plural.",
+      "exampleSpanish": "Estas uvas están muy ricas.",
+      "exampleEnglish": "These grapes are very tasty."
+    },
+    {
+      "spanish": "el tomate",
+      "english": "tomato",
+      "partOfSpeech": "noun",
+      "tier": 1,
+      "group": "Fruit and produce",
+      "tip": "Use estos tomates when choosing several.",
+      "exampleSpanish": "Necesito estos tomates.",
+      "exampleEnglish": "I need these tomatoes."
+    },
+    {
+      "spanish": "el pan",
+      "english": "bread",
+      "partOfSpeech": "noun",
+      "tier": 1,
+      "group": "Bakery",
+      "tip": "Use este because pan is masculine and singular.",
+      "exampleSpanish": "Este pan está fresco.",
+      "exampleEnglish": "This bread is fresh."
+    },
+    {
+      "spanish": "el cruasán",
+      "english": "croissant",
+      "partOfSpeech": "noun",
+      "tier": 2,
+      "group": "Bakery",
+      "tip": "Cruasán is the adapted Spanish spelling.",
+      "exampleSpanish": "Quiero este cruasán.",
+      "exampleEnglish": "I want this croissant."
+    },
+    {
+      "spanish": "el queso",
+      "english": "cheese",
+      "partOfSpeech": "noun",
+      "tier": 1,
+      "group": "Dairy",
+      "tip": "Use este queso for this cheese.",
+      "exampleSpanish": "¿Cuánto cuesta este queso?",
+      "exampleEnglish": "How much does this cheese cost?"
+    },
+    {
+      "spanish": "la leche",
+      "english": "milk",
+      "partOfSpeech": "noun",
+      "tier": 1,
+      "group": "Dairy",
+      "tip": "Leche is feminine: esta leche.",
+      "exampleSpanish": "Necesito esta leche.",
+      "exampleEnglish": "I need this milk."
+    },
+    {
+      "spanish": "el café",
+      "english": "coffee",
+      "partOfSpeech": "noun",
+      "tier": 1,
+      "group": "Drinks",
+      "tip": "The written accent marks the final stress.",
+      "exampleSpanish": "Este café huele muy bien.",
+      "exampleEnglish": "This coffee smells very good."
+    },
+    {
+      "spanish": "el zumo",
+      "english": "juice",
+      "partOfSpeech": "noun",
+      "tier": 2,
+      "group": "Drinks",
+      "tip": "Zumo is common in Spain; jugo is common in much of Latin America.",
+      "exampleSpanish": "Quiero este zumo.",
+      "exampleEnglish": "I want this juice."
+    },
+    {
+      "spanish": "el agua",
+      "english": "water",
+      "partOfSpeech": "noun",
+      "tier": 1,
+      "group": "Drinks",
+      "tip": "Agua is feminine but uses el in singular; treat el agua as one chunk for now.",
+      "exampleSpanish": "Quiero esta agua, por favor.",
+      "exampleEnglish": "I want this water, please."
+    },
+    {
+      "spanish": "el precio",
+      "english": "price",
+      "partOfSpeech": "noun",
+      "tier": 1,
+      "group": "At the stall",
+      "tip": "Use it when talking about what something costs.",
+      "exampleSpanish": "El precio es bueno.",
+      "exampleEnglish": "The price is good."
+    },
+    {
+      "spanish": "la bolsa",
+      "english": "bag",
+      "partOfSpeech": "noun",
+      "tier": 1,
+      "group": "At the stall",
+      "tip": "Ask for una bolsa after buying something.",
+      "exampleSpanish": "Una bolsa, por favor.",
+      "exampleEnglish": "A bag, please."
+    },
+    {
+      "spanish": "el dinero",
+      "english": "money",
+      "partOfSpeech": "noun",
+      "tier": 1,
+      "group": "At the stall",
+      "tip": "Carlos carries the money; your mission is the conversation.",
+      "exampleSpanish": "Carlos tiene el dinero.",
+      "exampleEnglish": "Carlos has the money."
+    },
+    {
+      "spanish": "comprar",
+      "english": "to buy",
+      "partOfSpeech": "verb",
+      "tier": 1,
+      "group": "At the stall",
+      "tip": "Compramos means we buy or we’re buying in the lesson phrase.",
+      "exampleSpanish": "¿Qué compramos primero?",
+      "exampleEnglish": "What should we buy first?"
+    },
+    {
+      "spanish": "vender",
+      "english": "to sell",
+      "partOfSpeech": "verb",
+      "tier": 2,
+      "group": "At the stall",
+      "tip": "The vendor sells; the customer buys.",
+      "exampleSpanish": "Venden pan fresco.",
+      "exampleEnglish": "They sell fresh bread."
+    },
+    {
+      "spanish": "el mercado",
+      "english": "market",
+      "partOfSpeech": "noun",
+      "tier": 1,
+      "group": "At the stall",
+      "tip": "You arranged this market visit in Lesson 4.",
+      "exampleSpanish": "El mercado está muy animado.",
+      "exampleEnglish": "The market is very lively."
+    },
+    {
+      "spanish": "el puesto",
+      "english": "stall",
+      "partOfSpeech": "noun",
+      "tier": 1,
+      "group": "At the stall",
+      "tip": "A market has different puestos for different foods.",
+      "exampleSpanish": "Este puesto vende queso.",
+      "exampleEnglish": "This stall sells cheese."
+    },
+    {
+      "spanish": "el cliente / la clienta",
+      "english": "customer",
+      "partOfSpeech": "noun",
+      "tier": 2,
+      "group": "At the stall",
+      "tip": "Choose the form that matches the person.",
+      "exampleSpanish": "La clienta compra flores.",
+      "exampleEnglish": "The customer buys flowers."
+    },
+    {
+      "spanish": "los ingredientes",
+      "english": "ingredients",
+      "partOfSpeech": "noun",
+      "tier": 1,
+      "group": "For lunch",
+      "tip": "These are the things Carlos needs for lunch.",
+      "exampleSpanish": "Necesitamos ingredientes para el almuerzo.",
+      "exampleEnglish": "We need ingredients for lunch."
+    },
+    {
+      "spanish": "las flores",
+      "english": "flowers",
+      "partOfSpeech": "noun",
+      "tier": 1,
+      "group": "For the table",
+      "tip": "Flowers are one of the learner’s six shopping choices.",
+      "exampleSpanish": "Estas flores son para mi madre.",
+      "exampleEnglish": "These flowers are for my mother."
+    },
+    {
+      "spanish": "fresco / fresca",
+      "english": "fresh",
+      "partOfSpeech": "adjective",
+      "tier": 1,
+      "group": "Describing food",
+      "tip": "Match the ending to the product: pan fresco, fruta fresca.",
+      "exampleSpanish": "Este pan está fresco.",
+      "exampleEnglish": "This bread is fresh."
+    },
+    {
+      "spanish": "dulce",
+      "english": "sweet",
+      "partOfSpeech": "adjective",
+      "tier": 1,
+      "group": "Describing food",
+      "tip": "Dulce works with masculine and feminine nouns.",
+      "exampleSpanish": "Esta naranja es dulce.",
+      "exampleEnglish": "This orange is sweet."
+    },
+    {
+      "spanish": "rico / rica",
+      "english": "tasty / delicious",
+      "partOfSpeech": "adjective",
+      "tier": 1,
+      "group": "Describing food",
+      "tip": "Match rico or rica to the noun you describe.",
+      "exampleSpanish": "Este queso está muy rico.",
+      "exampleEnglish": "This cheese is very tasty."
+    },
+    {
+      "spanish": "grande",
+      "english": "big / large",
+      "partOfSpeech": "adjective",
+      "tier": 1,
+      "group": "Describing food",
+      "tip": "Grande works with masculine and feminine nouns.",
+      "exampleSpanish": "Quiero esta bolsa grande.",
+      "exampleEnglish": "I want this large bag."
+    },
+    {
+      "spanish": "pequeño / pequeña",
+      "english": "small",
+      "partOfSpeech": "adjective",
+      "tier": 1,
+      "group": "Describing food",
+      "tip": "Match the ending to the noun.",
+      "exampleSpanish": "Quiero este queso pequeño.",
+      "exampleEnglish": "I want this small cheese."
+    },
+    {
+      "spanish": "¿Cuánto cuestan?",
+      "english": "How much do they cost?",
+      "partOfSpeech": "phrase",
+      "tier": 1,
+      "group": "Ask the price",
+      "tip": "A complete price question for more than one item.",
+      "exampleSpanish": "¿Cuánto cuestan estas manzanas?",
+      "exampleEnglish": "How much do these apples cost?"
+    }
   ],
   "grammar": {
     "topic": "Pointing to products: este, esta, estos, estas",
@@ -152,12 +469,102 @@
     "prompt": "¿Qué compramos primero?",
     "promptEnglish": "What should we buy first?",
     "options": [
-      { "id": "apples", "icon": "apple", "label": "Apples", "vocabularyFocus": ["la manzana"], "learnerSpanish": "Estas manzanas.", "learnerEnglish": "These apples.", "carlosSpanish": "Buena elección. Mi madre hace una ensalada de fruta muy rica.", "carlosEnglish": "Good choice. My mother makes a very tasty fruit salad.", "memoryCallback": "You picked apples first. I’ll remember that.", "vendorPrompt": "¿Cuántas?", "modelOrder": "Quiero estas manzanas, por favor." },
-      { "id": "bread", "icon": "bread-loaf", "label": "Bread", "vocabularyFocus": ["el pan"], "learnerSpanish": "Este pan.", "learnerEnglish": "This bread.", "carlosSpanish": "Buena elección. Esta panadería siempre huele increíble.", "carlosEnglish": "Good choice. This bakery always smells incredible.", "memoryCallback": "You went straight for the fresh bread. I’ll remember that.", "vendorPrompt": "¿Este pan?", "modelOrder": "Quiero este pan, por favor." },
-      { "id": "cheese", "icon": "cheese", "label": "Cheese", "vocabularyFocus": ["el queso"], "learnerSpanish": "Este queso.", "learnerEnglish": "This cheese.", "carlosSpanish": "Buena elección. Este queso es de La Mancha y está muy rico.", "carlosEnglish": "Good choice. This cheese is from La Mancha and is very tasty.", "memoryCallback": "You picked the La Mancha cheese first. I’ll remember that.", "vendorPrompt": "¿Grande o pequeño?", "modelOrder": "Quiero este queso pequeño, por favor." },
-      { "id": "coffee", "icon": "coffee-cup", "label": "Coffee", "vocabularyFocus": ["el café"], "learnerSpanish": "Este café.", "learnerEnglish": "This coffee.", "carlosSpanish": "Buena elección. El café huele fantástico hoy.", "carlosEnglish": "Good choice. The coffee smells fantastic today.", "memoryCallback": "Coffee first—I like your style. I’ll remember that.", "vendorPrompt": "¿Uno?", "modelOrder": "Quiero este café, por favor." },
-      { "id": "flowers", "icon": "flowers", "label": "Flowers", "vocabularyFocus": ["las flores"], "learnerSpanish": "Estas flores.", "learnerEnglish": "These flowers.", "carlosSpanish": "Buena elección. A mi madre le encantan las flores frescas. Siempre pone flores en la mesa cuando tenemos invitados.", "carlosEnglish": "Good choice. My mother loves fresh flowers. She always puts flowers on the table when we have guests.", "memoryCallback": "You chose flowers for the family table. I’ll remember that.", "vendorPrompt": "¿Estas flores?", "modelOrder": "Quiero estas flores, por favor." },
-      { "id": "tomatoes", "icon": "tomato", "label": "Tomatoes", "vocabularyFocus": ["el tomate"], "learnerSpanish": "Estos tomates.", "learnerEnglish": "These tomatoes.", "carlosSpanish": "Buena elección. Necesitamos tomates para el almuerzo.", "carlosEnglish": "Good choice. We need tomatoes for lunch.", "memoryCallback": "You picked the tomatoes for lunch. I’ll remember that.", "vendorPrompt": "¿Cuántos?", "modelOrder": "Quiero estos tomates, por favor." }
+      {
+        "id": "apples",
+        "icon": "apple",
+        "label": "Apples",
+        "vocabularyFocus": [
+          "la manzana"
+        ],
+        "learnerSpanish": "Estas manzanas.",
+        "learnerEnglish": "These apples.",
+        "carlosSpanish": "Buena elección. Mi madre hace una ensalada de fruta muy rica.",
+        "carlosEnglish": "Good choice. My mother makes a very tasty fruit salad.",
+        "memoryCallback": "You picked apples first. I’ll remember that.",
+        "vendorPrompt": "¿Cuántas?",
+        "modelOrder": "Quiero estas manzanas, por favor.",
+        "modelOrderEnglish": "I want these apples, please."
+      },
+      {
+        "id": "bread",
+        "icon": "bread-loaf",
+        "label": "Bread",
+        "vocabularyFocus": [
+          "el pan"
+        ],
+        "learnerSpanish": "Este pan.",
+        "learnerEnglish": "This bread.",
+        "carlosSpanish": "Buena elección. Esta panadería siempre huele increíble.",
+        "carlosEnglish": "Good choice. This bakery always smells incredible.",
+        "memoryCallback": "You went straight for the fresh bread. I’ll remember that.",
+        "vendorPrompt": "¿Este pan?",
+        "modelOrder": "Quiero este pan, por favor.",
+        "modelOrderEnglish": "I want this bread, please."
+      },
+      {
+        "id": "cheese",
+        "icon": "cheese",
+        "label": "Cheese",
+        "vocabularyFocus": [
+          "el queso"
+        ],
+        "learnerSpanish": "Este queso.",
+        "learnerEnglish": "This cheese.",
+        "carlosSpanish": "Buena elección. Este queso es de La Mancha y está muy rico.",
+        "carlosEnglish": "Good choice. This cheese is from La Mancha and is very tasty.",
+        "memoryCallback": "You picked the La Mancha cheese first. I’ll remember that.",
+        "vendorPrompt": "¿Grande o pequeño?",
+        "modelOrder": "Quiero este queso pequeño, por favor.",
+        "modelOrderEnglish": "I want this small cheese, please."
+      },
+      {
+        "id": "coffee",
+        "icon": "coffee-cup",
+        "label": "Coffee",
+        "vocabularyFocus": [
+          "el café"
+        ],
+        "learnerSpanish": "Este café.",
+        "learnerEnglish": "This coffee.",
+        "carlosSpanish": "Buena elección. El café huele fantástico hoy.",
+        "carlosEnglish": "Good choice. The coffee smells fantastic today.",
+        "memoryCallback": "Coffee first—I like your style. I’ll remember that.",
+        "vendorPrompt": "¿Uno?",
+        "modelOrder": "Quiero este café, por favor.",
+        "modelOrderEnglish": "I want this coffee, please."
+      },
+      {
+        "id": "flowers",
+        "icon": "flowers",
+        "label": "Flowers",
+        "vocabularyFocus": [
+          "las flores"
+        ],
+        "learnerSpanish": "Estas flores.",
+        "learnerEnglish": "These flowers.",
+        "carlosSpanish": "Buena elección. A mi madre le encantan las flores frescas. Siempre pone flores en la mesa cuando tenemos invitados.",
+        "carlosEnglish": "Good choice. My mother loves fresh flowers. She always puts flowers on the table when we have guests.",
+        "memoryCallback": "You chose flowers for the family table. I’ll remember that.",
+        "vendorPrompt": "¿Estas flores?",
+        "modelOrder": "Quiero estas flores, por favor.",
+        "modelOrderEnglish": "I want these flowers, please."
+      },
+      {
+        "id": "tomatoes",
+        "icon": "tomato",
+        "label": "Tomatoes",
+        "vocabularyFocus": [
+          "el tomate"
+        ],
+        "learnerSpanish": "Estos tomates.",
+        "learnerEnglish": "These tomatoes.",
+        "carlosSpanish": "Buena elección. Necesitamos tomates para el almuerzo.",
+        "carlosEnglish": "Good choice. We need tomatoes for lunch.",
+        "memoryCallback": "You picked the tomatoes for lunch. I’ll remember that.",
+        "vendorPrompt": "¿Cuántos?",
+        "modelOrder": "Quiero estos tomates, por favor.",
+        "modelOrderEnglish": "I want these tomatoes, please."
+      }
     ],
     "rejoin": "The vendor gives a simple price. The learner confirms the purchase, asks for a bag if needed, and says gracias. Carlos then reveals the nearby café."
   },
@@ -366,5 +773,546 @@
   "achievementsUnlocked": ["helpful_shopper"],
   "carlosClosing": "You chose what to buy and completed a real market purchase in Spanish. Thanks for helping with lunch—next, I’ll take you to my favorite café and show you how to order like a local.",
   "xpReward": 65,
-  "nextLesson": "lesson-06-food-drinks"
+  "nextLesson": "lesson-06-food-drinks",
+  "conversationBuilder": [
+    {
+      "id": "choose",
+      "title": "Pick a stall",
+      "shortLabel": "Pick a stall",
+      "speaker": "Carlos",
+      "carlosSpanish": "¿Qué compramos primero?",
+      "carlosEnglish": "What should we buy first?",
+      "responseSpanish": "Este pan.",
+      "responseEnglish": "This bread.",
+      "prompt": "Choose the product from your story path.",
+      "tip": "Este goes with pan, a masculine singular noun.",
+      "feedback": "Este goes with pan, a masculine singular noun.",
+      "practiceOptions": [
+        "Este pan.",
+        "Esta pan.",
+        "Estos pan."
+      ],
+      "byChoice": {
+        "apples": {
+          "responseSpanish": "Estas manzanas.",
+          "responseEnglish": "These apples.",
+          "practiceOptions": [
+            "Estas manzanas.",
+            "Este manzanas.",
+            "Esta manzanas."
+          ],
+          "tip": "Estas agrees with the item you chose in gender and number."
+        },
+        "bread": {
+          "responseSpanish": "Este pan.",
+          "responseEnglish": "This bread.",
+          "practiceOptions": [
+            "Este pan.",
+            "Esta pan.",
+            "Estos pan."
+          ],
+          "tip": "Este agrees with the item you chose in gender and number."
+        },
+        "cheese": {
+          "responseSpanish": "Este queso.",
+          "responseEnglish": "This cheese.",
+          "practiceOptions": [
+            "Este queso.",
+            "Esta queso.",
+            "Estos queso."
+          ],
+          "tip": "Este agrees with the item you chose in gender and number."
+        },
+        "coffee": {
+          "responseSpanish": "Este café.",
+          "responseEnglish": "This coffee.",
+          "practiceOptions": [
+            "Este café.",
+            "Esta café.",
+            "Estos café."
+          ],
+          "tip": "Este agrees with the item you chose in gender and number."
+        },
+        "flowers": {
+          "responseSpanish": "Estas flores.",
+          "responseEnglish": "These flowers.",
+          "practiceOptions": [
+            "Estas flores.",
+            "Este flores.",
+            "Esta flores."
+          ],
+          "tip": "Estas agrees with the item you chose in gender and number."
+        },
+        "tomatoes": {
+          "responseSpanish": "Estos tomates.",
+          "responseEnglish": "These tomatoes.",
+          "practiceOptions": [
+            "Estos tomates.",
+            "Este tomates.",
+            "Esta tomates."
+          ],
+          "tip": "Estos agrees with the item you chose in gender and number."
+        }
+      }
+    },
+    {
+      "id": "order",
+      "title": "Ask for it",
+      "shortLabel": "Ask for it",
+      "speaker": "Vendor",
+      "carlosSpanish": "Buenos días. ¿Qué necesitas?",
+      "carlosEnglish": "Good morning. What do you need?",
+      "responseSpanish": "Quiero este pan, por favor.",
+      "responseEnglish": "I want this bread, please.",
+      "prompt": "Ask the vendor for your selected item.",
+      "tip": "Quiero + este pan makes the request clear; por favor keeps it friendly.",
+      "feedback": "Quiero + este pan makes the request clear; por favor keeps it friendly.",
+      "practiceOptions": [
+        "Quiero este pan, por favor.",
+        "Quiero esta pan, por favor.",
+        "Quiero estos pan, por favor."
+      ],
+      "byChoice": {
+        "apples": {
+          "responseSpanish": "Quiero estas manzanas, por favor.",
+          "responseEnglish": "I want these apples, please.",
+          "practiceOptions": [
+            "Quiero estas manzanas, por favor.",
+            "Quiero este manzanas, por favor.",
+            "Quiero esta manzanas, por favor."
+          ],
+          "tip": "Keep the pointing word matched to your selected product, then add por favor."
+        },
+        "bread": {
+          "responseSpanish": "Quiero este pan, por favor.",
+          "responseEnglish": "I want this bread, please.",
+          "practiceOptions": [
+            "Quiero este pan, por favor.",
+            "Quiero esta pan, por favor.",
+            "Quiero estos pan, por favor."
+          ],
+          "tip": "Keep the pointing word matched to your selected product, then add por favor."
+        },
+        "cheese": {
+          "responseSpanish": "Quiero este queso pequeño, por favor.",
+          "responseEnglish": "I want this small cheese, please.",
+          "practiceOptions": [
+            "Quiero este queso pequeño, por favor.",
+            "Quiero esta queso pequeño, por favor.",
+            "Quiero estos queso pequeño, por favor."
+          ],
+          "tip": "Keep the pointing word matched to your selected product, then add por favor."
+        },
+        "coffee": {
+          "responseSpanish": "Quiero este café, por favor.",
+          "responseEnglish": "I want this coffee, please.",
+          "practiceOptions": [
+            "Quiero este café, por favor.",
+            "Quiero esta café, por favor.",
+            "Quiero estos café, por favor."
+          ],
+          "tip": "Keep the pointing word matched to your selected product, then add por favor."
+        },
+        "flowers": {
+          "responseSpanish": "Quiero estas flores, por favor.",
+          "responseEnglish": "I want these flowers, please.",
+          "practiceOptions": [
+            "Quiero estas flores, por favor.",
+            "Quiero este flores, por favor.",
+            "Quiero esta flores, por favor."
+          ],
+          "tip": "Keep the pointing word matched to your selected product, then add por favor."
+        },
+        "tomatoes": {
+          "responseSpanish": "Quiero estos tomates, por favor.",
+          "responseEnglish": "I want these tomatoes, please.",
+          "practiceOptions": [
+            "Quiero estos tomates, por favor.",
+            "Quiero este tomates, por favor.",
+            "Quiero esta tomates, por favor."
+          ],
+          "tip": "Keep the pointing word matched to your selected product, then add por favor."
+        }
+      }
+    },
+    {
+      "id": "price",
+      "title": "Ask the price",
+      "shortLabel": "Ask the price",
+      "speaker": "Vendor",
+      "carlosSpanish": "Claro. Aquí tienes.",
+      "carlosEnglish": "Of course. Here you are.",
+      "responseSpanish": "¿Cuánto cuesta?",
+      "responseEnglish": "How much does it cost?",
+      "prompt": "Ask the price before paying.",
+      "tip": "Use the whole price question as one useful chunk.",
+      "feedback": "Use the whole price question as one useful chunk.",
+      "practiceOptions": [
+        "¿Cuánto cuesta?",
+        "¿Cuándo?",
+        "¿Dónde está?"
+      ],
+      "byChoice": {
+        "apples": {
+          "responseSpanish": "¿Cuánto cuestan?",
+          "responseEnglish": "How much do they cost?",
+          "practiceOptions": [
+            "¿Cuánto cuestan?",
+            "¿Cuándo?",
+            "¿Dónde está?"
+          ],
+          "tip": "Use ¿Cuánto cuestan? as a complete price question for several items."
+        },
+        "bread": {
+          "responseSpanish": "¿Cuánto cuesta?",
+          "responseEnglish": "How much does it cost?",
+          "practiceOptions": [
+            "¿Cuánto cuesta?",
+            "¿Cuándo?",
+            "¿Dónde está?"
+          ],
+          "tip": "Use ¿Cuánto cuesta? as a complete price question for one item."
+        },
+        "cheese": {
+          "responseSpanish": "¿Cuánto cuesta?",
+          "responseEnglish": "How much does it cost?",
+          "practiceOptions": [
+            "¿Cuánto cuesta?",
+            "¿Cuándo?",
+            "¿Dónde está?"
+          ],
+          "tip": "Use ¿Cuánto cuesta? as a complete price question for one item."
+        },
+        "coffee": {
+          "responseSpanish": "¿Cuánto cuesta?",
+          "responseEnglish": "How much does it cost?",
+          "practiceOptions": [
+            "¿Cuánto cuesta?",
+            "¿Cuándo?",
+            "¿Dónde está?"
+          ],
+          "tip": "Use ¿Cuánto cuesta? as a complete price question for one item."
+        },
+        "flowers": {
+          "responseSpanish": "¿Cuánto cuestan?",
+          "responseEnglish": "How much do they cost?",
+          "practiceOptions": [
+            "¿Cuánto cuestan?",
+            "¿Cuándo?",
+            "¿Dónde está?"
+          ],
+          "tip": "Use ¿Cuánto cuestan? as a complete price question for several items."
+        },
+        "tomatoes": {
+          "responseSpanish": "¿Cuánto cuestan?",
+          "responseEnglish": "How much do they cost?",
+          "practiceOptions": [
+            "¿Cuánto cuestan?",
+            "¿Cuándo?",
+            "¿Dónde está?"
+          ],
+          "tip": "Use ¿Cuánto cuestan? as a complete price question for several items."
+        }
+      }
+    },
+    {
+      "id": "bag",
+      "title": "Take it with you",
+      "shortLabel": "Take it with you",
+      "speaker": "Vendor",
+      "carlosSpanish": "Cuesta tres euros. ¿Una bolsa?",
+      "carlosEnglish": "It costs three euros. A bag?",
+      "responseSpanish": "Una bolsa, por favor.",
+      "responseEnglish": "A bag, please.",
+      "prompt": "Accept a bag for your shopping.",
+      "tip": "Repeat the useful noun bolsa and add por favor.",
+      "feedback": "Repeat the useful noun bolsa and add por favor.",
+      "practiceOptions": [
+        "Una bolsa, por favor.",
+        "Nada más, gracias.",
+        "¿Cuánto cuesta?"
+      ]
+    },
+    {
+      "id": "finish",
+      "title": "Purchase complete",
+      "shortLabel": "Purchase complete",
+      "speaker": "Vendor",
+      "carlosSpanish": "¿Algo más?",
+      "carlosEnglish": "Anything else?",
+      "responseSpanish": "Nada más, gracias.",
+      "responseEnglish": "Nothing else, thank you.",
+      "prompt": "Finish the purchase.",
+      "tip": "Nada más tells the vendor that your order is complete.",
+      "feedback": "Nada más tells the vendor that your order is complete.",
+      "practiceOptions": [
+        "Nada más, gracias.",
+        "Quiero este pan.",
+        "¿Cuánto cuesta?"
+      ]
+    }
+  ],
+  "learnExperience": {
+    "version": 2,
+    "estimatedMinutes": 12,
+    "flow": [
+      "arrive",
+      "encounter",
+      "pattern",
+      "rehearse",
+      "speak",
+      "conversation",
+      "culture"
+    ],
+    "scenes": {
+      "arrive": {
+        "eyebrow": "Episode 5 · Madrid",
+        "title": "Fresh Fruit and Fresh Spanish",
+        "body": "Meet Carlos at ten, choose the first stall, and help shop for the family lunch.",
+        "location": "Mercado de San Miguel · Madrid",
+        "cta": "At the market"
+      },
+      "encounter": {
+        "eyebrow": "At the market",
+        "speaker": "Carlos",
+        "spanish": "¿Qué compramos primero?",
+        "english": "What should we buy first?",
+        "body": "Carlos’s special purchase is for the family lunch. Choose the first item; that choice stays with you through the conversation.",
+        "cta": "See the pattern",
+        "showModel": true
+      },
+      "pattern": {
+        "eyebrow": "The pattern",
+        "title": "Point to it. Ask for it.",
+        "body": "Match this or these to the product, then complete the purchase.",
+        "tip": "Este and esta point to one item; estos and estas point to several. Match the word to the product you chose.",
+        "moves": [
+          {
+            "label": "One masculine item",
+            "spanish": "Quiero este pan.",
+            "english": "I want this bread."
+          },
+          {
+            "label": "One feminine item",
+            "spanish": "Quiero esta manzana.",
+            "english": "I want this apple."
+          },
+          {
+            "label": "Several items",
+            "spanish": "Estos tomates. Estas flores.",
+            "english": "These tomatoes. These flowers."
+          }
+        ],
+        "showReference": true,
+        "byChoice": {
+          "apples": {
+            "moves": [
+              {
+                "label": "Point it out",
+                "spanish": "Estas manzanas.",
+                "english": "These apples."
+              },
+              {
+                "label": "Ask for it",
+                "spanish": "Quiero estas manzanas, por favor.",
+                "english": "I want these apples, please."
+              },
+              {
+                "label": "Ask the price",
+                "spanish": "¿Cuánto cuestan?",
+                "english": "How much do they cost?"
+              }
+            ]
+          },
+          "bread": {
+            "moves": [
+              {
+                "label": "Point it out",
+                "spanish": "Este pan.",
+                "english": "This bread."
+              },
+              {
+                "label": "Ask for it",
+                "spanish": "Quiero este pan, por favor.",
+                "english": "I want this bread, please."
+              },
+              {
+                "label": "Ask the price",
+                "spanish": "¿Cuánto cuesta?",
+                "english": "How much does it cost?"
+              }
+            ]
+          },
+          "cheese": {
+            "moves": [
+              {
+                "label": "Point it out",
+                "spanish": "Este queso.",
+                "english": "This cheese."
+              },
+              {
+                "label": "Ask for it",
+                "spanish": "Quiero este queso pequeño, por favor.",
+                "english": "I want this small cheese, please."
+              },
+              {
+                "label": "Ask the price",
+                "spanish": "¿Cuánto cuesta?",
+                "english": "How much does it cost?"
+              }
+            ]
+          },
+          "coffee": {
+            "moves": [
+              {
+                "label": "Point it out",
+                "spanish": "Este café.",
+                "english": "This coffee."
+              },
+              {
+                "label": "Ask for it",
+                "spanish": "Quiero este café, por favor.",
+                "english": "I want this coffee, please."
+              },
+              {
+                "label": "Ask the price",
+                "spanish": "¿Cuánto cuesta?",
+                "english": "How much does it cost?"
+              }
+            ]
+          },
+          "flowers": {
+            "moves": [
+              {
+                "label": "Point it out",
+                "spanish": "Estas flores.",
+                "english": "These flowers."
+              },
+              {
+                "label": "Ask for it",
+                "spanish": "Quiero estas flores, por favor.",
+                "english": "I want these flowers, please."
+              },
+              {
+                "label": "Ask the price",
+                "spanish": "¿Cuánto cuestan?",
+                "english": "How much do they cost?"
+              }
+            ]
+          },
+          "tomatoes": {
+            "moves": [
+              {
+                "label": "Point it out",
+                "spanish": "Estos tomates.",
+                "english": "These tomatoes."
+              },
+              {
+                "label": "Ask for it",
+                "spanish": "Quiero estos tomates, por favor.",
+                "english": "I want these tomatoes, please."
+              },
+              {
+                "label": "Ask the price",
+                "spanish": "¿Cuánto cuestan?",
+                "english": "How much do they cost?"
+              }
+            ]
+          }
+        }
+      },
+      "rehearse": {
+        "eyebrow": "Try it",
+        "title": "Let’s put it together.",
+        "body": "Choose a reply, notice why it works, then continue the same conversation."
+      },
+      "speak": {
+        "eyebrow": "Speak",
+        "title": "Now make it yours.",
+        "body": "Listen to the phrase, say it aloud, and replay your own recording.",
+        "spanish": "Quiero este pan, por favor.",
+        "english": "I want this bread, please.",
+        "tip": "Keep quiero este pan together, then soften the request with por favor.",
+        "byChoice": {
+          "apples": {
+            "spanish": "Quiero estas manzanas, por favor.",
+            "english": "I want these apples, please.",
+            "tip": "Keep your chosen item together with este, esta, estos, or estas."
+          },
+          "bread": {
+            "spanish": "Quiero este pan, por favor.",
+            "english": "I want this bread, please.",
+            "tip": "Keep your chosen item together with este, esta, estos, or estas."
+          },
+          "cheese": {
+            "spanish": "Quiero este queso pequeño, por favor.",
+            "english": "I want this small cheese, please.",
+            "tip": "Keep your chosen item together with este, esta, estos, or estas."
+          },
+          "coffee": {
+            "spanish": "Quiero este café, por favor.",
+            "english": "I want this coffee, please.",
+            "tip": "Keep your chosen item together with este, esta, estos, or estas."
+          },
+          "flowers": {
+            "spanish": "Quiero estas flores, por favor.",
+            "english": "I want these flowers, please.",
+            "tip": "Keep your chosen item together with este, esta, estos, or estas."
+          },
+          "tomatoes": {
+            "spanish": "Quiero estos tomates, por favor.",
+            "english": "I want these tomatoes, please.",
+            "tip": "Keep your chosen item together with este, esta, estos, or estas."
+          }
+        }
+      },
+      "conversation": {
+        "eyebrow": "Your turn",
+        "title": "Your turn at the stall.",
+        "body": "Choose your item, ask its price, and close the purchase yourself. Carlos is beside you."
+      },
+      "culture": {
+        "eyebrow": "Madrid Moment",
+        "title": "Start with a greeting.",
+        "lead": "A small exchange can make the stall feel familiar.",
+        "body": "At the market, begin with buenos días, point clearly to the product, and ask the price. Your words do not need to be long: the shared item in front of you gives the conversation context.",
+        "takeaway": "Buenos días · your request · gracias.",
+        "image": "assets/images/landmarks/mercado-san-miguel/mercado-stalls.webp",
+        "imageAlt": "Mercado de San Miguel · Madrid — the setting for Fresh Fruit and Fresh Spanish",
+        "caption": "Mercado de San Miguel · Madrid",
+        "showDiscovery": true,
+        "cta": "Complete the episode"
+      },
+      "completion": {
+        "eyebrow": "Fresh Fruit and Fresh Spanish complete",
+        "title": "You handled your first market purchase.",
+        "body": "You chose a product, asked for it, checked the price, and thanked the vendor.",
+        "capabilities": [
+          "Choose something to buy instead of following a fixed shopping list",
+          "Point out one or more products with este, esta, estos, or estas",
+          "Ask what something costs and understand a simple price",
+          "Ask for an item, choose an amount, and thank the vendor"
+        ],
+        "image": "assets/images/landmarks/mercado-san-miguel/mercado-stalls.webp",
+        "imageAlt": "A memory from Fresh Fruit and Fresh Spanish in Madrid",
+        "nextCta": "Continue to Coffee Break",
+        "reviewCta": "Review what you learned"
+      }
+    },
+    "practiceUnlock": {
+      "topic": "shopping",
+      "phrases": [
+        "¿Qué compramos primero?",
+        "Quiero este / esta...",
+        "Quiero estos / estas...",
+        "¿Cuánto cuesta?",
+        "Necesito...",
+        "Uno / una, por favor.",
+        "Nada más, gracias.",
+        "Está muy rico.",
+        "¿Cuánto cuestan?"
+      ],
+      "conversationPatterns": 1
+    }
+  }
 }

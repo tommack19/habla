@@ -18,6 +18,9 @@ import { isSpeechPlaying, playSpeech, stopSpeech } from "./core/audio.js";
 import { renderNavigation } from "./ui/navigation.js";
 import { CARLOS_FALLBACK_ONERROR, getCarlosAsset } from "./data/carlosAssets.js";
 import { initializeLessonMotion } from "./core/lessonMotion.js";
+import { buildTutorContext, requestTutorTurn, rememberTutorCorrection, readTutorPreferences, saveTutorPreferences, saveTutorPhrase, clearTutorCorrections, TUTOR_MODES } from "./core/tutor.js";
+import { createTutorRecorder } from "./core/tutorVoice.js";
+import { attachTutorFeedback } from "./ui/tutorFeedback.js";
 
 const PRACTICE_TOPIC_KEY = 'habla_selected_practice_topic_v1';
 const PRACTICE_SESSION_KEY = 'habla_practice_session_v2';
@@ -207,7 +210,7 @@ function setAvatar(state) {
   mouth.setAttribute('d', MOUTH_IDLE);
 
   const colors = {speaking:'#e8b86d', listening:'#c0392b', thinking:'#8e44ad', idle:'#27ae60'};
-  const labels = {speaking:'Speaking', listening:'Listening', thinking:'Thinking…', idle:'Online'};
+  const labels = {speaking:'Speaking', listening:'Listening', thinking:'Thinking…', idle:serviceReady === true ? 'Ready' : serviceReady === false ? 'Not connected' : 'Checking…'};
   glow.setAttribute('stroke', colors[state] || colors.idle);
   glow.setAttribute('opacity', state === 'idle' ? '0' : '0.55');
   lbl.textContent = labels[state] || 'Carlos';
@@ -242,43 +245,20 @@ function setAvatar(state) {
 // â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
 // VOICE
 // â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
-window.speechSynthesis.onvoiceschanged = () => window.speechSynthesis.getVoices();
-function getBestVoice() {
-  const voices = window.speechSynthesis.getVoices();
-  const prefs = [
-    v => v.lang==='es-ES' && v.name.includes('Google'),
-    v => v.lang==='es-MX' && v.name.includes('Google'),
-    v => v.lang.startsWith('es') && v.name.includes('Google'),
-    v => v.lang==='es-ES', v => v.lang.startsWith('es'),
-  ];
-  for (const p of prefs) { const f = voices.find(p); if(f) return f; }
-  return null;
-}
+if (globalThis.speechSynthesis) speechSynthesis.onvoiceschanged = () => speechSynthesis.getVoices();
 let isSpeaking = false;
-function speakText(text, onDone) {
+function speakText(text, onDone, rate = 0.96) {
   const voiceText = String(text || "").replace(/\*/g, "").trim();
+  if (!voiceText || isLoading || tutorRecorder.phase !== 'idle') return;
+  const epoch = carlosEpoch;
+  isSpeaking = true;
+  updateSendBtn();
   void playSpeech(voiceText, {
-    speaker: "Carlos",
-    mode: "fast",
-    rate: 0.96,
-    onStart: () => {
-      isSpeaking = true;
-      setAvatar("speaking");
-      const stopBtn = document.getElementById("stop-btn");
-      if (stopBtn) stopBtn.style.display = "block";
-    },
-    onEnd: () => finishCarlosSpeech(onDone),
-    onError: () => finishCarlosSpeech(onDone),
-  });
-  return;
-  window.speechSynthesis.cancel();
-  const clean = text.replace(/\*/g,'').replace(/[¡¿]/g,'').trim();
-  const utter = new SpeechSynthesisUtterance(clean);
-  const v = getBestVoice(); if(v){utter.voice=v;utter.lang=v.lang;}else{utter.lang='es-ES';}
-  utter.rate = 0.82; utter.pitch = 1.1;
-  utter.onstart = () => { isSpeaking=true; setAvatar('speaking'); const stopBtn = document.getElementById('stop-btn'); if (stopBtn) stopBtn.style.display='block'; };
-  utter.onend = utter.onerror = () => { isSpeaking=false; setAvatar('idle'); const stopBtn = document.getElementById('stop-btn'); if (stopBtn) stopBtn.style.display='none'; if(onDone) onDone(); };
-  window.speechSynthesis.speak(utter);
+    speaker: "Carlos", mode: "fast", rate,
+    onStart: () => { if (epoch === carlosEpoch) setAvatar("speaking"); },
+    onEnd: () => { if (epoch === carlosEpoch) finishCarlosSpeech(onDone); },
+    onError: () => { if (epoch === carlosEpoch) finishCarlosSpeech(onDone); },
+  }).then(completed => { if (!completed && epoch === carlosEpoch) finishCarlosSpeech(); });
 }
 
 function finishCarlosSpeech(onDone) {
@@ -292,7 +272,12 @@ function finishCarlosSpeech(onDone) {
 // â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
 // CHAT
 // â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
-let apiHistory = loadCarlosHistory(), isLoading = false, autoSpeak = true, level = state.user?.level || 'A1 Beginner';
+const initialTutorPreferences = readTutorPreferences();
+let apiHistory = loadCarlosHistory(), isLoading = false, autoSpeak = initialTutorPreferences.autoSpeak, level = state.user?.level || 'A1';
+let tutorMode = initialTutorPreferences.mode;
+let carlosEpoch = 0, carlosController = null, statusController = null, serviceReady = null;
+let failedCarlosEntry = null;
+let carlosComposerObserver = null;
 
 function fmtText(text) {
   return escapeCarlosText(text).replace(/\*([^*]+)\*/g,'<strong class="es">$1</strong>').replace(/\n/g,'<br>');
@@ -306,18 +291,26 @@ function formatCarlosTimestamp(createdAt) {
   const time = new Intl.DateTimeFormat([], {hour:'numeric',minute:'2-digit'}).format(date);
   return date.toDateString() === new Date().toDateString() ? `Today • ${time}` : time;
 }
-function addBubble(role, text, createdAt = Date.now()) {
+function addBubble(role, text, createdAt = Date.now(), entry = null) {
   const msgs = document.getElementById('messages');
   if (!msgs) return;
   const isUser = role === 'user';
   const d = document.createElement('article');
   d.className = `bub ${isUser ? 'user' : 'ai'}`;
+  if (entry?.id) d.dataset.entryId = entry.id;
+  d.classList.toggle('message-failed', Boolean(entry?.failed));
   const time = formatCarlosTimestamp(createdAt);
   d.innerHTML = isUser
-    ? `<div class="bub-body"><div class="bub-copy">${fmtText(text)}</div><time>${time} <span aria-hidden="true">✓✓</span></time></div>`
+    ? `<div class="bub-body"><div class="bub-copy">${fmtText(text)}</div><time>${time}</time></div>`
     : `<img class="bub-avatar" src="${getCarlosAsset('speaking')}" alt="Carlos" onerror="${CARLOS_FALLBACK_ONERROR}"><div class="bub-body"><div class="bub-copy">${fmtText(text)}</div><time>${time}</time></div>`;
   msgs.appendChild(d);
-  requestAnimationFrame(() => d.scrollIntoView({behavior:'smooth',block:'end'}));
+  if (entry?.tutor) attachTutorFeedback(d, entry.tutor, {
+    speak: (text, rate) => speakText(text, undefined, rate),
+    save: phrase => { if (!saveTutorPhrase(state, phrase)) return false; try { saveState(state); return true; } catch { showCarlosNotice('This device could not save the phrase. Please free some storage and try again.'); return false; } },
+    hint: text => { const input = document.getElementById('txt'); if (input && !input.disabled) { input.value = text; updateSendBtn(); input.focus(); } },
+  });
+  requestAnimationFrame(() => { if (d.isConnected) d.scrollIntoView({behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth',block:'end'}); });
+  return d;
 }
 function showTyping() {
   const msgs = document.getElementById('messages');
@@ -326,92 +319,145 @@ function showTyping() {
   d.innerHTML=`<img class="bub-avatar" src="${getCarlosAsset('thinking')}" alt="" onerror="${CARLOS_FALLBACK_ONERROR}"><div class="bub-body"><div class="typing" aria-label="Carlos is thinking"><span>Carlos is thinking</span><div class="dot"></div><div class="dot"></div><div class="dot"></div></div></div>`;
   msgs.appendChild(d); d.scrollIntoView({behavior:'smooth',block:'end'});
 }
-async function sendMessage(text) {
-  if(!text || isLoading) return;
+async function sendMessage(text, retryEntry = null) {
+  text = String(text || '').trim();
+  if (!text || isLoading || tutorRecorder.phase !== 'idle') return;
+  if (text.length > 1500) { showCarlosNotice('Please keep each message under 1,500 characters.'); return; }
   stopSpeech();
-  isLoading=true; window.speechSynthesis.cancel();
+  isSpeaking = false;
+  const epoch = ++carlosEpoch;
+  statusController?.abort();
+  isLoading = true;
+  failedCarlosEntry = null;
+  showCarlosNotice('');
   document.getElementById('carlos-suggestions')?.setAttribute('hidden','');
-  const stopBtn = document.getElementById('stop-btn');
-  if (stopBtn) stopBtn.style.display='none';
-  const startsNewConversation = !apiHistory.some(entry => entry.role === 'user');
-  addBubble('user',text);
-  if (startsNewConversation) recordCarlosConversationStart();
-  apiHistory.push({role:'user',content:text,createdAt:Date.now()});
+  const startsNewConversation = !apiHistory.some(entry => entry.tutor);
+  const entry = retryEntry || { id: crypto.randomUUID(), role:'user', content:text, createdAt:Date.now() };
+  entry.failed = false;
+  entry.pending = true;
+  if (!retryEntry) { apiHistory.push(entry); addBubble('user', text, entry.createdAt, entry); }
+  else document.querySelector(`[data-entry-id="${entry.id}"]`)?.classList.remove('message-failed');
+  const input = document.getElementById('txt');
+  if (input && input.value.trim() === text) input.value = '';
   saveCarlosHistory();
+  updateSendBtn();
   setAvatar('thinking'); showTyping();
+  carlosController = new AbortController();
+  const controller = carlosController;
+  const timeout = setTimeout(() => controller.abort(), 35000);
   try {
-    const data = await requestCarlosReply();
-    document.getElementById('typing-bub')?.remove();
-    if(data.error) throw new Error(data.error);
-    apiHistory.push({role:'assistant',content:data.reply,createdAt:Date.now()});
+    const lesson = getCurrentLesson();
+    const data = await requestTutorTurn(apiHistory, buildTutorContext(state, lesson, tutorMode), controller.signal);
+    if (epoch !== carlosEpoch) return;
+    entry.pending = false;
+    serviceReady = true;
+    const reply = { id: crypto.randomUUID(), role:'assistant', content:data.reply + '\n' + data.translation, tutor:data, createdAt:Date.now() };
+    apiHistory.push(reply);
     saveCarlosHistory();
-    addBubble('ai',data.reply);
-    if(autoSpeak) speakText(data.reply); else setAvatar('idle');
-  } catch(e) {
+    rememberTutorCorrection(data.correction, text, lesson?.id || '');
+    if (startsNewConversation) recordCarlosConversationStart();
     document.getElementById('typing-bub')?.remove();
-    const fallbackReply = getOfflineCarlosReply(text);
-    apiHistory.push({role:'assistant',content:fallbackReply,createdAt:Date.now()});
+    addBubble('assistant', data.reply, reply.createdAt, reply);
+    isLoading = false;
+    if (autoSpeak) speakText(data.reply); else setAvatar('idle');
+  } catch (error) {
+    if (epoch !== carlosEpoch) return;
+    entry.pending = false;
+    entry.failed = true;
+    failedCarlosEntry = entry;
     saveCarlosHistory();
-    addBubble('ai',fallbackReply);
-    if(autoSpeak) speakText(fallbackReply); else setAvatar('idle');
-  } finally { isLoading=false; }
-}
-
-function recordCarlosConversationStart() {
-  const key = 'habla_activity_stats_v1';
-  let activity = {};
-  try { activity = JSON.parse(localStorage.getItem(key) || '{}'); } catch {}
-  activity.carlosConversationsCount = Number(activity.carlosConversationsCount || 0) + 1;
-  activity.lastCarlosConversationAt = new Date().toISOString();
-  localStorage.setItem(key, JSON.stringify(activity));
-}
-
-async function requestCarlosReply() {
-  const controller = new AbortController();
-  const timeout = setTimeout(() => controller.abort(), 5000);
-  try {
-    const res = await fetch('/chat', {
-      method:'POST',
-      headers:{'Content-Type':'application/json'},
-      body:JSON.stringify({messages:apiHistory,level,context:getCarlosConversationContext()}),
-      signal:controller.signal
-    });
-    if (!res.ok) throw new Error(`Carlos service returned ${res.status}`);
-    return await res.json();
+    serviceReady = false;
+    document.querySelector(`[data-entry-id="${entry.id}"]`)?.classList.add('message-failed');
+    if (input && !input.value) input.value = text;
+    showCarlosNotice(error.name === 'AbortError' ? 'Carlos took too long to respond. Your message is ready to retry.' : error.message, () => sendMessage(text, entry));
+    setAvatar('idle');
   } finally {
     clearTimeout(timeout);
+    if (epoch === carlosEpoch) {
+      document.getElementById('typing-bub')?.remove();
+      isLoading = false;
+      carlosController = null;
+      updateSendBtn();
+    }
   }
 }
 
-function getCarlosConversationContext() {
-  const lesson = getCurrentLesson();
-  return {
-    learnerName: state.user?.name || '',
-    level: state.user?.level || level,
-    learningGoal: state.user?.learningGoal || state.user?.goal || '',
-    dialect: state.user?.dialect || state.user?.preferredDialect || '',
-    lesson: lesson ? {id:lesson.id || '',title:lesson.title || ''} : null
-  };
+function recordCarlosConversationStart() {
+  try {
+    const key = 'habla_activity_stats_v1';
+    let activity = JSON.parse(localStorage.getItem(key) || '{}');
+    activity ||= {};
+    activity.carlosConversationsCount = Number(activity.carlosConversationsCount || 0) + 1;
+    activity.lastCarlosConversationAt = new Date().toISOString();
+    localStorage.setItem(key, JSON.stringify(activity));
+  } catch {}
 }
 
-function getOfflineCarlosReply(text) {
-  const message = text.toLocaleLowerCase();
-  const lessonTitle = String(getCurrentLesson()?.title || 'today’s lesson').replace(/^[^:]+:\s*/, '');
-  if (/let's practice|practice today/.test(message)) return `¡Perfecto! We’ll practice *${lessonTitle}* together. I’ll keep it simple and help when you need it. *¿Empezamos?*`;
-  if (/review something|review recent/.test(message)) return '¡Claro! Let’s review one useful pattern first: *Quiero + infinitive* means “I want to…” Can you make a sentence with it?';
-  if (/simple a1|free conversation/.test(message)) return '¡Perfecto! Let’s have a simple conversation. *¿Cómo estás hoy?* You can answer: “Estoy bien,” “Estoy cansado,” or “Estoy feliz.”';
-  if (/oat milk|leche de avena/.test(message)) return 'Puedes decir:\n*Con leche de avena, por favor.*\nThat means “With oat milk, please.”';
-  if (/coffee|café|cafe/.test(message)) return '¡Claro! Puedes decir:\n*Quisiera un café, por favor.*\nThat means “I would like a coffee, please.” What would you like to add to it?';
-  if (/thank|gracias|another example/.test(message)) return '¡Por supuesto!\n*Me gustaría practicar otro ejemplo.*\nThat means “I would like to practice another example.” Can you repeat it in Spanish?';
-  if (/hola|hello|buenos días|buenas tardes|buenas noches/.test(message)) return '¡Hola! Me alegra hablar contigo. *¿Cómo estás hoy?*';
-  if (/my name is|me llamo|introduc/.test(message)) return '¡Mucho gusto! Try this pattern: *Me llamo… y soy de…* What city are you from?';
-  return '¡Buena pregunta! My full AI conversation service is not connected yet, but we can still practice a simple A1 exchange. Try asking me about greetings, introductions, or ordering coffee.';
+function showCarlosNotice(message, retry) {
+  const notice = document.getElementById('carlos-service-notice');
+  if (!notice) return;
+  notice.replaceChildren();
+  notice.hidden = !message;
+  if (!message) return;
+  const copy = document.createElement('span');
+  copy.textContent = message;
+  notice.append(copy);
+  if (retry) {
+    const button = document.createElement('button');
+    button.type = 'button'; button.textContent = 'Retry';
+    button.addEventListener('click', retry);
+    notice.append(button);
+  }
+}
+
+function cancelCarlosActivity() {
+  carlosEpoch += 1;
+  carlosController?.abort();
+  statusController?.abort();
+  carlosComposerObserver?.disconnect();
+  tutorRecorder.cancel();
+  isLoading = false;
+  isSpeaking = false;
+  stopSpeech();
+  for (const entry of apiHistory) if (entry.pending) { entry.pending = false; entry.failed = true; }
+  saveCarlosHistory();
+  document.getElementById('typing-bub')?.remove();
+  updateSendBtn();
+  setAvatar('idle');
+}
+
+async function checkCarlosConnection() {
+  const epoch = carlosEpoch;
+  const controller = new AbortController();
+  statusController = controller;
+  const timeout = setTimeout(() => controller.abort(), 5000);
+  try {
+    const response = await fetch('/api/tutor-status', { cache:'no-store', signal:controller.signal });
+    const status = await response.json();
+    if (!response.ok || typeof status.configured !== 'boolean') throw new Error('unavailable');
+    if (epoch !== carlosEpoch) return;
+    serviceReady = status.configured;
+    if (!serviceReady && !failedCarlosEntry) showCarlosNotice('Carlos is not connected yet. The app owner needs to finish tutor setup.');
+  } catch {
+    if (epoch !== carlosEpoch) return;
+    serviceReady = false;
+    if (!failedCarlosEntry) showCarlosNotice('Carlos could not connect. Check your connection, then try sending a message.');
+  } finally {
+    clearTimeout(timeout);
+    if (epoch === carlosEpoch && !isLoading && !isSpeaking && !isListening) setAvatar('idle');
+  }
+}
+
+function setTutorMode(mode) {
+  tutorMode = TUTOR_MODES.includes(mode) ? mode : 'conversation';
+  saveTutorPreferences({ autoSpeak, mode:tutorMode });
+  document.querySelectorAll('[data-tutor-mode]').forEach(button => button.setAttribute('aria-pressed', String(button.dataset.tutorMode === tutorMode)));
 }
 
 function loadCarlosHistory() {
   try {
     const saved = JSON.parse(localStorage.getItem(CARLOS_HISTORY_KEY) || '[]');
-    return Array.isArray(saved) ? saved.filter(entry => entry && ['user','assistant'].includes(entry.role) && typeof entry.content === 'string').slice(-40) : [];
+    return Array.isArray(saved) ? saved.filter(entry => entry && ['user','assistant'].includes(entry.role) && typeof entry.content === 'string').slice(-40).map(entry => ({ ...entry, id: /^[a-zA-Z0-9-]+$/.test(entry.id || '') ? entry.id : crypto.randomUUID(), failed: Boolean(entry.failed || entry.pending), pending: false })) : [];
   } catch (error) {
     return [];
   }
@@ -420,7 +466,7 @@ function loadCarlosHistory() {
 function saveCarlosHistory() {
   try {
     localStorage.setItem(CARLOS_HISTORY_KEY, JSON.stringify(apiHistory.slice(-40)));
-  } catch (error) {}
+  } catch (error) { showCarlosNotice('This device could not save the conversation. It may be lost when you close Habla.'); }
 }
 
 function escapeCarlosText(text) {
@@ -435,57 +481,53 @@ function escapeCarlosText(text) {
 // â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
 // MIC / SPEECH RECOGNITION
 // â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
-let recognition=null, isListening=false;
+let isListening = false;
+const tutorRecorder = createTutorRecorder({
+  language: () => /mexic|latin/i.test(state.user?.dialect || '') ? 'es-MX' : 'es-ES',
+  onState: phase => {
+    isListening = phase === 'recording' || phase === 'requesting';
+    const mic = document.getElementById('mic-btn');
+    mic?.classList.toggle('on', isListening);
+    mic?.setAttribute('aria-pressed', String(isListening));
+    mic?.setAttribute('aria-label', isListening ? 'Finish recording' : 'Start recording');
+    const input = document.getElementById('txt');
+    if (input) input.placeholder = phase === 'requesting' ? 'Opening microphone…' : phase === 'recording' ? 'Listening… tap the mic to finish' : phase === 'transcribing' ? 'Transcribing…' : input.dataset.idlePlaceholder;
+    const hint = document.getElementById('hint');
+    if (hint) hint.textContent = phase === 'recording' ? 'Tap the mic when finished · Up to 45 seconds' : phase === 'transcribing' ? 'Turning your recording into text…' : 'Speak English or Spanish — Carlos understands both';
+    if (phase === 'recording') setAvatar('listening');
+    else if (phase !== 'idle') setAvatar('thinking');
+    else if (!isLoading && !isSpeaking) setAvatar('idle');
+    // Defer access until the recorder has been assigned during initialization.
+    queueMicrotask(updateSendBtn);
+  },
+  onTranscript: text => { if (currentPage === 'carlos') sendMessage(text); },
+  onError: message => showCarlosNotice(message),
+});
 function startListening() {
-  const errEl = document.getElementById('mic-err');
-  const txt = document.getElementById('txt');
-  const micBtn = document.getElementById('mic-btn');
-  if (!errEl || !txt || !micBtn) return;
-  errEl.style.display='none';
-  const SR = window.SpeechRecognition || window.webkitSpeechRecognition;
-  if(!SR){errEl.textContent='Speech recognition is not supported here. You can still type to Carlos.';errEl.style.display='block';return;}
-  stopSpeech();
-  window.speechSynthesis.cancel();
-  recognition = new SR();
-  recognition.lang='es-ES'; recognition.continuous=false; recognition.interimResults=true;
-  let final='';
-  recognition.onstart=()=>{isListening=true;micBtn.classList.add('on');txt.placeholder='Listening… speak now';setAvatar('listening');};
-  recognition.onresult=(e)=>{
-    let interim=''; final='';
-    for(const r of e.results){if(r.isFinal)final+=r[0].transcript;else interim+=r[0].transcript;}
-    const currentTxt = document.getElementById('txt');
-    if (currentTxt) currentTxt.value=final||interim;
-  };
-  recognition.onerror=(e)=>{
-    stopListening();
-    const msgs={['not-allowed']:'Microphone blocked — allow it in your browser settings.',['network']:'Microphone connection error — try typing instead.',};
-    errEl.textContent=msgs[e.error]||`Mic error: ${e.error}. Try typing instead.`;
-    errEl.style.display='block';
-  };
-  recognition.onend=()=>{
-    stopListening();
-    const currentTxt = document.getElementById('txt');
-    const t=final||currentTxt?.value.trim();
-    if(t&&currentTxt){currentTxt.value='';updateSendBtn();sendMessage(t);}
-  };
-  try{recognition.start();}catch(e){stopListening();errEl.textContent='Could not start mic: '+e.message;errEl.style.display='block';}
+  if (isLoading) return;
+  stopSpeech(); isSpeaking = false;
+  showCarlosNotice('');
+  void tutorRecorder.start();
 }
-function stopListening(){
-  isListening=false;
-  document.getElementById('mic-btn')?.classList.remove('on');
-  const txt = document.getElementById('txt');
-  if (txt) txt.placeholder=txt.dataset.idlePlaceholder || 'Ask Carlos anything in Spanish...';
-  try{recognition?.stop();}catch(e){}
-  if(!isSpeaking) setAvatar('idle');
-}
-function updateSendBtn(){
-  const sendBtn = document.getElementById('snd-btn');
-  const txt = document.getElementById('txt');
-  if (!sendBtn || !txt) return;
-  sendBtn.classList.toggle('ok',txt.value.trim().length>0);
+function stopListening() { tutorRecorder.stop(); }
+function updateSendBtn() {
+  const send = document.getElementById('snd-btn');
+  const input = document.getElementById('txt');
+  if (!send || !input) return;
+  const busy = isLoading || tutorRecorder.phase !== 'idle';
+  send.disabled = busy || !input.value.trim();
+  input.disabled = busy;
+  send.classList.toggle('ok', input.value.trim().length > 0);
+  const mic = document.getElementById('mic-btn');
+  if (mic) mic.disabled = isLoading || tutorRecorder.phase === 'transcribing';
+  document.querySelectorAll('[data-tutor-mode], [data-carlos-send-prompt]').forEach(button => { button.disabled = busy; });
+  const stop = document.getElementById('stop-btn');
+  if (stop) {
+    stop.style.display = busy || isSpeaking ? 'block' : 'none';
+    stop.textContent = isLoading ? 'Cancel reply' : tutorRecorder.phase !== 'idle' ? 'Cancel recording' : 'Stop Carlos';
+  }
 }
 
-// â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
 // VOCAB RENDER
 // â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
 let currentCat='all', pronouncing=null;
@@ -530,7 +572,7 @@ function pronounceEx(text, idx, type) {
   };
   void playSpeech(text, { speaker: "Model", rate: 0.82, onEnd: finish, onError: finish });
   return;
-  if(window.speechSynthesis.speaking){window.speechSynthesis.cancel();document.querySelectorAll('.pbtn.speaking').forEach(b=>b.classList.remove('speaking'));if(pronouncing===btnId){pronouncing=null;return;}}
+  if(window.speechSynthesis.speaking){globalThis.speechSynthesis?.cancel();document.querySelectorAll('.pbtn.speaking').forEach(b=>b.classList.remove('speaking'));if(pronouncing===btnId){pronouncing=null;return;}}
   btn.classList.add('speaking'); pronouncing=btnId;
   const utter=new SpeechSynthesisUtterance(text.replace(/[Â¡Â¿]/g,''));
   const v=getBestVoice();if(v){utter.voice=v;utter.lang=v.lang;}else{utter.lang='es-ES';}
@@ -652,6 +694,7 @@ updateLevelButton();
 saveState(state);
 
 function renderAppPage(page) {
+  if (currentPage === 'carlos') cancelCarlosActivity();
   if (page !== currentPage) stopSpeech();
   currentPage = page;
   document.body.classList.toggle('carlos-mode', page === 'carlos');
@@ -781,6 +824,14 @@ function initializeCarlosUI() {
 
   if (!txt || !sendBtn || !micBtn || !stopBtn || !autoToggle || !messages) return;
 
+  if (globalThis.ResizeObserver) {
+    carlosComposerObserver = new ResizeObserver(entries => {
+      const height = entries[0]?.borderBoxSize?.[0]?.blockSize || entries[0]?.contentRect.height || 200;
+      document.querySelector('.carlos-screen')?.style.setProperty('--tutor-composer-space', `${height + 100}px`);
+    });
+    carlosComposerObserver.observe(document.getElementById('input-area'));
+  }
+
   messages.innerHTML = '';
   const intro = getCarlosIntro();
 
@@ -793,9 +844,9 @@ function initializeCarlosUI() {
     apiHistory.push({role:'assistant',content:intro,createdAt:Date.now()});
     saveCarlosHistory();
     addBubble('ai',intro);
-    setTimeout(()=>{if(autoSpeak && document.getElementById('messages'))speakText(intro);},900);
+    // The local welcome stays silent; only requested tutor replies auto-play.
   } else {
-    apiHistory.forEach(entry => addBubble(entry.role, entry.content, entry.createdAt));
+    apiHistory.forEach(entry => addBubble(entry.role, entry.tutor?.reply || entry.content, entry.createdAt, entry));
   }
 
   const dueRecap = consumeDueRecap();
@@ -817,11 +868,28 @@ function initializeCarlosUI() {
   const voiceState = document.getElementById('carlos-voice-state');
   if (voiceState) voiceState.textContent = autoSpeak ? 'On' : 'Off';
 
+  failedCarlosEntry = apiHistory.at(-1)?.failed ? apiHistory.at(-1) : null;
+  if (failedCarlosEntry) {
+    const entry = failedCarlosEntry;
+    txt.value = entry.content;
+    showCarlosNotice('Your last message did not receive a reply.', () => sendMessage(entry.content, entry));
+  }
+  const submit = () => {
+    const text = txt.value.trim();
+    if (!text || isLoading || tutorRecorder.phase !== 'idle') return;
+    const retry = failedCarlosEntry?.content === text ? failedCarlosEntry : null;
+    txt.value = ''; updateSendBtn(); void sendMessage(text, retry);
+  };
   txt.addEventListener('input',updateSendBtn);
-  txt.addEventListener('keydown',e=>{if(e.key==='Enter'){const t=e.target.value.trim();if(t){e.target.value='';updateSendBtn();sendMessage(t);}}});
-  sendBtn.addEventListener('click',()=>{const t=txt.value.trim();if(t){txt.value='';updateSendBtn();sendMessage(t);}});
+  txt.addEventListener('keydown', event => { if (event.key === 'Enter' && !event.isComposing) { event.preventDefault(); submit(); } });
+  sendBtn.addEventListener('click', submit);
   micBtn.addEventListener('click',()=>{if(isListening)stopListening();else startListening();});
-  stopBtn.addEventListener('click',()=>{stopSpeech();window.speechSynthesis.cancel();isSpeaking=false;setAvatar('idle');stopBtn.style.display='none';});
+  stopBtn.addEventListener('click', () => {
+    const pending = apiHistory.at(-1)?.pending ? apiHistory.at(-1) : null;
+    cancelCarlosActivity();
+    if (pending) { failedCarlosEntry = pending; txt.value = pending.content; showCarlosNotice('Reply cancelled. Your message is ready to retry.', () => sendMessage(pending.content, pending)); }
+    updateSendBtn();
+  });
   autoToggle.addEventListener('click',toggleAutoSpeak);
   autoToggle.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();toggleAutoSpeak();}});
   document.querySelectorAll('[data-carlos-prompt]').forEach(button => {
@@ -832,7 +900,11 @@ function initializeCarlosUI() {
     });
   });
   document.querySelectorAll('[data-carlos-send-prompt]').forEach(button => {
-    button.addEventListener('click', () => sendMessage(button.dataset.carlosSendPrompt || ''));
+    button.addEventListener('click', () => { setTutorMode(button.dataset.carlosMode); sendMessage(button.dataset.carlosSendPrompt || ''); });
+  });
+  document.querySelectorAll('[data-tutor-mode]').forEach(button => button.addEventListener('click', () => setTutorMode(button.dataset.tutorMode)));
+  document.querySelector('[data-carlos-forget-corrections]')?.addEventListener('click', () => {
+    if (clearTutorCorrections()) showCarlosNotice('Correction history cleared. Your lessons and saved phrases are still available.');
   });
   menuButton?.addEventListener('click', () => {
     const willOpen = quickMenu?.hasAttribute('hidden');
@@ -845,8 +917,10 @@ function initializeCarlosUI() {
     if (voiceState) voiceState.textContent = autoSpeak ? 'On' : 'Off';
   });
   document.querySelector('[data-carlos-reset]')?.addEventListener('click', () => {
-    stopSpeech();
-    window.speechSynthesis.cancel();
+    cancelCarlosActivity();
+    failedCarlosEntry = null;
+    txt.value = '';
+    showCarlosNotice('');
     apiHistory = [{role:'assistant',content:intro,createdAt:Date.now()}];
     saveCarlosHistory();
     messages.innerHTML = '';
@@ -855,10 +929,13 @@ function initializeCarlosUI() {
     quickMenu?.setAttribute('hidden','');
     menuButton?.setAttribute('aria-expanded','false');
     setAvatar('idle');
+    updateSendBtn();
   });
 
+  setTutorMode(tutorMode);
   updateSendBtn();
   setAvatar('idle');
+  void checkCarlosConnection();
 }
 
 function getCarlosIntro() {
@@ -876,11 +953,13 @@ function getCarlosIntro() {
 
 function toggleAutoSpeak() {
   autoSpeak=!autoSpeak;
+  saveTutorPreferences({ autoSpeak, mode:tutorMode });
   const track = document.getElementById('tog-track');
   const knob = document.getElementById('tog-k');
   if (track) track.style.background=autoSpeak?'var(--green)':'var(--border)';
   if (knob) knob.style.left=autoSpeak?'14px':'2px';
-  if(!autoSpeak){stopSpeech();window.speechSynthesis.cancel();setAvatar('idle');}
+  if(!autoSpeak){stopSpeech();isSpeaking=false;if(!isLoading && !isListening)setAvatar('idle');}
+  updateSendBtn();
 }
 
 document.addEventListener('click', (event) => {
@@ -1013,3 +1092,5 @@ document.addEventListener('keydown',event=>{
 });
 
 renderAppPage('home');
+
+window.addEventListener('pagehide', cancelCarlosActivity);

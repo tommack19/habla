@@ -2524,3 +2524,117 @@
     grid-template-columns: 1fr;
   }
 }
+
+/* Live tutoring extends the existing Carlos conversation surface. */
+.carlos-screen { scroll-padding-bottom: var(--tutor-composer-space, 300px); }
+.carlos-page-column { padding-bottom: calc(88px + env(safe-area-inset-bottom, 0px)); }
+.carlos-screen #input-area.carlos-chat-action {
+  position: sticky;
+  left: auto;
+  bottom: calc(76px + env(safe-area-inset-bottom, 0px));
+  transform: none;
+  border-radius: 20px;
+  padding: 12px;
+  margin: 14px auto 0;
+  max-height: 45dvh;
+  overflow-y: auto;
+}
+.carlos-screen #hint { display: block; margin-top: 8px; color: #c1c9c3; font-size: .875rem; line-height: 1.5; }
+.carlos-screen #txt { font-size: 1rem; }
+.tutor-mode-picker {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  padding: 12px 18px 0;
+}
+.tutor-mode-picker button,
+.tutor-reply-actions button,
+.tutor-phrase button,
+.tutor-service-notice button {
+  min-height: 40px;
+  padding: 8px 12px;
+  border: 1px solid rgba(255,255,255,.16);
+  border-radius: 10px;
+  background: rgba(255,255,255,.045);
+  color: #f2f5ef;
+  font: 600 .875rem/1.35 var(--habla-font-body);
+  cursor: pointer;
+}
+.tutor-mode-picker button[aria-pressed="true"] {
+  background: #174c35;
+  border-color: #70dba2;
+  color: #e3f8ec;
+}
+.tutor-feedback { margin-top: 10px; overflow-wrap: anywhere; }
+.tutor-feedback .tutor-translation {
+  margin: 8px 0;
+  color: #c1c9c3;
+  font-size: .9375rem;
+  line-height: 1.6;
+  white-space: pre-line;
+}
+.tutor-reply-actions { display: flex; flex-wrap: wrap; gap: 8px; margin: 10px 0; }
+.tutor-correction {
+  margin-block: 14px;
+  padding: 4px 0 4px 12px;
+  border-left: 2px solid #e8b86d;
+  font-size: .9375rem;
+  line-height: 1.55;
+}
+.tutor-correction-title { display: block; color: #e8b86d; margin-bottom: 8px; }
+.tutor-original { display: block; color: #c5bab3; text-decoration: line-through; }
+.tutor-corrected { display: block; color: #91e4b7; font-weight: 650; }
+.tutor-correction p { margin: 8px 0 0; }
+.tutor-phrases { margin-top: 12px; font-size: .875rem; }
+.tutor-phrases summary { padding-block: 8px; cursor: pointer; color: #e8b86d; }
+.tutor-phrase { display: flex; align-items: center; gap: 10px; padding-block: 10px; }
+.tutor-phrase > div { flex: 1; min-width: 0; }
+.tutor-phrase strong, .tutor-phrase span { display: block; }
+.tutor-phrase span { margin-top: 4px; color: #c1c9c3; }
+.tutor-phrase button { flex: none; }
+.tutor-hints { display: grid; gap: 8px; margin-top: 14px; }
+.tutor-hints button {
+  min-width: 0;
+  padding: 10px 12px;
+  border: 1px solid rgba(112,219,162,.3);
+  border-radius: 10px;
+  background: rgba(33,93,63,.24);
+  color: #f2f5ef;
+  text-align: left;
+  white-space: normal;
+  overflow-wrap: anywhere;
+  font: 500 .9375rem/1.5 var(--habla-font-body);
+  cursor: pointer;
+}
+.tutor-hints small { display: block; color: #c1c9c3; font-size: .875rem; }
+.bub:not(:last-of-type) .tutor-hints { display: none; }
+.tutor-service-notice {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 0 0 10px;
+  padding: 12px;
+  border: 1px solid rgba(232,184,109,.4);
+  border-radius: 12px;
+  background: #28251f;
+  color: #f4e5ce;
+  font-size: .875rem;
+  line-height: 1.5;
+}
+.tutor-service-notice > span { flex: 1; min-width: 0; overflow-wrap: anywhere; }
+.tutor-service-notice[hidden], .carlos-screen .auto-row[hidden] { display: none; }
+.carlos-screen .tutor-storage-note { margin: 8px 0 0; font-size: .75rem; line-height: 1.5; color: #aab7af; text-align: center; }
+.carlos-screen #stop-btn { min-height: 40px; font-size: .875rem; }
+.carlos-screen .message-failed time::after { content: " · No reply yet"; color: #e8b86d; }
+.carlos-screen button:disabled { cursor: default; opacity: .5; }
+.carlos-screen button:focus-visible, .tutor-phrases summary:focus-visible { outline: 2px solid #e8b86d; outline-offset: 3px; }
+.carlos-screen .bub-copy { font-size: 1rem; overflow-wrap: anywhere; }
+@media (max-width: 390px) {
+  .tutor-mode-picker { padding-inline: 12px; }
+  .tutor-mode-picker button { flex: 1 1 auto; padding-inline: 10px; }
+  .tutor-service-notice { flex-wrap: wrap; }
+  .tutor-service-notice button { width: 100%; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .carlos-screen .bub, .carlos-screen .dot { animation: none; }
+}

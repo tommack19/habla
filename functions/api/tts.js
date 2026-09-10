@@ -26,8 +26,9 @@ export async function onRequestPost(context) {
 
   const { character, voiceId } = resolveCharacterVoice(payload?.speaker);
   const modelId = payload?.mode === "fast" ? FAST_MODEL : QUALITY_MODEL;
+  const privateReply = payload?.mode === "fast";
   const cacheKey = await createCacheKey(request.url, { text, character, modelId });
-  const cache = globalThis.caches?.default;
+  const cache = privateReply ? null : globalThis.caches?.default;
   const cached = cache ? await cache.match(cacheKey) : null;
   if (cached) return withVoiceHeaders(cached, character, "HIT");
 
@@ -57,7 +58,7 @@ export async function onRequestPost(context) {
     status: 200,
     headers: {
       "Content-Type": elevenLabsResponse.headers.get("Content-Type") || "audio/mpeg",
-      "Cache-Control": "public, max-age=31536000, immutable",
+      "Cache-Control": privateReply ? "private, no-store" : "public, max-age=31536000, immutable",
       "X-Content-Type-Options": "nosniff",
     },
   });

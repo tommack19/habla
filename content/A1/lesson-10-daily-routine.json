@@ -1,8 +1,8 @@
 {
   "id": "lesson-10-daily-routine",
-  "contentVersion": "1.2",
+  "contentVersion": "1.5",
   "title": "Weekend Adventure",
-  "image": "assets/images/lessons/lesson-10-finale.png",
+  "image": "assets/images/landmarks/madrid/madrid-evening.webp",
   "level": "A1",
   "module": "Madrid Chapter Finale",
   "estimatedMinutes": 32,
@@ -403,5 +403,283 @@
   "achievementsUnlocked": ["madrid_ready"],
   "carlosClosing": "When we met, you knew only a few words. Today you greeted people, found your way, ordered, shopped, described my home, and told the story of our day in Spanish. I’m proud of you—your Madrid chapter is complete, and my family is waiting for us in Granada.",
   "xpReward": 100,
-  "nextLesson": "lesson-11-weather"
+  "nextLesson": "lesson-11-weather",
+  "conversationBuilder": [
+    {
+      "id": "greet",
+      "title": "Start the day",
+      "shortLabel": "Start the day",
+      "speaker": "Carlos",
+      "carlosSpanish": "Buenos días. Hoy tú decides y tú hablas primero.",
+      "carlosEnglish": "Good morning. Today you decide and you speak first.",
+      "responseSpanish": "Buenos días, Carlos. ¿Cómo estás?",
+      "responseEnglish": "Good morning, Carlos. How are you?",
+      "prompt": "Open the day and ask how Carlos is.",
+      "tip": "Return the greeting and keep the day moving.",
+      "feedback": "Return the greeting and keep the day moving.",
+      "practiceOptions": [
+        "Buenos días, Carlos. ¿Cómo estás?",
+        "Hasta luego, Carlos.",
+        "¿Cuánto cuesta?"
+      ]
+    },
+    {
+      "id": "navigate",
+      "title": "Find the market",
+      "shortLabel": "Find the market",
+      "speaker": "Carlos",
+      "carlosSpanish": "Estamos en Plaza Mayor. Necesitamos encontrar el mercado.",
+      "carlosEnglish": "We are in Plaza Mayor. We need to find the market.",
+      "responseSpanish": "Perdón, ¿dónde está el mercado?",
+      "responseEnglish": "Excuse me, where is the market?",
+      "prompt": "Ask for the market.",
+      "tip": "Use the same location question you practised on your Madrid walk.",
+      "feedback": "Use the same location question you practised on your Madrid walk.",
+      "practiceOptions": [
+        "Perdón, ¿dónde está el mercado?",
+        "Perdón, ¿dónde está la farmacia?",
+        "Perdón, ¿cuánto cuesta?"
+      ]
+    },
+    {
+      "id": "confirm-route",
+      "title": "Keep going",
+      "shortLabel": "Keep going",
+      "speaker": "Vecino",
+      "carlosSpanish": "Todo recto y después a la derecha.",
+      "carlosEnglish": "Straight ahead and then to the right.",
+      "responseSpanish": "Todo recto y a la derecha. Gracias.",
+      "responseEnglish": "Straight ahead and to the right. Thank you.",
+      "prompt": "Confirm the route and thank the speaker.",
+      "tip": "Repeat the useful route cues. Ask for repetition if you need it.",
+      "feedback": "Repeat the useful route cues. Ask for repetition if you need it.",
+      "practiceOptions": [
+        "Todo recto y a la derecha. Gracias.",
+        "Todo recto y a la izquierda. Gracias.",
+        "A la izquierda. Gracias."
+      ]
+    },
+    {
+      "id": "cafe",
+      "title": "Coffee stop",
+      "shortLabel": "Coffee stop",
+      "speaker": "Camarera",
+      "carlosSpanish": "Buenos días. ¿Qué quieres tomar?",
+      "carlosEnglish": "Good morning. What would you like to drink?",
+      "responseSpanish": "Quisiera un café con leche, por favor.",
+      "responseEnglish": "I would like a coffee with milk, please.",
+      "prompt": "For this example, order a coffee with milk.",
+      "tip": "Use quisiera for a polite order; choose your own drink when you speak.",
+      "feedback": "Use quisiera for a polite order; choose your own drink when you speak.",
+      "practiceOptions": [
+        "Quisiera un café con leche, por favor.",
+        "Quisiera la cuenta, por favor.",
+        "Nada más, gracias."
+      ],
+      "speakingPrompt": "Order a drink you would actually choose. Add nada más, gracias to close the order."
+    },
+    {
+      "id": "shop",
+      "title": "At the market",
+      "shortLabel": "At the market",
+      "speaker": "Vendedor",
+      "carlosSpanish": "Hola. ¿Qué necesitas?",
+      "carlosEnglish": "Hello. What do you need?",
+      "responseSpanish": "Quiero este pan, por favor. ¿Cuánto cuesta?",
+      "responseEnglish": "I want this bread, please. How much does it cost?",
+      "prompt": "Ask for this bread and ask its price.",
+      "tip": "Point to the item with este, then ask the familiar price question.",
+      "feedback": "Point to the item with este, then ask the familiar price question.",
+      "practiceOptions": [
+        "Quiero este pan, por favor. ¿Cuánto cuesta?",
+        "Quiero esta pan, por favor.",
+        "Quiero este pan, por favor."
+      ],
+      "speakingPrompt": "Choose a market item, ask for it, and ask the price."
+    },
+    {
+      "id": "home",
+      "title": "Back at the apartment",
+      "shortLabel": "Back at the apartment",
+      "speaker": "Marta",
+      "carlosSpanish": "¿Qué hay en el salón? ¿Dónde está la foto?",
+      "carlosEnglish": "What is in the living room? Where is the photo?",
+      "responseSpanish": "Hay un sofá y una foto. La foto está al lado de los libros.",
+      "responseEnglish": "There is a sofa and a photo. The photo is beside the books.",
+      "prompt": "Introduce two things, then locate the photo.",
+      "tip": "Hay introduces; está locates. You already know this apartment.",
+      "feedback": "Hay introduces; está locates. You already know this apartment.",
+      "practiceOptions": [
+        "Hay un sofá y una foto. La foto está al lado de los libros.",
+        "Está un sofá y una foto.",
+        "La foto hay al lado de los libros."
+      ]
+    },
+    {
+      "id": "your-day",
+      "title": "Tell the day",
+      "shortLabel": "Tell the day",
+      "speaker": "Carlos",
+      "carlosSpanish": "Cuéntame el día. Empieza por la mañana.",
+      "carlosEnglish": "Tell me about the day. Start with the morning.",
+      "responseSpanish": "Por la mañana, desayuno. Después, camino por la plaza. Al mediodía, como. Por la tarde, practico español.",
+      "responseEnglish": "In the morning, I have breakfast. Afterwards, I walk through the plaza. At midday, I eat. In the afternoon, I practice Spanish.",
+      "prompt": "Choose a connected morning-to-afternoon account.",
+      "tip": "Familiar time phrases let you connect several small scenes.",
+      "feedback": "Familiar time phrases let you connect several small scenes.",
+      "practiceOptions": [
+        "Por la mañana, desayuno. Después, camino por la plaza. Al mediodía, como. Por la tarde, practico español.",
+        "Por la mañana, desayuno.",
+        "Por la tarde, practico español."
+      ],
+      "speakingPrompt": "Tell the story of your Madrid day using at least four familiar actions."
+    },
+    {
+      "id": "goodbye",
+      "title": "Close the chapter",
+      "shortLabel": "Close the chapter",
+      "speaker": "Carlos",
+      "carlosSpanish": "Gracias por pasar el día conmigo. Nos vemos mañana.",
+      "carlosEnglish": "Thank you for spending the day with me. See you tomorrow.",
+      "responseSpanish": "Gracias, Carlos. Hasta mañana.",
+      "responseEnglish": "Thank you, Carlos. See you tomorrow.",
+      "prompt": "Thank Carlos and say goodbye until tomorrow.",
+      "tip": "A warm, simple goodbye completes the whole journey.",
+      "feedback": "A warm, simple goodbye completes the whole journey.",
+      "practiceOptions": [
+        "Gracias, Carlos. Hasta mañana.",
+        "Hola, Carlos.",
+        "¿Dónde está el mercado?"
+      ]
+    }
+  ],
+  "learnExperience": {
+    "version": 2,
+    "estimatedMinutes": 16,
+    "flow": [
+      "arrive",
+      "encounter",
+      "pattern",
+      "rehearse",
+      "speak",
+      "conversation",
+      "culture"
+    ],
+    "scenes": {
+      "arrive": {
+        "eyebrow": "Episode 10 · Madrid",
+        "title": "Weekend Adventure",
+        "body": "One more day in Madrid. Carlos stays beside you; this time, you speak first.",
+        "location": "Carlos & Marta’s Apartment · Madrid",
+        "cta": "Your Madrid day",
+        "image": "assets/images/landmarks/madrid/madrid-evening.webp",
+        "imageAlt": "Madrid at dusk, where the first chapter takes place"
+      },
+      "encounter": {
+        "eyebrow": "Your Madrid day",
+        "speaker": "Carlos",
+        "spanish": "Hoy tú decides y tú hablas primero.",
+        "english": "Today you decide and you speak first.",
+        "body": "From Plaza Mayor to the café, market, and apartment, use what you already know. There is no new grammar today.",
+        "cta": "Bring it together",
+        "showModel": true,
+        "image": "assets/images/landmarks/madrid/madrid-evening.webp"
+      },
+      "pattern": {
+        "eyebrow": "What you already know",
+        "title": "You already have the language.",
+        "body": "Bring familiar patterns together as the day changes around you.",
+        "tip": "If you lose a word, use ¿Puede repetir, por favor? A successful conversation can include asking for help.",
+        "moves": [
+          {
+            "label": "Find a place",
+            "spanish": "¿Dónde está el mercado?",
+            "english": "Where is the market?"
+          },
+          {
+            "label": "Order politely",
+            "spanish": "Quisiera un café, por favor.",
+            "english": "I would like a coffee, please."
+          },
+          {
+            "label": "At home",
+            "spanish": "Hay una foto. Está al lado de los libros.",
+            "english": "There is a photo. It is beside the books."
+          },
+          {
+            "label": "Tell your day",
+            "spanish": "Por la mañana, desayuno. Después, camino.",
+            "english": "In the morning, I have breakfast. Afterwards, I walk."
+          }
+        ],
+        "showReference": true
+      },
+      "rehearse": {
+        "eyebrow": "Try it",
+        "title": "Bring the day together.",
+        "body": "Choose a reply, notice why it works, then continue the same conversation."
+      },
+      "speak": {
+        "eyebrow": "Speak",
+        "title": "Now make it yours.",
+        "body": "Listen to the phrase, say it aloud, and replay your own recording.",
+        "spanish": "Perdón, ¿puede repetir más despacio, por favor?",
+        "english": "Excuse me, can you repeat more slowly, please?",
+        "tip": "Ask for help confidently. This phrase keeps a real conversation moving."
+      },
+      "conversation": {
+        "eyebrow": "Your turn",
+        "title": "A day without a script.",
+        "body": "Speak first in each setting. Choose your own details; open a hint only when you want support.",
+        "image": "assets/images/landmarks/madrid/madrid-evening.webp"
+      },
+      "culture": {
+        "eyebrow": "Madrid Moment",
+        "title": "A city becomes familiar.",
+        "lead": "The same places now hold your own conversations.",
+        "body": "The market, plaza, café, and apartment have each given you a reason to use Spanish. Keep confirming important plans, asking when you need help, and enjoying the people around you.",
+        "takeaway": "A greeting, a question, a reply → a day you can take part in.",
+        "image": "assets/images/landmarks/madrid/madrid-evening.webp",
+        "imageAlt": "Carlos & Marta’s Apartment · Madrid — the setting for Weekend Adventure",
+        "caption": "Carlos & Marta’s Apartment · Madrid",
+        "showDiscovery": true,
+        "cta": "Complete Madrid"
+      },
+      "completion": {
+        "eyebrow": "Chapter 1 complete",
+        "title": "Madrid is part of your Spanish story.",
+        "body": "You connected the chapter’s conversations into one day, from the first greeting to the final goodbye.",
+        "capabilities": [
+          "Carry familiar Spanish across six connected situations",
+          "Recover with a polite repair phrase instead of switching immediately to English",
+          "Make simple decisions about a route, an order, and a purchase",
+          "Describe a place and a personal day with less support from Carlos",
+          "Close a complete social day naturally"
+        ],
+        "image": "assets/images/landmarks/madrid/madrid-evening.webp",
+        "imageAlt": "A memory from Weekend Adventure in Madrid",
+        "nextCta": "Continue to Granada",
+        "reviewCta": "Review what you learned",
+        "showCeremony": true
+      }
+    },
+    "practiceUnlock": {
+      "topic": "madrid-review",
+      "phrases": [
+        "Buenos días. ¿Cómo estás?",
+        "¿Qué hacemos primero?",
+        "Perdón, ¿dónde está...?",
+        "¿Puede repetir, por favor?",
+        "Quisiera..., por favor.",
+        "Nada más, gracias.",
+        "Quiero este..., por favor.",
+        "¿Cuánto cuesta?",
+        "Hay un...",
+        "Está al lado de...",
+        "Después...",
+        "Ha sido un buen día."
+      ],
+      "conversationPatterns": 6
+    }
+  }
 }

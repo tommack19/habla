@@ -1,6 +1,6 @@
 {
   "id": "lesson-06-food-drinks",
-  "contentVersion": "1.2",
+  "contentVersion": "1.5",
   "title": "Coffee Break",
   "image": "assets/images/lessons/lesson-06-food-drinks.png",
   "level": "A1",
@@ -453,5 +453,357 @@
     "lessonCompletionXp": 65
   },
   "xpReward": 65,
-  "nextLesson": "lesson-07-travel-basics"
+  "nextLesson": "lesson-07-travel-basics",
+  "conversationBuilder": [
+    {
+      "id": "drink",
+      "title": "Your drink",
+      "shortLabel": "Your drink",
+      "speaker": "Camarera",
+      "carlosSpanish": "Buenos días. ¿Qué vais a tomar?",
+      "carlosEnglish": "Good morning. What would you like?",
+      "responseSpanish": "Quisiera un café, por favor.",
+      "responseEnglish": "I would like a coffee, please.",
+      "prompt": "Order the drink you chose.",
+      "tip": "Quisiera is a ready-to-use polite opening.",
+      "feedback": "Quisiera is a ready-to-use polite opening.",
+      "practiceOptions": [
+        "Quisiera un café, por favor.",
+        "Quiero la cuenta, por favor.",
+        "Nada más, gracias."
+      ],
+      "byChoice": {
+        "coffee": {
+          "responseSpanish": "Quisiera un café, por favor.",
+          "responseEnglish": "I would like a coffee, please.",
+          "practiceOptions": [
+            "Quisiera un café, por favor.",
+            "La cuenta, por favor.",
+            "Nada más, gracias."
+          ]
+        },
+        "tea": {
+          "responseSpanish": "Quisiera un té, por favor.",
+          "responseEnglish": "I would like a tea, please.",
+          "practiceOptions": [
+            "Quisiera un té, por favor.",
+            "La cuenta, por favor.",
+            "Nada más, gracias."
+          ]
+        },
+        "juice": {
+          "responseSpanish": "Quisiera un zumo de naranja, por favor.",
+          "responseEnglish": "I would like an orange juice, please.",
+          "practiceOptions": [
+            "Quisiera un zumo de naranja, por favor.",
+            "La cuenta, por favor.",
+            "Nada más, gracias."
+          ]
+        }
+      }
+    },
+    {
+      "id": "change",
+      "title": "Make it yours",
+      "shortLabel": "Make it yours",
+      "speaker": "Camarera",
+      "carlosSpanish": "¿Solo o con leche?",
+      "carlosEnglish": "Black or with milk?",
+      "responseSpanish": "Con leche, por favor.",
+      "responseEnglish": "With milk, please.",
+      "prompt": "Choose coffee with milk.",
+      "tip": "You can make a small change with a short phrase; there is no need to repeat the whole order.",
+      "feedback": "You can make a small change with a short phrase; there is no need to repeat the whole order.",
+      "practiceOptions": [
+        "Con leche, por favor.",
+        "Solo, por favor.",
+        "La cuenta, por favor."
+      ],
+      "byChoice": {
+        "coffee": {
+          "carlosSpanish": "¿Solo o con leche?",
+          "carlosEnglish": "Black or with milk?",
+          "responseSpanish": "Con leche, por favor.",
+          "responseEnglish": "With milk, please.",
+          "prompt": "Ask for milk in your coffee.",
+          "practiceOptions": [
+            "Con leche, por favor.",
+            "Solo, por favor.",
+            "La cuenta, por favor."
+          ],
+          "tip": "A short preference plus por favor is enough to customize your drink."
+        },
+        "tea": {
+          "carlosSpanish": "¿Con azúcar o sin azúcar?",
+          "carlosEnglish": "With sugar or without sugar?",
+          "responseSpanish": "Sin azúcar, por favor.",
+          "responseEnglish": "Without sugar, please.",
+          "prompt": "Ask for tea without sugar.",
+          "practiceOptions": [
+            "Sin azúcar, por favor.",
+            "Con azúcar, por favor.",
+            "La cuenta, por favor."
+          ],
+          "tip": "A short preference plus por favor is enough to customize your drink."
+        },
+        "juice": {
+          "carlosSpanish": "¿Grande o pequeño?",
+          "carlosEnglish": "Large or small?",
+          "responseSpanish": "Pequeño, por favor.",
+          "responseEnglish": "Small, please.",
+          "prompt": "Choose a small juice.",
+          "practiceOptions": [
+            "Pequeño, por favor.",
+            "Grande, por favor.",
+            "La cuenta, por favor."
+          ],
+          "tip": "A short preference plus por favor is enough to customize your drink."
+        }
+      }
+    },
+    {
+      "id": "food",
+      "title": "Something to eat",
+      "shortLabel": "Something to eat",
+      "speaker": "Camarera",
+      "carlosSpanish": "¿Algo para comer?",
+      "carlosEnglish": "Anything to eat?",
+      "responseSpanish": "Para mí, una tostada, por favor.",
+      "responseEnglish": "For me, toast, please.",
+      "prompt": "Ask for toast.",
+      "tip": "Para mí lets you add something for yourself.",
+      "feedback": "Para mí lets you add something for yourself.",
+      "practiceOptions": [
+        "Para mí, una tostada, por favor.",
+        "Para mí, un té, por favor.",
+        "La cuenta, por favor."
+      ]
+    },
+    {
+      "id": "close-order",
+      "title": "That is all",
+      "shortLabel": "That is all",
+      "speaker": "Camarera",
+      "carlosSpanish": "¿Algo más?",
+      "carlosEnglish": "Anything else?",
+      "responseSpanish": "Nada más, gracias.",
+      "responseEnglish": "Nothing else, thank you.",
+      "prompt": "Tell the server your order is complete.",
+      "tip": "You know this phrase from the market. It works at the café too.",
+      "feedback": "You know this phrase from the market. It works at the café too.",
+      "practiceOptions": [
+        "Nada más, gracias.",
+        "Una tostada, por favor.",
+        "Un café, por favor."
+      ]
+    },
+    {
+      "id": "bill",
+      "title": "After the break",
+      "shortLabel": "After the break",
+      "speaker": "Carlos",
+      "carlosSpanish": "Ya hemos terminado. Pide la cuenta.",
+      "carlosEnglish": "We’ve finished. Ask for the bill.",
+      "responseSpanish": "La cuenta, por favor.",
+      "responseEnglish": "The bill, please.",
+      "prompt": "Ask for the bill politely.",
+      "tip": "A short request and por favor are enough.",
+      "feedback": "A short request and por favor are enough.",
+      "practiceOptions": [
+        "La cuenta, por favor.",
+        "La carta, por favor.",
+        "Una tostada, por favor."
+      ]
+    }
+  ],
+  "learnExperience": {
+    "version": 2,
+    "estimatedMinutes": 12,
+    "flow": [
+      "arrive",
+      "encounter",
+      "pattern",
+      "rehearse",
+      "speak",
+      "conversation",
+      "culture"
+    ],
+    "scenes": {
+      "arrive": {
+        "eyebrow": "Episode 6 · Madrid",
+        "title": "Coffee Break",
+        "body": "Slow down after the market and order your own drink at the nearby café.",
+        "location": "Neighborhood Café · Madrid",
+        "cta": "Coffee Break"
+      },
+      "encounter": {
+        "eyebrow": "Coffee Break",
+        "speaker": "Carlos",
+        "spanish": "¿Qué prefieres: café, té o zumo?",
+        "english": "What do you prefer: coffee, tea, or juice?",
+        "body": "Choose a drink, then make one small change and add something to eat.",
+        "cta": "See the pattern",
+        "showModel": true
+      },
+      "pattern": {
+        "eyebrow": "The pattern",
+        "title": "A polite order, your way.",
+        "body": "Start with quisiera, add your preference, and finish clearly.",
+        "tip": "Use quisiera as one ready-to-use phrase meaning I would like. Add por favor to keep your request friendly.",
+        "moves": [
+          {
+            "label": "Order",
+            "spanish": "Quisiera un café, por favor.",
+            "english": "I would like a coffee, please."
+          },
+          {
+            "label": "Make a change",
+            "spanish": "Con leche, por favor.",
+            "english": "With milk, please."
+          },
+          {
+            "label": "Close the order",
+            "spanish": "Nada más, gracias.",
+            "english": "Nothing else, thank you."
+          }
+        ],
+        "showReference": true,
+        "byChoice": {
+          "coffee": {
+            "moves": [
+              {
+                "label": "Order",
+                "spanish": "Quisiera un café, por favor.",
+                "english": "I would like a coffee, please."
+              },
+              {
+                "label": "Make a change",
+                "spanish": "Con leche, por favor.",
+                "english": "With milk, please."
+              },
+              {
+                "label": "Close the order",
+                "spanish": "Nada más, gracias.",
+                "english": "Nothing else, thank you."
+              }
+            ]
+          },
+          "tea": {
+            "moves": [
+              {
+                "label": "Order",
+                "spanish": "Quisiera un té, por favor.",
+                "english": "I would like a tea, please."
+              },
+              {
+                "label": "Make a change",
+                "spanish": "Sin azúcar, por favor.",
+                "english": "Without sugar, please."
+              },
+              {
+                "label": "Close the order",
+                "spanish": "Nada más, gracias.",
+                "english": "Nothing else, thank you."
+              }
+            ]
+          },
+          "juice": {
+            "moves": [
+              {
+                "label": "Order",
+                "spanish": "Quisiera un zumo de naranja, por favor.",
+                "english": "I would like an orange juice, please."
+              },
+              {
+                "label": "Make a change",
+                "spanish": "Pequeño, por favor.",
+                "english": "Small, please."
+              },
+              {
+                "label": "Close the order",
+                "spanish": "Nada más, gracias.",
+                "english": "Nothing else, thank you."
+              }
+            ]
+          }
+        }
+      },
+      "rehearse": {
+        "eyebrow": "Try it",
+        "title": "Let’s put it together.",
+        "body": "Choose a reply, notice why it works, then continue the same conversation."
+      },
+      "speak": {
+        "eyebrow": "Speak",
+        "title": "Now make it yours.",
+        "body": "Listen to the phrase, say it aloud, and replay your own recording.",
+        "spanish": "Quisiera un café con leche, por favor.",
+        "english": "I would like a coffee with milk, please.",
+        "tip": "Let quisiera lead into the drink. Leave a small pause before por favor.",
+        "byChoice": {
+          "coffee": {
+            "spanish": "Quisiera un café con leche, por favor.",
+            "english": "I would like a coffee with milk, please.",
+            "tip": "Let quisiera lead into your chosen drink; add por favor at the end."
+          },
+          "tea": {
+            "spanish": "Quisiera un té sin azúcar, por favor.",
+            "english": "I would like a tea without sugar, please.",
+            "tip": "Let quisiera lead into your chosen drink; add por favor at the end."
+          },
+          "juice": {
+            "spanish": "Quisiera un zumo de naranja pequeño, por favor.",
+            "english": "I would like a small orange juice, please.",
+            "tip": "Let quisiera lead into your chosen drink; add por favor at the end."
+          }
+        }
+      },
+      "conversation": {
+        "eyebrow": "Your turn",
+        "title": "Order, then enjoy the break.",
+        "body": "The server asks; you answer. Use your chosen drink and make the order your own."
+      },
+      "culture": {
+        "eyebrow": "Madrid Moment",
+        "title": "Find your café rhythm.",
+        "lead": "A greeting and a clear order go a long way.",
+        "body": "At many Madrid cafés you can order at the bar or take a seat. Carlos uses café con leche for coffee with milk. For juice, you will hear zumo here; jugo is common in much of Latin America.",
+        "takeaway": "Quisiera…, por favor. → a useful polite order.",
+        "image": "assets/images/landmarks/cafe/cafe-counter.webp",
+        "imageAlt": "Neighborhood Café · Madrid — the setting for Coffee Break",
+        "caption": "Neighborhood Café · Madrid",
+        "showDiscovery": true,
+        "cta": "Complete the episode"
+      },
+      "completion": {
+        "eyebrow": "Coffee Break complete",
+        "title": "You ordered the café break yourself.",
+        "body": "You chose a drink, made a small change, ordered food, and asked for the bill.",
+        "capabilities": [
+          "State a real drink preference",
+          "Order one drink and one snack with quisiera",
+          "Add a simple change with a familiar café chunk",
+          "Respond to ¿Algo más? and close politely"
+        ],
+        "image": "assets/images/landmarks/cafe/cafe-counter.webp",
+        "imageAlt": "A memory from Coffee Break in Madrid",
+        "nextCta": "Continue to Walking Through Madrid",
+        "reviewCta": "Review what you learned"
+      }
+    },
+    "practiceUnlock": {
+      "topic": "food-restaurants",
+      "phrases": [
+        "¿Qué prefieres?",
+        "Prefiero...",
+        "Quisiera..., por favor.",
+        "Para mí...",
+        "con leche",
+        "sin azúcar",
+        "¿Algo más?",
+        "La cuenta, por favor."
+      ],
+      "conversationPatterns": 1
+    }
+  }
 }

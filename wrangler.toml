@@ -3,4 +3,4 @@ compatibility_date = "2026-07-22"
 pages_build_output_dir = "."
 
 [secrets]
-required = ["ELEVENLABS_API_KEY"]
+required = ["ELEVENLABS_API_KEY", "OPENAI_API_KEY"]

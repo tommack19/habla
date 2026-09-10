@@ -1,6 +1,6 @@
 {
   "id": "lesson-07-travel-basics",
-  "contentVersion": "1.2",
+  "contentVersion": "1.5",
   "title": "Walking Through Madrid",
   "image": "assets/images/lessons/lesson-07-travel.png",
   "level": "A1",
@@ -364,5 +364,229 @@
   "achievementsUnlocked": ["found_the_way"],
   "carlosClosing": "I almost answered for you—but I’m glad I didn’t. You asked for the route, followed every cue, and found Plaza Mayor yourself. Now the rain is starting, and my apartment is close.",
   "xpReward": 70,
-  "nextLesson": "lesson-08-vacation"
+  "nextLesson": "lesson-08-vacation",
+  "conversationBuilder": [
+    {
+      "id": "destination",
+      "title": "Ask for help",
+      "shortLabel": "Ask for help",
+      "speaker": "Carlos",
+      "carlosSpanish": "La plaza está cerca, pero hoy tú guías.",
+      "carlosEnglish": "The plaza is nearby, but today you lead.",
+      "responseSpanish": "Perdón, ¿dónde está Plaza Mayor?",
+      "responseEnglish": "Excuse me, where is Plaza Mayor?",
+      "prompt": "Ask someone where Plaza Mayor is.",
+      "tip": "Start with perdón, then use dónde está + one place.",
+      "feedback": "Start with perdón, then use dónde está + one place.",
+      "practiceOptions": [
+        "Perdón, ¿dónde está Plaza Mayor?",
+        "¿Cuánto cuesta Plaza Mayor?",
+        "¿Cuándo está Plaza Mayor?"
+      ]
+    },
+    {
+      "id": "straight",
+      "title": "First direction",
+      "shortLabel": "First direction",
+      "speaker": "Vecina",
+      "carlosSpanish": "Está cerca. Sigue todo recto.",
+      "carlosEnglish": "It’s nearby. Continue straight ahead.",
+      "responseSpanish": "Todo recto. Perfecto.",
+      "responseEnglish": "Straight ahead. Perfect.",
+      "prompt": "Repeat the direction you heard.",
+      "tip": "Repeating the key direction confirms that you understood.",
+      "feedback": "Repeating the key direction confirms that you understood.",
+      "practiceOptions": [
+        "Todo recto. Perfecto.",
+        "A la derecha. Perfecto.",
+        "A la izquierda. Perfecto."
+      ]
+    },
+    {
+      "id": "landmark",
+      "title": "At the bakery",
+      "shortLabel": "At the bakery",
+      "speaker": "Vecina",
+      "carlosSpanish": "Después, gira a la derecha en la panadería.",
+      "carlosEnglish": "Then turn right at the bakery.",
+      "responseSpanish": "A la derecha en la panadería.",
+      "responseEnglish": "Right at the bakery.",
+      "prompt": "Confirm both the turn and the landmark.",
+      "tip": "A landmark makes a short direction easier to follow.",
+      "feedback": "A landmark makes a short direction easier to follow.",
+      "practiceOptions": [
+        "A la derecha en la panadería.",
+        "A la izquierda en la panadería.",
+        "Todo recto en la panadería."
+      ]
+    },
+    {
+      "id": "pharmacy",
+      "title": "One more place",
+      "shortLabel": "One more place",
+      "speaker": "Carlos",
+      "carlosSpanish": "Pregunta también dónde está la farmacia.",
+      "carlosEnglish": "Also ask where the pharmacy is.",
+      "responseSpanish": "¿Dónde está la farmacia?",
+      "responseEnglish": "Where is the pharmacy?",
+      "prompt": "Ask for the pharmacy.",
+      "tip": "The same dónde está pattern works for a different place.",
+      "feedback": "The same dónde está pattern works for a different place.",
+      "practiceOptions": [
+        "¿Dónde está la farmacia?",
+        "¿Dónde está la panadería?",
+        "¿Dónde está la plaza?"
+      ]
+    },
+    {
+      "id": "market",
+      "title": "Use the pattern",
+      "shortLabel": "Use the pattern",
+      "speaker": "Vecina",
+      "carlosSpanish": "La farmacia está a la izquierda. ¿Algo más?",
+      "carlosEnglish": "The pharmacy is on the left. Anything else?",
+      "responseSpanish": "¿Y dónde está el mercado?",
+      "responseEnglish": "And where is the market?",
+      "prompt": "Ask where the market is.",
+      "tip": "Y connects a useful follow-up question to the same conversation.",
+      "feedback": "Y connects a useful follow-up question to the same conversation.",
+      "practiceOptions": [
+        "¿Y dónde está el mercado?",
+        "¿Y dónde está la farmacia?",
+        "¿Y dónde está la panadería?"
+      ]
+    },
+    {
+      "id": "arrive",
+      "title": "Plaza Mayor",
+      "shortLabel": "Plaza Mayor",
+      "speaker": "Vecina",
+      "carlosSpanish": "El mercado está cerca. Cruza la calle. La plaza está a la izquierda.",
+      "carlosEnglish": "The market is nearby. Cross the street. The plaza is on the left.",
+      "responseSpanish": "A la izquierda. Gracias por la ayuda.",
+      "responseEnglish": "On the left. Thank you for the help.",
+      "prompt": "Confirm the plaza is on the left and thank the speaker.",
+      "tip": "You can navigate with a location question, a repeated cue, and gracias.",
+      "feedback": "You can navigate with a location question, a repeated cue, and gracias.",
+      "practiceOptions": [
+        "A la izquierda. Gracias por la ayuda.",
+        "A la derecha. Gracias por la ayuda.",
+        "Todo recto. Gracias por la ayuda."
+      ]
+    }
+  ],
+  "learnExperience": {
+    "version": 2,
+    "estimatedMinutes": 12,
+    "flow": [
+      "arrive",
+      "encounter",
+      "pattern",
+      "rehearse",
+      "speak",
+      "conversation",
+      "culture"
+    ],
+    "scenes": {
+      "arrive": {
+        "eyebrow": "Episode 7 · Madrid",
+        "title": "Walking Through Madrid",
+        "body": "Step out of the café and help Carlos find Plaza Mayor, one clear direction at a time.",
+        "location": "Plaza Mayor · Madrid",
+        "cta": "Today you lead"
+      },
+      "encounter": {
+        "eyebrow": "Today you lead",
+        "speaker": "Carlos",
+        "spanish": "La plaza está cerca, pero hoy tú guías.",
+        "english": "The plaza is nearby, but today you lead.",
+        "body": "Ask a neighbour where the plaza is. Repeat the route cues, and use the same question for the pharmacy and market.",
+        "cta": "See the pattern",
+        "showModel": true
+      },
+      "pattern": {
+        "eyebrow": "The pattern",
+        "title": "Ask. Listen. Confirm.",
+        "body": "One location question works for more than one place.",
+        "tip": "Use dónde está for one place. Learn the route directions as useful chunks; you do not need a new verb system today.",
+        "moves": [
+          {
+            "label": "Ask",
+            "spanish": "¿Dónde está Plaza Mayor?",
+            "english": "Where is Plaza Mayor?"
+          },
+          {
+            "label": "Follow",
+            "spanish": "Todo recto. A la derecha.",
+            "english": "Straight ahead. To the right."
+          },
+          {
+            "label": "Locate",
+            "spanish": "Está a la izquierda.",
+            "english": "It is on the left."
+          }
+        ],
+        "showReference": true
+      },
+      "rehearse": {
+        "eyebrow": "Try it",
+        "title": "Let’s put it together.",
+        "body": "Choose a reply, notice why it works, then continue the same conversation."
+      },
+      "speak": {
+        "eyebrow": "Speak",
+        "title": "Now make it yours.",
+        "body": "Listen to the phrase, say it aloud, and replay your own recording.",
+        "spanish": "Perdón, ¿dónde está Plaza Mayor?",
+        "english": "Excuse me, where is Plaza Mayor?",
+        "tip": "Pause after perdón, then let dónde está flow together."
+      },
+      "conversation": {
+        "eyebrow": "Your turn",
+        "title": "Find your way through Madrid.",
+        "body": "Ask, repeat a useful direction, and thank the person helping. Open a hint if the route feels fast."
+      },
+      "culture": {
+        "eyebrow": "Madrid Moment",
+        "title": "Listen for the landmark.",
+        "lead": "The bakery can be more useful than a street number.",
+        "body": "In the old centre, a bakery, pharmacy, or plaza can help explain a route. Repeat the turn and landmark together so the person helping can confirm that you understood.",
+        "takeaway": "A la derecha en la panadería. → turn + landmark.",
+        "image": "assets/images/landmarks/plaza-mayor/plaza-mayor-day.webp",
+        "imageAlt": "Plaza Mayor · Madrid — the setting for Walking Through Madrid",
+        "caption": "Plaza Mayor · Madrid",
+        "showDiscovery": true,
+        "cta": "Complete the episode"
+      },
+      "completion": {
+        "eyebrow": "Walking Through Madrid complete",
+        "title": "You helped find the way through Madrid.",
+        "body": "You asked for places, repeated directions, and understood where to go next.",
+        "capabilities": [
+          "Ask where a place is",
+          "Understand right, left, and straight ahead",
+          "Recognize simple location phrases with está",
+          "Thank someone for directions and identify the destination"
+        ],
+        "image": "assets/images/landmarks/plaza-mayor/plaza-mayor-day.webp",
+        "imageAlt": "A memory from Walking Through Madrid in Madrid",
+        "nextCta": "Continue to An Afternoon at Home",
+        "reviewCta": "Review what you learned"
+      }
+    },
+    "practiceUnlock": {
+      "topic": "travel",
+      "phrases": [
+        "Perdón, ¿dónde está...?",
+        "Está aquí.",
+        "Está allí.",
+        "Todo recto.",
+        "A la derecha.",
+        "A la izquierda.",
+        "Está al lado de...",
+        "Gracias por la ayuda."
+      ],
+      "conversationPatterns": 1
+    }
+  }
 }

@@ -19,9 +19,9 @@ export function renderCarlos(state) {
               <div class="carlos-title-lockup">
                 <h1>Carlos</h1>
                 <div class="carlos-profile-chips">
-                  <span class="online"><i></i><b id="status-label">Online</b></span>
+                  <span class="online"><i></i><b id="status-label">Checking…</b></span>
                 </div>
-                <p>Your Spanish Tutor</p>
+                <p>Your AI Spanish Tutor</p>
               </div>
             </div>
           </header>
@@ -29,12 +29,19 @@ export function renderCarlos(state) {
           <div class="carlos-quick-menu" id="carlos-quick-menu" hidden>
             <button type="button" data-carlos-voice-toggle>${renderCarlosMenuIcon("voice")}<span>Voice replies</span><small id="carlos-voice-state">On</small></button>
             <button type="button" data-carlos-reset>${renderCarlosMenuIcon("reset")}<span>Reset conversation</span></button>
+            <button type="button" data-carlos-forget-corrections>${renderCarlosMenuIcon("review")}<span>Clear correction history</span></button>
             <button type="button" data-page="profile">${renderCarlosMenuIcon("settings")}<span>Learning preferences</span></button>
           </div>
         </section>
 
         <section class="carlos-conversation-thread" aria-label="Conversation with Carlos">
           ${renderCarlosMemoryStrip(state, lesson)}
+          <div class="tutor-mode-picker" role="group" aria-label="How would you like to practice?">
+            <button type="button" data-tutor-mode="conversation" aria-pressed="true">Chat</button>
+            <button type="button" data-tutor-mode="lesson" aria-pressed="false">This lesson</button>
+            <button type="button" data-tutor-mode="grammar" aria-pressed="false">Explain</button>
+            <button type="button" data-tutor-mode="review" aria-pressed="false">Review</button>
+          </div>
           <div class="carlos-suggestions" id="carlos-suggestions" aria-label="Start a conversation">
             ${renderCarlosSuggestions(lesson)}
           </div>
@@ -42,15 +49,16 @@ export function renderCarlos(state) {
         </section>
 
         <section class="carlos-chat-action" id="input-area" aria-label="Chat with Carlos">
+          <div id="carlos-service-notice" class="tutor-service-notice" role="status" hidden></div>
           <div id="input-row">
             <button class="carlos-more-btn" type="button" data-carlos-prompt="${escapeAttr(suggestedPrompts[0] || "Give me a useful Spanish phrase.")}" aria-label="More options"></button>
-            <input type="text" id="txt" placeholder="${escapeAttr(composerPrompt)}" data-idle-placeholder="${escapeAttr(composerPrompt)}" autocomplete="off" enterkeyhint="send" aria-label="Message Carlos">
+            <input type="text" id="txt" maxlength="1500" placeholder="${escapeAttr(composerPrompt)}" data-idle-placeholder="${escapeAttr(composerPrompt)}" autocomplete="off" enterkeyhint="send" aria-label="Message Carlos">
             <button class="ibtn" id="mic-btn" type="button" aria-label="Start listening">${renderCarlosControlIcon("mic")}</button>
             <button class="ibtn" id="snd-btn" type="button" aria-label="Send message">${renderCarlosControlIcon("composerAction")}</button>
           </div>
-          <div class="carlos-chat-meta" hidden>
+          <div class="carlos-chat-meta">
             <button id="stop-btn" type="button">Stop Carlos</button>
-            <div class="auto-row" id="auto-toggle" role="button" tabindex="0">
+            <div class="auto-row" id="auto-toggle" role="button" tabindex="0" hidden>
               <span>Carlos speaks</span>
               <div class="tog" id="tog-track" style="background:var(--green)">
                 <div class="tog-k" id="tog-k" style="left:14px"></div>
@@ -59,6 +67,7 @@ export function renderCarlos(state) {
           </div>
           <div id="mic-err"></div>
           <div id="hint">Speak English or Spanish - Carlos understands both</div>
+          <p class="tutor-storage-note">AI replies · Saved on this device · Recordings sent for transcription</p>
         </section>
       </div>
     </section>
@@ -87,13 +96,13 @@ function renderCarlosControlIcon(name) {
 function renderCarlosSuggestions(lesson) {
   const lessonTitle = String(lesson?.title || "today's lesson").replace(/^[^:]+:\s*/, "");
   const suggestions = [
-    ["lesson", "Continue Lesson →", `Let's continue ${lessonTitle}.`],
-    ["conversation", "Let's Practice Speaking", "Let's practice greetings and introductions out loud."],
-    ["chat", "Just Chat", "Let's have a simple A1 Spanish conversation."],
-    ["grammar", "Explain This Grammar", "Please explain a useful Spanish grammar idea simply."]
+    ["lesson", "Practice This Lesson", `Let's practice ${lessonTitle}.`, "lesson"],
+    ["conversation", "Let's Practice Speaking", "Let's practice a short, useful conversation. Ask me one question at a time.", "conversation"],
+    ["chat", "Just Chat", "Let's have a Spanish conversation at my level.", "conversation"],
+    ["grammar", "Explain This Grammar", "Please explain the grammar from my current lesson simply, with an example.", "grammar"]
   ];
-  return suggestions.map(([icon, label, prompt]) => `
-    <button type="button" data-carlos-send-prompt="${escapeAttr(prompt)}">
+  return suggestions.map(([icon, label, prompt, mode]) => `
+    <button type="button" data-carlos-mode="${mode}" data-carlos-send-prompt="${escapeAttr(prompt)}">
       ${renderCarlosMenuIcon(icon)}<span>${label}</span>
     </button>
   `).join("");

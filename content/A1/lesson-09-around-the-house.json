@@ -1,6 +1,6 @@
 {
   "id": "lesson-09-around-the-house",
-  "contentVersion": "1.2",
+  "contentVersion": "1.5",
   "title": "A Typical Day",
   "image": "assets/images/lessons/lesson-09-routine.png",
   "level": "A1",
@@ -419,5 +419,295 @@
   "achievementsUnlocked": ["daily_speaker"],
   "carlosClosing": "You just described an ordinary day in your own life, in order, using Spanish that belongs to you. The rain has stopped—tomorrow I want you to lead one complete day through Madrid.",
   "xpReward": 70,
-  "nextLesson": "lesson-10-daily-routine"
+  "nextLesson": "lesson-10-daily-routine",
+  "conversationBuilder": [
+    {
+      "id": "morning",
+      "title": "Your morning",
+      "shortLabel": "Your morning",
+      "speaker": "Carlos",
+      "carlosSpanish": "Por la mañana, desayuno con Marta y Nico. ¿Y tú?",
+      "carlosEnglish": "In the morning, I have breakfast with Marta and Nico. And you?",
+      "responseSpanish": "Por la mañana, desayuno.",
+      "responseEnglish": "In the morning, I have breakfast.",
+      "prompt": "Practise saying that you have breakfast in the morning.",
+      "tip": "Use desayuno as a whole useful first-person form.",
+      "feedback": "Use desayuno as a whole useful first-person form.",
+      "practiceOptions": [
+        "Por la mañana, desayuno.",
+        "Por la noche, desayuno.",
+        "Al mediodía, ceno."
+      ],
+      "speakingPrompt": "Tell Carlos one thing you really do in the morning."
+    },
+    {
+      "id": "midday",
+      "title": "At midday",
+      "shortLabel": "At midday",
+      "speaker": "Carlos",
+      "carlosSpanish": "Al mediodía, como en casa. ¿Y tú?",
+      "carlosEnglish": "At midday, I eat at home. And you?",
+      "responseSpanish": "Al mediodía, como.",
+      "responseEnglish": "At midday, I eat.",
+      "prompt": "Say that you eat at midday.",
+      "tip": "The -o ending in como tells us you are talking about yourself.",
+      "feedback": "The -o ending in como tells us you are talking about yourself.",
+      "practiceOptions": [
+        "Al mediodía, como.",
+        "Por la mañana, ceno.",
+        "Por la noche, trabajo."
+      ],
+      "speakingPrompt": "Say what you normally do at midday."
+    },
+    {
+      "id": "practice",
+      "title": "Time for Spanish",
+      "shortLabel": "Time for Spanish",
+      "speaker": "Carlos",
+      "carlosSpanish": "¿Cuándo practicas español normalmente?",
+      "carlosEnglish": "When do you normally practice Spanish?",
+      "responseSpanish": "Practico español por la mañana.",
+      "responseEnglish": "I practice Spanish in the morning.",
+      "prompt": "Use the practice time you chose.",
+      "tip": "Practico means I practice. Add your chosen time of day.",
+      "feedback": "Practico means I practice. Add your chosen time of day.",
+      "practiceOptions": [
+        "Practico español por la mañana.",
+        "Practico español por la tarde.",
+        "Practico español por la noche."
+      ],
+      "byChoice": {
+        "morning": {
+          "responseSpanish": "Practico español por la mañana.",
+          "responseEnglish": "I practice Spanish in the morning.",
+          "practiceOptions": [
+            "Practico español por la mañana.",
+            "Practico español por la tarde.",
+            "Practico español por la noche."
+          ]
+        },
+        "afternoon": {
+          "responseSpanish": "Practico español por la tarde.",
+          "responseEnglish": "I practice Spanish in the afternoon.",
+          "practiceOptions": [
+            "Practico español por la tarde.",
+            "Practico español por la mañana.",
+            "Practico español por la noche."
+          ]
+        },
+        "evening": {
+          "responseSpanish": "Practico español por la noche.",
+          "responseEnglish": "I practice Spanish in the evening.",
+          "practiceOptions": [
+            "Practico español por la noche.",
+            "Practico español por la mañana.",
+            "Practico español por la tarde."
+          ]
+        }
+      }
+    },
+    {
+      "id": "evening",
+      "title": "Later in the day",
+      "shortLabel": "Later in the day",
+      "speaker": "Carlos",
+      "carlosSpanish": "Por la noche, ceno y descanso. ¿Y tú?",
+      "carlosEnglish": "At night, I have dinner and rest. And you?",
+      "responseSpanish": "Por la noche, ceno y descanso.",
+      "responseEnglish": "At night, I have dinner and rest.",
+      "prompt": "Connect dinner and rest in the evening.",
+      "tip": "Join two short actions with y.",
+      "feedback": "Join two short actions with y.",
+      "practiceOptions": [
+        "Por la noche, ceno y descanso.",
+        "Por la mañana, ceno y descanso.",
+        "Al mediodía, desayuno."
+      ],
+      "speakingPrompt": "Tell Carlos how your real day usually ends."
+    },
+    {
+      "id": "whole-day",
+      "title": "A day in your words",
+      "shortLabel": "A day in your words",
+      "speaker": "Carlos",
+      "carlosSpanish": "Ahora cuéntame tu día, de la mañana a la noche.",
+      "carlosEnglish": "Now tell me about your day, from morning to night.",
+      "responseSpanish": "Por la mañana, desayuno y practico español. Al mediodía, como. Por la tarde, camino. Por la noche, descanso.",
+      "responseEnglish": "In the morning, I have breakfast and practice Spanish. At midday, I eat. In the afternoon, I walk. At night, I rest.",
+      "prompt": "Choose a complete morning-to-night example using your practice time.",
+      "tip": "Four short time phrases can hold a whole day together.",
+      "feedback": "Four short time phrases can hold a whole day together.",
+      "practiceOptions": [
+        "Por la mañana, desayuno y practico español. Al mediodía, como. Por la tarde, camino. Por la noche, descanso.",
+        "Por la mañana, desayuno.",
+        "Por la noche, descanso."
+      ],
+      "speakingPrompt": "Describe four true parts of your day in order. Change any example that does not fit your life.",
+      "byChoice": {
+        "morning": {
+          "responseSpanish": "Por la mañana, desayuno y practico español. Al mediodía, como. Por la tarde, camino. Por la noche, descanso.",
+          "responseEnglish": "In the morning, I have breakfast and practice Spanish. At midday, I eat. In the afternoon, I walk. At night, I rest.",
+          "practiceOptions": [
+            "Por la mañana, desayuno y practico español. Al mediodía, como. Por la tarde, camino. Por la noche, descanso.",
+            "Por la mañana, desayuno.",
+            "Por la noche, descanso."
+          ]
+        },
+        "afternoon": {
+          "responseSpanish": "Por la mañana, desayuno. Al mediodía, como. Por la tarde, practico español. Por la noche, descanso.",
+          "responseEnglish": "In the morning, I have breakfast. At midday, I eat. In the afternoon, I practice Spanish. At night, I rest.",
+          "practiceOptions": [
+            "Por la mañana, desayuno. Al mediodía, como. Por la tarde, practico español. Por la noche, descanso.",
+            "Por la mañana, desayuno.",
+            "Por la noche, descanso."
+          ]
+        },
+        "evening": {
+          "responseSpanish": "Por la mañana, desayuno. Al mediodía, como. Por la tarde, camino. Por la noche, practico español y descanso.",
+          "responseEnglish": "In the morning, I have breakfast. At midday, I eat. In the afternoon, I walk. At night, I practice Spanish and rest.",
+          "practiceOptions": [
+            "Por la mañana, desayuno. Al mediodía, como. Por la tarde, camino. Por la noche, practico español y descanso.",
+            "Por la mañana, desayuno.",
+            "Por la noche, descanso."
+          ]
+        }
+      }
+    }
+  ],
+  "learnExperience": {
+    "version": 2,
+    "estimatedMinutes": 12,
+    "flow": [
+      "arrive",
+      "encounter",
+      "pattern",
+      "rehearse",
+      "speak",
+      "conversation",
+      "culture"
+    ],
+    "scenes": {
+      "arrive": {
+        "eyebrow": "Episode 9 · Madrid",
+        "title": "A Typical Day",
+        "body": "While the kettle is on, tell Carlos what an ordinary day looks like for you.",
+        "location": "Carlos & Marta’s Apartment · Madrid",
+        "cta": "Your daily rhythm"
+      },
+      "encounter": {
+        "eyebrow": "Your daily rhythm",
+        "speaker": "Carlos",
+        "spanish": "¿Cuándo practicas español normalmente?",
+        "english": "When do you normally practice Spanish?",
+        "body": "Choose the time that fits you best. Then build a simple morning-to-night routine around your own life.",
+        "cta": "See the pattern",
+        "showModel": true
+      },
+      "pattern": {
+        "eyebrow": "The pattern",
+        "title": "A day in four small parts.",
+        "body": "Use short first-person actions and put them in order.",
+        "tip": "Useful forms such as desayuno, como, practico, and descanso end in -o when you talk about yourself. You can leave out yo.",
+        "moves": [
+          {
+            "label": "Morning",
+            "spanish": "Por la mañana, desayuno.",
+            "english": "In the morning, I have breakfast."
+          },
+          {
+            "label": "Midday",
+            "spanish": "Al mediodía, como.",
+            "english": "At midday, I eat."
+          },
+          {
+            "label": "Afternoon",
+            "spanish": "Por la tarde, camino.",
+            "english": "In the afternoon, I walk."
+          },
+          {
+            "label": "Night",
+            "spanish": "Por la noche, descanso.",
+            "english": "At night, I rest."
+          }
+        ],
+        "showReference": true
+      },
+      "rehearse": {
+        "eyebrow": "Try it",
+        "title": "Let’s put it together.",
+        "body": "Choose a reply, notice why it works, then continue the same conversation."
+      },
+      "speak": {
+        "eyebrow": "Speak",
+        "title": "Now make it yours.",
+        "body": "Listen to the phrase, say it aloud, and replay your own recording.",
+        "spanish": "Por la mañana, desayuno. Después, trabajo.",
+        "english": "In the morning, I have breakfast. Afterwards, I work.",
+        "tip": "Give después a little space: it connects the next part of your day.",
+        "byChoice": {
+          "morning": {
+            "spanish": "Practico español por la mañana.",
+            "english": "I practice Spanish in the morning.",
+            "tip": "Let practico español flow together, then add your chosen time."
+          },
+          "afternoon": {
+            "spanish": "Practico español por la tarde.",
+            "english": "I practice Spanish in the afternoon.",
+            "tip": "Let practico español flow together, then add your chosen time."
+          },
+          "evening": {
+            "spanish": "Practico español por la noche.",
+            "english": "I practice Spanish in the evening.",
+            "tip": "Let practico español flow together, then add your chosen time."
+          }
+        }
+      },
+      "conversation": {
+        "eyebrow": "Your turn",
+        "title": "Now Carlos listens to you.",
+        "body": "Use examples to get started, then describe four true parts of your own day."
+      },
+      "culture": {
+        "eyebrow": "Madrid Moment",
+        "title": "Every home has its own rhythm.",
+        "lead": "Ask about a routine; do not assume one.",
+        "body": "Carlos’s day includes breakfast with Marta and Nico, work, and time at home. Another family’s schedule may be different. Normally is a useful idea: you can describe a habit without claiming every day is identical.",
+        "takeaway": "Normalmente… → what usually happens in your day.",
+        "image": "assets/images/landmarks/apartment/apartment-kitchen.webp",
+        "imageAlt": "Carlos & Marta’s Apartment · Madrid — the setting for A Typical Day",
+        "caption": "Carlos & Marta’s Apartment · Madrid",
+        "showDiscovery": true,
+        "cta": "Complete the episode"
+      },
+      "completion": {
+        "eyebrow": "A Typical Day complete",
+        "title": "You told a day in your own words.",
+        "body": "You connected familiar actions, used time phrases, and shared a practice time that fits you.",
+        "capabilities": [
+          "Talk about your morning",
+          "Describe your afternoon and evening",
+          "Connect your day in a clear order",
+          "Tell Carlos about your real routine"
+        ],
+        "image": "assets/images/landmarks/apartment/apartment-kitchen.webp",
+        "imageAlt": "A memory from A Typical Day in Madrid",
+        "nextCta": "Continue to Weekend Adventure",
+        "reviewCta": "Review what you learned"
+      }
+    },
+    "practiceUnlock": {
+      "topic": "daily-routine",
+      "phrases": [
+        "Todos los días...",
+        "Por la mañana...",
+        "Al mediodía...",
+        "Por la tarde...",
+        "Por la noche...",
+        "Después...",
+        "Normalmente...",
+        "¿Qué haces normalmente?"
+      ],
+      "conversationPatterns": 1
+    }
+  }
 }

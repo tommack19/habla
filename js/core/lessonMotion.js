@@ -1,4 +1,4 @@
-const MOTION_ROOT = ".lesson-canonical";
+const MOTION_ROOT = ".lesson-narrative-experience";
 
 let activeScene = "";
 let activeTurn = "";

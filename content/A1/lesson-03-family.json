@@ -1,6 +1,6 @@
 {
   "id": "lesson-03-family",
-  "contentVersion": "1.4",
+  "contentVersion": "1.5",
   "title": "Family Dinner",
   "image": "assets/images/lessons/lesson-03-family.png",
   "level": "A1",
@@ -1020,5 +1020,220 @@
   ],
   "completionLabel": "Episode complete",
   "xpReward": 60,
-  "nextLesson": "lesson-04-numbers-time"
+  "nextLesson": "lesson-04-numbers-time",
+  "conversationBuilder": [
+    {
+      "id": "welcome",
+      "title": "At the door",
+      "shortLabel": "At the door",
+      "speaker": "Carlos",
+      "carlosSpanish": "¡Pasa! Esta es mi madre, Elena.",
+      "carlosEnglish": "Come in! This is my mother, Elena.",
+      "responseSpanish": "Hola, Elena. Me llamo {{learnerName}}. Mucho gusto.",
+      "responseEnglish": "Hi, Elena. My name is {{learnerName}}. Nice to meet you.",
+      "prompt": "Greet Elena and introduce yourself.",
+      "tip": "You already know how to introduce yourself. Use the same warm opening with Elena.",
+      "feedback": "You already know how to introduce yourself. Use the same warm opening with Elena.",
+      "practiceOptions": [
+        "Hola, Elena. Me llamo {{learnerName}}. Mucho gusto.",
+        "Hasta luego, Elena.",
+        "¿Dónde vives, Carlos?"
+      ]
+    },
+    {
+      "id": "father",
+      "title": "Meet Javier",
+      "shortLabel": "Meet Javier",
+      "speaker": "Carlos",
+      "carlosSpanish": "Este es mi padre, Javier. ¿Quién es Javier?",
+      "carlosEnglish": "This is my father, Javier. Who is Javier?",
+      "responseSpanish": "Es tu padre.",
+      "responseEnglish": "He is your father.",
+      "prompt": "Tell Carlos who Javier is.",
+      "tip": "Carlos says mi padre. When you answer Carlos, say tu padre.",
+      "feedback": "Carlos says mi padre. When you answer Carlos, say tu padre.",
+      "practiceOptions": [
+        "Es tu padre.",
+        "Es tu hermano.",
+        "Es tu hijo."
+      ]
+    },
+    {
+      "id": "son",
+      "title": "Meet Nico",
+      "shortLabel": "Meet Nico",
+      "speaker": "Elena",
+      "carlosSpanish": "Marta es la esposa de Carlos. Nico es su hijo. ¿Quién es Nico?",
+      "carlosEnglish": "Marta is Carlos’s wife. Nico is their son. Who is Nico?",
+      "responseSpanish": "Es su hijo.",
+      "responseEnglish": "He is their son.",
+      "prompt": "Tell Elena how Nico is related to Carlos and Marta.",
+      "tip": "Su can mean his, her, or their. Here it refers to Carlos and Marta.",
+      "feedback": "Su can mean his, her, or their. Here it refers to Carlos and Marta.",
+      "practiceOptions": [
+        "Es su hijo.",
+        "Es su padre.",
+        "Es su hermano."
+      ]
+    },
+    {
+      "id": "siblings",
+      "title": "Your family",
+      "shortLabel": "Your family",
+      "speaker": "Carlos",
+      "carlosSpanish": "Lucía es mi hermana y Diego es mi hermano. ¿Tienes hermanos?",
+      "carlosEnglish": "Lucía is my sister and Diego is my brother. Do you have siblings?",
+      "responseSpanish": "Tengo una hermana.",
+      "responseEnglish": "I have a sister.",
+      "prompt": "For this practice example, say you have one sister.",
+      "tip": "Tengo introduces a family detail. No tengo hermanos is equally valid when it is true.",
+      "feedback": "Tengo introduces a family detail. No tengo hermanos is equally valid when it is true.",
+      "practiceOptions": [
+        "Tengo una hermana.",
+        "Es tu hermana.",
+        "Esta es mi madre."
+      ],
+      "speakingPrompt": "Answer truthfully about siblings, or practise an example if you prefer.",
+      "alternatives": [
+        "No tengo hermanos.",
+        "Tengo un hermano."
+      ]
+    },
+    {
+      "id": "ask-family",
+      "title": "Keep talking",
+      "shortLabel": "Keep talking",
+      "speaker": "Carlos",
+      "carlosSpanish": "Ahora tú. ¿Quieres preguntarme por mi familia?",
+      "carlosEnglish": "Now you. Would you like to ask me about my family?",
+      "responseSpanish": "¿Dónde vive tu hermana?",
+      "responseEnglish": "Where does your sister live?",
+      "prompt": "Ask Carlos where his sister lives.",
+      "tip": "Use tu when you ask someone about their family.",
+      "feedback": "Use tu when you ask someone about their family.",
+      "practiceOptions": [
+        "¿Dónde vive tu hermana?",
+        "¿Dónde vive mi hermana?",
+        "¿Cómo te llamas?"
+      ]
+    }
+  ],
+  "learnExperience": {
+    "version": 2,
+    "estimatedMinutes": 12,
+    "flow": [
+      "arrive",
+      "encounter",
+      "pattern",
+      "rehearse",
+      "speak",
+      "conversation",
+      "culture"
+    ],
+    "scenes": {
+      "arrive": {
+        "eyebrow": "Episode 3 · Madrid",
+        "title": "Family Dinner",
+        "body": "Join Ana at Carlos and Marta’s home and find your place around the family table.",
+        "location": "Carlos’s Family Home · Madrid",
+        "cta": "Family Dinner"
+      },
+      "encounter": {
+        "eyebrow": "Family Dinner",
+        "speaker": "Carlos",
+        "spanish": "¡Pasa! Esta es mi madre, Elena.",
+        "english": "Come in! This is my mother, Elena.",
+        "body": "Elena, Javier, Lucía, and Diego are visiting from Granada. You already know Ana; tonight you meet Carlos’s family.",
+        "cta": "See the pattern",
+        "showModel": true
+      },
+      "pattern": {
+        "eyebrow": "The pattern",
+        "title": "The people around the table.",
+        "body": "Connect a family member to the person they belong with.",
+        "tip": "Mi means my, tu means your, and su can mean his, her, or their. Nuestro or nuestra means our.",
+        "moves": [
+          {
+            "label": "My family",
+            "spanish": "Esta es mi madre.",
+            "english": "This is my mother."
+          },
+          {
+            "label": "Your family",
+            "spanish": "¿Cómo se llama tu hermana?",
+            "english": "What is your sister’s name?"
+          },
+          {
+            "label": "Their family",
+            "spanish": "Nico es su hijo.",
+            "english": "Nico is their son."
+          },
+          {
+            "label": "Our family",
+            "spanish": "Este es nuestro hijo.",
+            "english": "This is our son."
+          }
+        ],
+        "showReference": true
+      },
+      "rehearse": {
+        "eyebrow": "Try it",
+        "title": "Let’s put it together.",
+        "body": "Choose a reply, notice why it works, then continue the same conversation."
+      },
+      "speak": {
+        "eyebrow": "Speak",
+        "title": "Now make it yours.",
+        "body": "Listen to the phrase, say it aloud, and replay your own recording.",
+        "spanish": "Esta es mi madre. Este es mi padre.",
+        "english": "This is my mother. This is my father.",
+        "tip": "Say mi madre and mi padre as two easy chunks."
+      },
+      "conversation": {
+        "eyebrow": "Your turn",
+        "title": "You belong at the table.",
+        "body": "Meet the family, ask a question, and share a detail that is true for you. Examples are there if you prefer to practise them."
+      },
+      "culture": {
+        "eyebrow": "Madrid Moment",
+        "title": "Follow your host’s lead.",
+        "lead": "Mucho gusto is a warm place to start.",
+        "body": "At the family dinner, greet people as they are introduced. A friendly verbal greeting is always an option; follow your host’s lead with a handshake, hug, or cheek kisses.",
+        "takeaway": "A first name + mucho gusto → a warm introduction.",
+        "image": "assets/images/landmarks/apartment/apartment-kitchen.webp",
+        "imageAlt": "Carlos’s Family Home · Madrid — the setting for Family Dinner",
+        "caption": "Carlos’s Family Home · Madrid",
+        "showDiscovery": true,
+        "cta": "Complete the episode"
+      },
+      "completion": {
+        "eyebrow": "Family Dinner complete",
+        "title": "You found your place at the family table.",
+        "body": "You used family words, identified relationships, and kept a personal conversation moving.",
+        "capabilities": [
+          "introduce people in my family",
+          "ask someone about their family",
+          "say who a person is",
+          "answer basic questions about family"
+        ],
+        "image": "assets/images/landmarks/apartment/apartment-kitchen.webp",
+        "imageAlt": "A memory from Family Dinner in Madrid",
+        "nextCta": "Continue to See You at Ten",
+        "reviewCta": "Review what you learned"
+      }
+    },
+    "practiceUnlock": {
+      "topic": "family",
+      "phrases": [
+        "Esta es mi madre.",
+        "Este es mi padre.",
+        "¿Quién es ella?",
+        "¿Quién es él?",
+        "¿Tienes hermanos?",
+        "Tengo una hermana.",
+        "No tengo hermanos."
+      ],
+      "conversationPatterns": 1
+    }
+  }
 }

@@ -1,6 +1,6 @@
 {
   "id": "lesson-04-numbers-time",
-  "contentVersion": "1.4",
+  "contentVersion": "1.5",
   "title": "See You at Ten",
   "image": "assets/images/lessons/lesson-04-numbers-time.png",
   "level": "A1",
@@ -430,5 +430,211 @@
   },
   "completionLabel": "Episode complete",
   "xpReward": 60,
-  "nextLesson": "lesson-05-shopping"
+  "nextLesson": "lesson-05-shopping",
+  "conversationBuilder": [
+    {
+      "id": "greet",
+      "title": "A message",
+      "shortLabel": "A message",
+      "speaker": "Carlos",
+      "carlosSpanish": "¡Hola, {{learnerName}}! Mi madre dijo que fue un placer conocerte ayer.",
+      "carlosEnglish": "Hi, {{learnerName}}! My mother said it was a pleasure meeting you yesterday.",
+      "responseSpanish": "¡Hola, Carlos! ¿Cómo estás?",
+      "responseEnglish": "Hi, Carlos! How are you?",
+      "prompt": "Send Carlos a friendly greeting.",
+      "tip": "The message continues the family dinner story. You only need a short friendly reply.",
+      "feedback": "The message continues the family dinner story. You only need a short friendly reply.",
+      "practiceOptions": [
+        "¡Hola, Carlos! ¿Cómo estás?",
+        "Nos vemos entonces.",
+        "¿Cuánto cuesta?"
+      ]
+    },
+    {
+      "id": "available",
+      "title": "Make time",
+      "shortLabel": "Make time",
+      "speaker": "Carlos",
+      "carlosSpanish": "Muy bien. ¿Estás libre este sábado?",
+      "carlosEnglish": "Very well. Are you free this Saturday?",
+      "responseSpanish": "Sí, estoy libre el sábado.",
+      "responseEnglish": "Yes, I’m free on Saturday.",
+      "prompt": "For this story plan, say you are free on Saturday.",
+      "tip": "El sábado means on Saturday. The article el helps turn a day into a meeting plan.",
+      "feedback": "El sábado means on Saturday. The article el helps turn a day into a meeting plan.",
+      "practiceOptions": [
+        "Sí, estoy libre el sábado.",
+        "Estoy libre el domingo.",
+        "Estoy ocupado por la mañana."
+      ]
+    },
+    {
+      "id": "when",
+      "title": "The morning",
+      "shortLabel": "The morning",
+      "speaker": "Carlos",
+      "carlosSpanish": "Vamos al mercado. ¿Por la mañana?",
+      "carlosEnglish": "Let’s go to the market. In the morning?",
+      "responseSpanish": "Sí, por la mañana.",
+      "responseEnglish": "Yes, in the morning.",
+      "prompt": "Confirm the morning.",
+      "tip": "Por la mañana tells Carlos which part of the day works.",
+      "feedback": "Por la mañana tells Carlos which part of the day works.",
+      "practiceOptions": [
+        "Sí, por la mañana.",
+        "Sí, por la noche.",
+        "Sí, por la tarde."
+      ]
+    },
+    {
+      "id": "time",
+      "title": "At ten",
+      "shortLabel": "At ten",
+      "speaker": "Carlos",
+      "carlosSpanish": "¿A las diez de la mañana?",
+      "carlosEnglish": "At ten in the morning?",
+      "responseSpanish": "Perfecto. A las diez.",
+      "responseEnglish": "Perfect. At ten.",
+      "prompt": "Confirm the proposed time.",
+      "tip": "Learn a las diez as a complete meeting-time phrase.",
+      "feedback": "Learn a las diez as a complete meeting-time phrase.",
+      "practiceOptions": [
+        "Perfecto. A las diez.",
+        "Perfecto. A las tres.",
+        "Perfecto. A las ocho."
+      ]
+    },
+    {
+      "id": "confirm",
+      "title": "Plan settled",
+      "shortLabel": "Plan settled",
+      "speaker": "Carlos",
+      "carlosSpanish": "Entonces, el sábado por la mañana, a las diez, en el mercado.",
+      "carlosEnglish": "So, Saturday morning at ten, at the market.",
+      "responseSpanish": "Perfecto. Nos vemos entonces.",
+      "responseEnglish": "Perfect. See you then.",
+      "prompt": "Close now that the plan is settled.",
+      "tip": "Nos vemos entonces confirms that you both have the same plan.",
+      "feedback": "Nos vemos entonces confirms that you both have the same plan.",
+      "practiceOptions": [
+        "Perfecto. Nos vemos entonces.",
+        "¿Cuándo?",
+        "¿Estás libre?"
+      ]
+    }
+  ],
+  "learnExperience": {
+    "version": 2,
+    "estimatedMinutes": 10,
+    "flow": [
+      "arrive",
+      "encounter",
+      "pattern",
+      "rehearse",
+      "speak",
+      "conversation",
+      "culture"
+    ],
+    "scenes": {
+      "arrive": {
+        "eyebrow": "Episode 4 · Madrid",
+        "title": "See You at Ten",
+        "body": "Carlos’s message turns the family dinner into a new plan: Saturday at the market.",
+        "location": "WhatsApp · Madrid",
+        "cta": "Carlos messages"
+      },
+      "encounter": {
+        "eyebrow": "Carlos messages",
+        "speaker": "Carlos",
+        "spanish": "Mi madre dijo que fue un placer conocerte ayer. ¿Estás libre este sábado?",
+        "english": "My mother said it was a pleasure meeting you yesterday. Are you free this Saturday?",
+        "body": "It is the morning after dinner. Read Carlos’s message, then agree on a day, part of the day, and time.",
+        "cta": "See the pattern",
+        "showModel": true
+      },
+      "pattern": {
+        "eyebrow": "The pattern",
+        "title": "One plan. Three details.",
+        "body": "Build the meeting from the day to the exact time.",
+        "tip": "Use el before a day, por la mañana for the morning, and learn a las diez as one complete time phrase.",
+        "moves": [
+          {
+            "label": "The day",
+            "spanish": "El sábado.",
+            "english": "On Saturday."
+          },
+          {
+            "label": "Part of the day",
+            "spanish": "Por la mañana.",
+            "english": "In the morning."
+          },
+          {
+            "label": "The time",
+            "spanish": "A las diez.",
+            "english": "At ten."
+          }
+        ],
+        "showReference": true
+      },
+      "rehearse": {
+        "eyebrow": "Try it",
+        "title": "Let’s put it together.",
+        "body": "Choose a reply, notice why it works, then continue the same conversation."
+      },
+      "speak": {
+        "eyebrow": "Speak",
+        "title": "Now make it yours.",
+        "body": "Listen to the phrase, say it aloud, and replay your own recording.",
+        "spanish": "Nos vemos el sábado a las diez.",
+        "english": "See you Saturday at ten.",
+        "tip": "Keep a las diez together. Pause after sábado if that helps."
+      },
+      "conversation": {
+        "eyebrow": "Your turn",
+        "title": "Set the plan with Carlos.",
+        "body": "Reply to the message one turn at a time. Finish with both of you expecting Saturday morning at ten."
+      },
+      "culture": {
+        "eyebrow": "Madrid Moment",
+        "title": "Agree on the same plan.",
+        "lead": "A short confirmation avoids a missed meeting.",
+        "body": "Carlos names the day and time in his message. Repeat the important details and close with nos vemos entonces. Follow the time you agreed together; plans vary from person to person.",
+        "takeaway": "El sábado · a las diez → a plan you can both follow.",
+        "image": "assets/images/landmarks/madrid/madrid-primary.webp",
+        "imageAlt": "WhatsApp · Madrid — the setting for See You at Ten",
+        "caption": "WhatsApp · Madrid",
+        "showDiscovery": true,
+        "cta": "Complete the episode"
+      },
+      "completion": {
+        "eyebrow": "See You at Ten complete",
+        "title": "You made a plan in Spanish.",
+        "body": "You arranged the market visit using a day, part of the day, and a meeting time.",
+        "capabilities": [
+          "Ask when someone is free",
+          "Say what day works for me",
+          "Choose a simple meeting time",
+          "Accept a plan or suggest another time"
+        ],
+        "image": "assets/images/landmarks/madrid/madrid-primary.webp",
+        "imageAlt": "A memory from See You at Ten in Madrid",
+        "nextCta": "Continue to Fresh Fruit and Fresh Spanish",
+        "reviewCta": "Review what you learned"
+      }
+    },
+    "practiceUnlock": {
+      "topic": "time",
+      "phrases": [
+        "¿Estás libre?",
+        "Estoy libre.",
+        "Estoy ocupado / ocupada.",
+        "¿Cuándo?",
+        "El sábado.",
+        "A las diez.",
+        "Perfecto.",
+        "Nos vemos entonces."
+      ],
+      "conversationPatterns": 1
+    }
+  }
 }
